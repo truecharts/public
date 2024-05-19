@@ -8,7 +8,7 @@ frontendImage:
   pullPolicy: IfNotPresent
 nginxImage:
   repository: nginx
-  tag: 1.25.4@sha256:6db391d1c0cfb30588ba0bf72ea999404f2764febf0f1f196acd5867ac7efa7e
+  tag: 1.26.0@sha256:192e88a0053c178683ca139b9d9a2afb0ad986d171fae491949fe10970dd9da9
 workload:
   main:
     podSpec:
@@ -197,6 +197,7 @@ cnpg:
     database: vikunja
 redis:
   enabled: true
+  includeCommon: true
 portal:
   open:
     enabled: true

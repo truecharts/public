@@ -5,6 +5,7 @@ portals:
 questions:
   ## Portal Button
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -75,8 +76,8 @@ questions:
                               type: int
                               default: 6881
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

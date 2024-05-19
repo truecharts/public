@@ -1,7 +1,7 @@
 image:
   repository: bitnami/redis
   pullPolicy: IfNotPresent
-  tag: 7.2.4@sha256:ff96deae78adc4e6c69911296ced2828daba5d86741d507d823d4d0669b0ed81
+  tag: 7.2.4@sha256:3f53583d8981907c3839fa5911a0363443538d3ebbbd792de12a33f9a9c22dd3
 
 includeCommon: true
 workload:
@@ -16,11 +16,7 @@ workload:
             REDIS_REPLICATION_MODE: master
             ALLOW_EMPTY_PASSWORD: "yes"
             REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.redisPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.redisPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "rediscreds" }}{{ end }}'
-                key: "redis-password"
+            REDIS_PASSWORD: "{{ .Values.password }}"
           probes:
             liveness:
               enabled: true
@@ -122,15 +118,9 @@ configmap:
         "$script_dir/ping_liveness_local.sh" $1 || exit_status=$?
         "$script_dir/ping_liveness_master.sh" $1 || exit_status=$?
         exit $exit_status
-secret:
-  credentials:
-    enabled: true
-    data:
-      redis-password: '{{ ( .Values.redisPassword | default "nothing" ) }}'
-# -- Secret or password
-# One of these options is required, unless used as a dependency for another TrueCharts chart.
-redisPassword: ""
-existingSecret: ""
+
+## DEVNOTE: This password needs to match the one set in Common if ever changing defaults
+password: "PLACEHOLDERPASSWORD"
 service:
   main:
     ports:
@@ -166,5 +156,3 @@ persistence:
 portal:
   open:
     enabled: false
-manifestManager:
-  enabled: false

@@ -1,7 +1,7 @@
 image:
   repository: fireflyiii/core
   pullPolicy: IfNotPresent
-  tag: version-6.1.12@sha256:17dbdf003f203d280a877f04e8e0e32c6d5998b400681851e787ffccac8db78b
+  tag: version-6.1.15@sha256:3d10369ee9d6c1991b0b5355cc03d163b510c86c86d2aa9fa0370a2cf6d66687
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -46,11 +46,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             STATIC_CRON_TOKEN:
               secretKeyRef:
                 name: firefly-secrets
@@ -77,6 +73,7 @@ cronjob:
 # Enabled redis
 redis:
   enabled: true
+  includeCommon: true
 # Enabled postgres
 cnpg:
   main:

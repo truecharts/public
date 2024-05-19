@@ -4,7 +4,7 @@ title: MetalLB Basic Setup
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 
-:::warning
+:::caution
 
 With MetalLB installed, apps will not be reachable using the integrated LoadBalancer. You cannot combine two different LoadBalancers in TrueNAS SCALE.
 
@@ -55,7 +55,7 @@ Create a new entry under `Configure L2 Advertisements`.
 - **Name**: Enter a basic name for your layer 2 advertisement.
 - **Address Pool Entry:** This should match the **name** of the address pool created above (not the IP range itself).
 
-:::info
+:::tip
 
 Once installed, `metallb-config` will always show as Stopped.
 

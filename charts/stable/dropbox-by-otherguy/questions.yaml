@@ -2,6 +2,7 @@
 portals: {}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -25,8 +26,8 @@ questions:
                                         schema:
                                           type: string
                                           default: "100"
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: dropboxuserfiles

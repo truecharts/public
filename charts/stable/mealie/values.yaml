@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/mealie-recipes/mealie
-  tag: v1.3.2@sha256:3b503b089001f234e1147ed28779fa4d68f5b1e139f8559b238694a8a6465015
+  tag: v1.6.0@sha256:cb332e900663f94c0f993b65993e3d0ffc6efd5798537127f8cd195a02a28a17
   pullPolicy: IfNotPresent
 mealie:
   frontend:
@@ -55,6 +55,16 @@ mealie:
       id_attribute: uid
       name_attribute: name
       mail_attribute: mail
+    oidc:
+      auth_enabled: false
+      signup_enabled: true
+      configuration_url: ""
+      client_id: ""
+      user_group: ""
+      admin_group: ""
+      auto_redirect: false
+      provider_name: "OAuth"
+      remember_me: false
 workload:
   main:
     podSpec:

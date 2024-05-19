@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/qbittorrent
   pullPolicy: IfNotPresent
-  tag: 4.6.3@sha256:f2895e632fe66299d8ccc68265cc11aea92a232b7d0844de9961864b3e504026
+  tag: 4.6.4@sha256:53ead5ab43027d04efc5d52740aa02308a88d6b4a6eaa90cf6fd2e94fc11ba17
 qbitportforwardImage:
   repository: mjmeli/qbittorrent-port-forward-gluetun-server
   pullPolicy: IfNotPresent
@@ -48,7 +48,7 @@ workload:
             # set the default port
             QBITTORRENT__PORT: "{{ .Values.service.main.ports.main.port }}"
             # stops users from bricking their chart from setting the ip to a random ip when its a container.
-            QBT_Preferences__WebUI__Address: "0.0.0.0"
+            QBT_Preferences__WebUI__Address: "*"
             # set port from gui.
             QBT_BitTorrent__Session__Port: "{{ .Values.service.torrent.ports.torrent.port }}"
             # legacy ini key

@@ -1,6 +1,7 @@
 # Include{groups}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -10,7 +11,7 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-  - variable: redisPassword
+  - variable: password
     group: "App Configuration"
     label: "Redis Password"
     schema:
@@ -40,8 +41,8 @@ questions:
                               type: int
                               default: 6379
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{vctRoot}
       additional_attrs: true

@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: authentication
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.2.2
+appVersion: 2024.4.2
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.2.2
+    version: 14.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
 keywords:
   - authentik
 kubeVersion: ">=1.24.0-0"
@@ -39,10 +39,10 @@ sources:
   - https://goauthentik.io/docs/
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/server
-  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/ldap
-  - https://ghcr.io/goauthentik/radius
   - https://ghcr.io/maxmind/geoipupdate
+  - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/goauthentik/server
 type: application
-version: 24.8.2
+version: 26.1.4

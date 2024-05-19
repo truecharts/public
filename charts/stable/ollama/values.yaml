@@ -1,11 +1,15 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.29@sha256:75fb97cdd8f435756d26eb7783599122b814c4b97da2012dc21ebc0efbd90fef
+  tag: 0.1.38@sha256:b2359a6c68170fac21219df6cb5da168932c0e83cd7623d064727127d840b45d
+rocmImage:
+  repository: ollama/ollama
+  pullPolicy: IfNotPresent
+  tag: 0.1.38-rocm@sha256:e166266bc2882b07573d78b25b3dcdd7d1d35dd37a96dd50c7c031666e842a78
 uiImage:
   repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: latest@sha256:d822c999c4d09f36e01a88473ceccfb53b88bbadf7c839ac6d8f5ae6d57620f5
+  tag: latest@sha256:68bb67e705f0a5484ada80c2d0694801bdb55ba4d10e06970f18395e8005efc4
 
 securityContext:
   container:
@@ -49,7 +53,7 @@ ollama:
   whisper:
     model: "base"
   rag:
-    # cpu | gpu | mps
+    # cpu | cuda | mps
     model_device_type: "cpu"
     # embedding model
     model: "all-MiniLM-L6-v2"
@@ -114,6 +118,7 @@ workload:
             WHISPER_MODEL: "{{ .Values.ollama.whisper.model }}"
             RAG_EMBEDDING_MODEL: "{{ .Values.ollama.rag.model }}"
             RAG_EMBEDDING_MODEL_DEVICE_TYPE: "{{ .Values.ollama.rag.model_device_type }}"
+            WEBUI_AUTH_TRUSTED_EMAIL_HEADER: "{{ .Values.ollama.registration.trusted_email_header }}"
             # OPENAI_API_BASE_URL
             # OPENAI_API_KEY
             # DEFAULT_MODELS

@@ -1,7 +1,7 @@
 image:
   repository: bitnami/wordpress
   pullPolicy: IfNotPresent
-  tag: 6.4.3@sha256:7fb7254cf9a86260b00190cd39927a67783c50d77788ebbdc900070797b9b8e1
+  tag: 6.5.3@sha256:b0a9b6813c02ebef6917d12ddc10374d7ee0b902158a8a0e4192bef7978cbfd2
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -64,6 +64,7 @@ persistence:
     mountPath: /bitnami/wordpress
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
 portal:

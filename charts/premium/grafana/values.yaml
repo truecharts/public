@@ -1,11 +1,11 @@
 image:
   repository: grafana/grafana
   pullPolicy: IfNotPresent
-  tag: 10.4.1@sha256:753bbb971071480d6630d3aa0d55345188c02f39456664f67c1ea443593638d0
+  tag: 10.4.3@sha256:b7fcb534f7b3512801bb3f4e658238846435804deb479d105b5cdc680847c272
 
 sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
-  tag: 1.26.1@sha256:b8d5067137fec093cf48670dc3a1dbb38f9e734f3a6683015c2e89a45db5fd16
+  tag: 1.27.1@sha256:df71eab1466c67b84e46fa9cd2d84738372377971d44dbb8699ab4483278c839
 
 securityContext:
   container:
@@ -216,7 +216,7 @@ configmap:
             allowUiUpdates: false
             updateIntervalSeconds: 30
             options:
-              foldersFromFilesStructure: false
+              foldersFromFilesStructure: true
               path: /tmp/dashboards
   config:
     enabled: true

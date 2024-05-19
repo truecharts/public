@@ -8,7 +8,7 @@ title: Setup Guide
 
 - Jellyseerr TrueCharts Chart
 - Jellyfin TrueCharts Chart
-- Installation of the TrueCharts Catalog, starting [here](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts)
+- Installation of the TrueCharts Catalog, starting [here](/scale/#adding-truecharts)
 
 ## Install Jellyseerr inside TrueNAS SCALE
 

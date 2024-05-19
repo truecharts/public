@@ -1,0 +1,184 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{credentials}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SITE_TITLE
+                                        label: Site Title
+                                        schema:
+                                          type: string
+                                          default: "FlashPaper - Self-Destructing Message"
+                                      - variable: RETURN_FULL_URL
+                                        label: Return Full URL
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: MAX_SECRET_LENGTH
+                                        label: max Secret Length
+                                        schema:
+                                          type: int
+                                          default: 3000
+                                      - variable: ANNOUNCEMENT
+                                        label: Announcement
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MESSAGES_ERROR_SECRET_TOO_LONG
+                                        label: Messages Error Secret Too Long
+                                        schema:
+                                          type: string
+                                          default: Input length Too long
+                                      - variable: MESSAGES_SUBMIT_SECRET_HEADER
+                                        label: Messages Submit Secret Header
+                                        schema:
+                                          type: string
+                                          default: Create A Self-Destructing Message
+                                      - variable: MESSAGES_SUBMIT_SECRET_SUBHEADER
+                                        label: MESSAGES_SUBMIT_SECRET_SUBHEADER
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MESSAGES_SUBMIT_SECRET_BUTTON
+                                        label: Messages Submit Secret Button
+                                        schema:
+                                          type: string
+                                          default: Encrypt Message
+                                      - variable: MESSAGES_VIEW_CODE_HEADER
+                                        label: Messages View Code Header
+                                        schema:
+                                          type: string
+                                          default: Self-Destructing URL
+                                      - variable: MESSAGES_VIEW_CODE_SUBHEADER
+                                        label: Messages View Code Subheader
+                                        schema:
+                                          type: string
+                                          default: Share this URL via email, chat, or another messaging service. It will self-destruct after being viewed once.
+                                      - variable: MESSAGES_CONFIRM_VIEW_SECRET_HEADER
+                                        label: Messages Confirm View Secret Header
+                                        schema:
+                                          type: string
+                                          default: View this secret?
+                                      - variable: MESSAGES_CONFIRM_VIEW_SECRET_BUTTON
+                                        label: Messages Confirm View Secret Button
+                                        schema:
+                                          type: string
+                                          default: View Secret
+                                      - variable: MESSAGES_VIEW_SECRET_HEADER
+                                        label: Messages View Secret Header
+                                        schema:
+                                          type: string
+                                          default: This message has been destroyed
+                                      - variable: PRUNE_ENABLED
+                                        label: Prune Enabled
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: PRUNE_MIN_DAYS
+                                        label: Prune Min Days
+                                        schema:
+                                          type: int
+                                          default: 365
+                                      - variable: PRUNE_MAX_DAYS
+                                        label: Prune Max Days
+                                        schema:
+                                          type: int
+                                          default: 730
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8544
+                              required: true
+# Include{externalInterfaces}
+
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+# Include{ingressList}
+
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

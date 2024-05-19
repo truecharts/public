@@ -1,0 +1,78 @@
+  - variable: scaleExternalInterface
+    description: 'Add External Interfaces (Experimental, might change or be removed without further notice)'
+    label: Add external Interfaces (Experimental)
+    group: Networking
+    schema:
+      type: list
+      items:
+        - variable: interfaceConfiguration
+          description: Interface Configuration
+          label: Interface Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            $ref:
+              - "normalize/interfaceConfiguration"
+            attrs:
+              - variable: hostInterface
+                description: Please Specify Host Interface
+                label: Host Interface
+                schema:
+                  type: string
+                  required: true
+                  $ref:
+                    - "definitions/interface"
+              - variable: ipam
+                description: Define how IP Address will be managed
+                label: IP Address Management
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  required: true
+                  attrs:
+                    - variable: type
+                      description: Specify type for IPAM
+                      label: IPAM Type
+                      schema:
+                        type: string
+                        required: true
+                        enum:
+                          - value: dhcp
+                            description: Use DHCP
+                          - value: static
+                            description: Use Static IP
+                    - variable: staticIPConfigurations
+                      label: Static IP Addresses
+                      schema:
+                        type: list
+                        show_if: [["type", "=", "static"]]
+                        items:
+                          - variable: staticIP
+                            label: Static IP
+                            schema:
+                              type: ipaddr
+                              cidr: true
+                    - variable: staticRoutes
+                      label: Static Routes
+                      schema:
+                        type: list
+                        show_if: [["type", "=", "static"]]
+                        items:
+                          - variable: staticRouteConfiguration
+                            label: Static Route Configuration
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: destination
+                                  label: Destination
+                                  schema:
+                                    type: ipaddr
+                                    cidr: true
+                                    required: true
+                                - variable: gateway
+                                  label: Gateway
+                                  schema:
+                                    type: ipaddr
+                                    cidr: false
+                                    required: true

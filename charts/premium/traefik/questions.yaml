@@ -5,6 +5,7 @@ portals:
     path: "$kubernetes-resource_configmap_tcportal-open_path"
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -199,13 +200,7 @@ questions:
 # Include{addPrefixMiddleware}
 # Include{modsecurityMiddleware}
 # Include{crowdsecMiddleware}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service Entrypoint"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -414,7 +409,7 @@ questions:
   - variable: warning
     group: Documentation
     label: 'WARNING: If installed, be sure to move the TrueNAS GUI to another port (not 80 or 443).'
-    description: 'See: <br /><a href="https://truecharts.org/charts/enterprise/traefik/how-to">https://truecharts.org/charts/enterprise/traefik/how-to</a> for more info.'
+    description: 'See: <br /><a href="https://truecharts.org/charts/premium/traefik/how-to">https://truecharts.org/charts/premium/traefik/how-to</a> for more info.'
     schema:
       additional_attrs: true
       type: dict

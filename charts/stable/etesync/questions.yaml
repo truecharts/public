@@ -8,6 +8,7 @@ portals:
     path: "/admin/"
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -111,8 +112,8 @@ questions:
                               type: int
                               default: 10254
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: app

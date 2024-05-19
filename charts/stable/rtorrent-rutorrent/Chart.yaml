@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: torrent
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 4.2.9
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: rTorrent and ruTorrent chart.
 home: https://truecharts.org/charts/stable/rtorrent-rutorrent
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.webp
 keywords:
   - rutorrent
   - torrent
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/crazy-max/rtorrent-rutorrent
   - https://ghcr.io/thde/rtorrent_exporter
 type: application
-version: 4.7.3
+version: 5.0.4

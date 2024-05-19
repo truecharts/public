@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -46,6 +47,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: ip
+          label: IP
+          description: IP of the server that will be sent to client, if not specified, public IP is automatically resolved.
+          schema:
+            type: string
+            default: "0.0.0.0"
         - variable: auth
           label: Auth Credentials
           schema:
@@ -162,8 +169,8 @@ questions:
                               default: 52100
                               required: true
 
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: downloads

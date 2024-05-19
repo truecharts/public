@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Backup
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.3.3
+appVersion: 5.4.0
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Sourcegraph Chart.
 home: https://truecharts.org/charts/stable/sourcegraph
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/sourcegraph.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sourcegraph.webp
 keywords:
   - sourcegraph
   - Backup
@@ -37,4 +37,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sourcegraph
   - https://hub.docker.com/r/sourcegraph/server
 type: application
-version: 5.7.4
+version: 6.1.0

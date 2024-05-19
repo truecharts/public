@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -44,8 +45,8 @@ questions:
                               default: 6052
                               required: true
   # Configure app volumes
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

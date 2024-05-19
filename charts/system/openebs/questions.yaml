@@ -2,33 +2,39 @@
 questions:
 # Include{global}
 
-  - variable: openebs
-    group: "Storage and Persistence"
-    label: "OpenEBS Settings"
+  - variable: zfs-localpv
+    group: "App Configuration"
+    label: "ZFS Localpv Settings"
     schema:
       type: dict
       additional_attrs: true
       hidden: true
       attrs:
-        - variable: zfs-localpv
-          label: "ZFS Localpv Settings"
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: true
             hidden: true
-            attrs:
-              - variable: enabled
-                label: "enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-        - variable: localprovisioner
-          label: "Localprovisioner Settings"
+  - variable: localpv-provisioner
+    group: "App Configuration"
+    label: "localpv-provisioner Settings"
+    schema:
+      type: dict
+      additional_attrs: true
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: false
             hidden: true
+        - variable: hostpathClass
+          label: "hostpathClass"
+          schema:
+            additional_attrs: true
+            type: dict
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -36,34 +42,10 @@ questions:
                   type: boolean
                   default: false
                   hidden: true
-              - variable: deviceClass
-                label: "deviceClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
-              - variable: hostpathClass
-                label: "hostpathClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
 
 
   - variable: storageClass
-    group: "Storage and Persistence"
+    group: StorageClass
     label: "StorageClass Settings"
     schema:
       type: dict
@@ -80,7 +62,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: true
               - variable: provisioner
                 label: "provisioner"
                 schema:
@@ -88,7 +69,7 @@ questions:
                   default: "zfs.csi.openebs.io"
                   hidden: true
                   required: true
-              - variable: isDefaultClass
+              - variable: isDefault
                 label: "Default Class"
                 schema:
                   type: boolean
@@ -104,6 +85,11 @@ questions:
                       description: Retain (Keep Data on App Deletion)
                     - value: Delete
                       description: Delete (Delete data on App Deletion)
+              - variable: allowVolumeExpansion
+                label: "Allow VolumeExpansion"
+                schema:
+                  type: boolean
+                  default: true
               - variable: parameters
                 label: "parameters"
                 schema:
@@ -112,7 +98,86 @@ questions:
                   attrs:
                     - variable: poolname
                       label: "Pool/Dataset"
+                      description: "Please use a correct Poolname/datasetname. Do NOT use /mnt/ thats a path not a pool/dataset name, use something like tank/apps"
                       schema:
                         type: string
                         default: ""
+                        valid_chars: '^(?!.*\\)(?!.*ix-applications)[^\/]+(\/[^\/]+)+$'
                         required: true
+                    - variable: fstype
+                      label: "fstype"
+                      schema:
+                        type: string
+                        default: "zfs"
+                        hidden: true
+                        required: true
+                    - variable: shared
+                      label: "shared"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                    - variable: thinprovision
+                      label: "thinprovision"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                    - variable: compression
+                      label: "compression"
+                      schema:
+                        type: string
+                        default: "zstd-6"
+                        hidden: true
+                    - variable: recordsize
+                      label: "recordsize"
+                      schema:
+                        type: string
+                        default: "64k"
+                        hidden: true
+                    - variable: dedup
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true
+                    - variable: encryption
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true
+  - variable: volumeSnapshotClass
+    group: "App Configuration"
+    label: "volumeSnapshotClass"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: zfspv
+          label: "ZFS-LocalPV volumeSnapshotClass"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: isDefault
+                label: "isDefault"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: deletionPolicy
+                label: "deletionPolicy"
+                schema:
+                  type: string
+                  required: true
+                  default: "Delete"
+                  enum:
+                    - value: Retain
+                      description: Retain
+                    - value: Delete
+                      description: Delete

@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.7.2
+appVersion: 1.7.3
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.7.3
+    version: 14.0.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: A game ROM manager using multiple sources to identify and provide metadata.
 home: https://truecharts.org/charts/stable/gaseous-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaseous-server.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaseous-server.webp
 keywords:
   - gaseous-server
   - rom-manager
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gaseous-server
   - https://hub.docker.com/r/gaseousgames/gaseousserver
 type: application
-version: 1.8.6
+version: 2.1.1

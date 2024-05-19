@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 
@@ -11,6 +12,16 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Image
+                                      - value: rocmImage
+                                        description: Rocm(AMD)
 
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -45,6 +56,11 @@ questions:
                       description: User
                     - value: admin
                       description: Admin
+              - variable: trusted_email_header
+                label: Trusted E-mail Header
+                schema:
+                  type: string
+                  default: ""
         - variable: stable_diffusion
           label: Stable Diffusion Configuration
           schema:
@@ -81,8 +97,8 @@ questions:
                   enum:
                     - value: cpu
                       description: CPU
-                    - value: gpu
-                      description: GPU (nvidia)
+                    - value: cuda
+                      description: Nvidia
                     - value: mps
                       description: MPS (Apple)
               - variable: model
@@ -132,8 +148,8 @@ questions:
                               type: int
                               default: 11434
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

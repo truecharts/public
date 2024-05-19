@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [docker-hub-rss-1.0.0](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.34...docker-hub-rss-1.0.0) (2022-11-10)

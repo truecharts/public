@@ -1,0 +1,14 @@
+  - variable: redis
+    group: Dependencies
+    label: "Redis"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: password
+          label: Password
+          description: "Set the password for the database-user"
+          schema:
+            type: string
+            default: "PLACEHOLDERPASSWORD"
+            required: true

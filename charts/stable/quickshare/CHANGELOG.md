@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [quickshare-1.0.0](https://github.com/truecharts/charts/compare/quickshare-0.0.35...quickshare-1.0.0) (2022-11-10)

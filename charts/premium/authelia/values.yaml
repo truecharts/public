@@ -1,9 +1,8 @@
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
-  tag: 4.38.6@sha256:06e3153d46b4b6fdb90caf94f2303ab57773016ad025eacd64e00a5576105bbe
-manifestManager:
-  enabled: true
+  tag: 4.38.8@sha256:19375b10024caeef4e0b119a6247beae84cbaa02c846cfd750e92dea910d4b6a
+
 workload:
   main:
     replicas: 2
@@ -47,6 +46,7 @@ cnpg:
 # ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
+  includeCommon: true
 domain: example.com
 ##
 ## Server Configuration
@@ -570,8 +570,18 @@ identity_providers:
 #   - query
 #   - fragment
 
+## Client Authentication Method configures which client authentication methods this client supports.
+## It's not recommended to configure this unless you know what you're doing.
+# token_endpoint_auth_method: client_secret_basic
+
 ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
 # userinfo_signing_algorithm: none
+
+## This configuration option enforces the use of PKCE for this registered client.
+# require_pkce: false
+
+## This setting enforces the use of the specified PKCE challenge method for this individual client.
+# pkce_challange_method: S256
 
 portal:
   open:

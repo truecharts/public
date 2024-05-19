@@ -1,7 +1,7 @@
 image:
   repository: bitnami/memcached
   pullPolicy: IfNotPresent
-  tag: 1.6.25@sha256:fa475c086bb8cc620233cd98c1ac9c8c6282b64937da9ca586915ff44ed1a560
+  tag: 1.6.27@sha256:aa2f52860da869ee585ae3e9b7dcec74dbc223d8fc73a67bf7f82549161ade4e
 
 includeCommon: true
 service:
@@ -23,6 +23,3 @@ configmap:
     data:
       memcached.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
-
-manifestManager:
-  enabled: false

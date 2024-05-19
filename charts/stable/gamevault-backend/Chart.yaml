@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: games
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 10.2.0
+appVersion: 12.1.0
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: the self-hosted gaming platform for alternatively obtained games.
 home: https://truecharts.org/charts/stable/gamevault-backend
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/gamevault-backend.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gamevault-backend.webp
 keywords:
   - gamevault-backend
   - games
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gamevault-backend
   - https://hub.docker.com/r/phalcode/gamevault-backend
 type: application
-version: 5.7.3
+version: 7.1.0

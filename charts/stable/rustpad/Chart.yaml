@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Rustpad is an efficient and minimal open-source collaborative text editor based on the operational transformation algorithm. It lets users collaborate in real time while writing code in their browser. Rustpad is completely self-hosted and fits in a tiny Chart, no database required.
 home: https://truecharts.org/charts/stable/rustpad
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustpad.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustpad.webp
 keywords:
   - rustpad
   - Cloud
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/rustpad
   - https://hub.docker.com/r/ekzhang/rustpad
 type: application
-version: 5.7.3
+version: 6.0.4

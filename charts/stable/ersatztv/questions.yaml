@@ -5,24 +5,24 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-  - variable: imageSelector
-    group: Container Image
-    label: Select Image
-    schema:
-      type: string
-      default: image
-      enum:
-        - value: image
-          description: Default
-        - value: nvidiaImage
-          description: Nvidia
-        - value: vaapiImage
-          description: Vaapi
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Default
+                                      - value: nvidiaImage
+                                        description: Nvidia
+                                      - value: vaapiImage
+                                        description: Vaapi
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -50,8 +50,8 @@ questions:
                               type: int
                               default: 10607
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

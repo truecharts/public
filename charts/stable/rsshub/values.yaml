@@ -1,7 +1,7 @@
 image:
   repository: diygod/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:0f51cb59a04ec2abc96e07ed5ea2b4e194712a4d945fadf96676a459839bfe31
+  tag: latest@sha256:c9208ea6dcd3db489b570be0e10c5d93d918afa494ec9a35ab97f9d464334618
 browserlessImage:
   repository: browserless/chrome
   tag: 1.61.1-chrome-stable@sha256:efac47cfff3830d9a50b27d29f8bbb61949058ae336c823fbe9bd3c0d1debcc8
@@ -13,6 +13,7 @@ service:
 # Enabled redis
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: default
 additionalContainers:
   browserless:

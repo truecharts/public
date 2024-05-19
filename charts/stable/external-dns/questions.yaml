@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -314,8 +315,8 @@ questions:
             private: true
             default: ""
 # Include{podOptions}
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceList}
 # Include{ingressList}

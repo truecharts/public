@@ -1,11 +1,11 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-phponly
-  tag: 1.15.2@sha256:9d5d90b695cc3062dbd8a828e0b1676db179077cd1430e76069e40baef93cc0d
+  tag: 1.15.4@sha256:b3d656bcb60a7b8e5e052ec0bd0f2beecaeb3319fa7ec99af9ca498a0a633bec
 nginxImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-nginx
-  tag: 1.15.2@sha256:cbf87f7b6b7d935d27e62a2600ba288d3b4246c9f2e4df0ac19d1cde88803eb4
+  tag: 1.15.4@sha256:afb417b4161a09ddaafdc2003f074b17099865be22d0547a76a731b213561344
 
 securityContext:
   container:
@@ -80,11 +80,7 @@ workload:
             # Database
             HUMHUB_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
             HUMHUB_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
-            HUMHUB_DB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            HUMHUB_DB_PASSWORD: "{{ .Values.mariadb.password }}"
             HUMHUB_DB_HOST:
               secretKeyRef:
                 expandObjectName: false
@@ -100,11 +96,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            HUMHUB_REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            HUMHUB_REDIS_PASSWORD: "{{ .Values.redis.password }}"
             # Mailer
             HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
             HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
@@ -201,11 +193,13 @@ persistence:
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: humhub
   mariadbDatabase: humhub
 
 redis:
   enabled: true
+  includeCommon: true
 
 portal:
   open:

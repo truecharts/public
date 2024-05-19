@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Store securely encrypted backups on cloud storage services!
 home: https://truecharts.org/charts/stable/duplicati
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicati.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicati.webp
 keywords:
   - duplicati
 kubeVersion: ">=1.24.0-0"
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/duplicati
   - https://hub.docker.com/r/duplicati/duplicati
 type: application
-version: 13.7.3
+version: 14.0.6

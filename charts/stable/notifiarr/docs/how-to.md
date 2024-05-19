@@ -5,7 +5,7 @@ title: Setup Guide
 ## Requirements
 
 - Your 'All integrations' API key from your account on `notifiarr.com`
-- Installation of the TrueCharts Catalog, starting [here](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts)
+- Installation of the TrueCharts Catalog, starting [here](/scale/#adding-truecharts)
 
 ## Install Notifiarr inside TrueNAS SCALE
 

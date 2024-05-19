@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaServer-Music
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Self-hosted music scrobble database to create personal listening statistics and charts as a substitute for Last.fm / Libre.fm / GNU FM.
 home: https://truecharts.org/charts/stable/maloja
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/maloja.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/maloja.webp
 keywords:
   - maloja
   - MediaServer-Music
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/maloja
   - https://hub.docker.com/r/krateng/maloja
 type: application
-version: 5.7.3
+version: 6.0.5

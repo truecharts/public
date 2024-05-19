@@ -1,6 +1,26 @@
 # Include{groups}
 questions:
 # Include{global}
+# Include{credentials}
+  - variable: operator
+    group: App Configuration
+    label: Operator Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cert-manager
+          label: 'Cert-Manager'
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: namespace
+                label: 'Namespace (change to ix-APPNAME of cert-manager)'
+                schema:
+                  type: string
+                  required: true
+                  default: "ix-cert-manager"
   - variable: clusterIssuer
     group: App Configuration
     label: Cluster Certificate Issuer
@@ -54,7 +74,7 @@ questions:
                       description: "Server for ACME, for example: letsencrypt"
                       schema:
                         type: string
-                        default: 'Letsencrypt-Production'
+                        default: 'https://acme-v02.api.letsencrypt.org/directory'
                         enum:
                           - value: 'https://acme-v02.api.letsencrypt.org/directory'
                             description: Letsencrypt-Production

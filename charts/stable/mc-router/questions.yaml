@@ -2,6 +2,7 @@
 portals: {}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas2}
@@ -76,8 +77,8 @@ questions:
                               type: int
                               default: 25565
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceList}
 # Include{ingressRoot}

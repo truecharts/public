@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.14"
@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 0.23.0
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.2.2
+    version: 14.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/premium/blocky
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.webp
 keywords:
   - dns
   - blocky
@@ -44,4 +44,4 @@ sources:
   - https://quay.io/oriedge/k8s_gateway
   - https://hub.docker.com/r/spx01/blocky
 type: application
-version: 14.6.2
+version: 15.1.0

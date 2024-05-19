@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/linuxserver/calibre
-  tag: 7.6.0@sha256:f0884e529b4453ac182c41cf49f9a151edbb3e94765338d9f684bfce1efa2d8e
+  tag: 7.10.0@sha256:fbd543c32b656bef73bf514765f053fe2c62b1e0d18b23cb773713fbf1249c55
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -25,6 +25,7 @@ service:
         targetPort: 8081
 ingress:
   webserver:
+    enabled: false
     targetSelector:
       webserver: webserver
 workload:

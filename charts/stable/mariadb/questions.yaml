@@ -1,6 +1,7 @@
 # Include{groups}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -24,14 +25,14 @@ questions:
       type: string
       default: "mydatabaseuser"
       required: true
-  - variable: mariadbPassword
+  - variable: password
     group: "App Configuration"
     label: "Database Password"
     schema:
       type: string
       default: ""
       required: true
-  - variable: mariadbRootPassword
+  - variable: rootPassword
     group: "App Configuration"
     label: "Root Password"
     schema:
@@ -61,8 +62,8 @@ questions:
                               type: int
                               default: 3306
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
       additional_attrs: true

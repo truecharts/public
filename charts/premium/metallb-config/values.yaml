@@ -1,6 +1,6 @@
 image:
   repository: hello-world
-  tag: latest@sha256:d000bc569937abbe195e20322a0bde6b2922d805332fd6d8a68b19f524b7d21d
+  tag: latest@sha256:266b191e926f65542fa8daaec01a192c4d292bff79426f47300a046e1bc576fd
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: false
@@ -26,9 +26,8 @@ service:
         enabled: false
         port: 9999
 operator:
-  verify:
-    enabled: true
-    additionalOperators: ["metallb"]
+  metallb:
+    namespace: metallb
 portal:
   open:
     enabled: false

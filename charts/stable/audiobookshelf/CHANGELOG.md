@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [audiobookshelf-3.0.0](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.49...audiobookshelf-3.0.0) (2022-11-10)

@@ -34,11 +34,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DATABASE_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DATABASE_PASSWORD: "{{ .Values.mariadb.password }}"
             REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
@@ -61,11 +57,13 @@ workload:
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: ctfd
   mariadbDatabase: ctfd
 
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: default
 
 persistence:

@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: CSI
   truecharts.org/max_helm_version: "3.14"
@@ -10,23 +10,37 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: openebs
-    version: 3.10.0
-    repository: https://openebs.github.io/charts
-    condition: ""
-    alias: openebs
+  - name: localpv-provisioner
+    version: 4.0.0
+    repository: https://openebs.github.io/dynamic-localpv-provisioner
+    condition: localpv-provisioner.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: zfs-localpv
+    version: 2.5.1
+    repository: https://openebs.github.io/zfs-localpv
+    condition: zfs-localpv.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: lvm-localpv
+    version: 1.5.1
+    repository: https://openebs.github.io/lvm-localpv
+    condition: lvm-localpv.enabled
+    alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: OpenEBS is a umbrella container storage provisioner
+description: OpenEBS is a umbrella chart for multiple container storage provisioners
 home: https://truecharts.org/charts/system/openebs
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.webp
 keywords:
   - openebs
   - backup
@@ -42,4 +56,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/openebs
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 3.7.5
+version: 6.0.0

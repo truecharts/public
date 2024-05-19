@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [newyearcountdownclock-1.0.0](https://github.com/truecharts/charts/compare/newyearcountdownclock-0.0.35...newyearcountdownclock-1.0.0) (2022-11-10)

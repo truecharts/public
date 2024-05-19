@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.34.0
+appVersion: 1.42.0
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.2.2
+    version: 14.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: n8n is an extendable workflow automation tool.
 home: https://truecharts.org/charts/stable/n8n
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.webp
 keywords:
   - workflows
   - automation
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
   - https://hub.docker.com/r/n8nio/n8n
 type: application
-version: 13.12.2
+version: 14.4.0

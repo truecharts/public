@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.14"
@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 5.0.3
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.7.3
+    version: 14.0.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: Matomo is the leading Free/Libre open analytics platform
 home: https://truecharts.org/charts/stable/matomo
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/matomo.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/matomo.webp
 keywords:
   - analytics
 kubeVersion: ">=1.24.0-0"
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/matomo
   - https://hub.docker.com/r/bitnami/matomo
 type: application
-version: 13.12.7
+version: 14.1.4

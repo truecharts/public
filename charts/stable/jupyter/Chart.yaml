@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2023.10.20
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.webp
 keywords:
   - Jupyter
   - Notebook
@@ -33,13 +33,13 @@ name: jupyter
 sources:
   - https://github.com/jupyter/docker-stacks
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://hub.docker.com/r/jupyter/r-notebook
-  - https://hub.docker.com/r/jupyter/minimal-notebook
-  - https://hub.docker.com/r/jupyter/tensorflow-notebook
   - https://hub.docker.com/r/jupyter/scipy-notebook
   - https://hub.docker.com/r/jupyter/base-notebook
-  - https://hub.docker.com/r/jupyter/datascience-notebook
   - https://hub.docker.com/r/jupyter/pyspark-notebook
+  - https://hub.docker.com/r/jupyter/r-notebook
+  - https://hub.docker.com/r/jupyter/tensorflow-notebook
   - https://hub.docker.com/r/jupyter/all-spark-notebook
+  - https://hub.docker.com/r/jupyter/datascience-notebook
+  - https://hub.docker.com/r/jupyter/minimal-notebook
 type: application
-version: 8.7.3
+version: 9.0.5

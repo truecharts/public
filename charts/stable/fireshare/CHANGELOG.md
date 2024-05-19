@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fireshare-1.0.0](https://github.com/truecharts/charts/compare/fireshare-0.0.41...fireshare-1.0.0) (2022-11-10)

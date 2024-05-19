@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.2.3.4098
+appVersion: 2.3.3.4204
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Looks and smells like Sonarr but made for music
 home: https://truecharts.org/charts/stable/lidarr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lidarr.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lidarr.webp
 keywords:
   - lidarr
   - torrent
@@ -36,4 +36,4 @@ sources:
   - https://ghcr.io/onedr0p/lidarr-develop
   - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 21.5.5
+version: 22.1.1

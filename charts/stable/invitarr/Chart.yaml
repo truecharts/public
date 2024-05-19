@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: A chatbot that invites discord users to plex.
 home: https://truecharts.org/charts/stable/invitarr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/invitarr.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/invitarr.webp
 keywords:
   - invitarr
   - home-automation
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/invitarr
   - https://hub.docker.com/r/piratify/invitarr
 type: application
-version: 5.7.3
+version: 6.0.4

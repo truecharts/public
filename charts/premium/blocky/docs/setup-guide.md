@@ -74,7 +74,7 @@ In the below example I am using Google DNS.
 
 Blocky comes preconfigured with basic Blacklists and Whitelists. DNS Blacklists are used to prevent DNS resolution of advertisement, malware, trackers and adult sites domains. DNS Whitelists are used to always allow DNS resolution of domains regardless of existing blacklists. This is completed with public maintained blocklists. A good source for these is [firebog.net](https://firebog.net).
 
-:::warning Warning
+:::caution
 
 While publicly maintained blocklists usually do a good job of allowing legitimate traffic they
 can sometimes be too broad and catch traffic that you wish to allow. You may need to disable

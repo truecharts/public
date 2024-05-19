@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [valheim-4.0.0](https://github.com/truecharts/charts/compare/valheim-3.0.46...valheim-4.0.0) (2022-11-10)

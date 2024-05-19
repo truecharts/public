@@ -1,6 +1,6 @@
 image:
   repository: anonaddy/anonaddy
-  tag: 1.0.9@sha256:7acf7b3f3165e5eb5c0813d2a717ebc8df24a9e3fcc124b6d4da5b070663c441
+  tag: 1.1.0@sha256:65f49a6be32f36ee74b34b6538946273ae0f3f3ea2acdfa07420a9e40dfebdfa
   pullPolicy: IfNotPresent
 strategy:
   type: Recreate
@@ -56,21 +56,13 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             APP_KEY:
               secretKeyRef:
                 name: anonaddy-secrets
@@ -85,8 +77,10 @@ persistence:
     mountPath: /config
 redis:
   enabled: true
+  includeCommon: true
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
 portal:

@@ -64,6 +64,7 @@ service:
         protocol: udp
 
 neko:
+  ip: "0.0.0.0"
   auth:
     user_pass: ""
     admin_pass: ""
@@ -71,12 +72,13 @@ neko:
   screen: "1920x1080@30"
   control_protection: false
   implicit_control: false
-  locks: []
-   # - control
-   # - login
-   # - file_transfer
-  cors: 
-   - "*"
+  locks:
+    []
+    # - control
+    # - login
+    # - file_transfer
+  cors:
+    - "*"
 
 workload:
   main:
@@ -87,6 +89,7 @@ workload:
           env:
             NEKO_BIND: '{{ printf ":%v" .Values.service.main.ports.main.port }}'
             NEKO_PATH_PREFIX: "/"
+            NEKO_NAT1TO1: "{{ .Values.neko.ip }}"
             # NEKO_EPR
             NEKO_TCPMUX: "{{ .Values.service.mux.ports.tcp.port }}"
             NEKO_UDPMUX: "{{ .Values.service.mux.ports.tcp.port }}"

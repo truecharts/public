@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -26,6 +27,16 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: PUBLIC_DASHBOARD
+                                        label: "Enables the public dashboard for guest (unauthenticated) users"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: APP_NAME
+                                        label: "Used to define the application's name in the dashboard and in notifications"
+                                        schema:
+                                          type: string
+                                          default: "Speedtest Tracker"
                                       - variable: mail
                                         label: Show Mail Server Settings
                                         schema:
@@ -103,8 +114,8 @@ questions:
                               type: int
                               default: 9004
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

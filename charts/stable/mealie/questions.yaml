@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -365,6 +366,68 @@ questions:
                       schema:
                         type: string
                         default: mail
+              - variable: oidc
+                label: OIDC
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: auth_enabled
+                      label: Auth Enabled
+                      description: Enables authentication via OpenID Connect in addition to built-in Mealie auth
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: signup_enabled
+                      label: Signup Enabled
+                      description: Enables new users to be created when signing in for the first time with OIDC
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: configuration_url
+                      label: Configuration URL
+                      description: The URL to the OIDC configuration of your provider.
+                      schema:
+                        type: string
+                        default: "https://auth.example.com/.well-known/openid-configuration"
+                        required: true
+                    - variable: client_id
+                      label: Client Id
+                      description: The client id of your configured client in your provider
+                      schema:
+                        type: string
+                        default: "mealie"
+                        required: true
+                    - variable: user_group
+                      label: User Group
+                      description: If specified, only users belonging to this group will be able to successfully authenticate, regardless of the OIDC_ADMIN_GROUP
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: admin_group
+                      label: Admin Group
+                      description: If specified, users belonging to this group will be made an admin.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: auto_redirect
+                      label: Auto Redirect
+                      description: If True, then the login page will be bypassed an you will be sent directly to your Identity Provider. You can still get to the login page by adding ?direct=1 to the login URL
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: provider_name
+                      label: Provider Name
+                      description: The provider name is shown in SSO login button. "Login with <OIDC_PROVIDER_NAME>"
+                      schema:
+                        type: string
+                        default: "OAuth"
+                    - variable: remember_me
+                      label: Remember Me
+                      description: Because redirects bypass the login screen, you cant extend your session by clicking the "Remember Me" checkbox. By setting this value to true, a session will be extended as if "Remember Me" was checked
+                      schema:
+                        type: boolean
+                        default: false
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -390,8 +453,8 @@ questions:
                               type: int
                               default: 10018
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data

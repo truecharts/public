@@ -2,6 +2,7 @@
 portals: {}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -57,8 +58,8 @@ questions:
                               type: int
                               default: 23231
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
@@ -77,7 +78,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: repo
+        - variable: repos
           label: App Repo Storage
           description: Stores the Application Repo.
           schema:

@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 12.0.0
+appVersion: 13.0.0
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: The easiest way to run WireGuard VPN + Web-based Admin UI.
 home: https://truecharts.org/charts/stable/wg-easy
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/wg-easy.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wg-easy.webp
 keywords:
   - wg-easy
   - wireguard
@@ -31,8 +31,7 @@ maintainers:
     url: https://truecharts.org
 name: wg-easy
 sources:
-  - https://github.com/WeeJeWel/wg-easy
   - https://github.com/truecharts/charts/tree/master/charts/stable/wg-easy
   - https://ghcr.io/wg-easy/wg-easy
 type: application
-version: 12.1.3
+version: 14.0.3

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mindustry-1.0.0](https://github.com/truecharts/charts/compare/mindustry-0.0.35...mindustry-1.0.0) (2022-11-10)

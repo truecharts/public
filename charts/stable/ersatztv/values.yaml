@@ -1,12 +1,12 @@
 image:
   pullPolicy: IfNotPresent
   repository: jasongdove/ersatztv
-  tag: v0.8.5@sha256:beac9f74e8b8929f2dd753fca7562f48d235db9d6a12334a97515bc8402edbf8
+  tag: v0.8.6@sha256:f82b0772286e546fe6e061fa2935549a5f73fbdc1cddb66abdad78fc22dd539b
 imageSelector: image
 nvidiaImage:
   pullPolicy: Always
   repository: jasongdove/ersatztv
-  tag: v0.8.5-nvidia@sha256:022af799b19dcaf01eabba32a2454dce949351e5c5423a73bf0aacdb3fa2d3f4
+  tag: v0.8.6-nvidia@sha256:4c0adacf9ed7f2ddc8334633f0640cb8c7dc1897275e5640b96a91ca0234c8cd
 persistence:
   config:
     enabled: true
@@ -31,7 +31,7 @@ service:
 vaapiImage:
   pullPolicy: Always
   repository: jasongdove/ersatztv
-  tag: v0.8.5-vaapi@sha256:b5001c5387a3e96f4d8ee330c829734de27fee423158bde8299a054df0cffef9
+  tag: v0.8.6-vaapi@sha256:d27f4a842dbe702b340a1be6ba4c152bc8880e1f66f4f2878d5cb4d0033c42d0
 workload:
   main:
     podSpec:

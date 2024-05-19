@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -145,6 +146,11 @@ questions:
                                                 default: ""
                                             - variable: MAIL_SERVICE
                                               label: "MAIL_SERVICE"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: MAIL_FROM
+                                              label: "MAIL_FROM"
                                               schema:
                                                 type: string
                                                 default: ""
@@ -1035,8 +1041,8 @@ questions:
                               type: int
                               default: 10192
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data

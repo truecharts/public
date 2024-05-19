@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.8.5
+appVersion: 0.8.6
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: ErsatzTV configuring and streaming custom live channels using your media library.
 home: https://truecharts.org/charts/stable/ersatztv
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.webp
 keywords:
   - ersatztv
   - media
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ersatztv
   - https://hub.docker.com/r/jasongdove/ersatztv
 type: application
-version: 3.7.3
+version: 4.0.5

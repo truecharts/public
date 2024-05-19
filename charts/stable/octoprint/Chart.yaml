@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.9.3
+appVersion: 1.10.1
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: OctoPrint is the snappy web interface for your 3D printer
 home: https://truecharts.org/charts/stable/octoprint
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/octoprint.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/octoprint.webp
 keywords:
   - octoprint
   - 3d
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/octoprint
   - https://hub.docker.com/r/octoprint/octoprint
 type: application
-version: 13.7.3
+version: 14.0.6

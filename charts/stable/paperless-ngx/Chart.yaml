@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.6.3
+appVersion: 2.8.6
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.2.2
+    version: 14.0.6
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 home: https://truecharts.org/charts/stable/paperless-ngx
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.webp
 keywords:
   - paperless-ng
   - paperless-ngx
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://ghcr.io/paperless-ngx/paperless-ngx
 type: application
-version: 7.9.2
+version: 8.2.8

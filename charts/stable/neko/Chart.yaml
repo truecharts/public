@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.8.11
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: A self hosted virtual browser that runs in Chart
 home: https://truecharts.org/charts/stable/neko
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.webp
 keywords:
   - neko
   - video
@@ -30,8 +30,17 @@ maintainers:
     url: https://truecharts.org
 name: neko
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/neko
-  - https://hub.docker.com/r/m1k1o/neko
   - https://github.com/m1k1o/neko
+  - https://github.com/truecharts/charts/tree/master/charts/stable/neko
+  - https://ghcr.io/m1k1o/neko/xfce
+  - https://ghcr.io/m1k1o/neko/remmina
+  - https://ghcr.io/m1k1o/neko/chromium
+  - https://ghcr.io/m1k1o/neko/tor-browser
+  - https://ghcr.io/m1k1o/neko/vivaldi
+  - https://ghcr.io/m1k1o/neko/firefox
+  - https://ghcr.io/m1k1o/neko/microsoft-edge
+  - https://ghcr.io/m1k1o/neko/vlc
+  - https://ghcr.io/m1k1o/neko/google-chrome
+  - https://ghcr.io/m1k1o/neko/brave
 type: application
-version: 6.0.0
+version: 7.0.4

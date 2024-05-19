@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 4.3.2
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mongodb
-    version: 12.5.4
+    version: 12.8.8
     repository: oci://tccr.io/truecharts
     condition: mongodb.enabled
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
 deprecated: false
 description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
 home: https://truecharts.org/charts/stable/youtubedl-material
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.webp
 keywords:
   - youtube
 kubeVersion: ">=1.24.0-0"
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
   - https://ghcr.io/tzahi12345/youtubedl-material
 type: application
-version: 10.8.3
+version: 11.0.4

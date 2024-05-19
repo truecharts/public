@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.35
+appVersion: 1.2.36
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: Kanboard is a free and open source Kanban project management software.
 home: https://truecharts.org/charts/stable/kanboard
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kanboard.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kanboard.webp
 keywords:
   - kanboard
   - kanban
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kanboard
   - https://hub.docker.com/r/kanboard/kanboard
 type: application
-version: 16.7.3
+version: 17.0.6

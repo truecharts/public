@@ -2,6 +2,7 @@
 portals: {}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
@@ -222,6 +223,8 @@ questions:
                 description: yi
               - value: yo
                 description: yo
+              - value: yue
+                description: yue
               - value: zh
                 description: zh
         - variable: model
@@ -232,20 +235,53 @@ questions:
             required: true
             default: tiny-int8
             enum:
-              - value: base
-                description: base
-              - value: base-int8
-                description: base-int8
-              - value: medium-int8
-                description: medium-int8
-              - value: small
-                description: small
-              - value: small-int8
-                description: small-int8
-              - value: tiny
-                description: tiny
+              - value: custom
+                description: custom
               - value: tiny-int8
                 description: tiny-int8
+              - value: tiny
+                description: tiny
+              - value: tiny.en
+                description: tiny.en
+              - value: base-int8
+                description: base-int8
+              - value: base
+                description: base
+              - value: base.en
+                description: base.en
+              - value: small-int8
+                description: small-int8
+              - value: distil-small.en
+                description: distil-small.en
+              - value: small
+                description: small
+              - value: small.en
+                description: small.en
+              - value: medium-int8
+                description: medium-int8
+              - value: distil-medium.en
+                description: distil-medium.en
+              - value: medium
+                description: medium
+              - value: medium.en
+                description: medium.en
+              - value: large
+                description: large
+              - value: large-v1
+                description: large-v1
+              - value: distil-large-v2
+                description: distil-large-v2
+              - value: large-v2
+                description: large-v2
+              - value: large-v3
+                description: large-v3
+        - variable: custom_model
+          label: Custom Model
+          description: 'Path to a converted model directory, or a CTranslate2-converted Whisper model ID from the HuggingFace Hub like "Systran/faster-distil-whisper-small.en".'
+          schema:
+            type: string
+            default: ""
+            show_if: [[model, "=", "custom"]]
         - variable: beam_size
           label: Beam Size
           description: Number of candidates to consider simultaneously during transcription.
@@ -253,6 +289,12 @@ questions:
             type: int
             required: true
             default: 1
+        - variable: initial_prompt
+          label: Initial prompt
+          description: Description of audio that can help Whisper transcribe unusual words better.
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
 # Include{serviceMain}
@@ -271,13 +313,21 @@ questions:
                               type: int
                               default: 10300
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the models."
           schema:
             additional_attrs: true
             type: dict

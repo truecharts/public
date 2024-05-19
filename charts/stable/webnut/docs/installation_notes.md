@@ -2,7 +2,7 @@
 title: Installation Notes
 ---
 
-:::info
+:::tip
 
 This chart requires ingress without it you will NOT be able to access the webGUI.
 
@@ -14,7 +14,7 @@ In order to get started, plug in your UPS via USB to the `server` node and befor
 
 Go to your system shell on your node and run the following command to get the basic info for your UPS.
 
-```terminal
+```shell
 nut-scanner -U
 ```
 
@@ -56,7 +56,7 @@ LISTEN 0.0.0.0 3493
 
 In order to access the webGUI, you will **need** to add `ingress` otherwise it will refuse to connect.
 
-:::info
+:::tip
 
 You can also reach us using Discord for real-time feedback and support
 If you found a bug in our chart, open a Github issue but generally it's advised to contact us on Discord first in most cases.

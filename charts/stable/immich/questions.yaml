@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 
@@ -49,6 +50,18 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: mlImageType
+          label: Machine Learning Image Type
+          schema:
+            type: string
+            default: mlImage
+            enum:
+              - value: mlImage
+                description: CPU Image
+              - value: mlCudaImage
+                description: CUDA Image
+              - value: mlOpenvinoImage
+                description: OpenVino Image
 
 # Include{containerConfig}
 # Include{podOptions}
@@ -75,8 +88,8 @@ questions:
                               type: int
                               default: 10323
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: library

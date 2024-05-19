@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: system
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.5.0
+appVersion: 2.5.2
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: A Tiny Dashboard for Network UPS Tools.
 home: https://truecharts.org/charts/stable/peanut
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/peanut.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/peanut.webp
 keywords:
   - peanut
   - ups
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/peanut
   - https://hub.docker.com/r/brandawg93/peanut
 type: application
-version: 1.5.3
+version: 2.0.7

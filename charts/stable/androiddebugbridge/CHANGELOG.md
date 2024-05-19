@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [androiddebugbridge-0.0.37](https://github.com/truecharts/charts/compare/androiddebugbridge-0.0.34...androiddebugbridge-0.0.37) (2022-11-08)

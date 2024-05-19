@@ -30,6 +30,20 @@
                       description: replica
                     - value: recovery
                       description: recovery
+              - variable: pgVersion
+                label: Postgres Version
+                description: "Set the Postgresql version used"
+                schema:
+                  type: int
+                  default: 16
+                  required: true
+              - variable: password
+                label: Password
+                description: "Set the password for the database-user"
+                schema:
+                  type: string
+                  default: "PLACEHOLDERPASSWORD"
+                  required: true
               - variable: cluster
                 label: "Cluster Settings"
                 schema:
@@ -119,27 +133,10 @@
                       schema:
                         type: boolean
                         default: false
-                    - variable: serverName
-                      label: "serverName"
-                      schema:
-                        type: string
-                        default: ""
                     - variable: revision
                       label: "revision"
                       schema:
                         type: string
-                        default: ""
-                    - variable: endpointURL
-                      label: "endpointURL"
-                      schema:
-                        type: string
-                        show_if: [["enabled", "=", true]]
-                        default: ""
-                    - variable: destinationPath
-                      label: "destinationPath"
-                      schema:
-                        type: string
-                        show_if: [["enabled", "=", true]]
                         default: ""
                     - variable: retentionPolicy
                       label: "retentionPolicy"
@@ -147,126 +144,14 @@
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: "30d"
-                    - variable: provider
-                      label: "provider"
+                    - variable: credentials
+                      label: "Credentials"
+                      description: "Name of the credentials in the credentials section"
                       schema:
                         type: string
                         show_if: [["enabled", "=", true]]
-                        default: "s3"
-                        enum:
-                         - value: s3
-                           description: S3
-                         - value: azure
-                           description: Azure
-                         - value: google
-                           description: Google
-                    - variable: s3
-                      label: "s3"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "s3"]]
-                        attrs:
-                          - variable: region
-                            label: "region"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: bucket
-                            label: "bucket"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: accessKey
-                            label: "accessKey"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: secretKey
-                            label: "secretKey"
-                            schema:
-                              type: string
-                              default: ""
-                    - variable: azure
-                      label: "azure (EXTREMELY EXPERIMENTAL)"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "azure"]]
-                        attrs:
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: connectionString
-                            label: "connectionString"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: storageAccount
-                            label: "storageAccount"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: storageKey
-                            label: "storageKey"
-                            schema:
-                              type: string
-                              show_if: [["enabled", "=", true]]
-                              default: ""
-                          - variable: storageSasToken
-                            label: "storageSasToken"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: containerName
-                            label: "containerName"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: serviceName
-                            label: "serviceName"
-                            schema:
-                              type: string
-                              default: "blob"
-                          - variable: inheritFromAzureAD
-                            label: "inheritFromAzureAD"
-                            schema:
-                              type: boolean
-                              default: false
-                    - variable: google
-                      label: "google (EXTREMELY EXPERIMENTAL)"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "google"]]
-                        attrs:
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: bucket
-                            label: "bucket"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: gkeEnvironment
-                            label: "gkeEnvironment"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: applicationCredentials
-                            label: "applicationCredentials"
-                            schema:
-                              type: string
-                              default: ""
+                        default: ""
+                        required: true
               - variable: recovery
                 label: "Recovery Settings (Experimental)"
                 schema:
@@ -288,12 +173,6 @@
                       schema:
                         type: string
                         default: ""
-                    - variable: endpointURL
-                      label: "endpointURL"
-                      schema:
-                        type: string
-                        show_if: [["enabled", "=", true]]
-                        default: ""
                     - variable: method
                       label: "method"
                       schema:
@@ -306,122 +185,11 @@
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: ""
-                    - variable: provider
-                      label: "provider"
+                    - variable: credentials
+                      label: "Credentials"
+                      description: "Name of the credentials in the credentials section"
                       schema:
                         type: string
                         show_if: [["enabled", "=", true]]
-                        default: "s3"
-                        enum:
-                         - value: s3
-                           description: S3
-                         - value: azure
-                           description: Azure
-                         - value: google
-                           description: Google
-                    - variable: s3
-                      label: "s3"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "s3"]]
-                        attrs:
-                          - variable: region
-                            label: "region"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: bucket
-                            label: "bucket"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: accessKey
-                            label: "accessKey"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: secretKey
-                            label: "secretKey"
-                            schema:
-                              type: string
-                              default: ""
-                    - variable: azure
-                      label: "azure (EXTREMELY EXPERIMENTAL)"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "azure"]]
-                        attrs:
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: connectionString
-                            label: "connectionString"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: storageAccount
-                            label: "storageAccount"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: storageKey
-                            label: "storageKey"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: storageSasToken
-                            label: "storageSasToken"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: containerName
-                            label: "containerName"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: serviceName
-                            label: "serviceName"
-                            schema:
-                              type: string
-                              default: "blob"
-                          - variable: inheritFromAzureAD
-                            label: "inheritFromAzureAD"
-                            schema:
-                              type: boolean
-                              default: false
-                    - variable: google
-                      label: "google (EXTREMELY EXPERIMENTAL)"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        show_if: [["provider", "=", "google"]]
-                        attrs:
-                          - variable: path
-                            label: "path"
-                            schema:
-                              type: string
-                              default: "/"
-                          - variable: bucket
-                            label: "bucket"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: gkeEnvironment
-                            label: "gkeEnvironment"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: applicationCredentials
-                            label: "applicationCredentials"
-                            schema:
-                              type: string
-                              default: ""
+                        default: ""
+                        required: true

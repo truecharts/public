@@ -1,7 +1,7 @@
 image:
   repository: bitnami/solr
   pullPolicy: IfNotPresent
-  tag: 9.5.0@sha256:996036d9be8e908c3f03f928fc12e909220fdbba9d8a496fc1fd2ab9bfb9dd61
+  tag: 9.6.0@sha256:ce0b94856327c7554c474e41da880547f31ac756d64890cdf3ee1518999f9f0b
 
 includeCommon: true
 workload:
@@ -15,11 +15,7 @@ workload:
             SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
             SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
             SOLR_OPTS: "{{ .Values.solrOpts }}"
-            SOLR_ADMIN_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.solrPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.solrPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
-                key: "solr-password"
+            SOLR_ADMIN_PASSWORD: "{{ .Values.password }}"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
           # @default -- See below
@@ -108,17 +104,7 @@ solrEnableAuthentication: "yes"
 solrUsername: "test"
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
-# -- Secret or password
-# One of these options is required, unless used as a dependency for another TrueCharts chart.
-existingSecret: ""
-solrPassword: ""
-secret:
-  credentials:
-    enabled: true
-    data:
-      solr-password: '{{ ( .Values.solrPassword | default "empty" ) }}'
+password: "PLACEHOLDERPASSWORD"
 portal:
   open:
     enabled: true
-manifestManager:
-  enabled: false
