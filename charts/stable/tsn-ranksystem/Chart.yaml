@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.8
+    version: 14.0.9
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tsn-ranksystem
   - https://hub.docker.com/r/serverlein/tsn-ranksystem-webserver
 type: application
-version: 2.1.3
+version: 2.1.4

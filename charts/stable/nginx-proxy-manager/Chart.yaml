@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.8
+    version: 14.0.9
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
 type: application
-version: 10.1.3
+version: 10.1.4
