@@ -59,10 +59,17 @@ tests:
                 enabled: true
               dest:
                 enabled: false
-      credentials: {}
+      credentials:
+        my-other-secret:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
     asserts:
       - failedTemplate:
-          errorMessage: VolSync - Expected credentials [my-secret] to be defined in [credentials.my-secret]
+          errorMessage: VolSync - Expected credentials [my-secret] to be defined in [credentials] which currently contains [my-other-secret] keys
 
   - it: should fail if credentials.url is empty
     set:

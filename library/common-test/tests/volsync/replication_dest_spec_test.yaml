@@ -39,6 +39,10 @@ tests:
           of: v1
       - documentIndex: *secretDoc
         equal:
+          path: metadata.name
+          value: test-release-name-common-test-destbackup-volsync-mybackup1
+      - documentIndex: *secretDoc
+        equal:
           path: stringData
           value:
             AWS_ACCESS_KEY_ID: some-access-key

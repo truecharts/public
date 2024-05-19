@@ -7,6 +7,10 @@ release:
 tests:
   - it: should generate correct spec with recovery/backup
     set:
+      postgres16Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "16.3"
+        pullPolicy: IfNotPresent
       cnpg:
         my-pg:
           enabled: true
@@ -33,7 +37,7 @@ tests:
           path: spec
           value:
             enableSuperuserAccess: true
-            imageName: ghcr.io/cloudnative-pg/postgresql:16.2
+            imageName: ghcr.io/cloudnative-pg/postgresql:16.3
             primaryUpdateStrategy: unsupervised
             primaryUpdateMethod: switchover
             logLevel: info
