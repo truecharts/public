@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.5.4
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -21,6 +21,7 @@ description: Open source DocuSign alternative. Create, fill, and sign digital do
 home: https://truecharts.org/charts/incubator/docuseal
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docuseal.webp
 keywords:
+  - docuseal
   - business
 kubeVersion: ">=1.24.0-0"
 maintainers:
