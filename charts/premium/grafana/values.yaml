@@ -19,7 +19,7 @@ service:
         port: 3000
 workload:
   main:
-    replicas: 2
+    replicas: 1
     strategy: RollingUpdate
     podSpec:
       containers:
