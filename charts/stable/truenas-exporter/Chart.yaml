@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.15.1
 dependencies:
   - name: common
-    version: 23.0.7
+    version: 23.0.8
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/truenas-exporter
   - https://hub.docker.com/r/prom/graphite-exporter
 type: application
-version: 2.0.5
+version: 2.0.6
