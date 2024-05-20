@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.8
+    version: 14.0.9
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
   - https://ghcr.io/rodber/chevereto-free
 type: application
-version: 13.1.4
+version: 13.1.5
