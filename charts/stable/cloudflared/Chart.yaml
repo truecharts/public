@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2024.5.0
 dependencies:
   - name: common
-    version: 23.0.7
+    version: 23.0.8
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
   - https://hub.docker.com/r/cloudflare/cloudflared
 type: application
-version: 11.1.1
+version: 11.1.2
