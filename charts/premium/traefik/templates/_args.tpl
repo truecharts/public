@@ -71,6 +71,12 @@ args:
   - "--providers.kubernetesingress.ingressclass={{ .Release.Name }}"
   {{- end }}
   {{- range $entrypoint, $config := $ports }}
+  {{- if $config.transport }}
+  {{- if $config.transport.respondingTimeouts }
+  --entryPoints.{{ $entrypoint }}.transport.respondingTimeouts.readTimeout={{ $config.transport.respondingTimeouts.trustedIPs | default 0 }}
+  {{- else }}
+  --entryPoints.{{ $entrypoint }}.transport.respondingTimeouts.readTimeout=0
+  {{- end }}
   {{/* add args for proxyProtocol support */}}
   {{- if $config.proxyProtocol }}
   {{- if $config.proxyProtocol.enabled }}
