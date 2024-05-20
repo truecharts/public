@@ -3,6 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.30.5@sha256:edb8e2bab9cbca22e555638294db9b3657ffbb6e5d149a29d7ccdb243e3c71e0
 
+betaImage:
+  repository: ghcr.io/timshel/vaultwarden
+  pullPolicy: IfNotPresent
+  tag: 1.30.5-9
+
+
 service:
   main:
     ports:
