@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.2.4
+appVersion: 7.2.5
 dependencies:
   - name: common
     version: 23.0.7
@@ -24,7 +24,7 @@ keywords:
   - redis
   - keyvalue
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/redis
   - https://hub.docker.com/r/bitnami/redis
 type: application
-version: 14.0.8
+version: 14.0.9
