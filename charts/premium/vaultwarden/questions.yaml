@@ -13,6 +13,16 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: "Official Image"
+                                      - value: betaImage
+                                        description: "TimShel - SSO BETA Image"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
