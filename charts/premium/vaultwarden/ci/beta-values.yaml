@@ -4,3 +4,12 @@ workload:
       containers:
         main:
           imageSelector: betaImage
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: vault.example.com
+        paths:
+          - path: /
+            pathType: Prefix
