@@ -12,7 +12,7 @@ on:
 
 jobs:
   release-helm:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-large
     steps:
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -63,7 +63,7 @@ jobs:
           cd -
 
   release-scale:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-large
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
