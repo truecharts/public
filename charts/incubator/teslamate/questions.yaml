@@ -15,6 +15,7 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
   - variable: env
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
