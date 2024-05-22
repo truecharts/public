@@ -10,45 +10,45 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                 - variable: env
-                                   label: "Image Environment"
-                                   schema:
-                                     additional_attrs: true
-                                     type: dict
-                                     attrs:
-                                       - variable: DISABLE_MQTT
-                                         label: "Mqtt Disabled"
-                                         description: "Disables the MQTT feature if true"
-                                         schema:
-                                           type: boolean
-                                           default: true
-                                       - variable: MQTT_HOST
-                                         label: "Mqtt Host"
-                                         description: "Hostname of the broker."
-                                         schema:
-                                           type: string
-                                           default: ""
-                                           show_if: [["DISABLE_MQTT", "=", false]]
-                                       - variable: MQTT_PORT
-                                         label: "Mqtt Port"
-                                         schema:
-                                           type: int
-                                           default: 1883
-                                           show_if: [["DISABLE_MQTT", "=", false]]
-                                       - variable: MQTT_USERNAME
-                                         label: "Mqtt Username"
-                                         description: "Username of the broker."
-                                         schema:
-                                           type: string
-                                           default: ""
-                                           show_if: [["DISABLE_MQTT", "=", false]]
-                                       - variable: MQTT_PASSWORD
-                                         label: "Mqtt Password"
-                                         description: "Password of the broker."
-                                         schema:
-                                           type: string
-                                           private: true
-                                           show_if: [["DISABLE_MQTT", "=", false]]
+                                - variable: env
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISABLE_MQTT
+                                        label: "Mqtt Disabled"
+                                        description: "Disables the MQTT feature if true"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: MQTT_HOST
+                                        label: "Mqtt Host"
+                                        description: "Hostname of the broker."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [["DISABLE_MQTT", "=", false]]
+                                      - variable: MQTT_PORT
+                                        label: "Mqtt Port"
+                                        schema:
+                                          type: int
+                                          default: 1883
+                                          show_if: [["DISABLE_MQTT", "=", false]]
+                                      - variable: MQTT_USERNAME
+                                        label: "Mqtt Username"
+                                        description: "Username of the broker."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [["DISABLE_MQTT", "=", false]]
+                                      - variable: MQTT_PASSWORD
+                                        label: "Mqtt Password"
+                                        description: "Password of the broker."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          show_if: [["DISABLE_MQTT", "=", false]]
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
