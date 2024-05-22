@@ -131,6 +131,18 @@
                     },
                     {
                         "matcher": {
+                            "id": "byRegexp",
+                            "options": ".*_mi"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "mi"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
                             "id": "byName",
                             "options": "start_date_ts"
                         },
@@ -154,18 +166,6 @@
                             {
                                 "id": "displayName",
                                 "value": "Start Odometer"
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byRegexp",
-                            "options": ".*_mi"
-                        },
-                        "properties": [
-                            {
-                                "id": "unit",
-                                "value": "mi"
                             }
                         ]
                     },
