@@ -191,7 +191,7 @@ main() {
   copy_new_docs "$train" "$chart"
   copy_safe_docs "$train" "$chart"
   append_scale_changelog "$train" "$chart"
-  ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
+  # ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
   process_index "$train" "$chart"
 
   echo "Finished processing ${chart}"
