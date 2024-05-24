@@ -28,10 +28,6 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
 
-      - name: Install pre-commit, yamale and yamllint
-        run: |
-          pip3 install --no-cache-dir pre-commit
-
       - name: Fix Pre-Commit issues
         shell: bash
         run: |
@@ -73,10 +69,6 @@ jobs:
           setup-tools: |
             helmv3
           helm: "3.14.0"
-
-      - name: Prep go-yq
-        run: |
-          wget https://github.com/mikefarah/yq/releases/download/v4.44.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
