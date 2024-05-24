@@ -27,6 +27,28 @@ jobs:
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        name: Checkout-validate
+        with:
+          fetch-depth: 1
+          repository: truecharts/catalog_validation
+          path: .catalog_validation
+
+      - name: install catalog_validation
+        shell: bash
+        run: |
+          cd .catalog_validation
+          pip install -r requirements.txt
+          pip install -U --no-cache-dir .
+          cd -
+
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
       - name: Collect changes (branch-based)
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
@@ -74,4 +96,4 @@ jobs:
         if: steps.list-changed.outputs.detected == 'true'
         run: |
           echo "Starting Catalog Validation"
-          python3 /catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}/catalog" --ignore-catalog-json
+          python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}/catalog" --ignore-catalog-json
