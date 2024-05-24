@@ -36,7 +36,6 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
-      # Optional step if GPG signing is used
       - name: Clean Questions
         shell: bash
         run: |
@@ -63,12 +62,6 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@5fe385031665158529decddddb51d6224422836e # v0.11.1
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.14.0"
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
