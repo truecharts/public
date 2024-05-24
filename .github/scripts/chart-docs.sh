@@ -67,7 +67,7 @@ append_scale_changelog() {
     mv temp "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
 
   echo "Adding changelog header..."
-  ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
+  # ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
 }
 
 check_and_fix_title() {
