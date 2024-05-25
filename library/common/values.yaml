@@ -495,12 +495,12 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.89.1@sha256:16fca94a7f2b0ef44f45c33abd209c43d8a364e64e652d64d958a8859d43ef2d
+  tag: v4.89.1@sha256:b83ef64a26114c998ec2af51b5e1f289c9c13e5f0ccc1c2f890dc47ba8c7dacf
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.19.1@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+  tag: v3.20.0@sha256:783d7b4da265da6ee627fe54ee895a2cfe2a2ecd7bb7b53a0c7a703a924a8e82
   pullPolicy: IfNotPresent
 
 scratchImage:
