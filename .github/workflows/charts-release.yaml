@@ -62,7 +62,6 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
-
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         shell: bash
