@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 56.21.4
+    version: 58.7.2
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -43,4 +43,4 @@ sources:
   - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
 type: application
-version: 18.2.7
+version: 18.3.0
