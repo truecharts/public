@@ -161,9 +161,11 @@ process_index() {
     echo "The link is: ${link}"
     echo "- ${link}" >>${index_path}
   done
-
   echo "" >>${index_path}
-  echo -e "## Readme Content\n" >>website/src/content/docs/charts/${train}/${chart}/index.md
+  echo "" >>${index_path}
+  echo "---" >>${index_path}
+  echo "" >>${index_path}
+  echo -e "## Readme\n" >>website/src/content/docs/charts/${train}/${chart}/index.md
   tail -n +4 "charts/${train}/${chart}/README.md" >>website/src/content/docs/charts/${train}/${chart}/readmetmp.md
   sed -i 's/##/###/' "website/src/content/docs/charts/${train}/${chart}/readmetmp.md"
   cat "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" >>"website/src/content/docs/charts/${train}/${chart}/index.md"
