@@ -96,11 +96,29 @@ jobs:
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
-      #- name: Generate Changelog
-      #  shell: bash
-      #  if: |
-      #    steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-      #  run: |
+      - name: Cache Changelog
+        id: cache-changelog
+        uses: actions/cache@v4
+        with:
+          path: changelog.json.gz
+          key: changelog-json
+
+      - name: Generate Changelog
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          export REPO_PATH="./"
+          export TEMPLATE_PATH="templates/CHANGELOG.md.tmpl"
+          export CHARTS_DIR="./charts"
+          export JSON_FILE="changelog.json"
+          if [ -f "$JSON_FILE.gz" ]; then
+            gunzip "$JSON_FILE.gz"
+          fi
+
+          ./charttool "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
+          gzip "$JSON_FILE" --best
+      
       #    export GOBIN=/usr/local/bin/
       #    go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
       #    CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
@@ -148,6 +166,7 @@ jobs:
 
           for i in "${CHARTS[@]}"
           do
+            # TODO: remove any changelog stuff from this script
             ./.github/scripts/chart-docs.sh "$i"
           done
 
