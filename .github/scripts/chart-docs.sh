@@ -2,35 +2,11 @@
 [ "$DEBUG" == 'true' ] && set -x
 [ "$STRICT" == 'true' ] && set -e
 
-make_sure_structure_is_there() {
-  local train="$1"
-  local chart="$2"
-
-  mkdir -p tmp/website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-
-  echo "Checking if website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md exists"
-  if [ -f "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" ]; then
-    echo "CHANGELOG.md already exists, continuing..."
-    return 0
-  fi
-
-  mkdir -p "website/src/content/docs/charts/${train}/${chart}" || echo "chart path already exists, continuing..."
-  touch "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-}
-
-keep_safe_docs() {
-  local train="$1"
-  local chart="$2"
-
-  echo "Keeping some docs safe..."
-  mv -f website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md || :
-}
-
 remove_old_docs() {
   local train="$1"
   local chart="$2"
 
-  echo "Removing old docs and recreating based on charts repo..."
+  echo "Removing old docs and recreating based on website repo..."
   rm -rf website/src/content/docs/charts/*/${chart} || :
   mkdir -p website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
 }
@@ -44,30 +20,6 @@ copy_new_docs() {
   cp -rf charts/${train}/${chart}/icon.webp website/public/img/hotlink-ok/chart-icons/${chart}.webp 2>/dev/null || :
   cp -rf charts/${train}/${chart}/icon-small.webp website/public/img/hotlink-ok/chart-icons-small/${chart}.webp 2>/dev/null || :
   cp -rf charts/${train}/${chart}/screenshots/* website/public/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
-}
-
-copy_safe_docs() {
-  local train="$1"
-  local chart="$2"
-
-  echo "copying safe docs to website for ${chart}"
-  cp -rf tmp/website/src/content/docs/charts/${train}/${chart}/* website/src/content/docs/charts/${train}/${chart}/ 2>/dev/null || :
-}
-
-append_scale_changelog() {
-  local train="$1"
-  local chart="$2"
-
-  echo "appending SCALE changelog to actual changelog..."
-  # Remove header from changelog
-  sed -i '/^---$/,/^---$/d' "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-  # Prepend app-changelog to changelog
-  cat "charts/${train}/${chart}/app-changelog.md" |
-    cat - "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" >temp &&
-    mv temp "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-
-  echo "Adding changelog header..."
-  # ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
 }
 
 check_and_fix_title() {
@@ -187,13 +139,8 @@ main() {
 
   echo "copying docs to website for ${chart}"
 
-  make_sure_structure_is_there "$train" "$chart"
-  keep_safe_docs "$train" "$chart"
   remove_old_docs "$train" "$chart"
   copy_new_docs "$train" "$chart"
-  copy_safe_docs "$train" "$chart"
-  append_scale_changelog "$train" "$chart"
-  # ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
   process_index "$train" "$chart"
 
   echo "Finished processing ${chart}"
