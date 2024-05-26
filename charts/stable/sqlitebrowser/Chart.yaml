@@ -25,16 +25,16 @@ keywords:
   - browser
   - sqlitebrowser
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: sqlitebrowser
 sources:
-  - https://github.com/linuxserver/docker-sqlitebrowser
-  - https://sqlitebrowser.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
   - https://ghcr.io/linuxserver/sqlitebrowser
+  - https://github.com/linuxserver/docker-sqlitebrowser
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
+  - https://sqlitebrowser.org/
 type: application
 version: 11.0.6

@@ -25,16 +25,16 @@ keywords:
   - Downloaders
   - MediaApp-Video
   - MediaServer-Video
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: tubesync
 sources:
-  - https://github.com/meeb/tubesync
-  - https://registry.hub.docker.com/r/ghcr.io/meeb/tubesync
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tubesync
   - https://ghcr.io/meeb/tubesync
+  - https://github.com/meeb/tubesync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tubesync
+  - https://registry.hub.docker.com/r/ghcr.io/meeb/tubesync
 type: application
 version: 6.0.7

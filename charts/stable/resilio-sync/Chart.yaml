@@ -25,15 +25,15 @@ keywords:
   - sync
   - btsync
   - bittorrent
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: resilio-sync
 sources:
+  - https://ghcr.io/linuxserver/resilio-sync
   - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
   - https://github.com/truecharts/charts/tree/master/charts/stable/resilio-sync
-  - https://ghcr.io/linuxserver/resilio-sync
 type: application
 version: 15.1.4

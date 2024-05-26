@@ -30,18 +30,18 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.webp
 keywords:
   - plausible
   - analytics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: plausible
 sources:
-  - https://plausible.io/docs/self-hosting
   - https://github.com/plausible/analytics
   - https://github.com/plausible/hosting
-  - https://plausible.io/
   - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
   - https://hub.docker.com/r/plausible/analytics
+  - https://plausible.io/
+  - https://plausible.io/docs/self-hosting
 type: application
 version: 11.2.5

@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/pihole
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.webp
 keywords:
   - DNS
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +31,8 @@ name: pihole
 sources:
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
-  - https://pi-hole.net/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
   - https://hub.docker.com/r/pihole/pihole
+  - https://pi-hole.net/
 type: application
 version: 17.1.2

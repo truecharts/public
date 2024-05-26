@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/oscam
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/oscam.webp
 keywords:
   - oscam
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: oscam
 sources:
-  - https://trac.streamboard.tv/oscam/browser/trunk
-  - https://github.com/truecharts/charts/tree/master/charts/stable/oscam
   - https://ghcr.io/linuxserver/oscam
+  - https://github.com/truecharts/charts/tree/master/charts/stable/oscam
+  - https://trac.streamboard.tv/oscam/browser/trunk
 type: application
 version: 14.0.7

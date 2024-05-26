@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireguard.webp
 keywords:
   - wireguard
   - vpn
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: wireguard
 sources:
+  - https://ghcr.io/k8s-at-home/wireguard
   - https://github.com/k8s-at-home/container-images/tree/main/apps/wireguard
   - https://github.com/truecharts/charts/tree/master/charts/stable/wireguard
-  - https://ghcr.io/k8s-at-home/wireguard
 type: application
 version: 9.0.6

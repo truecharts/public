@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/openttd.webp
 keywords:
   - openttd
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: openttd
 sources:
-  - https://www.openttd.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/openttd
   - https://hub.docker.com/r/ich777/openttdserver
+  - https://www.openttd.org/
 type: application
 version: 6.0.7

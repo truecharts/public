@@ -24,16 +24,16 @@ keywords:
   - lidarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: lidarr
 sources:
-  - https://github.com/Lidarr/Lidarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
   - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/lidarr-develop
+  - https://github.com/Lidarr/Lidarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
 type: application
 version: 22.1.4

@@ -29,20 +29,20 @@ home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
 keywords:
   - authentik
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: authentik
 sources:
-  - https://goauthentik.io/docs/
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/maxmind/geoipupdate
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/radius
-  - https://ghcr.io/goauthentik/proxy
-  - https://ghcr.io/goauthentik/server
-  - https://ghcr.io/goauthentik/ldap
-  - https://ghcr.io/maxmind/geoipupdate
+  - https://goauthentik.io/docs/
 type: application
 version: 26.1.6

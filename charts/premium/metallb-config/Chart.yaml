@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.webp
 keywords:
   - metallb
   - loadbalancer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: metallb-config
 sources:
-  - https://metallb.universe.tf
   - https://github.com/metallb/metallb
   - https://github.com/truecharts/charts/tree/master/charts/premium/metallb-config
   - https://hub.docker.com/_/hello-world
+  - https://metallb.universe.tf
 type: application
 version: 7.0.8

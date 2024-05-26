@@ -24,16 +24,16 @@ keywords:
   - radarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: radarr
 sources:
-  - https://github.com/Radarr/Radarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
   - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/radarr
+  - https://github.com/Radarr/Radarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
 type: application
 version: 22.2.2

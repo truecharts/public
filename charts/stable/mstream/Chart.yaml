@@ -24,16 +24,16 @@ keywords:
   - mstream
   - server
   - music
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: mstream
 sources:
-  - https://mstream.io/
+  - https://ghcr.io/linuxserver/mstream
   - https://github.com/linuxserver/docker-mstream
   - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
-  - https://ghcr.io/linuxserver/mstream
+  - https://mstream.io/
 type: application
 version: 11.1.6

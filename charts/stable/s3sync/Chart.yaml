@@ -24,15 +24,15 @@ keywords:
   - s3sync
   - Backup
   - Cloud
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: s3sync
 sources:
-  - https://github.com/what-name/docker-s3sync
   - https://github.com/truecharts/charts/tree/master/charts/stable/s3sync
+  - https://github.com/what-name/docker-s3sync
   - https://hub.docker.com/r/whatname/docker-s3sync
 type: application
 version: 6.0.6

@@ -25,16 +25,16 @@ keywords:
   - hastebin
   - haste-server
   - pastebin
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: haste-server
 sources:
-  - https://github.com/seejohnrun/haste-server
-  - https://github.com/k8s-at-home/container-images
-  - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
   - https://ghcr.io/k8s-at-home/haste-server
+  - https://github.com/k8s-at-home/container-images
+  - https://github.com/seejohnrun/haste-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
 type: application
 version: 14.0.6

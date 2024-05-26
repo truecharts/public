@@ -24,15 +24,15 @@ keywords:
   - game-server-watcher
   - monitoring
   - bots
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: game-server-watcher
 sources:
+  - https://ghcr.io/a-sync/game-server-watcher
   - https://github.com/a-sync/game-server-watcher
   - https://github.com/truecharts/charts/tree/master/charts/stable/game-server-watcher
-  - https://ghcr.io/a-sync/game-server-watcher
 type: application
 version: 2.1.3

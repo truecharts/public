@@ -24,17 +24,17 @@ keywords:
   - prowlarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: prowlarr
 sources:
+  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/prowlarr-develop
   - https://github.com/Prowlarr/Prowlarr
   - https://github.com/k8s-at-home/container-images
   - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
-  - https://ghcr.io/onedr0p/exportarr
-  - https://ghcr.io/onedr0p/prowlarr-develop
 type: application
 version: 17.1.5

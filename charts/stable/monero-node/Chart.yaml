@@ -25,15 +25,15 @@ keywords:
   - Crypto
   - Tools-Utilities
   - Network-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: monero-node
 sources:
+  - https://ghcr.io/sethforprivacy/simple-monerod
   - https://github.com/kannix/monero-full-node
   - https://github.com/truecharts/charts/tree/master/charts/stable/monero-node
-  - https://ghcr.io/sethforprivacy/simple-monerod
 type: application
 version: 7.0.11

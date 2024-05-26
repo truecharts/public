@@ -25,15 +25,15 @@ keywords:
   - home-automation
   - zigbee
   - conbee
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: deconz
 sources:
-  - https://github.com/marthoc/docker-deconz
   - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
   - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
   - https://hub.docker.com/r/deconzcommunity/deconz
 type: application

@@ -24,15 +24,15 @@ keywords:
   - prometheus
   - nvidia-gpu-exporter
   - monitoring
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nvidia-gpu-exporter
 sources:
-  - https://github.com/utkuozdemir/nvidia_gpu_exporter
   - https://github.com/truecharts/charts/tree/master/charts/stable/nvidia-gpu-exporter
+  - https://github.com/utkuozdemir/nvidia_gpu_exporter
   - https://hub.docker.com/r/utkuozdemir/nvidia_gpu_exporter
 type: application
 version: 3.0.7

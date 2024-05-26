@@ -24,15 +24,15 @@ keywords:
   - chroma
   - embedding
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: chroma
 sources:
+  - https://ghcr.io/chroma-core/chroma
   - https://github.com/chroma-core/chroma
   - https://github.com/truecharts/charts/tree/master/charts/stable/chroma
-  - https://ghcr.io/chroma-core/chroma
 type: application
 version: 3.1.2

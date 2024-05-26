@@ -25,16 +25,16 @@ keywords:
   - photo
   - gallery
   - image
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: pixapop
 sources:
-  - https://github.com/linuxserver/docker-pixapop
-  - https://github.com/bierdok/pixapop
-  - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
   - https://ghcr.io/linuxserver/pixapop
+  - https://github.com/bierdok/pixapop
+  - https://github.com/linuxserver/docker-pixapop
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
 type: application
 version: 11.0.7

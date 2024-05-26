@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.webp
 keywords:
   - calibre
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: calibre
 sources:
+  - https://ghcr.io/linuxserver/calibre
   - https://github.com/kovidgoyal/calibre/
   - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
-  - https://ghcr.io/linuxserver/calibre
 type: application
 version: 15.2.0

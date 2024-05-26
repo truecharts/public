@@ -31,15 +31,15 @@ keywords:
   - cert-manager
   - certificates
   - security
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: cert-manager
 sources:
-  - https://github.com/cert-manager
   - https://cert-manager.io/
+  - https://github.com/cert-manager
   - https://github.com/truecharts/charts/tree/master/charts/system/cert-manager
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application

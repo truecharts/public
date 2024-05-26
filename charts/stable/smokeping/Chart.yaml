@@ -24,15 +24,15 @@ keywords:
   - smokeping
   - network
   - latency
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: smokeping
 sources:
-  - https://oss.oetiker.ch/smokeping/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/smokeping
   - https://ghcr.io/linuxserver/smokeping
+  - https://github.com/truecharts/charts/tree/master/charts/stable/smokeping
+  - https://oss.oetiker.ch/smokeping/
 type: application
 version: 11.0.10

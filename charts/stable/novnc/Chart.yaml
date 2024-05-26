@@ -25,15 +25,15 @@ keywords:
   - vnc
   - remote
   - desktop
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: novnc
 sources:
-  - https://novnc.com/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
   - https://ghcr.io/nicholaswilde/novnc
+  - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
+  - https://novnc.com/
 type: application
 version: 11.0.7

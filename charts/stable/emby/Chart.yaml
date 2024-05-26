@@ -24,15 +24,15 @@ keywords:
   - jellyfin
   - plex
   - emby
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: emby
 sources:
+  - https://ghcr.io/geek-cookbook/emby
   - https://github.com/linuxserver/docker-emby.git
   - https://github.com/truecharts/charts/tree/master/charts/stable/emby
-  - https://ghcr.io/geek-cookbook/emby
 type: application
 version: 19.0.9

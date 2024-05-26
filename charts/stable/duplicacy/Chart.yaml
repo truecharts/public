@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicacy.webp
 keywords:
   - duplicacy
   - Backup
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: duplicacy
 sources:
-  - https://hotio.dev/containers/duplicacy
-  - https://github.com/truecharts/charts/tree/master/charts/stable/duplicacy
   - https://ghcr.io/hotio/duplicacy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/duplicacy
+  - https://hotio.dev/containers/duplicacy
 type: application
 version: 7.0.8

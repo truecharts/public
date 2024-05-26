@@ -24,15 +24,15 @@ keywords:
   - external-ip
   - Network-Management
   - Network-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: external-ip
 sources:
-  - https://github.com/xavier-hernandez/docker-external-ip
   - https://github.com/truecharts/charts/tree/master/charts/stable/external-ip
+  - https://github.com/xavier-hernandez/docker-external-ip
   - https://hub.docker.com/r/xavierh/external-ip
 type: application
 version: 6.0.7
