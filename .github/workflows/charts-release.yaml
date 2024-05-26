@@ -160,7 +160,8 @@ jobs:
 
           for i in "${CHARTS[@]}"
           do
-            # TODO: remove any changelog stuff from this script
+            # TODO: Remove any changelog stuff from this script
+            # TODO: Move all website docs structure generation to charttool
             ./.github/scripts/chart-docs.sh "$i"
           done
 
