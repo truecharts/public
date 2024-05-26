@@ -113,18 +113,12 @@ jobs:
           export CHARTS_DIR="./charts"
           export JSON_FILE="changelog.json"
           if [ -f "$JSON_FILE.gz" ]; then
-            gunzip "$JSON_FILE.gz"
+            gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
 
           ./charttool "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
           gzip "$JSON_FILE" --best
       
-      #    export GOBIN=/usr/local/bin/
-      #    go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
-      #    CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-      #    parthreads=$(($(nproc) * 2))
-      #    parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
-
       - name: Fix Pre-Commit issues
         shell: bash
         if: |
