@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/premium/custom-app
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.webp
 keywords:
   - custom
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: custom-app
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/premium/custom-app
   - https://ghcr.io/linuxserver/jackett
+  - https://github.com/truecharts/charts/tree/master/charts/premium/custom-app
 type: application
 version: 13.0.6

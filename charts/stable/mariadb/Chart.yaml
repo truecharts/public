@@ -25,17 +25,17 @@ keywords:
   - mysql
   - database
   - sql
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: mariadb
 sources:
-  - https://github.com/prometheus/mysqld_exporter
-  - https://mariadb.org
   - https://github.com/bitnami/bitnami-docker-mariadb
+  - https://github.com/prometheus/mysqld_exporter
   - https://github.com/truecharts/charts/tree/master/charts/stable/mariadb
   - https://hub.docker.com/r/bitnami/mariadb
+  - https://mariadb.org
 type: application
 version: 14.0.10

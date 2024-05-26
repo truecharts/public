@@ -25,15 +25,15 @@ keywords:
   - nvr
   - media
   - frigate
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: frigate
 sources:
+  - https://ghcr.io/blakeblackshear/frigate
   - https://github.com/blakeblackshear/frigate
   - https://github.com/truecharts/charts/tree/master/charts/stable/frigate
-  - https://ghcr.io/blakeblackshear/frigate
 type: application
 version: 15.0.6

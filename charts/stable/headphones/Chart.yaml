@@ -24,16 +24,16 @@ keywords:
   - headphones
   - music
   - downloader
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: headphones
 sources:
+  - https://ghcr.io/linuxserver/headphones
   - https://github.com/linuxserver/docker-headphones
   - https://github.com/rembo10/headphones
   - https://github.com/truecharts/charts/tree/master/charts/stable/headphones
-  - https://ghcr.io/linuxserver/headphones
 type: application
 version: 12.0.6

@@ -24,15 +24,15 @@ keywords:
   - slskd
   - music
   - soulseek
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: slskd
 sources:
+  - https://ghcr.io/slskd/slskd
   - https://github.com/ansible-slskd/slskd
   - https://github.com/truecharts/charts/tree/master/charts/incubator/slskd
-  - https://ghcr.io/slskd/slskd
 type: application
 version: 1.0.4

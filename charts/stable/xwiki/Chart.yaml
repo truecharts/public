@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/xwiki.webp
 keywords:
   - xwiki
   - wiki
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: xwiki
 sources:
-  - https://github.com/xwiki/xwiki-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/xwiki
+  - https://github.com/xwiki/xwiki-docker
   - https://hub.docker.com/_/xwiki
 type: application
 version: 13.1.5

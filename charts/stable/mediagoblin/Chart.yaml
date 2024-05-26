@@ -17,21 +17,21 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "MediaGoblin is a free software media publishing platform that anyone can run. You can think of it as a decentralized alternative to Flickr, YouTube, SoundCloud, etc. [br][br][b][u][span style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]"
+description: 'MediaGoblin is a free software media publishing platform that anyone can run. You can think of it as a decentralized alternative to Flickr, YouTube, SoundCloud, etc. [br][br][b][u][span style=''color: #ff9900;'']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]'
 home: https://truecharts.org/charts/stable/mediagoblin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mediagoblin.webp
 keywords:
   - mediagoblin
   - MediaApp-Photos
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: mediagoblin
 sources:
-  - https://mediagoblin.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/mediagoblin
   - https://hub.docker.com/r/mtlynch/mediagoblin
+  - https://mediagoblin.org/
 type: application
 version: 6.0.7

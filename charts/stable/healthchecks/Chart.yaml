@@ -24,15 +24,15 @@ keywords:
   - cron
   - monitoring
   - alert
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: healthchecks
 sources:
+  - https://ghcr.io/linuxserver/healthchecks
   - https://github.com/healthchecks/healthchecks
   - https://github.com/truecharts/charts/tree/master/charts/stable/healthchecks
-  - https://ghcr.io/linuxserver/healthchecks
 type: application
 version: 15.0.10

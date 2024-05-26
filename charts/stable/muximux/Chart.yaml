@@ -25,16 +25,16 @@ keywords:
   - htpc
   - manage
   - portal
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: muximux
 sources:
-  - https://github.com/mescon/Muximux
-  - https://github.com/linuxserver/docker-muximux
-  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
   - https://ghcr.io/linuxserver/muximux
+  - https://github.com/linuxserver/docker-muximux
+  - https://github.com/mescon/Muximux
+  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
 type: application
 version: 11.0.7

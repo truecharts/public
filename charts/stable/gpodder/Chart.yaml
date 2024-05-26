@@ -24,15 +24,15 @@ keywords:
   - gpodder
   - Downloaders
   - MediaApp-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: gpodder
 sources:
-  - https://gpodder.github.io/
   - https://github.com/truecharts/charts/tree/master/charts/stable/gpodder
+  - https://gpodder.github.io/
   - https://hub.docker.com/r/xthursdayx/gpodder-docker
 type: application
 version: 6.0.7

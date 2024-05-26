@@ -26,16 +26,16 @@ keywords:
   - sftp
   - ftps
   - client
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: filezilla
 sources:
-  - https://github.com/linuxserver/docker-filezilla
   - https://filezilla-project.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
   - https://ghcr.io/linuxserver/filezilla
+  - https://github.com/linuxserver/docker-filezilla
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
 type: application
 version: 12.1.0

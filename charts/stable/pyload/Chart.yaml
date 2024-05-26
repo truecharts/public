@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload.webp
 keywords:
   - pyload
   - download
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: pyload
 sources:
+  - https://ghcr.io/linuxserver/pyload
   - https://github.com/pyload/pyload
   - https://github.com/truecharts/charts/tree/master/charts/stable/pyload
-  - https://ghcr.io/linuxserver/pyload
 type: application
 version: 14.0.6

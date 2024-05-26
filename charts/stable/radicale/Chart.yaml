@@ -28,17 +28,17 @@ keywords:
   - contacts
   - tasks
   - to-do
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: radicale
 sources:
-  - https://github.com/tomsquest/docker-radicale
-  - https://radicale.org/
   - https://github.com/Kozea/Radicale
+  - https://github.com/tomsquest/docker-radicale
   - https://github.com/truecharts/charts/tree/master/charts/stable/radicale
   - https://hub.docker.com/r/tomsquest/docker-radicale
+  - https://radicale.org/
 type: application
 version: 6.1.0

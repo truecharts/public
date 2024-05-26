@@ -24,16 +24,16 @@ keywords:
   - recipes
   - kitchen
   - grocery
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: kitchenowl
 sources:
-  - https://tombursch.github.io/kitchenowl
   - https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
-  - https://hub.docker.com/r/tombursch/kitchenowl-web
   - https://hub.docker.com/r/tombursch/kitchenowl
+  - https://hub.docker.com/r/tombursch/kitchenowl-web
+  - https://tombursch.github.io/kitchenowl
 type: application
 version: 10.0.7

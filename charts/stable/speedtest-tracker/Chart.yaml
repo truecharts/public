@@ -30,16 +30,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.webp
 keywords:
   - speedtest
   - speedtest-tracker
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: speedtest-tracker
 sources:
+  - https://ghcr.io/linuxserver/speedtest-tracker
   - https://github.com/alexjustesen/speedtest-tracker
   - https://github.com/linuxserver/docker-speedtest-tracker
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
-  - https://ghcr.io/linuxserver/speedtest-tracker
 type: application
 version: 2.1.6

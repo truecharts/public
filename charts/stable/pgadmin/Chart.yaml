@@ -24,15 +24,15 @@ keywords:
   - pgadmin
   - db
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: pgadmin
 sources:
-  - https://www.pgadmin.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pgadmin
   - https://hub.docker.com/r/dpage/pgadmin4
+  - https://www.pgadmin.org/
 type: application
 version: 16.1.2

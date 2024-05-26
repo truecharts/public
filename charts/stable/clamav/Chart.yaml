@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/clamav.webp
 keywords:
   - clamav
   - antivirus
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: clamav
 sources:
-  - https://github.com/Cisco-Talos/clamav
   - https://docs.clamav.net/
+  - https://github.com/Cisco-Talos/clamav
   - https://github.com/truecharts/charts/tree/master/charts/stable/clamav
   - https://hub.docker.com/r/clamav/clamav
 type: application

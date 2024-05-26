@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/recyclarr.webp
 keywords:
   - recyclarr
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: recyclarr
 sources:
-  - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
-  - https://github.com/recyclarr/recyclarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr
   - https://ghcr.io/recyclarr/recyclarr
+  - https://github.com/recyclarr/recyclarr
+  - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr
 type: application
 version: 10.0.6

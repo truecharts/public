@@ -24,16 +24,16 @@ keywords:
   - sia-daemon
   - Cloud
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: sia-daemon
 sources:
-  - https://github.com/siafoundation/siad
-  - https://github.com/SiaFoundation/siad/pkgs/container/siad
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sia-daemon
   - https://ghcr.io/siafoundation/siad
+  - https://github.com/SiaFoundation/siad/pkgs/container/siad
+  - https://github.com/siafoundation/siad
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sia-daemon
 type: application
 version: 6.0.6

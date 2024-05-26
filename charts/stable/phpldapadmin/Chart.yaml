@@ -24,15 +24,15 @@ keywords:
   - phpldapadmin
   - openldap
   - userrights
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: phpldapadmin
 sources:
-  - https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
   - https://github.com/truecharts/charts/tree/master/charts/stable/phpldapadmin
+  - https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
   - https://hub.docker.com/r/osixia/phpldapadmin
 type: application
 version: 14.0.7
