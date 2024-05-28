@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mongodb
-    version: 12.8.8
+    version: 12.8.18
     repository: oci://tccr.io/truecharts
     condition: mongodb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
   - https://hub.docker.com/_/mongo-express
 type: application
-version: 7.0.10
+version: 7.0.11
