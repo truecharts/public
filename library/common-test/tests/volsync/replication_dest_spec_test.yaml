@@ -113,3 +113,134 @@ tests:
                 fsGroup: 568
                 runAsUser: 568
                 runAsGroup: 568
+
+  - it: should generate correct spec with storageClassName
+    set:
+      persistence:
+        destbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: true
+                storageClassName: somestorageclass
+              src:
+                enabled: false
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: spec
+          value:
+            trigger:
+              manual: restore-once
+            restic:
+              repository: test-release-name-common-test-destbackup-volsync-mybackup1
+              copyMethod: Clone
+              capacity: 100Gi
+              accessModes:
+                - ReadWriteOnce
+              storageClassName: somestorageclass
+              moverSecurityContext:
+                fsGroup: 568
+                runAsUser: 568
+                runAsGroup: 568
+
+  - it: should generate correct spec with volumeSnapshotClass
+    set:
+      persistence:
+        destbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: true
+                volumeSnapshotClassName: somevsc
+              src:
+                enabled: false
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: spec
+          value:
+            trigger:
+              manual: restore-once
+            restic:
+              repository: test-release-name-common-test-destbackup-volsync-mybackup1
+              copyMethod: Clone
+              capacity: 100Gi
+              accessModes:
+                - ReadWriteOnce
+              volumeSnapshotClassName: somevsc
+              moverSecurityContext:
+                fsGroup: 568
+                runAsUser: 568
+                runAsGroup: 568
+
+  - it: should generate correct spec with volumeSnapshotClass and StorageClass
+    set:
+      persistence:
+        destbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: true
+                storageClassName: somestorageclass
+                volumeSnapshotClassName: somevsc
+              src:
+                enabled: false
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: spec
+          value:
+            trigger:
+              manual: restore-once
+            restic:
+              repository: test-release-name-common-test-destbackup-volsync-mybackup1
+              copyMethod: Clone
+              capacity: 100Gi
+              accessModes:
+                - ReadWriteOnce
+              storageClassName: somestorageclass
+              volumeSnapshotClassName: somevsc
+              moverSecurityContext:
+                fsGroup: 568
+                runAsUser: 568
+                runAsGroup: 568
