@@ -49,8 +49,14 @@ workload:
             VALIDATE: "false"
           probes:
             liveness:
+              enabled: true
+              type: tcp
               port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
             readiness:
+              eabled: true
+              type: tcp
               port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
             startup:
+              enabled: true
+              type: tcp
               port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
