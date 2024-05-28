@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 7.0.11
 dependencies:
   - name: common
-    version: 23.0.9
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/bitnami/mongodb
   - https://www.mongodb.com
 type: application
-version: 13.0.11
+version: 13.0.12
