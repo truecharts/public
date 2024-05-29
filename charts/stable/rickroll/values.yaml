@@ -14,7 +14,6 @@ service:
       main:
         protocol: http
         port: 10289
-        targetPort: 8080
 workload:
   main:
     podSpec:
@@ -28,7 +27,7 @@ workload:
             startup:
               type: http
           env:
-            PORT: 8080
+            PORT: "{{ .Values.service.main.ports.main.port }}"
             TITLE: "Rickroll"
             HEIGHT: "100vh"
             WIDTH: "100%"
