@@ -12,6 +12,20 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: speedtest-exporter
+    group: App Configuration
+    label: speedtest-exporter Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: interval
+          label: Interval
+          description: "This sets how often the speed test runs"
+          schema:
+            type: string
+            default: 1h
+            required: true
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
