@@ -3,7 +3,7 @@ image:
   tag: v3.5.4@sha256:f1064d49124c7fc45faabb87c6c876a2fd04e92b3dc14d4b871301217ba30fed
   pullPolicy: IfNotPresent
 
-speedtest-exporter:
+speedtest_exporter:
   interval: 1h
 
 service:
@@ -26,7 +26,7 @@ metrics:
     endpoints:
       - port: main
         path: /metrics
-        interval: "{{ .Values.speedtest-exporter.interval }}"
+        interval: "{{ .Values.speedtest_exporter.interval }}"
         scrapeTimeout: 60s
 
     prometheusRule:
