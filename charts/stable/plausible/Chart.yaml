@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2.0.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: clickhouse
-    version: 13.1.2
+    version: 13.1.4
     repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://plausible.io/
   - https://plausible.io/docs/self-hosting
 type: application
-version: 11.2.5
+version: 11.2.9
