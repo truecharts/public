@@ -61,7 +61,6 @@ jobs:
   automerge-and-approve:
     needs:
       - pr-changes
-      - catalog-test
       - charts-test
       - charts-lint
       - print_head_msg
