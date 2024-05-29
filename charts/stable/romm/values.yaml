@@ -75,9 +75,13 @@ persistence:
   resources:
     enabled: true
     mountPath: /romm/resources
-  logs:
+  config:
     enabled: true
-    mountPath: /romm/logs
+    mountPath: /romm/config
+  assets:
+    enabled: true
+    mountPath: /romm/assets
+
 
 mariadb:
   enabled: true
