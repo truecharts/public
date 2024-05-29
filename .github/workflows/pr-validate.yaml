@@ -74,7 +74,7 @@ jobs:
       - charts-test
       - charts-lint
       - print_head_msg
-    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) || github.event.issue.user.login == 'allcontributors' || github.event.issue.user.login == 'allcontributors[bot]' }}
+    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) || contains( needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc' ) }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     continue-on-error: true
