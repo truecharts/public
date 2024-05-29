@@ -20,6 +20,8 @@ questions:
                                         description: Full (Upstream default)
                                       - value: liteImage
                                         description: Lite
+                                      - value: nvidiaImage
+                                        description: Full with Nvidia Cuda
                                 - variable: env
                                   label: Image Environment
                                   schema:

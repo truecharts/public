@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.2.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - davos
   - ftp
   - automation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: davos
 sources:
-  - https://github.com/linuxserver/docker-davos
-  - https://github.com/linuxserver/davos/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/davos
   - https://ghcr.io/linuxserver/davos
+  - https://github.com/linuxserver/davos/
+  - https://github.com/linuxserver/docker-davos
+  - https://github.com/truecharts/charts/tree/master/charts/stable/davos
 type: application
-version: 13.0.6
+version: 13.0.12

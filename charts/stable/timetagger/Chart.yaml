@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 24.4.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/timetagger.webp
 keywords:
   - time
   - timetagger
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: timetagger
 sources:
-  - https://timetagger.app
+  - https://ghcr.io/almarklein/timetagger
   - https://github.com/almarklein/timetagger
   - https://github.com/truecharts/charts/tree/master/charts/stable/timetagger
-  - https://ghcr.io/almarklein/timetagger
+  - https://timetagger.app
 type: application
-version: 7.0.5
+version: 7.0.9

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - music
   - deemix
   - deezer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: deemix
 sources:
   - https://git.freezerapp.xyz/RemixDev/deemix-py
-  - https://gitlab.com/Bockiii/deemix-docker.git
   - https://github.com/truecharts/charts/tree/master/charts/stable/deemix
+  - https://gitlab.com/Bockiii/deemix-docker.git
 type: application
-version: 11.0.5
+version: 11.0.9

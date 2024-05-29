@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.1.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,16 +25,16 @@ keywords:
   - shortener
   - shorten
   - shorturl
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: shorturl
 sources:
-  - https://github.com/prologic/shorturl
-  - https://github.com/nicholaswilde/docker-shorturl
-  - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
   - https://ghcr.io/nicholaswilde/shorturl
+  - https://github.com/nicholaswilde/docker-shorturl
+  - https://github.com/prologic/shorturl
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
 type: application
-version: 11.0.4
+version: 11.0.8

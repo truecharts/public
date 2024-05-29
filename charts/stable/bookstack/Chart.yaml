@@ -7,17 +7,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.02.20240304
+appVersion: 24.05.20240520
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.6
+    version: 14.0.10
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -34,15 +34,15 @@ keywords:
   - organizer
   - server
   - hosted
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: bookstack
 sources:
-  - https://www.bookstackapp.com/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://ghcr.io/linuxserver/bookstack
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
+  - https://www.bookstackapp.com/
 type: application
-version: 14.1.0
+version: 14.2.11

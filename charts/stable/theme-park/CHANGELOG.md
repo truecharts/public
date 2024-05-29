@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [theme-park-3.0.0](https://github.com/truecharts/charts/compare/theme-park-2.0.26...theme-park-3.0.0) (2022-11-10)

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.22.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,17 +29,17 @@ home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.webp
 keywords:
   - vikunja
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: vikunja
 sources:
-  - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/_/nginx
+  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/r/vikunja/frontend
+  - https://vikunja.io/docs
 type: application
-version: 14.1.0
+version: 14.1.7

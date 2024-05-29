@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/anything-llm.webp
 keywords:
   - anything-llm
   - ai
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: anything-llm
 sources:
+  - https://ghcr.io/mintplex-labs/anything-llm
   - https://github.com/Mintplex-Labs/anything-llm
   - https://github.com/truecharts/charts/tree/master/charts/stable/anything-llm
-  - https://ghcr.io/mintplex-labs/anything-llm
 type: application
-version: 2.0.6
+version: 2.0.19

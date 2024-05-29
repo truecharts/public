@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.3.1
+appVersion: 2.4.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,15 +26,15 @@ keywords:
   - tracker
   - parents
   - parenting
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: babybuddy
 sources:
+  - https://ghcr.io/linuxserver/babybuddy
   - https://github.com/babybuddy/babybuddy
   - https://github.com/truecharts/charts/tree/master/charts/stable/babybuddy
-  - https://ghcr.io/linuxserver/babybuddy
 type: application
-version: 17.0.6
+version: 17.1.6

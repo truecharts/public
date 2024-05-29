@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,15 +26,15 @@ keywords:
   - Productivity
   - Tools-Utilities
   - Drivers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: debian-apt-mirror
 sources:
-  - https://www.debian.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/debian-apt-mirror
   - https://hub.docker.com/r/ich777/debian-mirror
+  - https://www.debian.org/
 type: application
-version: 6.0.5
+version: 6.0.9

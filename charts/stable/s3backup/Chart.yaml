@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,15 +24,15 @@ keywords:
   - s3backup
   - Backup
   - Cloud
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: s3backup
 sources:
-  - https://registry.hub.docker.com/r/joch/s3backup/
   - https://github.com/truecharts/charts/tree/master/charts/stable/s3backup
   - https://hub.docker.com/r/joch/s3backup
+  - https://registry.hub.docker.com/r/joch/s3backup/
 type: application
-version: 6.0.4
+version: 6.0.8

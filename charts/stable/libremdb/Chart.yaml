@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,7 +31,7 @@ keywords:
   - libremdb
   - media
   - imdb
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,8 +39,8 @@ maintainers:
 name: libremdb
 sources:
   - https://github.com/PussTheCat-org/docker-libremdb-quay
-  - https://github.com/zyachel/libremdb
   - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+  - https://github.com/zyachel/libremdb
   - https://quay.io/pussthecatorg/libremdb
 type: application
-version: 8.1.1
+version: 8.1.61

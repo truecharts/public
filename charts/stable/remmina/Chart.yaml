@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.4.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,16 +25,16 @@ keywords:
   - remote
   - desktop
   - client
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: remmina
 sources:
-  - https://github.com/linuxserver/docker-remmina
-  - https://remmina.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
   - https://ghcr.io/linuxserver/remmina
+  - https://github.com/linuxserver/docker-remmina
+  - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
+  - https://remmina.org/
 type: application
-version: 11.0.5
+version: 11.0.12

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.13.11
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/double-take.webp
 keywords:
   - ai
   - double-take
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/double-take
   - https://hub.docker.com/r/skrashevich/double-take
 type: application
-version: 11.0.5
+version: 11.0.9

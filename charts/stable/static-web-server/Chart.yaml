@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.30.0
+appVersion: 2.31.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - web-server
   - apache
   - rust
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: static-web-server
 sources:
-  - https://static-web-server.net
+  - https://ghcr.io/static-web-server/static-web-server
   - https://github.com/static-web-server/static-web-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
-  - https://ghcr.io/static-web-server/static-web-server
+  - https://static-web-server.net
 type: application
-version: 5.1.0
+version: 5.2.4

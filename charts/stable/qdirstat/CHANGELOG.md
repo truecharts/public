@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [qdirstat-2.0.0](https://github.com/truecharts/charts/compare/qdirstat-1.0.21...qdirstat-2.0.0) (2022-11-10)

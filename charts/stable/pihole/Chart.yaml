@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.03.2
+appVersion: 2024.05.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/pihole
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.webp
 keywords:
   - DNS
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +31,8 @@ name: pihole
 sources:
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
-  - https://pi-hole.net/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
   - https://hub.docker.com/r/pihole/pihole
+  - https://pi-hole.net/
 type: application
-version: 17.0.5
+version: 17.1.4

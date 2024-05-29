@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.1.9.1
+appVersion: 3.2.0.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -28,17 +28,17 @@ keywords:
   - contacts
   - tasks
   - to-do
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: radicale
 sources:
-  - https://github.com/tomsquest/docker-radicale
-  - https://radicale.org/
   - https://github.com/Kozea/Radicale
+  - https://github.com/tomsquest/docker-radicale
   - https://github.com/truecharts/charts/tree/master/charts/stable/radicale
   - https://hub.docker.com/r/tomsquest/docker-radicale
+  - https://radicale.org/
 type: application
-version: 6.0.4
+version: 6.1.2

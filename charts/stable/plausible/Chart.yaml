@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2.0.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: clickhouse
-    version: 13.1.0
+    version: 13.1.4
     repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
@@ -30,18 +30,18 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.webp
 keywords:
   - plausible
   - analytics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: plausible
 sources:
-  - https://plausible.io/docs/self-hosting
   - https://github.com/plausible/analytics
   - https://github.com/plausible/hosting
-  - https://plausible.io/
   - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
   - https://hub.docker.com/r/plausible/analytics
+  - https://plausible.io/
+  - https://plausible.io/docs/self-hosting
 type: application
-version: 11.2.0
+version: 11.2.9

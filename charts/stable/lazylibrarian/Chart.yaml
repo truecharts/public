@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.webp
 keywords:
   - lazylibrarian
   - ebooks
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: lazylibrarian
 sources:
-  - https://lazylibrarian.gitlab.io
-  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
   - https://ghcr.io/linuxserver/lazylibrarian
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
+  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+  - https://lazylibrarian.gitlab.io
 type: application
-version: 19.0.6
+version: 19.0.14

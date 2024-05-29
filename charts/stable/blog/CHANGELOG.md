@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [blog-4.0.0](https://github.com/truecharts/charts/compare/blog-3.0.51...blog-4.0.0) (2022-11-10)

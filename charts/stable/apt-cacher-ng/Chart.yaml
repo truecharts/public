@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.7.4
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,15 +25,15 @@ keywords:
   - Network-Proxy
   - Network-Other
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: apt-cacher-ng
 sources:
-  - https://www.unix-ag.uni-kl.de/~bloch/acng/
   - https://github.com/truecharts/charts/tree/master/charts/stable/apt-cacher-ng
   - https://hub.docker.com/r/sameersbn/apt-cacher-ng
+  - https://www.unix-ag.uni-kl.de/~bloch/acng/
 type: application
-version: 9.0.5
+version: 9.0.9

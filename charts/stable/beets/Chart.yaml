@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.6.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ keywords:
   - manager
   - player
   - beets
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,8 +34,8 @@ maintainers:
 name: beets
 sources:
   - https://beets.io/
+  - https://ghcr.io/linuxserver/beets
   - https://github.com/linuxserver/docker-beets
   - https://github.com/truecharts/charts/tree/master/charts/stable/beets
-  - https://ghcr.io/linuxserver/beets
 type: application
-version: 12.0.5
+version: 12.0.12

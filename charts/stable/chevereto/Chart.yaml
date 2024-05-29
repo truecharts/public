@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.6.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.6
+    version: 14.0.10
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -29,16 +29,16 @@ home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.webp
 keywords:
   - chevereto
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: chevereto
 sources:
-  - https://github.com/rodber/chevereto-free
   - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
-  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
   - https://ghcr.io/rodber/chevereto-free
+  - https://github.com/rodber/chevereto-free
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
 type: application
-version: 13.1.0
+version: 13.1.8

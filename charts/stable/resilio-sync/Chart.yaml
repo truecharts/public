@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.7.3
+appVersion: 2.8.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,15 +25,15 @@ keywords:
   - sync
   - btsync
   - bittorrent
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: resilio-sync
 sources:
+  - https://ghcr.io/linuxserver/resilio-sync
   - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
   - https://github.com/truecharts/charts/tree/master/charts/stable/resilio-sync
-  - https://ghcr.io/linuxserver/resilio-sync
 type: application
-version: 15.0.5
+version: 15.1.7

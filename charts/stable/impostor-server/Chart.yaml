@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.9.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/impostor-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/impostor-server.webp
 keywords:
   - impostor-server
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/impostor-server
   - https://hub.docker.com/r/aeonlucid/impostor
 type: application
-version: 9.0.5
+version: 9.0.10

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [syncthing-12.0.0](https://github.com/truecharts/charts/compare/syncthing-11.0.47...syncthing-12.0.0) (2022-11-10)

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 5.1.5
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/webgrabplus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webgrabplus.webp
 keywords:
   - webgrabplus
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: webgrabplus
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/webgrabplus
   - https://ghcr.io/linuxserver/webgrabplus
+  - https://github.com/truecharts/charts/tree/master/charts/stable/webgrabplus
 type: application
-version: 10.0.5
+version: 10.0.12

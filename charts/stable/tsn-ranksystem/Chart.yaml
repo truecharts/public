@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.6
+    version: 14.0.10
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -31,7 +31,7 @@ keywords:
   - teamspeak
   - tsn-ranksystem
   - ranksystem
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,9 +39,9 @@ maintainers:
 name: tsn-ranksystem
 sources:
   - https://github.com/JohannesBauer97/tsn-ranksystem-webserver
-  - https://ts-ranksystem.com/
   - https://github.com/Newcomer1989/TSN-Ranksystem
   - https://github.com/truecharts/charts/tree/master/charts/stable/tsn-ranksystem
   - https://hub.docker.com/r/serverlein/tsn-ranksystem-webserver
+  - https://ts-ranksystem.com/
 type: application
-version: 2.1.0
+version: 2.1.9

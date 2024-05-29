@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: ee8a20c
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,16 +25,16 @@ keywords:
   - web
   - filesystem
   - static
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: static
 sources:
-  - https://github.com/prologic/static
-  - https://github.com/nicholaswilde/docker-static
-  - https://github.com/truecharts/charts/tree/master/charts/stable/static
   - https://ghcr.io/nicholaswilde/static
+  - https://github.com/nicholaswilde/docker-static
+  - https://github.com/prologic/static
+  - https://github.com/truecharts/charts/tree/master/charts/stable/static
 type: application
-version: 11.0.4
+version: 11.0.8

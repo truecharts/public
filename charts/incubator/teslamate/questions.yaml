@@ -49,7 +49,6 @@ questions:
                                           type: string
                                           private: true
                                           show_if: [["DISABLE_MQTT", "=", false]]
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -75,13 +74,11 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10038
+                              default: 4000
                               required: true
 # Include{externalInterfaces}
 
 # Include{serviceList}
-# Include{persistenceRoot}
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -116,11 +113,10 @@ questions:
                   type: int
                   default: 568
 # Include{resources}
-# Include{metrics}
-# Include{prometheusRule}
+# Include{postgresql}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{netshoot}
 # Include{vpn}
+# Include{netshoot}
 # Include{documentation}

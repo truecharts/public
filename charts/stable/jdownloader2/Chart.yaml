@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 24.01.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/jdownloader2.webp
 keywords:
   - jdownloader
   - download
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jdownloader2
 sources:
-  - https://jdownloader.org/
   - https://github.com/jlesage/docker-jdownloader-2
   - https://github.com/truecharts/charts/tree/master/charts/stable/jdownloader2
   - https://hub.docker.com/r/jlesage/jdownloader-2
+  - https://jdownloader.org/
 type: application
-version: 17.0.4
+version: 17.0.8
