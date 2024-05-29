@@ -499,3 +499,10 @@ portal:
   open:
     enabled: true
     path: /dashboard/
+ingress:
+  main:
+    integrations:
+      homepage:
+        href: https://{{  ( index .Values.ingress.main.hosts 0 ).host  }}/dashboard/
+        widget:
+          type: traefik
