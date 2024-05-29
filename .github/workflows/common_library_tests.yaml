@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.12.1
           - v3.14.4
     steps:
       - name: Checkout
