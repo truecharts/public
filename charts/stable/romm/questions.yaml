@@ -102,9 +102,17 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: logs
-          label: App Logs Storage
-          description: Stores the Application Logs.
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Config.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: assets
+          label: App Assets Storage
+          description: Stores the Assets Config.
           schema:
             additional_attrs: true
             type: dict
