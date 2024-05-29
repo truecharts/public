@@ -53,7 +53,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
             readiness:
-              eabled: true
+              enabled: true
               type: tcp
               port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
             startup:
