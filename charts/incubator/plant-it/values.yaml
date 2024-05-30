@@ -1,0 +1,88 @@
+image:
+  repository: msdeluise/plant-it-server
+  pullPolicy: IfNotPresent
+  tag: 0.4.3@sha256:a817573706ff221da8e03d339f84cd009ac94760d9d68682304bec9220e84128
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+            startup:
+              enabled: true
+              type: http
+            readiness:
+              enabled: true
+              type: http
+          env:
+            MYSQL_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            MYSQL_PORT: "5432"
+            MYSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+            MYSQL_PSW: {{ .Values.mariadb.password  }}
+            MYSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            MYSQL_ROOT_PASSWORD: {{  .Values.mariadb.rootPassword  }}
+            JWT_SECRET:
+              - secretRef:
+                  name: secrets
+                  key: PLANTIT_JWT_SECRET
+            JWT_EXP: 1
+            USER_LIMIT: -1
+            UPLOAD_DIR: /upload-dir
+            API_PORT: "{{ .Values.service.main.ports.api.port }}"
+            TREFLE_KEY: ""
+            LOG_LEVEL: INFO
+            ALLOWED_ORIGINS: "*"
+            CACHE_TTL: 86400
+            CACHE_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            CACHE_PORT: 6379
+            SSL_ENABLED: false
+            CERTIFICATE_PATH: /certificates/
+
+
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        targetPort: 3000
+        port: 3000
+      api:
+        enabled: true
+        port: 9701
+
+persistence:
+  upload-dir:
+    enabled: true
+    mountPath: /upload-dir
+  certificates:
+    enabled: true
+    mountPath: /certificates
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: plantit
+  mariadbDatabase: plantit
+
+redis:
+  enabled: true
+  includeCommon: true
+  redisUsername: default
+
+portal:
+  open:
+    enabled: true

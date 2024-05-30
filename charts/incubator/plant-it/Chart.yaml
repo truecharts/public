@@ -1,0 +1,50 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.12
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.6
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Plant-it is a self-hosted gardening companion app.
+home: https://truecharts.org/charts/incubator/plant-it
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plant-it.webp
+keywords:
+  - plant
+  - plant-it
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plant-it
+sources:
+  - https://github.com/MDeLuise/plant-it
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plant-it
+type: application
+version: 0.0.1
