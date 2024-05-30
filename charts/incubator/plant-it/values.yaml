@@ -11,8 +11,9 @@ workload:
           env:
             MYSQL_HOST:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: host
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
             MYSQL_PORT: "5432"
             MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             MYSQL_PSW: "{{ .Values.mariadb.password }}"
