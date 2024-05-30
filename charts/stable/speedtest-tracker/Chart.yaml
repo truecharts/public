@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/linuxserver/docker-speedtest-tracker
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
 type: application
-version: 2.1.9
+version: 2.1.10

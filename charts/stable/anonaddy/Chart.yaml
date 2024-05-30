@@ -24,7 +24,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
   - https://hub.docker.com/r/anonaddy/anonaddy
 type: application
-version: 21.2.9
+version: 21.2.10

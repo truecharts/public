@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/enchant97/hasty-paste/blob/main/docs/install.md
   - https://github.com/truecharts/charts/tree/master/charts/stable/hasty-paste
 type: application
-version: 7.1.4
+version: 7.1.5
