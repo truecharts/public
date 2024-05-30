@@ -35,19 +35,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-              httpHeaders:
-                Host: localhost
-            startup:
-              type: http
-              httpHeaders:
-                Host: localhost
-            readiness:
-              type: http
-              httpHeaders:
-                Host: localhost
           env:
             DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
