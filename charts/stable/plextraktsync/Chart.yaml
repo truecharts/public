@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.30.3
+appVersion: 0.30.10
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: plextraktsync
 sources:
+  - https://ghcr.io/taxel/plextraktsync
   - https://github.com/Taxel/PlexTraktSync
   - https://github.com/truecharts/charts/tree/master/charts/stable/plextraktsync
-  - https://ghcr.io/taxel/plextraktsync
 type: application
-version: 8.1.1
+version: 8.1.11

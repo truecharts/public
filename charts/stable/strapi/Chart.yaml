@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 4.16.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.webp
 keywords:
   - strapi
   - cms
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: strapi
 sources:
-  - https://truecharts.org/charts/stable/strapi
   - https://github.com/naskio/docker-strapi
   - https://github.com/truecharts/charts/tree/master/charts/stable/strapi
   - https://hub.docker.com/r/naskio/strapi
+  - https://truecharts.org/charts/stable/strapi
 type: application
-version: 14.0.4
+version: 14.0.8

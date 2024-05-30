@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [android-8-0-1.0.0](https://github.com/truecharts/charts/compare/android-8-0-0.0.34...android-8-0-1.0.0) (2022-11-10)

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.5.4
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - usenet
   - spotweb
   - spotnet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: spotweb
 sources:
-  - https://github.com/spotweb/spotweb
   - https://github.com/joachimbaten/spotweb-docker
+  - https://github.com/spotweb/spotweb
   - https://github.com/truecharts/charts/tree/master/charts/stable/spotweb
   - https://hub.docker.com/r/jbaten/spotweb
 type: application
-version: 13.0.4
+version: 13.0.8

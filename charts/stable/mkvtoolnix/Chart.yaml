@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 24.05.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: mkvtoolnix
 sources:
-  - https://mkvtoolnix.download/
   - https://github.com/jlesage/docker-mkvtoolnix
   - https://github.com/truecharts/charts/tree/master/charts/stable/mkvtoolnix
   - https://hub.docker.com/r/jlesage/mkvtoolnix
+  - https://mkvtoolnix.download/
 type: application
-version: 11.1.0
+version: 11.1.4

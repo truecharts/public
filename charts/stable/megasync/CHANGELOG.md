@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [megasync-1.0.0](https://github.com/truecharts/charts/compare/megasync-0.0.35...megasync-1.0.0) (2022-11-10)

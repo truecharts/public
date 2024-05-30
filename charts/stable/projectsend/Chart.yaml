@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.6
+    version: 14.0.10
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -37,8 +37,8 @@ maintainers:
     url: https://truecharts.org
 name: projectsend
 sources:
+  - https://ghcr.io/linuxserver/projectsend
   - https://github.com/projectsend/projectsend
   - https://github.com/truecharts/charts/tree/master/charts/stable/projectsend
-  - https://ghcr.io/linuxserver/projectsend
 type: application
-version: 13.1.0
+version: 13.1.12

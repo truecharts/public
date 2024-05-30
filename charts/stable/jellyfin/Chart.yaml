@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 10.8.13
+appVersion: 10.9.3
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: jellyfin
 sources:
+  - https://ghcr.io/jellyfin/jellyfin
   - https://github.com/jellyfin/jellyfin
   - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
-  - https://hub.docker.com/r/jellyfin/jellyfin
   - https://hub.docker.com/r/alpine/socat
 type: application
-version: 19.0.5
+version: 19.1.11

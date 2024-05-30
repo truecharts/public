@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: chronograf
 sources:
-  - https://www.influxdata.com/time-series-platform/chronograf/
   - https://github.com/truecharts/charts/tree/master/charts/stable/chronograf
   - https://hub.docker.com/_/chronograf
+  - https://www.influxdata.com/time-series-platform/chronograf/
 type: application
-version: 6.0.6
+version: 6.0.12

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/telethon-downloader.webp
 keywords:
   - telethon-downloader
   - Downloaders
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/telethon-downloader
   - https://hub.docker.com/r/jsavargas/telethon_downloader
 type: application
-version: 6.0.4
+version: 6.0.8

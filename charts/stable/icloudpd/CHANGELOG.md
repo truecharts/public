@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [icloudpd-1.0.0](https://github.com/truecharts/charts/compare/icloudpd-0.0.46...icloudpd-1.0.0) (2022-11-10)

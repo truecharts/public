@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,9 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: metallb-config
 sources:
-  - https://metallb.universe.tf
   - https://github.com/metallb/metallb
   - https://github.com/truecharts/charts/tree/master/charts/premium/metallb-config
   - https://hub.docker.com/_/hello-world
+  - https://metallb.universe.tf
 type: application
-version: 7.0.5
+version: 7.0.10

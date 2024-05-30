@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ispy-agent-dvr-3.0.0](https://github.com/truecharts/charts/compare/ispy-agent-dvr-2.0.61...ispy-agent-dvr-3.0.0) (2022-11-10)

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 8.6.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: pgadmin
 sources:
-  - https://www.pgadmin.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pgadmin
   - https://hub.docker.com/r/dpage/pgadmin4
+  - https://www.pgadmin.org/
 type: application
-version: 16.1.0
+version: 16.1.4

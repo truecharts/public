@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: main
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/socials.webp
 keywords:
   - socials
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: socials
 sources:
-  - https://github.com/diamkil/socials
-  - https://registry.hub.docker.com/r/diamkil/socials/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/socials
   - https://ghcr.io/diamkil/socials
+  - https://github.com/diamkil/socials
+  - https://github.com/truecharts/charts/tree/master/charts/stable/socials
+  - https://registry.hub.docker.com/r/diamkil/socials/
 type: application
-version: 6.0.4
+version: 6.0.8

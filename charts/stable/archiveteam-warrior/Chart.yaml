@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,14 +25,14 @@ keywords:
   - Backup
   - Cloud
   - Downloaders
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: archiveteam-warrior
 sources:
-  - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
   - https://github.com/truecharts/charts/tree/master/charts/stable/archiveteam-warrior
+  - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
 type: application
-version: 6.0.5
+version: 6.0.10

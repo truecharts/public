@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.1.33
+appVersion: 0.1.39
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,10 +30,10 @@ maintainers:
     url: https://truecharts.org
 name: ollama
 sources:
+  - https://ghcr.io/open-webui/open-webui
   - https://github.com/ollama/ollama
   - https://github.com/open-webui/open-webui
   - https://github.com/truecharts/charts/tree/master/charts/stable/ollama
   - https://hub.docker.com/r/ollama/ollama
-  - https://ghcr.io/open-webui/open-webui
 type: application
-version: 6.0.8
+version: 6.0.31

@@ -1,66 +1,58 @@
 image:
   repository: itzg/minecraft-server
-  tag: 2023.11.1@sha256:cb98ad8c143ab0cf83351ec6a9fd76256152f7b310988f9aa1acfaaf4aacbc77
+  tag: 2024.5.0@sha256:1ff47453ce66194927313d628c32a485c34d0acc9c01c9dbd643584c50cf89e6
   pullPolicy: Always
 j21Image:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java21@sha256:312de713187f40206d2433f6c76c4f1f5efe993dcf7c0f842b8a7e0274bd5edd
+  tag: 2024.5.0-java21@sha256:1ff47453ce66194927313d628c32a485c34d0acc9c01c9dbd643584c50cf89e6
   pullPolicy: Always
 j21graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java21-graalvm@sha256:49d25c5aa26dd67326f4626ae015dcf5033ed6e9178587dce915a04b16de6ac0
+  tag: 2024.5.0-java21-graalvm@sha256:497249e19a9d79b06381ae031ab6be707df9bfa570fbb3c243041e3b436c4bab
   pullPolicy: Always
 j21alpineImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java21-alpine@sha256:18c2c81eff7ce4a630b676f99223fcb8aa20c525f3b8ae1cd6fbf612d5d39cf0
+  tag: 2024.5.0-java21-alpine@sha256:aa06626784a8d6932acec4e49ad319a42844527bacab0db0039a8a1093b62e7f
   pullPolicy: Always
-j17j9Image:
+j17Image:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java17-openj9@sha256:6e3078b58bb3728c0ccdf18402712faab39624cfcc24a72ef237d31579fd2bdc
+  tag: 2024.5.0-java17@sha256:10dad62a01e35a0eeba69e99f9c425ea0c190d19cf1aa35b9c8323819d884067
   pullPolicy: Always
 j17jdkImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java17-jdk@sha256:e8ddd3a22c01937554332dae55bce53a0149740ccf22a6105138126382dfee38
+  tag: 2024.5.0-java17-jdk@sha256:1ce891579630a5a42d0855a7e5b75f67fc56ed4479d68f675ae8ae8a6c1a658d
   pullPolicy: Always
 j17graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java17-graalvm@sha256:1ede29fa5a96bd278d64400f548dde321c7c0762922c1097f17ba5c6a6f047f6
+  tag: 2024.5.0-java17-graalvm@sha256:201f19e4ec865a773133248412db7b19baac80975e865097eff30fee97df8472
   pullPolicy: Always
 j17alpineImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java17-alpine@sha256:c330401db62f07fbf447eef1c269394e8690d6b659f679821315f5c4c6463849
+  tag: 2024.5.0-java17-alpine@sha256:f5ff1496dbb72e38c7a9a8d17de09801547a673a5aeb4fcb2e0d2741d430c4a6
   pullPolicy: Always
 j11Image:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java11@sha256:749a17891fb0a2b211062fc2d7a3dd97e0fc76e71e9a908906ec8310cc8aaf95
-  pullPolicy: Always
-j11jdkImage:
-  repository: itzg/minecraft-server
-  tag: 2023.11.1-java11-jdk@sha256:d8167b33d2da2d8f5ca1e41b9a170c07561b59497b4206140796ba2e98569a2a
-  pullPolicy: Always
-j11j9Image:
-  repository: itzg/minecraft-server
-  tag: 2023.11.1-java11-openj9@sha256:f327ea42b512896544fc7b44f1029d311ebf79312863a2ceb909ea6570ccf410
+  tag: 2024.5.0-java11@sha256:adc511e884945e206b0401a74e394dd4de8ae0f184e9029bd752e2a9c1041ed2
   pullPolicy: Always
 j8Image:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java8@sha256:cf744e3945c3a3c3dd4c4f98e639f9b959c73d6766217dda42fdf91fc9f80b27
+  tag: 2024.5.0-java8@sha256:2d0dab4bc81e0e20b35ff18208b27808e362100b6ab75c87b7ad395be01883f4
   pullPolicy: Always
 j8graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java8-graalvm-ce@sha256:8a878a24266f5d6c8d448b28f8c8bcc6d167cc5f5c10e629913c9a58db0d7cad
+  tag: 2024.5.0-java8-graalvm-ce@sha256:5066dead723873a87344a606c973e825a39fd88993d0fb0ba408aba9cd7688a9
   pullPolicy: Always
 j8jdkImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java8-jdk@sha256:3810bf10ff4f637851a950c47b2c4eb6de377b3afdde25ebcb16d263f536c6dd
+  tag: 2024.5.0-java8-jdk@sha256:36517180605128ffa1aae846ffcd3902e5fd480b599dc3c175a08559334e352a
   pullPolicy: Always
-j8j9Image:
+j8alpineImage:
   repository: itzg/minecraft-server
-  tag: 2023.11.1-java8-openj9@sha256:076c6a872b241df47580064171e67ff6d9b1826134169fe4201c5cedd3456f58
+  tag: 2024.5.0-java8-alpine@sha256:33f47910edf341758f5a18e233f3e185ac3ea6a2765462749ff25a1d8dbeded4
   pullPolicy: Always
 mcBackupImage:
   repository: itzg/mc-backup
-  tag: latest@sha256:db4562d32f37fcf934e1bd42c475081e07a6f181b8318d9b706e0ad692f945f1
+  tag: latest@sha256:9dd26ec090b96193927d224e44afeac1a5d6980505fe5cac54bba6f03b65f34c
   pullPolicy: Always
 
 service:
@@ -245,6 +237,7 @@ workload:
             TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
             ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
             EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
+            SERVER_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
 
 persistence:
   data:

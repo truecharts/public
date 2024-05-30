@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 11.3.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -32,10 +32,10 @@ maintainers:
     url: https://truecharts.org
 name: mariadb
 sources:
-  - https://github.com/prometheus/mysqld_exporter
-  - https://mariadb.org
   - https://github.com/bitnami/bitnami-docker-mariadb
+  - https://github.com/prometheus/mysqld_exporter
   - https://github.com/truecharts/charts/tree/master/charts/stable/mariadb
   - https://hub.docker.com/r/bitnami/mariadb
+  - https://mariadb.org
 type: application
-version: 14.0.6
+version: 14.0.12

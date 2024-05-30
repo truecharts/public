@@ -1,6 +1,6 @@
 image:
   repository: revenz/fileflows
-  tag: 24.04@sha256:2084271c6925dcdb83cab2efa3dc59f05c9fcc8342db581502b15fd08edbaa1e
+  tag: 24.05@sha256:80ed60e39a3c6879f1f3ab55afb854a66d039392292fe49455200d0f2c6326d5
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -8,6 +8,8 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    allowPrivilegeEscalation: true
+    privileged: true
 workload:
   main:
     podSpec:

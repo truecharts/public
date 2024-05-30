@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.29.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,7 +25,7 @@ keywords:
   - ide
   - terminal
   - web
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,8 +33,8 @@ maintainers:
 name: cloud9
 sources:
   - https://aws.amazon.com/cloud9/
+  - https://ghcr.io/linuxserver/cloud9
   - https://github.com/c9/core
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
-  - https://ghcr.io/linuxserver/cloud9
 type: application
-version: 12.0.5
+version: 12.0.9

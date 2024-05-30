@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ffmpeg-mkvdts2ac3-1.0.0](https://github.com/truecharts/charts/compare/ffmpeg-mkvdts2ac3-0.0.34...ffmpeg-mkvdts2ac3-1.0.0) (2022-11-10)

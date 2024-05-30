@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 20240301.0.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,17 +24,17 @@ keywords:
   - teamspeak
   - jts3servermod
   - teamspeak-bot
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jts3servermod
 sources:
-  - https://github.com/galexrt/container-jts3servermod
-  - https://www.stefan1200.de/forum/index.php?PHPSESSID=r0m44032akt9jk7903ru9ejv2f&topic=2.0
-  - https://www.stefan1200.de/documentation/jts3servermod/readme.html
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jts3servermod
   - https://ghcr.io/galexrt/jts3servermod
+  - https://github.com/galexrt/container-jts3servermod
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jts3servermod
+  - https://www.stefan1200.de/documentation/jts3servermod/readme.html
+  - https://www.stefan1200.de/forum/index.php?PHPSESSID=r0m44032akt9jk7903ru9ejv2f&topic=2.0
 type: application
-version: 2.0.5
+version: 2.0.9

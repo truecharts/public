@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,15 +30,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.webp
 keywords:
   - nitter
   - libre
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nitter
 sources:
-  - https://github.com/zedeus/nitter
   - https://github.com/truecharts/charts/tree/master/charts/stable/nitter
+  - https://github.com/zedeus/nitter
   - https://hub.docker.com/r/zedeus/nitter
 type: application
-version: 7.1.0
+version: 7.1.4

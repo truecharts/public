@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [picoshare-3.0.0](https://github.com/truecharts/charts/compare/picoshare-2.0.43...picoshare-3.0.0) (2022-11-10)

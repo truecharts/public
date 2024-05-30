@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.26.3
+appVersion: 2.27.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,16 +25,16 @@ keywords:
   - home-automation
   - zigbee
   - conbee
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: deconz
 sources:
-  - https://github.com/marthoc/docker-deconz
   - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
   - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
   - https://hub.docker.com/r/deconzcommunity/deconz
 type: application
-version: 16.0.5
+version: 16.1.6

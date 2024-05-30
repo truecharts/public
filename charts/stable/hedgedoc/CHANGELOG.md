@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [hedgedoc-5.0.0](https://github.com/truecharts/charts/compare/hedgedoc-4.0.67...hedgedoc-5.0.0) (2022-11-10)

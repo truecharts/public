@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 9.6.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,9 +31,9 @@ maintainers:
     url: https://truecharts.org
 name: mattermost
 sources:
-  - https://github.com/mattermost/mattermost-server
   - https://github.com/mattermost/docker
+  - https://github.com/mattermost/mattermost-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
   - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
 type: application
-version: 13.0.6
+version: 13.0.11

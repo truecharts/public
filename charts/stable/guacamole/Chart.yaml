@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.5.5
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacamole.webp
 keywords:
   - guacamole
   - remote
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/guacamole/guacamole
   - https://hub.docker.com/r/guacamole/guacd
 type: application
-version: 14.0.4
+version: 14.0.8

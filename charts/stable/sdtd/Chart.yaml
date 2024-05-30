@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 7dtd
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: sdtd
 sources:
-  - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/stable/sdtd
   - https://hub.docker.com/r/ich777/steamcmd
+  - https://www.steampowered.com/
 type: application
-version: 8.0.5
+version: 8.0.11

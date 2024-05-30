@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 9.12.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,8 +32,8 @@ maintainers:
     url: https://truecharts.org
 name: zwavejs2mqtt
 sources:
-  - https://github.com/zwave-js/zwavejs2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
+  - https://github.com/zwave-js/zwavejs2mqtt
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
 type: application
-version: 20.1.0
+version: 20.1.4

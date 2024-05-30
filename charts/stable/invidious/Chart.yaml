@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - invidious
   - youtube
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: invidious
 sources:
-  - https://github.com/iv-org/invidious
   - https://docs.invidious.io/installation/#docker
+  - https://github.com/iv-org/invidious
   - https://github.com/truecharts/charts/tree/master/charts/stable/invidious
   - https://quay.io/invidious/invidious
 type: application
-version: 10.0.4
+version: 10.0.8

@@ -1,7 +1,7 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
+  truecharts.org/SCALE-support: "false"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
@@ -28,16 +28,16 @@ keywords:
   - storage
   - snapshot
   - validation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: snapshot-controller
 sources:
+  - https://github.com/kubernetes-csi/external-snapshotter/
   - https://github.com/snapshot-controller/snapshot-controller
   - https://github.com/snapshot-controller/snapshot-controller-helm-chart
-  - https://github.com/kubernetes-csi/external-snapshotter/
   - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
 type: application
-version: 1.0.1
+version: 1.0.2

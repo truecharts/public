@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.10.0
+appVersion: 7.11.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: calibre
 sources:
+  - https://ghcr.io/linuxserver/calibre
   - https://github.com/kovidgoyal/calibre/
   - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
-  - https://ghcr.io/linuxserver/calibre
 type: application
-version: 15.1.0
+version: 15.2.3

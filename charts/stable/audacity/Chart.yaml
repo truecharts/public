@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.0.2
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,16 +26,16 @@ keywords:
   - recorder
   - editor
   - audio
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: audacity
 sources:
-  - https://www.audacityteam.org/
+  - https://ghcr.io/linuxserver/audacity
   - https://github.com/linuxserver/docker-audacity
   - https://github.com/truecharts/charts/tree/master/charts/stable/audacity
-  - https://ghcr.io/linuxserver/audacity
+  - https://www.audacityteam.org/
 type: application
-version: 13.0.5
+version: 13.0.9

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: gpodder
 sources:
-  - https://gpodder.github.io/
   - https://github.com/truecharts/charts/tree/master/charts/stable/gpodder
+  - https://gpodder.github.io/
   - https://hub.docker.com/r/xthursdayx/gpodder-docker
 type: application
-version: 6.0.5
+version: 6.0.9

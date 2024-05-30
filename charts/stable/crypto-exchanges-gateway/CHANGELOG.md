@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [crypto-exchanges-gateway-1.0.0](https://github.com/truecharts/charts/compare/crypto-exchanges-gateway-0.0.35...crypto-exchanges-gateway-1.0.0) (2022-11-10)

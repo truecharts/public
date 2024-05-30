@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.15.1
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,17 +23,17 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/kasm.webp
 keywords:
   - kasm
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: kasm
 sources:
-  - https://www.kasmweb.com/
-  - https://github.com/orgs/linuxserver/packages/container/package/kasm
   - https://github.com/linuxserver/docker-kasm#readme
+  - https://github.com/orgs/linuxserver/packages/container/package/kasm
   - https://github.com/truecharts/charts/tree/master/charts/stable/kasm
   - https://hub.docker.com/r/kasmweb/workspaces
+  - https://www.kasmweb.com/
 type: application
-version: 9.0.5
+version: 9.0.9

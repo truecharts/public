@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [outline-4.0.0](https://github.com/truecharts/charts/compare/outline-3.0.56...outline-4.0.0) (2022-11-10)

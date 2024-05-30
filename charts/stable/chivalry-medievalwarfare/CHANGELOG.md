@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [chowdown-1.0.0](https://github.com/truecharts/charts/compare/chowdown-0.0.34...chowdown-1.0.0) (2022-11-10)

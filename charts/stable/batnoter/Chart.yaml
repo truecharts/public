@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/batnoter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/batnoter.webp
 keywords:
   - notes
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: batnoter
 sources:
+  - https://ghcr.io/batnoter/batnoter/batnoter-ui
   - https://github.com/batnoter/batnoter
   - https://github.com/truecharts/charts/tree/master/charts/stable/batnoter
-  - https://ghcr.io/batnoter/batnoter/batnoter-ui
 type: application
-version: 6.0.5
+version: 6.0.9
