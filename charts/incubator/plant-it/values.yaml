@@ -21,7 +21,7 @@ workload:
             JWT_SECRET: "myjwtsecret"
             JWT_EXP: 1
             USER_LIMIT: -1
-            UPLOAD_DIR: /upload-dir
+            UPLOAD_DIR: /uploads
             API_PORT: "{{ .Values.service.main.ports.api.port }}"
             TREFLE_KEY: ""
             LOG_LEVEL: INFO
