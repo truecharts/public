@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,15 +24,15 @@ keywords:
   - cura-novnc
   - home-automation
   - Productivity
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: cura-novnc
 sources:
-  - https://ultimaker.com/software/ultimaker-cura
   - https://github.com/truecharts/charts/tree/master/charts/stable/cura-novnc
   - https://hub.docker.com/r/mikeah/cura-novnc
+  - https://ultimaker.com/software/ultimaker-cura
 type: application
-version: 9.0.8
+version: 9.0.10

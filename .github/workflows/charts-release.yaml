@@ -36,11 +36,6 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
-      - name: Clean Questions
-        shell: bash
-        run: |
-          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
-
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -57,45 +52,6 @@ jobs:
           git push
           cd -
 
-  release-scale:
-    runs-on: actions-runner-large
-    outputs:
-      ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
-    steps:
-      # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        shell: bash
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir -p "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
-
-      - name: Prep Helm
-        shell: bash
-        run: |
-          ./.github/scripts/prep_helm.sh
-
-      - name: Setting repo parent dir as safe safe.directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-      - name: Collect changes
-        id: collect-changes
-        uses: ./.github/actions/collect-changes
-
       - name: Cache Changelog
         id: cache-changelog
         uses: actions/cache@v4
@@ -105,8 +61,6 @@ jobs:
 
       - name: Generate Changelog
         shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           export REPO_PATH="./"
           export TEMPLATE_PATH="templates/CHANGELOG.md.tmpl"
@@ -118,21 +72,9 @@ jobs:
 
           ./charttool "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
           gzip "$JSON_FILE" --best
-      
-      - name: Fix Pre-Commit issues
-        shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        run: |
-          echo "Running pre-commit test-and-cleanup..."
-          pre-commit run --all ||:
-          # Fix sh files to always be executable
-          find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
           repository: truecharts/website
@@ -140,8 +82,6 @@ jobs:
           path: website
 
       - name: Copy docs to website
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         shell: bash
         run: |
           #!/bin/bash
@@ -166,8 +106,6 @@ jobs:
           done
 
       - name: Commit Website Changes
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           cd website
           git config user.name "TrueCharts-Bot"
@@ -175,35 +113,3 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-
-      - name: Checkout Catalog
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        with:
-          fetch-depth: 1
-          repository: truecharts/catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          ref: staging
-          path: catalog
-
-      - name: build catalog
-        shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        run: |
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          ./charttool deps
-          ./charttool buildSCALE
-
-      - name: Commit Catalog
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
-        run: |
-          cd catalog
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
-          git push
-          cd -

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.9.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/emulatorjs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.webp
 keywords:
   - emulatorjs
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: emulatorjs
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
   - https://ghcr.io/linuxserver/emulatorjs
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
 type: application
-version: 10.1.5
+version: 10.1.8

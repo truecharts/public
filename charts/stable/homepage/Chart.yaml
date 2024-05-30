@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.8.13
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/homepage
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homepage.webp
 keywords:
   - homepage
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: homepage
 sources:
+  - https://ghcr.io/gethomepage/homepage
   - https://github.com/benphelps/homepage
   - https://github.com/truecharts/charts/tree/master/charts/stable/homepage
-  - https://ghcr.io/gethomepage/homepage
 type: application
-version: 8.0.7
+version: 8.0.9

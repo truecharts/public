@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -28,15 +28,15 @@ keywords:
   - MediaServer-Photos
   - Network-Web
   - Network-FTP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: webp-server
 sources:
-  - https://github.com/webp-sh/webp_server_go
   - https://github.com/truecharts/charts/tree/master/charts/stable/webp-server
+  - https://github.com/webp-sh/webp_server_go
   - https://hub.docker.com/r/webpsh/webps
 type: application
-version: 6.0.6
+version: 6.0.8

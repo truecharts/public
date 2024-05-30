@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/jellyfin/jellyfin
   pullPolicy: IfNotPresent
-  tag: 10.9.2@sha256:21e49baac0a05efd4822269e3d8ba2f693e741006a2f81aa397cf5f8445e48a9
+  tag: 10.9.3@sha256:3022b48f18c810fe7a6a77ba3aef05bdbc9a05f253e856d2c96916fcdbcfc0f6
 broadcastProxyImage:
   repository: docker.io/alpine/socat
   pullPolicy: IfNotPresent
@@ -72,7 +72,7 @@ workload:
           # - On exit remove `/tmp/healthy`
           args:
             - "-c"
-            - 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy'
+            - 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP4-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy'
           probes:
             readiness:
               enabled: true

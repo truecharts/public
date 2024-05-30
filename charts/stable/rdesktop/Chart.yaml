@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.webp
 keywords:
   - rdesktop
   - desktops
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: rdesktop
 sources:
-  - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
-  - https://github.com/linuxserver/docker-rdesktop#readme
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
   - https://fleet.linuxserver.io/image?name=linuxserver/rdesktop
+  - https://github.com/linuxserver/docker-rdesktop#readme
+  - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
 type: application
-version: 9.0.100
+version: 9.0.132

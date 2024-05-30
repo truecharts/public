@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.0.16
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/hyperion-ng.webp
 keywords:
   - hyperion-ng
   - hyperion
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/hyperion-ng
   - https://hub.docker.com/r/sirfragalot/hyperion.ng
 type: application
-version: 14.0.7
+version: 14.0.9

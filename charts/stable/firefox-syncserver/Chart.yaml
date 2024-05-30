@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.8.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,15 +25,15 @@ keywords:
   - sync
   - syncserver
   - firefox
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: firefox-syncserver
 sources:
-  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
-  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
   - https://ghcr.io/crazy-max/firefox-syncserver
+  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
+  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
 type: application
-version: 18.0.7
+version: 18.0.9

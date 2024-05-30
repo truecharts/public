@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.19.01
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - encode
   - media
   - tdarr
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tdarr
   - https://hub.docker.com/r/haveagitgat/tdarr
 type: application
-version: 10.2.0
+version: 10.2.2

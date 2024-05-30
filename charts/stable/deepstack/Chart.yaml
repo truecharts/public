@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2022.01.1
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/deepstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deepstack.webp
 keywords:
   - AI
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +30,8 @@ maintainers:
 name: deepstack
 sources:
   - https://github.com/johnolafenwa/DeepStack
-  - https://www.deepstack.cc/
   - https://github.com/truecharts/charts/tree/master/charts/stable/deepstack
   - https://hub.docker.com/r/deepquestai/deepstack
+  - https://www.deepstack.cc/
 type: application
-version: 12.0.7
+version: 12.0.9

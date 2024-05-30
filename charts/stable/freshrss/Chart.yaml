@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.24.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/freshrss.webp
 keywords:
   - freshrss
   - rss
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: freshrss
 sources:
+  - https://ghcr.io/linuxserver/freshrss
   - https://github.com/FreshRSS/FreshRSS
   - https://github.com/truecharts/charts/tree/master/charts/stable/freshrss
-  - https://ghcr.io/linuxserver/freshrss
 type: application
-version: 19.1.0
+version: 19.1.2

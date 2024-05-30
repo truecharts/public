@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 10.9.2
+appVersion: 10.9.3
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - jellyfin
   - plex
   - emby
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jellyfin
 sources:
+  - https://ghcr.io/jellyfin/jellyfin
   - https://github.com/jellyfin/jellyfin
   - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
   - https://hub.docker.com/r/alpine/socat
-  - https://ghcr.io/jellyfin/jellyfin
 type: application
-version: 19.1.8
+version: 19.1.11

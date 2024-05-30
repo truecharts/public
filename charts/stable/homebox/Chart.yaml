@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.10.3
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebox.webp
 keywords:
   - homebox
   - inventory
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: homebox
 sources:
+  - https://ghcr.io/hay-kot/homebox
   - https://github.com/hay-kot/homebox
   - https://github.com/truecharts/charts/tree/master/charts/stable/homebox
-  - https://ghcr.io/hay-kot/homebox
 type: application
-version: 7.0.6
+version: 7.0.8

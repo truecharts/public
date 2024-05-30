@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -27,7 +27,7 @@ keywords:
   - Tools-Utilities
   - Other
   - Network-Management
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/breitbandmessung-de
   - https://hub.docker.com/r/shneezin/breitbandmessung-node
 type: application
-version: 6.0.7
+version: 6.0.9

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.11.2
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/ddclient
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddclient.webp
 keywords:
   - ddclient
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: ddclient
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
   - https://ghcr.io/linuxserver/ddclient
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
 type: application
-version: 10.0.10
+version: 10.0.12

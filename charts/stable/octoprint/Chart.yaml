@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.10.1
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - octoprint
   - 3d
   - printer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/octoprint
   - https://hub.docker.com/r/octoprint/octoprint
 type: application
-version: 14.0.8
+version: 14.0.10

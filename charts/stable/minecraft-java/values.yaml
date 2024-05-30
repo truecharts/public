@@ -237,6 +237,7 @@ workload:
             TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
             ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
             EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
+            SERVER_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
 
 persistence:
   data:

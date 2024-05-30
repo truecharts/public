@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,15 +24,15 @@ keywords:
   - prusaslicer-novnc
   - home-automation
   - Productivity
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: prusaslicer-novnc
 sources:
-  - https://www.prusa3d.com/prusaslicer/
   - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
   - https://hub.docker.com/r/mikeah/prusaslicer-novnc
+  - https://www.prusa3d.com/prusaslicer/
 type: application
-version: 9.0.13
+version: 9.0.15

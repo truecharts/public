@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.67.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,16 +26,16 @@ keywords:
   - sftp
   - ftps
   - client
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: filezilla
 sources:
-  - https://github.com/linuxserver/docker-filezilla
   - https://filezilla-project.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
   - https://ghcr.io/linuxserver/filezilla
+  - https://github.com/linuxserver/docker-filezilla
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
 type: application
-version: 12.1.0
+version: 12.1.2

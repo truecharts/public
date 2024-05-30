@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.2.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/embystat
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/embystat.webp
 keywords:
   - embystat
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: embystat
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
   - https://ghcr.io/linuxserver/embystat
+  - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
 type: application
-version: 10.0.7
+version: 10.0.9

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.30.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/fluidd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fluidd.webp
 keywords:
   - fluidd
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: fluidd
 sources:
+  - https://ghcr.io/fluidd-core/fluidd
   - https://github.com/fluidd-core/fluidd
   - https://github.com/truecharts/charts/tree/master/charts/stable/fluidd
-  - https://ghcr.io/fluidd-core/fluidd
 type: application
-version: 10.1.2
+version: 10.1.4

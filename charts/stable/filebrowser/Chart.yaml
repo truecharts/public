@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.30.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/filebrowser
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebrowser.webp
 keywords:
   - filebrowser
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/filebrowser
   - https://hub.docker.com/r/filebrowser/filebrowser
 type: application
-version: 10.2.2
+version: 10.2.4

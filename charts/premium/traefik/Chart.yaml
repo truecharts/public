@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 2.11.2
+appVersion: 3.0.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.webp
 keywords:
   - traefik
   - ingress
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +32,8 @@ name: traefik
 sources:
   - https://github.com/traefik/traefik
   - https://github.com/traefik/traefik-helm-chart
-  - https://traefik.io/
   - https://github.com/truecharts/charts/tree/master/charts/premium/traefik
   - https://github.com/truecharts/containers/tree/master/apps/traefik
+  - https://traefik.io/
 type: application
-version: 27.0.12
+version: 28.0.0

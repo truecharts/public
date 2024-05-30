@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.7.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -37,15 +37,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ctfd.webp
 keywords:
   - ctfd
   - learning
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: ctfd
 sources:
+  - https://ghcr.io/ctfd/ctfd
   - https://github.com/CTFd/CTFd
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
-  - https://ghcr.io/ctfd/ctfd
 type: application
-version: 5.2.6
+version: 5.2.8

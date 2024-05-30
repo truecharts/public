@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.0.0.545
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,15 +24,15 @@ keywords:
   - whisparr
   - Downloaders
   - MediaApp-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: whisparr
 sources:
+  - https://ghcr.io/hotio/whisparr
   - https://github.com/onedr0p/containers/tree/main/apps/whisparr
   - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
-  - https://ghcr.io/hotio/whisparr
 type: application
-version: 11.0.7
+version: 11.0.9

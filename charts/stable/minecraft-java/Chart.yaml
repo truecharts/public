@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2024.5.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.webp
 keywords:
   - minecraft-java
   - minecraft
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ name: minecraft-java
 sources:
   - https://github.com/itzg/docker-minecraft-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-java
-  - https://hub.docker.com/r/itzg/minecraft-server
   - https://hub.docker.com/r/itzg/mc-backup
+  - https://hub.docker.com/r/itzg/minecraft-server
 type: application
-version: 9.0.10
+version: 9.0.13

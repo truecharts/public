@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.28.0
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ipfs.webp
 keywords:
   - ipfs
   - kubo
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ipfs
   - https://hub.docker.com/r/ipfs/kubo
 type: application
-version: 11.0.6
+version: 11.0.8

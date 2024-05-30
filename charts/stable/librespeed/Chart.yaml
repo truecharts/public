@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 5.3.3
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/librespeed.webp
 keywords:
   - librespeed
   - speedtest
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: librespeed
 sources:
+  - https://ghcr.io/linuxserver/librespeed
   - https://github.com/librespeed/speedtest
   - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
-  - https://ghcr.io/linuxserver/librespeed
 type: application
-version: 14.0.12
+version: 14.0.14

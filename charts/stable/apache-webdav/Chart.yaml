@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-webdav.webp
 keywords:
   - apache-webdav
   - Cloud
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +31,8 @@ maintainers:
 name: apache-webdav
 sources:
   - https://github.com/mgutt/docker-apachewebdav
-  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
   - https://github.com/truecharts/charts/tree/master/charts/stable/apache-webdav
+  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
   - https://hub.docker.com/r/apachewebdav/apachewebdav
 type: application
-version: 6.0.7
+version: 6.0.9

@@ -10,28 +10,28 @@ apiVersion: v2
 appVersion: alienswarmreactiedrop
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: "This Chart will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it."
+description: 'This Chart will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it.'
 home: https://truecharts.org/charts/stable/alienswarm-reactivedrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alienswarm-reactivedrop.webp
 keywords:
   - alienswarm-reactivedrop
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: alienswarm-reactivedrop
 sources:
-  - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/stable/alienswarm-reactivedrop
   - https://hub.docker.com/r/ich777/steamcmd
+  - https://www.steampowered.com/
 type: application
-version: 6.0.7
+version: 6.0.9

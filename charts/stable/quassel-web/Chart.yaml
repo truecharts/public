@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2021.12.16
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/quassel-web
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quassel-web.webp
 keywords:
   - quassel-web
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: quassel-web
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/quassel-web
   - https://ghcr.io/linuxserver/quassel-web
+  - https://github.com/truecharts/charts/tree/master/charts/stable/quassel-web
 type: application
-version: 10.0.6
+version: 10.0.8

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 24.03.1
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,16 +24,16 @@ keywords:
   - handbrake
   - encode
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: handbrake
 sources:
-  - https://handbrake.fr/
   - https://github.com/jlesage/docker-handbrake
   - https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
+  - https://handbrake.fr/
   - https://hub.docker.com/r/jlesage/handbrake
 type: application
-version: 22.0.6
+version: 22.0.8

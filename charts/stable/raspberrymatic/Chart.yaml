@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +23,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/raspberrymatic.webp
 keywords:
   - raspberrymatic
   - iot
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: raspberrymatic
 sources:
-  - https://github.com/jens-maus/RaspberryMatic/pkgs/container/raspberrymatic
-  - https://github.com/jens-maus/RaspberryMatic
-  - https://github.com/truecharts/charts/tree/master/charts/stable/raspberrymatic
   - https://ghcr.io/jens-maus/raspberrymatic
+  - https://github.com/jens-maus/RaspberryMatic
+  - https://github.com/jens-maus/RaspberryMatic/pkgs/container/raspberrymatic
+  - https://github.com/truecharts/charts/tree/master/charts/stable/raspberrymatic
 type: application
-version: 6.0.6
+version: 6.0.8

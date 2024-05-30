@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 23.0.8
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/thunderbird.webp
 keywords:
   - thunderbird
   - mail
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: thunderbird
 sources:
-  - https://www.thunderbird.net/
   - https://github.com/truecharts/charts/tree/master/charts/stable/thunderbird
   - https://hub.docker.com/r/ich777/thunderbird
+  - https://www.thunderbird.net/
 type: application
-version: 6.0.7
+version: 6.0.9
