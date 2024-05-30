@@ -16,7 +16,7 @@ workload:
             MYSQL_PORT: "5432"
             MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             MYSQL_PSW: "{{ .Values.mariadb.password }}"
-            MYSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase}}"
             MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
             JWT_SECRET: "MyJWTSecret"
             JWT_EXP: 1
