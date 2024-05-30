@@ -15,9 +15,9 @@ workload:
                 key: host
             MYSQL_PORT: "5432"
             MYSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
-            MYSQL_PSW: "{{ .Values.mariadb.password  }}"
+            MYSQL_PSW: "{{ .Values.mariadb.password }}"
             MYSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
-            MYSQL_ROOT_PASSWORD: "{{  .Values.mariadb.rootPassword  }}"
+            MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
             JWT_SECRET: "MyJWTSecret"
             JWT_EXP: 1
             USER_LIMIT: -1
