@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 0.0.3
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: kubeapps
-    version: 15.0.3
+    version: 15.0.5
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: ""
     alias: ogkubeapps
