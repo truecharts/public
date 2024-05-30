@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/unpoller/unpoller
   pullPolicy: IfNotPresent
-  tag: v2.9.5@sha256:486a63339969fd5207697502e29e4875f4bf7d7ef5c558188b192f2f88fdd3d6
+  tag: v2.11.2@sha256:73b39c0b3b8fa92aa82a7613d3486253ffbd8c057833b4621402a268159bf2a2
 service:
   main:
     ports:
@@ -36,3 +36,22 @@ workload:
             # UP_UNIFI_DEFAULT_USER: "unifipoller"
             # UP_UNIFI_DEFAULT_PASS: "unifipoller"
             UP_PROMETHEUS_DISABLE: false
+
+configmap:
+  dashboards:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      upUAP.json: >-
+        {{ .Files.Get "dashboards/UAP.json" | indent 8 }}
+      upclients.json: >-
+        {{ .Files.Get "dashboards/clients.json" | indent 8 }}
+      upUSW.json: >-
+        {{ .Files.Get "dashboards/USW.json" | indent 8 }}
+      upnetwork.json: >-
+        {{ .Files.Get "dashboards/network.json" | indent 8 }}
+      upUSG.json: >-
+        {{ .Files.Get "dashboards/USG.json" | indent 8 }}
+      upDPI.json: >-
+        {{ .Files.Get "dashboards/DPI.json" | indent 8 }}

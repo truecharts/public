@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [lidarr-12.0.0](https://github.com/truecharts/charts/compare/lidarr-11.0.41...lidarr-12.0.0) (2022-11-10)

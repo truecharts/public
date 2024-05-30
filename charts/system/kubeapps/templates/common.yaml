@@ -1,0 +1,19 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $overrideService := dict "name" "tckubeapps" "port" 8080 -}}
+{{- $hosts := list -}}
+{{- range $.Values.ingress.main.hosts -}}
+  {{- $paths := list -}}
+  {{- range .paths -}}
+    {{- $path := dict "path" .path "pathType" .pathType "overrideService" $overrideService -}}
+    {{- $paths = append $paths $path -}}
+  {{- end -}}
+  {{- $host := dict "host" .host "paths" $paths -}}
+  {{- $hosts = append $hosts $host -}}
+{{- end -}}
+
+{{- $_ := set $.Values.ingress.main "hosts" $hosts -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [nightscout-1.0.0](https://github.com/truecharts/charts/compare/nightscout-0.0.34...nightscout-1.0.0) (2022-11-10)

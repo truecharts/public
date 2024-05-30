@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/gethomepage/homepage
-  tag: v0.8.8@sha256:0f066a6d6fba3a810a85aa79a483302b0fee21139b67adaeb245edae5051f3e8
+  tag: v0.8.13@sha256:43a3ee88abe3b37c64bc52ea93da01c3dcb4a332a953bcd7f438c8d7328d3947
   pullPolicy: IfNotPresent
 
 workload:
@@ -33,7 +33,7 @@ workload:
                 echo "Config file copied, you can now edit it at /app/config/settings.yaml"
               fi
               if [ ! -f /app/config/widgets.yaml ]; then
-                echo "wdigets file not found, copying dummy..."
+                echo "widgets file not found, copying dummy..."
                 cp /dummy-config/widgets.yaml /app/config/widgets.yaml
                 echo "Config file copied, you can now edit it at /app/config/widgets.yaml"
               fi
@@ -70,8 +70,8 @@ persistence:
     type: "configmap"
     objectName: config
   bookmarks-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/bookmarks.yaml
     subPath: bookmarks.yaml
     readOnly: true
@@ -81,16 +81,16 @@ persistence:
       main:
         init-config: {}
   force-bookmarks-config:
-    # Only enable when not using homepageConfig
-    enabled: false
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
     mountPath: /app/config/bookmarks.yaml
     subPath: bookmarks.yaml
     readOnly: true
     type: "configmap"
     objectName: config
   settings-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/settings.yaml
     subPath: settings.yaml
     readOnly: true
@@ -100,16 +100,16 @@ persistence:
       main:
         init-config: {}
   force-settings-config:
-    # Only enable when not using homepageConfig
-    enabled: false
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
     mountPath: /app/config/settings.yaml
     subPath: settings.yaml
     readOnly: true
     type: "configmap"
     objectName: config
   services-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/services.yaml
     subPath: services.yaml
     readOnly: true
@@ -119,16 +119,16 @@ persistence:
       main:
         init-config: {}
   force-services-config:
-    # Only enable when not using homepageConfig
-    enabled: false
-    mountPath: /app/services/services.yaml
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/services.yaml
     subPath: services.yaml
     readOnly: true
     type: "configmap"
     objectName: config
   widgets-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/widgets.yaml
     subPath: widgets.yaml
     readOnly: true
@@ -138,16 +138,16 @@ persistence:
       main:
         init-config: {}
   force-widgets-config:
-    # Only enable when not using homepageConfig
-    enabled: false
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
     mountPath: /app/config/widgets.yaml
     subPath: widgets.yaml
     readOnly: true
     type: "configmap"
     objectName: config
   custom-css-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/custom.css
     subPath: custom.css
     readOnly: true
@@ -157,16 +157,16 @@ persistence:
       main:
         init-config: {}
   force-custom-css-config:
-    # Only enable when not using homepageConfig
-    enabled: false
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
     mountPath: /app/config/custom.css
     subPath: custom.css
     readOnly: true
     type: "configmap"
     objectName: config
   custom-js-config:
-    # Only enable when not using homepageConfig
-    enabled: true
+    # Only enable when not using forceConfigFromValues
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /dummy-config/custom.js
     subPath: custom.js
     readOnly: true
@@ -176,8 +176,8 @@ persistence:
       main:
         init-config: {}
   force-custom-js-config:
-    # Only enable when not using homepageConfig
-    enabled: false
+    # Only enable when using forceConfigFromValues
+    enabled: "{{ .Values.forceConfigFromValues }}"
     mountPath: /app/config/custom.js
     subPath: custom.js
     readOnly: true

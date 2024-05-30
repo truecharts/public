@@ -1,0 +1,45 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "false"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: nvidia-device-plugin
+    version: 0.15.0
+    repository: https://nvidia.github.io/k8s-device-plugin
+    condition: ""
+    alias: nvdp
+    tags: []
+    import-values: []
+deprecated: false
+description: NVIDIA device plugin for Kubernetes
+home: https://truecharts.org/charts/system/kubeapps
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.webp
+keywords:
+  - nvidia
+  - plugins
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kubeapps
+sources:
+  - https://cert-manager.io/
+  - https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file#deployment-via-helm
+  - https://github.com/truecharts/charts/tree/master/charts/system/kubeapps
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
+type: application
+version: 1.0.4

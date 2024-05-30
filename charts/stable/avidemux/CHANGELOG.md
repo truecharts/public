@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [avidemux-2.0.0](https://github.com/truecharts/charts/compare/avidemux-1.0.20...avidemux-2.0.0) (2022-11-10)

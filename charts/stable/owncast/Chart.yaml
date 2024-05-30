@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.1.2
+appVersion: 0.1.3
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,13 +19,13 @@ dependencies:
 deprecated: false
 description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
 home: https://truecharts.org/charts/stable/owncast
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncast.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncast.webp
 keywords:
   - owncast
   - stream
   - open source
   - chat
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,8 +33,8 @@ maintainers:
 name: owncast
 sources:
   - https://github.com/owncast/owncast
-  - https://owncast.online/
   - https://github.com/truecharts/charts/tree/master/charts/stable/owncast
   - https://hub.docker.com/r/gabekangas/owncast
+  - https://owncast.online/
 type: application
-version: 13.1.3
+version: 14.0.9

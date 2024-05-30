@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [static-4.0.0](https://github.com/truecharts/charts/compare/static-3.0.40...static-4.0.0) (2022-11-10)

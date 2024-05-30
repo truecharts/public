@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [matomo-4.0.0](https://github.com/truecharts/charts/compare/matomo-3.0.90...matomo-4.0.0) (2022-11-10)

@@ -1,0 +1,46 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: cert-manager
+    version: v1.14.5
+    repository: https://charts.jetstack.io
+    condition: ""
+    alias: certmanager
+    tags: []
+    import-values: []
+deprecated: false
+description: Cert-Manager is a kubernetes-aware certificate manager
+home: https://truecharts.org/charts/system/cert-manager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.webp
+keywords:
+  - cert-manager
+  - certificates
+  - security
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cert-manager
+sources:
+  - https://cert-manager.io/
+  - https://github.com/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/system/cert-manager
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
+type: application
+version: 5.0.4

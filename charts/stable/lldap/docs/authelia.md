@@ -2,7 +2,7 @@
 title: Authelia Setup
 ---
 
-Authelia which is available in the Enterprise train can act as the authentication provider for your apps and services either through OAuth or forward authentication. LLDAP can be used to manage your Authelia users and groups. To enable this as an option follow the steps outlined below. References to the specific questions as they appear in the TrueNAS SCALE UI are included in the guide and highlighted along with the answers you should use. Authelia is the recommended authentication provider for TrueCharts however you can use any other provider you wish for Authentik is available in the Stable train.
+Authelia which is available in the premium train can act as the authentication provider for your apps and services either through OAuth or forward authentication. LLDAP can be used to manage your Authelia users and groups. To enable this as an option follow the steps outlined below. References to the specific questions as they appear in the TrueNAS SCALE UI are included in the guide and highlighted along with the answers you should use. Authelia is the recommended authentication provider for TrueCharts however you can use any other provider you wish for Authentik is available in the Stable train.
 
 This guide has been written as LLDAP has specific requirements for the LDAP setup of Authelia. If you are using another LDAP provider you will need to follow the setup instructions for that provider.
 

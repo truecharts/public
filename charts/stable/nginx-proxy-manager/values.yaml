@@ -1,7 +1,7 @@
 image:
   repository: jc21/nginx-proxy-manager
   pullPolicy: IfNotPresent
-  tag: 2.11.1@sha256:5b2d87d3c060e4a364df0109d8188d816ec07273697ad350aa4beeab63529f74
+  tag: 2.11.2@sha256:67655389770f5f16aef10cf3dc822f95e34bb0bc1b7717c617f8adaffcce2f68
 service:
   main:
     ports:
@@ -36,6 +36,7 @@ persistence:
     size: 256Gi
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: npm
   mariadbDatabase: npm
 portal:
@@ -84,8 +85,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_MYSQL_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_MYSQL_PASSWORD: "{{ .Values.mariadb.password }}"

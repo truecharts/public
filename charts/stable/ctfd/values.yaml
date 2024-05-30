@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/ctfd/ctfd
-  tag: 3.6.1@sha256:8033c370c30499873e99dc8888140d78c6d62b01a2f2d991a5c554e2024ce8d1
+  tag: 3.7.0@sha256:8dcf820b92f25cdb4dee400ca0b88b8ca4396c79b9a801f5b2f9304f2bb056de
   pullPolicy: IfNotPresent
 
 service:
@@ -34,11 +34,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DATABASE_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DATABASE_PASSWORD: "{{ .Values.mariadb.password }}"
             REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
@@ -61,11 +57,13 @@ workload:
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: ctfd
   mariadbDatabase: ctfd
 
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: default
 
 persistence:

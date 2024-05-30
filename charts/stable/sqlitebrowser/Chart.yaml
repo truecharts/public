@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 18.04.1
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,22 +19,22 @@ dependencies:
 deprecated: false
 description: A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite
 home: https://truecharts.org/charts/stable/sqlitebrowser
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlitebrowser.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlitebrowser.webp
 keywords:
   - sqlite
   - browser
   - sqlitebrowser
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: sqlitebrowser
 sources:
-  - https://github.com/linuxserver/docker-sqlitebrowser
-  - https://sqlitebrowser.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
   - https://ghcr.io/linuxserver/sqlitebrowser
+  - https://github.com/linuxserver/docker-sqlitebrowser
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
+  - https://sqlitebrowser.org/
 type: application
-version: 10.1.3
+version: 11.0.8

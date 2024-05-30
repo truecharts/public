@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.30.0
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: A management console for minio server and operator
 home: https://truecharts.org/charts/stable/minio-console
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minio-console.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minio-console.webp
 keywords:
   - minio-console
   - minio
   - s3
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/minio-console
   - https://hub.docker.com/r/minio/console
 type: application
-version: 10.1.3
+version: 11.0.9

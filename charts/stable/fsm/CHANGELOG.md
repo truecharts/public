@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fsm-1.0.0](https://github.com/truecharts/charts/compare/fsm-0.0.34...fsm-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ipfs-4.0.0](https://github.com/truecharts/charts/compare/ipfs-3.0.47...ipfs-4.0.0) (2022-11-10)

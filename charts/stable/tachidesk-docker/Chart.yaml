@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaServer-Other
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: preiew
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,20 +19,20 @@ dependencies:
 deprecated: false
 description: The official Tachidesk Chart-Chart.
 home: https://truecharts.org/charts/stable/tachidesk-docker
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tachidesk-docker.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tachidesk-docker.webp
 keywords:
   - tachidesk-docker
   - MediaServer-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: tachidesk-docker
 sources:
-  - https://github.com/suwayomi/docker-tachidesk
-  - https://github.com/Suwayomi/Tachidesk-Server
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tachidesk-docker
   - https://ghcr.io/suwayomi/tachidesk
+  - https://github.com/Suwayomi/Tachidesk-Server
+  - https://github.com/suwayomi/docker-tachidesk
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tachidesk-docker
 type: application
-version: 6.1.4
+version: 7.0.12

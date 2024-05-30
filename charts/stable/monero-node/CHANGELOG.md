@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [monero-node-1.0.0](https://github.com/truecharts/charts/compare/monero-node-0.0.34...monero-node-1.0.0) (2022-11-10)

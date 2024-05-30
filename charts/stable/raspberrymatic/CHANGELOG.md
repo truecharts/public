@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [raspberrymatic-1.0.0](https://github.com/truecharts/charts/compare/raspberrymatic-0.0.4...raspberrymatic-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [xware-1.0.0](https://github.com/truecharts/charts/compare/xware-0.0.34...xware-1.0.0) (2022-11-10)

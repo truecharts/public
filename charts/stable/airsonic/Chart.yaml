@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 10.6.2
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,20 +19,20 @@ dependencies:
 deprecated: false
 description: Airsonic is a Free and Open Source community driven media server
 home: https://truecharts.org/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.webp
 keywords:
   - airsonic
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: airsonic
 sources:
-  - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
+  - https://ghcr.io/linuxserver/airsonic
   - https://github.com/airsonic/airsonic
+  - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
   - https://github.com/linuxserver/docker-airsonic
   - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
-  - https://ghcr.io/linuxserver/airsonic
 type: application
-version: 13.1.3
+version: 14.0.9

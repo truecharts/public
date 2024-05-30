@@ -9,7 +9,7 @@ This guide will cover how to use the TrueCharts/Homepage integration included in
 GitHub: <https://github.com/gethomepage/homepage>
 Website: <https://gethomepage.dev/>
 
-:::warning INGRESS REQUIRED
+:::caution[INGRESS REQUIRED]
 For Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise, all Kubernetes features can be used with manual configuration of Homepage via its configuration YAML files.
 :::
 

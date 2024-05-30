@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [unpoller-4.0.0](https://github.com/truecharts/charts/compare/unpoller-3.0.44...unpoller-4.0.0) (2022-11-10)

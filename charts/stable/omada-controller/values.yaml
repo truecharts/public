@@ -1,6 +1,6 @@
 image:
   repository: mbentley/omada-controller
-  tag: 5.13@sha256:b6b2001f37971e0557ad11509cc78a132e513bb30fa23f80bab8a1cea355cba0
+  tag: 5.13@sha256:6eae86e2b649ea390a402d75833b3b9582160c73e9ec9ad27ed6eb1f1448f9fd
   pullPolicy: IfNotPresent
 service:
   main:
@@ -44,7 +44,9 @@ service:
         targetPort: 29810
 ingress:
   comm:
-    autoLink: true
+    enabled: false
+    targetSelector:
+      comm: comm
 persistence:
   data:
     enabled: true

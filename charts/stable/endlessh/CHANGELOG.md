@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [endlessh-3.0.0](https://github.com/truecharts/charts/compare/endlessh-2.0.40...endlessh-3.0.0) (2022-11-10)

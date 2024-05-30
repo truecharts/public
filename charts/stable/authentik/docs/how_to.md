@@ -12,7 +12,7 @@ This can be applied to other systems but this specific guide has been tested and
 
 ## Prerequisites
 
-This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider and have through the configuration listen in our [Quick-Start guides](https://truecharts.org/docs/manual/SCALE%20Apps/adding-letsencrypt) and/or the [Traefik documents](https://truecharts.org/charts/enterprise/traefik/how-to/). Please ensure that you can access your domain properly with Ingress before attempting any further steps.
+This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider and have through the configuration listen in our [Quick-Start guides](/scale/) and/or the [Traefik documents](/charts/premium/traefik/how-to/). Please ensure that you can access your domain properly with Ingress before attempting any further steps.
 
 ## Authentik Chart Setup
 

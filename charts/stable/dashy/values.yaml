@@ -1,6 +1,6 @@
 image:
   repository: lissy93/dashy
-  tag: 2.1.1@sha256:f90ef3b4efcbcba98085cb4eab22e73ef670b9b0cbcbf3971c049bffde4d924e
+  tag: 3.1.0@sha256:e0e4d344f9be6d6f0061bb4f5368efd5034e8f2cec886d8afefc89a76be830d4
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -14,13 +14,13 @@ service:
       main:
         port: 10310
         protocol: http
-        targetPort: 80
+        targetPort: 8080
 dashy:
-  # Enable config file mount from host path
+  # Enable config directory mount from host path
   enabled: false
-  configFileHostPath: ""
-  configFileHostReadOnly: true
-# Leave empty if you plan to use config file from host path
+  configDirectoryHostPath: ""
+  configDirectoryHostReadOnly: true
+# Leave empty if you plan to use config directory from host path
 dashyConfig: {}
 # pageInfo:
 #   title: Home Lab

@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,22 +19,22 @@ dependencies:
 deprecated: false
 description: Photo Stream is a simpler home for your photos. Easy to use, self hosted, no tracking, just photos.
 home: https://truecharts.org/charts/stable/photo-stream
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/photo-stream.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photo-stream.webp
 keywords:
   - photo-stream
   - Productivity
   - Tools-Utilities
   - MediaApp-Photos
   - MediaServer-Photos
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: photo-stream
 sources:
-  - https://github.com/waschinski/photo-stream
   - https://github.com/truecharts/charts/tree/master/charts/stable/photo-stream
+  - https://github.com/waschinski/photo-stream
   - https://hub.docker.com/r/waschinski/photo-stream
 type: application
-version: 5.1.3
+version: 6.0.9

@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/bookstack
   pullPolicy: IfNotPresent
-  tag: 23.12.20240115@sha256:409580f579e6cb5cbc2dcc6c096ef3cbeb938861fadee4a153c6ee0b23299864
+  tag: 24.05.20240520@sha256:02623a4ba6359de67396b0e66b78c387b203d353e17d1245551bd749dbde494b
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -29,11 +29,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASS:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASS: "{{ .Values.mariadb.password }}"
             APP_KEY:
               secretKeyRef:
                 name: secrets
@@ -44,6 +40,7 @@ persistence:
     mountPath: /config
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
 portal:

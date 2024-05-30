@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/lloesche/valheim-server
-  tag: latest@sha256:972cd120f3ce875aff4f8a4a8b79c8cb9fa89f23480df514feda479ac598ddfa
+  tag: latest@sha256:b97da1038714e5156cf28d042422a1c5af41e03189572025e615bde61395c678
   pullPolicy: IfNotPresent
 service:
   main:
@@ -27,7 +27,9 @@ service:
         protocol: udp
 ingress:
   supervisor:
-    autoLink: true
+    enabled: false
+    targetSelector:
+      supervisor: supervisor
 persistence:
   config:
     enabled: true

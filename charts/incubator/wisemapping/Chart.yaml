@@ -1,0 +1,39 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: design
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: home-assistant App for TrueNAS SCALE
+home: https://truecharts.org/charts/incubator/wisemapping
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wisemapping.webp
+keywords:
+  - mapping
+  - mind-mapping
+  - collaboration
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wisemapping
+sources:
+  - https://bitbucket.org/wisemapping/wisemapping-open-source/src/develop/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wisemapping
+  - https://hub.docker.com/r/wisemapping/wisemapping
+  - https://www.wisemapping.com/
+type: application
+version: 1.0.4

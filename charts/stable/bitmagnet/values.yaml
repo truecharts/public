@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/bitmagnet-io/bitmagnet
-  tag: 0.7.7@sha256:45784df41956eede054a09553cc6f89139b228f94e9ea69837d95d6e559caadd
+  tag: v0.8.0@sha256:c638773151d97e6bd2e19f181f0845be4c82893974975037aa06665c711e4466
   pullPolicy: IfNotPresent
 service:
   main:
@@ -46,7 +46,7 @@ workload:
                 name: cnpg-main-urls
                 key: host
             TMDB_API_KEY: ""
-            DHT_CRAWLER_SAVE_FILES_THRESHOLD: "50"
+            DHT_CRAWLER_SAVE_FILES_THRESHOLD: "100"
           args:
             - worker
             - run
@@ -74,3 +74,37 @@ metrics:
     targetSelector: main
     prometheusRule:
       enabled: false
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      bitmagnet.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+  datasource:
+    enabled: true
+    labels:
+      grafana_datasources: "1"
+    data:
+      bitmagnetpsql.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: BitmagnetPostgres
+          type: postgres
+          uid: bitmagnetpostgres
+          url: {{ printf "%s.%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace }}
+          access: proxy
+          user: {{ .Values.cnpg.main.user }}
+          secureJsonData:
+            password: {{ .Values.cnpg.main.creds.password | default "na" }}
+          jsonData:
+            database: {{ .Values.cnpg.main.database }}
+            sslmode: 'disable' # disable/require/verify-ca/verify-full
+            maxOpenConns: 100 # Grafana v5.4+
+            maxIdleConns: 100 # Grafana v5.4+
+            maxIdleConnsAuto: true # Grafana v9.5.1+
+            connMaxLifetime: 14400 # Grafana v5.4+
+            postgresVersion: 1500 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+            timescaledb: false

@@ -1,6 +1,6 @@
 image:
   repository: monica
-  tag: 4.0.0@sha256:b61c1d753362debbe1a7993541bdfefa85b85e58b5cc010795f07048277125a7
+  tag: 4.1.2@sha256:166ecd36f5600a2abbcccc0dce94670fb1827e6f7096b79d30a3f7ab3557989d
   pullPolicy: IfNotPresent
 service:
   main:
@@ -14,6 +14,7 @@ persistence:
     mountPath: "/var/www/html/storage"
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: monica
   mariadbDatabase: monica
 portal:
@@ -47,11 +48,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             APP_KEY:
               secretKeyRef:
                 name: appkey

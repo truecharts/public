@@ -1,7 +1,7 @@
 image:
   repository: ghostfolio/ghostfolio
   pullPolicy: IfNotPresent
-  tag: 2.57.0@sha256:6cdba7d7c4ba8e65584fb55080057c03b88ae5dab20819ba3aaa72401c7fc224
+  tag: 2.82.0@sha256:bd49ffe3c063861d43f849588e2435e757ae825f9fd0291fb3e1a2561e60a4f6
 securityContext:
   container:
     runAsNonRoot: false
@@ -47,11 +47,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             REDIS_PORT: "6379"
 cnpg:
   main:
@@ -60,6 +56,7 @@ cnpg:
     database: ghostfolio
 redis:
   enabled: true
+  includeCommon: true
 portal:
   open:
     enabled: true

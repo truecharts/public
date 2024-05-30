@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/suwayomi/tachidesk
-  tag: preview@sha256:ffc46df15d24f4f3947617deadc489ad7245d7257bf1330784f1856d8384f203
+  tag: preview@sha256:9c6e1a2e152376d4beda2af13377a124d56a5769b27f2ac8643b84b76e9d3e66
 
 securityContext:
   container:
@@ -38,7 +38,6 @@ workload:
             UPDATE_EXCLUDE_COMPLETED: true
             UPDATE_INTERVAL: 12
             UPDATE_MANGA_INFO: false
-            BACKUP_TIME: ""
             BACKUP_INTERVAL: 1
             BACKUP_TTL: 14
             FLARESOLVERR_ENABLED: false

@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: vehicle
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.1.2
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.0.0
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,22 +26,22 @@ dependencies:
 deprecated: false
 description: A web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles.
 home: https://truecharts.org/charts/stable/clarkson
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/clarkson.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/clarkson.webp
 keywords:
   - fuel
   - car
   - log
   - fill-up
   - vehicle
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: clarkson
 sources:
+  - https://ghcr.io/linuxserver/clarkson
   - https://github.com/linuxserver/Clarkson
   - https://github.com/truecharts/charts/tree/master/charts/stable/clarkson
-  - https://ghcr.io/linuxserver/clarkson
 type: application
-version: 12.2.3
+version: 13.1.9

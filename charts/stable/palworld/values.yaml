@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/ich777/steamcmd
   pullPolicy: IfNotPresent
-  tag: palworld@sha256:19feeefa79edf310ebbe8002a76b254bea9d4e0d3968563bbd616e02087c9111
+  tag: palworld@sha256:bbfe940fa45ff52130aef337d562b7d592f2e5fd1d81be1ed4b4e5013f28c7a1
 rconImage:
   repository: outdead/rcon
   pullPolicy: IfNotPresent
@@ -95,7 +95,7 @@ palworld:
     update_public_ip: false
     public_ip: ""
     params:
-      - EpicApp=PalServer
+      - -publiclobby
     params_extra:
       - -useperfthreads
       - -NoAsyncLoadingThread
@@ -302,7 +302,7 @@ workload:
             # game
             SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
             UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
-            GAME_PARAMS: '{{ printf "-port=%v -publicport=%v %s" .Values.service.main.ports.main.port .Values.service.main.ports.main.port (join " " .Values.palworld.game.params) }}'
+            GAME_PARAMS: '{{ printf "-port=%v -publicport=%v -rconport=%v %s" .Values.service.main.ports.main.port .Values.service.main.ports.main.port .Values.service.rcon.ports.rcon.port (join " " .Values.palworld.game.params) }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
             # backup
             BACKUP: "{{ .Values.palworld.backup.enabled }}"

@@ -1,6 +1,6 @@
 image:
   repository: itzg/minecraft-bedrock-server
-  tag: 2023.8.1@sha256:e2019e959daa70dffd1468aaa1348bc906170709bf2c790bee302fc1efedbde7
+  tag: latest@sha256:420d4182d67ab8030a920930c8d7a8dd6dafaa0054d69fc0e2a11f1afe0c0fd0
   pullPolicy: Always
 service:
   main:
@@ -16,18 +16,42 @@ workload:
           tty: true
           stdin: true
           probes:
-            # -- Liveness probe configuration
-            # @default -- See below
             liveness:
-              enabled: false
-            # -- Redainess probe configuration
-            # @default -- See below
+              enabled: true
+              type: exec
+              command:
+                - /usr/local/bin/mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+                - --port
+                - "{{ .Values.service.main.ports.main.port }}"
+              spec:
+                periodSeconds: 60
             readiness:
-              enabled: false
-            # -- Startup probe configuration
-            # @default -- See below
+              enabled: true
+              type: exec
+              command:
+                - /usr/local/bin/mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+                - --port
+                - "{{ .Values.service.main.ports.main.port }}"
+              spec:
+                periodSeconds: 60
             startup:
-              enabled: false
+              enabled: true
+              type: exec
+              command:
+                - /usr/local/bin/mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+                - --port
+                - "{{ .Values.service.main.ports.main.port }}"
+              spec:
+                periodSeconds: 60
           env:
             EULA: true
             ENABLE_LAN_VISIBILITY: false
@@ -42,6 +66,7 @@ workload:
             MAX_PLAYERS: 10
             ONLINE_MODE: true
             WHITE_LIST: false
+            # WHITE_LIST_USERS: "USER:XUID,USER:XUID"
             VIEW_DISTANCE: 32
             TICK_DISTANCE: 4
             PLAYER_IDLE_TIMEOUT: 30

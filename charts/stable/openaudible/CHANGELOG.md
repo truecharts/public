@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [openaudible-1.0.0](https://github.com/truecharts/charts/compare/openaudible-0.0.11...openaudible-1.0.0) (2022-11-10)

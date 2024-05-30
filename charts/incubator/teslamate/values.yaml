@@ -1,0 +1,84 @@
+image:
+  repository: teslamate/teslamate
+  pullPolicy: IfNotPresent
+  tag: 1.29.1@sha256:7c833ef13585b46339b778bb974fa6ea0f908cb7b9d1a62b41aef694bfdb9ca0
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 4000
+
+workload:
+  main:
+    replicas: 1
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          env:
+            ENCRYPTION_KEY:
+              secretKeyRef:
+                name: teslamate-secrets
+                key: TESLAMATE_ENCRYPTION_KEY
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DISABLE_MQTT: true
+            MQTT_HOST: ""
+            MQTT_PORT: 1883
+            MQTT_USERNAME: ""
+            MQTT_PASSWORD: ""
+
+configmap:
+  datasource:
+    enabled: true
+    labels:
+      grafana_datasources: "1"
+    data:
+      datasourceteslamatepsql.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: TeslaMate
+          type: postgres
+          uid: TeslaMate
+          url: {{ printf "%s.%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace }}
+          access: proxy
+          user: {{ .Values.cnpg.main.user }}
+          secureJsonData:
+            password: {{ .Values.cnpg.main.creds.password | default "na" }}
+          jsonData:
+            database: {{ .Values.cnpg.main.database }}
+            sslmode: 'disable' # disable/require/verify-ca/verify-full
+            maxOpenConns: 100 # Grafana v5.4+
+            maxIdleConns: 100 # Grafana v5.4+
+            maxIdleConnsAuto: true # Grafana v9.5.1+
+            connMaxLifetime: 14400 # Grafana v5.4+
+            postgresVersion: 1500 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+            timescaledb: false
+
+portal:
+  open:
+    enabled: true
+
+cnpg:
+  main:
+    enabled: true
+    user: teslamate
+    database: teslamate
+    cluster:
+      initdb:
+        postInitApplicationSQL:
+          - ALTER USER teslamate WITH SUPERUSER

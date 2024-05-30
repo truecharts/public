@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,20 +19,20 @@ dependencies:
 deprecated: false
 description: GoAccess for Nginx Proxy Manager Logs
 home: https://truecharts.org/charts/stable/goaccess-npm-logs
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess-npm-logs.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess-npm-logs.webp
 keywords:
   - goaccess-npm-logs
   - Tools-Utilities
   - Network-Proxy
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: goaccess-npm-logs
 sources:
-  - https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager
   - https://github.com/truecharts/charts/tree/master/charts/stable/goaccess-npm-logs
+  - https://github.com/xavier-hernandez/goaccess-for-nginxproxymanager
   - https://hub.docker.com/r/xavierh/goaccess-for-nginxproxymanager
 type: application
-version: 5.1.3
+version: 6.0.8

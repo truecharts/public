@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.6.2
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.0.0
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,19 +26,19 @@ dependencies:
 deprecated: false
 description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.webp
 keywords:
   - chevereto
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: chevereto
 sources:
-  - https://github.com/rodber/chevereto-free
   - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
-  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
   - https://ghcr.io/rodber/chevereto-free
+  - https://github.com/rodber/chevereto-free
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
 type: application
-version: 12.2.3
+version: 13.1.9

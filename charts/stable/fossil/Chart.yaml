@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.15.1
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,11 +19,11 @@ dependencies:
 deprecated: false
 description: A simple, high-reliability, distributed software configuration management system
 home: https://truecharts.org/charts/stable/fossil
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/fossil.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fossil.webp
 keywords:
   - fossil
   - scm
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: fossil
 sources:
   - https://fossil-scm.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/fossil
   - https://ghcr.io/nicholaswilde/fossil
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fossil
 type: application
-version: 11.1.3
+version: 12.0.8

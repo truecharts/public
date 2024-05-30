@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.10.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The Wyoming integration of openWakeWord
+home: https://truecharts.org/charts/stable/wyoming-openwakeword
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wyoming-openwakeword.webp
+keywords:
+  - wyoming-openwakeword
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wyoming-openwakeword
+sources:
+  - https://github.com/home-assistant/addons/tree/master/openwakeword
+  - https://github.com/rhasspy/wyoming-openwakeword/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wyoming-openwakeword
+  - https://hub.docker.com/r/rhasspy/wyoming-openwakeword
+type: application
+version: 2.0.8

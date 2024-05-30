@@ -1,7 +1,7 @@
 image:
   repository: shlinkio/shlink
   pullPolicy: IfNotPresent
-  tag: 3.7.3@sha256:c70cf1b37087581cfcb7963d74d6c13fbee8555a7b10aa4af0493e70ade41202
+  tag: 4.1.1@sha256:e34a3eb2fffaf39a39dc8cd8b97535f11481b6062c90400f7dcc6b4baf4ee870
 service:
   main:
     ports:
@@ -14,6 +14,7 @@ cnpg:
     database: shlink
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: "default"
 portal:
   open:

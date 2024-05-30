@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [shaarli-1.0.0](https://github.com/truecharts/charts/compare/shaarli-0.0.33...shaarli-1.0.0) (2022-11-10)

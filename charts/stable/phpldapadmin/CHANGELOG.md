@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [phpldapadmin-7.0.0](https://github.com/truecharts/charts/compare/phpldapadmin-6.0.42...phpldapadmin-7.0.0) (2022-11-10)

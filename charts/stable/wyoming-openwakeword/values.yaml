@@ -1,0 +1,25 @@
+image:
+  repository: rhasspy/wyoming-openwakeword
+  pullPolicy: IfNotPresent
+  tag: 1.10.0@sha256:951b823c38403a9f10445a370d3dace3da4c38f64c6579dfbc5af0c10098f1b8
+
+wyoming_openwakeword:
+  model: ok_nabu
+  preload_model: true
+  custom_model:
+    path: ""
+  threshold: "0.5"
+  trigger_level: 1
+  debug: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10400
+        protocol: tcp
+        targetPort: 10400
+
+portal:
+  open:
+    enabled: false

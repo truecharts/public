@@ -1,7 +1,7 @@
 image:
   repository: friendica
   pullPolicy: IfNotPresent
-  tag: 2023.12@sha256:103df6a8b23ab75d87bee679ca9a552922763fcfa87353ae87c437f0e540bfa1
+  tag: 2024.03@sha256:2c3a507db7e2e0b999427cdb6b114e37a144030818573b33f9f6677478fbcf0c
 securityContext:
   container:
     runAsNonRoot: false
@@ -41,21 +41,13 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            MYSQL_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            MYSQL_PASSWORD: "{{ .Values.mariadb.password }}"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PW:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PW: "{{ .Values.redis.password }}"
 service:
   main:
     ports:
@@ -73,8 +65,10 @@ persistence:
     mountPath: /data
 redis:
   enabled: true
+  includeCommon: true
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: friendica
   mariadbDatabase: friendica
 portal:

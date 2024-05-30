@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [go-playground-1.0.0](https://github.com/truecharts/charts/compare/go-playground-0.0.35...go-playground-1.0.0) (2022-11-10)

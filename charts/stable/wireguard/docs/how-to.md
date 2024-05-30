@@ -9,7 +9,7 @@ Store your wireguard config file in a directory, on one of your pools.
 Example `/mnt/pool/vpn.conf` (Name can be any name. eg `wg0.conf`, `x-site.conf`, etc)
 Example config content:
 
-```conf
+```toml
 [Interface]
 Address = 10.0.0.1/24
 ListenPort = 51820

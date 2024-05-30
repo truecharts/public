@@ -1,16 +1,16 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: dns
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.8.1
+appVersion: 0.9.0
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,20 +19,20 @@ dependencies:
 deprecated: false
 description: Fully-replicated DNS and DHCP Server with ad-blocking powered by etcd.
 home: https://truecharts.org/charts/stable/gravity
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/gravity.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gravity.webp
 keywords:
   - gravity
   - dns
   - networking
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: gravity
 sources:
+  - https://ghcr.io/beryju/gravity
   - https://github.com/BeryJu/gravity
   - https://github.com/truecharts/charts/tree/master/charts/stable/gravity
-  - https://ghcr.io/beryju/gravity
 type: application
-version: 3.1.3
+version: 4.1.2

@@ -1,6 +1,6 @@
 image:
   repository: n8nio/n8n
-  tag: 1.30.1@sha256:14b8ae8807651e09194f327eadbd3f178ef35df06ff9c2e6b5d0d528119c500b
+  tag: 1.43.1@sha256:b0fe233e6255a364c3bc2d1a603bb97c85f2266f31721e5d6c256b7d5a102768
   pullPolicy: IfNotPresent
 timezoneandlocale: {}
 # N8N_DEFAULT_LOCALE: "en"
@@ -96,6 +96,7 @@ persistence:
 # Enabled redis
 redis:
   enabled: true
+  includeCommon: true
 # Enabled postgres
 cnpg:
   main:
@@ -147,8 +148,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            QUEUE_BULL_REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            QUEUE_BULL_REDIS_PASSWORD: "{{ .Values.redis.password }}"

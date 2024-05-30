@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pvk-ii-1.0.0](https://github.com/truecharts/charts/compare/pvk-ii-0.0.35...pvk-ii-1.0.0) (2022-11-10)

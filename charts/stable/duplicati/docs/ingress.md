@@ -6,4 +6,4 @@ This chart requires Ingress to be enabled after initial install due to the confi
 
 ![image](https://user-images.githubusercontent.com/89483932/174445638-bac32cc8-375f-4fdb-a99f-f8b75a4613e1.png)
 
-Once this is done you can successful add Ingress using the steps outlined inside our [Quick-Start Guide](https://truecharts.org/manual/SCALE/options/ingress). If you require more help or details please refer to our Discord for help from our Support Staff.
+Once this is done you can successful add Ingress using the steps outlined inside our [Quick-Start Guide](/scale/). If you require more help or details please refer to our Discord for help from our Support Staff.

@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.105.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: High performance self-hosted photo and video backup solution.
+home: https://truecharts.org/charts/stable/immich
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.webp
+keywords:
+  - photos
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: immich
+sources:
+  - https://github.com/immich-app/immich
+  - https://github.com/truecharts/charts/tree/master/charts/stable/immich
+  - https://hub.docker.com/r/altran1502/immich-machine-learning
+  - https://hub.docker.com/r/altran1502/immich-server
+type: application
+version: 15.13.9
