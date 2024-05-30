@@ -87,7 +87,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-256-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-257-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -428,6 +428,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/BartWillems"><img src="https://avatars.githubusercontent.com/u/6066578?v=4?s=100" width="100px;" alt="Bart Willems"/><br /><sub><b>Bart Willems</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=BartWillems" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.caidy.cc/"><img src="https://avatars.githubusercontent.com/u/18113342?v=4?s=100" width="100px;" alt="Caidy"/><br /><sub><b>Caidy</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=chencaidy" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mrkhachaturov"><img src="https://avatars.githubusercontent.com/u/105451445?v=4?s=100" width="100px;" alt="Mr Khachaturov"/><br /><sub><b>Mr Khachaturov</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mrkhachaturov" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LordCrash101"><img src="https://avatars.githubusercontent.com/u/164925025?v=4?s=100" width="100px;" alt="LordCrash101"/><br /><sub><b>LordCrash101</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=LordCrash101" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
