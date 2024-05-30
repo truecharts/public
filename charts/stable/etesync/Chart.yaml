@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://hub.docker.com/r/victorrds/etesync
   - https://www.etesync.com/
 type: application
-version: 10.1.4
+version: 10.1.5
