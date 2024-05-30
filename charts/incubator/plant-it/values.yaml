@@ -18,10 +18,7 @@ workload:
             MYSQL_PSW: "{{ .Values.mariadb.password  }}"
             MYSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
             MYSQL_ROOT_PASSWORD: "{{  .Values.mariadb.rootPassword  }}"
-            JWT_SECRET:
-              - secretRef:
-                  name: secrets
-                  key: PLANTIT_JWT_SECRET
+            JWT_SECRET: "MyJWTSecret"
             JWT_EXP: 1
             USER_LIMIT: -1
             UPLOAD_DIR: /uploads
