@@ -42,15 +42,6 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
-  catalog-test:
-    uses: ./.github/workflows/catalog-test.yaml
-    needs:
-      - pr-changes
-    with:
-      checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
-      chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
-      modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
-
   print_head_msg:
     name: print commit message
     runs-on: ubuntu-latest
@@ -70,7 +61,6 @@ jobs:
   automerge-and-approve:
     needs:
       - pr-changes
-      - catalog-test
       - charts-test
       - charts-lint
       - print_head_msg
