@@ -64,7 +64,6 @@
         "charts/system/**",
         "charts/unstable/**",
         "charts/dev/**",
-        "charts/incubator/**",
         "templates/app/**",
       ],
       commitMessageTopic: "Ignored Updates",
@@ -122,6 +121,7 @@
       groupName: "helm general major",
       matchFileNames: [
         "charts/stable/**",
+        "charts/incubator/**",
         "charts/premium/**",
         "charts/system/**",
       ],
@@ -137,6 +137,7 @@
       groupName: "helm general minor",
       matchFileNames: [
         "charts/stable/**",
+        "charts/incubator/**",
         "charts/premium/**",
         // "charts/system/**",
       ],
@@ -151,6 +152,7 @@
       groupName: "helm general non-major",
       matchFileNames: [
         "charts/stable/**",
+        "charts/incubator/**",
         "charts/premium/**",
         // "charts/system/**",
       ],
