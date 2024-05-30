@@ -8,16 +8,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: true
-              type: http
-            startup:
-              enabled: true
-              type: http
-            readiness:
-              enabled: true
-              type: http
           env:
             MYSQL_HOST:
               secretKeyRef:
