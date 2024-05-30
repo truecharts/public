@@ -36,11 +36,6 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
-      - name: Clean Questions
-        shell: bash
-        run: |
-          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
-
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -57,20 +52,29 @@ jobs:
           git push
           cd -
 
-      - name: Fix Pre-Commit issues
+      - name: Cache Changelog
+        id: cache-changelog
+        uses: actions/cache@v4
+        with:
+          path: changelog.json.gz
+          key: changelog-json
+
+      - name: Generate Changelog
         shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-          echo "Running pre-commit test-and-cleanup..."
-          pre-commit run --all ||:
-          # Fix sh files to always be executable
-          find . -name '*.sh' | xargs chmod +x
+          export REPO_PATH="./"
+          export TEMPLATE_PATH="templates/CHANGELOG.md.tmpl"
+          export CHARTS_DIR="./charts"
+          export JSON_FILE="changelog.json"
+          if [ -f "$JSON_FILE.gz" ]; then
+            gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
+          fi
+
+          ./charttool "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
+          gzip "$JSON_FILE" --best
 
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
           repository: truecharts/website
@@ -78,8 +82,6 @@ jobs:
           path: website
 
       - name: Copy docs to website
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         shell: bash
         run: |
           #!/bin/bash
@@ -98,12 +100,12 @@ jobs:
 
           for i in "${CHARTS[@]}"
           do
+            # TODO: Remove any changelog stuff from this script
+            # TODO: Move all website docs structure generation to charttool
             ./.github/scripts/chart-docs.sh "$i"
           done
 
       - name: Commit Website Changes
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           cd website
           git config user.name "TrueCharts-Bot"
