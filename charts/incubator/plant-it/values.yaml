@@ -14,7 +14,7 @@ workload:
                 name: cnpg-main-urls
                 key: host
             MYSQL_PORT: "5432"
-            MYSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+            MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             MYSQL_PSW: "{{ .Values.mariadb.password }}"
             MYSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
             MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
