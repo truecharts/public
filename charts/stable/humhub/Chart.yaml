@@ -24,7 +24,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://ghcr.io/mriedmann/humhub-phponly
   - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
 type: application
-version: 8.2.9
+version: 8.2.10

@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 14.0.5
+    version: 14.0.12
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/zyachel/libremdb
   - https://quay.io/pussthecatorg/libremdb
 type: application
-version: 8.1.66
+version: 8.1.67
