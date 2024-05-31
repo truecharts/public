@@ -31,11 +31,12 @@ jobs:
         shell: bash
         run: |
           export REPO_PATH="./"
-          export TEMPLATE_PATH=".//templates/CHANGELOG.md.tmpl"
-          export CHARTS_DIR=".//charts"
+          export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
+          export OUTPUT_DIR="./changelogs"
           export JSON_FILE="changelog.json"
-          rm -rf helm
+          
           ls -l
+
           if [ -f "$JSON_FILE.gz" ]; then
             gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
@@ -95,6 +96,10 @@ jobs:
 
           ./charttool genchartlist ./charts
           mv charts.json website/src/assets/charts.json
+
+          ls -la
+          echo "Copying changelogs to docs"
+          cp -r ./changelogs ./website/src/docs/
 
           export DEBUG=false
           export STRICT=true
