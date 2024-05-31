@@ -67,6 +67,7 @@ jobs:
           export CHARTS_DIR=".//charts"
           export JSON_FILE="changelog.json"
           rm -rf helm
+          ls -l
           if [ -f "$JSON_FILE.gz" ]; then
             gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
