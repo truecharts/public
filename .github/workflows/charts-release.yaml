@@ -63,7 +63,7 @@ jobs:
         shell: bash
         run: |
           export REPO_PATH="./"
-          export TEMPLATE_PATH="templates/CHANGELOG.md.tmpl"
+          export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
           export CHARTS_DIR="./charts"
           export JSON_FILE="changelog.json"
           if [ -f "$JSON_FILE.gz" ]; then
