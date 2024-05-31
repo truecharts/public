@@ -20,6 +20,29 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
 
+      - name: Cache Changelog
+        id: cache-changelog
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          path: changelog.json.gz
+          key: changelog-json
+
+      - name: Generate Changelog
+        shell: bash
+        run: |
+          export REPO_PATH="./"
+          export TEMPLATE_PATH=".//templates/CHANGELOG.md.tmpl"
+          export CHARTS_DIR=".//charts"
+          export JSON_FILE="changelog.json"
+          rm -rf helm
+          ls -l
+          if [ -f "$JSON_FILE.gz" ]; then
+            gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
+          fi
+
+          ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
+          gzip "$JSON_FILE" --best
+
       - name: Checkout Helm-Staging
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
         with:
@@ -51,29 +74,6 @@ jobs:
           git commit -sm "Commit released Helm Charts for TrueCharts" || exit 0
           git push
           cd -
-
-      - name: Cache Changelog
-        id: cache-changelog
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-        with:
-          path: changelog.json.gz
-          key: changelog-json
-
-      - name: Generate Changelog
-        shell: bash
-        run: |
-          export REPO_PATH="./"
-          export TEMPLATE_PATH=".//templates/CHANGELOG.md.tmpl"
-          export CHARTS_DIR=".//charts"
-          export JSON_FILE="changelog.json"
-          rm -rf helm
-          ls -l
-          if [ -f "$JSON_FILE.gz" ]; then
-            gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
-          fi
-
-          ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
-          gzip "$JSON_FILE" --best
 
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
