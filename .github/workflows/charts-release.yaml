@@ -62,10 +62,11 @@ jobs:
       - name: Generate Changelog
         shell: bash
         run: |
-          export REPO_PATH="./charts"
-          export TEMPLATE_PATH="./charts/templates/CHANGELOG.md.tmpl"
-          export CHARTS_DIR="./charts/charts"
+          export REPO_PATH="./"
+          export TEMPLATE_PATH=".//templates/CHANGELOG.md.tmpl"
+          export CHARTS_DIR=".//charts"
           export JSON_FILE="changelog.json"
+          rm -rf helm
           if [ -f "$JSON_FILE.gz" ]; then
             gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
