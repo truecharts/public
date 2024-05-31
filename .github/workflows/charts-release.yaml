@@ -41,7 +41,7 @@ jobs:
             gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
 
-          ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$CHARTS_DIR"
+          ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
           gzip "$JSON_FILE" --best
 
       - name: Checkout Helm-Staging
