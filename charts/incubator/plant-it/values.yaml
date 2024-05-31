@@ -3,6 +3,10 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.7.1@sha256:b7857441ec7851c87913fdcdc43c25e9b3f7a910d127d86c1dc9a19b77e190b8
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
 workload:
   main:
     podSpec:
@@ -14,10 +18,10 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            MYSQL_PORT: "5432"
+            MYSQL_PORT: "3306"
             MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             MYSQL_PSW: "{{ .Values.mariadb.password }}"
-            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase}}"
+            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
             JWT_SECRET: "MyJWTSecret"
             JWT_EXP: 1
@@ -50,7 +54,7 @@ service:
         port: 9701
 
 persistence:
-  upload-dir:
+  uploads:
     enabled: true
     mountPath: /uploads
   certificates:
