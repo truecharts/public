@@ -1,0 +1,73 @@
+image:
+  repository: msdeluise/plant-it-server
+  pullPolicy: IfNotPresent
+  tag: 0.7.1@sha256:b7857441ec7851c87913fdcdc43c25e9b3f7a910d127d86c1dc9a19b77e190b8
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MYSQL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            MYSQL_PORT: "3306"
+            MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+            MYSQL_PSW: "{{ .Values.mariadb.password }}"
+            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            MYSQL_ROOT_PASSWORD: "{{ .Values.mariadb.rootPassword }}"
+            JWT_SECRET: "MyJWTSecret"
+            JWT_EXP: 1
+            USER_LIMIT: -1
+            UPLOAD_DIR: /uploads
+            API_PORT: "{{ .Values.service.main.ports.api.port }}"
+            TREFLE_KEY: ""
+            LOG_LEVEL: INFO
+            ALLOWED_ORIGINS: "*"
+            CACHE_TTL: 86400
+            CACHE_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            CACHE_PORT: 6379
+            SSL_ENABLED: false
+            CERTIFICATE_PATH: /certificates/
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        targetPort: 3000
+        port: 3000
+      api:
+        enabled: true
+        port: 9701
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: /uploads
+  certificates:
+    enabled: true
+    mountPath: /certificates
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: plantit
+  mariadbDatabase: plantit
+
+redis:
+  enabled: true
+  includeCommon: true
+  redisUsername: default
+
+portal:
+  open:
+    enabled: true
