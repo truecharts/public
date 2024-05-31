@@ -100,7 +100,7 @@ jobs:
           mv charts.json website/src/assets/charts.json
 
           echo "Copying changelogs to docs"
-          cp -r ./changelogs ./website/src/docs/
+          cp -r ./changelogs ./website/src/docs/charts/
 
           export DEBUG=false
           export STRICT=true
