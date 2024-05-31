@@ -36,6 +36,13 @@ workload:
       containers:
         main:
           env:
+          probes:
+            liveness:
+              type: tcp
+            startup:
+              type: tcp
+            readiness:
+              type: tcp
             DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_HOST:
