@@ -9,13 +9,13 @@ For more information about which console commands are available, for more inform
 
 ## Default Values
 
-| KEY                                  | VALUE                                          |
-| ------------------------------------ | ---------------------------------------------- |
-| dev                                  | Enabled                                        |
-| usercon                              | Enabled                                        |
-| rcon_password                        | ""                                             |
-| rcon_port                            | 27015                                          |
-| port                                 | 27015                                          |
-| game_type                            | 0                                              |
-| game_mode                            | 1                                              |
-| map                                  | de_inferno                                     |
+| KEY           | VALUE      |
+| ------------- | ---------- |
+| dev           | Enabled    |
+| usercon       | Enabled    |
+| rcon_password | ""         |
+| rcon_port     | 27015      |
+| port          | 27015      |
+|  game_type    | 0          |
+| game_mode     | 1          |
+| map           | de_inferno |
