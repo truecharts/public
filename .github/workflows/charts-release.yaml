@@ -65,6 +65,8 @@ jobs:
           rm -rf helm/charts
           mkdir helm/charts
           cp -rf charts helm
+          echo "Copying changelogs to helm"
+          cp -r ./changelogs ./helm/
 
       - name: Commit Helm Changes
         run: |
@@ -97,7 +99,6 @@ jobs:
           ./charttool genchartlist ./charts
           mv charts.json website/src/assets/charts.json
 
-          ls -la
           echo "Copying changelogs to docs"
           cp -r ./changelogs ./website/src/docs/
 
