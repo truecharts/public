@@ -142,6 +142,12 @@ persistence:
       translate:
         translate:
           mountPath: /.local/share
+  libretranslate-home:
+    enabled: true
+    targetSelector:
+      translate:
+        translate:
+          mountPath: /home/libretranslate
   libretranslate-cache:
     enabled: true
     targetSelector:
