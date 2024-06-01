@@ -47,6 +47,7 @@ service:
 
 ingress:
   assets:
+    enabled: false
     targetSelector:
       assets: assets
 
