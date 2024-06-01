@@ -62,7 +62,7 @@ workload:
             DB_ENDPOINT:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ printf "%s-%s:27017" .Release.Name "mongodbcreds" }}'
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
                 key: plainhost
             DB_USER: "{{ .Values.mongodb.mongodbUsername }}"
             DB_PASS: 
