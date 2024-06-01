@@ -35,17 +35,14 @@ workload:
     podSpec:
       containers:
         main:
-          env:
           probes:
             liveness:
-              enabled: true
               type: tcp
             startup:
-              enabled: true
               type: tcp
             readiness:
-              enabled: true
               type: tcp
+          env:
             DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_HOST:
