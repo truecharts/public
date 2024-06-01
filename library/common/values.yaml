@@ -223,8 +223,6 @@ service:
         primary: true
         protocol: http
 
-serviceList: []
-
 credentials: {}
   # mys3:
   #   type: s3
@@ -374,14 +372,8 @@ persistence:
 #      - name: "mysnapshot"
 #        volumeSnapshotClassName: "mysnapshotclass" (optional)
 
-persistenceList: []
-
-deviceList: []
-
 volumeSnapshotClass: {}
-volumeSnapshotClassList: {}
 volumeSnapshots: {}
-volumeSnapshotsList: {}
 # volumeSnapshots:
 #   mysnapshot:
 #     volumeSnapshotClassName: "mycustomsnapshot" (optional)
@@ -390,18 +382,8 @@ volumeSnapshotsList: {}
 #       persistentVolumeClaimName: "mypvcname" (does not get altered)
 #       volumeSnapshotContentName: "mysnapshotname"
 
-# -- Injected from SCALE middleware
-# Only for reference here
-ixExternalInterfacesConfiguration: []
-# -- Injected from SCALE middleware
-# Only for reference here
-ixExternalInterfacesConfigurationNames: []
-
 # -- (docs/imagePullSecrets.md)
 imagePullSecret: {}
-
-# -- (docs/imagePullSecrets.md)
-imagePullSecretList: []
 
 # -- (docs/configmap.md)
 configmap: {}
@@ -415,22 +397,22 @@ serviceAccount: {}
 # -- (docs/rbac.md)
 rbac: {}
 
-# -- (docs/scaleExternalInterface.md)
-scaleExternalInterface: []
-
 # NOTES.txt
 notes:
   header: |
     # Thank you for installing {{ .Chart.Name }} by TrueCharts.
   # custom: "{{ toYaml $.Values }}"
   custom: |
-    {{- if .Values.iXPortals }}
+    {{- if .Values.portal }}
     ## Connecting externally
     You can use this Chart by opening one of the following links in your browser:
-      {{- range .Values.iXPortals }}
-    - {{ toYaml . }}
+      {{- range $p := $.Values.portal }}
+      {{- if and $p.enabled $p.rendered }}
+    - {{ toYaml $p.rendered.url }}
+      {{- end }}
       {{- end -}}
     {{- end }}
+
     ## Sources for {{ .Chart.Name }}
 
     {{- range .Chart.Sources }}
@@ -451,9 +433,6 @@ notes:
     OpenSource can only exist with your help, please consider supporting TrueCharts:
     https://truecharts.org/sponsor
   warnings: []
-
-# -- iXsystems prototype values.yaml based portals
-iXPortals: []
 
 ####
 ##

@@ -213,21 +213,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with certificate created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      certificate:
-        my-cert1:
-          enabled: true
-          hosts:
-            - host1
-          certificateIssuer: some-issuer
-    asserts:
-      - documentIndex: *certDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

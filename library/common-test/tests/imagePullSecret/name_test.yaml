@@ -22,13 +22,6 @@ tests:
             username: user2
             password: pass2
             email: mail2
-      imagePullSecretList:
-        - enabled: true
-          data:
-            registry: reg1
-            username: user1
-            password: pass1
-            email: mail1
     asserts:
       - documentIndex: &secretDoc 0
         isKind:
@@ -50,13 +43,3 @@ tests:
         equal:
           path: metadata.name
           value: test-release-name-common-test-my-pull-secret2
-      - documentIndex: &thirdSecretDoc 2
-        isKind:
-          of: Secret
-      - documentIndex: *thirdSecretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *thirdSecretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-pullsecret-list-0

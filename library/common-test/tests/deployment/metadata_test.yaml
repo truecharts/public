@@ -253,21 +253,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with deployment created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-    asserts:
-      - documentIndex: *deploymentDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

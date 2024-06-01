@@ -99,7 +99,7 @@
   {{- end -}}
 
   {{/* Node Maintenance Window */}}
-  {{- if or $rootCtx.Values.global.ixChartContext $objectData.cluster.singleNode -}}
+  {{- if $objectData.cluster.singleNode -}}
     {{- $inProgress = true -}}
   {{- end -}}
 

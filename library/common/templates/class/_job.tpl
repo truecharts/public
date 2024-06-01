@@ -41,7 +41,6 @@ spec:
         {{- end -}}
         {{- $annotations := (mustMerge ($objectData.podSpec.annotations | default dict)
                                         (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)
-                                        (include "tc.v1.common.lib.metadata.externalInterfacePodAnnotations" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml)
                                         (include "tc.v1.common.lib.metadata.podAnnotations" $rootCtx | fromYaml)) -}}
         {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
       annotations:

@@ -40,7 +40,7 @@ function incr_semver() {
 
 BUMPTYPE=${1}
 if [ -z ${2+x} ]; then
-for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+for train in stable incubator games enterprise develop non-free deprecated dependency core; do
   for chart in charts/${train}/*; do
     if [ -d "${chart}" ]; then
       echo "Bumping version for ${train}/${chart}"

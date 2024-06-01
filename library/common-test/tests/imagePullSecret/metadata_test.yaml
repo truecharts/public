@@ -135,23 +135,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with secret created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      imagePullSecret:
-        my-secret1:
-          enabled: true
-          data:
-            registry: reg
-            username: user
-            password: pass
-            email: mail
-    asserts:
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

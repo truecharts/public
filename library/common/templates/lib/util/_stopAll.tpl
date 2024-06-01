@@ -6,15 +6,5 @@
     {{- $stop = true -}}
   {{- end -}}
 
-  {{- with $rootCtx.Values.global.ixChartContext -}}
-    {{- if .isStopped -}}
-      {{- $stop = true -}}
-    {{- end -}}
-    {{/* Useful for cases like external-service */}}
-    {{- if $rootCtx.Values.global.ignoreIsStopped -}}
-      {{- $stop = "" -}}
-    {{- end -}}
-  {{- end -}}
-
   {{- $stop -}}
 {{- end -}}

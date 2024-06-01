@@ -151,20 +151,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with pvc created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-          storageClassName: SCALE-ZFS
-      namespace: ix-namespace
-      persistence:
-        my-volume1:
-          enabled: true
-          type: pvc
-    asserts:
-      - documentIndex: *pvcDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

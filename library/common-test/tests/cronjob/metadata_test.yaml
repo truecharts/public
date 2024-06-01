@@ -199,22 +199,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with CronJob created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: CronJob
-          schedule: "*/1 * * * *"
-          podSpec: {}
-    asserts:
-      - documentIndex: *cronJobDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

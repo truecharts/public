@@ -138,21 +138,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with pdb created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      podDisruptionBudget:
-        my-pdb1:
-          enabled: true
-          customLabels:
-            label1: value1
-          minAvailable: 1
-    asserts:
-      - documentIndex: *pdbDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

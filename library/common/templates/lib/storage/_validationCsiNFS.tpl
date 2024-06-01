@@ -13,12 +13,6 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- if hasKey $rootCtx.Values.global "ixChartContext" -}}
-    {{- if not $rootCtx.Values.global.ixChartContext.hasNFSCSI -}}
-      {{- fail "NFS CSI - Not supported CSI" -}}
-    {{- end -}}
-  {{- end -}}
-
   {{- $required := (list "server" "share") -}}
   {{- range $item := $required -}}
     {{- if not (get $objectData.static $item) -}}

@@ -22,21 +22,6 @@ tests:
       - failedTemplate:
           errorMessage: Name [test-release-name-common-test-other-workload-name-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace starts with ix- but its not in ixContext
-    set:
-      global:
-        ixChartsContext: {}
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          namespace: ix-test
-          type: Deployment
-          podSpec: {}
-    asserts:
-      - failedTemplate:
-          errorMessage: Deployment - Namespace [ix-test] is not allowed to have [ix-] prefix when installed outside of SCALE-Apps
-
   - it: should fail with name starting with underscore
     set:
       workload:

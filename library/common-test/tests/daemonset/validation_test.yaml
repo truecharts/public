@@ -44,19 +44,3 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: DaemonSet - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
-
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: DaemonSet
-          namespace: my-namespace
-          podSpec: {}
-    asserts:
-      - failedTemplate:
-          errorMessage: DaemonSet - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE

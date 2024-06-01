@@ -256,7 +256,7 @@ tests:
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test1..."
                   before=$(stat -c "%u:%g" /mounts/test1)
-                      chown -R -f :568 /mounts/test1 || echo "Failed setting ownership using chown..."
+                  chown -R -f :568 /mounts/test1 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test1)]"
@@ -269,7 +269,7 @@ tests:
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test2..."
                   before=$(stat -c "%u:%g" /mounts/test2)
-                      chown  -f :568 /mounts/test2 || echo "Failed setting ownership using chown..."
+                  chown  -f :568 /mounts/test2 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test2)]"
@@ -282,7 +282,7 @@ tests:
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test4..."
                   before=$(stat -c "%u:%g" /mounts/test4)
-                      chown  -f :568 /mounts/test4 || echo "Failed setting ownership using chown..."
+                  chown  -f :568 /mounts/test4 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test4)]"
@@ -295,7 +295,7 @@ tests:
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test6..."
                   before=$(stat -c "%u:%g" /mounts/test6)
-                      chown -R -f 1000:1000 /mounts/test6 || echo "Failed setting ownership using chown..."
+                  chown -R -f 1000:1000 /mounts/test6 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test6)]"
@@ -308,330 +308,20 @@ tests:
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test7..."
                   before=$(stat -c "%u:%g" /mounts/test7)
-                      chown -R -f :568 /mounts/test7 || echo "Failed setting ownership using chown..."
+                  chown -R -f :568 /mounts/test7 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test7)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test9..."
                   before=$(stat -c "%u:%g" /mounts/test9)
-                      chown  -f :568 /mounts/test9 || echo "Failed setting ownership using chown..."
+                  chown  -f :568 /mounts/test9 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test9)]"
                   echo ""
               echo "Finished auto permissions job..."
 
-  - it: should render permissions job in ixChartContext
-    set:
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          some: context
-      persistence:
-        test1:
-          enabled: true
-          type: hostPath
-          autoPermissions:
-            enabled: true
-            chown: true
-            chmod: 770
-            recursive: true
-          mountPath: /test1
-          hostPath: /testhost1
-        test2:
-          enabled: true
-          type: hostPath
-          autoPermissions:
-            enabled: true
-            chown: true
-            chmod: 770
-            recursive: false
-          mountPath: /test2
-          hostPath: /testhost2
-        test3:
-          enabled: true
-          type: hostPath
-          autoPermissions:
-            enabled: true
-            chmod: 770
-          mountPath: /test3
-          hostPath: /testhost3
-        test4:
-          enabled: true
-          type: hostPath
-          autoPermissions:
-            enabled: true
-            chown: true
-          mountPath: /test4
-          hostPath: /testhost4
-        # Should not appear
-        test5:
-          enabled: true
-          type: hostPath
-          mountPath: /test5
-          hostPath: /testhost5
-        test6:
-          enabled: true
-          type: hostPath
-          targetSelectAll: true
-          mountPath: /test6
-          hostPath: /testhost6
-          autoPermissions:
-            enabled: true
-            chown: true
-            chmod: 770
-            recursive: true
-            user: 1000
-            group: 1000
-        test7:
-          enabled: true
-          type: emptyDir
-          autoPermissions:
-            enabled: true
-            chown: true
-            chmod: 770
-            recursive: true
-          mountPath: /test7
-        test9:
-          enabled: true
-          type: nfs
-          server: 1.1.1.1
-          path: /share
-          autoPermissions:
-            enabled: true
-            chown: true
-          mountPath: /test9
-    asserts:
-      - documentIndex: *jobDoc
-        isKind:
-          of: Job
-      - documentIndex: *jobDoc
-        equal:
-          path: spec.template.spec.containers[0].securityContext
-          value:
-            runAsUser: 0
-            runAsGroup: 568
-            runAsNonRoot: false
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            privileged: false
-            seccompProfile:
-              type: RuntimeDefault
-            capabilities:
-              drop:
-                - ALL
-              add:
-                - CHOWN
-                - DAC_OVERRIDE
-                - FOWNER
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test1
-            hostPath:
-              path: /testhost1
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test2
-            hostPath:
-              path: /testhost2
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test3
-            hostPath:
-              path: /testhost3
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test4
-            hostPath:
-              path: /testhost4
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test6
-            hostPath:
-              path: /testhost6
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test7
-            emptyDir: {}
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: test9
-            nfs:
-              server: 1.1.1.1
-              path: /share
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
-            name: tmp
-            emptyDir:
-              medium: Memory
-              sizeLimit: 8Gi
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test1
-            mountPath: /mounts/test1
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test2
-            mountPath: /mounts/test2
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test3
-            mountPath: /mounts/test3
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test4
-            mountPath: /mounts/test4
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test6
-            mountPath: /mounts/test6
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test7
-            mountPath: /mounts/test7
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: tmp
-            mountPath: /tmp
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test9
-            mountPath: /mounts/test9
-            readOnly: false
-      - documentIndex: *jobDoc
-        equal:
-          path: spec.template.spec.containers[0].command
-          value:
-            - /bin/sh
-            - -c
-      - documentIndex: *jobDoc
-        equal:
-          path: spec.template.spec.containers[0].args
-          value:
-            - |-
-              echo "Starting auto permissions job..."
-              touch /tmp/healthy
-
-              echo "Automatically correcting ownership and permissions..."
-                  echo "Automatically correcting permissions for /mounts/test1..."
-                  before=$(stat -c "%a" /mounts/test1)
-                  chmod -R 770 /mounts/test1 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test1)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test1..."
-                  before=$(stat -c "%u:%g" /mounts/test1)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test1" -p "/mounts/test1" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test1)]"
-                  echo ""
-                  echo "Automatically correcting permissions for /mounts/test2..."
-                  before=$(stat -c "%a" /mounts/test2)
-                  chmod  770 /mounts/test2 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test2)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test2..."
-                  before=$(stat -c "%u:%g" /mounts/test2)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568  -c "/mounts/test2" -p "/mounts/test2" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test2)]"
-                  echo ""
-                  echo "Automatically correcting permissions for /mounts/test3..."
-                  before=$(stat -c "%a" /mounts/test3)
-                  chmod  770 /mounts/test3 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test3)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test4..."
-                  before=$(stat -c "%u:%g" /mounts/test4)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568  -c "/mounts/test4" -p "/mounts/test4" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test4)]"
-                  echo ""
-                  echo "Automatically correcting permissions for /mounts/test6..."
-                  before=$(stat -c "%a" /mounts/test6)
-                  chmod -R 770 /mounts/test6 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test6)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test6..."
-                  before=$(stat -c "%u:%g" /mounts/test6)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 1000 -r -c "/mounts/test6" -p "/mounts/test6" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test6)]"
-                  echo ""
-                  echo "Automatically correcting permissions for /mounts/test7..."
-                  before=$(stat -c "%a" /mounts/test7)
-                  chmod -R 770 /mounts/test7 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test7)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test7..."
-                  before=$(stat -c "%u:%g" /mounts/test7)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test7" -p "/mounts/test7" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test7)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test9..."
-                  before=$(stat -c "%u:%g" /mounts/test9)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568  -c "/mounts/test9" -p "/mounts/test9" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test9)]"
-                  echo ""
-              echo "Finished auto permissions job..."
 
   - it: should have different resources
     set:

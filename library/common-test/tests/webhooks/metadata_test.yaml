@@ -152,20 +152,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with webhook created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      webhook:
-        my-webhook1:
-          enabled: true
-          type: mutating
-          webhooks: *webhooks
-    asserts:
-      - documentIndex: *webhookDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

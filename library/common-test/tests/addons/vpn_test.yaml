@@ -414,7 +414,7 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting ownership for /mounts/vpnconfig..."
                   before=$(stat -c "%u:%g" /mounts/vpnconfig)
-                      chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"
@@ -502,7 +502,7 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting ownership for /mounts/vpnfolder..."
                   before=$(stat -c "%u:%g" /mounts/vpnfolder)
-                      chown  -f 568:568 /mounts/vpnfolder || echo "Failed setting ownership using chown..."
+                  chown  -f 568:568 /mounts/vpnfolder || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnfolder)]"
@@ -782,7 +782,7 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting ownership for /mounts/vpnconfig..."
                   before=$(stat -c "%u:%g" /mounts/vpnconfig)
-                      chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"
@@ -903,7 +903,7 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting ownership for /mounts/vpnconfig..."
                   before=$(stat -c "%u:%g" /mounts/vpnconfig)
-                      chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"

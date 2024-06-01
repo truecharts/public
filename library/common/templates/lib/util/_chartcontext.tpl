@@ -6,7 +6,6 @@
     "override" dict
     "targetSelector" dict
     "path" ""
-    "isPortal" false
   ) -}}
 
   {{- $context := (include "tc.v1.common.lib.util.chartcontext.data" (dict "rootCtx" $ "objectData" $objectData) | fromYaml) -}}
@@ -34,21 +33,7 @@
   {{- $podCIDR := "172.16.0.0/16" -}}
   {{- $svcCIDR := "172.17.0.0/16" -}}
 
-  {{- if $objectData.isPortal -}}
-    {{/* Adjust some defaults */}}
-    {{- $host = "$node_ip" -}}
-    {{- $path = $objectData.path | default "/" -}}
-  {{- end -}}
-
-  {{/* TrueNAS SCALE specific code */}}
-  {{- if $rootCtx.Values.global.ixChartContext -}}
-    {{- if $rootCtx.Values.global.ixChartContext.kubernetes_config -}}
-      {{- $podCIDR = $rootCtx.Values.global.ixChartContext.kubernetes_config.cluster_cidr -}}
-      {{- $svcCIDR = $rootCtx.Values.global.ixChartContext.kubernetes_config.service_cidr -}}
-    {{- end -}}
-  {{- else -}}
-    {{/* TODO: Find ways to implement CIDR detection */}}
-  {{- end -}}
+  {{/* TODO: Find ways to implement CIDR detection */}}
 
   {{/* If there is ingress, get data from the primary */}}
   {{- $primaryIngressName := include "tc.v1.common.lib.util.ingress.primary" (dict "rootCtx" $rootCtx) -}}
@@ -214,6 +199,5 @@
     "appPath" $path "appProtocol" $protocol
   ) -}}
 
-  {{- $context | toYaml -}}
-
+  {{- $context | toJson -}}
 {{- end -}}

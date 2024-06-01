@@ -1,8 +1,3 @@
-global:
-  ixChartContext:
-    ci: true
-    something: something
-
 workload:
   main:
     enabled: true
@@ -43,11 +38,11 @@ route:
     hostnames:
       - chart-example.local
     parentRefs:
-    -  # Group of the referent resource.
-      group: gateway.networking.k8s.io
-      # Kind of the referent resource.
-      kind: Gateway
-      # Name of the referent resource
-      name: test
-      # Namespace of the referent resource
-      namespace: test
+      # Group of the referent resource.
+      - group: gateway.networking.k8s.io
+        # Kind of the referent resource.
+        kind: Gateway
+        # Name of the referent resources
+        name: test
+        # Namespace of the referent resource
+        namespace: test

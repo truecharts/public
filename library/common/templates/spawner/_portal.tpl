@@ -4,22 +4,17 @@
 */}}
 
 {{- define "tc.v1.common.spawner.portal" -}}
-  {{/* Only run this on SCALE */}}
-  {{- if $.Values.global.ixChartContext -}}
-    {{- range $name, $portal := $.Values.portal -}}
-
+  {{- range $name, $portal := $.Values.portal -}}
       {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                       "rootCtx" $ "objectData" $portal
                       "name" $name "caller" "Portal"
                       "key" "portal")) -}}
 
       {{- if eq $enabled "true" -}}
-
         {{/* Create a copy of the portal */}}
         {{- $objectData := (mustDeepCopy $portal) -}}
-        {{- $_ := set $objectData "isPortal" true -}}
 
-        {{- $context := (include "tc.v1.common.lib.util.chartcontext.data" (dict "rootCtx" $ "objectData" $objectData) | fromYaml) -}}
+        {{- $context := (include "tc.v1.common.lib.util.chartcontext.data" (dict "rootCtx" $ "objectData" $objectData) | fromJson) -}}
 
         {{/* create configmap entry*/}}
         {{- $portalData := (dict
@@ -40,23 +35,15 @@
         {{/* Call class to create the object */}}
         {{- include "tc.v1.common.class.configmap" (dict "rootCtx" $ "objectData" $configMap) -}}
 
-        {{/* iXportals */}}
-        {{- $useNodeIP := false -}}
-        {{- if eq $context.appHost "$node_ip" -}}
-          {{- $useNodeIP = true -}}
-        {{- end -}}
-
-        {{- $iXPortalData := (dict
-          "portalName" $name "useNodeIP" $useNodeIP
+        {{- $portalData := (dict
+          "portalName" $name
           "protocol" $context.appProtocol "host" $context.appHost
           "port" $context.appPort "path" $context.appPath
           "url" $context.appUrlWithPortAndPath
         ) -}}
 
-        {{- $iXPortals := append $.Values.iXPortals $iXPortalData -}}
-        {{- $_ := set $.Values "iXPortals" $iXPortals -}}
+        {{- $_ := set $.Values.portal $name (dict "rendered" $portalData) -}}
 
-      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

@@ -53,21 +53,6 @@ tests:
       - failedTemplate:
           errorMessage: Webhook - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      webhook:
-        my-webhook:
-          enabled: true
-          type: validating
-          namespace: my-namespace
-          webhooks: *webhooks
-    asserts:
-      - failedTemplate:
-          errorMessage: Webhook - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE
-
   - it: should fail with labels not a dict
     set:
       webhook:

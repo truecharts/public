@@ -13,12 +13,6 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- if hasKey $rootCtx.Values.global "ixChartContext" -}}
-    {{- if not $rootCtx.Values.global.ixChartContext.hasSMBCSI -}}
-      {{- fail "SMB CSI - Not supported CSI" -}}
-    {{- end -}}
-  {{- end -}}
-
   {{- $required := (list "server" "share" "username" "password") -}}
   {{- range $item := $required -}}
     {{- if not (get $objectData.static $item) -}}

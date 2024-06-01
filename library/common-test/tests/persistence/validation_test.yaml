@@ -56,23 +56,6 @@ tests:
       - failedTemplate:
           errorMessage: PVC - Expected [accessModes] entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
 
-  - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
-    set:
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          storageClassName: ""
-          ci:
-            storageClass: true
-      persistence:
-        volume1:
-          enabled: true
-          type: pvc
-          storageClass: SCALE-ZFS
-    asserts:
-      - failedTemplate:
-          errorMessage: PVC - Expected non-empty [global.ixChartContext.storageClassName] on [SCALE-ZFS] storageClass
-
   - it: should fail with non-existent configmap
     set:
       configmap:
@@ -132,20 +115,6 @@ tests:
       - failedTemplate:
           errorMessage: Persistent Volume Claim - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      persistence:
-        volume1:
-          enabled: true
-          type: pvc
-          namespace: my-namespace
-    asserts:
-      - failedTemplate:
-          errorMessage: Persistent Volume Claim - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE
-
   - it: should fail without server on pvc static nfs
     set:
       persistence:
@@ -197,38 +166,6 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: SMB CSI - Expected [share] to be non-empty
-
-  - it: should fail without CSI when in ixChartContext on pvc static smb
-    set:
-      global:
-        ixChartContext: {}
-      persistence:
-        volume1:
-          enabled: true
-          type: pvc
-          static:
-            mode: smb
-            share: someshare
-            server: someserver
-    asserts:
-      - failedTemplate:
-          errorMessage: SMB CSI - Not supported CSI
-
-  - it: should fail without CSI when in ixChartContext on pvc static nfs
-    set:
-      global:
-        ixChartContext: {}
-      persistence:
-        volume1:
-          enabled: true
-          type: pvc
-          static:
-            mode: nfs
-            share: /someshare
-            server: someserver
-    asserts:
-      - failedTemplate:
-          errorMessage: NFS CSI - Not supported CSI
 
   - it: should fail without username pvc static smb
     set:

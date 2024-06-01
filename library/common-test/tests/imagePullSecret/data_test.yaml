@@ -49,23 +49,3 @@ tests:
           path: data
           value:
             .dockerconfigjson: eyJhdXRocyI6eyJxdWF5LmlvIjp7ImF1dGgiOiJkWE5sY2pwelpXTnlaWFJmY0dGemN3PT0iLCJlbWFpbCI6Im1haWxAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InNlY3JldF9wYXNzIiwidXNlcm5hbWUiOiJ1c2VyIn19fQ==
-
-  - it: should pass with  data from tpl
-    set:
-      registry: quay.io
-      user: user
-      pass: secret_pass
-      email: mail@example.com
-      imagePullSecretList:
-        - enabled: true
-          data:
-            registry: "{{ .Values.registry }}"
-            username: "{{ .Values.user }}"
-            password: "{{ .Values.pass }}"
-            email: "{{ .Values.email }}"
-    asserts:
-      - documentIndex: *secretDoc
-        equal:
-          path: data
-          value:
-            .dockerconfigjson: eyJhdXRocyI6eyJxdWF5LmlvIjp7ImF1dGgiOiJkWE5sY2pwelpXTnlaWFJmY0dGemN3PT0iLCJlbWFpbCI6Im1haWxAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InNlY3JldF9wYXNzIiwidXNlcm5hbWUiOiJ1c2VyIn19fQ==

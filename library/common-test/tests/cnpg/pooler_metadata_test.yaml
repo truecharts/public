@@ -161,24 +161,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with cnpg pooler created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-          storageClassName: some-storage-class
-      namespace: ix-namespace
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          pooler:
-            enabled: true
-    asserts:
-      - documentIndex: *poolerDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

@@ -586,44 +586,6 @@ tests:
       - failedTemplate:
           errorMessage: Service - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      service:
-        my-service1:
-          enabled: true
-          primary: true
-          namespace: my-namespace
-          ports:
-            port-name:
-              enabled: true
-              primary: true
-              port: 12345
-    asserts:
-      - failedTemplate:
-          errorMessage: Service - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE
-
-  - it: should fail with both loadBalancerIP and loadBalancerIPs defined
-    set:
-      service:
-        my-service1:
-          enabled: true
-          primary: true
-          type: LoadBalancer
-          loadBalancerIP: 1.2.3.4
-          loadBalancerIPs:
-            - 1.2.3.4
-          ports:
-            port-name:
-              enabled: true
-              primary: true
-              port: 12345
-    asserts:
-      - failedTemplate:
-          errorMessage: Service - Expected on of [loadBalancerIP, loadBalancerIPs] to be defined but got both
-
   - it: should fail with if loadBalancerIP is not a string
     set:
       service:

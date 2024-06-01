@@ -372,24 +372,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with service created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      service:
-        my-service1:
-          enabled: true
-          primary: true
-          ports:
-            port-name:
-              enabled: true
-              primary: true
-              port: 12345
-    asserts:
-      - documentIndex: *serviceDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

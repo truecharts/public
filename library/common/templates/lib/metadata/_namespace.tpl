@@ -21,18 +21,6 @@
     {{- fail (printf "%s - Namespace [%s] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters." $caller $namespace) -}}
   {{- end -}}
 
-  {{- if $rootCtx.Values.global.ixChartContext -}}
-    {{- if not (hasPrefix "ix-" $namespace) -}}
-      {{/* This is only to be used on CI that do not run in SCALE so we can skip the failure */}}
-      {{- if not $rootCtx.Values.global.ixChartContext.ci -}}
-        {{- fail (printf "%s - Namespace [%v] expected to have [ix-] prefix when installed in TrueNAS SCALE" $caller $namespace) -}}
-      {{- end -}}
-    {{- end -}}
-  {{- else if (hasPrefix "ix-" $namespace) -}}
-    {{/* Users should not use SCALE-reserved Namespace prefixes to hack things into the SCALE GUI */}}
-    {{- fail (printf "%s - Namespace [%v] is not allowed to have [ix-] prefix when installed outside of SCALE-Apps" $caller $namespace) -}}
-  {{- end -}}
-
   {{- $namespace -}}
 
 {{- end -}}

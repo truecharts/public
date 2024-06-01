@@ -28,10 +28,6 @@ securityContext:
       - NET_ADMIN
       - NET_RAW
       - MKNOD
-      {{/* Enable by default only on scale, as may cause problems with other distros (ie talos) */}}
-      {{ if .Values.global.ixChartContext }}
-      - SYS_MODULE
-      {{ end }}
 
 env:
   DNS_KEEP_NAMESERVER: "on"

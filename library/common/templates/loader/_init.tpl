@@ -6,9 +6,6 @@
   {{/* Merge chart values and the common chart defaults */}}
   {{- include "tc.v1.common.values.init" . -}}
 
-  {{/* Parse lists and append to values */}}
-  {{- include "tc.v1.common.loader.lists" . -}}
-
   {{/* Ensure TrueCharts chart context information is available */}}
   {{- include "tc.v1.common.lib.util.chartcontext" . -}}
 

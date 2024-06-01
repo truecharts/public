@@ -223,34 +223,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with cnpg scheduledBackup backup created with namespace in TrueNAS SCALE
-    set:
-      credentials:
-        test: *test
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-          storageClassName: some-storage-class
-      namespace: ix-namespace
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          backups:
-            enabled: true
-            target: primary
-            retentionPolicy: 10d
-            credentials: test
-            destinationPath: some-path
-            scheduledBackups:
-              - name: daily
-                schedule: "0 0 * * *"
-                backupOwnerReference: self
-    asserts:
-      - documentIndex: *backupDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

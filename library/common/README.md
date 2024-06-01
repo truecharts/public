@@ -17,7 +17,6 @@
 - Containers: `$ContainerName`
 - ConfigMap: `$FullName-$ConfigMapName`
 - Secret: `$FullName-$SecretName`
-- Scale External Interface: `ix-$ReleaseName-$index`
 
 > Full name -> `$ReleaseName-$ChartName`
 > Any name that exceeds 63 characters, will throw an error

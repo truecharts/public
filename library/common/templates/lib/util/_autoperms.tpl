@@ -121,11 +121,7 @@ podSpec:
             {{- if $vol.chown }}
               echo "Automatically correcting ownership for {{ $mountPath }}..."
               before=$(stat -c "%u:%g" {{ $mountPath }})
-                {{- if $.Values.global.ixChartContext }}{{/* TODO: Add user here too? */}}
-                  /usr/sbin/nfs4xdr_winacl -a chown -G {{ $group }} {{ $r | lower }} -c "{{ $mountPath }}" -p "{{ $mountPath }}" || echo "Failed setting ownership using winacl..."
-                {{- else }}
-                  chown {{ $r }} -f {{ $user }}:{{ $group }} {{ $mountPath }} || echo "Failed setting ownership using chown..."
-                {{- end }}
+              chown {{ $r }} -f {{ $user }}:{{ $group }} {{ $mountPath }} || echo "Failed setting ownership using chown..."
 
               echo "Ownership before: [$before]"
               echo "Ownership after: [$(stat -c "%u:%g" {{ $mountPath }})]"

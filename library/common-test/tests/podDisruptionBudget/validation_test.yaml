@@ -35,21 +35,6 @@ tests:
       - failedTemplate:
           errorMessage: Pod Disruption Budget - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      podDisruptionBudget:
-        my-poddisruptionbudget:
-          enabled: true
-          minAvailable: 1
-          targetSelector: my-pod
-          namespace: my-namespace
-    asserts:
-      - failedTemplate:
-          errorMessage: Pod Disruption Budget - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE
-
   - it: should fail with labels not a dict
     set:
       podDisruptionBudget:

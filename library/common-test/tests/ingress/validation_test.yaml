@@ -72,32 +72,6 @@ tests:
       - failedTemplate:
           errorMessage: Ingress - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
-  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      service:
-        my-service:
-          enabled: true
-          primary: true
-          namespace: ix-namespace
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 80
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          hosts: *hosts
-          namespace: my-namespace
-          integrations: *integrations
-    asserts:
-      - failedTemplate:
-          errorMessage: Ingress - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE
-
   - it: should fail with labels not a dict
     set:
       ingress:

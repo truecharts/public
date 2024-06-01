@@ -253,21 +253,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with DaemonSet created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: DaemonSet
-          podSpec: {}
-    asserts:
-      - documentIndex: *daemonSetDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

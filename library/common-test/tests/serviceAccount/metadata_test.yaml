@@ -132,19 +132,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with sa created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      serviceAccount:
-        my-sa1:
-          enabled: true
-          primary: true
-    asserts:
-      - documentIndex: *serviceAccountDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace

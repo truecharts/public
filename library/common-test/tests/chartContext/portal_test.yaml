@@ -9,8 +9,6 @@ tests:
     set:
       global: &global
         namespace: ix-ns
-        ixChartContext:
-          imNotEmpty: true
       enabled: true
       port: 12345
       service:
@@ -37,11 +35,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /
             port: "12345"
             protocol: http
-            url: http://$node_ip:12345/
+            url: http://127.0.0.1:12345/
 
   - it: should pass with service loadBalancer values
     set:
@@ -581,11 +579,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /
             port: "12345"
             protocol: http
-            url: http://$node_ip:12345/
+            url: http://127.0.0.1:12345/
       - documentIndex: &configMapDoc 3
         isKind:
           of: ConfigMap
@@ -597,11 +595,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /some-other-path
             port: "123457"
             protocol: http
-            url: http://$node_ip:123457/some-other-path
+            url: http://127.0.0.1:123457/some-other-path
 
   - it: should pass with targetSelector service and port and multiple portals
     set:
@@ -646,11 +644,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /
             port: "12345"
             protocol: http
-            url: http://$node_ip:12345/
+            url: http://127.0.0.1:12345/
       - documentIndex: &configMapDoc 3
         isKind:
           of: ConfigMap
@@ -662,11 +660,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /some-other-path
             port: "123458"
             protocol: http
-            url: http://$node_ip:123458/some-other-path
+            url: http://127.0.0.1:123458/some-other-path
 
   - it: should pass with targetSelector service and multiple portals
     set:
@@ -710,11 +708,11 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /
             port: "12345"
             protocol: http
-            url: http://$node_ip:12345/
+            url: http://127.0.0.1:12345/
       - documentIndex: &configMapDoc 3
         isKind:
           of: ConfigMap
@@ -726,8 +724,8 @@ tests:
         equal:
           path: data
           value:
-            host: $node_ip
+            host: 127.0.0.1
             path: /some-other-path
             port: "123457"
             protocol: http
-            url: http://$node_ip:123457/some-other-path
+            url: http://127.0.0.1:123457/some-other-path

@@ -182,22 +182,3 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
-
-  - it: should pass with ingress created with namespace in TrueNAS SCALE
-    set:
-      global:
-        ixChartContext:
-          iAmNotEmpty: true
-      namespace: ix-namespace
-      service: *service
-      ingress:
-        my-ingress1:
-          enabled: true
-          primary: true
-          integrations: *integrations
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        equal:
-          path: metadata.namespace
-          value: ix-namespace
