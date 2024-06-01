@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.12.0
 dependencies:
   - name: common
-    version: 23.0.10
+    version: 23.0.11
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/smartctl-exporter
   - https://hub.docker.com/r/prometheuscommunity/smartctl-exporter
 type: application
-version: 3.0.8
+version: 3.0.9
