@@ -1,0 +1,36 @@
+image:
+  repository: mrcas/kapowarr
+  pullPolicy: IfNotPresent
+  tag: v1.0.0-beta-4@sha256:951c583aa0a5a80091bd393fc1ce9770b18fe7ce3ed146835921bfc9afcdc631
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 5656
+        port: 5656
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+            readiness:
+              path: "/"
+            startup:
+              path: "/"
+persistence:
+  downloads:
+    enabled: true
+    mountPath: "/app/temp_downloads"
+  media:
+    enabled: true
+    mountPath: "/comics-1"
+  db:
+    enabled: true
+    mountPath: "/app/db"
+portal:
+  open:
+    enabled: true
