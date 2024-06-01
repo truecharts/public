@@ -130,18 +130,24 @@ persistence:
       main:
         main:
           mountPath: /var/log/whishper
+  local:
+    enabled: true
+    targetSelector:
+      translate:
+        translate:
+          mountPath: /.local
   libretranslate-date:
     enabled: true
     targetSelector:
       translate:
         translate:
-          mountPath: /home/libretranslate/.local/share
+          mountPath: /.local/share
   libretranslate-cache:
     enabled: true
     targetSelector:
       translate:
         translate:
-          mountPath: /home/libretranslate/.local/cache
+          mountPath: /.local/cache
 
 mongodb:
   enabled: true
