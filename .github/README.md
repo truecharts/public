@@ -2,7 +2,7 @@
 title: TrueCharts
 ---
 
-**Community Chart Catalog for TrueNAS SCALE**
+**Community Helm Chart Catalog**
 
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
 [![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg?maxAge=60&style=for-the-badge)](https://discord.gg/Js6xv9nGuU)
@@ -10,9 +10,9 @@ title: TrueCharts
 
 ---
 
-TrueCharts is a catalog of highly optimised Helm Charts and TrueNAS SCALE Apps. Made for the community, By the community!
+TrueCharts is a catalog of highly optimised Helm Charts. Made for the community, By the community!
 
-All our charts are supposed to work together, be easy to setup using both Helm and the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
+All our charts are supposed to work together and be easy to setup using any helm-compatible deployment tool, above all, give the average user more than enough options to tune things to their liking.
 
 <br />
 
@@ -21,14 +21,6 @@ All our charts are supposed to work together, be easy to setup using both Helm a
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
 
 ---
-
-Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
-
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/scale/#adding-truecharts) for more information.
-
-For installing TrueCharts using helm:
-
-Just add the repository and call it a day!
 
 ### Support
 
@@ -73,14 +65,6 @@ To contact the TrueCharts project:
 <!-- INSERT-DISCORD-WIDGET -->
 
 <br />
-
-## Featured Projects
-
-A lot of our work is based on the great effort of others. We would love to extend special thanks to these projects we owe a lot to:
-
-| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" alt="truenas logo" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" alt="k8s@home logo" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" alt="traefik logo" /> </a> | <a href="https://www.authelia.com/"> <img src="https://avatars.githubusercontent.com/u/59122411?s=200&v=4" width="150" height="150" alt="authelia logo" /> </a> |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                          <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a>                                                                           |                                                                             <a href="https://traefik.io/traefik/">Traefik</a>                                                                              |                                                        <a href="https://www.authelia.com/">Authelia</a>                                                         |
 
 <br />
 
