@@ -9,6 +9,11 @@ service:
         protocol: http
         targetPort: 5656
         port: 5656
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
 workload:
   main:
     podSpec:
@@ -21,6 +26,10 @@ workload:
               path: "/"
             startup:
               path: "/"
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            fsGroup: 0
 persistence:
   downloads:
     enabled: true
