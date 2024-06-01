@@ -1,0 +1,108 @@
+image:
+  repository: barassistant/server
+  pullPolicy: IfNotPresent
+  tag: v3
+saltRimImage:
+  repository: barassistant/salt-rim
+  pullPolicy: IfNotPresent
+  tag: v2
+meiliSearchImage:
+  repository: getmeili/meilisearch
+  pullPolicy: IfNotPresent
+  tag: v1.7
+nginxImage:
+  repository: nginxinc/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: 1.26.0@sha256:2f9cdab1fb340a6c1908366654c4d6b19d58286a46635eb034a53fc61b44c34d
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_URL: "$API_URL"
+            LOG_CHANNEL: "stderr"
+            MEILISEARCH_KEY: "$MEILI_MASTER_KEY"
+            MEILISEARCH_HOST: "http://meilisearch:7700"
+            REDIS_HOST: "redis"
+            ALLOW_REGISTRATION: "true"
+  salt-rim:
+    podSpec:
+      containers:
+        salt-rim:
+          imageSelector: saltRimImage
+          env:
+            API_URL: "$API_URL"
+            MEILISEARCH_URL: "$MEILISEARCH_URL"
+            BAR_NAME: "$BAR_NAME"
+            DESCRIPTION: "$BAR_DESCRIPTION"
+            DEFAULT_LOCALE: "en-AU"
+  meili-search:
+    podSpec:
+      containers:
+        meili-search:
+          imageSelector: meiliSearchImage
+          env:
+            MEILI_MASTER_KEY: "$MEILI_MASTER_KEY"
+            MEILI_ENV: "production"
+  nginx:
+    podSpec:
+      containers:
+        nginx:
+          imageSelector: nginxImage
+service:
+  # Main service links to ingress easier
+  # That's why the nginx is swapped with nextcloud
+  main:
+    targetSelector: nginx
+    ports:
+      main:
+        targetSelector: nginx
+        targetPort: 3000
+        port: 3000
+  #unsure nginx or bar-assistant is need in service#
+  #bar-assistant:
+  #  enabled: true
+  #  targetSelector: main
+  #  ports:
+  #    bar-assistant:
+  #      enabled: true
+  #      targetSelector: main
+  #      port: 3000
+  #      targetPort: 3000
+  salt-rim:
+    enabled: true
+    targetSelector: saltRimImage
+    port:
+      salt-rim:
+        enabled: true
+        targetSelector: salt-rim
+        port: 8080
+        targetPorts: 8080
+  meili-search:
+    enabled: true
+    targetSelector: meiliSearchImage
+    port:
+      meili-search:
+        enabled: true
+        targetSelector: meili-search
+        port: 7700
+        targetPort: 7700
+
+persistence:
+  bar_data:
+    enabled: true
+    mountPath: /var/www/cocktails/storage/bar-assistant
+  meilisearch_data:
+    enabled: true
+    mountPath: /meili_data
+
+redis:
+  enabled: true
+  includeCommon: true
+  redisUsername: default
+
+portal:
+  open:
+    enabled: true
