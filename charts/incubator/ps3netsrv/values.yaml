@@ -13,14 +13,6 @@ service:
       main:
         port: 38008
         targetPort: 38008
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            USER_ID: "{{ .Values.securityContext.container.runAsUser }}"
-            GROUP_ID: "{{ .Values.securityContext.container.runAsGroup }}"
           
 persistence:
   games:
