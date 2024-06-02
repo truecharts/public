@@ -13,6 +13,7 @@ service:
       main:
         port: 38008
         targetPort: 38008
+        protocol: tcp
           
 persistence:
   games:
