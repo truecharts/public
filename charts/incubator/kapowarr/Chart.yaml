@@ -2,35 +2,35 @@ annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
-  truecharts.org/category: cloud
+  truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 2.17.5
+appVersion: 3.3.0
 dependencies:
   - name: common
-    version: 24.0.0
+    version: 23.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: A timed task management panel that supports typescript, javaScript, python3, and shell
-home: https://truecharts.org/charts/stable/qinglong
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/qinglong.webp
+description: Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.
+home: https://truecharts.org/charts/incubator/kapowarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kapowarr.webp
 keywords:
-  - qinglong
-  - task
+  - kapowarr
+  - comic
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: qinglong
+name: kapowarr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/qinglong
-  - https://hub.docker.com/r/whyour/qinglong
+  - https://github.com/Casvt/Kapowarr
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kapowarr
 type: application
-version: 10.1.0
+version: 0.0.1

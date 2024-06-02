@@ -1,0 +1,24 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: shawly/ps3netsrv
+  tag: v1.9.0@sha256:c6e344b636a74e4f034a74ce766cd859071f5e46a14a0a2895ac819e66db2107
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 38008
+        targetPort: 38008
+        protocol: tcp
+          
+persistence:
+  games:
+    enabled: true
+    mountPath: /games
+portal:
+  open:
+    enabled: true
