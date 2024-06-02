@@ -5,7 +5,6 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: true
 service:
   main:
     ports:
