@@ -15,21 +15,6 @@ service:
         port: 38008
         protocol: http
         targetPort: 38008
-# workload:
-#   main:
-#     podSpec:
-#       containers:
-#         main:
-#           probes:
-#             liveness:
-#               type: http
-#               path: /
-#             readiness:
-#               type: http
-#               path: /
-#             startup:
-#               type: http
-#               path: /
 persistence:
   games:
     enabled: true
