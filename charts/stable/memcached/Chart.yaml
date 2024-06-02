@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.6.28
 dependencies:
   - name: common
-    version: 23.0.11
+    version: 24.0.0
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/memcached
   - https://hub.docker.com/r/bitnami/memcached
 type: application
-version: 13.0.15
+version: 13.1.0
