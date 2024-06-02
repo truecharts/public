@@ -6,8 +6,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: true
-    # runAsGroup: 0
-    # runAsUser: 0
 service:
   main:
     ports:
