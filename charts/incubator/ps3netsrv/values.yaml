@@ -13,7 +13,6 @@ service:
     ports:
       main:
         port: 38008
-        protocol: http
         targetPort: 38008
 persistence:
   games:
