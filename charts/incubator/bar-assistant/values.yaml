@@ -21,11 +21,11 @@ workload:
       containers:
         main:
           env:
-            APP_URL: "{{  .Values.barassistant.base_url  }}/bar"
+            APP_URL: "{{  .Values.barassistant.bar_url  }}"
             LOG_CHANNEL: "stderr"
             MEILISEARCH_KEY: "{{ .Values.barassistant.meili_master_key }}"
             # needs to be replaced with proper way to do this
-            MEILISEARCH_HOST: "http://meilisearch:7700"
+            MEILISEARCH_HOST: "{{  .Values.barassistant.search_url }}"
             REDIS_HOST: 
               secretKeyRef:
                 expandObjectName: false
@@ -38,8 +38,8 @@ workload:
         salt-rim:
           imageSelector: saltRimImage
           env:
-            API_URL: "{{  .Values.barassistant.base_url  }}/bar"
-            MEILISEARCH_URL: "{{  .Values.barassistant.base_url  }}/search"
+            API_URL: "{{  .Values.barassistant.bar_url  }}"
+            MEILISEARCH_URL: "{{  .Values.barassistant.search_url }}"
             BAR_NAME: "BarAssistant"
             DESCRIPTION: "This is my Bar Assistant"
             DEFAULT_LOCALE: "en-US"
