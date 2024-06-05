@@ -69,13 +69,13 @@ service:
         port: 3000
 
 persistence:
-  bar_data:
+  bar-data:
     enabled: true
     targetSelector:
       main: 
         main:
           mountPath: /var/www/cocktails/storage/bar-assistant
-  meilisearch_data:
+  meilisearch-data:
     enabled: true
     targetSelector:
       main: 
