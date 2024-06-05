@@ -52,8 +52,6 @@ workload:
         nginx:
           imageSelector: nginxImage
 service:
-  # Main service links to ingress easier
-  # That's why the nginx is swapped with nextcloud
   main:
     targetSelector: nginx
     ports:
