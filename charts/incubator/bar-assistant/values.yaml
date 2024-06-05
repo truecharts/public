@@ -61,12 +61,26 @@ workload:
           imageSelector: nginxImage
 service:
   main:
-    targetSelector: nginx
+    targetSelector: salt-rim
     ports:
       main:
-        targetSelector: nginx
+        targetSelector: salt-rim
+        targetPort: 8080
+        port: 4000
+  bar:
+    targetSelector: main
+    ports:
+      main:
+        targetSelector: main
         targetPort: 3000
         port: 3000
+  search:
+    targetSelector: meili-search
+    ports:
+      main:
+        targetSelector: meili-search
+        targetPort: 7700
+        port: 7700
 
 persistence:
   bar-data:
