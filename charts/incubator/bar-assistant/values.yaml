@@ -33,9 +33,12 @@ workload:
                 key: plainhost
             ALLOW_REGISTRATION: "true"
   salt-rim:
+    enabled: true
+    type: Deployment
     podSpec:
       containers:
         salt-rim:
+          enabled: true
           imageSelector: saltRimImage
           env:
             API_URL: "{{  .Values.barassistant.bar_url  }}"
@@ -44,18 +47,16 @@ workload:
             DESCRIPTION: "This is my Bar Assistant"
             DEFAULT_LOCALE: "en-US"
   meili-search:
+    enabled: true
+    type: Deployment
     podSpec:
       containers:
         meili-search:
+          enabled: true
           imageSelector: meiliSearchImage
           env:
             MEILI_MASTER_KEY: "{{ .Values.barassistant.meili_master_key }}"
             MEILI_ENV: "production"
-  nginx:
-    podSpec:
-      containers:
-        nginx:
-          imageSelector: nginxImage
 service:
   main:
     targetSelector: salt-rim
