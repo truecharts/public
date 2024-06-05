@@ -35,13 +35,13 @@ workload:
           probes:
             readiness:
               enabled: true
-              port: {{  .Values.service.bar.ports.main.port  }}
+              port: "{{  .Values.service.bar.ports.main.port  }}"
             liveness:
               enabled: true
-              port: {{  .Values.service.bar.ports.main.port  }}
+              port: "{{  .Values.service.bar.ports.main.port  }}"
             startup:
               enabled: true
-              port: {{  .Values.service.bar.ports.main.port  }}
+              port: "{{  .Values.service.bar.ports.main.port  }}"
   salt-rim:
     enabled: true
     type: Deployment
@@ -60,13 +60,13 @@ workload:
           probes:
             readiness:
               enabled: true
-              port: {{  .Values.service.main.ports.main.port  }}
+              port: "{{  .Values.service.main.ports.main.port  }}"
             liveness:
               enabled: true
-              port: {{  .Values.service.main.ports.main.port  }}
+              port: "{{  .Values.service.main.ports.main.port  }}"
             startup:
               enabled: true
-              port: {{  .Values.service.main.ports.main.port  }}
+              port: "{{  .Values.service.main.ports.main.port  }}"
           
   meili-search:
     enabled: true
@@ -83,13 +83,13 @@ workload:
           probes:
             readiness:
               enabled: true
-              port: {{  .Values.service.search.ports.main.port  }}
+              port: "{{  .Values.service.search.ports.main.port  }}"
             liveness:
               enabled: true
-              port: {{  .Values.service.search.ports.main.port  }}
+              port: "{{  .Values.service.search.ports.main.port  }}"
             startup:
               enabled: true
-              port: {{  .Values.service.search.ports.main.port  }}
+              port: "{{  .Values.service.search.ports.main.port  }}"
 service:
   main:
     targetSelector: salt-rim
