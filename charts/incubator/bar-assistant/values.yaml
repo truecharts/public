@@ -39,6 +39,7 @@ workload:
       containers:
         salt-rim:
           enabled: true
+          primary: true
           imageSelector: saltRimImage
           env:
             API_URL: "{{  .Values.barassistant.bar_url  }}"
@@ -53,6 +54,7 @@ workload:
       containers:
         meili-search:
           enabled: true
+          primary: true
           imageSelector: meiliSearchImage
           env:
             MEILI_MASTER_KEY: "{{ .Values.barassistant.meili_master_key }}"
