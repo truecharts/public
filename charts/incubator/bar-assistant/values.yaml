@@ -1,19 +1,19 @@
 image:
   repository: barassistant/server
   pullPolicy: IfNotPresent
-  tag: v3
+  tag: v3@sha256:d1e43b5bd2985777657e769ec9427dfe2faa3f0c98421074f06cdaf97c60899d
 saltRimImage:
   repository: barassistant/salt-rim
   pullPolicy: IfNotPresent
-  tag: v2
+  tag: v2@sha256:6d1cf5e69abcdda0af3fbd17612059b8a9bcc071e247c8fb72b622589ad0630d
 meiliSearchImage:
   repository: getmeili/meilisearch
   pullPolicy: IfNotPresent
-  tag: v1.7
+  tag: v1.8@sha256:f1665e2e5bf27d8e209b2b9d238ef562c0d949c4acbd58c94ad5c0bf2ecd43e3
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.26.0@sha256:2f9cdab1fb340a6c1908366654c4d6b19d58286a46635eb034a53fc61b44c34d
+  tag: 1.26@sha256:395450c06a96858b66c3cf64ff8f6e9234e67c906ab33e68a8b6e896eedab7f2
 
 workload:
   main:
