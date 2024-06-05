@@ -66,16 +66,20 @@ service:
         targetPort: 8080
         port: 4000
   bar:
+    enabled: true
     targetSelector: main
     ports:
       main:
+        enabled: true
         targetSelector: main
         targetPort: 3000
         port: 3000
   search:
+    enabled: true
     targetSelector: meili-search
     ports:
       main:
+        enabled: true
         targetSelector: meili-search
         targetPort: 7700
         port: 7700
