@@ -14,7 +14,10 @@ nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
   tag: 1.26@sha256:395450c06a96858b66c3cf64ff8f6e9234e67c906ab33e68a8b6e896eedab7f2
-
+barassistant:
+  meili_master_key: masterKey-make-it-long-for-security
+  # needs to be replaced
+  base_url: http://localhost:3000
 workload:
   main:
     podSpec:
