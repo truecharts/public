@@ -59,34 +59,6 @@ service:
         targetSelector: nginx
         targetPort: 3000
         port: 3000
-  #unsure nginx or bar-assistant is need in service#
-  #bar-assistant:
-  #  enabled: true
-  #  targetSelector: main
-  #  ports:
-  #    bar-assistant:
-  #      enabled: true
-  #      targetSelector: main
-  #      port: 3000
-  #      targetPort: 3000
-  salt-rim:
-    enabled: true
-    targetSelector: saltRimImage
-    port:
-      salt-rim:
-        enabled: true
-        targetSelector: salt-rim
-        port: 8080
-        targetPorts: 8080
-  meili-search:
-    enabled: true
-    targetSelector: meiliSearchImage
-    port:
-      meili-search:
-        enabled: true
-        targetSelector: meili-search
-        port: 7700
-        targetPort: 7700
 
 persistence:
   bar_data:
