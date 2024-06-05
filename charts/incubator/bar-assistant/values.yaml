@@ -32,6 +32,16 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
             ALLOW_REGISTRATION: "true"
+          probes:
+            readiness:
+              enabled: true
+              port: {{  .Values.service.bar.ports.main.port  }}
+            liveness:
+              enabled: true
+              port: {{  .Values.service.bar.ports.main.port  }}
+            startup:
+              enabled: true
+              port: {{  .Values.service.bar.ports.main.port  }}
   salt-rim:
     enabled: true
     type: Deployment
@@ -47,6 +57,17 @@ workload:
             BAR_NAME: "BarAssistant"
             DESCRIPTION: "This is my Bar Assistant"
             DEFAULT_LOCALE: "en-US"
+          probes:
+            readiness:
+              enabled: true
+              port: {{  .Values.service.main.ports.main.port  }}
+            liveness:
+              enabled: true
+              port: {{  .Values.service.main.ports.main.port  }}
+            startup:
+              enabled: true
+              port: {{  .Values.service.main.ports.main.port  }}
+          
   meili-search:
     enabled: true
     type: Deployment
@@ -59,6 +80,16 @@ workload:
           env:
             MEILI_MASTER_KEY: "{{ .Values.barassistant.meili_master_key }}"
             MEILI_ENV: "production"
+          probes:
+            readiness:
+              enabled: true
+              port: {{  .Values.service.search.ports.main.port  }}
+            liveness:
+              enabled: true
+              port: {{  .Values.service.search.ports.main.port  }}
+            startup:
+              enabled: true
+              port: {{  .Values.service.search.ports.main.port  }}
 service:
   main:
     targetSelector: salt-rim
