@@ -12,8 +12,9 @@ meiliSearchImage:
   tag: v1.8@sha256:f1665e2e5bf27d8e209b2b9d238ef562c0d949c4acbd58c94ad5c0bf2ecd43e3
 barassistant:
   meili_master_key: masterKey-make-it-long-for-security
-  # needs to be replaced
-  base_url: http://localhost:3000
+  bar_url: '{{ printf "http://%v-bar:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.bar.ports.main.port }}'
+  search_url: '{{ printf "http://%v-search:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.search.ports.main.port }}'
+  
 workload:
   main:
     podSpec:
