@@ -20,20 +20,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: salt-rim
-    version: 2
-    repository: oci://tccr.io/truecharts
-    condition: salt-rim.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: meilisearch
-    version: 1.6
-    repository: oci://tccr.io/truecharts
-    condition: meilisearch.enabled
-    alias: ""
-    tags: []
-    import-values: []
 deprecated: false
 description: Bar Assistant is a self hosted application for managing your home bar with Salt Rim an Vue based web client for used to connecting to Bar Assistant server instance.
 home: https://truecharts.org/charts/incubator/bar-assistant
