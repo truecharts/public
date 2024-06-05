@@ -95,13 +95,6 @@ persistence:
       main: 
         meili-search:
           mountPath: /meili_data
-  nginx:
-    enabled: true
-    targetSelector:
-      main: 
-        nginx:
-          mountPath: /etc/nginx/conf.d/default.conf
-
 redis:
   enabled: true
   includeCommon: true
