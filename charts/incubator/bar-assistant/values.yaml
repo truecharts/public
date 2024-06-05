@@ -24,11 +24,16 @@ workload:
       containers:
         main:
           env:
-            APP_URL: "$API_URL"
+            APP_URL: "{{  .Values.barassistant.base_url  }}/bar"
             LOG_CHANNEL: "stderr"
-            MEILISEARCH_KEY: "$MEILI_MASTER_KEY"
+            MEILISEARCH_KEY: "{{ .Values.barassistant.meili_master_key }}"
+            # needs to be replaced with proper way to do this
             MEILISEARCH_HOST: "http://meilisearch:7700"
-            REDIS_HOST: "redis"
+            REDIS_HOST: 
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
             ALLOW_REGISTRATION: "true"
   salt-rim:
     podSpec:
@@ -36,10 +41,10 @@ workload:
         salt-rim:
           imageSelector: saltRimImage
           env:
-            API_URL: "$API_URL"
-            MEILISEARCH_URL: "$MEILISEARCH_URL"
-            BAR_NAME: "$BAR_NAME"
-            DESCRIPTION: "$BAR_DESCRIPTION"
+            API_URL: "{{  .Values.barassistant.base_url  }}/bar"
+            MEILISEARCH_URL: "{{  .Values.barassistant.base_url  }}/search"
+            BAR_NAME: "BarAssistant"
+            DESCRIPTION: "This is my Bar Assistant"
             DEFAULT_LOCALE: "en-US"
   meili-search:
     podSpec:
@@ -47,7 +52,7 @@ workload:
         meili-search:
           imageSelector: meiliSearchImage
           env:
-            MEILI_MASTER_KEY: "$MEILI_MASTER_KEY"
+            MEILI_MASTER_KEY: "{{ .Values.barassistant.meili_master_key }}"
             MEILI_ENV: "production"
   nginx:
     podSpec:
