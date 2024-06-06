@@ -14,10 +14,9 @@
 
     {{- $fixedMiddlewares := list -}}
     {{- $allowCorsMiddlewares := list -}}
-    {{- $enableFixed := false -}}
+    {{- $enableFixed := true -}}
     {{- if (hasKey $rootCtx.Values.global "traefik") -}}
       {{- $fixedMiddlewares = $rootCtx.Values.global.traefik.fixedMiddlewares -}}
-      {{- $enableFixed = $rootCtx.Values.global.traefik.enableFixedMiddlewares -}}
       {{- $allowCorsMiddlewares = $rootCtx.Values.global.traefik.allowCorsMiddlewares -}}
     {{- end -}}
 
@@ -26,7 +25,6 @@
       {{- $fixedMiddlewares = $traefik.fixedMiddlewares -}}
     {{- end -}}
 
-    {{/* Replace global fixed with local fixed */}}
     {{- if and (hasKey $traefik "enableFixedMiddlewares") (kindIs "bool" $traefik.enableFixedMiddlewares) -}}
       {{- $enableFixed = $traefik.enableFixedMiddlewares -}}
     {{- end -}}

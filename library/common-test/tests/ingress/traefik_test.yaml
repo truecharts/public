@@ -237,37 +237,9 @@ tests:
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
             traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
 
-  - it: should not contain fixed middlewares when global is disabled
+  - it: should not contain fixed middlewares when are disabled
     set:
       service: *service
-      global:
-        traefik:
-          enableFixedMiddlewares: false
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/router.tls: "true"
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-
-  - it: should not contain fixed middlewares when local is disabled
-    set:
-      service: *service
-      global:
-        traefik:
-          enableFixedMiddlewares: true
       ingress:
         my-ingress:
           enabled: true
