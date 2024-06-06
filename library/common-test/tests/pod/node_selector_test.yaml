@@ -22,7 +22,7 @@ tests:
         isKind:
           of: CronJob
       - documentIndex: *cronJobDoc
-        isNull:
+        notExists:
           path: spec.jobTemplate.spec.template.spec.nodeSelector
 
   - it: should pass with empty nodeSelector
@@ -49,6 +49,7 @@ tests:
         nodeSelector:
           disk: ssd
           cpu: intel
+          hasGPU: "true"
       workload:
         workload-name1:
           enabled: true
@@ -64,6 +65,7 @@ tests:
             disk: ssd
             cpu: intel
             kubernetes.io/arch: amd64
+            hasGPU: "true"
 
   - it: should set nodeSelector to non-existing on DaemonSet with stopAll
     set:
@@ -111,6 +113,7 @@ tests:
         nodeSelector:
           disk: ssd
           cpu: intel
+          hasGPU: "false"
       workload:
         workload-name1:
           enabled: true
@@ -121,6 +124,7 @@ tests:
             nodeSelector:
               disk: hdd
               cpu: amd
+              hasGPU: "true"
     asserts:
       - documentIndex: *cronJobDoc
         equal:
@@ -128,6 +132,7 @@ tests:
           value:
             disk: hdd
             cpu: amd
+            hasGPU: "true"
 
   - it: should pass with nodeSelector from "pod" with tpl
     set:

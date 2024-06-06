@@ -26,7 +26,7 @@ objectData: The object data to be used to render the Pod.
     {{- range $k, $v := $selectors -}}
       {{- if not $v -}}
       {{- else }}
-{{ $k }}: {{ tpl $v $rootCtx }}
+{{ $k }}: {{ tpl $v $rootCtx | quote }}
       {{- end -}}
     {{- end -}}
   {{ end }}

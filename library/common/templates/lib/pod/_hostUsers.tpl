@@ -16,16 +16,12 @@ objectData: The object data to be used to render the Pod.
 
   {{/* Override from the "global" option */}}
   {{- if (kindIs "bool" $rootCtx.Values.podOptions.hostUsers) -}}
-    {{- if $rootCtx.Values.podOptions.hostUsers -}}
-      {{- $hostUsers = true -}}
-    {{- end -}}
+    {{- $hostUsers = $rootCtx.Values.podOptions.hostUsers -}}
   {{- end -}}
 
   {{/* Override with pods option */}}
   {{- if (kindIs "bool" $objectData.podSpec.hostUsers) -}}
-    {{- if $objectData.podSpec.hostUsers -}}
-      {{- $hostUsers = true -}}
-    {{- end -}}
+    {{- $hostUsers = $objectData.podSpec.hostUsers -}}
   {{- end -}}
 
   {{- $hostUsers -}}
