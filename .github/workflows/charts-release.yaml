@@ -20,12 +20,12 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
 
-      - name: Fetch Cached Changelog
+      - name: Cache Changelog
         id: cache-changelog
-        uses: actions/cache/restore@v4
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         with:
           path: changelog.json.gz
-          key: changelog-json
+          key: changelog-json-${{ hashFiles('charttool') }}
 
       - name: Generate Changelog
         shell: bash
@@ -43,13 +43,6 @@ jobs:
 
           ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
           gzip "$JSON_FILE" --best
-
-      - name: Cache Changelog
-        id: cache-changelog-save
-        uses: actions/cache/save@v4
-        with:
-          path: changelog.json.gz
-          key: changelog-json
 
       - name: Checkout Helm-Staging
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
