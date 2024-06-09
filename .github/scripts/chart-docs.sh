@@ -87,21 +87,23 @@ process_index() {
   echo -e "## Available Documentation\n" >>${index_path}
 
   echo "Iterating over all files in the docs directory..."
-  for file in website/src/content/docs/charts/${train}/${chart}/*.md*; do
-    echo "Checking file: ${file}"
-    filename=$(basename "${file}")
+  for f in website/src/content/docs/charts/${train}/${chart}/*.md*; do
+    echo "Checking file: ${f}"
+    filename=$(basename "${f}")
 
     # If title is not ok, skip
-    if ! check_and_fix_title "${file}"; then
+    if ! check_and_fix_title "${f}"; then
+      echo "Title is not ok, skipping..."
       continue
     fi
 
     # If file is index.md, skip
     if [ "${filename}" == "index.md" ]; then
+      echo "File is index.md, not adding it to the links"
       continue
     fi
 
-    title=$(go-yq --front-matter=process '.title' ${file} | head -n 1)
+    title=$(go-yq --front-matter=process '.title' ${f} | head -n 1)
     echo "The title is: ${title}"
 
     echo "Generating markdown links"
