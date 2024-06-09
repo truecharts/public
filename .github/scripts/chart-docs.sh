@@ -2,13 +2,46 @@
 [ "$DEBUG" == 'true' ] && set -x
 [ "$STRICT" == 'true' ] && set -e
 
+docs_base="website/src/content/docs/charts"
+tmp_docs_base="tmpwebsite/src/content/docs/charts"
+safe_docs=(
+  "CHANGELOG.md"
+)
+
+keep_docs_safe() {
+  local train="$1"
+  local chart="$2"
+
+  mkdir -p "$tmp_docs_base"
+  echo "Keeping some docs safe..."
+  for doc in "${safe_docs[@]}"; do
+    if [ ! -f "$docs_base/${train}/${chart}/${doc}" ]; then
+      continue
+    fi
+    mv "$docs_base/${train}/${chart}/${doc}" "$tmp_docs_base/${train}/${chart}/${doc}"
+  done
+}
+
+restore_safe_docs() {
+  local train="$1"
+  local chart="$2"
+
+  echo "Restoring safe docs..."
+  for doc in "${safe_docs[@]}"; do
+    if [ ! -f "$tmp_docs_base/${train}/${chart}/${doc}" ]; then
+      continue
+    fi
+    mv "$tmp_docs_base/${train}/${chart}/${doc}" "$docs_base/${train}/${chart}/${doc}"
+  done
+}
+
 remove_old_docs() {
   local train="$1"
   local chart="$2"
 
   echo "Removing old docs and recreating based on website repo..."
-  rm -rf website/src/content/docs/charts/*/${chart} || :
-  mkdir -p website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
+  rm -rf $docs_base/*/${chart} || :
+  mkdir -p $docs_base/${train}/${chart} || echo "chart path already exists, continuing..."
 }
 
 copy_new_docs() {
@@ -60,11 +93,11 @@ process_index() {
   local train="$1"
   local chart="$2"
 
-  local index_path="website/src/content/docs/charts/${train}/${chart}/index.md"
+  local index_path="$docs_base/${train}/${chart}/index.md"
   local chart_yaml_path="charts/${train}/${chart}/Chart.yaml"
 
   echo "Creating index.md..."
-  touch website/src/content/docs/charts/${train}/${chart}/index.md
+  touch $docs_base/${train}/${chart}/index.md
 
   echo "Adding front matter to index.md..."
   echo "---" >>${index_path}
@@ -87,7 +120,7 @@ process_index() {
   echo -e "## Available Documentation\n" >>${index_path}
 
   echo "Iterating over all files in the docs directory..."
-  for f in website/src/content/docs/charts/${train}/${chart}/*.md*; do
+  for f in $docs_base/${train}/${chart}/*.md*; do
     echo "Checking file: ${f}"
     filename=$(basename "${f}")
 
@@ -119,11 +152,11 @@ process_index() {
   echo "" >>${index_path}
   echo "---" >>${index_path}
   echo "" >>${index_path}
-  echo -e "## Readme\n" >>website/src/content/docs/charts/${train}/${chart}/index.md
-  tail -n +4 "charts/${train}/${chart}/README.md" >>website/src/content/docs/charts/${train}/${chart}/readmetmp.md
-  sed -i 's/##/###/' "website/src/content/docs/charts/${train}/${chart}/readmetmp.md"
-  cat "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" >>"website/src/content/docs/charts/${train}/${chart}/index.md"
-  rm "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" || echo "couldnt delete readmetmp.md"
+  echo -e "## Readme\n" >>$docs_base/${train}/${chart}/index.md
+  tail -n +4 "charts/${train}/${chart}/README.md" >>$docs_base/${train}/${chart}/readmetmp.md
+  sed -i 's/##/###/' "$docs_base/${train}/${chart}/readmetmp.md"
+  cat "$docs_base/${train}/${chart}/readmetmp.md" >>"$docs_base/${train}/${chart}/index.md"
+  rm "$docs_base/${train}/${chart}/readmetmp.md" || echo "couldnt delete readmetmp.md"
 
 }
 
@@ -141,9 +174,11 @@ main() {
 
   echo "copying docs to website for ${chart}"
 
+  keep_docs_safe "$train" "$chart"
   remove_old_docs "$train" "$chart"
   copy_new_docs "$train" "$chart"
   process_index "$train" "$chart"
+  restore_safe_docs "$train" "$chart"
 
   echo "Finished processing ${chart}"
 }
