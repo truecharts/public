@@ -98,7 +98,6 @@ jobs:
         shell: bash
         run: |
           #!/bin/bash
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Maing sure directories exist..."
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
@@ -115,11 +114,10 @@ jobs:
           go-yq --version
 
           ./.github/scripts/chart-docs.sh "incubator/docuseal"
-          for i in "${CHARTS[@]}"
-          do
+          for i in charts/*/*/Chart.yaml; do
             # TODO: Remove any changelog stuff from this script
             # TODO: Move all website docs structure generation to charttool
-            ./.github/scripts/chart-docs.sh "$i"
+            echo "$i"
           done
 
       - name: Commit Website Changes

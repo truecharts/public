@@ -14,6 +14,7 @@ keep_docs_safe() {
 
   mkdir -p "$tmp_docs_base"
   echo "Keeping some docs safe..."
+  ls $docs_base/${train}/${chart} -la
   for doc in "${safe_docs[@]}"; do
     if [ ! -f "$docs_base/${train}/${chart}/${doc}" ]; then
       continue
