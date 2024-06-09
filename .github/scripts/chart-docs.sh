@@ -12,11 +12,11 @@ keep_docs_safe() {
   local train="$1"
   local chart="$2"
 
-  mkdir -p "$tmp_docs_base"
+  mkdir -p "$tmp_docs_base/${train}/${chart}"
   echo "Keeping some docs safe..."
-  ls $docs_base/${train}/${chart} -la
   for doc in "${safe_docs[@]}"; do
     if [ ! -f "$docs_base/${train}/${chart}/${doc}" ]; then
+      echo "Doc [$doc] does not exist, cannot keep it safe. Skipping."
       continue
     fi
     mv "$docs_base/${train}/${chart}/${doc}" "$tmp_docs_base/${train}/${chart}/${doc}"
@@ -30,6 +30,7 @@ restore_safe_docs() {
   echo "Restoring safe docs..."
   for doc in "${safe_docs[@]}"; do
     if [ ! -f "$tmp_docs_base/${train}/${chart}/${doc}" ]; then
+      echo "Doc [$doc] does not exist, cannot restore it. Skipping."
       continue
     fi
     mv "$tmp_docs_base/${train}/${chart}/${doc}" "$docs_base/${train}/${chart}/${doc}"
