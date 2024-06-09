@@ -10,11 +10,17 @@
   {{- $provider := "" -}}
   {{- $creds := dict -}}
   {{- if eq $type "backup" -}}
+    {{- if not $objectData.backups.credentials -}}
+      {{- fail "CNPG Recovery Provider Secret Spawner - Expected [backups.credentials] to be defined on [backup] mode" -}}
+    {{- end -}}
     {{/* Get the creds defined in backup.$provider */}}
     {{- $creds = (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
     {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "CNPG Backup" "credName" $objectData.backups.credentials) -}}
     {{- $provider = $creds.type -}}
   {{- else if eq $type "recovery" -}}
+    {{- if not $objectData.recovery.credentials -}}
+      {{- fail "CNPG Recovery Provider Secret Spawner - Expected [recovery.credentials] to be defined on [recovery] mode" -}}
+    {{- end -}}
     {{/* Get the creds defined in recovery.$provider */}}
     {{- $creds = (get $rootCtx.Values.credentials $objectData.recovery.credentials) -}}
     {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "CNPG Backup" "credName" $objectData.recovery.credentials) -}}

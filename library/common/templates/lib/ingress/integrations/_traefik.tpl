@@ -102,7 +102,7 @@
       {{- end -}}
 
       {{/* Format middleware */}}
-      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $mid.name ) -}}
+      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $mid.name) -}}
     {{- end -}}
 
     {{- if $formattedMiddlewares -}}
