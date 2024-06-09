@@ -113,11 +113,10 @@ jobs:
           export STRICT=true
           go-yq --version
 
-          ./.github/scripts/chart-docs.sh "incubator/docuseal"
-          for i in charts/*/*/Chart.yaml; do
-            # TODO: Remove any changelog stuff from this script
+          for item in charts/*/*/Chart.yaml; do
             # TODO: Move all website docs structure generation to charttool
-            echo "$i"
+            IFS='/' read -r -a chart_parts <<<"$item"
+            ./.github/scripts/chart-docs.sh "${chart_parts[1]}/${chart_parts[2]}"
           done
 
       - name: Commit Website Changes
