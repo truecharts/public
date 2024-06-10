@@ -26,7 +26,7 @@ jobs:
           ver=$(./charttool genchangelog format-version)
           key="changelog-json-format-$ver"
           echo "Cache Key is: $key"
-          echo "CHANGELOG_CACHE_KEY=$key" >> $GITHUB_ENV          
+          echo "CHANGELOG_CACHE_KEY=$key" >> $GITHUB_ENV
 
       - name: Cache Changelog
         id: cache-changelog
