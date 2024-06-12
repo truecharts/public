@@ -17,17 +17,23 @@ envFrom:
 probes:
   liveness:
     enabled: true
-    type: http
-    path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    type: exec
+    command:
+      - npm
+      - run
+      - healthcheck
   readiness:
     enabled: true
-    type: http
-    path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    type: exec
+    command:
+      - npm
+      - run
+      - healthcheck
   startup:
     enabled: true
-    type: http
-    path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    type: exec
+    command:
+      - npm
+      - run
+      - healthcheck
 {{- end -}}
