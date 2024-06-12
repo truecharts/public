@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
 appVersion: 11.0.0
 dependencies:
   - name: common
-    version: 23.0.10
+    version: 24.0.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://hub.docker.com/r/grafana/grafana
   - https://quay.io/kiwigrid/k8s-sidecar
 type: application
-version: 16.0.3
+version: 17.0.2

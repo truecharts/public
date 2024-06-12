@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 5.1.2
 dependencies:
   - name: common
-    version: 23.0.10
+    version: 24.0.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -37,4 +37,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/redmine
   - https://hub.docker.com/_/redmine
 type: application
-version: 12.0.12
+version: 13.0.1

@@ -21,23 +21,23 @@ workload:
             - run
           env:
             CRON: "*/10 * * * *"
-            FEATURES_CLIENTSETTINGS: "true"
-            FEATURES_DHCP_SERVERCONFIG: "true"
-            FEATURES_DHCP_STATICLEASES: "true"
-            FEATURES_DNS_ACCESSLISTS: "true"
-            FEATURES_DNS_REWRITES: "true"
-            FEATURES_DNS_SERVERCONFIG: "true"
-            FEATURES_FILTERS: "true"
-            FEATURES_GENERALSETTINGS: "true"
-            FEATURES_QUERYLOGCONFIG: "true"
-            FEATURES_SERVICES: "true"
-            FEATURES_STATSCONFIG: "true"
+            FEATURES_CLIENT_SETTINGS: true
+            FEATURES_DHCP_SERVER_CONFIG: true
+            FEATURES_DHCP_STATIC_LEASES: true
+            FEATURES_DNS_ACCESS_LISTS: true
+            FEATURES_DNS_REWRITES: true
+            FEATURES_DNS_SERVER_CONFIG: true
+            FEATURES_FILTERS: true
+            FEATURES_GENERAL_SETTINGS: true
+            FEATURES_QUERY_LOG_CONFIG: true
+            FEATURES_SERVICES: true
+            FEATURES_STATS_CONFIG: true
             ORIGIN_PASSWORD: password
             ORIGIN_URL: https://192.168.1.2:3000
             ORIGIN_USERNAME: username
-            REPLICA_AUTOSETUP: "false"
-            REPLICA_INTERFACENAME: ""
+            REPLICA_AUTO_SETUP: false
+            REPLICA_INTERFACE_NAME: ""
             REPLICA_PASSWORD: password
             REPLICA_URL: http://192.168.1.3
             REPLICA_USERNAME: username
-            RUNONSTART: "true"
+            RUN_ON_START: true
