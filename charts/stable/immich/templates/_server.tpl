@@ -4,10 +4,6 @@ primary: true
 imageSelector: image
 resources:
   excludeExtra: true
-command: /bin/sh
-args:
-  - -c
-  - /usr/src/app/start-server.sh
 securityContext:
   capabilities:
     disableS6Caps: true

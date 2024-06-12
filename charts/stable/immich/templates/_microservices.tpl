@@ -13,10 +13,6 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: image
-      command: /bin/sh
-      args:
-        - -c
-        - /usr/src/app/start-microservices.sh
       securityContext:
         capabilities:
           disableS6Caps: true
