@@ -31,7 +31,7 @@ metadata:
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
-data:
+spec:
   selector:
     matchLabels:
     {{- if $objectData.customLabels -}}
