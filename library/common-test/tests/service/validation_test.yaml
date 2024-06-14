@@ -620,3 +620,22 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Service - Expected [loadBalancerIPs] to be a slice, but got [string]
+
+  - it: should fail if both loadBalancerIP and loadBalancerIPs is provided
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIPs:
+            - 1.2.3.4
+          loadBalancerIP: 5.6.7.8
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected one of [loadBalancerIP, loadBalancerIPs] to be defined but got both

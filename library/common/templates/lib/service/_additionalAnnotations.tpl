@@ -26,7 +26,7 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
       {{- end -}}
 
       {{- if and $objectData.loadBalancerIP $objectData.loadBalancerIPs -}}
-        {{- fail "Service - Expected on of [loadBalancerIP, loadBalancerIPs] to be defined but got both" -}}
+        {{- fail "Service - Expected one of [loadBalancerIP, loadBalancerIPs] to be defined but got both" -}}
       {{- end -}}
 
       {{- $ips := list -}}
