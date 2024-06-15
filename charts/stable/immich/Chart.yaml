@@ -1,16 +1,15 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.105.1
+appVersion: 1.106.4
 dependencies:
   - name: common
-    version: 24.0.1
+    version: 24.0.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -41,4 +40,4 @@ sources:
   - https://hub.docker.com/r/altran1502/immich-machine-learning
   - https://hub.docker.com/r/altran1502/immich-server
 type: application
-version: 16.0.1
+version: 17.0.5

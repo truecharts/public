@@ -1,7 +1,6 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
@@ -10,7 +9,7 @@ apiVersion: v2
 appVersion: 2.8.1
 dependencies:
   - name: common
-    version: 24.0.1
+    version: 24.0.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/muse
   - https://hub.docker.com/r/codetheweb/muse
 type: application
-version: 7.0.1
+version: 7.0.2
