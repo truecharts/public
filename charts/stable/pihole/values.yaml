@@ -25,6 +25,9 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+            PIHOLE_UID: "{{ .Values.securityContext.container.PUID }}"
+            PIHOLE_GID: "{{ .Values.securityContext.pod.fsGroup }}"
           envFrom:
             - configMapRef:
                 name: pihole-env
