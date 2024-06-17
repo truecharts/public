@@ -55,6 +55,7 @@ spec:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot" }}
     pruneIntervalDays: {{ $volsyncData.src.pruneIntervalDays | default 7 }}
+    unlock: {{ now | date "20060102150405" }}
     retain:
       hourly: {{ $retain.hourly }}
       daily: {{ $retain.daily }}
