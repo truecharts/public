@@ -7,7 +7,7 @@
   {{- $target := get $volsyncData .target -}}
 
   {{- with $target.cacheCapacity }}
-cacheCapacity: {{ $target.cacheCapacity }}
+cacheCapacity: {{ $target.cacheCapacity | default "10 Gi" }}
   {{- end -}}
 
   {{- with $target.cacheStorageClassName }}
