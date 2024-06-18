@@ -52,27 +52,33 @@ tests:
         isAPIVersion:
           of: volsync.backube/v1alpha1
       - documentIndex: *replicationDestDoc
-        equal:
+        isSubset:
           path: spec
-          value:
+          content:
             sourcePVC: test-release-name-common-test-srcbackup
             trigger:
               schedule: "0 0 * * *"
-            restic:
-              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
-              copyMethod: Snapshot
-              pruneIntervalDays: 7
-              retain:
-                hourly: 24
-                daily: 7
-                weekly: 5
-              accessModes:
-                - ReadWriteOnce
-              unlock: "20240617114552"
-              moverSecurityContext:
-                fsGroup: 568
-                runAsUser: 568
-                runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Snapshot
+            pruneIntervalDays: 7
+            retain:
+              hourly: 24
+              daily: 7
+              weekly: 5
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
 
   - it: should generate correct spec with changed defaults
     set:
@@ -106,27 +112,33 @@ tests:
         isAPIVersion:
           of: volsync.backube/v1alpha1
       - documentIndex: *replicationDestDoc
-        equal:
+        isSubset:
           path: spec
-          value:
+          content:
             sourcePVC: test-release-name-common-test-srcbackup
             trigger:
               schedule: "1 0 * * *"
-            restic:
-              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
-              copyMethod: Clone
-              pruneIntervalDays: 5
-              retain:
-                hourly: 20
-                daily: 5
-                weekly: 3
-              accessModes:
-                - ReadWriteOnce
-              unlock: "20240617114552"
-              moverSecurityContext:
-                fsGroup: 568
-                runAsUser: 568
-                runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
 
   - it: should generate correct spec with storageClassName
     set:
@@ -161,28 +173,34 @@ tests:
         isAPIVersion:
           of: volsync.backube/v1alpha1
       - documentIndex: *replicationDestDoc
-        equal:
+        isSubset:
           path: spec
-          value:
+          content:
             sourcePVC: test-release-name-common-test-srcbackup
             trigger:
               schedule: "1 0 * * *"
-            restic:
-              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
-              copyMethod: Clone
-              pruneIntervalDays: 5
-              retain:
-                hourly: 20
-                daily: 5
-                weekly: 3
-              accessModes:
-                - ReadWriteOnce
-              unlock: "20240617114552"
-              storageClassName: somestorageclass
-              moverSecurityContext:
-                fsGroup: 568
-                runAsUser: 568
-                runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: somestorageclass
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
 
   - it: should generate correct spec with volumeSnapshotClass
     set:
@@ -217,28 +235,34 @@ tests:
         isAPIVersion:
           of: volsync.backube/v1alpha1
       - documentIndex: *replicationDestDoc
-        equal:
+        isSubset:
           path: spec
-          value:
+          content:
             sourcePVC: test-release-name-common-test-srcbackup
             trigger:
               schedule: "1 0 * * *"
-            restic:
-              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
-              copyMethod: Clone
-              pruneIntervalDays: 5
-              retain:
-                hourly: 20
-                daily: 5
-                weekly: 3
-              accessModes:
-                - ReadWriteOnce
-              unlock: "20240617114552"
-              volumeSnapshotClassName: somevsc
-              moverSecurityContext:
-                fsGroup: 568
-                runAsUser: 568
-                runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+            accessModes:
+              - ReadWriteOnce
+            volumeSnapshotClassName: somevsc
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
 
   - it: should generate correct spec with volumeSnapshotClass and StorageClass
     set:
@@ -274,26 +298,32 @@ tests:
         isAPIVersion:
           of: volsync.backube/v1alpha1
       - documentIndex: *replicationDestDoc
-        equal:
+        isSubset:
           path: spec
-          value:
+          content:
             sourcePVC: test-release-name-common-test-srcbackup
             trigger:
               schedule: "1 0 * * *"
-            restic:
-              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
-              copyMethod: Clone
-              pruneIntervalDays: 5
-              retain:
-                hourly: 20
-                daily: 5
-                weekly: 3
-              accessModes:
-                - ReadWriteOnce
-              unlock: "20240617114552"
-              storageClassName: somestorageclass
-              volumeSnapshotClassName: somevsc
-              moverSecurityContext:
-                fsGroup: 568
-                runAsUser: 568
-                runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: somestorageclass
+            volumeSnapshotClassName: somevsc
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
+      - documentIndex: *replicationDestDoc
+        matchRegex:
+          path: spec.restic.unlock
+          pattern: "^[0-9]{14}$"
