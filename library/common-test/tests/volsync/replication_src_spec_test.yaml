@@ -68,6 +68,7 @@ tests:
                 weekly: 5
               accessModes:
                 - ReadWriteOnce
+              unlock: "20240617114552"
               moverSecurityContext:
                 fsGroup: 568
                 runAsUser: 568
@@ -121,6 +122,7 @@ tests:
                 weekly: 3
               accessModes:
                 - ReadWriteOnce
+              unlock: "20240617114552"
               moverSecurityContext:
                 fsGroup: 568
                 runAsUser: 568
@@ -175,6 +177,7 @@ tests:
                 weekly: 3
               accessModes:
                 - ReadWriteOnce
+              unlock: "20240617114552"
               storageClassName: somestorageclass
               moverSecurityContext:
                 fsGroup: 568
@@ -230,6 +233,7 @@ tests:
                 weekly: 3
               accessModes:
                 - ReadWriteOnce
+              unlock: "20240617114552"
               volumeSnapshotClassName: somevsc
               moverSecurityContext:
                 fsGroup: 568
@@ -286,6 +290,7 @@ tests:
                 weekly: 3
               accessModes:
                 - ReadWriteOnce
+              unlock: "20240617114552"
               storageClassName: somestorageclass
               volumeSnapshotClassName: somevsc
               moverSecurityContext:
