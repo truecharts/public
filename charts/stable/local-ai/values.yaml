@@ -1,27 +1,27 @@
 image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0@sha256:3473f9694c3899d9e8d3c3c887d52f4e7d46cf643a03d7903f108d097a70611f
+  tag: v2.17.0@sha256:1c6816d924fb9ead896972668c54fa4745fc62b0b6a9bd88fb9da99cb4790aca
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-ffmpeg-core@sha256:0a3c62f2a28d7a3ca233ad6c77af750540c62ab8a0bb3d04f15943845a4c2b50
+  tag: v2.17.0-ffmpeg-core@sha256:178d1f2cb53fba46c025584760616872fe92c3b338bb18e5099f1db859652a5c
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-cublas-cuda12-core@sha256:16753f0714a7b81530263a9990dce03767f22d0a3fe08961aca95c1d0ac77258
+  tag: v2.17.0-cublas-cuda12-core@sha256:8b7d0a67a50a417bb15f89981a781fb9ae1f61608c8c8ee75c3a3ff363b22c3d
 cublasCuda12FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-cublas-cuda12-ffmpeg-core@sha256:ccf9647b91f4c4e20cdffe1de27fc4c8fe587a4554663dedf469bd49dea7d3a5
+  tag: v2.17.0-cublas-cuda12-ffmpeg-core@sha256:0cee2d9b5e515e9ffdfd67d435e620438d2aa620f4f416d0644e20554fd7ff5a
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-cublas-cuda11-core@sha256:7bcd70e4c7164815ac1bafaf69c8493514e13c4f84d611590cc4001fb44829d8
+  tag: v2.17.0-cublas-cuda11-core@sha256:a4fa1281d14ecd0b8c4ab23911b1b96e1423a4d082754d778205f6ca944abc9f
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-cublas-cuda11-ffmpeg-core@sha256:8e90cd63d3a904d980a2a3ba5c1a78379cf9f4d37afff02d1c00a7aec279c146
+  tag: v2.17.0-cublas-cuda11-ffmpeg-core@sha256:1337ab3d1b5897287df4c25360d82ff1bbd98e4988a7061f57b713cd7d429cec
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -33,7 +33,7 @@ allInOneCuda11Image:
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.16.0-aio-cpu@sha256:e3c8e59b16e12f863a2590c15a21fbe1d45bda92c6a300604a833e9bc46b08ca
+  tag: v2.17.0-aio-cpu@sha256:e06e1f8af3f7a64fcdef8e34bcb5dbb3447ab4e800a99fc99a9a925057521988
 securityContext:
   container:
     runAsNonRoot: false
