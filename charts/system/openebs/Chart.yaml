@@ -22,20 +22,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: zfs-localpv
-    version: 2.5.1
-    repository: https://openebs.github.io/zfs-localpv
-    condition: zfs-localpv.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: lvm-localpv
-    version: 1.5.1
-    repository: https://openebs.github.io/lvm-localpv
-    condition: lvm-localpv.enabled
-    alias: ""
-    tags: []
-    import-values: []
 deprecated: false
 description: OpenEBS is a umbrella chart for multiple container storage provisioners
 home: https://truecharts.org/charts/system/openebs
