@@ -1,5 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "teslamate.configmaps" -}}
+{{- if .Values.dashboards.enabled }}
 {{- $rootDir := "dashboards/" -}}
 {{- $dirs := dict -}}
 {{- range $path, $_ := .Files.Glob (printf "%s**/*.json" $rootDir) }}
@@ -18,12 +19,15 @@
 {{ $configMapKey | quote }}:
   enabled: true
   annotations:
-    k8s-sidecar-target-directory: "TeslaMate"
+    {{- range $key, $value := $.Values.dashboards.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
   labels:
-      grafana_dashboard: "1"
+    grafana_dashboard: "1"
   data:
     {{ $fileName | quote }}: |
 {{ $.Files.Get . | indent 6 }}
 {{- end -}}
 {{- end -}}
 {{- end -}}
+{{- end }}
