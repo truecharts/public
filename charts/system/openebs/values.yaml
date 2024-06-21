@@ -140,33 +140,6 @@ localpv-provisioner:
     # Specify in hours the duration after which a ping event needs to be sent.
     pingInterval: "24h"
 
-# zfs local pv configuration goes here
-# ref - https://openebs.github.io/zfs-localpv
-zfs-localpv:
-  enabled: false
-  crds:
-    enabled: false
-    enableInstall: false
-    volumeSnapshot: false
-  crd:
-    enabled: false
-    enableInstall: false
-    volumeSnapshot: false
-  # Sample configuration if you want to configure zfs localpv with custom values.
-  # This is a small part of the full configuration. Full configuration available
-  # here - https://openebs.github.io/zfs-localpv
-
-#  imagePullSecrets: []
-#
-#  rbac:
-#    pspEnabled: false
-#
-#  zfsPlugin:
-#    image:
-#      registry: quay.io/
-#      repository: openebs/zfs-driver
-#      pullPolicy: IfNotPresent
-#      tag: 2.5.0
 
 # lvm local pv configuration goes here
 # ref - https://openebs.github.io/lvm-localpv
@@ -189,10 +162,3 @@ lvm-localpv:
 #      repository: openebs/lvm-driver
 #      pullPolicy: IfNotPresent
 #      tag: 1.5.0
-
-volumeSnapshotClass:
-  zfspv:
-    enabled: false
-    isDefault: false
-    driver: zfs.csi.openebs.io
-    deletionPolicy: Delete
