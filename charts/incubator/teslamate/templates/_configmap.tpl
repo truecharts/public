@@ -19,6 +19,7 @@
   enabled: true
   annotations:
     k8s-sidecar-target-directory: "TeslaMate"
+    grafana_folder: "TeslaMate"
   labels:
       grafana_dashboard: "1"
   data:
