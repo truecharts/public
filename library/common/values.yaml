@@ -475,7 +475,7 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.90.2@sha256:7339874e1f1a554b4eabf0b99c7657ee7b9bf2e23561602957058ce288acf754
+  tag: v4.90.3@sha256:59eb7f5c954e0c2b9717e5a5a8c13da0af0ddd37376c512d66db18720ab52264
   pullPolicy: IfNotPresent
 
 alpineImage:
@@ -485,7 +485,7 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:5e4ae98a79118099721bd740bf5056e8da5a8a817d410b0f275f4665a141ade7
+  tag: latest@sha256:fa8db430d07a3b98f84cce7c7d56bb4ea6cdd64fb178d64227177caae47c343b
   pullPolicy: IfNotPresent
 
 kubectlImage:
