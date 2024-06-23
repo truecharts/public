@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/tccr/scratch
-  tag: latest
+  tag: latest@sha256:fa8db430d07a3b98f84cce7c7d56bb4ea6cdd64fb178d64227177caae47c343b
 
 portal:
   open:
@@ -32,7 +32,7 @@ localpv-provisioner:
       # For example : quay.io/ is a correct value here and quay.io is incorrect
       registry:
       repository: openebs/provisioner-localpv
-      tag: 4.0.0
+      tag: 4.0.0@sha256:9e45763b9d067bfef4b367b7b29a4d79d477897a8c7f9a16f4839a3a7e4b31a8
       pullPolicy: IfNotPresent
     updateStrategy:
       type: RollingUpdate
@@ -133,7 +133,7 @@ localpv-provisioner:
       repository: openebs/linux-utils
       pullPolicy: IfNotPresent
       # Overrides the image tag whose default is the chart appVersion.
-      tag: 4.0.0
+      tag: 4.0.0@sha256:7774509cf50a3dbb8b5c09b995eac804b522d11607317d10cfbae049b9fff21d
 
   analytics:
     enabled: true
