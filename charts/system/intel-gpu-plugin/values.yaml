@@ -37,11 +37,15 @@ persistence:
   devfs:
     enabled: true
     type: device
-    mountPath: /dev/dri
+    hostPath: /dev/dri
     hostPathType: BlockDevice
+    readOnly: true
   sysfs:
     enabled: true
     hostPath: /sys/class/drm
+    hostPathType: DirectoryOrCreate
+    readOnly: true
   kubeletsockets:
     enabled: true
     hostPath: /var/lib/kubelet/device-plugins
+    hostPathType: DirectoryOrCreate
