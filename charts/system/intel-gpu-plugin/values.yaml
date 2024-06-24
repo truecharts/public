@@ -12,6 +12,18 @@ service:
 
 workload:
   main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - -shared-dev-num
+            - "1"
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
     enabled: false
 
 portal:
