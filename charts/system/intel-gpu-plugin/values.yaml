@@ -1,0 +1,33 @@
+image:
+  repository: intel/intel-gpu-plugin
+  pullPolicy: IfNotPresent
+  tag: 0.30.0@sha256:e96c9955e5aced52f215f7eff77f679c4c400a16a42b1f2c0e8ed9ba76cae3c4
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false
+
+operator:
+  register: true
+
+persistence:
+  devfs:
+    enabled: true
+    mountPath: /dev/dri
+  sysfs:
+    enabled: true
+    mountPath: /sys/class/drm
+  kubeletsockets:
+    enabled: true
+    mountpath: /var/lib/kubelet/device-plugins
