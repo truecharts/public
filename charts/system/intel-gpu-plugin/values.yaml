@@ -42,10 +42,12 @@ persistence:
     readOnly: true
   sysfs:
     enabled: true
+    type: hostPath
     hostPath: /sys/class/drm
     hostPathType: DirectoryOrCreate
     readOnly: true
   kubeletsockets:
     enabled: true
+    type: hostPath
     hostPath: /var/lib/kubelet/device-plugins
     hostPathType: DirectoryOrCreate
