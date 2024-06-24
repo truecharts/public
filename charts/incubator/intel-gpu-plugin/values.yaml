@@ -1,0 +1,28 @@
+image:
+  repository: intel/intel-gpu-plugin
+  pullPolicy: IfNotPresent
+  tag: 0.30.0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - -shared-dev-num
+            - "1"
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+# don't edit below here
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
