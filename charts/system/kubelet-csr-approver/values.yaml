@@ -3,10 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.2.2@sha256:fdccaa3f2e4f59001b99357565bc5995393c53b21074da769fa53620b5138b85
 
-securityContext:
-  runAsUser: 65532
-  runAsGroup: 65532
-
 service:
   main:
     ports:
