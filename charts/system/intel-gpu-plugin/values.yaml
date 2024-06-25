@@ -39,18 +39,15 @@ persistence:
     type: device
     mountPath: /dev/dri
     hostPath: /dev/dri
-    hostPathType: CharDevice
     readOnly: true
   sysfs:
     enabled: true
     type: hostPath
     mountPath: /sys/class/drm
     hostPath: /sys/class/drm
-    hostPathType: DirectoryOrCreate
     readOnly: true
   kubeletsockets:
     enabled: true
     type: hostPath
     mountPath: /var/lib/kubelet/device-plugins
     hostPath: /var/lib/kubelet/device-plugins
-    hostPathType: DirectoryOrCreate
