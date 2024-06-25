@@ -13,6 +13,7 @@ service:
 workload:
   main:
     podSpec:
+      type: DaemonSet
       containers:
         main:
           args:
