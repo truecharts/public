@@ -8,8 +8,8 @@ tests:
   - it: should fail with name longer than 63 characters
     set:
       podDisruptionBudget:
-        my-poddisruptionbudget-super-long-name-that-is-longer-than-63-characters:
-          enabled: true
+        ? my-poddisruptionbudget-super-long-name-that-is-longer-than-63-characters
+        : enabled: true
     asserts:
       - failedTemplate:
           errorMessage: Name [test-release-name-common-test-my-poddisruptionbudget-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
@@ -153,3 +153,15 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Pod Disruption Budget - Selected pod [my-pod] is not defined
+
+  - it: should fail with both minAvailable and maxUnavailable
+    set:
+      podDisruptionBudget:
+        my-poddisruptionbudget:
+          enabled: true
+          targetSelector: my-pod
+          minAvailable: 1
+          maxUnavailable: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod Disruption Budget - Expected one of [minAvailable, maxUnavailable] to be defined in [podDisruptionBudget.my-poddisruptionbudget], but got both

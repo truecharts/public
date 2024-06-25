@@ -41,6 +41,10 @@ objectData:
     {{- end -}}
   {{- end -}}
 
+  {{- if and ($objectData.minAvailable) ($objectData.maxUnavailable) -}}
+    {{- fail (printf "Pod Disruption Budget - Expected one of [%s] to be defined in [podDisruptionBudget.%s], but got both" (join ", " $keys) $objectData.shortName) -}}
+  {{- end -}}
+
   {{- if not $hasKey -}}
     {{- fail (printf "Pod Disruption Budget - Expected at least one of [%s] to be defined in [podDisruptionBudget.%s]" (join ", " $keys) $objectData.shortName) -}}
   {{- end -}}
