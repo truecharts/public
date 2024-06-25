@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: system
+  truecharts.org/train: premium
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: The default Kubernetes Dashboard
-home: https://truecharts.org/charts/system/kubernetes-dashboard
+home: https://truecharts.org/charts/premium/kubernetes-dashboard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubernetes-dashboard.webp
 keywords:
   - kubernetes-dashboard
@@ -37,8 +37,8 @@ maintainers:
 name: kubernetes-dashboard
 sources:
   - https://github.com/kubernetes-dashboard/kubernetes-dashboard
-  - https://github.com/truecharts/charts/tree/master/charts/system/kubernetes-dashboard
+  - https://github.com/truecharts/charts/tree/master/charts/premium/kubernetes-dashboard
   - https://github.com/truecharts/containers/tree/master/apps/alpine
   - https://kubernetes-dashboard.universe.tf
 type: application
-version: 0.0.1
+version: 0.0.2
