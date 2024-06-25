@@ -39,7 +39,7 @@ persistence:
     type: device
     mountPath: /dev/dri
     hostPath: /dev/dri
-    hostPathType: BlockDevice
+    hostPathType: CharDevice
     readOnly: true
   sysfs:
     enabled: true
