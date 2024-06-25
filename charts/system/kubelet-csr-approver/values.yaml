@@ -1,18 +1,126 @@
 image:
-  repository: tccr.io/tccr/alpine
+  repository: ghcr.io/postfinance/kubelet-csr-approver
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+  tag: 1.2.2@sha256:fdccaa3f2e4f59001b99357565bc5995393c53b21074da769fa53620b5138b85
+
+securityContext:
+  runAsUser: 65532
+  runAsGroup: 65532
 
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        port: 8080
+        targetPort: 8080
+        protocol: tcp
 
 workload:
   main:
-    enabled: false
+    enabled: true
+    spec:
+      containers:
+        main:
+          args:
+            - -metrics-bind-address
+            - ":{{ .Values.metrics.port }}"
+            - -health-probe-bind-address
+            - ":8081"
+            - -leader-election
+            - -level
+            - -0
+          probes:
+            liveness:
+              path: "/healthz"
+          envFrom:
+            - configMapRef:
+                name: csr-config
+
+# Required configuration item
+providerRegex: ""
+# optional, specified as a string (enclosed with ""). if left empty, defaults to 367 days
+maxExpirationSeconds: ""
+# optional, permits to bypass dns resolution checks. default: false
+bypassDnsResolution: false
+# number of DNS SAN names allowed in a certificate request. defaults to 1
+allowedDnsNames: 1
+# optional, permits ignoring CSRs with another Username than `system:node:...`
+ignoreNonSystemNode: false
+# set this parameter to true to ignore mismatching DNS name and hostname
+bypassHostnameCheck: false
+# optional, list of IP (IPv4, IPv6) subnets that are allowed to submit CSRs
+providerIpPrefixes: []
+#   - 192.168.8.0/22
+#   - fc00::/7
+
+# logging level ranges from -5 (Fatal) to 10 (Verbose). default level is 0
+loggingLevel: 0
+
+leaderElection: true
+replicas: 2
+
+namespace: ""
+
+dnsPolicy: ""
+dnsConfig: {}
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: ["coordination.k8s.io"]
+        resources: ["leases"]
+        verbs: ["create", "get", "update"]
+      - apiGroups: [""]
+        resources: ["events"]
+        verbs: ["create"]
+      - apiGroups: ["certificates.k8s.io"]
+        resources: ["certificatesigningrequests"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["certificates.k8s.io"]
+        resources: ["certificatesigningrequests/approval"]
+        verbs: ["update"]
+      - apiGroups: ["certificates.k8s.io"]
+        resourceNames: ["kubernetes.io/kubelet-serving"]
+        resources: ["signers"]
+        verbs: ["approve"]
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+metrics:
+  main:
+    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+    # @default -- See values.yaml
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    # -- Enable and configure Prometheus Rules for the chart under this key.
+    # @default -- See values.yaml
+    prometheusRule:
+      enabled: false
+      labels: {}
+      # -- Configure additionial rules for the chart under this key.
+      # @default -- See prometheusrules.yaml
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
+
+podOptions:
+  automountServiceAccountToken: true
 
 portal:
   open:
