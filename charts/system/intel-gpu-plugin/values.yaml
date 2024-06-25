@@ -18,13 +18,13 @@ workload:
           args:
             - -shared-dev-num
             - "1"
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 portal:
   open:
