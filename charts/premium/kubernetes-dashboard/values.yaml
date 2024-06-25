@@ -66,9 +66,26 @@ persistence:
 secret:
   kubernetes-dashboard-certs:
     enabled: true
-    expandObjectName: false
+    expandName: false
     data:
       placeholder: something
+  kubernetes-dashboard-key-holder:
+    enabled: true
+    expandName: false
+    data:
+      placeholder: something
+  kubernetes-dashboard-csrf:
+    enabled: true
+    expandName: false
+    data:
+      placeholder: something
+
+configmap:
+  kubernetes-dashboard-settings:
+    enabled: true
+    expandName: false
+    data:
+        _global: '{"itemsPerPage":100}'
 
 portal:
   open:
