@@ -64,7 +64,7 @@ secret:
   certs:
     enabled: true
     expandObjectName: false
-    stringData:
+    data:
       placeholder: something
 
 portal:
@@ -99,7 +99,6 @@ rbac:
         verbs: ["get"]
   allaccess:
     enabled: true
-    primary: true
     clusterWide: true
     serviceAccounts:
       - main
