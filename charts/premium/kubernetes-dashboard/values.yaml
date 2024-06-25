@@ -1,19 +1,37 @@
 image:
-  repository: tccr.io/tccr/alpine
+  repository: kubernetesui/dashboard
   pullPolicy: IfNotPresent
-  tag: latest@sha256:783d7b4da265da6ee627fe54ee895a2cfe2a2ecd7bb7b53a0c7a703a924a8e82
+  tag: v2.6.1
+  
+scraperImage:
+  repository: kubernetesui/metrics-scraper
+  pullPolicy: IfNotPresent
+  tag: v1.0.9
 
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        port: 443
+        targetPort: 8443
 
 workload:
   main:
-    enabled: false
+    enabled: true
+    spec:
+      containers:
+        main:
+         args:
+           - --namespace={{ .Release.Namespace }}
+           - --auto-generate-certificates
+           - --metrics-provider=none
+           - --enable-insecure-login
+           - --enable-skip-login
+           - --system-banner="Powered by TrueCharts!"
 
+persistence:
+  certs:
+    mountPath: /certs
 portal:
   open:
     enabled: false
