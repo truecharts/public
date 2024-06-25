@@ -52,16 +52,19 @@ workload:
               type: https
               port: 8000
 
+podOptions:
+  automountServiceAccountToken: true
+
 persistence:
-  certs:
+  kubernetes-dashboard-certs:
     enabled: true
     type: secret
-    objectName: certs
+    objectName: kubernetes-dashboard-certs
     expandObjectName: false
     mountPath: /certs
 
 secret:
-  certs:
+  kubernetes-dashboard-certs:
     enabled: true
     expandObjectName: false
     data:
@@ -69,7 +72,7 @@ secret:
 
 portal:
   open:
-    enabled: false
+    enabled: true
 
 rbac:
   main:
