@@ -31,7 +31,6 @@ workload:
            - --system-banner="Powered by TrueCharts!"
         scraper:
           enabled: true
-          primary: true
           imageSelector: scraperImage
           probes:
             liveness:
@@ -74,8 +73,6 @@ rbac:
     enabled: true
     primary: true
     clusterWide: true
-    serviceAccounts:
-      - main
     rules:
       - apiGroups: [""]
         resources: ["secrets"]
@@ -95,24 +92,13 @@ rbac:
         resources: ["services/proxy"]
         resourceNames: ["heapster", "http:heapster:", "https:heapster:", "dashboard-metrics-scraper", "http:dashboard-metrics-scraper"]
         verbs: ["get"]
-  allaccess:
-    enabled: true
-    clusterWide: true
-    serviceAccounts:
-      - main
-    rules:
+      - apiGroups: ["metrics.k8s.io"]
+        resources: ["pods", "nodes"]
+        verbs: ["get", "list", "watch"]
+      # Give all-access
       - apiGroups: ["*"]
         resources: ["*"]
         verbs: ["*"]
-  metricsscraper:
-    enabled: true
-    clusterWide: true
-    serviceAccounts:
-      - main
-    rules:
-    - apiGroups: ["metrics.k8s.io"]
-      resources: ["pods", "nodes"]
-      verbs: ["get", "list", "watch"]
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
