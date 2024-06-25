@@ -29,11 +29,6 @@ workload:
            - --enable-insecure-login
            - --enable-skip-login
            - --system-banner="Powered by TrueCharts!"
-  scraper:
-    enabled: true
-    type: Deployment
-    podSpec:
-      containers:
         scraper:
           enabled: true
           primary: true
@@ -96,8 +91,6 @@ rbac:
     enabled: true
     primary: true
     clusterWide: true
-    serviceAccounts:
-      - main
     rules:
       - apiGroups: [""]
         resources: ["secrets"]
@@ -130,7 +123,7 @@ rbac:
     enabled: true
     clusterWide: true
     serviceAccounts:
-      - scraper
+      - main
     rules:
     - apiGroups: ["metrics.k8s.io"]
       resources: ["pods", "nodes"]
@@ -141,9 +134,3 @@ serviceAccount:
   main:
     enabled: true
     primary: true
-    targetSelector:
-      - main
-  scraper:
-    enabled: true
-    targetSelector:
-      - scraper
