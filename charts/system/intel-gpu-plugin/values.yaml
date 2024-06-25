@@ -43,7 +43,7 @@ persistence:
     readOnly: true
   sysfs:
     enabled: true
-    type: hostPath
+    type: device
     mountPath: /sys/class/drm
     hostPath: /sys/class/drm
     readOnly: true
