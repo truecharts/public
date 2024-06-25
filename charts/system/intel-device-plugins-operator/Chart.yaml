@@ -19,26 +19,26 @@ dependencies:
     version: 0.30.0
     repository: https://intel.github.io/helm-charts
     condition: ""
-    alias: intel-device-operator
+    alias: intel-device-plugins-operator
     tags: []
     import-values: []
 deprecated: false
 description: Add support for using Intel Devices in yoru cluster
-home: https://truecharts.org/charts/system/intel-device-operator
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/intel-device-operator.webp
+home: https://truecharts.org/charts/system/intel-device-plugins-operator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/intel-device-plugins-operator.webp
 keywords:
-  - intel-device-operator
+  - intel-device-plugins-operator
   - loadbalancer
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: intel-device-operator
+name: intel-device-plugins-operator
 sources:
-  - https://github.com/intel-device-operator/intel-device-operator
-  - https://github.com/truecharts/charts/tree/master/charts/system/intel-device-operator
+  - https://github.com/intel-device-plugins-operator/intel-device-plugins-operator
+  - https://github.com/truecharts/charts/tree/master/charts/system/intel-device-plugins-operator
   - https://github.com/truecharts/containers/tree/master/apps/alpine
-  - https://intel-device-operator.universe.tf
+  - https://intel-device-plugins-operator.universe.tf
 type: application
 version: 0.0.1
