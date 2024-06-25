@@ -2,7 +2,7 @@ image:
   repository: kubernetesui/dashboard
   pullPolicy: IfNotPresent
   tag: v2.6.1
-  
+
 scraperImage:
   repository: kubernetesui/metrics-scraper
   pullPolicy: IfNotPresent
@@ -35,15 +35,15 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: https
+              type: http
               port: 8000
             readiness:
               enabled: true
-              type: https
+              type: http
               port: 8000
             startup:
               enabled: true
-              type: https
+              type: http
               port: 8000
 
 podOptions:
