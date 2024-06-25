@@ -15,13 +15,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: kubernetes-dashboard
-    version: 5.10.0
-    repository: oci://ghcr.io/elfhosted/charts
-    condition: ""
-    alias: kubernetes-dashboard
-    tags: []
-    import-values: []
 deprecated: false
 description: The default Kubernetes Dashboard
 home: https://truecharts.org/charts/system/kubernetes-dashboard
@@ -41,4 +34,4 @@ sources:
   - https://github.com/truecharts/containers/tree/master/apps/alpine
   - https://kubernetes-dashboard.universe.tf
 type: application
-version: 0.0.3
+version: 1.0.0
