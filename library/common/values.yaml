@@ -728,9 +728,9 @@ podDisruptionBudget:
     # -- Custom Selector Labels
     # customLabels:
     #   customKey: customValue
+    # maxUnavailable: 1
+    # minAvailable: 1
     targetSelector: main
-    minAvailable: 1
-    maxUnavailable: 1
 
 webhook:
   validating:
