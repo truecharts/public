@@ -19,7 +19,7 @@ service:
 workload:
   main:
     enabled: true
-    spec:
+    podSpec:
       containers:
         main:
          args:
