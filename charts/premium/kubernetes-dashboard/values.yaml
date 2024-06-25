@@ -58,23 +58,6 @@ persistence:
     expandObjectName: false
     mountPath: /certs
 
-secret:
-  kubernetes-dashboard-certs:
-    enabled: true
-    expandObjectName: false
-    data:
-      placeholder: something
-  kubernetes-dashboard-key-holder:
-    enabled: true
-    expandObjectName: false
-    data:
-      placeholder: something
-  kubernetes-dashboard-csrf:
-    enabled: true
-    expandObjectName: false
-    data:
-      placeholder: something
-
 configmap:
   kubernetes-dashboard-settings:
     enabled: true
@@ -91,6 +74,8 @@ rbac:
     enabled: true
     primary: true
     clusterWide: true
+    serviceAccounts:
+      - main
     rules:
       - apiGroups: [""]
         resources: ["secrets"]
