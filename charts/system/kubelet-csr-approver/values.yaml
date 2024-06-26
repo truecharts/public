@@ -35,8 +35,9 @@ workload:
               type: http
             startup:
               path: "/healthz"
-              port: 8081
+              enabled: true
               type: http
+              port: 8081
           env:
             PROVIDER_REGEX:  ".*"
             BYPASS_DNS_RESOLUTION: true
