@@ -33,30 +33,22 @@ workload:
             startup:
               path: "/healthz"
          env:
-            PROVIDER_REGEX: {{ .Values.providerRegex }}
-            PROVIDER_IP_PREFIXES: "{{ join "," .Values.providerIpPrefixes }}"
-            MAX_EXPIRATION_SECONDS: {{ .Values.maxExpirationSeconds | quote }}
-            BYPASS_DNS_RESOLUTION: {{ .Values.bypassDnsResolution | quote }}
-            IGNORE_NON_SYSTEM_NODE: {{ .Values.ignoreNonSystemNode | quote }}
-            ALLOWED_DNS_NAMES: {{ .Values.allowedDnsNames | quote }}
-            BYPASS_HOSTNAME_CHECK: {{ .Values.bypassHostnameCheck | quote }}
+            # PROVIDER_REGEX: {{ .Values.providerRegex }}
+            ## optional, comma-separated, list of IP (IPv4, IPv6) subnets that are allowed to submit CSRs
+            # PROVIDER_IP_PREFIXES: "{{ join "," .Values.providerIpPrefixes }}"
 
-# Required configuration item
-providerRegex: ""
-# optional, specified as a string (enclosed with ""). if left empty, defaults to 367 days
-maxExpirationSeconds: ""
-# optional, permits to bypass dns resolution checks. default: false
-bypassDnsResolution: false
-# number of DNS SAN names allowed in a certificate request. defaults to 1
-allowedDnsNames: 1
-# optional, permits ignoring CSRs with another Username than `system:node:...`
-ignoreNonSystemNode: false
-# set this parameter to true to ignore mismatching DNS name and hostname
-bypassHostnameCheck: false
-# optional, list of IP (IPv4, IPv6) subnets that are allowed to submit CSRs
-providerIpPrefixes: []
-#   - 192.168.8.0/22
-#   - fc00::/7
+            ## optional, specified as a string (enclosed with ""). if left empty, defaults to 367 days
+            # MAX_EXPIRATION_SECONDS: {{ .Values.maxExpirationSeconds | quote }}
+
+            ## optional, permits to bypass dns resolution checks. default: false
+            BYPASS_DNS_RESOLUTION: true
+            ## optional, permits ignoring CSRs with another Username than `system:node:...`
+            IGNORE_NON_SYSTEM_NODE: false
+            ## number of DNS SAN names allowed in a certificate request. defaults to 1
+            ALLOWED_DNS_NAMES: 1
+            ## set this parameter to true to ignore mismatching DNS name and hostname
+            BYPASS_HOSTNAME_CHECK: false
+
 
 # logging level ranges from -5 (Fatal) to 10 (Verbose). default level is 0
 loggingLevel: 0
