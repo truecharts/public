@@ -8,7 +8,6 @@ service:
     ports:
       main:
         port: 8081
-        targetPort: 8081
         protocol: http
 
 workload:
@@ -20,7 +19,7 @@ workload:
         main:
           args:
             - -metrics-bind-address
-            - ":{{ .Values.metrics.port }}"
+            - ":{{ .Values.service.main.ports.main.port }}"
             - -health-probe-bind-address
             - ":8081"
             - -level
