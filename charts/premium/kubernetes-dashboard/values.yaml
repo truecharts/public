@@ -220,7 +220,8 @@ podOptions:
   automountServiceAccountToken: true
 
 configmap:
-  settings:
+  kubernetes-dashboard-settings:
+    expandObjectName: false
     enabled: true
     data:
       settings: '{"itemsPerPage":100}'
