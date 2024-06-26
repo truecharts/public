@@ -172,19 +172,16 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: http
+              type: tcp
               port: 8000
-              path: /api/v1/login
             readiness:
               enabled: true
-              type: http
+              type: tcp
               port: 8000
-              path: /api/v1/login
             startup:
               enabled: true
-              type: http
+              type: tcp
               port: 8000
-              path: /api/v1/login
 
   scraper:
     enabled: true
