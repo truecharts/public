@@ -1,12 +1,22 @@
 image:
-  repository: kubernetesui/dashboard
+  repository: kubernetesui/dashboard-web
   pullPolicy: IfNotPresent
-  tag: v2.7.0
+  tag: 1.4.0
+
+authImage:
+  repository: docker.io/kubernetesui/dashboard-auth
+  pullPolicy: IfNotPresent
+  tag: 1.1.3
+
+apiImage:
+  repository: kubernetesui/dashboard-api
+  pullPolicy: IfNotPresent
+  tag: 1.7.0
 
 scraperImage:
-  repository: kubernetesui/metrics-scraper
+  repository: kubernetesui/dashboard-metrics-scraper
   pullPolicy: IfNotPresent
-  tag: v1.0.9
+  tag: 1.1.1.1
 
 service:
   main:
@@ -22,27 +32,97 @@ workload:
     podSpec:
       containers:
         main:
-         args:
-           - '--namespace="{{ .Release.Namespace }"'
-           - '--auto-generate-certificates'
-           - '--sidecar-host=http://127.0.0.1:8000'
-           - '--enable-insecure-login'
-           - '--enable-skip-login'
-           - '--system-banner="Powered by TrueCharts!"'
+          enabled: true
+          args:
+            - --namespace={{ .Release.Namespace }}
+            - --metrics-scraper-service-name=todo
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            #GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+        api:
+          enabled: true
+          imageSelector: apiImage
+          args:
+            - --namespace={{ .Release.Namespace }}
+            - --metrics-scraper-service-name=todo
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            #GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+        auth:
+          enabled: true
+          imageSelector: authImage
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            #GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
         scraper:
           enabled: true
           imageSelector: scraperImage
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            #GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
           probes:
             liveness:
-              enabled: true
+              enabled: false
               type: http
               port: 8000
             readiness:
-              enabled: true
+              enabled: false
               type: http
               port: 8000
             startup:
-              enabled: true
+              enabled: false
               type: http
               port: 8000
 
@@ -63,6 +143,12 @@ configmap:
     expandObjectName: false
     data:
       _global: '{"itemsPerPage":100}'
+
+secret:
+  csrf:
+    enabled: true
+    data: 
+      private.key: "{{ randBytes 256 | b64enc | quote }}"
 
 portal:
   open:
