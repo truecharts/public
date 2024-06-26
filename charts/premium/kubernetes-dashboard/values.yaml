@@ -19,6 +19,7 @@ scraperImage:
   tag: 1.1.1.1
 
 service:
+  # TODO: Point main to kong!
   main:
     enabled: true
     ports:
@@ -300,3 +301,43 @@ kong:
     type: ClusterIP
     http:
       enabled: false
+
+
+## TODO Pre-configure ingress if needed
+## Ingress hint:
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: kubdashboard-ingressroute
+#   namespace: kubernetes-dashboard
+# spec:
+#   entryPoints: [websecure]
+#   routes:
+#     - kind: Rule
+#       match: PathPrefix(`/kubernetes-dashboard`)
+#       services:
+#       - kind: Service
+#         name: kubernetes-dashboard-kong-proxy
+#         namespace: kubernetes-dashboard
+#         port: kong-proxy
+#       middlewares:
+#       - name: stripkubdashboard
+#         namespace: kubernetes-dashboard
+# 
+# ---
+# 
+# apiVersion: traefik.io/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: stripkubdashboard
+#   namespace: kubernetes-dashboard
+# spec:
+#   stripPrefix:
+#     prefixes:
+#       - "/kubernetes-dashboard"
+#     forceSlash: true
+
+#   kong:
+#      proxy:
+#        http:
+#          enabled: true
