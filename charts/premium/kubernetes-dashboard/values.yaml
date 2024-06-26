@@ -22,9 +22,27 @@ service:
   main:
     ports:
       main:
-        port: 443
-        targetPort: 8443
-        protocol: https
+        port: 80
+        targetPort: 8000
+        protocol: http
+  api:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8000
+        protocol: http
+  auth:
+    ports:
+      main:
+        port: 8081
+        targetPort: 8000
+        protocol: http
+  scraper:
+    ports:
+      main:
+        port: 8081
+        targetPort: 8000
+        protocol: http
 
 workload:
   main:
@@ -65,11 +83,17 @@ workload:
 
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
             readiness:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
             startup:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
 
         auth:
           enabled: true
@@ -90,11 +114,17 @@ workload:
 
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
             readiness:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
             startup:
-              enabled: false
+              enabled: true
+              type: http
+              port: 8000
 
         scraper:
           enabled: true
@@ -114,28 +144,20 @@ workload:
             #      resource: limits.memory
           probes:
             liveness:
-              enabled: false
+              enabled: true
               type: http
               port: 8000
             readiness:
-              enabled: false
+              enabled: true
               type: http
               port: 8000
             startup:
-              enabled: false
+              enabled: true
               type: http
               port: 8000
 
 podOptions:
   automountServiceAccountToken: true
-
-persistence:
-  kubernetes-dashboard-certs:
-    enabled: true
-    type: secret
-    objectName: kubernetes-dashboard-certs
-    expandObjectName: false
-    mountPath: /certs
 
 configmap:
   kubernetes-dashboard-settings:
@@ -148,7 +170,7 @@ secret:
   csrf:
     enabled: true
     data: 
-      private.key: "{{ randBytes 256 | b64enc | quote }}"
+      private.key: ZHdwY1JlYTlCWkVhWVEydmEvdXA2dUwzOUdERkFZN2JCcFU0a25UM3dnZVVOazlHUGFpWmptaXNhS3VMdUVvS2o1VENJUTdnKzlpZzA3S3BZYzM0MVpiVjNBSlBsMzZZSFN5eC9Rdi9uMnlaVDlYZ3BOb0IyRk02ZjBnczhEcXVxU0V1aWd4aC9rSEpSRVVpSFFtUUNrMDlTSG10ZFkzRnBpb1UzMGdlNjlNQ1JtdERmdmRoOVhteXRBYjR1M3VxeElmQWQ5QmRKcEdoZzZtMGVJQU15QnRNdHZaMnl6eVRhWjJPdXVLZnNwdVFaZThhYjJCcCtQSGxLOFNrcTY0RS9STzJVdzRjblFHTXFjQXhhdEszZEVPMmhtR1hOMm1uWVhxQXN3S0hIeWJBV2xCVW1UT3JDSFJuY1M3N3kyZjQwSk9PbWRoa0ZSREZJcWdOVC95aTd3PT0=
 
 portal:
   open:
