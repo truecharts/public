@@ -82,7 +82,7 @@ workload:
           enabled: true
           args:
             - --namespace={{ .Release.Namespace }}
-            - --metrics-scraper-service-name=todo
+            - --settings-config-map-name=kubernetes-dashboard-settings
             # GOMAXPROCS:
             #     resourceFieldRef:
             #       resource: limits.cpu
