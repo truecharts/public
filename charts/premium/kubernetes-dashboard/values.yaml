@@ -45,7 +45,7 @@ service:
     expandObjectName: false
     enabled: true
     ports:
-      main:
+      api:
         enabled: true
         port: 8000
         targetPort: 8000
@@ -54,7 +54,7 @@ service:
     expandObjectName: false
     enabled: true
     ports:
-      main:
+      auth:
         enabled: true
         port: 8000
         targetPort: 8000
@@ -63,7 +63,7 @@ service:
     expandObjectName: false
     enabled: true
     ports:
-      main:
+      scraper:
         enabled: true
         port: 8000
         targetPort: 8000
