@@ -24,7 +24,7 @@ workload:
             - ":8081"
            # logging level ranges from -5 (Fatal) to 10 (Verbose). default level is 0
             - -level
-            - -0
+            - 0
           probes:
             liveness:
               path: "/healthz"
