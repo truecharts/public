@@ -35,7 +35,6 @@ workload:
               path: "/healthz"
          env:
             PROVIDER_REGEX:  ".*"
-
             BYPASS_DNS_RESOLUTION: true
             IGNORE_NON_SYSTEM_NODE: false
             ALLOWED_DNS_NAMES: 1
