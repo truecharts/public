@@ -14,7 +14,7 @@ workload:
   main:
     enabled: true
     replicas: 3
-    spec:
+    podSpec:
       containers:
         main:
           args:
