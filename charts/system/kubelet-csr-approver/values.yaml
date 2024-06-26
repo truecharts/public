@@ -5,10 +5,11 @@ image:
 
 service:
   main:
-    enabled: false
+    enabled: true
     ports:
       main:
-        enabled: false
+        enabled: true
+        port: 8080
 
 workload:
   main:
@@ -80,30 +81,16 @@ serviceAccount:
 
 metrics:
   main:
-    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-    # @default -- See values.yaml
-    enabled: false
+    enabled: true
     type: "servicemonitor"
     endpoints:
       - port: main
         path: /metrics
-    # -- Enable and configure Prometheus Rules for the chart under this key.
-    # @default -- See values.yaml
     prometheusRule:
       enabled: false
       labels: {}
-      # -- Configure additionial rules for the chart under this key.
-      # @default -- See prometheusrules.yaml
       rules: []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
+
 
 podOptions:
   automountServiceAccountToken: true
