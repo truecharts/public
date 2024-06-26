@@ -134,14 +134,17 @@ workload:
               enabled: true
               type: http
               port: 8000
+              path: /metrics
             readiness:
               enabled: true
               type: http
               port: 8000
+              path: /metrics
             startup:
               enabled: true
               type: http
               port: 8000
+              path: /metrics
 
   auth:
     enabled: true
@@ -171,14 +174,17 @@ workload:
               enabled: true
               type: http
               port: 8000
+              path: /api/v1/login
             readiness:
               enabled: true
               type: http
               port: 8000
+              path: /api/v1/login
             startup:
               enabled: true
               type: http
               port: 8000
+              path: /api/v1/login
 
   scraper:
     enabled: true
