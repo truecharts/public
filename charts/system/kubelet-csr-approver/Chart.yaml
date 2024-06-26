@@ -15,13 +15,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: kubelet-csr-approver
-    version: 1.2.2
-    repository: https://postfinance.github.io/kubelet-csr-approver
-    condition: ""
-    alias: kubelet-csr-approver
-    tags: []
-    import-values: []
 deprecated: false
 description: Automatically approve internal Kubelet Certificate Signing Requests
 home: https://truecharts.org/charts/system/kubelet-csr-approver
@@ -38,7 +31,5 @@ name: kubelet-csr-approver
 sources:
   - https://github.com/kubelet-csr-approver/kubelet-csr-approver
   - https://github.com/truecharts/charts/tree/master/charts/system/kubelet-csr-approver
-  - https://github.com/truecharts/containers/tree/master/apps/alpine
-  - https://kubelet-csr-approver.universe.tf
 type: application
-version: 0.0.1
+version: 1.0.0
