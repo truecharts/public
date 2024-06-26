@@ -35,6 +35,7 @@ service:
   kubernetes-dashboard-web:
     expandObjectName: false
     enabled: true
+    targetSelector: main
     ports:
       web:
         enabled: true
@@ -44,6 +45,7 @@ service:
   kubernetes-dashboard-api:
     expandObjectName: false
     enabled: true
+    targetSelector: api
     ports:
       api:
         enabled: true
@@ -53,6 +55,7 @@ service:
   kubernetes-dashboard-auth:
     expandObjectName: false
     enabled: true
+    targetSelector: auth
     ports:
       auth:
         enabled: true
@@ -62,6 +65,7 @@ service:
   kubernetes-dashboard-scraper:
     expandObjectName: false
     enabled: true
+    targetSelector: scraper
     ports:
       scraper:
         enabled: true
