@@ -15,6 +15,10 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: kong
+    version: 2.38.0
+    repository: https://charts.konghq.com
+    condition: kong.enabled
 deprecated: false
 description: The default Kubernetes Dashboard
 home: https://truecharts.org/charts/system/kubernetes-dashboard

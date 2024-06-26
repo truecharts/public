@@ -20,26 +20,34 @@ scraperImage:
 
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 80
         targetPort: 8000
         protocol: http
   api:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 8080
         targetPort: 8000
         protocol: http
   auth:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 8081
         targetPort: 8000
         protocol: http
   scraper:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 8081
         targetPort: 8000
         protocol: http
@@ -160,11 +168,57 @@ podOptions:
   automountServiceAccountToken: true
 
 configmap:
-  kubernetes-dashboard-settings:
+  settings:
+    enabled: true
+    data:
+      settings: '{"itemsPerPage":100}'
+  kubedashboard-konggateway:
     enabled: true
     expandObjectName: false
     data:
-      _global: '{"itemsPerPage":100}'
+      kong.yml: |
+        _format_version: "3.0"
+        services:
+          - name: auth
+            host: placeholder
+            port: 8000
+            protocol: http
+            routes:
+              - name: authLogin
+                paths:
+                  - /api/v1/login
+                strip_path: false
+              - name: authCsrf
+                paths:
+                  - /api/v1/csrftoken/login
+                strip_path: false
+              - name: authMe
+                paths:
+                  - /api/v1/me
+                strip_path: false
+          - name: api
+            host: placeholder
+            port: 8000
+            protocol: http
+            routes:
+              - name: api
+                paths:
+                  - /api
+                strip_path: false
+              - name: metrics
+                paths:
+                  - /metrics
+                strip_path: false
+          - name: web
+            host: placeholder
+            port: 8000
+            protocol: http
+            routes:
+              - name: root
+                paths:
+                  - /
+                strip_path: false
+
 
 secret:
   csrf:
@@ -214,3 +268,21 @@ serviceAccount:
     enabled: true
     primary: true
     targetSelectAll: true
+
+## Required Kong sub-chart with DBless configuration to act as a gateway
+## for our all containers.
+kong:
+  enabled: true
+  ## Configuration reference: https://docs.konghq.com/gateway/3.6.x/reference/configuration
+  env:
+    dns_order: LAST,A,CNAME,AAAA,SRV
+    plugins: 'off'
+    nginx_worker_processes: 1
+  ingressController:
+    enabled: false
+  dblessConfig:
+    configMap: kubedashboard-konggateway
+  proxy:
+    type: ClusterIP
+    http:
+      enabled: false
