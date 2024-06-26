@@ -110,6 +110,7 @@ workload:
       containers:
         api:
           enabled: true
+          primary: true
           imageSelector: apiImage
           args:
             - --namespace={{ .Release.Namespace }}
@@ -149,6 +150,7 @@ workload:
       containers:
         auth:
           enabled: true
+          primary: true
           imageSelector: authImage
           env:
             CSRF_KEY:
@@ -185,6 +187,7 @@ workload:
       containers:
         scraper:
           enabled: true
+          primary: true
           imageSelector: scraperImage
           env:
             CSRF_KEY:
