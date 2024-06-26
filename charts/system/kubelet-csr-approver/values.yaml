@@ -32,13 +32,13 @@ workload:
               path: "/healthz"
             startup:
               path: "/healthz"
-         env:
-            PROVIDER_REGEX:  ".*"
-            BYPASS_DNS_RESOLUTION: true
-            IGNORE_NON_SYSTEM_NODE: false
-            ALLOWED_DNS_NAMES: 1
-            BYPASS_HOSTNAME_CHECK: false
-            LEADER_ELECTION: true
+          env:
+              PROVIDER_REGEX:  ".*"
+              BYPASS_DNS_RESOLUTION: true
+              IGNORE_NON_SYSTEM_NODE: false
+              ALLOWED_DNS_NAMES: 1
+              BYPASS_HOSTNAME_CHECK: false
+              LEADER_ELECTION: true
 
 
 
