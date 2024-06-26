@@ -24,31 +24,45 @@ service:
     ports:
       main:
         enabled: true
+        primary: true
         port: 80
         targetPort: 8000
         protocol: http
-  api:
+  kubernetes-dashboard-web:
+    expandObjectName: false
     enabled: true
     ports:
       main:
         enabled: true
-        port: 8080
+        primary: true
+        port: 8000
         targetPort: 8000
         protocol: http
-  auth:
+  kubernetes-dashboard-api:
+    expandObjectName: false
     enabled: true
     ports:
       main:
         enabled: true
-        port: 8081
+        port: 8000
         targetPort: 8000
         protocol: http
-  scraper:
+  kubernetes-dashboard-auth:
+    expandObjectName: false
     enabled: true
     ports:
       main:
         enabled: true
-        port: 8081
+        port: 8000
+        targetPort: 8000
+        protocol: http
+  kubernetes-dashboard-scraper:
+    expandObjectName: false
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
         targetPort: 8000
         protocol: http
 
@@ -180,7 +194,7 @@ configmap:
         _format_version: "3.0"
         services:
           - name: auth
-            host: placeholder
+            host: kubernetes-dashboard-auth
             port: 8000
             protocol: http
             routes:
@@ -197,7 +211,7 @@ configmap:
                   - /api/v1/me
                 strip_path: false
           - name: api
-            host: placeholder
+            host: kubernetes-dashboard-api
             port: 8000
             protocol: http
             routes:
@@ -210,7 +224,7 @@ configmap:
                   - /metrics
                 strip_path: false
           - name: web
-            host: placeholder
+            host: kubernetes-dashboard-web
             port: 8000
             protocol: http
             routes:
