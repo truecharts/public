@@ -38,7 +38,6 @@ service:
     ports:
       web:
         enabled: true
-        primary: true
         port: 8000
         targetPort: 8000
         protocol: http
