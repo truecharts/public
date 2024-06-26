@@ -25,7 +25,7 @@ workload:
          args:
            - '--namespace="{{ .Release.Namespace }"'
            - '--auto-generate-certificates'
-           - '--sidecar-host='http://127.0.0.1:8000'
+           - '--sidecar-host=http://127.0.0.1:8000'
            - '--enable-insecure-login'
            - '--enable-skip-login'
            - '--system-banner="Powered by TrueCharts!"'
