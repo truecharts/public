@@ -27,7 +27,7 @@ workload:
             - -metrics-bind-address
             - ":8080"
             - -health-probe-bind-address
-            - ":8081"
+            - ":8080"
             - -level
             - 0
           probes:
