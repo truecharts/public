@@ -114,7 +114,7 @@ workload:
           imageSelector: apiImage
           args:
             - --namespace={{ .Release.Namespace }}
-            - --metrics-scraper-service-name=todo
+            - --metrics-scraper-service-name=kubernetes-dashboard-scraper
           env:
             CSRF_KEY:
               secretKeyRef:
