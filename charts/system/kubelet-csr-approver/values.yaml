@@ -9,7 +9,7 @@ service:
       main:
         port: 8080
         targetPort: 8080
-        protocol: tcp
+        protocol: http
 
 workload:
   main:
@@ -27,6 +27,10 @@ workload:
             - -0
           probes:
             liveness:
+              path: "/healthz"
+            readiness:
+              path: "/healthz"
+            startup:
               path: "/healthz"
           envFrom:
             - configMapRef:
