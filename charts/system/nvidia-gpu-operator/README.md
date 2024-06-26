@@ -7,7 +7,7 @@ title: README
 TrueCharts can be installed as both _normal_ Helm Charts or as TrueNAS SCALE Apps.
 Both solutions are fully supported, but we heavily advice the use of normal Helm Charts where possible
 
-For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/system/metallb)
+For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/system/nvidia-gpu-operator)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -30,7 +30,7 @@ For more information on how to use TrueCharts as TrueNAS SCALE Apps, please chec
 
 All our charts have dedicated documentation pages.
 The documentation for this chart can be found here:
-https://truecharts.org/charts/system/metallb
+https://truecharts.org/charts/system/nvidia-gpu-operator
 
 ## Configuration Options
 
@@ -38,7 +38,7 @@ Please note: For TrueNAS SCALE, only options available in the GUI are supported.
 Hence most of these docs do not apply to TrueNAS SCALE
 
 To view the chart specific options, please view Values.yaml included in the chart.
-The most recent version of which, is available here: https://github.com/truecharts/charts/charts/system/metallb/values.yaml
+The most recent version of which, is available here: https://github.com/truecharts/charts/charts/system/nvidia-gpu-operator/values.yaml
 
 All our Charts use a shared "common" library chart that contains most of the templating and options.
 For the complete overview of all available options, please checkout the documentation for them on the [common docs on our website](/common)

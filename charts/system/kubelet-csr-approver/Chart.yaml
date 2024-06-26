@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: latest
+appVersion: 1.2.2
 dependencies:
   - name: common
     version: 24.0.0
@@ -29,6 +29,7 @@ maintainers:
     url: https://truecharts.org
 name: kubelet-csr-approver
 sources:
+  - https://ghcr.io/postfinance/kubelet-csr-approver
   - https://github.com/kubelet-csr-approver/kubelet-csr-approver
   - https://github.com/truecharts/charts/tree/master/charts/system/kubelet-csr-approver
 type: application

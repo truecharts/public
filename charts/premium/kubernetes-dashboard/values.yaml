@@ -275,11 +275,10 @@ configmap:
                   - /
                 strip_path: false
 
-
 secret:
   csrf:
     enabled: true
-    data: 
+    data:
       private.key: ZHdwY1JlYTlCWkVhWVEydmEvdXA2dUwzOUdERkFZN2JCcFU0a25UM3dnZVVOazlHUGFpWmptaXNhS3VMdUVvS2o1VENJUTdnKzlpZzA3S3BZYzM0MVpiVjNBSlBsMzZZSFN5eC9Rdi9uMnlaVDlYZ3BOb0IyRk02ZjBnczhEcXVxU0V1aWd4aC9rSEpSRVVpSFFtUUNrMDlTSG10ZFkzRnBpb1UzMGdlNjlNQ1JtdERmdmRoOVhteXRBYjR1M3VxeElmQWQ5QmRKcEdoZzZtMGVJQU15QnRNdHZaMnl6eVRhWjJPdXVLZnNwdVFaZThhYjJCcCtQSGxLOFNrcTY0RS9STzJVdzRjblFHTXFjQXhhdEszZEVPMmhtR1hOMm1uWVhxQXN3S0hIeWJBV2xCVW1UT3JDSFJuY1M3N3kyZjQwSk9PbWRoa0ZSREZJcWdOVC95aTd3PT0=
 
 portal:
@@ -296,7 +295,12 @@ rbac:
     rules:
       - apiGroups: [""]
         resources: ["secrets"]
-        resourceNames: ["kubernetes-dashboard-key-holder", "kubernetes-dashboard-certs", "kubernetes-dashboard-csrf"]
+        resourceNames:
+          [
+            "kubernetes-dashboard-key-holder",
+            "kubernetes-dashboard-certs",
+            "kubernetes-dashboard-csrf",
+          ]
         verbs: ["get", "update", "delete"]
         # Allow Dashboard to get and update 'kubernetes-dashboard-settings' config map.
       - apiGroups: [""]
@@ -310,7 +314,14 @@ rbac:
         verbs: ["proxy"]
       - apiGroups: [""]
         resources: ["services/proxy"]
-        resourceNames: ["heapster", "http:heapster:", "https:heapster:", "dashboard-metrics-scraper", "http:dashboard-metrics-scraper"]
+        resourceNames:
+          [
+            "heapster",
+            "http:heapster:",
+            "https:heapster:",
+            "dashboard-metrics-scraper",
+            "http:dashboard-metrics-scraper",
+          ]
         verbs: ["get"]
       - apiGroups: ["metrics.k8s.io"]
         resources: ["pods", "nodes"]
@@ -334,7 +345,7 @@ kong:
   ## Configuration reference: https://docs.konghq.com/gateway/3.6.x/reference/configuration
   env:
     dns_order: LAST,A,CNAME,AAAA,SRV
-    plugins: 'off'
+    plugins: "off"
     nginx_worker_processes: 1
   ingressController:
     enabled: false
@@ -344,8 +355,6 @@ kong:
     type: ClusterIP
     http:
       enabled: false
-
-
 ## TODO Pre-configure ingress if needed
 ## Ingress hint:
 # apiVersion: traefik.io/v1alpha1
@@ -366,9 +375,9 @@ kong:
 #       middlewares:
 #       - name: stripkubdashboard
 #         namespace: kubernetes-dashboard
-# 
+#
 # ---
-# 
+#
 # apiVersion: traefik.io/v1alpha1
 # kind: Middleware
 # metadata:

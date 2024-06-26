@@ -76,7 +76,7 @@ fi
 
 if [[ "$curr_chart" == "charts/system/intel-device-plugins-operator" ]]; then
    echo "Installing cert-manager chart"
-   helm install traefik oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait 
+   helm install traefik oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
    if [[ "$?" != "0" ]]; then
        echo "Failed to install cert-manager chart"
        exit 1
@@ -86,7 +86,7 @@ fi
 
 if [[ "$curr_chart" == "charts/premium/kubernetes-dashboard" ]]; then
    echo "Installing metrics-server chart"
-   helm install traefik oci://tccr.io/truecharts/metrics-server --namespace cert-manager --create-namespace --wait 
+   helm install traefik oci://tccr.io/truecharts/metrics-server --namespace cert-manager --create-namespace --wait
    if [[ "$?" != "0" ]]; then
        echo "Failed to install metrics-server chart"
        exit 1
