@@ -24,7 +24,7 @@ workload:
             - -health-probe-bind-address
             - ":8081"
             - -level
-            - 0
+            - "0"
           probes:
             liveness:
               path: "/healthz"
