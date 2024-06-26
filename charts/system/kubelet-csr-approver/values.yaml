@@ -32,6 +32,13 @@ workload:
               path: "/healthz"
             startup:
               path: "/healthz"
+         env:
+            PROVIDER_REGEX: {{ .Values.providerRegex }}
+            PROVIDER_IP_PREFIXES: "{{ join "," .Values.providerIpPrefixes }}"
+            BYPASS_DNS_RESOLUTION: {{ .Values.bypassDnsResolution | quote }}
+            IGNORE_NON_SYSTEM_NODE: {{ .Values.ignoreNonSystemNode | quote }}
+            ALLOWED_DNS_NAMES: {{ .Values.allowedDnsNames | quote }}
+            BYPASS_HOSTNAME_CHECK: {{ .Values.bypassHostnameCheck | quote }}
 
 # Required configuration item
 providerRegex: ""
