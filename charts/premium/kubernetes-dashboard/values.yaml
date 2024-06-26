@@ -105,6 +105,7 @@ workload:
               port: 8000
   api:
     enabled: true
+    type: Deployment
     podSpec:
       containers:
         api:
@@ -143,6 +144,7 @@ workload:
 
   auth:
     enabled: true
+    type: Deployment
     podSpec:
       containers:
         auth:
@@ -178,6 +180,7 @@ workload:
 
   scraper:
     enabled: true
+    type: Deployment
     podSpec:
       containers:
         scraper:
