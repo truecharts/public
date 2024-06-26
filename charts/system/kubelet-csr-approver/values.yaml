@@ -32,9 +32,6 @@ workload:
               path: "/healthz"
             startup:
               path: "/healthz"
-          envFrom:
-            - configMapRef:
-                name: csr-config
 
 # Required configuration item
 providerRegex: ""
