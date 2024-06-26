@@ -27,8 +27,9 @@ workload:
           probes:
             liveness:
               path: "/healthz"
-              port: 8081
+              enabled: true
               type: http
+              port: 8081
             readiness:
               path: "/healthz"
               enabled: true
