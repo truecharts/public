@@ -103,6 +103,10 @@ workload:
               enabled: true
               type: http
               port: 8000
+  api:
+    enabled: true
+    podSpec:
+      containers:
         api:
           enabled: true
           imageSelector: apiImage
@@ -137,6 +141,10 @@ workload:
               type: http
               port: 8000
 
+  auth:
+    enabled: true
+    podSpec:
+      containers:
         auth:
           enabled: true
           imageSelector: authImage
@@ -168,6 +176,10 @@ workload:
               type: http
               port: 8000
 
+  scraper:
+    enabled: true
+    podSpec:
+      containers:
         scraper:
           enabled: true
           imageSelector: scraperImage
