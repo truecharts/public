@@ -31,8 +31,9 @@ workload:
               type: http
             readiness:
               path: "/healthz"
-              port: 8081
+              enabled: true
               type: http
+              port: 8081
             startup:
               path: "/healthz"
               enabled: true
