@@ -26,9 +26,12 @@ service:
       main:
         enabled: true
         primary: true
-        port: 80
-        targetPort: 8000
-        protocol: http
+        port: 443
+        targetPort: 8443
+        protocol: https
+    selectorLabels:
+      app.kubernetes.io/name: kong
+      app.kubernetes.io/component: app
   kubernetes-dashboard-web:
     expandObjectName: false
     enabled: true
@@ -84,6 +87,19 @@ workload:
             #  valueFrom:
             #    resourceFieldRef:
             #      resource: limits.memory
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 8000
+            readiness:
+              enabled: true
+              type: http
+              port: 8000
+            startup:
+              enabled: true
+              type: http
+              port: 8000
         api:
           enabled: true
           imageSelector: apiImage
