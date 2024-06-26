@@ -34,20 +34,11 @@ workload:
             startup:
               path: "/healthz"
          env:
-            # PROVIDER_REGEX: {{ .Values.providerRegex }}
-            ## optional, comma-separated, list of IP (IPv4, IPv6) subnets that are allowed to submit CSRs
-            # PROVIDER_IP_PREFIXES: "{{ join "," .Values.providerIpPrefixes }}"
+            PROVIDER_REGEX:  ".*"
 
-            ## optional, specified as a string (enclosed with ""). if left empty, defaults to 367 days
-            # MAX_EXPIRATION_SECONDS: {{ .Values.maxExpirationSeconds | quote }}
-
-            ## optional, permits to bypass dns resolution checks. default: false
             BYPASS_DNS_RESOLUTION: true
-            ## optional, permits ignoring CSRs with another Username than `system:node:...`
             IGNORE_NON_SYSTEM_NODE: false
-            ## number of DNS SAN names allowed in a certificate request. defaults to 1
             ALLOWED_DNS_NAMES: 1
-            ## set this parameter to true to ignore mismatching DNS name and hostname
             BYPASS_HOSTNAME_CHECK: false
             LEADER_ELECTION: true
 
