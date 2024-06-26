@@ -22,7 +22,6 @@ workload:
             - ":{{ .Values.metrics.port }}"
             - -health-probe-bind-address
             - ":8081"
-            - -leader-election
             - -level
             - -0
           probes:
@@ -48,6 +47,7 @@ workload:
             ALLOWED_DNS_NAMES: 1
             ## set this parameter to true to ignore mismatching DNS name and hostname
             BYPASS_HOSTNAME_CHECK: false
+            LEADER_ELECTION: true
 
 
 # logging level ranges from -5 (Fatal) to 10 (Verbose). default level is 0
