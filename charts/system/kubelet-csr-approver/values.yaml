@@ -7,14 +7,7 @@ service:
   main:
     ports:
       main:
-        port: 8080
-        targetPort: 8080
-        protocol: http
-      metrics:
-        enabled: true
-        port: 8081
-        targetPort: 8081
-        protocol: http
+        enabled: false
 
 workload:
   main:
@@ -25,18 +18,24 @@ workload:
         main:
           args:
             - -metrics-bind-address
-            - ":8081"
-            - -health-probe-bind-address
             - ":8080"
+            - -health-probe-bind-address
+            - ":8081"
             - -level
             - 0
           probes:
             liveness:
               path: "/healthz"
+              port: 8081
+              type: http
             readiness:
               path: "/healthz"
+              port: 8081
+              type: http
             startup:
               path: "/healthz"
+              port: 8081
+              type: http
           env:
             PROVIDER_REGEX:  ".*"
             BYPASS_DNS_RESOLUTION: true
