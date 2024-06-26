@@ -35,6 +35,7 @@ workload:
          env:
             PROVIDER_REGEX: {{ .Values.providerRegex }}
             PROVIDER_IP_PREFIXES: "{{ join "," .Values.providerIpPrefixes }}"
+            MAX_EXPIRATION_SECONDS: {{ .Values.maxExpirationSeconds | quote }}
             BYPASS_DNS_RESOLUTION: {{ .Values.bypassDnsResolution | quote }}
             IGNORE_NON_SYSTEM_NODE: {{ .Values.ignoreNonSystemNode | quote }}
             ALLOWED_DNS_NAMES: {{ .Values.allowedDnsNames | quote }}
