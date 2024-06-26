@@ -7,6 +7,10 @@ service:
   main:
     ports:
       main:
+        port: 8081
+        targetPort: 8081
+        protocol: http
+      metrics:
         port: 8080
         targetPort: 8080
         protocol: http
@@ -77,7 +81,7 @@ metrics:
     enabled: true
     type: "servicemonitor"
     endpoints:
-      - port: main
+      - port: metrics
         path: /metrics
     # -- Enable and configure Prometheus Rules for the chart under this key.
     # @default -- See values.yaml
