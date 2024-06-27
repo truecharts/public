@@ -102,6 +102,8 @@ workload:
             PROXY_TARGET: https://kubernetes-dashboard-forward:8443
             AUTH_TOKEN_HEADER: Authorization
             AUTH_TOKEN_PREFIX: Bearer
+            # We can potentially use this in the future...
+            CSRF_TOKEN: ""
           probes:
             liveness:
               enabled: true
@@ -323,7 +325,7 @@ secret:
   csrf:
     enabled: true
     data:
-      private.key: ZHdwY1JlYTlCWkVhWVEydmEvdXA2dUwzOUdERkFZN2JCcFU0a25UM3dnZVVOazlHUGFpWmptaXNhS3VMdUVvS2o1VENJUTdnKzlpZzA3S3BZYzM0MVpiVjNBSlBsMzZZSFN5eC9Rdi9uMnlaVDlYZ3BOb0IyRk02ZjBnczhEcXVxU0V1aWd4aC9rSEpSRVVpSFFtUUNrMDlTSG10ZFkzRnBpb1UzMGdlNjlNQ1JtdERmdmRoOVhteXRBYjR1M3VxeElmQWQ5QmRKcEdoZzZtMGVJQU15QnRNdHZaMnl6eVRhWjJPdXVLZnNwdVFaZThhYjJCcCtQSGxLOFNrcTY0RS9STzJVdzRjblFHTXFjQXhhdEszZEVPMmhtR1hOMm1uWVhxQXN3S0hIeWJBV2xCVW1UT3JDSFJuY1M3N3kyZjQwSk9PbWRoa0ZSREZJcWdOVC95aTd3PT0=
+      private.key: dwpcRea9BZEaYQ2va/up6uL39GDFAY7bBpU4knT3wgeUNk9GPaiZjmisaKuLuEoKj5TCIQ7g+9ig07KpYc341ZbV3AJPl36YHSyx/Qv/n2yZT9XgpNoB2FM6f0gs8DquqSEuigxh/kHJREUiHQmQCk09SHmtdY3FpioU30ge69MCRmtDfvdh9XmytAb4u3uqxIfAd9BdJpGhg6m0eIAMyBtMtvZ2yzyTaZ2OuuKfspuQZe8ab2Bp+PHlK8Skq64E/RO2Uw4cnQGMqcAxatK3dEO2hmGXN2mnYXqAswKHHybAWlBUmTOrCHRncS77y2f40JOOmdhkFRDFIqgNT/yi7w==
 
 portal:
   open:
@@ -386,6 +388,8 @@ serviceAccount:
 ## for our all containers.
 kong:
   enabled: true
+  manager:
+    enabled: false
   ## Configuration reference: https://docs.konghq.com/gateway/3.6.x/reference/configuration
   env:
     dns_order: LAST,A,CNAME,AAAA,SRV
