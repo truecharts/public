@@ -36,7 +36,6 @@ service:
   kubernetes-dashboard-forward:
     expandObjectName: false
     enabled: true
-    targetSelector: api
     ports:
       forward:
         enabled: true
@@ -49,7 +48,7 @@ service:
   kubernetes-dashboard-web:
     expandObjectName: false
     enabled: true
-    targetSelector: main
+    targetSelector: web
     ports:
       web:
         enabled: true
@@ -124,6 +123,7 @@ workload:
         web:
           enabled: true
           primary: true
+          imageSelector: webImage
           args:
             - --namespace={{ .Release.Namespace }}
             - --settings-config-map-name=kubernetes-dashboard-settings
