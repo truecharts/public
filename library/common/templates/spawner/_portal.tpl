@@ -24,7 +24,19 @@
         ) -}}
 
         {{/* construct configmap */}}
+
+        {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Portal"
+                "key" "configmap")) -}}
+
         {{- $objectName := (printf "tcportal-%s" $name) -}}
+
+        {{- if eq $expandName "true" -}}
+          {{- $objectName = (printf "%s-%s" $fullname $name) -}}
+        {{- end -}}
+
+        
         {{- $configMap := dict "name" $objectName "shortName" $objectName "data" $portalData -}}
 
         {{/* Perform validations */}} {{/* Configmaps have a max name length of 253 */}}
