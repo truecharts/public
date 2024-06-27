@@ -1,4 +1,9 @@
 image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/tccr/kube-sa-proxy 
+  tag: latest
+
+webImage:
   repository: kubernetesui/dashboard-web
   pullPolicy: IfNotPresent
   tag: 1.4.0
@@ -19,14 +24,22 @@ scraperImage:
   tag: 1.1.1
 
 service:
-  # TODO: Point main to kong!
   main:
     enabled: true
     ports:
       main:
         enabled: true
         primary: true
-        port: 443
+        port: 80
+        targetPort: 3000
+        protocol: http
+  kubernetes-dashboard-forward:
+    expandObjectName: false
+    enabled: true
+    ports:
+      forward:
+        enabled: true
+        port: 8443
         targetPort: 8443
         protocol: https
     selectorLabels:
@@ -35,7 +48,7 @@ service:
   kubernetes-dashboard-web:
     expandObjectName: false
     enabled: true
-    targetSelector: main
+    targetSelector: web
     ports:
       web:
         enabled: true
@@ -76,10 +89,41 @@ service:
 workload:
   main:
     enabled: true
+    primary: true
+    type: Deployment
     podSpec:
       containers:
         main:
           enabled: true
+          primary: true
+          env:
+            PORT: 3000
+            API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
+            PROXY_TARGET: https://kubernetes-dashboard-forward:8443
+            AUTH_TOKEN_HEADER: Authorization
+            AUTH_TOKEN_PREFIX: Bearer
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 3000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 3000
+            startup:
+              enabled: true
+              type: tcp
+              port: 3000
+  web:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        web:
+          enabled: true
+          primary: true
+          imageSelector: webImage
           args:
             - --namespace={{ .Release.Namespace }}
             - --settings-config-map-name=kubernetes-dashboard-settings
