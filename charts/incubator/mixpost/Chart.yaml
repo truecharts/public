@@ -21,7 +21,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 14.0.12
+    version: 15.1.2
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mixpost
   - https://hub.docker.com/r/inovector/mixpost
 type: application
-version: 1.2.2
+version: 1.3.0
