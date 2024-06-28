@@ -4,6 +4,8 @@
 */}}
 
 {{- define "tc.v1.common.spawner.portal" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+
   {{- range $name, $portal := $.Values.portal -}}
       {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                       "rootCtx" $ "objectData" $portal
@@ -33,10 +35,9 @@
         {{- $objectName := (printf "tcportal-%s" $name) -}}
 
         {{- if eq $expandName "true" -}}
-          {{- $objectName = (printf "%s-%s" $fullname $name) -}}
+          {{- $objectName = (printf "%s-%s" $fullname $objectName) -}}
         {{- end -}}
 
-        
         {{- $configMap := dict "name" $objectName "shortName" $objectName "data" $portalData -}}
 
         {{/* Perform validations */}} {{/* Configmaps have a max name length of 253 */}}
