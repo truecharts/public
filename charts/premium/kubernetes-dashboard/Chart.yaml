@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 1.4.0
+appVersion: latest
 dependencies:
   - name: common
     version: 24.1.4
@@ -38,6 +38,7 @@ name: kubernetes-dashboard
 sources:
   - https://github.com/kubernetes-dashboard/kubernetes-dashboard
   - https://github.com/truecharts/charts/tree/master/charts/premium/kubernetes-dashboard
+  - https://github.com/truecharts/containers/tree/master/apps/kube-sa-proxy
   - https://hub.docker.com/r/kubernetesui/dashboard-api
   - https://hub.docker.com/r/kubernetesui/dashboard-auth
   - https://hub.docker.com/r/kubernetesui/dashboard-metrics-scraper
