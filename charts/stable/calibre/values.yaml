@@ -36,6 +36,19 @@ workload:
           env:
             CLI_ARGS:
             PASSWORD: ""
+          probes:
+            liveness:
+              enabled: true
+              port: 8080
+              type: "tcp"
+            readiness:
+              enabled: true
+              port: 8080
+              type: "tcp"
+            startup:
+              enabled: true
+              port: 8080
+              type: "tcp"
 persistence:
   config:
     enabled: true
