@@ -19,6 +19,13 @@ workload:
             NODE_NAME:
               fieldRef:
                 fieldPath: spec.nodeName
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 
 configmap:
@@ -35,7 +42,7 @@ persistence:
     objectName: disk-config
     defaultMode: "0777"
     mountPath: /config/disk-config
-    
+
   dev:
     enabled: true
     type: hostPath
