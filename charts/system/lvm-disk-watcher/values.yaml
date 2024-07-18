@@ -28,7 +28,6 @@ workload:
             startup:
               enabled: false
 
-
 configmap:
   disk-config:
     enabled: true
@@ -59,7 +58,15 @@ securityContext:
     capabilities:
       drop:
         - ALL
-      add: ["SYS_ADMIN", "MKNOD", "SYS_RAWIO", "SYS_PTRACE", "NET_ADMIN", "SYS_MODULE"]
+      add:
+        [
+          "SYS_ADMIN",
+          "MKNOD",
+          "SYS_RAWIO",
+          "SYS_PTRACE",
+          "NET_ADMIN",
+          "SYS_MODULE",
+        ]
   pod:
     fsGroup: 0
     fsGroupChangePolicy: OnRootMismatch

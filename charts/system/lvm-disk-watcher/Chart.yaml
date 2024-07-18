@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: latest
+appVersion: 3.18.4
 dependencies:
   - name: common
     version: 24.1.5
@@ -31,7 +31,7 @@ name: lvm-disk-watcher
 sources:
   - https://github.com/lvm-disk-watcher/lvm-disk-watcher
   - https://github.com/truecharts/charts/tree/master/charts/system/lvm-disk-watcher
-  - https://github.com/truecharts/containers/tree/master/apps/alpine
+  - https://github.com/truecharts/containers/tree/master/apps/lvm-disk-watcher
   - https://lvm-disk-watcher.universe.tf
 type: application
 version: 0.0.1
