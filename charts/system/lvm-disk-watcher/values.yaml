@@ -43,6 +43,21 @@ persistence:
     defaultMode: "0777"
     mountPath: /config/disk-config
 
+  disk-config:
+    enabled: true
+    type: configmap
+    objectName: disk-config
+    defaultMode: "0777"
+    items:
+      - key: disk-config
+        path: disk-config
+    targetSelector:
+      main:
+        main:
+          subPath: disk-config
+          mountPath: /config/disk-config
+          readOnly: true
+
   dev:
     enabled: true
     type: hostPath
