@@ -10,6 +10,7 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     allowPrivilegeEscalation: true
+    PUID: 0
 
 service:
   main:
