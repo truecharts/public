@@ -14,7 +14,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.1.2
+    version: 15.1.4
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/plant-it
   - https://hub.docker.com/r/msdeluise/plant-it-server
 type: application
-version: 1.2.2
+version: 1.2.3
