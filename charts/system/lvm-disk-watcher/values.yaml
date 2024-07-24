@@ -1,0 +1,84 @@
+image:
+  repository: tccr.io/tccr/lvm-disk-watcher
+  pullPolicy: IfNotPresent
+  tag: v3.20.2
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    type: DaemonSet
+    podSpec:
+      containers:
+        main:
+          env:
+            NODE_NAME:
+              fieldRef:
+                fieldPath: spec.nodeName
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+configmap:
+  disk-config:
+    enabled: true
+    data:
+      disk-config: |
+        k8s-control-1: all
+
+persistence:
+  disk-config:
+    enabled: true
+    type: configmap
+    objectName: disk-config
+    defaultMode: "0777"
+    items:
+      - key: disk-config
+        path: disk-config
+    targetSelector:
+      main:
+        main:
+          subPath: disk-config
+          mountPath: /config/disk-config
+          readOnly: true
+
+  dev:
+    enabled: true
+    type: hostPath
+    mountPath: /dev
+    hostPath: /dev
+
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+    allowPrivilegeEscalation: true
+    privileged: true
+    capabilities:
+      drop:
+        - ALL
+      add:
+        [
+          "SYS_ADMIN",
+          "MKNOD",
+          "SYS_RAWIO",
+          "SYS_PTRACE",
+          "NET_ADMIN",
+          "SYS_MODULE",
+        ]
+  pod:
+    fsGroup: 0
+    fsGroupChangePolicy: OnRootMismatch
+
+portal:
+  open:
+    enabled: false

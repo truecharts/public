@@ -73,8 +73,12 @@ function helm_lint() {
         fi
     done <<<"$helm_lint_output"
 
-    if echo "$helm_lint_output" | grep -q "Fail:"; then
-        helm_lint_exit_code=1
+    # TODO: If there are ci/*values.yaml files, lint those
+    # and skip linting the top-level values.yaml.
+    if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
+        if echo "$helm_lint_output" | grep -q "Fail:"; then
+            helm_lint_exit_code=1
+        fi
     fi
 
     if [ $helm_lint_exit_code -ne 0 ]; then

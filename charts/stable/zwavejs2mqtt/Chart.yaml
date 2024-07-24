@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.14.4
+appVersion: 9.16.2
 dependencies:
   - name: common
     version: 24.1.5
@@ -16,11 +16,12 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue
+description: Full featured Z-Wave Control Panel and MQTT Gateway, using NodeJS and Vue.
 home: https://truecharts.org/charts/stable/zwavejs2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zwavejs2mqtt.webp
 keywords:
   - zwavejs2mqtt
+  - zwave-js-ui
   - zwave-js
   - z-wave
   - zwave
@@ -32,7 +33,7 @@ maintainers:
 name: zwavejs2mqtt
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
-  - https://github.com/zwave-js/zwavejs2mqtt
+  - https://github.com/zwave-js/zwave-js-ui
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
 type: application
-version: 21.2.7
+version: 21.3.0
