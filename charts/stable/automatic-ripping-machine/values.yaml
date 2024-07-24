@@ -7,6 +7,8 @@ securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
     allowPrivilegeEscalation: true
 
 service:
@@ -30,7 +32,7 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: "/etc/arm/config"
+    mountPath: "/home/arm/"
   arm:
     enabled: true
     mountPath: "/home/arm"
