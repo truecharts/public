@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.1.4
+    version: 15.2.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://ghcr.io/mriedmann/humhub-phponly
   - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
 type: application
-version: 9.3.2
+version: 9.4.0
