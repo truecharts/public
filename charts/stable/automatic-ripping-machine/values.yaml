@@ -32,7 +32,7 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: "/home/arm/"
+    mountPath: "/etc/arm/config"
   arm:
     enabled: true
     mountPath: "/home/arm"
