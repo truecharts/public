@@ -19,9 +19,6 @@ workload:
     podSpec:
       containers:
         main:
-          args:
-            - flowise
-            - start
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # Set paths
