@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tar1090-1.0.0](https://github.com/truecharts/charts/compare/tar1090-0.0.40...tar1090-1.0.0) (2022-11-10)

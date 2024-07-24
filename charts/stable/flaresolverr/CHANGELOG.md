@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [flaresolverr-7.0.0](https://github.com/truecharts/charts/compare/flaresolverr-6.0.47...flaresolverr-7.0.0) (2022-11-10)

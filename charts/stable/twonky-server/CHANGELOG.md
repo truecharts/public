@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [twonky-server-1.0.0](https://github.com/truecharts/charts/compare/twonky-server-0.0.43...twonky-server-1.0.0) (2022-11-10)

@@ -1,15 +1,15 @@
 image:
   pullPolicy: IfNotPresent
   repository: codeproject/ai-server
-  tag: cpu-2.5.1@sha256:4ac7e0ace01abdb26e6d1876011a95f9f294352abd23936e4c6040f23582ed9f
+  tag: cpu-2.6.5@sha256:181c85af30bb464a1ad5db396ba0803ec82d9f912e54ff751f171f3342d27489
 gpu12Image:
   pullPolicy: IfNotPresent
   repository: codeproject/ai-server
-  tag: cuda12_2-2.5.1@sha256:c846c67adb140912ff344a7ba57b3498019d18dfeaf70a32ab68ff389db74efd
+  tag: cuda12_2@sha256:fd128680364bf9e314b5ed44da1eb0f93534c9284f7e742849f397d2286a0055
 gpu11Image:
   pullPolicy: IfNotPresent
   repository: codeproject/ai-server
-  tag: cuda11_7-2.5.1@sha256:b48a17af31d10b839baaa07495449bb185493e0d90d88520bd6d6339e6a168cf
+  tag: cuda11_7@sha256:49d862f7bf8e1220ad1d58c3c0ba43dea0a7a512d1965730438094abb3d402f8
 
 securityContext:
   container:

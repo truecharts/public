@@ -1,7 +1,7 @@
 image:
   repository: zwavejs/zwave-js-ui
   pullPolicy: IfNotPresent
-  tag: 9.9.1@sha256:c0c9f8a9eeefd29522398639deb3a2394467626521165b85d274adeb401fef33
+  tag: 9.16.2@sha256:34ba7a64231b21d7d1e0c1d75b6500082356effa925ddd319886f371638fbe4c
 service:
   main:
     ports:
@@ -19,15 +19,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/usr/src/app/store"
-# affinity:
-#   nodeAffinity:
-#     requiredDuringSchedulingIgnoredDuringExecution:
-#       nodeSelectorTerms:
-#       - matchExpressions:
-#         - key: app
-#           operator: In
-#           values:
-#           - zwave-controller
 
 portal:
   open:

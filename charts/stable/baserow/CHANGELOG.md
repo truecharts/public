@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [baserow-4.0.0](https://github.com/truecharts/charts/compare/baserow-3.0.56...baserow-4.0.0) (2022-11-10)

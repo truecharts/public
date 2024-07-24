@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: cloud
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.1.21
+appVersion: 1.1.27
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,20 +18,20 @@ dependencies:
 deprecated: false
 description: MeshCentral is a full computer management web site
 home: https://truecharts.org/charts/stable/meshcentral
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshcentral.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshcentral.webp
 keywords:
   - meshcentral
   - teamviewer
   - rdp
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: meshcentral
 sources:
+  - https://ghcr.io/ylianst/meshcentral
   - https://github.com/Ylianst/MeshCentral
   - https://github.com/truecharts/charts/tree/master/charts/stable/meshcentral
-  - https://ghcr.io/ylianst/meshcentral
 type: application
-version: 15.7.0
+version: 17.1.4

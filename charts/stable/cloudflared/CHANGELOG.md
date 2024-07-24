@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [cloudflared-2.0.0](https://github.com/truecharts/charts/compare/cloudflared-1.0.28...cloudflared-2.0.0) (2022-11-10)

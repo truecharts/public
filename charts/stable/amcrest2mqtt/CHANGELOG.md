@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [amcrest2mqtt-5.0.0](https://github.com/truecharts/charts/compare/amcrest2mqtt-4.0.42...amcrest2mqtt-5.0.0) (2022-11-10)

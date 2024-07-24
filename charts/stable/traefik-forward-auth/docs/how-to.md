@@ -1,14 +1,25 @@
 ---
 title: traefik-forward-auth
+description: A How To Guide for Traefik Forward Auth
 ---
+
+:::note
+
+We highly recommend to setup [authelia](/charts/premium/authelia/setup-guide) instead.
+
+:::
 
 This app makes it possible to have a layer of security in front of your publicly exposed apps.
 It supports Google, OIDC, and generic OAuth2.
 Please read the [GitHub README of the original project](https://github.com/thomseddon/traefik-forward-auth) for your
 authentication options.
 
-Note: generally, phone apps do not support redirection during their authentication flow, so this middleware is more suitable for
+:::note
+
+generally, phone apps do not support redirection during their authentication flow, so this middleware is more suitable for
 protecting portals that you would access through a browser.
+
+:::
 
 ## A standard setup (auth host mode)
 

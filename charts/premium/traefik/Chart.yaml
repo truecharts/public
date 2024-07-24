@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: network
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 2.11.0
+appVersion: 3.1.0
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,11 +18,11 @@ dependencies:
 deprecated: false
 description: Traefik is a flexible reverse proxy and Ingress Provider.
 home: https://truecharts.org/charts/premium/traefik
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.webp
 keywords:
   - traefik
   - ingress
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +31,8 @@ name: traefik
 sources:
   - https://github.com/traefik/traefik
   - https://github.com/traefik/traefik-helm-chart
-  - https://traefik.io/
   - https://github.com/truecharts/charts/tree/master/charts/premium/traefik
   - https://github.com/truecharts/containers/tree/master/apps/traefik
+  - https://traefik.io/
 type: application
-version: 26.9.1
+version: 29.2.0

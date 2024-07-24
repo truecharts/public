@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/fleet
   pullPolicy: IfNotPresent
-  tag: 2.3.3@sha256:5b82faa33a605b4509540c063da69c79722b1333e0d86b0fd5fa5f2dcefeb2bf
+  tag: 2.3.3@sha256:84ca0f48c27021cbb97b1a69b21dc97a7558135551621ad9a3ce0a74930d5054
 securityContext:
   container:
     runAsNonRoot: false
@@ -31,11 +31,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: jdbc-mariadb
-            fleet_database_password:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            fleet_database_password: "{{ .Values.mariadb.password }}"
 # secretEnv:
 
 service:
@@ -52,6 +48,7 @@ persistence:
     enabled: true
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: fleet
   mariadbDatabase: fleet
 portal:

@@ -13,7 +13,7 @@ The current stable version of Sonarr is v3. When configuring Sonarr v3, the defa
 
 For Sonarr v3, we strongly recommend using either "In-App Setting" or "None" for the authentication method.
 
-:::warning
+:::caution
 
 We strongly discourage the use of the "Basic" authentication method, as it may potentially impact system probes and security.
 

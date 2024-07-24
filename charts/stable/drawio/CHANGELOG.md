@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [drawio-3.0.0](https://github.com/truecharts/charts/compare/drawio-2.0.60...drawio-3.0.0) (2022-11-10)

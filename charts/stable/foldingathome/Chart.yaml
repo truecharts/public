@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.6.21
+appVersion: 8.3.18
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,17 +18,17 @@ dependencies:
 deprecated: false
 description: Folding@home is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases.
 home: https://truecharts.org/charts/stable/foldingathome
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/foldingathome.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/foldingathome.webp
 keywords:
   - foldingathome
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: foldingathome
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/foldingathome
   - https://ghcr.io/linuxserver/foldingathome
+  - https://github.com/truecharts/charts/tree/master/charts/stable/foldingathome
 type: application
-version: 9.7.0
+version: 12.0.3

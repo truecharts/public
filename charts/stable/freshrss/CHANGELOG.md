@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [freshrss-12.0.0](https://github.com/truecharts/charts/compare/freshrss-11.0.46...freshrss-12.0.0) (2022-11-10)

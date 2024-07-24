@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [unpackerr-7.0.0](https://github.com/truecharts/charts/compare/unpackerr-6.0.42...unpackerr-7.0.0) (2022-11-10)

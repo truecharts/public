@@ -10,7 +10,7 @@ Set the `Quant Type` to the correct option when using a particular model.
 
 Set the `Max Batch Size` to the maximum batch size a model can use.
 
-::: note
+:::tip
 
 If you are not using the batching endpoint, /generate, it is best practice to set `Disable Batching` to true. The batching service can interfere with the streaming service, and make it slower.
 

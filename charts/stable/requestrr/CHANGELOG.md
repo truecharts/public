@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [requestrr-3.0.0](https://github.com/truecharts/charts/compare/requestrr-2.0.40...requestrr-3.0.0) (2022-11-10)

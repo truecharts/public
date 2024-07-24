@@ -12,13 +12,13 @@ It is important that rules are created in the correct order in Authelia. Rules a
 
 :::note[DEFAULT POLICY]
 
-For theses rules to work as intended, your default access control policy must be set to `deny`.
+For these rules to work as intended, your default access control policy must be set to `deny`.
 
 :::
 
 All rules requiring Authelia authentication were configured with `two_factor` (2FA). If you do not want 2FA on some or all rules replace the Policy with `one_factor`.
 
-In this guide we assume you have a group `admin` and a group `user` in ldap.
+In this guide we assume you have a group `admin` and a group `user` in LDAP.
 Members of the `admin` group will have access to everything.
 Members of the `user` group will only have access to a select set of apps you choose.
 
@@ -54,7 +54,7 @@ These rules will protect the Vaultwarden admin page with Authelia but bypass whe
 
 ### Rule 1
 
-This rule will allow users of the `admin` group to access the vaulwarden admin page.
+This rule will allow users of the `admin` group to access the Vaultwarden admin page.
 
 Domain: `vaultwarden.domain.tld`
 
@@ -70,7 +70,7 @@ Resources: `^*/admin.*$`
 
 ### Rule 2
 
-This rule will prevent users not in the `admin` group to access the vaulwarden admin page.
+This rule will prevent users not in the `admin` group to access the Vaultwarden admin page.
 This is necessary even if the your default policy is set to `deny` because of the `bypass` rule below.
 
 Domain: `vaultwarden.domain.tld`

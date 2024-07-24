@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [komga-7.0.0](https://github.com/truecharts/charts/compare/komga-6.0.50...komga-7.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [audacity-5.0.0](https://github.com/truecharts/charts/compare/audacity-4.0.42...audacity-5.0.0) (2022-11-10)

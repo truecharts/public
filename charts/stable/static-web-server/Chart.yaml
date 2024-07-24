@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: web-server
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.28.0
+appVersion: 2.32.1
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,21 +18,21 @@ dependencies:
 deprecated: false
 description: A cross-platform, high-performance and asynchronous web server for static files-serving.
 home: https://truecharts.org/charts/stable/static-web-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/static-web-server.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/static-web-server.webp
 keywords:
   - web-server
   - apache
   - rust
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: static-web-server
 sources:
-  - https://static-web-server.net
+  - https://ghcr.io/static-web-server/static-web-server
   - https://github.com/static-web-server/static-web-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
-  - https://ghcr.io/static-web-server/static-web-server
+  - https://static-web-server.net
 type: application
-version: 4.8.0
+version: 6.2.3

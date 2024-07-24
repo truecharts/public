@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [chromium-1.0.0](https://github.com/truecharts/charts/compare/ungoogled-chromium-0.0.35...chromium-1.0.0) (2022-11-10)

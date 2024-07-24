@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [v-rising-1.0.0](https://github.com/truecharts/charts/compare/v-rising-0.0.35...v-rising-1.0.0) (2022-11-10)

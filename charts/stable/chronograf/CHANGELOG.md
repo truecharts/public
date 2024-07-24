@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [chronograf-1.0.0](https://github.com/truecharts/charts/compare/chronograf-0.0.38...chronograf-1.0.0) (2022-11-10)

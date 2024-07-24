@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [novnc-4.0.0](https://github.com/truecharts/charts/compare/cura-novnc-0.0.41...novnc-4.0.0) (2022-11-10)

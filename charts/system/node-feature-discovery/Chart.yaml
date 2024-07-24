@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 24.1.5
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: node-feature-discovery
+    version: 0.16.0
+    repository: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+    condition: ""
+    alias: node-feature-discovery
+    tags: []
+    import-values: []
+deprecated: false
+description: Automatically tag all your nodes with devices available
+home: https://truecharts.org/charts/system/node-feature-discovery
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-feature-discovery.webp
+keywords:
+  - node-feature-discovery
+  - loadbalancer
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: node-feature-discovery
+sources:
+  - https://github.com/node-feature-discovery/node-feature-discovery
+  - https://github.com/truecharts/charts/tree/master/charts/system/node-feature-discovery
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
+  - https://node-feature-discovery.universe.tf
+type: application
+version: 0.0.1

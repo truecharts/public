@@ -1,4 +1,6 @@
-# Connecting TrueNAS SCALE
+---
+title: Connecting TrueNAS SCALE
+---
 
 TrueNAS Scale
 Inside of TrueNAS you have to open the `Reporting` tab and then click the `Exporters` button to adjust the already present graphite exporter by hitting the edit icon.

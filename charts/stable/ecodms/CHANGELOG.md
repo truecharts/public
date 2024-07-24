@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ecodms-1.0.0](https://github.com/truecharts/charts/compare/ecodms-0.0.34...ecodms-1.0.0) (2022-11-10)

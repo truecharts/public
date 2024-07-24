@@ -44,17 +44,14 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             OBSERVIUM_db_name: observium
-            OBSERVIUM_db_pass:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            OBSERVIUM_db_pass: "{{ .Values.mariadb.password }}"
             OBSERVIUM_db_user: observium
             OBSERVIUM_cache__enable: true
             OBSERVIUM_cache__driver: "auto"
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: observium
   mariadbDatabase: observium
 

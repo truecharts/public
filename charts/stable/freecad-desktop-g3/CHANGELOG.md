@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [freecad-desktop-g3-1.0.0](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.35...freecad-desktop-g3-1.0.0) (2022-11-10)

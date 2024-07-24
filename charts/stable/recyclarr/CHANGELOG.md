@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [recyclarr-2.0.0](https://github.com/truecharts/charts/compare/recyclarr-1.0.14...recyclarr-2.0.0) (2022-11-10)

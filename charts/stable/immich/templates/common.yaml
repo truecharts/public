@@ -1,0 +1,44 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+
+{{- $main := .Values.workload.main.podSpec.containers.main -}}
+{{- $main = mustMergeOverwrite $main (include "immich.server" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "main" $main -}}
+
+{{/* Render Microservices Workload */}}
+{{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}
+
+{{- if .Values.immich.enable_ml -}}
+  {{/* Enable Machine Learning Service */}}
+  {{- $_ := set .Values.service.machinelearning "enabled" true -}}
+  {{/* Render Machine Learning Workload */}}
+  {{- $_ := set .Values.workload "machinelearning" (include "immich.machinelearning" . | fromYaml) -}}
+{{- else -}}
+  {{/* Disable Machine Learning Service */}}
+  {{- $_ := set .Values.service.machinelearning "enabled" false -}}
+{{- end -}}
+
+{{/* Render configuration for immich
+    after services, as it has references
+*/}}
+{{- $config := include "immich.config" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := mustMergeOverwrite .Values $config -}}
+{{- end -}}
+
+{{- range $idx, $persistence := .Values.persistenceList -}}
+  {{- $_ := set $persistence "targetSelector" (dict
+      "main" (dict "main" dict)
+      "microservices" (dict "microservices" dict)
+  ) -}}
+{{- end -}}
+
+{{- $envList := .Values.workload.main.podSpec.containers.main.envList -}}
+{{- if $envList -}}
+  {{- $_ := set .Values.workload.microservices.podSpec.containers.microservices "envList" $envList -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

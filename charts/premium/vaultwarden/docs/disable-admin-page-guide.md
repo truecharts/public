@@ -2,7 +2,7 @@
 title: Disabling the Admin Interface
 ---
 
-:::caution Backup Reminder
+:::caution[Backup Reminder]
 
 Before proceeding, ensure that you have backed up important configurations, especially when making changes to configuration files or secrets. It's also advisable to back up the Vaultwarden database to prevent potential data loss.
 
@@ -18,7 +18,7 @@ To start with the deactivation, you must first modify the secret on the host's s
 k3s kubectl patch secret vaultwarden-vaultwardensecret -n ix-vaultwarden --type='json' -p='[{"op": "remove", "path": "/data/ADMIN_TOKEN"}]'
 ```
 
-:::info Command Explanation
+:::tip[Command Explanation]
 
 The command above utilizes `kubectl`, a command-line tool for interacting with Kubernetes clusters. Here's a breakdown:
 
@@ -38,7 +38,7 @@ Next, while inside the Vaultwarden container, run the command below to modify th
 sed -i.bak '/admin_token/d' /data/config.json
 ```
 
-:::info Command Explanation
+:::tip[Command Explanation]
 
 - The `sed` command is used to search and delete the line containing `admin_token` from the `config.json` file.
 - A backup of the original `config.json` is created with the `.bak` extension before making the change.

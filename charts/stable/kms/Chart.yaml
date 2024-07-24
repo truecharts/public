@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: graywares
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: minimal
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,10 +18,10 @@ dependencies:
 deprecated: false
 description: Private Windows Activation Server for development and testing
 home: https://truecharts.org/charts/stable/kms
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kms.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kms.webp
 keywords:
   - kms
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kms
   - https://hub.docker.com/r/pykmsorg/py-kms
 type: application
-version: 18.7.0
+version: 20.1.3

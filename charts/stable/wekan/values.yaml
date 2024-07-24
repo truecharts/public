@@ -1,6 +1,6 @@
 image:
   repository: wekanteam/wekan
-  tag: v7.39@sha256:dd6c52748fe768a23db541b9892ba3a2f9660a554203cb1ff01bf25b79906d3a
+  tag: v7.51@sha256:a95628ffc2e6fb6ca59112a07e027a6044719d0661312a23dcc74bcd70386753
   pullPolicy: IfNotPresent
 service:
   main:
@@ -10,6 +10,7 @@ service:
         targetPort: 8080
 mongodb:
   enabled: true
+  includeCommon: true
   mongodbUsername: wekan
   mongodbDatabase: wekan
 persistence:
@@ -47,6 +48,7 @@ workload:
             # MAIL_SERVICE_USER: ""
             # MAIL_SERVICE_PASSWORD: ""
             # MAIL_SERVICE: ""
+            # MAIL_FROM: ""
             # BIGEVENTS_PATTERN: "NONE"
             # NOTIFICATION_TRAY_AFTER_READ_DAYS_BEFORE_REMOVE: 90
             # EMAIL_NOTIFICATION_TIMEOUT: 30000

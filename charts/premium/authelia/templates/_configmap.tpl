@@ -279,7 +279,16 @@ data:
             - {{ . }}
           {{- end }}
           {{- end }}
+          {{- with $client.token_endpoint_auth_method }}
+          token_endpoint_auth_method: {{ . }}
+          {{- end }}
           userinfo_signing_algorithm: {{ $client.userinfo_signing_algorithm | default "none" }}
+          {{- if $client.require_pkce }}
+          require_pkce: {{ $client.require_pkce }}
+          {{- end }}
+          {{- if $client.pkce_challange_method }}
+          pkce_challenge_method: {{ $client.pkce_challange_method | default "S256" }}
+          {{- end }}
     {{- end }}
     {{- end }}
     {{- end }}

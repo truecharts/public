@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [authentik-8.0.0](https://github.com/truecharts/charts/compare/authentik-7.2.8...authentik-8.0.0) (2022-11-10)

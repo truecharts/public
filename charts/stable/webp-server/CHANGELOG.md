@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [webp-server-1.0.0](https://github.com/truecharts/charts/compare/webp-server-0.0.43...webp-server-1.0.0) (2022-11-10)

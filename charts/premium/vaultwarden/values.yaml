@@ -1,9 +1,13 @@
 image:
   repository: docker.io/vaultwarden/server
   pullPolicy: IfNotPresent
-  tag: 1.30.5@sha256:edb8e2bab9cbca22e555638294db9b3657ffbb6e5d149a29d7ccdb243e3c71e0
-manifestManager:
-  enabled: true
+  tag: 1.31.0@sha256:4e28425bad4bd13568e1779f682ff7e441eca2ecd079bd77cfcba6e4eaf1b999
+
+betaImage:
+  repository: ghcr.io/timshel/vaultwarden
+  pullPolicy: IfNotPresent
+  tag: 1.30.5-9
+
 service:
   main:
     ports:

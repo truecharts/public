@@ -1,11 +1,11 @@
 image:
   repository: onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: "v1.2.3@sha256:a94b6bbbea73578896112dee36d9b71783b8b4696c4eedc2ae75eb129ca24339\r"
+  tag: "v1.4.1@sha256:0105a8e87df7420989f1aa23970e0dee5a0d1557d03ea79d15297c36b2601464\r"
 gpuImage:
   repository: onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: "v1.2.3-gpu@sha256:0e78dd19e44589ed84eaf928ff7e0754476fa8692fd6856d58dea903efb80354\r"
+  tag: "v1.4.1-gpu@sha256:7cb13a796fbca157e3508c14c3f78234aa3bcb9a08d86e7ceb2c912ca911a130\r"
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -20,14 +20,11 @@ workload:
           imageSelector: image
           probes:
             liveness:
-              type: http
-              path: "/docs"
+              type: tcp
             readiness:
-              type: http
-              path: "/docs"
+              type: tcp
             startup:
-              type: http
-              path: "/docs"
+              type: tcp
           env:
             ASR_MODEL: tiny
             ASR_ENGINE: faster_whisper
@@ -48,9 +45,6 @@ persistence:
   whisper:
     enabled: true
     mountPath: "/root/.cache/whisper"
-  faster-whisper:
-    enabled: true
-    mountPath: "/root/.cache/faster_whisper"
 portal:
   open:
     enabled: true

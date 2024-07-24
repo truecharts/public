@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mosquitto-7.0.0](https://github.com/truecharts/charts/compare/mosquitto-6.1.12...mosquitto-7.0.0) (2022-11-10)

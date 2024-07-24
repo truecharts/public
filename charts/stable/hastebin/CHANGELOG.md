@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [hastebin-1.0.0](https://github.com/truecharts/charts/compare/hastebin-0.0.34...hastebin-1.0.0) (2022-11-10)

@@ -89,10 +89,25 @@ rbac:
         verbs: ["*"]
 
 ogkubeapps:
+  ociCatalog:
+    enabled: false
   frontend:
     podLabels:
       truecharts.org/kahack: frontend
   apprepository:
     initialRepos:
       - name: truecharts
-        url: https://charts.truecharts.org
+        type: oci
+        url: oci://tccr.io/truecharts
+        ociRepositories:
+          - kubeapps
+          - metallb
+          - metallb-config
+          - openebs
+          - prometheus operator
+          - traefik
+          - traefik-crds
+          - volsync
+          - cert-manager
+          - cloudnative-pg
+          - snapshot-controller

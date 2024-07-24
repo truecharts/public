@@ -1,27 +1,28 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v28.0.3@sha256:4e4a3ae95ce8a7d9feffebdb21acc297d66cc4f210787687ec32da4a2f5c881e
+  tag: v29.0.4@sha256:35b88c02898e0b8317ab40065b5e4dd0cf1f1cc992f3e0cc9a34e745ecc1192c
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.25.4@sha256:060d468f78f016c7cfd49a548ed5d3456891cba1b54767b4ed48907981266f06
+  tag: 1.27.0@sha256:8c7710010fe4820b0b5562622fe4a24d2d7844172627fae039f4f7762bd18cb9
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:6be7b4432a536d6004b94edea7dd3573f0cc061328b729ed8043236a0784f98c
+  tag: v20230401@sha256:65f8db25595433d7f4bed8cc5e3a16f6103bcca31292594ec32951a68fc64f3b
 hpbImage:
   repository: tccr.io/tccr/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.9@sha256:1950fd07cc1292551b16c7080514c24d8c22ce7947e06cbb12fd968d13970373
+  tag: v0.6.12@sha256:42748e649edd8da435127423f431342c5cf173dbbfcdd5a39f63882a28fac2ab
 clamavImage:
   repository: clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.3.0@sha256:57555703249b4c57d760753bf3655871d3c51958bd5bd4a0dac6eb73c1c36516
+  tag: 1.3.1@sha256:15bc89f0bb125572d999e973bc5e481ca60eee7ffce9c72929a25b7d0792877b
 collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: 23.05.9.4.1@sha256:18768e665a817a06d17a608bcb0744dd0275e72d805644cad5ad1923f7d623b5
+  tag: 24.04.5.2.1@sha256:b2cdde5cabb3cfd59933daf3ce55990b258a4a1391d31d54833e436e7b7fc26f
+
 nextcloud:
   # Initial Credentials
   credentials:
@@ -167,6 +168,8 @@ workload:
           enabled: true
           primary: true
           imageSelector: nginxImage
+          resources:
+            excludeExtra: true
           probes:
             readiness:
               enabled: true
@@ -195,6 +198,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: hpbImage
+          resources:
+            excludeExtra: true
           envFrom:
             - configMapRef:
                 name: hpb-config
@@ -226,6 +231,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: imaginaryImage
+          resources:
+            excludeExtra: true
           command: imaginary
           args:
             - -p
@@ -260,6 +267,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: clamavImage
+          resources:
+            excludeExtra: true
           # FIXME: https://github.com/Cisco-Talos/clamav/issues/478
           securityContext:
             runAsUser: 0
@@ -293,6 +302,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
+          resources:
+            excludeExtra: true
           securityContext:
             runAsUser: 100
             runAsGroup: 102
@@ -505,6 +516,7 @@ cnpg:
     database: nextcloud
 redis:
   enabled: true
+  includeCommon: true
   username: default
 portal:
   open:

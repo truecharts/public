@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [daysofwar-1.0.0](https://github.com/truecharts/charts/compare/daysofwar-0.0.35...daysofwar-1.0.0) (2022-11-10)

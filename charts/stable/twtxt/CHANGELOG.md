@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [twtxt-4.0.0](https://github.com/truecharts/charts/compare/twtxt-3.0.40...twtxt-4.0.0) (2022-11-10)

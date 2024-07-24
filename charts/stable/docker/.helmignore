@@ -28,3 +28,5 @@ OWNERS
 /docs
 # icon
 icon.png
+icon.webp
+icon-small.webp

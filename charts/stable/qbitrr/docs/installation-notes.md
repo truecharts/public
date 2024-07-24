@@ -26,7 +26,7 @@ Once qBitrr has started access the `config.toml` file using the previously confi
 
 This section has basic qBitrr settings. You may modify any as you choose but the `CompletedDownloadFolder` option must be set to `"/completed_downloads"` as that is what the App Completed Download Storage is mapped to.
 
-:::warning Completed Download Folder
+:::caution[Completed Download Folder]
 
 If `CompletedDownloadFolder` option is not set to `"/completed_downloads"` qBitrr will not be able to find any downloads.
 

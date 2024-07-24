@@ -2,7 +2,7 @@
 title: Installation Notes
 ---
 
-:::danger Cloudflared Tunnels for Plex, Jellyfin, Emby and other video heavy/streaming apps/sites
+:::danger[Cloudflared Tunnels for Plex, Jellyfin, Emby and other video heavy/streaming apps/sites]
 
 Using Cloudflare Tunnels with video streaming or sharing sites goes against the Cloudflare ToS, see full terms on the [Cloudflare Website](https://www.cloudflare.com/service-specific-terms-application-services/#content-delivery-network-terms)
 
@@ -54,7 +54,7 @@ Then you need to do the same to set up the subdomain for each app you want to ex
 
 ![cloudflare-setup](./img/cloudflare-setup2.png)
 
-:::danger No TLS Verify
+:::danger[No TLS Verify]
 
 Please refrain from enabling the "No TLS Verify" option, as doing so will disable TLS verification, thereby allowing any certificate from the origin to be accepted. This option removes certificate security validation, rendering the certificates meaningless for security.
 

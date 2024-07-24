@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [damselfly-1.0.0](https://github.com/truecharts/charts/compare/damselfly-0.0.34...damselfly-1.0.0) (2022-11-10)

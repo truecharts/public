@@ -4,7 +4,7 @@ title: Automatic Split DNS with PiHole
 
 _Using Blocky in conjunction with PiHole enables seamless automated split DNS functionality._
 
-:::danger unrecommended configuration
+:::danger[unrecommended configuration]
 
 The below guide is not the recommended DNS solution for TrueCharts. We recommend running Blocky from the premium train in a standalone configuration. Setting up your DNS as outlined below adds complexity and will reduce reliability.
 
@@ -12,7 +12,7 @@ The below guide is not the recommended DNS solution for TrueCharts. We recommend
 
 ## Install Blocky
 
-:::note Blocky
+:::note[Blocky]
 
 Blocky includes k8s Gateway which automates the split DNS process. We will be using Blocky in between PiHole and your upstream DNS servers of choice to resolve your domain.
 

@@ -1,23 +1,22 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.7.0
+    version: 15.1.4
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,12 +25,12 @@ dependencies:
 deprecated: false
 description: TS-N Ranksystem is a TeamSpeak 3 bot that allows you to assign ranks to users based on their activity on the server.
 home: https://truecharts.org/charts/stable/tsn-ranksystem
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsn-ranksystem.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsn-ranksystem.webp
 keywords:
   - teamspeak
   - tsn-ranksystem
   - ranksystem
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,9 +38,9 @@ maintainers:
 name: tsn-ranksystem
 sources:
   - https://github.com/JohannesBauer97/tsn-ranksystem-webserver
-  - https://ts-ranksystem.com/
   - https://github.com/Newcomer1989/TSN-Ranksystem
   - https://github.com/truecharts/charts/tree/master/charts/stable/tsn-ranksystem
   - https://hub.docker.com/r/serverlein/tsn-ranksystem-webserver
+  - https://ts-ranksystem.com/
 type: application
-version: 1.1.0
+version: 3.2.3

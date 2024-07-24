@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [logitech-media-server-5.0.0](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.56...logitech-media-server-5.0.0) (2022-11-10)

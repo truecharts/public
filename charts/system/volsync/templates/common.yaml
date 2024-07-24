@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- if or .Values.credentials .Values.credentialsList }}
+{{- fail "Don't try to add credenatials to VolSync, add them to the individual charts using VolSync" }}
+{{- end }}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

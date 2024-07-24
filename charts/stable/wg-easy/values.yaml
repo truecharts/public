@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/wg-easy/wg-easy
   pullPolicy: IfNotPresent
-  tag: 12@sha256:daa94b77901bdef3cb10151416c095e64cf66a6539fa8f748c09812b60b97f49
+  tag: 13@sha256:4c2c591498aa910ce86a90fa00c4714ffd78dd7556b1f488f226471b97346bc6
 securityContext:
   container:
     PUID: 0
@@ -48,6 +48,8 @@ workload:
             WG_DEFAULT_DNS: "1.1.1.1"
             WG_ALLOWED_IPS: "0.0.0.0/0, ::/0"
             PASSWORD: "secretpass"
+            LANG: "en"
+            UI_TRAFFIC_STATS: "false"
 persistence:
   config:
     enabled: true

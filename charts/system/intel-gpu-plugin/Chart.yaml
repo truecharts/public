@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: 0.30.0
+dependencies:
+  - name: common
+    version: 24.1.5
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The Intel GPU plugin facilitates offloading the processing of computation intensive workloads to GPU hardware.
+home: https://truecharts.org/charts/system/intel-gpu-plugin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/intel-gpu-plugin.webp
+keywords:
+  - intel-gpu-plugin
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: intel-gpu-plugin
+sources:
+  - https://github.com/intel
+  - https://github.com/truecharts/charts/tree/master/charts/system/intel-gpu-plugin
+  - https://hub.docker.com/r/intel/intel-gpu-plugin
+type: application
+version: 0.0.1

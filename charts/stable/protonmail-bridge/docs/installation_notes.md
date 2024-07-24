@@ -6,11 +6,11 @@ title: Installation Notes
 - Shell into the app after installing it to complete the login phase.
 - Run the following commands in order:
 
-```terminal
+```shell
 chmod +x entrypoint.sh && ps aux | grep [b]ridge | awk '{print $2}' | xargs -I {} kill -9 {} && ./entrypoint.sh init
 ```
 
-```terminal
+```shell
 login
 ```
 

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [etesync-1.0.0](https://github.com/truecharts/charts/compare/etesync-0.0.50...etesync-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [xen-orchestra-1.0.0](https://github.com/truecharts/charts/compare/xen-orchestra-0.0.12...xen-orchestra-1.0.0) (2022-11-10)

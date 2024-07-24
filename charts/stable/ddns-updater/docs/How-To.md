@@ -59,7 +59,7 @@ The `ip_version` should always be `ipv4` unless your special :/.
 }
 ```
 
-:::info
+:::tip
 
 You can also reach us using Discord for real-time feedback and support
 If you found a bug in our chart, open a Github issue but generally it's advised to contact us on Discord first in most cases.

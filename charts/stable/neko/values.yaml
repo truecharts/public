@@ -1,93 +1,119 @@
-braveImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: brave@sha256:8cac5a454553def46ddd8c0a543cee0e2b0bac660f68aa4f4ccd7fdd766f911f
-chromeImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: google-chrome@sha256:cee40a80e7497f5e623bac4533c3176d71f0cfaba9ce3a8abd9788d612c24cee
-chromiumImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: chromium@sha256:04b858cf6463702f40414ed08f594c258f8949d49e3b306f8a449554534ef5b2
-edgeImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: microsoft-edge@sha256:c3ea00780d68b95ef252b3e7c318597506c1027a37dde8a491cb93fa37e329dd
 image:
   pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: firefox@sha256:ea726f9ab9bf91573dbdc5d90a2256f0462b19e4bae1bc9f6e1eff162e9ba837
-imageSelector: image
-portal:
-  open:
-    enabled: true
+  repository: ghcr.io/m1k1o/neko/firefox
+  tag: 2.8.12@sha256:a6ccd7171db313a0ff6e7a71f577b874572f67c2bd67c4a1e6f2f1172dc6580e
+braveImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/brave
+  tag: 2.8.12@sha256:f0c9955cab5827d399a926d7228f6032ffd611f04f76c4ef8948311e2acc73ed
+chromeImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/google-chrome
+  tag: 2.8.12@sha256:5b9c75b770a7abc62030149b64d0b3d966c0ec45c29c936737412586ed61d28a
+chromiumImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/chromium
+  tag: 2.8.12@sha256:8d9d431acb4a6f7630754b74fd823d61af0d02013955ba571e22e1d3afd0f3d9
+edgeImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/microsoft-edge
+  tag: 2.8.12@sha256:c93e3cd058be34fe949a45f95b8a6c6fc25e5179714a132cbeda093bf3759338
 remminaImage:
   pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: remmina@sha256:a0f64199d58b419d303cb2b5f5e2beefe001c6fc464ee6101fa3352ad081da63
+  repository: ghcr.io/m1k1o/neko/remmina
+  tag: 2.8.12@sha256:9a60e2a280fb98fe1091ca6982b7d5780e1029a3a4cc754d20620eb3cbcb0515
+torImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/tor-browser
+  tag: 2.8.12@sha256:16e985ddaf272e2dae6b6cf5fbcc9764436133866a65dbbd79afc81eb850d0e5
+vivaldiImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/vivaldi
+  tag: 2.8.12@sha256:158d1e1771216f41400d693b6ccb049d2491a0cde5b71f3b5bb8d2c6d0ca2cfb
+vlcImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/vlc
+  tag: 2.8.12@sha256:bd5448e7df25259fcfd55150672aafd66ef5352c63f4d99b531f60e845079c9b
+xfceImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/m1k1o/neko/xfce
+  tag: 2.8.12@sha256:9e22037ffa469cbc04f3b0438473fc314b9d3b3460af329154f735554dece20c
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsUser: 0
+
 service:
   main:
     ports:
       main:
         port: 10294
         protocol: http
-        targetPort: 8080
-  mux-tcp:
+  mux:
     enabled: true
     ports:
-      mux-tcp:
+      tcp:
         enabled: true
         port: 52100
         protocol: tcp
-        targetPort: 52100
-  mux-udp:
-    enabled: true
-    ports:
-      mux-udp:
+      udp:
         enabled: true
-        port: 52100
+        port: "{{ .Values.service.mux.ports.tcp.port }}"
         protocol: udp
-        targetPort: 52100
-torImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: tor-browser@sha256:9fa31f76a5868565739d0b28ee30d819a64405ebf693cbdcc0786c7293d5073c
-vivaldiImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: vivaldi@sha256:18c876f786720b5afd7017b857627d7db3608cb0bcd9a7245b349f519a42393e
-vlcImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: vlc@sha256:13a389639d55e34dfa088eab781cac176a45147a811349ea6e1183683445e039
-vncviewerImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: vncviewer@sha256:d6e961e5b15fc58639ac6b4eeb791c5b48c859e69d65d25c20ff92bf7c95b458
+
+neko:
+  ip: "0.0.0.0"
+  auth:
+    user_pass: ""
+    admin_pass: ""
+  proxy: false
+  screen: "1920x1080@30"
+  control_protection: false
+  implicit_control: false
+  locks:
+    []
+    # - control
+    # - login
+    # - file_transfer
+  cors:
+    - "*"
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          imageSelector: image
           env:
-            NEKO_CONTROL_PROTECTION: "false"
-            NEKO_IMPLICIT_CONTROL: "false"
-            NEKO_IPFETCH: ""
-            NEKO_LOCKS: ""
-            NEKO_NAT1TO1: ""
-            NEKO_PASSWORD: userpass
-            NEKO_PASSWORD_ADMIN: adminpass
-            NEKO_PROXY: "true"
-            NEKO_SCREEN: 1920x1080@30
-            NEKO_tcpMUX: "52100"
-            NEKO_udpMUX: "52100"
-xfceImage:
-  pullPolicy: IfNotPresent
-  repository: m1k1o/neko
-  tag: xfce@sha256:907215e52a42c5c0bbb93b7cb546805a1aa6bd35a50f35d5a34b91751087b536
+            NEKO_BIND: '{{ printf ":%v" .Values.service.main.ports.main.port }}'
+            NEKO_PATH_PREFIX: "/"
+            NEKO_NAT1TO1: "{{ .Values.neko.ip }}"
+            # NEKO_EPR
+            NEKO_TCPMUX: "{{ .Values.service.mux.ports.tcp.port }}"
+            NEKO_UDPMUX: "{{ .Values.service.mux.ports.tcp.port }}"
+            NEKO_FILE_TRANSFER_ENABLED: true
+            NEKO_FILE_TRANSFER_PATH: "{{.Values.persistence.downloads.mountPath }}"
+            NEKO_CONTROL_PROTECTION: "{{ .Values.neko.control_protection }}"
+            NEKO_IMPLICIT_CONTROL: "{{ .Values.neko.implicit_control }}"
+            NEKO_LOCKS: '{{ join " " .Values.neko.locks }}'
+            NEKO_PASSWORD: "{{ .Values.neko.auth.user_pass }}"
+            NEKO_PASSWORD_ADMIN: "{{ .Values.neko.auth.admin_pass }}"
+            NEKO_PROXY: "{{ .Values.neko.proxy }}"
+            NEKO_SCREEN: "{{ .Values.neko.screen }}"
+            NEKO_CORS: '{{ join " " .Values.neko.cors }}'
+            # NEKO_NAT1TO1: ""
+            # NEKO_IPFETCH: ""
+            # NEKO_ICELITE: false
+            # NEKO_ICESERVER: ""
+            # NEKO_ICESERVERS
+
+persistence:
+  downloads:
+    enabled: true
+    mountPath: /home/neko/Downloads
+
+portal:
+  open:
+    enabled: true

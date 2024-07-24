@@ -1,6 +1,6 @@
 image:
   repository: spx01/blocky
-  tag: v0.23@sha256:24855b63986c790093554a1f62b58379a06bc10a90ee073906e7c39bf692adcc
+  tag: v0.24@sha256:faa286a50d74a256513493ec26a9cf73793067369c0a2fd4fbb533ade4da3229
   pullPolicy: IfNotPresent
 k8sgatewayImage:
   repository: quay.io/oriedge/k8s_gateway
@@ -101,22 +101,21 @@ minTlsServeVersion: 1.2
 # -- set the default DNS upstream servers
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 defaultUpstreams:
+  # Cloudflare
   - 1.1.1.1
   - 1.0.0.1
+  # Google
   - 8.8.8.8
   - 8.8.4.4
+  # Quad9
   - 9.9.9.9
   - 149.112.112.112
+  # OpenDNS
   - 208.67.222.222
   - 208.67.220.220
+  # ComodoSecure DNS
   - 8.26.56.26
   - 8.20.247.20
-  - 185.228.168.9
-  - 185.228.169.9
-  - 76.76.19.19
-  - 76.223.122.150
-  - 76.76.2.0
-  - 76.76.10.0
 # -- set additional upstreams
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 upstreams:
@@ -160,11 +159,11 @@ clientLookup:
   #   ips: []
 # -- Setup caching
 caching:
-  minTime: 5m
-  maxTime: 30m
+  minTime: 15m
+  maxTime: 0
   maxItemsCount: 0
-  prefetching: false
-  prefetchExpires: 2h
+  prefetching: true
+  prefetchExpires: 12h
   prefetchThreshold: 5
   prefetchMaxItemsCount: 0
   cacheTimeNegative: 30m
@@ -191,30 +190,36 @@ blocking:
   # -- Sets the block download attempt count
   downloadAttempts: 3
   # -- Sets the block download cooldown
-  downloadCooldown: 2s
+  downloadCooldown: 5s
   # -- Set the start strategy (blocking | failOnError | fast)
-  startStrategy: blocking
+  startStrategy: fast
   # -- Sets how many list-groups can be processed at the same time
-  processingConcurrency: 4
+  processingConcurrency: 8
   # --  Add blocky whitelists
-  whitelist: []
-  #  - name: ads
-  #    lists:
-  #      - https://someurl.com/list.txt
-  #      - /somefile.txt
+  # `default` name is reservered for TrueCharts included default whitelist
+  # example shows the structure, though name should be changed when used
+  whitelist:
+    []
+    # - name: default
+    #  lists:
+    #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
+    #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+    #   - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
 
   # -- Blocky blacklists
-  blacklist: []
-  # - name: ads
-  #   lists:
-  #     - https://someurl.com/list.txt
-  #     - /somefile.txt
+  # `default` name is reservered for TrueCharts included default blacklist
+  # example shows the structure, though name should be changed when used
+  blacklist:
+    []
+    # - name: default
+    #  lists:
+    #   - https://big.oisd.nl/domainswild
 
   # -- Blocky clientGroupsBlock
-  clientGroupsBlock: []
-  # - name: default
-  #   groups:
-  #     - ads
+  clientGroupsBlock:
+    - name: default
+      groups:
+        - default
 # -- configure using hostsfile for lookups
 # Allows for using the hosts configured in kubernetes and such
 hostsFile:
@@ -222,13 +227,7 @@ hostsFile:
   filePath: /etc/hosts
   hostsTTL: 60m
   refreshPeriod: 30m
-## TODO: add this with postgresql support as well
-# queryLog:
-#   type: csv
-#   target: /logs
-#   logRetentionDays: 0
-#   creationAttempts: 3
-#   CreationCooldown: 2
+
 podOptions:
   automountServiceAccountToken: true
 portal:
@@ -359,6 +358,7 @@ metrics:
 
 redis:
   enabled: true
+  includeCommon: true
 # CANNOT be defined in above yaml section
 queryLog:
   # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console

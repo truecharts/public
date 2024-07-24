@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [deemix-4.0.0](https://github.com/truecharts/charts/compare/deemix-3.0.43...deemix-4.0.0) (2022-11-10)

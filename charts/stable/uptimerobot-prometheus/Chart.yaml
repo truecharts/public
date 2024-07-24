@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: metrics
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.0.1
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,13 +18,13 @@ dependencies:
 deprecated: false
 description: Prometheus Exporter for the official uptimerobot CLI
 home: https://truecharts.org/charts/stable/uptimerobot-prometheus
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.webp
 keywords:
   - uptimerobot
   - prometheus
   - grafana
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/uptimerobot-prometheus
   - https://hub.docker.com/r/billimek/prometheus-uptimerobot-exporter
 type: application
-version: 11.7.0
+version: 13.1.3

@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: teamspeak
-  tag: 3.13.7@sha256:b5bdec55bc87b992c5658e739f3ce465644efa6d997633110b12be3dc3a10796
+  tag: 3.13.7@sha256:26c2cf352bfc77f0b2340ee5546986d0c8206648d7c97743785165c6facc74a8
 persistence:
   data:
     enabled: true
@@ -16,33 +16,26 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
 service:
-  files:
-    enabled: true
-    ports:
-      files:
-        enabled: true
-        port: 30033
-        targetPort: 30033
   main:
     ports:
       main:
+        primary: true
+        enabled: true
         port: 10011
         targetPort: 10011
-  query:
-    enabled: true
-    ports:
       query:
         enabled: true
         port: 10022
         targetPort: 10022
-  voice:
-    enabled: true
-    ports:
       voice:
         enabled: true
         port: 9987
         protocol: udp
         targetPort: 9987
+      files:
+        enabled: true
+        port: 30033
+        targetPort: 30033
 workload:
   main:
     podSpec:

@@ -1,9 +1,8 @@
 image:
   repository: tccr.io/tccr/traefik
-  tag: v2.11.0@sha256:64a9b5e4047fdccbb47805c15e01af80f4003e39a2f589cb92049629dc4ac82e
+  tag: v3.1.0@sha256:fb90f608b907df15b7641787904b3a382bb71c2467d32009b02837ef393e4410
   pullPolicy: IfNotPresent
-manifestManager:
-  enabled: true
+
 workload:
   main:
     replicas: 2
@@ -312,6 +311,7 @@ rbac:
           - tlsoptions
           - tlsstores
           - serverstransports
+          - serverstransporttcps
         verbs:
           - get
           - list
@@ -500,3 +500,8 @@ portal:
   open:
     enabled: true
     path: /dashboard/
+ingress:
+  main:
+    integrations:
+      homepage:
+        href: https://{{  ( index .Values.ingress.main.hosts 0 ).host  }}/dashboard/

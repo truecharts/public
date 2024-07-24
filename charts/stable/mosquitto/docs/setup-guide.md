@@ -23,7 +23,7 @@ mosquitto_passwd -c passwordfile username
 echo "password_file /mosquitto/configinc/passwordfile" > passwordconfig.conf
 ```
 
-:::info These commands explained
+:::tip[These commands explained]
 
 - Navigate to `/mosquitto/configinc`, the persistent storage location inside the container where the password files go
 - Create a password file. This is interactive. Change `username` to your username. It will ask you to input the password twice
@@ -31,7 +31,7 @@ echo "password_file /mosquitto/configinc/passwordfile" > passwordconfig.conf
 
 :::
 
-:::caution Restart chart
+:::caution[Restart chart]
 
 Restart the chart so Mosquitto loads the new configuration file.
 

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [keeweb-1.0.0](https://github.com/truecharts/charts/compare/keeweb-0.0.35...keeweb-1.0.0) (2022-11-10)

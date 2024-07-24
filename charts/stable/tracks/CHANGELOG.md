@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tracks-1.0.0](https://github.com/truecharts/charts/compare/tracks-0.0.43...tracks-1.0.0) (2022-11-10)

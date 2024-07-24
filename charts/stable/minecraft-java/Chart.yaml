@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: games
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2023.11.1
+appVersion: 2024.5.0
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,11 +18,11 @@ dependencies:
 deprecated: false
 description: Minecraft Java Dedicated Server
 home: https://truecharts.org/charts/stable/minecraft-java
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.webp
 keywords:
   - minecraft-java
   - minecraft
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +31,7 @@ name: minecraft-java
 sources:
   - https://github.com/itzg/docker-minecraft-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-java
-  - https://hub.docker.com/r/itzg/minecraft-server
   - https://hub.docker.com/r/itzg/mc-backup
+  - https://hub.docker.com/r/itzg/minecraft-server
 type: application
-version: 8.7.0
+version: 10.1.6

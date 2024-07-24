@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [guacd-3.0.0](https://github.com/truecharts/charts/compare/guacd-2.0.44...guacd-3.0.0) (2022-11-10)

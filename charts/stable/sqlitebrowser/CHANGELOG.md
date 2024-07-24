@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [sqlitebrowser-4.0.0](https://github.com/truecharts/charts/compare/sqlitebrowser-3.0.40...sqlitebrowser-4.0.0) (2022-11-10)

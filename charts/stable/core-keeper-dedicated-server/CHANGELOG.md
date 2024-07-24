@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [core-keeper-dedicated-server-1.0.0](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.37...core-keeper-dedicated-server-1.0.0) (2022-11-10)

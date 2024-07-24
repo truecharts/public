@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tailscale-2.0.0](https://github.com/truecharts/charts/compare/tailscale-1.1.22...tailscale-2.0.0) (2022-11-10)

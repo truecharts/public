@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
   pullPolicy: IfNotPresent
-  tag: 2.6.2@sha256:9483e2fff0b50c1b5f90c6e6d085fc3551f9dd7d039c29efb3ace712ba9ee42e
+  tag: 2.11.1@sha256:840534349ee4e7bc2f0b9caa90fbdf6d1e9c00463a95b35a863edca0ed5f3049
 service:
   main:
     ports:
@@ -22,6 +22,7 @@ persistence:
     enabled: false
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: default
 cnpg:
   main:

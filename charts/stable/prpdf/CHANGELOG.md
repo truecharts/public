@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [prpdf-1.0.0](https://github.com/truecharts/charts/compare/prpdf-0.0.34...prpdf-1.0.0) (2022-11-10)

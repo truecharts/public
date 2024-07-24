@@ -1,0 +1,51 @@
+image:
+  repository: intel/intel-gpu-plugin
+  pullPolicy: IfNotPresent
+  tag: 0.30.0@sha256:e96c9955e5aced52f215f7eff77f679c4c400a16a42b1f2c0e8ed9ba76cae3c4
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    podSpec:
+      type: DaemonSet
+      containers:
+        main:
+          args:
+            - -shared-dev-num
+            - "5"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+portal:
+  open:
+    enabled: false
+
+persistence:
+  devfs:
+    enabled: true
+    type: device
+    mountPath: /dev/dri
+    hostPath: /dev/dri
+    readOnly: true
+  sysfs:
+    enabled: true
+    type: device
+    mountPath: /sys/class/drm
+    hostPath: /sys/class/drm
+    readOnly: true
+  kubeletsockets:
+    enabled: true
+    type: hostPath
+    mountPath: /var/lib/kubelet/device-plugins
+    hostPath: /var/lib/kubelet/device-plugins

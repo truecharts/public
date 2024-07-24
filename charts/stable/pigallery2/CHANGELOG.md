@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pigallery2-1.0.0](https://github.com/truecharts/charts/compare/pigallery2-0.0.34...pigallery2-1.0.0) (2022-11-10)

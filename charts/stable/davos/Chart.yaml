@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.2.2
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,21 +18,21 @@ dependencies:
 deprecated: false
 description: An FTP automation tool that periodically scans given host locations for new files.
 home: https://truecharts.org/charts/stable/davos
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/davos.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/davos.webp
 keywords:
   - davos
   - ftp
   - automation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: davos
 sources:
-  - https://github.com/linuxserver/docker-davos
-  - https://github.com/linuxserver/davos/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/davos
   - https://ghcr.io/linuxserver/davos
+  - https://github.com/linuxserver/davos/
+  - https://github.com/linuxserver/docker-davos
+  - https://github.com/truecharts/charts/tree/master/charts/stable/davos
 type: application
-version: 12.7.0
+version: 14.1.6

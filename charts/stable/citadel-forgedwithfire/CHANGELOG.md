@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [citadel-forgedwithfire-1.0.0](https://github.com/truecharts/charts/compare/citadel-forgedwithfire-0.0.35...citadel-forgedwithfire-1.0.0) (2022-11-10)

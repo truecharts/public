@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pinry-3.0.0](https://github.com/truecharts/charts/compare/pinry-2.0.41...pinry-3.0.0) (2022-11-10)

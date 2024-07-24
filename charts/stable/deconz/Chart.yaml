@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.26.1
+appVersion: 2.27.5
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,22 +18,22 @@ dependencies:
 deprecated: false
 description: deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
 home: https://truecharts.org/charts/stable/deconz
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.webp
 keywords:
   - deconz
   - home-automation
   - zigbee
   - conbee
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: deconz
 sources:
-  - https://github.com/marthoc/docker-deconz
   - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
   - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
   - https://hub.docker.com/r/deconzcommunity/deconz
 type: application
-version: 15.7.0
+version: 17.1.5

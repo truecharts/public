@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: splunk/splunk
-  tag: 9.2.0@sha256:5923c523f8eeb6b7b083b58e24ca946b1647a8868b2f02a636c4161287368cec
+  tag: 9.2.2@sha256:7109dc42565ad45b207483a6124802e2dff4c07a7c2a187cce6f0e9692fb8ff4
 
 securityContext:
   container:
@@ -62,7 +62,7 @@ persistence:
   config:
     enabled: true
     mountPath: /opt/splunk/var
-  datap:
+  data:
     enabled: true
     mountPath: /splunkdata
 

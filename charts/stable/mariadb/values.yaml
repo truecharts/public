@@ -1,7 +1,7 @@
 image:
   repository: bitnami/mariadb
   pullPolicy: IfNotPresent
-  tag: 11.2.3@sha256:0792f88e171df9d330333724c7511763b305110a8efe7ac2749bd0731a4a98c9
+  tag: 11.4.2@sha256:5aaf1d79f93f6096846936cb1fd969c80ace15f569fb63d3e686a7d6c10fc280
 
 includeCommon: true
 workload:
@@ -10,18 +10,11 @@ workload:
       containers:
         main:
           env:
-            MARIADB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
-                key: "mariadb-password"
-            MARIADB_ROOT_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
-                key: "mariadb-root-password"
+            MARIADB_PASSWORD: "{{ .Values.password }}"
+            MARIADB_ROOT_PASSWORD: "{{ .Values.rootPassword }}"
             MARIADB_USER: "{{ .Values.mariadbUsername }}"
             MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
+            MARIADB_EXTRA_FLAGS: "--init-file=/init/passinit.sql"
           probes:
             liveness:
               enabled: true
@@ -54,25 +47,37 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-secret:
-  credentials:
-    enabled: true
-    data:
-      mariadb-password: '{{ ( .Values.mariadbPassword | default "empty" ) }}'
-      mariadb-root-password: '{{ ( .Values.mariadbRootPassword | default "empty" ) }}'
 persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mariadb"
+  passinit:
+    enabled: true
+    type: configmap
+    objectName: passinit
+    items:
+      - key: passinit.sql
+        path: passinit.sql
+    targetSelector:
+      main:
+        main:
+          subPath: passinit.sql
+          mountPath: /init/passinit.sql
+
+configmap:
+  passinit:
+    enabled: true
+    data:
+      passinit.sql: |
+        ALTER USER root@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD("{{ .Values.rootPassword }}");
+        ALTER USER {{ .Values.mariadbUsername }}@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD("{{ .Values.password }}");
+        FLUSH PRIVILEGES;
+
 mariadbUsername: "test"
 mariadbDatabase: "test"
-mariadbRootPassword: "testroot"
-# -- Secret or password
-# One of these options is required, unless used as a dependency for another TrueCharts chart.
-mariadbPassword: ""
-existingSecret: ""
+## DEVNOTE: These password defaults always need to match common
+rootPassword: "PLACEHOLDERROOTPASSWORD"
+password: "PLACEHOLDERPASSWORD"
 portal:
   open:
     enabled: false
-manifestManager:
-  enabled: false

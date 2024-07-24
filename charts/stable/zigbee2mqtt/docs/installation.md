@@ -12,19 +12,19 @@ Enter `MQTT User`, `MQTT Password` if necessary, as this will override the speci
 
 For `MQTT Server` Internal DNS Cluster IP can be used (default) of `mqtt://mosquitto.ix-mosquitto.svc.cluster.local` or you can use the external IP.
 
-![config1](images/config1.png)
-![config1](images/config1.png)
-![config2](images/config2.png)
-![config3](images/config3.png)
-![config4](images/config4.png)
-![config5](images/config5.png)
+![config1](./images/config1.png)
+![config1](./images/config1.png)
+![config2](./images/config2.png)
+![config3](./images/config3.png)
+![config4](./images/config4.png)
+![config5](./images/config5.png)
 
 ### Mount USB Devices
 
 Make sure `Enable the Storage is Checked` and enter your USB device by ID as per below, in this example we use `/dev/serial/by-id/usb-ithead_SONOFF`
 
-![config6](images/config6.png)
+![config6](./images/config6.png)
 
 This guide should prevent one of the following error messages:
-![error message 1](images/error_log1.png)
-![error message 2](images/error_log2.png)
+![error message 1](./images/error_log1.png)
+![error message 2](./images/error_log2.png)

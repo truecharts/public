@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [omada-controller-7.0.0](https://github.com/truecharts/charts/compare/omada-controller-6.3.4...omada-controller-7.0.0) (2022-11-10)

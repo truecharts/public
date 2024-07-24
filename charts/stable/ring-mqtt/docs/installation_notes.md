@@ -6,7 +6,7 @@ title: Installation Notes
 
 ## MQTT setup
 
-- I used the chart called `mosquitto` install it as normal and set `Authentication` to **true**. here's the [auth guide](https://truecharts.org/charts/stable/mosquitto/setup-guide).
+- I used the chart called `mosquitto` install it as normal and set `Authentication` to **true**. here's the [auth guide](/charts/stable/mosquitto/setup-guide).
 
 ## Ring-MQTT setup
 

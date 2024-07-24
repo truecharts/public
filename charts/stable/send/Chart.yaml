@@ -1,23 +1,22 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.0.5
+    version: 15.1.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -26,19 +25,19 @@ dependencies:
 deprecated: false
 description: A fork of Mozilla's Firefox Send.Mozilla discontinued Send, this fork is a community effort to keep the project up-to-date and alive.
 home: https://truecharts.org/charts/stable/send
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/send.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/send.webp
 keywords:
   - send
   - Cloud
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: send
 sources:
-  - https://gitlab.com/timvisee/send
   - https://github.com/truecharts/charts/tree/master/charts/stable/send
+  - https://gitlab.com/timvisee/send
 type: application
-version: 5.7.0
+version: 7.2.2

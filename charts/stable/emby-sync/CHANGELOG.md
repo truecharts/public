@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [emby-sync-1.0.0](https://github.com/truecharts/charts/compare/emby-sync-0.0.34...emby-sync-1.0.0) (2022-11-10)

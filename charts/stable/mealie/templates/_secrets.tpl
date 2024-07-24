@@ -93,5 +93,32 @@ api:
     {{- with $api.ldap.mail_attribute }}
     LDAP_MAIL_ATTRIBUTE: {{ . | quote }}
     {{- end -}}
+    {{- with $api.oidc.auth_enabled }}
+    OIDC_AUTH_ENABLED: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.signup_enabled }}
+    OIDC_SIGNUP_ENABLED: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.configuration_url }}
+    OIDC_CONFIGURATION_URL: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.client_id }}
+    OIDC_CLIENT_ID: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.user_group }}
+    OIDC_USER_GROUP: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.admin_group }}
+    OIDC_ADMIN_GROUP: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.auto_redirect }}
+    OIDC_AUTO_REDIRECT: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.provider_name }}
+    OIDC_PROVIDER_NAME: {{ . | quote }}
+    {{- end -}}
+    {{- with $api.oidc.remember_me }}
+    OIDC_REMEMBER_ME: {{ . | quote }}
+    {{- end -}}
   {{- end -}}
 {{- end -}}

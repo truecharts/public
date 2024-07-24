@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [joplin-server-9.0.0](https://github.com/truecharts/charts/compare/joplin-server-8.1.9...joplin-server-9.0.0) (2022-11-10)

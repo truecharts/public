@@ -1,7 +1,20 @@
 image:
-  repository: ghcr.io/onedr0p/tautulli
+  repository: ghcr.io/tautulli/tautulli
   pullPolicy: IfNotPresent
-  tag: 2.13.4@sha256:b3000c0063cc4c0c6f2436fb7174f4bcfd8d91eca05206731edccb8b643ea570
+  tag: v2.14.3@sha256:36d6a81d7d06c5aba752ce025d956a47f6008d6529f39b05ed2cf51cf22fe26b
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - python
+            - Tautulli.py
+          args:
+            - --config
+            - /config/config.ini
+            - --datadir
+            - /config
 service:
   main:
     ports:

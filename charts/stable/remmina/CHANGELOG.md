@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [remmina-4.0.0](https://github.com/truecharts/charts/compare/remmina-3.0.40...remmina-4.0.0) (2022-11-10)

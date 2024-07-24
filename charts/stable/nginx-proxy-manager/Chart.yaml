@@ -1,23 +1,22 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: networking
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.11.1
+appVersion: 2.11.3
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.7.0
+    version: 15.1.4
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -26,21 +25,21 @@ dependencies:
 deprecated: false
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.webp
 keywords:
   - nginx-proxy-manager
   - nginx
   - reverse-proxy
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nginx-proxy-manager
 sources:
-  - https://nginxproxymanager.com/
   - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
+  - https://nginxproxymanager.com/
 type: application
-version: 9.12.0
+version: 11.2.3

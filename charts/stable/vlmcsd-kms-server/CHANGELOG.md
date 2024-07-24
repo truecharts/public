@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [vlmcsd-kms-server-1.0.0](https://github.com/truecharts/charts/compare/vlmcsd-kms-server-0.0.35...vlmcsd-kms-server-1.0.0) (2022-11-10)

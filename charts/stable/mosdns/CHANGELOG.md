@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mosdns-3.0.0](https://github.com/truecharts/charts/compare/mosdns-2.0.46...mosdns-3.0.0) (2022-11-10)

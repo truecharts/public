@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/projectsend
   pullPolicy: IfNotPresent
-  tag: latest@sha256:58d47608a751811b67077293e5dcc34c5bb4000b4c8eb676033866dcb8bc1b6d
+  tag: latest@sha256:4c13a6cfc1f4ed0164e9823e51df54affd0ab1adca4b4576d2b1a593e8ade607
 securityContext:
   container:
     runAsNonRoot: false
@@ -41,6 +41,7 @@ persistence:
     enabled: true
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: projectsend
   mariadbDatabase: projectsend
 portal:

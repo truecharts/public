@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [chevereto-4.0.0](https://github.com/truecharts/charts/compare/chevereto-3.0.48...chevereto-4.0.0) (2022-11-10)

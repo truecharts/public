@@ -4,7 +4,7 @@ title: Installation Notes
 
 ## TrueNAS SCALE
 
-:::note Written for
+:::note[Written for]
 
 - Platform: TrueNAS SCALE Cobia 23.10.1
 - App Version: 2023.12.23
@@ -12,13 +12,13 @@ title: Installation Notes
 
 :::
 
-:::warning Caution
+:::caution
 
 When using a PVC the backup data will be stored on the dataset that holds the app data. If minio is used to store backup data to safe guard your application data it is recommended to configure it on a different zpool, this can be done with a hostpath.
 
 :::
 
-:::note Preparation
+:::note[Preparation]
 
 1. Create a dataset for the data mount of minio referred to as <minio_data>
 2. Set the proper owner and permissions required for the hostpath, 600 is the minimal permission level required

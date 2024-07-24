@@ -4,7 +4,7 @@ title: Installation Notes
 
 Installation notes and warnings for A.R.M
 
-:::warning
+:::caution
 
 This app uses advanced privileges aka "GOD MODE" on the host
 

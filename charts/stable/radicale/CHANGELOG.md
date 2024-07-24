@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [radicale-1.0.0](https://github.com/truecharts/charts/compare/radicale-0.0.42...radicale-1.0.0) (2022-11-10)

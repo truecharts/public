@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [photoshow-4.0.0](https://github.com/truecharts/charts/compare/photoshow-3.0.40...photoshow-4.0.0) (2022-11-10)

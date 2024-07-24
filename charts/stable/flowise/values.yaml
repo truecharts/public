@@ -1,7 +1,7 @@
 image:
   repository: flowiseai/flowise
   pullPolicy: IfNotPresent
-  tag: 1.6.1@sha256:bfa111651d3a4779796d5ff6461d929c552b1e7ece6cc15462dfc934f0a58bbb
+  tag: 2.0.1@sha256:b4366de0af379df947765e205c768511bad40a0f873e997073510e875b3c9631
 securityContext:
   container:
     runAsNonRoot: false
@@ -19,9 +19,6 @@ workload:
     podSpec:
       containers:
         main:
-          args:
-            - flowise
-            - start
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # Set paths

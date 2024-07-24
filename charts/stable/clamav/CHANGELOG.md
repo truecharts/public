@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [clamav-4.0.0](https://github.com/truecharts/charts/compare/clamav-3.0.50...clamav-4.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [booksonic-air-7.0.0](https://github.com/truecharts/charts/compare/booksonic-air-6.0.56...booksonic-air-7.0.0) (2022-11-10)

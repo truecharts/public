@@ -40,7 +40,7 @@ function check_version() {
 }
 export -f check_version
 
-function check_chart_schema(){
+function check_chart_schema() {
     chart_path=${1:?"No chart path provided to [Chart.yaml lint]"}
 
     yamale_output=$(yamale --schema .github/chart_schema.yaml "$chart_path/Chart.yaml")
@@ -49,7 +49,7 @@ function check_chart_schema(){
         if [[ -n $line ]]; then
             echo -e "\t$line"
         fi
-    done <<< "$yamale_output"
+    done <<<"$yamale_output"
 
     if [ $yamale_exit_code -ne 0 ]; then
         echo -e "\t❌ Chart Schema: Failed"
@@ -61,17 +61,25 @@ function check_chart_schema(){
 }
 export -f check_chart_schema
 
-function helm_lint(){
+function helm_lint() {
     chart_path=${1:?"No chart path provided to [Helm lint]"}
 
     # Print only errors and warnings
-    helm_lint_output=$(helm lint --quiet "$chart_path")
+    helm_lint_output=$(helm lint --strict --quiet "$chart_path" 2>&1)
     helm_lint_exit_code=$?
     while IFS= read -r line; do
         if [[ -n $line ]]; then
             echo -e "\t$line"
         fi
-    done <<< "$helm_lint_output"
+    done <<<"$helm_lint_output"
+
+    # TODO: If there are ci/*values.yaml files, lint those
+    # and skip linting the top-level values.yaml.
+    if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
+        if echo "$helm_lint_output" | grep -q "Fail:"; then
+            helm_lint_exit_code=1
+        fi
+    fi
 
     if [ $helm_lint_exit_code -ne 0 ]; then
         echo -e "\t❌ Helm Lint: Failed"
@@ -83,7 +91,7 @@ function helm_lint(){
 }
 export -f helm_lint
 
-function helm_template(){
+function helm_template() {
     chart_path=${1:?"No chart path provided to [Helm template]"}
     values=${2:-}
 
@@ -98,7 +106,7 @@ function helm_template(){
         if [[ -n $line ]]; then
             echo -e "\t$line"
         fi
-    done <<< "$helm_template_output"
+    done <<<"$helm_template_output"
 
     if [ $helm_template_exit_code -ne 0 ]; then
         echo -e "\t❌ Helm template: Failed"
@@ -110,7 +118,7 @@ function helm_template(){
 }
 export -f helm_template
 
-function yaml_lint(){
+function yaml_lint() {
     file_path=${1:?"No file path provided to [YAML lint]"}
 
     yaml_lint_output=$(yamllint --config-file .github/yaml-lint-conf.yaml "$file_path")
@@ -119,7 +127,7 @@ function yaml_lint(){
         if [[ -n $line ]]; then
             echo -e "\t$line"
         fi
-    done <<< "$yaml_lint_output"
+    done <<<"$yaml_lint_output"
 
     if [ $yaml_lint_exit_code -ne 0 ]; then
         echo -e "\t❌ YAML Lint: Failed [$file_path]"
@@ -131,7 +139,7 @@ function yaml_lint(){
 }
 export -f yaml_lint
 
-function lint_chart(){
+function lint_chart() {
     chart_path=${1:?"No chart path provided to [Lint Chart]"}
     target_branch=${2:?"No target branch provided to [Lint Chart]"}
     status_file=${3:?"No status file provided to [Lint Chart]"}
@@ -190,10 +198,10 @@ function lint_chart(){
         fi
         echo '---------------------------------------------------------------------------------------'
         echo ''
-    } > "$curr_result_file"
+    } >"$curr_result_file"
     cat "$curr_result_file"
     # $curr_result starts with 0, and it gets set to 1 only when a linting step fails
-    echo $curr_result >> "$status_file"
+    echo $curr_result >>"$status_file"
 }
 export -f lint_chart
 

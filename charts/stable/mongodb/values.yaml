@@ -1,7 +1,7 @@
 image:
   repository: bitnami/mongodb
   pullPolicy: IfNotPresent
-  tag: 7.0.6@sha256:046f45d6fe3889b05907571be5c68af76f2bea8bdee63879ebe0f4bf478e6bee
+  tag: 7.0.12@sha256:263690fbff229e655f3586dbe59964d44f1b6d4e1aa2040ebdaaa91066428a96
 
 includeCommon: true
 workload:
@@ -13,16 +13,8 @@ workload:
           env:
             MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
             MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
-            MONGODB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
-                key: "mongodb-password"
-            MONGODB_ROOT_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
-                key: "mongodb-root-password"
+            MONGODB_PASSWORD: "{{ .Values.password }}"
+            MONGODB_ROOT_PASSWORD: "{{ .Values.rootPassword }}"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
           # @default -- See below
@@ -90,19 +82,17 @@ persistence:
     mountPath: "/bitnami/mongodb"
 mongodbUsername: "test"
 mongodbDatabase: "test"
-mongodbRootPassword: "testroot"
+rootPassword: "PLACEHOLDERROOTPASSWORD"
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
-mongodbPassword: ""
+password: "PLACEHOLDERPASSWORD"
 existingSecret: ""
 secret:
   credentials:
     enabled: true
     data:
-      mongodb-password: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
-      mongodb-root-password: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
+      mongodb-password: '{{ ( .Values.password | default "empty" ) }}'
+      mongodb-root-password: '{{ ( .Values.rootPassword | default "empty" ) }}'
 portal:
   open:
     enabled: false
-manifestManager:
-  enabled: false

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tvheadend-13.0.0](https://github.com/truecharts/charts/compare/tvheadend-12.0.50...tvheadend-13.0.0) (2022-11-10)

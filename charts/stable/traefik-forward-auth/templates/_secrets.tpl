@@ -17,4 +17,5 @@ data:
   PROVIDERS_GENERIC_OAUTH_CLIENT_SECRET: {{ .Values.tfaOauthOptions.clientSecret | trimAll "\"" }}
   PROVIDERS_GENERIC_OAUTH_TOKEN_STYLE: {{ .Values.tfaOauthOptions.tokenStyle | trimAll "\"" }}
   PROVIDERS_GENERIC_OAUTH_RESOURCE: {{ .Values.tfaOauthOptions.resource | trimAll "\"" }}
+  PROVIDERS_GENERIC_OAUTH_SCOPE: {{ .Values.tfaOauthOptions.scopes | trimAll "\"" }}
 {{- end }}

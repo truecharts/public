@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: voice
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 3.13.7
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,21 +18,21 @@ dependencies:
 deprecated: false
 description: TeamSpeak is software for quality voice communication via the Internet.
 home: https://truecharts.org/charts/stable/teamspeak3
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/teamspeak3.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/teamspeak3.webp
 keywords:
   - voice server
   - teamspeak
   - teamspeak3
   - teamspeak server
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: teamspeak3
 sources:
-  - https://www.teamspeak.com/en/
   - https://github.com/truecharts/charts/tree/master/charts/stable/teamspeak3
   - https://hub.docker.com/_/teamspeak
+  - https://www.teamspeak.com/en/
 type: application
-version: 10.7.0
+version: 12.1.5

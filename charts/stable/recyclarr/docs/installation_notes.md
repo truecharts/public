@@ -2,7 +2,7 @@
 title: Installation Notes
 ---
 
-:::info
+:::tip
 
 To edit recyclarr's files in the /config dir, I highly recommend using the codeserver Addon-on. It offers a web based file editor. Its meant to be temporarily so you can add/remove it any time.
 

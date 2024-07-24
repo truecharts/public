@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [firefox-3.0.0](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.40...firefox-3.0.0) (2022-11-10)

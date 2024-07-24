@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/zurdi15/romm
+  repository: ghcr.io/rommapp/romm
   pullPolicy: IfNotPresent
-  tag: 3.0.1@sha256:2096c28711d49246885af2b325321c65f13fc2f82de60e31bddf8897c81c5c66
+  tag: 3.3@sha256:3c7af9e157c442f7e61d3d84a34e781ea784c9304eff960e30b8a3374569be94
 
 securityContext:
   container:
@@ -51,21 +51,13 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASSWD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASSWD: "{{ .Values.mariadb.password }}"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             REDIS_PORT: 6379
             ROMM_AUTH_SECRET_KEY:
               secretKeyRef:
@@ -83,17 +75,22 @@ persistence:
   resources:
     enabled: true
     mountPath: /romm/resources
-  logs:
+  config:
     enabled: true
-    mountPath: /romm/logs
+    mountPath: /romm/config
+  assets:
+    enabled: true
+    mountPath: /romm/assets
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: romm
   mariadbDatabase: romm
 
 redis:
   enabled: true
+  includeCommon: true
 
 portal:
   open:

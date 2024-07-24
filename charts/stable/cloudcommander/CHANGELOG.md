@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [cloudcommander-0.0.40](https://github.com/truecharts/charts/compare/cloudcommander-0.0.37...cloudcommander-0.0.40) (2022-11-08)

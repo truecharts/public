@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [gridcoinwalletgui-1.0.0](https://github.com/truecharts/charts/compare/gridcoinwalletgui-0.0.35...gridcoinwalletgui-1.0.0) (2022-11-10)

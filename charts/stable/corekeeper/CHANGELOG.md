@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [corekeeper-1.0.0](https://github.com/truecharts/charts/compare/corekeeper-0.0.35...corekeeper-1.0.0) (2022-11-10)

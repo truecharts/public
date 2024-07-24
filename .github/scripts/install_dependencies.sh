@@ -10,6 +10,27 @@ fi
 
 echo "Chart name: $curr_chart"
 
+
+if [[ "$curr_chart" != "charts/system/prometheus-operator" ]]; then
+    echo "Installing prometheus-operator chart"
+    helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+    if [[ "$?" != "0" ]]; then
+        echo "Failed to install prometheus-operator chart"
+        exit 1
+    fi
+    echo "Done installing prometheus-operator chart"
+fi
+
+if [[ "$curr_chart" == "charts/premium/volsync" ]]; then
+   echo "Installing volumesnapshots chart"
+   helm install volumesnapshots oci://tccr.io/truecharts/volumesnapshots --namespace volumesnapshots --create-namespace --wait
+   if [[ "$?" != "0" ]]; then
+       echo "Failed to install volumesnapshots chart"
+       exit 1
+   fi
+   echo "Done installing volumesnapshots chart"
+fi
+
 if [[ "$curr_chart" == "charts/premium/metallb-config" ]]; then
     echo "Installing metallb chart"
     helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
@@ -31,15 +52,6 @@ if [[ "$curr_chart" == "charts/premium/clusterissuer" ]]; then
     echo "Done installing cert-manager chart"
 fi
 
-if [[ "$curr_chart" != "charts/system/prometheus-operator" ]]; then
-    echo "Installing prometheus-operator chart"
-    helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-    if [[ "$?" != "0" ]]; then
-        echo "Failed to install prometheus-operator chart"
-        exit 1
-    fi
-    echo "Done installing prometheus-operator chart"
-fi
 
 if [[ "$curr_chart" != "charts/system/cloudnative-pg" ]]; then
     echo "Installing cloudnative-pg chart"
@@ -60,4 +72,24 @@ if [[ "$curr_chart" != "charts/premium/traefik" ]]; then
        exit 1
    fi
    echo "Done installing traefik chart"
+fi
+
+if [[ "$curr_chart" == "charts/system/intel-device-plugins-operator" ]]; then
+   echo "Installing cert-manager chart"
+   helm install traefik oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
+   if [[ "$?" != "0" ]]; then
+       echo "Failed to install cert-manager chart"
+       exit 1
+   fi
+   echo "Done installing cert-manager chart"
+fi
+
+if [[ "$curr_chart" == "charts/premium/kubernetes-dashboard" ]]; then
+   echo "Installing metrics-server chart"
+   helm install traefik oci://tccr.io/truecharts/metrics-server --namespace cert-manager --create-namespace --wait
+   if [[ "$?" != "0" ]]; then
+       echo "Failed to install metrics-server chart"
+       exit 1
+   fi
+   echo "Done installing metrics-server chart"
 fi

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [urban-terror-1.0.0](https://github.com/truecharts/charts/compare/urban-terror-0.0.35...urban-terror-1.0.0) (2022-11-10)

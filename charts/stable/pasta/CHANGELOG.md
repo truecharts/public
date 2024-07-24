@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pasta-2.0.0](https://github.com/truecharts/charts/compare/pasta-1.0.12...pasta-2.0.0) (2022-11-10)

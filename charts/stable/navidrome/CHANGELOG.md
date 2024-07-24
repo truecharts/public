@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [navidrome-12.0.0](https://github.com/truecharts/charts/compare/navidrome-11.0.43...navidrome-12.0.0) (2022-11-10)

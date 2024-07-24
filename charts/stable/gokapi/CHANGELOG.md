@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [gokapi-1.0.0](https://github.com/truecharts/charts/compare/gokapi-0.0.40...gokapi-1.0.0) (2022-11-10)

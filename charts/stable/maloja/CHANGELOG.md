@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [maloja-1.0.0](https://github.com/truecharts/charts/compare/maloja-0.0.35...maloja-1.0.0) (2022-11-10)

@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.51.1
+appVersion: 0.52.5
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,12 +18,12 @@ dependencies:
 deprecated: false
 description: Navidrome is an open source web-based music collection server and streamer
 home: https://truecharts.org/charts/stable/navidrome
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/navidrome.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/navidrome.webp
 keywords:
   - navidrome
   - music
   - streaming
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/navidrome
   - https://hub.docker.com/r/deluan/navidrome
 type: application
-version: 19.7.0
+version: 21.1.3

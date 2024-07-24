@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [phpmyadmin-1.0.0](https://github.com/truecharts/charts/compare/phpmyadmin-0.0.34...phpmyadmin-1.0.0) (2022-11-10)

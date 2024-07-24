@@ -43,7 +43,7 @@ Support for Talos-OS with either Rancher or FluxCD are in early alpha.
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
 | v2.7.9 or prior | `master` | :white_check_mark:     | :x:                       | :x:                   |       |
 
-:::warning Support Guidelines
+:::caution[Support Guidelines]
 
 Our [Discord](https://discord.gg/tVsPTHWTtr) support (the ticketing system inside #support) is primarily limited to what is covered by our written guides. This includes installing, linking and editing apps. This doesn't mean the actual setup of the application. All #support tickets covered by the staff are done so in a **best effort** policy.
 

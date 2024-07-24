@@ -7,7 +7,7 @@ title: Installation Notes
 
 Add your discord bot if you haven't done so and run initial commands to get started with discordGSM.
 
-:::info
+:::tip
 
 Checkout discordGSM supported list of game servers [here](https://discordgsm.com/guide/supported-games).
 

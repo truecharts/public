@@ -33,7 +33,7 @@
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
-{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
+{{- $redisPass := .Values.redis.password | trimAll "\"" -}}
 {{- $healthHost := "kube.internal.healthcheck" -}}
 
 php-tune:
@@ -114,8 +114,14 @@ nextcloud-config:
     {{/* Database */}}
     POSTGRES_DB: {{ .Values.cnpg.main.database | quote }}
     POSTGRES_USER: {{ .Values.cnpg.main.user | quote }}
-    POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
+    POSTGRES_PASSWORD: {{ .Values.cnpg.main.password | trimAll "\"" }}
     POSTGRES_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
+
+    {{/* Compatibility Layer to support database changes */}}
+    NX_POSTGRES_NAME: {{ .Values.cnpg.main.database | quote }}
+    NX_POSTGRES_USER: {{ .Values.cnpg.main.user | quote }}
+    NX_POSTGRES_PASSWORD: {{ .Values.cnpg.main.password | trimAll "\"" }}
+    NX_POSTGRES_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
 
     {{/* Redis */}}
     NX_REDIS_HOST: {{ $redisHost }}

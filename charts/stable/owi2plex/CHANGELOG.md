@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [owi2plex-1.0.0](https://github.com/truecharts/charts/compare/owi2plex-0.0.34...owi2plex-1.0.0) (2022-11-10)

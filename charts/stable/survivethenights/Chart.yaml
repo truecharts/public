@@ -1,16 +1,15 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: stn
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -19,19 +18,19 @@ dependencies:
 deprecated: false
 description: This Chart will download and install SteamCMD. It will also install Survive The Nights and run it.
 home: https://truecharts.org/charts/stable/survivethenights
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/survivethenights.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/survivethenights.webp
 keywords:
   - survivethenights
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: survivethenights
 sources:
-  - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/stable/survivethenights
   - https://hub.docker.com/r/ich777/steamcmd
+  - https://www.steampowered.com/
 type: application
-version: 5.7.0
+version: 7.1.3
