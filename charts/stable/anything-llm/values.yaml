@@ -28,7 +28,8 @@ workload:
             STORAGE_DIR: "{{.Values.persistence.storage.mountPath }}"
             # forces users to use ingress if https is needed.
             # keep false.
-            ENABLE_HTTPS: false
+            #remove it as they only check for existence not value
+            #ENABLE_HTTPS: true
             JWT_SECRET:
               secretKeyRef:
                 name: anythinglmm-secrets
