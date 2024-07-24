@@ -470,27 +470,27 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.68.1@sha256:188203f2fe1e40105e12f647a368fc1d1415580650561f3c467328f819f74633
+  tag: v1.70.0@sha256:3b0c31456ccd9aa313b4a220604a27d439e4c202e23d74a697bb0d1f2c095f77
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.90.3@sha256:59eb7f5c954e0c2b9717e5a5a8c13da0af0ddd37376c512d66db18720ab52264
+  tag: v4.91.1@sha256:7e3db7ce7e535492cd8be575dc5c1268d853d77e0166bd85de3defba22e478a5
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.20.0@sha256:783d7b4da265da6ee627fe54ee895a2cfe2a2ecd7bb7b53a0c7a703a924a8e82
+  tag: v3.20.2@sha256:f5e47b2c9fc46acc6a3137b2fbafbb70c3547f00985d6068a374460911dbb626
   pullPolicy: IfNotPresent
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:fa8db430d07a3b98f84cce7c7d56bb4ea6cdd64fb178d64227177caae47c343b
+  tag: latest@sha256:54bd0048109d001deeed9f2c880d01fa8c98deab6e43d07a2b3ef550e086fcc7
   pullPolicy: IfNotPresent
 
 kubectlImage:
   repository: tccr.io/tccr/kubectl
-  tag: latest@sha256:a7759b1207e88abb65f0b4b2c2f8eec48db8c176097fc405a64511eea91d9b5c
+  tag: latest@sha256:7ff1fcaabaabaa3c6a202457569e3ec35a2a4470d81f4e56210a1a7efd858435
   pullPolicy: IfNotPresent
 
 wgetImage:
