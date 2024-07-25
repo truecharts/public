@@ -5,15 +5,15 @@ image:
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-ffmpeg-core@sha256:c63afdd8ede2b29b8a8fa15dc3b5370d33c28deab45d3334ff07064fe0682662
+  tag: v2.19.2-ffmpeg-core@sha256:cedf339779f3dec9f58d6033bc76c4ddd2581adcb942eec8e3e20ad85fff70b2
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-cublas-cuda12-core@sha256:89d0680ec8690fe53cbe4f1608fd514277a425e6dd5e69978d9ac9ee8d9f9d1e
+  tag: v2.19.2-cublas-cuda12-core@sha256:368ab8bdf7a48f9d6b77720a823aa57ee7c971d64425ab98fc902c859b567a91
 cublasCuda12FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-cublas-cuda12-ffmpeg-core@sha256:fefb32ece781e700a43771c4b0108a3af0d5a7c0d5c1849c17d7f265e9408b3f
+  tag: v2.19.2-cublas-cuda12-ffmpeg-core@sha256:ffcef33926bb24f31aefe70bba84932968c509bd11a97ca21c1d178a793b8539
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -21,19 +21,19 @@ cublasCuda11Image:
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-cublas-cuda11-ffmpeg-core@sha256:3b868811ca8ee589eb4ea86bcabf0e991794a57a2aa1aa25ab6c023e4ba1811d
+  tag: v2.19.2-cublas-cuda11-ffmpeg-core@sha256:9a571aa7aab8c182aa9a8f8583dbed78a29f4ff81ebc90ab7eff57a330c5b467
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-aio-gpu-nvidia-cuda-12@sha256:07fc7e18e871b711f42688a6c98fdf588f5a8711a754b44c1afbda663cc2b35d
+  tag: v2.19.2-aio-gpu-nvidia-cuda-12@sha256:22734d5b39f10fa5463c67b69d36e75d81acf39b71cd06a5f29342ddc66f8c13
 allInOneCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-aio-gpu-nvidia-cuda-11@sha256:78c99ca29bf1cccd3586b54ae8fe863a44f46e3e5b27e8e2e0d9b18e20e990dc
+  tag: v2.19.2-aio-gpu-nvidia-cuda-11@sha256:f27dcc1040654028b8314eed6c548b84b8d1e55bc2a2ff17923a15cc8e15b237
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.19.1-aio-cpu@sha256:f28abab3ab6a04a7e569cb824eb1e012312eeeab8cfaad4a69ef1ffe8910199c
+  tag: v2.19.2-aio-cpu@sha256:e272ca3b42eaa902d1a4fd521df5a01b1bbb62dd072a66ad6a5eab01e32c0b8c
 securityContext:
   container:
     runAsNonRoot: false
