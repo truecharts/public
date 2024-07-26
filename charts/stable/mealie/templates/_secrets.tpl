@@ -94,6 +94,9 @@ api:
     LDAP_MAIL_ATTRIBUTE: {{ . | quote }}
     {{- end -}}
     {{- with $api.oidc.auth_enabled }}
+  {{- end }}
+    {{/* OIDC */}}
+  {{- if $api.oidc.auth_enabled }}
     OIDC_AUTH_ENABLED: {{ . | quote }}
     {{- end -}}
     {{- with $api.oidc.signup_enabled }}
