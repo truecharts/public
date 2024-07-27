@@ -93,7 +93,7 @@ api:
     {{- with $api.ldap.mail_attribute }}
     LDAP_MAIL_ATTRIBUTE: {{ . | quote }}
     {{- end -}}
-  {{- end -}}    
+  {{- end -}}
   {{- if $api.oidc.auth_enabled }}
     {{- with $api.oidc.auth_enabled }}
     OIDC_AUTH_ENABLED: {{ . | quote }}
