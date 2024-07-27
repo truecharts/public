@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.2.0
+    version: 15.2.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -46,4 +46,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
   - https://hub.docker.com/r/anonaddy/anonaddy
 type: application
-version: 22.4.0
+version: 22.4.1

@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.2.0
+    version: 15.2.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
   - https://hub.docker.com/r/photoprism/photoprism
 type: application
-version: 23.4.1
+version: 23.4.2

@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.2.0
+    version: 15.2.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://hub.docker.com/r/bitnami/wordpress
   - https://www.wordpress.org
 type: application
-version: 9.4.2
+version: 9.4.3
