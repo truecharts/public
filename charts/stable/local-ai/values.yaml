@@ -1,11 +1,11 @@
 image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0@sha256:7d72b652356c0be861af94ec674eab43f76db3861f77a00af37630e78f0d789d
+  tag: v2.20.1@sha256:d92d163a89e6e2b546befe72e71d73c13a2a2222451364922675618d805cf2f6
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0-ffmpeg-core@sha256:ec9b57d480c88dd6ccbd26a44cfce65048c7a83eb35356905cc7a8bb7c78d9ac
+  tag: v2.20.1-ffmpeg-core@sha256:08492d52715d11d78c7cd88732b894e846dfb0586fed3715b20bd3555b9ad190
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -17,7 +17,7 @@ cublasCuda12FfmpegImage:
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0-cublas-cuda11-core@sha256:8088002e8363bde4fa6b409d7559209cfa8175a9e2b098d9a03ff849a2a077f5
+  tag: v2.20.1-cublas-cuda11-core@sha256:15c70733982565a5247287407c0d69ebc52efbb9bb60abb99407f19c0b6cfd0e
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -25,15 +25,15 @@ cublasCuda11FfmpegImage:
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0-aio-gpu-nvidia-cuda-12@sha256:b75219dd4d04f670ac914d27ecba3d9beec7c88f8ac8e38ba6db40c65d6b50b1
+  tag: v2.20.1-aio-gpu-nvidia-cuda-12@sha256:58cd87cf70a69c8eea1c73ce346c6fcbecc2de4b3d0160c03adc24246cba4ab7
 allInOneCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0-aio-gpu-nvidia-cuda-11@sha256:7cca47aeb78e7fb533cca60423b5c5f8c3aa6c5f0e9c932b42d010ec057b968a
+  tag: v2.20.1-aio-gpu-nvidia-cuda-11@sha256:dc1d4c6e01653021dcb47e6dc035597bb4cc578b41f4d22bd6427a42fe4c1d4c
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.20.0-aio-cpu@sha256:845cf38b69342112e1f611d84c4aa539fe3cde1408e8c1a25676aff48cd4ff4c
+  tag: v2.20.1-aio-cpu@sha256:e1400072b5e3ec42fb504faafadcc4aa20a696c3f30b8edb9b923532942965b9
 securityContext:
   container:
     runAsNonRoot: false
