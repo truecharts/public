@@ -1,0 +1,9 @@
+metrics:
+  main:
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
