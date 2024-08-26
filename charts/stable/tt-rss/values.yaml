@@ -1,15 +1,15 @@
 image:
   repository: cthulhoo/ttrss-fpm-pgsql-static
   pullPolicy: IfNotPresent
-  tag: latest@sha256:176e50aefdd1eb56f536258415d38ae27d76a7df409534d53dd3b29b29fdb4d0
+  tag: latest@sha256:7b5d78416810624831299e502fa801750196e8f20b23b8b5b11019ae3aa52e75
 nginxImage:
   repository: cthulhoo/ttrss-web-nginx
   pullPolicy: IfNotPresent
-  tag: latest@sha256:c918697c8072c952929874c8d026c83ca06ccfde928ec2fc0c8ddfed1784dc05
+  tag: latest@sha256:86e51be720533e1e32932f2cdcd4a1386773250154928075190d33010f546359
 updaterImage:
   repository: cthulhoo/ttrss-fpm-pgsql-static
   pullPolicy: IfNotPresent
-  tag: latest@sha256:176e50aefdd1eb56f536258415d38ae27d76a7df409534d53dd3b29b29fdb4d0
+  tag: latest@sha256:7b5d78416810624831299e502fa801750196e8f20b23b8b5b11019ae3aa52e75
 securityContext:
   container:
     readOnlyRootFilesystem: false
