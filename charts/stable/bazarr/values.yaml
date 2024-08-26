@@ -16,24 +16,17 @@ service:
   metrics:
     enabled: true
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 7879
-        targetSelector: exportarr
 
 workload:
-  exportarr:
-    enabled: "{{ .Values.metrics.main.enabled }}"
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
+  main:
     podSpec:
       containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - bazarr
@@ -66,7 +59,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
