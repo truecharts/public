@@ -3,7 +3,7 @@
 
 {{/* Disable [exportarr] if requested */}}
 {{- if not .Values.metrics.main.enabled -}}
-  {{- $_ := set .Values.workload.exportarr "enabled" false -}}
+  {{- $_ := set .Values.workload.main.podSpec.containers.exportarr "enabled" false -}}
   {{- $_ := set .Values.service.metrics "enabled" false -}}
 {{- end -}}
 
