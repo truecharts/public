@@ -15,7 +15,7 @@ service:
       main:
         port: 8686
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:
@@ -43,7 +43,7 @@ workload:
             LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             LIDARR__AUTHENTICATION_METHOD: ""
         exportarr:
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - lidarr

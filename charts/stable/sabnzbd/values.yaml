@@ -12,7 +12,7 @@ service:
       main:
         port: 10097
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:

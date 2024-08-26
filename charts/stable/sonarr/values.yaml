@@ -12,7 +12,7 @@ service:
       main:
         port: 8989
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:
@@ -40,7 +40,7 @@ workload:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             SONARR__AUTHENTICATION_METHOD: ""
         exportarr:
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - sonarr

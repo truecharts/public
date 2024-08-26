@@ -15,7 +15,7 @@ service:
       main:
         port: 9696
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:
@@ -37,7 +37,7 @@ workload:
             PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             PROWLARR__AUTHENTICATION_METHOD: ""
         exportarr:
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - prowlarr

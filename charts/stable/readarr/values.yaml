@@ -15,7 +15,7 @@ service:
       main:
         port: 8787
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:
@@ -43,7 +43,7 @@ workload:
             READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             READARR__AUTHENTICATION_METHOD: "None"
         exportarr:
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - readarr

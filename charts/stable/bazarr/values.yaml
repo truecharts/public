@@ -14,7 +14,7 @@ service:
         protocol: http
         targetPort: 6767
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     ports:
       metrics:
