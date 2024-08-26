@@ -15,14 +15,12 @@ service:
       main:
         port: 7878
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 7879
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -43,16 +41,8 @@ workload:
               path: /ping
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-  exportarr:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - radarr
@@ -88,7 +78,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
