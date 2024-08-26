@@ -12,14 +12,12 @@ service:
       main:
         port: 8989
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 8990
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -41,16 +39,8 @@ workload:
           env:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             SONARR__AUTHENTICATION_METHOD: ""
-  exportarr:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - sonarr
@@ -86,7 +76,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
