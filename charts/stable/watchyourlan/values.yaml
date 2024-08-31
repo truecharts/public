@@ -56,7 +56,7 @@ workload:
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # unsure on postgres format for PG_CONNECT
-            PG_CONNECT: 'postgres://{{ .Values.cnpg.main.user }}:{{ $.Values.cnpg.main.creds.password | trimAll "\"" }}@{{ .Values.cnpg.main.creds.host }}/{{ .Values.cnpg.main.database }}'
+            PG_CONNECT: 'postgres://{{ .Values.cnpg.main.user }}:{{ $.Values.cnpg.main.creds.password | trimAll "\"" }}@{{ .Values.cnpg.main.creds.host }}:5432/{{ .Values.cnpg.main.database }}'
             USE_DB: postgres
             # User Defined
             HOST: "{{ .Values.watchyourlan.gui_ip }}"
