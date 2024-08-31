@@ -25,10 +25,7 @@ workload:
         main:
           env:
             DATABASE_ADAPTER: postgresql
-            DATABASE_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: std
+            DATABASE_HOST: "{{ .Values.cnpg.main.creds.host }}"
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
             DATABASE_PASSWORD: 
