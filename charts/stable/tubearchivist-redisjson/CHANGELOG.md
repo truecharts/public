@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tubearchivist-redisjson-1.0.0](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-1.0.0) (2022-11-10)

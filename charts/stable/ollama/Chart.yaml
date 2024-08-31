@@ -1,16 +1,15 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
   truecharts.org/category: AI
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.1.33
+appVersion: 0.3.8
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,10 +29,10 @@ maintainers:
     url: https://truecharts.org
 name: ollama
 sources:
+  - https://ghcr.io/open-webui/open-webui
   - https://github.com/ollama/ollama
   - https://github.com/open-webui/open-webui
   - https://github.com/truecharts/charts/tree/master/charts/stable/ollama
   - https://hub.docker.com/r/ollama/ollama
-  - https://ghcr.io/open-webui/open-webui
 type: application
-version: 6.0.8
+version: 7.3.20

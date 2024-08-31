@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [n8n-5.0.0](https://github.com/truecharts/charts/compare/n8n-4.0.77...n8n-5.0.0) (2022-11-10)

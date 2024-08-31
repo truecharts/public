@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [kodi-headless-3.0.0](https://github.com/truecharts/charts/compare/kodi-headless-2.0.40...kodi-headless-3.0.0) (2022-11-10)

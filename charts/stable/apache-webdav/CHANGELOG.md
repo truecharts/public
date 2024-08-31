@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [apache-webdav-1.0.0](https://github.com/truecharts/charts/compare/apache-webdav-0.0.34...apache-webdav-1.0.0) (2022-11-10)

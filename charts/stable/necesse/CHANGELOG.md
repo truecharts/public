@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [necesse-1.0.0](https://github.com/truecharts/charts/compare/necesse-0.0.35...necesse-1.0.0) (2022-11-10)

@@ -11,11 +11,11 @@
             "type": "grafana",
             "id": "grafana",
             "name": "Grafana",
-            "version": "10.1.2"
+            "version": "10.4.0"
         },
         {
             "type": "datasource",
-            "id": "postgres",
+            "id": "grafana-postgresql-datasource",
             "name": "PostgreSQL",
             "version": "1.0.0"
         },
@@ -41,9 +41,9 @@
                     "type": "datasource",
                     "uid": "grafana"
                 },
+                "definition": "TeslaMate|U2FsdGVkX1/cEWK+8cz7pjEKXtzJnDN7b21ZDXt1MGneFGPWTLqOPtxKmu02mJPLzi/f29I+NBHd3vi0FB8R4Xn0+GtobWDgk6VAVSBTdSNniOKO8i2WPlhRaOsl2+hG7gnZ7wrf1Th2nxR7f1uYCrbwOek0IzkfLzrkjh7gkr6inT6bbDuJqrmogZajLxmAMrQ6V+/vHxBRGiwjJhgiEeq3hM1q2h04JKkNiZ8RHbsF5Cd/xd8Q9u0JVrZzIrtnhM/SFlaApU7RtRMu8CSj1llTX7WEOj6VDZAMSf+XUAanWdk725kEPN9MNu89o2zEq5P3E3cju8IbbBdPzXLV3oVuzD6/tMnxFToIIV1E/BrpF7s2RtNa8+KJJ1PF8xgs6m+/KTD2hy+WsP0636AgObRAmYg7+qotGrgNvpNPdE0EgrB7WHYlV7R/1q66bcq6tCe51X1Un70k+zo+K6AK0o4B1H6IyMlEVuRH/Fz8QVl9aYu2ztd08RbuKJlYVKpkH+pxVETAO9MclYQ90tzE6TfwDZrQZzsAlMenr4s1ZB1OlFXjLjVjnddnUilzO76cqv4yI2THQEuyQ47nuVQ4gUbx02K59vMQhns3C01JOAYokOaSXe66Y7QYdMlk09Lf|aes-256-cbc",
                 "enable": true,
                 "hide": true,
-                "definition": "TeslaMate|U2FsdGVkX1/cEWK+8cz7pjEKXtzJnDN7b21ZDXt1MGneFGPWTLqOPtxKmu02mJPLzi/f29I+NBHd3vi0FB8R4Xn0+GtobWDgk6VAVSBTdSNniOKO8i2WPlhRaOsl2+hG7gnZ7wrf1Th2nxR7f1uYCrbwOek0IzkfLzrkjh7gkr6inT6bbDuJqrmogZajLxmAMrQ6V+/vHxBRGiwjJhgiEeq3hM1q2h04JKkNiZ8RHbsF5Cd/xd8Q9u0JVrZzIrtnhM/SFlaApU7RtRMu8CSj1llTX7WEOj6VDZAMSf+XUAanWdk725kEPN9MNu89o2zEq5P3E3cju8IbbBdPzXLV3oVuzD6/tMnxFToIIV1E/BrpF7s2RtNa8+KJJ1PF8xgs6m+/KTD2hy+WsP0636AgObRAmYg7+qotGrgNvpNPdE0EgrB7WHYlV7R/1q66bcq6tCe51X1Un70k+zo+K6AK0o4B1H6IyMlEVuRH/Fz8QVl9aYu2ztd08RbuKJlYVKpkH+pxVETAO9MclYQ90tzE6TfwDZrQZzsAlMenr4s1ZB1OlFXjLjVjnddnUilzO76cqv4yI2THQEuyQ47nuVQ4gUbx02K59vMQhns3C01JOAYokOaSXe66Y7QYdMlk09Lf|aes-256-cbc",
                 "iconColor": "rgba(0, 211, 255, 1)",
                 "name": "Annotations & Alerts",
                 "target": {
@@ -93,7 +93,7 @@
     "panels": [
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "description": "This dashboard is meant to analize a drive based on a date you select, then you can pass the pointer over the lines in graph to see data details and a blue point in the map tranking the route. With this option you can analized a specific point location in the map, to see the speed, power, SOC, elevation and if battery heater was on.\n\nBe aware that the drive you select in the dropdown list from the top could be outside the time range of the Timeline graph, if its the case you have to click on the \"Zoom to data\" button on the graph in order to update it.\n\nTip: On Grafana you can press \"h\" to get a keyboard shortcuts if you want to change the current Zoom out time range or use the mouse to select/change the time range.",
@@ -103,10 +103,11 @@
                         "mode": "palette-classic"
                     },
                     "custom": {
-                        "axisCenteredZero": false,
+                        "axisBorderShow": false,
+                        "axisCenteredZero": true,
                         "axisColorMode": "text",
                         "axisLabel": "",
-                        "axisPlacement": "auto",
+                        "axisPlacement": "left",
                         "barAlignment": 0,
                         "drawStyle": "line",
                         "fillOpacity": 0,
@@ -117,7 +118,7 @@
                             "viz": false
                         },
                         "insertNulls": false,
-                        "lineInterpolation": "linear",
+                        "lineInterpolation": "smooth",
                         "lineWidth": 1,
                         "pointSize": 5,
                         "scaleDistribution": {
@@ -178,18 +179,6 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "elevation_m"
-                        },
-                        "properties": [
-                            {
-                                "id": "displayName",
-                                "value": "Elevation (m)"
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
                             "options": "speed_kmh"
                         },
                         "properties": [
@@ -220,6 +209,13 @@
                             {
                                 "id": "displayName",
                                 "value": "SOC (%)"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "purple",
+                                    "mode": "fixed"
+                                }
                             }
                         ]
                     },
@@ -233,36 +229,6 @@
                                 "id": "color",
                                 "value": {
                                     "fixedColor": "semi-dark-red",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Elevation"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "#ccccdc",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Elevation (m)"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "text",
                                     "mode": "fixed"
                                 }
                             }
@@ -285,93 +251,48 @@
                     },
                     {
                         "matcher": {
-                            "id": "byName",
-                            "options": "Rated Efficiency (kWh/100km)"
+                            "id": "byRegexp",
+                            "options": "/elevation_*/"
                         },
                         "properties": [
                             {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "dark-green",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "SOC (%)"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "light-purple",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Speed (km/h)"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "light-blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "speed_kmh"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "light-blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Elevation"
-                        },
-                        "properties": [
-                            {
-                                "id": "decimals",
-                                "value": 0
+                                "id": "displayName",
+                                "value": "Elevation"
                             },
                             {
-                                "id": "min",
-                                "value": 0
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "text",
+                                    "mode": "fixed"
+                                }
+                            },
+                            {
+                                "id": "custom.axisPlacement",
+                                "value": "right"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Elevation (m)"
+                            "options": "elevation_ft"
                         },
                         "properties": [
                             {
-                                "id": "decimals",
-                                "value": 0
-                            },
+                                "id": "unit",
+                                "value": "lengthft"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "elevation_m"
+                        },
+                        "properties": [
                             {
-                                "id": "min",
-                                "value": 0
+                                "id": "unit",
+                                "value": "lengthm"
                             }
                         ]
                     }
@@ -385,7 +306,6 @@
             },
             "hideTimeOverride": false,
             "id": 8,
-            "links": [],
             "options": {
                 "legend": {
                     "calcs": [],
@@ -403,9 +323,10 @@
                 {
                     "alias": "",
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
+                    "editorMode": "code",
                     "format": "time_series",
                     "group": [],
                     "hide": false,
@@ -421,6 +342,23 @@
                             }
                         ]
                     ],
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
                     "table": "charging",
                     "timeColumn": "Datum",
                     "timeColumnType": "timestamp",
@@ -438,14 +376,14 @@
         },
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "fieldConfig": {
                 "defaults": {
                     "color": {
                         "fixedColor": "red",
-                        "mode": "thresholds"
+                        "mode": "fixed"
                     },
                     "custom": {
                         "hideFrom": {
@@ -474,13 +412,14 @@
                 "y": 0
             },
             "id": 18,
-            "links": [],
             "maxDataPoints": 50000,
             "options": {
                 "basemap": {
-                    "config": {},
+                    "config": {
+                        "server": "streets"
+                    },
                     "name": "Layer 0",
-                    "type": "osm-standard"
+                    "type": "esri-xyz"
                 },
                 "controls": {
                     "mouseWheelZoom": true,
@@ -513,7 +452,7 @@
                                 },
                                 "symbol": {
                                     "field": "",
-                                    "fixed": "",
+                                    "fixed": "img/icons/marker/triangle.svg",
                                     "mode": "fixed"
                                 },
                                 "symbolAlign": {
@@ -539,7 +478,7 @@
                     }
                 ],
                 "tooltip": {
-                    "mode": "details"
+                    "mode": "none"
                 },
                 "view": {
                     "allLayers": true,
@@ -549,12 +488,12 @@
                     "zoom": 15
                 }
             },
-            "pluginVersion": "10.1.2",
+            "pluginVersion": "10.4.0",
             "targets": [
                 {
                     "alias": "",
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
                     "editorMode": "code",
@@ -632,7 +571,7 @@
         },
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "description": "",
@@ -695,6 +634,22 @@
                                 "value": "Wh/km"
                             }
                         ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "mi"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Consumption"
+                            },
+                            {
+                                "id": "unit",
+                                "value": "Wh/mi"
+                            }
+                        ]
                     }
                 ]
             },
@@ -705,7 +660,6 @@
                 "y": 17
             },
             "id": 14,
-            "links": [],
             "maxDataPoints": 100,
             "options": {
                 "colorMode": "value",
@@ -717,16 +671,18 @@
                     "fields": "",
                     "values": false
                 },
+                "showPercentChange": false,
                 "text": {
                     "titleSize": 16
                 },
-                "textMode": "value_and_name"
+                "textMode": "value_and_name",
+                "wideLayout": true
             },
-            "pluginVersion": "10.1.2",
+            "pluginVersion": "10.4.0",
             "targets": [
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
                     "format": "table",
@@ -734,7 +690,7 @@
                     "metricColumn": "none",
                     "rawQuery": true,
                     "rawSql": "SELECT ((DATE_PART('day', end_date - start_date) * 24 + \n                DATE_PART('hour', end_date - start_date)) * 60 +\n                DATE_PART('minute', end_date - start_date)) * 60 +\n                DATE_PART('second', end_date - start_date) as sec_diff\nFROM drives\nWHERE drives.id = $journey;",
-                    "refId": "A",
+                    "refId": "Duration",
                     "select": [
                         [
                             {
@@ -756,16 +712,17 @@
                 },
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
+                    "editorMode": "code",
                     "format": "table",
                     "group": [],
                     "hide": false,
                     "metricColumn": "none",
                     "rawQuery": true,
                     "rawSql": "select\n\t(NULLIF(GREATEST(start_[[preferred_range]]_range_km - end_[[preferred_range]]_range_km, 0), 0) * car.efficiency) *1000 /\n\t  convert_km(distance::numeric, '$length_unit') as \"$length_unit\"\nfrom drives d\nJOIN cars car ON car.id = car_id\nwhere d.id = $journey;",
-                    "refId": "Distance",
+                    "refId": "Consumption",
                     "select": [
                         [
                             {
@@ -774,6 +731,23 @@
                             }
                         ]
                     ],
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
                     "table": "drives",
                     "timeColumn": "start_date",
                     "timeColumnType": "timestamp",
@@ -790,7 +764,7 @@
         },
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "description": "",
@@ -860,7 +834,7 @@
                         "properties": [
                             {
                                 "id": "unit",
-                                "value": "velocitymih"
+                                "value": "velocitymph"
                             },
                             {
                                 "id": "displayName",
@@ -893,7 +867,6 @@
                 "y": 17
             },
             "id": 12,
-            "links": [],
             "maxDataPoints": 100,
             "options": {
                 "colorMode": "value",
@@ -905,16 +878,18 @@
                     "fields": "",
                     "values": false
                 },
+                "showPercentChange": false,
                 "text": {
                     "titleSize": 16
                 },
-                "textMode": "auto"
+                "textMode": "auto",
+                "wideLayout": true
             },
-            "pluginVersion": "10.1.2",
+            "pluginVersion": "10.4.0",
             "targets": [
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
                     "format": "table",
@@ -922,7 +897,7 @@
                     "metricColumn": "none",
                     "rawQuery": true,
                     "rawSql": "select convert_km(distance::numeric, '$length_unit') as \"$length_unit\" from drives where id = $journey;",
-                    "refId": "A",
+                    "refId": "Distance",
                     "select": [
                         [
                             {
@@ -944,7 +919,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
                     "format": "table",
@@ -953,7 +928,7 @@
                     "metricColumn": "none",
                     "rawQuery": true,
                     "rawSql": "WITH journey AS (SELECT start_date, end_date FROM drives WHERE id = $journey)\nSELECT\n\tAVG(convert_km(speed::numeric, '$length_unit')) AS speed_[[length_unit]]h\nFROM\n\tpositions, journey\nWHERE\n  car_id = $car_id AND (date BETWEEN journey.start_date AND journey.end_date)",
-                    "refId": "B",
+                    "refId": "Speed",
                     "select": [
                         [
                             {
@@ -978,7 +953,7 @@
         },
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "fieldConfig": {
@@ -1016,7 +991,6 @@
                 "y": 17
             },
             "id": 16,
-            "links": [],
             "maxDataPoints": 100,
             "options": {
                 "colorMode": "value",
@@ -1028,16 +1002,18 @@
                     "fields": "",
                     "values": false
                 },
+                "showPercentChange": false,
                 "text": {
                     "titleSize": 16
                 },
-                "textMode": "value"
+                "textMode": "value",
+                "wideLayout": true
             },
-            "pluginVersion": "10.1.2",
+            "pluginVersion": "10.4.0",
             "targets": [
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
                     "format": "table",
@@ -1071,7 +1047,7 @@
         },
         {
             "datasource": {
-                "type": "postgres",
+                "type": "grafana-postgresql-datasource",
                 "uid": "TeslaMate"
             },
             "fieldConfig": {
@@ -1109,23 +1085,26 @@
                     "fields": "/.*/",
                     "values": false
                 },
+                "showPercentChange": false,
                 "text": {
                     "titleSize": 16
                 },
-                "textMode": "value_and_name"
+                "textMode": "value_and_name",
+                "wideLayout": true
             },
-            "pluginVersion": "10.1.2",
+            "pluginVersion": "10.4.0",
             "targets": [
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
+                    "editorMode": "code",
                     "format": "table",
                     "group": [],
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "WITH height as (SELECT\n\televation-LAG(elevation,1) over ( order BY\n\tdate ASC ) as diff\nFROM\n\tpositions\nWHERE\n car_id = $car_id AND (date BETWEEN (SELECT start_date FROM drives WHERE id = $journey) AND (SELECT end_date FROM drives WHERE id = $journey))\nORDER BY\n\tdate ASC\n\t)\nselect convert_m(sum(diff), '$alternative_length_unit') || ' $alternative_length_unit'  as \"Up\" from height where diff > 0",
+                    "rawSql": "WITH height as (SELECT\n\televation-LAG(elevation,1) over ( order BY\n\tdate ASC ) as diff\nFROM\n\tpositions\nWHERE\n car_id = $car_id AND (date BETWEEN (SELECT start_date FROM drives WHERE id = $journey) AND (SELECT end_date FROM drives WHERE id = $journey))\nORDER BY\n\tdate ASC\n\t)\nselect ROUND(convert_m(sum(diff), '$alternative_length_unit')::numeric,0) || ' $alternative_length_unit'  as \"Up\" from height where diff > 0",
                     "refId": "A",
                     "select": [
                         [
@@ -1135,6 +1114,23 @@
                             }
                         ]
                     ],
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
                     "table": "drives",
                     "timeColumn": "start_date",
                     "timeColumnType": "timestamp",
@@ -1148,15 +1144,16 @@
                 },
                 {
                     "datasource": {
-                        "type": "postgres",
+                        "type": "grafana-postgresql-datasource",
                         "uid": "TeslaMate"
                     },
+                    "editorMode": "code",
                     "format": "table",
                     "group": [],
                     "hide": false,
                     "metricColumn": "none",
                     "rawQuery": true,
-                    "rawSql": "WITH height as (SELECT\n\televation-LAG(elevation,1) over ( order BY\n\tdate ASC ) as diff\nFROM\n\tpositions\nWHERE\n car_id = $car_id AND (date BETWEEN (SELECT start_date FROM drives WHERE id = $journey) AND (SELECT end_date FROM drives WHERE id = $journey))\nORDER BY\n\tdate ASC\n\t)\n\t\n\t\nselect convert_m(sum(diff), '$alternative_length_unit') || ' $alternative_length_unit' as \"Down\" from height where diff < 0",
+                    "rawSql": "WITH height as (SELECT\n\televation-LAG(elevation,1) over ( order BY\n\tdate ASC ) as diff\nFROM\n\tpositions\nWHERE\n car_id = $car_id AND (date BETWEEN (SELECT start_date FROM drives WHERE id = $journey) AND (SELECT end_date FROM drives WHERE id = $journey))\nORDER BY\n\tdate ASC\n\t)\n\t\n\t\nselect ROUND(convert_m(sum(diff), '$alternative_length_unit')::numeric,0) || ' $alternative_length_unit' as \"Down\" from height where diff < 0",
                     "refId": "B",
                     "select": [
                         [
@@ -1166,6 +1163,23 @@
                             }
                         ]
                     ],
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
                     "table": "drives",
                     "timeColumn": "start_date",
                     "timeColumnType": "timestamp",
@@ -1183,15 +1197,14 @@
         }
     ],
     "refresh": "",
-    "schemaVersion": 38,
-    "style": "dark",
+    "schemaVersion": 39,
     "tags": ["TeslamateCustomDashboards"],
     "templating": {
         "list": [
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "select unit_of_length from settings limit 1;",
@@ -1210,7 +1223,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "select case when unit_of_length = 'km' then 'm' when unit_of_length = 'mi' then 'ft' end  from settings limit 1;",
@@ -1229,7 +1242,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
@@ -1252,7 +1265,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "SELECT TO_CHAR(start_date, 'YYYY') as year FROM drives\nWHERE car_id = $car_id\nGROUP BY 1\nORDER BY 1 DESC;",
@@ -1271,7 +1284,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "(SELECT TO_CHAR(start_date, 'MM') as month FROM drives WHERE car_id = $car_id ORDER BY start_date DESC LIMIT 1)\nUNION ALL\n(SELECT TO_CHAR(start_date, 'MM') as month FROM drives WHERE car_id = $car_id AND TO_CHAR(start_date, 'YYYY') = '$Year'\nGROUP BY 1\nORDER BY 1);",
@@ -1290,7 +1303,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "(SELECT TO_CHAR(start_date, 'DD') as day FROM drives WHERE car_id = $car_id ORDER BY start_date DESC LIMIT 1)\nUNION ALL\n(SELECT TO_CHAR(start_date, 'DD') as day FROM drives \nWHERE  car_id = $car_id AND TO_CHAR(start_date, 'YYYY') = '$Year'  AND TO_CHAR(start_date, 'MM') = '$Month'\nGROUP BY 1 ORDER BY 1);",
@@ -1309,7 +1322,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "WITH data AS (\n  SELECT\n    drives.id as drive_id,\n    start_date,\n    COALESCE(start_geofence.name, CONCAT_WS(', ', COALESCE(start_address.name, nullif(CONCAT_WS(' ', start_address.road, start_address.house_number), '')), start_address.city)) AS start_address,\n    COALESCE(end_geofence.name, CONCAT_WS(', ', COALESCE(end_address.name, nullif(CONCAT_WS(' ', end_address.road, end_address.house_number), '')), end_address.city)) AS end_address\n  FROM drives\n  LEFT JOIN addresses start_address ON start_address_id = start_address.id\n  LEFT JOIN addresses end_address ON end_address_id = end_address.id\n  LEFT JOIN positions start_position ON start_position_id = start_position.id\n  LEFT JOIN positions end_position ON end_position_id = end_position.id\n  LEFT JOIN geofences start_geofence ON start_geofence_id = start_geofence.id\n  LEFT JOIN geofences end_geofence ON end_geofence_id = end_geofence.id\n  LEFT JOIN cars car ON car.id = drives.car_id\n  WHERE drives.car_id = $car_id AND start_date::date = '$Year-$Month-$Day' AND distance > 0 \n  ORDER BY start_date DESC\n)\nSELECT\n    'route=\"' || to_char(start_date:: timestamp, 'YYYY-MM-DD')  || ' ' || start_address || ' ---> ' || end_address || '\" id=\"' || drive_id || '\"'AS journey\nFROM data;",
@@ -1329,7 +1342,7 @@
             {
                 "current": {},
                 "datasource": {
-                    "type": "postgres",
+                    "type": "grafana-postgresql-datasource",
                     "uid": "TeslaMate"
                 },
                 "definition": "select preferred_range from settings limit 1;",
@@ -1348,8 +1361,8 @@
         ]
     },
     "time": {
-        "from": "2023-11-28T12:32:29.961Z",
-        "to": "2023-11-28T12:40:33.863Z"
+        "from": "now-15m",
+        "to": "now"
     },
     "timepicker": {
         "hidden": true,
@@ -1358,6 +1371,6 @@
     "timezone": "",
     "title": "Tracking Drives",
     "uid": "jchmX8upc6ZRk",
-    "version": 3,
+    "version": 6,
     "weekStart": ""
 }

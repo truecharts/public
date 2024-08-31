@@ -1,0 +1,103 @@
+image:
+  repository: ghcr.io/postfinance/kubelet-csr-approver
+  pullPolicy: IfNotPresent
+  tag: 1.2.2@sha256:fdccaa3f2e4f59001b99357565bc5995393c53b21074da769fa53620b5138b85
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    replicas: 3
+    podSpec:
+      containers:
+        main:
+          args:
+            - -metrics-bind-address
+            - ":8080"
+            - -health-probe-bind-address
+            - ":8081"
+            - -level
+            - "0"
+          probes:
+            liveness:
+              path: "/healthz"
+              enabled: true
+              type: http
+              port: 8081
+            readiness:
+              path: "/healthz"
+              enabled: true
+              type: http
+              port: 8081
+            startup:
+              path: "/healthz"
+              enabled: true
+              type: http
+              port: 8081
+          env:
+            PROVIDER_REGEX: ".*"
+            BYPASS_DNS_RESOLUTION: true
+            IGNORE_NON_SYSTEM_NODE: false
+            ALLOWED_DNS_NAMES: 1
+            BYPASS_HOSTNAME_CHECK: false
+            LEADER_ELECTION: true
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: ["coordination.k8s.io"]
+        resources: ["leases"]
+        verbs: ["create", "get", "update"]
+      - apiGroups: [""]
+        resources: ["events"]
+        verbs: ["create"]
+      - apiGroups: ["certificates.k8s.io"]
+        resources: ["certificatesigningrequests"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["certificates.k8s.io"]
+        resources: ["certificatesigningrequests/approval"]
+        verbs: ["update"]
+      - apiGroups: ["certificates.k8s.io"]
+        resourceNames: ["kubernetes.io/kubelet-serving"]
+        resources: ["signers"]
+        verbs: ["approve"]
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    prometheusRule:
+      enabled: false
+      labels: {}
+      rules: []
+
+podOptions:
+  automountServiceAccountToken: true
+
+portal:
+  open:
+    enabled: false
+
+operator:
+  register: true
+
+manifestManager:
+  enabled: false

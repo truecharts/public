@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pgadmin-8.0.0](https://github.com/truecharts/charts/compare/pgadmin-7.0.45...pgadmin-8.0.0) (2022-11-10)

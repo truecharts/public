@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [deluge-12.0.0](https://github.com/truecharts/charts/compare/deluge-11.0.43...deluge-12.0.0) (2022-11-10)

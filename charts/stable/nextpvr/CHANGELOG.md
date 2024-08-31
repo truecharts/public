@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [nextpvr-3.0.0](https://github.com/truecharts/charts/compare/nextpvr-2.0.42...nextpvr-3.0.0) (2022-11-10)

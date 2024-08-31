@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [krusader-1.0.0](https://github.com/truecharts/charts/compare/krusader-0.0.35...krusader-1.0.0) (2022-11-10)

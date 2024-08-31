@@ -26,8 +26,6 @@ spec:
       server: ""
     forceSTSHeader: true
     referrerPolicy: same-origin
-    sslForceHost: true
-    sslRedirect: true
     stsSeconds: 63072000
 ---
 apiVersion: traefik.io/v1alpha1
@@ -43,14 +41,12 @@ spec:
       - HEAD
       - PUT
     accessControlMaxAge: 100
-    sslRedirect: true
     stsSeconds: 63072000
     # stsIncludeSubdomains: false
     # stsPreload: false
     forceSTSHeader: true
     contentTypeNosniff: true
     browserXssFilter: true
-    sslForceHost: true
     referrerPolicy: same-origin
     contentSecurityPolicy: frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests​
     customRequestHeaders:

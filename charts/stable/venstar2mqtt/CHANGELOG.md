@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [venstar2mqtt-1.0.0](https://github.com/truecharts/charts/compare/venstar2mqtt-0.0.34...venstar2mqtt-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [grafana-image-renderer-1.0.0](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-image-renderer-1.0.0) (2022-11-10)

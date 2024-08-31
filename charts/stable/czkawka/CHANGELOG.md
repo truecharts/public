@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [czkawka-2.0.0](https://github.com/truecharts/charts/compare/czkawka-1.0.20...czkawka-2.0.0) (2022-11-10)

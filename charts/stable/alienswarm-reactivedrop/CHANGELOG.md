@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [alienswarm-reactivedrop-1.0.0](https://github.com/truecharts/charts/compare/alienswarm-reactivedrop-0.0.35...alienswarm-reactivedrop-1.0.0) (2022-11-10)

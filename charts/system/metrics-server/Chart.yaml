@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 24.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: metrics-server
+    version: 3.12.1
+    repository: https://kubernetes-sigs.github.io/metrics-server
+    condition: ""
+    alias: metrics-server
+    tags: []
+    import-values: []
+deprecated: false
+description: Enable Internal kubernetes metrics
+home: https://truecharts.org/charts/system/metrics-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metrics-server.webp
+keywords:
+  - metrics-server
+  - loadbalancer
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: metrics-server
+sources:
+  - https://github.com/metrics-server/metrics-server
+  - https://github.com/truecharts/charts/tree/master/charts/system/metrics-server
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
+  - https://metrics-server.universe.tf
+type: application
+version: 0.0.1

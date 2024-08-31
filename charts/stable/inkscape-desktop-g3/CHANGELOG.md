@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [inkscape-desktop-g3-1.0.0](https://github.com/truecharts/charts/compare/inkscape-desktop-g3-0.0.37...inkscape-desktop-g3-1.0.0) (2022-11-10)

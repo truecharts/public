@@ -1,3 +1,4 @@
 ---
 title: Changelog
+pagefind: false
 ---

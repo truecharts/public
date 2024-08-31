@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/zurdi15/romm
+  repository: ghcr.io/rommapp/romm
   pullPolicy: IfNotPresent
-  tag: 3.0.1@sha256:2096c28711d49246885af2b325321c65f13fc2f82de60e31bddf8897c81c5c66
+  tag: 3.4@sha256:ae48534f19ababc4319d05cfcfaa409544eeb92e276c9e6fd856b9b2f1a80e48
 
 securityContext:
   container:
@@ -75,9 +75,12 @@ persistence:
   resources:
     enabled: true
     mountPath: /romm/resources
-  logs:
+  config:
     enabled: true
-    mountPath: /romm/logs
+    mountPath: /romm/config
+  assets:
+    enabled: true
+    mountPath: /romm/assets
 
 mariadb:
   enabled: true

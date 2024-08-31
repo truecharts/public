@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [pretend-youre-xyzzy-7.0.0](https://github.com/truecharts/charts/compare/pretend-youre-xyzzy-6.0.43...pretend-youre-xyzzy-7.0.0) (2022-11-10)

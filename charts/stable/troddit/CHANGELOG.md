@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [troddit-1.0.0](https://github.com/truecharts/charts/compare/troddit-0.0.40...troddit-1.0.0) (2022-11-10)

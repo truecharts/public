@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [plausible-2.0.0](https://github.com/truecharts/charts/compare/plausible-1.0.32...plausible-2.0.0) (2022-11-10)

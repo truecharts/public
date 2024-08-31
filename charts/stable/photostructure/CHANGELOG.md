@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [photostructure-1.0.0](https://github.com/truecharts/charts/compare/photostructure-0.0.34...photostructure-1.0.0) (2022-11-10)

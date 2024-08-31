@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/wg-easy/wg-easy
   pullPolicy: IfNotPresent
-  tag: 12@sha256:daa94b77901bdef3cb10151416c095e64cf66a6539fa8f748c09812b60b97f49
+  tag: 14@sha256:f6c2587da3fdc9d5927743fb4a92cff42d690b182396ffd0cdad034becb41053
 securityContext:
   container:
     PUID: 0
@@ -25,7 +25,6 @@ service:
       vpn:
         enabled: true
         protocol: udp
-        targetPort: 51820
         port: 51820
 workload:
   main:

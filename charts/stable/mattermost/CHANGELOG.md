@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mattermost-4.0.0](https://github.com/truecharts/charts/compare/mattermost-3.0.56...mattermost-4.0.0) (2022-11-10)

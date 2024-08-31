@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [dockerregistry-1.0.0](https://github.com/truecharts/charts/compare/dockerregistry-0.0.33...dockerregistry-1.0.0) (2022-11-10)

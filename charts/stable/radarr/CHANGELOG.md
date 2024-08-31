@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [radarr-12.0.0](https://github.com/truecharts/charts/compare/radarr-11.0.46...radarr-12.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [rdesktop-1.0.0](https://github.com/truecharts/charts/compare/rdesktop-0.0.47...rdesktop-1.0.0) (2022-11-10)

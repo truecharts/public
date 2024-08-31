@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ipmi-tools-1.0.0](https://github.com/truecharts/charts/compare/ipmi-tools-0.0.34...ipmi-tools-1.0.0) (2022-11-10)

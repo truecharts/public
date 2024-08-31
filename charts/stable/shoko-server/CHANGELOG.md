@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [shoko-server-1.0.0](https://github.com/truecharts/charts/compare/shoko-server-0.0.33...shoko-server-1.0.0) (2022-11-10)

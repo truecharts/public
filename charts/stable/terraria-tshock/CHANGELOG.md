@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [terraria-tshock-1.0.0](https://github.com/truecharts/charts/compare/terraria-tshock-0.0.33...terraria-tshock-1.0.0) (2022-11-10)

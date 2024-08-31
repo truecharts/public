@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [putty-2.0.0](https://github.com/truecharts/charts/compare/putty-1.0.20...putty-2.0.0) (2022-11-10)

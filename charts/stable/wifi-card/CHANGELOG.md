@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [wifi-card-1.0.0](https://github.com/truecharts/charts/compare/wifi-card-0.0.38...wifi-card-1.0.0) (2022-11-10)

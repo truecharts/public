@@ -1,11 +1,11 @@
 image:
   repository: grafana/grafana
   pullPolicy: IfNotPresent
-  tag: 10.4.2@sha256:7d5faae481a4c6f436c99e98af11534f7fd5e8d3e35213552dd1dd02bc393d2e
+  tag: 11.2.0@sha256:408afb9726de5122b00a2576763a8a57a3c86d5b0eff5305bc994ceb3eb96c3f
 
 sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
-  tag: 1.26.1@sha256:b8d5067137fec093cf48670dc3a1dbb38f9e734f3a6683015c2e89a45db5fd16
+  tag: 1.27.6@sha256:db85bd5532530d288736b35e63baceacbf570bf863d85a0404b33c1e1631f63b
 
 securityContext:
   container:
@@ -19,7 +19,7 @@ service:
         port: 3000
 workload:
   main:
-    replicas: 2
+    replicas: 1
     strategy: RollingUpdate
     podSpec:
       containers:

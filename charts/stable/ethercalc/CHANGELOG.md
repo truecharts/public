@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ethercalc-1.0.0](https://github.com/truecharts/charts/compare/ethercalc-0.0.34...ethercalc-1.0.0) (2022-11-10)

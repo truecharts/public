@@ -7,7 +7,7 @@
     {{/* Append more paths here if needed */}}
 
     {{- range $host := .Values.ingress.main.hosts -}}
-      {{- $paths := $host.paths -}}
+      {{- $paths := $host.paths | default list -}}
       {{- $paths = concat $paths $injectPaths -}}
       {{- $_ := set $host "paths" $paths -}}
     {{- end -}}

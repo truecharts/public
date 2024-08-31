@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [ddclient-3.0.0](https://github.com/truecharts/charts/compare/ddclient-2.0.42...ddclient-3.0.0) (2022-11-10)

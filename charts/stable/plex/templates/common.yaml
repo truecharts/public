@@ -26,6 +26,15 @@
   {{- end -}}
 {{- end -}}
 
+{{- $serverIngressURLHTTPS := "" -}}
+{{- $host := "" -}}
+{{- if .Values.ingress.main.enabled -}}
+  {{- with (first .Values.ingress.main.hosts) -}}
+    {{- $host = .host -}}
+    {{- $serverIngressURL = (printf "https://%v:443" .host) -}}
+  {{- end -}}
+{{- end -}}
+
 {{- $serverIngressURLPort := "" -}}
 {{- if $host -}}
   {{- if not (eq .Values.service.main.type "ClusterIP") -}}
@@ -38,6 +47,9 @@
   {{- $adv = append $adv . -}}
 {{- end -}}
 {{- with $serverIngressURL -}}
+  {{- $adv = append $adv . -}}
+{{- end -}}
+{{- with $serverIngressURLHTTPS -}}
   {{- $adv = append $adv . -}}
 {{- end -}}
 {{- with $serverIngressURLPort -}}

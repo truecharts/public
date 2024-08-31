@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [organizr-12.0.0](https://github.com/truecharts/charts/compare/organizr-11.0.41...organizr-12.0.0) (2022-11-10)

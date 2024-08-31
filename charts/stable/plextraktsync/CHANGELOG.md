@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [plextraktsync-2.0.0](https://github.com/truecharts/charts/compare/plextraktsync-1.0.20...plextraktsync-2.0.0) (2022-11-10)

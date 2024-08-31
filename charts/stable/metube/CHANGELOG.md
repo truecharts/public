@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [metube-3.0.0](https://github.com/truecharts/charts/compare/metube-2.0.40...metube-3.0.0) (2022-11-10)

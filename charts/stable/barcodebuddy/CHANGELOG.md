@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [barcodebuddy-1.0.0](https://github.com/truecharts/charts/compare/barcodebuddy-0.0.34...barcodebuddy-1.0.0) (2022-11-10)

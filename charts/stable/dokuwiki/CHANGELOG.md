@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [dokuwiki-4.0.0](https://github.com/truecharts/charts/compare/dokuwiki-3.0.76...dokuwiki-4.0.0) (2022-11-10)

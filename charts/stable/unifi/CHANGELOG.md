@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [unifi-12.0.0](https://github.com/truecharts/charts/compare/unifi-11.0.46...unifi-12.0.0) (2022-11-10)

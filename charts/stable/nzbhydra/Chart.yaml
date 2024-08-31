@@ -1,16 +1,15 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 6.0.0
+appVersion: 7.1.0
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,15 +22,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/nzbhydra.webp
 keywords:
   - nzbhydra
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nzbhydra
 sources:
+  - https://ghcr.io/geek-cookbook/nzbhydra2
   - https://github.com/theotherp/nzbhydra2
   - https://github.com/truecharts/charts/tree/master/charts/stable/nzbhydra
-  - https://ghcr.io/geek-cookbook/nzbhydra2
 type: application
-version: 21.0.5
+version: 23.1.3

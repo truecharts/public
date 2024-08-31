@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [obsidian-1.0.0](https://github.com/truecharts/charts/compare/obsidian-0.0.37...obsidian-1.0.0) (2022-11-10)

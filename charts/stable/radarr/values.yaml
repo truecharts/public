@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/radarr
   pullPolicy: IfNotPresent
-  tag: 5.4.6.8723@sha256:3198f09197697a4d57f995650ebf34b57b2fdbb991dac1611ad8356d9e8bda8e
+  tag: 5.9.1.9070@sha256:bab27806e41577e170c76adf2c5c39b6e4711301684510f198069df52f852ede
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -15,14 +15,12 @@ service:
       main:
         port: 7878
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 7879
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -43,16 +41,8 @@ workload:
               path: /ping
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-  exportarr:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - radarr
@@ -88,7 +78,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true

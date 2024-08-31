@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [librespeed-7.0.0](https://github.com/truecharts/charts/compare/librespeed-6.0.41...librespeed-7.0.0) (2022-11-10)

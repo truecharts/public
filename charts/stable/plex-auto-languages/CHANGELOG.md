@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [plex-auto-languages-2.0.0](https://github.com/truecharts/charts/compare/plex-auto-languages-1.0.15...plex-auto-languages-2.0.0) (2022-11-10)

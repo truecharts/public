@@ -1,0 +1,443 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/tccr/kube-sa-proxy
+  tag: latest
+
+webImage:
+  repository: kubernetesui/dashboard-web
+  pullPolicy: IfNotPresent
+  tag: 1.4.0@sha256:4445b31a2c25c875e2df8ca103a8e3f3275778d10065c7c011f6ca42cd4bec5f
+
+authImage:
+  repository: docker.io/kubernetesui/dashboard-auth
+  pullPolicy: IfNotPresent
+  tag: 1.1.3@sha256:07135c09e9ff6faf1370e0b105fa22d38f79e2bc671f248814066630fbf026a1
+
+apiImage:
+  repository: kubernetesui/dashboard-api
+  pullPolicy: IfNotPresent
+  tag: 1.7.0@sha256:60595892c2cf21b7fbd09324120e339e0e44874cd96267bc4712cb86694835f1
+
+scraperImage:
+  repository: kubernetesui/dashboard-metrics-scraper
+  pullPolicy: IfNotPresent
+  tag: 1.1.1@sha256:7747d363c9fee7392597a683c2853a2052710d620ada0e2323561bb0f4d32b4f
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        port: 80
+        targetPort: 3000
+        protocol: http
+  kubernetes-dashboard-forward:
+    expandObjectName: false
+    enabled: true
+    ports:
+      forward:
+        enabled: true
+        port: 8443
+        targetPort: 8443
+        protocol: https
+    selectorLabels:
+      app.kubernetes.io/name: kong
+      app.kubernetes.io/component: app
+  kubernetes-dashboard-web:
+    expandObjectName: false
+    enabled: true
+    targetSelector: web
+    ports:
+      web:
+        enabled: true
+        port: 8000
+        targetPort: 8000
+        protocol: http
+  kubernetes-dashboard-api:
+    expandObjectName: false
+    enabled: true
+    targetSelector: api
+    ports:
+      api:
+        enabled: true
+        port: 8000
+        targetPort: 8000
+        protocol: http
+  kubernetes-dashboard-auth:
+    expandObjectName: false
+    enabled: true
+    targetSelector: auth
+    ports:
+      auth:
+        enabled: true
+        port: 8000
+        targetPort: 8000
+        protocol: http
+  kubernetes-dashboard-scraper:
+    expandObjectName: false
+    enabled: true
+    targetSelector: scraper
+    ports:
+      scraper:
+        enabled: true
+        port: 8000
+        targetPort: 8000
+        protocol: http
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          env:
+            PORT: 3000
+            API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
+            PROXY_TARGET: https://kubernetes-dashboard-forward:8443
+            AUTH_TOKEN_HEADER: Authorization
+            AUTH_TOKEN_PREFIX: Bearer
+            # We can potentially use this in the future...
+            CSRF_TOKEN: ""
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 3000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 3000
+            startup:
+              enabled: true
+              type: tcp
+              port: 3000
+  web:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        web:
+          enabled: true
+          primary: true
+          imageSelector: webImage
+          args:
+            - --namespace={{ .Release.Namespace }}
+            - --settings-config-map-name=kubernetes-dashboard-settings
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            # GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 8000
+            readiness:
+              enabled: true
+              type: http
+              port: 8000
+            startup:
+              enabled: true
+              type: http
+              port: 8000
+  api:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        api:
+          enabled: true
+          primary: true
+          imageSelector: apiImage
+          args:
+            - --namespace={{ .Release.Namespace }}
+            - --metrics-scraper-service-name=kubernetes-dashboard-scraper
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            # GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 8000
+              path: /metrics
+            readiness:
+              enabled: true
+              type: http
+              port: 8000
+              path: /metrics
+            startup:
+              enabled: true
+              type: http
+              port: 8000
+              path: /metrics
+
+  auth:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        auth:
+          enabled: true
+          primary: true
+          imageSelector: authImage
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            # GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 8000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 8000
+            startup:
+              enabled: true
+              type: tcp
+              port: 8000
+
+  scraper:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        scraper:
+          enabled: true
+          primary: true
+          imageSelector: scraperImage
+          env:
+            CSRF_KEY:
+              secretKeyRef:
+                name: csrf
+                key: private.key
+
+            # GOMAXPROCS:
+            #     resourceFieldRef:
+            #       resource: limits.cpu
+            # GOMEMLIMIT:
+            #  valueFrom:
+            #    resourceFieldRef:
+            #      resource: limits.memory
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 8000
+            readiness:
+              enabled: true
+              type: http
+              port: 8000
+            startup:
+              enabled: true
+              type: http
+              port: 8000
+
+podOptions:
+  automountServiceAccountToken: true
+
+configmap:
+  kubernetes-dashboard-settings:
+    expandObjectName: false
+    enabled: true
+    data:
+      settings: '{"itemsPerPage":100}'
+  kubedashboard-konggateway:
+    enabled: true
+    expandObjectName: false
+    data:
+      kong.yml: |
+        _format_version: "3.0"
+        services:
+          - name: auth
+            host: kubernetes-dashboard-auth
+            port: 8000
+            protocol: http
+            routes:
+              - name: authLogin
+                paths:
+                  - /api/v1/login
+                strip_path: false
+              - name: authCsrf
+                paths:
+                  - /api/v1/csrftoken/login
+                strip_path: false
+              - name: authMe
+                paths:
+                  - /api/v1/me
+                strip_path: false
+          - name: api
+            host: kubernetes-dashboard-api
+            port: 8000
+            protocol: http
+            routes:
+              - name: api
+                paths:
+                  - /api
+                strip_path: false
+              - name: metrics
+                paths:
+                  - /metrics
+                strip_path: false
+          - name: web
+            host: kubernetes-dashboard-web
+            port: 8000
+            protocol: http
+            routes:
+              - name: root
+                paths:
+                  - /
+                strip_path: false
+
+secret:
+  csrf:
+    enabled: true
+    data:
+      private.key: dwpcRea9BZEaYQ2va/up6uL39GDFAY7bBpU4knT3wgeUNk9GPaiZjmisaKuLuEoKj5TCIQ7g+9ig07KpYc341ZbV3AJPl36YHSyx/Qv/n2yZT9XgpNoB2FM6f0gs8DquqSEuigxh/kHJREUiHQmQCk09SHmtdY3FpioU30ge69MCRmtDfvdh9XmytAb4u3uqxIfAd9BdJpGhg6m0eIAMyBtMtvZ2yzyTaZ2OuuKfspuQZe8ab2Bp+PHlK8Skq64E/RO2Uw4cnQGMqcAxatK3dEO2hmGXN2mnYXqAswKHHybAWlBUmTOrCHRncS77y2f40JOOmdhkFRDFIqgNT/yi7w==
+
+portal:
+  open:
+    enabled: true
+
+## TODO: Split into multiple rbacs
+## TODO: Implement these: https://github.com/kubernetes/dashboard/tree/master/charts/kubernetes-dashboard/templates/rbac/api
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [""]
+        resources: ["secrets"]
+        resourceNames:
+          [
+            "kubernetes-dashboard-key-holder",
+            "kubernetes-dashboard-certs",
+            "kubernetes-dashboard-csrf",
+          ]
+        verbs: ["get", "update", "delete"]
+        # Allow Dashboard to get and update 'kubernetes-dashboard-settings' config map.
+      - apiGroups: [""]
+        resources: ["configmaps"]
+        resourceNames: ["kubernetes-dashboard-settings"]
+        verbs: ["get", "update"]
+        # Allow Dashboard to get metrics.
+      - apiGroups: [""]
+        resources: ["services"]
+        resourceNames: ["heapster", "dashboard-metrics-scraper"]
+        verbs: ["proxy"]
+      - apiGroups: [""]
+        resources: ["services/proxy"]
+        resourceNames:
+          [
+            "heapster",
+            "http:heapster:",
+            "https:heapster:",
+            "dashboard-metrics-scraper",
+            "http:dashboard-metrics-scraper",
+          ]
+        verbs: ["get"]
+      - apiGroups: ["metrics.k8s.io"]
+        resources: ["pods", "nodes"]
+        verbs: ["get", "list", "watch"]
+      # Give all-access
+      - apiGroups: ["*"]
+        resources: ["*"]
+        verbs: ["*"]
+
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    targetSelectAll: true
+
+## Required Kong sub-chart with DBless configuration to act as a gateway
+## for our all containers.
+kong:
+  enabled: true
+  manager:
+    enabled: false
+  ## Configuration reference: https://docs.konghq.com/gateway/3.6.x/reference/configuration
+  env:
+    dns_order: LAST,A,CNAME,AAAA,SRV
+    plugins: "off"
+    nginx_worker_processes: 1
+  ingressController:
+    enabled: false
+  dblessConfig:
+    configMap: kubedashboard-konggateway
+  proxy:
+    type: ClusterIP
+    http:
+      enabled: false
+## TODO Pre-configure ingress if needed
+## Ingress hint:
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: kubdashboard-ingressroute
+#   namespace: kubernetes-dashboard
+# spec:
+#   entryPoints: [websecure]
+#   routes:
+#     - kind: Rule
+#       match: PathPrefix(`/kubernetes-dashboard`)
+#       services:
+#       - kind: Service
+#         name: kubernetes-dashboard-kong-proxy
+#         namespace: kubernetes-dashboard
+#         port: kong-proxy
+#       middlewares:
+#       - name: stripkubdashboard
+#         namespace: kubernetes-dashboard
+#
+# ---
+#
+# apiVersion: traefik.io/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: stripkubdashboard
+#   namespace: kubernetes-dashboard
+# spec:
+#   stripPrefix:
+#     prefixes:
+#       - "/kubernetes-dashboard"
+#     forceSlash: true
+
+#   kong:
+#      proxy:
+#        http:
+#          enabled: true

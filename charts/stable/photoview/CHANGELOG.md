@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [photoview-5.0.0](https://github.com/truecharts/charts/compare/photoview-4.0.49...photoview-5.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [papermerge-4.0.0](https://github.com/truecharts/charts/compare/papermerge-3.0.47...papermerge-4.0.0) (2022-11-10)

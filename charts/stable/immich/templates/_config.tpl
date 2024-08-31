@@ -5,20 +5,22 @@ configmap:
   server-config:
     enabled: true
     data:
-      SERVER_PORT: {{ .Values.service.main.ports.main.port | quote }}
+      IMMICH_PORT: {{ .Values.service.main.ports.main.port | quote }}
+      IMMICH_WORKERS_INCLUDE: api
 
   micro-config:
     enabled: true
     data:
-      MICROSERVICES_PORT: {{ .Values.service.microservices.ports.microservices.port | quote }}
+      IMMICH_PORT: {{ .Values.service.microservices.ports.microservices.port | quote }}
       REVERSE_GEOCODING_DUMP_DIRECTORY: {{ .Values.persistence.microcache.targetSelector.microservices.microservices.mountPath }}
+      IMMICH_WORKERS_EXCLUDE: api
 
   {{- if .Values.immich.enable_ml }}
   ml-config:
     enabled: true
     data:
       NODE_ENV: production
-      MACHINE_LEARNING_PORT: {{ .Values.service.machinelearning.ports.machinelearning.port | quote }}
+      IMMICH_PORT: {{ .Values.service.machinelearning.ports.machinelearning.port | quote }}
       MACHINE_LEARNING_CACHE_FOLDER: {{ .Values.persistence.mlcache.targetSelector.machinelearning.machinelearning.mountPath }}
       TRANSFORMERS_CACHE: {{ .Values.persistence.mlcache.targetSelector.machinelearning.machinelearning.mountPath }}
   {{- end }}
@@ -28,7 +30,7 @@ configmap:
     enabled: true
     data:
       NODE_ENV: production
-      LOG_LEVEL: {{ .Values.immich.log_level }}
+      IMMICH_LOG_LEVEL: {{ .Values.immich.log_level }}
       IMMICH_MACHINE_LEARNING_ENABLED: {{ .Values.immich.enable_ml | quote }}
       {{- if .Values.immich.enable_ml }}
       IMMICH_MACHINE_LEARNING_URL: {{ printf "http://%v-machinelearning:%v" $fname .Values.service.machinelearning.ports.machinelearning.port }}

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [gotify-9.0.0](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-9.0.0) (2022-11-10)

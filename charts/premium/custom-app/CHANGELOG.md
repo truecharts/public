@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [custom-app-6.0.0](https://github.com/truecharts/charts/compare/custom-app-5.1.100...custom-app-6.0.0) (2022-11-10)

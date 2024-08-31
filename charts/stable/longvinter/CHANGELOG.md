@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [longvinter-1.0.0](https://github.com/truecharts/charts/compare/longvinter-0.0.36...longvinter-1.0.0) (2022-11-10)

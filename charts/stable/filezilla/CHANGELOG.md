@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [filezilla-5.0.0](https://github.com/truecharts/charts/compare/filezilla-4.0.55...filezilla-5.0.0) (2022-11-10)

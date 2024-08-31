@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [st-reborn-server-1.0.0](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.28...st-reborn-server-1.0.0) (2022-11-10)

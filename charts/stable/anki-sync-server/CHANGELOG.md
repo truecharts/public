@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [anki-sync-server-1.0.0](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.21...anki-sync-server-1.0.0) (2022-11-10)

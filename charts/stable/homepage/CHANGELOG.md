@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [homepage-1.0.0](https://github.com/truecharts/charts/compare/homepage-0.0.17...homepage-1.0.0) (2022-11-10)

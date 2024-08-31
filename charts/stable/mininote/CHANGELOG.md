@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mininote-1.0.0](https://github.com/truecharts/charts/compare/mininote-0.0.34...mininote-1.0.0) (2022-11-10)

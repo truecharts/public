@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [kopia-3.0.0](https://github.com/truecharts/charts/compare/kopia-2.0.51...kopia-3.0.0) (2022-11-10)

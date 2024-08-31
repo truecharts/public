@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [beets-5.0.0](https://github.com/truecharts/charts/compare/beets-4.0.53...beets-5.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fleet-4.0.0](https://github.com/truecharts/charts/compare/fleet-3.0.48...fleet-4.0.0) (2022-11-10)

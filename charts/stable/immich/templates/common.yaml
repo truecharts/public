@@ -3,7 +3,9 @@
 
 {{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
-{{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
+{{- $main := .Values.workload.main.podSpec.containers.main -}}
+{{- $main = mustMergeOverwrite $main (include "immich.server" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "main" $main -}}
 
 {{/* Render Microservices Workload */}}
 {{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}

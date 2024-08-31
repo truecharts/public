@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [nzbget-12.0.0](https://github.com/truecharts/charts/compare/nzbget-11.0.43...nzbget-12.0.0) (2022-11-10)

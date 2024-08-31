@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [kerio-connect-1.0.0](https://github.com/truecharts/charts/compare/kerio-connect-0.0.34...kerio-connect-1.0.0) (2022-11-10)

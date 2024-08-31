@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [oscam-7.0.0](https://github.com/truecharts/charts/compare/oscam-6.0.40...oscam-7.0.0) (2022-11-10)

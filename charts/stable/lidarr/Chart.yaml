@@ -1,16 +1,15 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.3.2.4183
+appVersion: 2.5.2.4316
 dependencies:
   - name: common
-    version: 23.0.0
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,9 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: lidarr
 sources:
+  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/lidarr-develop
   - https://github.com/Lidarr/Lidarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
-  - https://ghcr.io/onedr0p/lidarr-develop
-  - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 22.1.0
+version: 23.2.4

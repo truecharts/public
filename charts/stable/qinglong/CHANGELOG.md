@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [qinglong-3.0.0](https://github.com/truecharts/charts/compare/qinglong-2.0.56...qinglong-3.0.0) (2022-11-10)

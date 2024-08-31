@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [synctube-1.0.0](https://github.com/truecharts/charts/compare/synctube-0.0.34...synctube-1.0.0) (2022-11-10)

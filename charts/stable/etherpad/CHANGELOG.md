@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [etherpad-9.0.0](https://github.com/truecharts/charts/compare/etherpad-8.0.49...etherpad-9.0.0) (2022-11-10)

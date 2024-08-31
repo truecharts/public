@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [dillinger-3.0.0](https://github.com/truecharts/charts/compare/dillinger-2.0.41...dillinger-3.0.0) (2022-11-10)

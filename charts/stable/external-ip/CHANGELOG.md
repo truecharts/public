@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [external-ip-1.0.0](https://github.com/truecharts/charts/compare/external-ip-0.0.35...external-ip-1.0.0) (2022-11-10)

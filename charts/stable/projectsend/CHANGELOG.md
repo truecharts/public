@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [projectsend-4.0.0](https://github.com/truecharts/charts/compare/projectsend-3.0.48...projectsend-4.0.0) (2022-11-10)

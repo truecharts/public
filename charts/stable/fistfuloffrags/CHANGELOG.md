@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fistfuloffrags-1.0.0](https://github.com/truecharts/charts/compare/fistfuloffrags-0.0.35...fistfuloffrags-1.0.0) (2022-11-10)

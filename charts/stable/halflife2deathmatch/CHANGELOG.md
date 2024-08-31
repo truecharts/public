@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [halflife2deathmatch-1.0.0](https://github.com/truecharts/charts/compare/halflife2deathmatch-0.0.35...halflife2deathmatch-1.0.0) (2022-11-10)

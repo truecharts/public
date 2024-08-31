@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [auto-yt-dl-1.0.0](https://github.com/truecharts/charts/compare/auto-yt-dl-0.0.35...auto-yt-dl-1.0.0) (2022-11-10)

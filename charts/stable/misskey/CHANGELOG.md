@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [misskey-1.0.0]misskey-1.0.0 (2022-11-10)

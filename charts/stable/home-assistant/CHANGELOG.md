@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [home-assistant-16.0.0](https://github.com/truecharts/charts/compare/home-assistant-15.0.71...home-assistant-16.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [libreddit-2.0.0](https://github.com/truecharts/charts/compare/libreddit-1.0.38...libreddit-2.0.0) (2022-11-10)

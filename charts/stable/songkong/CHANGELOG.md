@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [songkong-1.0.0](https://github.com/truecharts/charts/compare/songkong-0.0.35...songkong-1.0.0) (2022-11-10)

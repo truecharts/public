@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [sia-daemon-1.0.0](https://github.com/truecharts/charts/compare/sia-daemon-0.0.33...sia-daemon-1.0.0) (2022-11-10)

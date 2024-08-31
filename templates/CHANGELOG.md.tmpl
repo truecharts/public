@@ -1,0 +1,18 @@
+---
+title: Changelog
+pagefind: false
+---
+
+All history information can be found at [Github History](https://github.com/truecharts/charts/commits/master/charts/{{ .Train }}/{{ .Name }})
+
+:::tip
+
+If you need more than 2 scrolls to find your current version, please consider updating the chart as soon as possible.
+
+:::
+{{ range $key := .SortedVersions }}
+## {{ $key }} • [Train: {{ (index $.Versions $key).Train }}]
+{{ range $commit := (index $.Versions $key).SortedCommits }}
+- {{ printf "%s • [`%s`](https://github.com/truecharts/charts/commit/%s) • [@%s] (%s)" $commit.Message (slice $commit.CommitHash 0 7) $commit.CommitHash $commit.Author.Name $commit.Author.Date -}}
+{{ end }}
+{{ end -}}

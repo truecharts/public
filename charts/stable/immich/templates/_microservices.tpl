@@ -13,10 +13,6 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: image
-      command: /bin/sh
-      args:
-        - -c
-        - /usr/src/app/start-microservices.sh
       securityContext:
         capabilities:
           disableS6Caps: true
@@ -30,14 +26,23 @@ podSpec:
       probes:
         readiness:
           enabled: true
-          type: tcp
-          port: {{ .Values.service.microservices.ports.microservices.port }}
+          type: exec
+          command:
+            - npm
+            - run
+            - healthcheck
         liveness:
           enabled: true
-          type: tcp
-          port: {{ .Values.service.microservices.ports.microservices.port }}
+          type: exec
+          command:
+            - npm
+            - run
+            - healthcheck
         startup:
           enabled: true
-          type: tcp
-          port: {{ .Values.service.microservices.ports.microservices.port }}
+          type: exec
+          command:
+            - npm
+            - run
+            - healthcheck
 {{- end -}}

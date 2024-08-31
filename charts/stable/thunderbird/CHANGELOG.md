@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [thunderbird-1.0.0](https://github.com/truecharts/charts/compare/thunderbird-0.0.42...thunderbird-1.0.0) (2022-11-10)

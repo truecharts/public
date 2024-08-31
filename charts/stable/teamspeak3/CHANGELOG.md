@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [teamspeak3-5.0.0](https://github.com/truecharts/charts/compare/teamspeak3-4.0.45...teamspeak3-5.0.0) (2022-11-10)
