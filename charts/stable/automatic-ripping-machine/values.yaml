@@ -10,9 +10,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     allowPrivilegeEscalation: true
-    capabilities:
-      add:
-        - CHOWN
 
 service:
   main:
