@@ -33,11 +33,11 @@ persistence:
 portal:
   open:
     enabled: true
-cnpg:
-  main:
-    enabled: true
-    user: watchyourlan
-    database: watchyourlan
+# cnpg:
+#   main:
+#     enabled: true
+#     user: watchyourlan
+#     database: watchyourlan
 workload:
   main:
     podSpec:
@@ -55,7 +55,8 @@ workload:
               path: /
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
-            USE_DB: sqlite  # unsure on postgres format for PG_CONNECT
+            # unsure on postgres format for PG_CONNECT
+            USE_DB: sqlite
             # User Defined
             HOST: "{{ .Values.watchyourlan.gui_ip }}"
             IFACES: '{{ join " " .Values.watchyourlan.interfaces }}'
