@@ -5,10 +5,10 @@ image:
 
 securityContext:
   container:
-    readOnlyRootFilesystem: false
     runAsNonRoot: false
-    runAsUser: 568
-    runAsGroup: 568
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
     allowPrivilegeEscalation: true
 
 service:
@@ -22,12 +22,27 @@ service:
 workload:
   main:
     podSpec:
+      # force 568:568 for /home/arm
+      initContainers:
+        arm-perms:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - c
+          args:
+            - |
+              echo "Setting ownership to 568:568 on data directory [/home/arm] ..."
+              chown 568:568 /home/arm | echo "Failed to set ownership on data directory [/home/arm]"
+
+              echo "Finished."
       containers:
         main:
           env:
             # default media perms
-            ARM_UID: 568
-            ARM_GID: 568
+            ARM_UID: "{{ .Values.securityContext.container.PUID }}"
+            ARM_GID: "{{ .Values.securityContext.pod.fsGroup }}"
 
 persistence:
   config:
@@ -36,6 +51,10 @@ persistence:
   arm:
     enabled: true
     mountPath: "/home/arm"
+    targetSelector:
+      main:
+        main: {}
+        arm-perms: {}
 
 portal:
   open:
