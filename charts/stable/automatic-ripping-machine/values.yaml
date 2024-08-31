@@ -26,8 +26,8 @@ workload:
         main:
           env:
             # default media perms
-            ARM_UID: "{{ .Values.securityContext.pod.fsGroup }}"
-            ARM_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            ARM_UID: 0
+            ARM_GID: 568
 
 persistence:
   config:
