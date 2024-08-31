@@ -37,7 +37,7 @@ secret:
           type: redis
 
         service:
-          interface: {{ .Values.vikunja.service.interface | quote }}
+          interface: {{ printf ":%v" .Values.service.main.ports.main.port }}
           JWTSecret: {{ $jwtSecret }}
           timezone: {{ .Values.TZ | quote }}
           {{- /* Multiply by 1, so large integers are not rendered in scientific notation
