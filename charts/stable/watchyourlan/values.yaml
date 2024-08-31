@@ -49,7 +49,7 @@ workload:
               type: http
               path: /
           env:
-            GUIPORT: "{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
             DBPATH: /data/db.sqlite
             # User Defined
             GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
