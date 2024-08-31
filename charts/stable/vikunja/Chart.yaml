@@ -6,17 +6,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.22.1
+appVersion: 0.24.2
 dependencies:
   - name: common
-    version: 24.1.5
+    version: 24.1.14
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 15.1.5
+    version: 15.2.2
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -28,7 +28,7 @@ home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.webp
 keywords:
   - vikunja
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,9 +36,7 @@ maintainers:
 name: vikunja
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-  - https://hub.docker.com/_/nginx
-  - https://hub.docker.com/r/vikunja/api
-  - https://hub.docker.com/r/vikunja/frontend
+  - https://hub.docker.com/r/vikunja/vikunja
   - https://vikunja.io/docs
 type: application
-version: 15.2.8
+version: 16.0.1

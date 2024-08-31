@@ -75,16 +75,6 @@ service:
         port: 25575
 
 mcbackup:
-  enabled: true
-  initial_delay: 2m
-  backup_interval: 24h
-  player_online_check_interval: 5m
-  prune_backups_days: 7
-  pause_if_no_players: false
-  link_latest: false
-  # values gzip,bzip2,zstd
-  tar_compress_method: gzip
-  # White spaced separated list
   zstd_params:
     - --long=25
     - --single-thread
@@ -204,13 +194,7 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
-  mcbackup:
-    enabled: true
-    type: Deployment
-    podSpec:
-      containers:
         mcbackup:
-          primary: true
           enabled: true
           imageSelector: mcBackupImage
           probes:
@@ -228,16 +212,19 @@ workload:
             RCON_HOST: '{{ printf "%s-rcon" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
-            INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
-            BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
-            PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
-            PAUSE_IF_NO_PLAYERS: "{{ .Values.mcbackup.pause_if_no_players }}"
-            PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
-            LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
-            TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
+            SERVER_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+
             ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
             EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
-            SERVER_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+
+            INITIAL_DELAY: "2m"
+            BACKUP_INTERVAL: "24h"
+            PRUNE_BACKUPS_DAYS: "7"
+            PAUSE_IF_NO_PLAYERS: "false"
+            PLAYERS_ONLINE_CHECK_INTERVAL: "5m"
+            LINK_LATEST: "false"
+            TAR_COMPRESS_METHOD: "zstd"
+
 
 persistence:
   data:
@@ -246,14 +233,13 @@ persistence:
       main:
         main:
           mountPath: /data
-      mcbackup:
         mcbackup:
           mountPath: /data
           readOnly: true
   backups:
     enabled: true
     targetSelector:
-      mcbackup:
+      main:
         mcbackup:
           mountPath: /backups
 
