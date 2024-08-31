@@ -41,6 +41,19 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
+          probes:
+            readiness:
+              enabled: true
+              type: http
+              path: /health
+            liveness:
+              enabled: true
+              type: http
+              path: /health
+            startup:
+              enabled: true
+              type: http
+              path: /health
 
 persistence:
   libraries:
