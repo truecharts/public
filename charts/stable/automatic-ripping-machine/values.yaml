@@ -5,8 +5,9 @@ image:
 
 securityContext:
   container:
-    runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
     runAsGroup: 0
     allowPrivilegeEscalation: true
 
@@ -25,7 +26,7 @@ workload:
         main:
           env:
             # default media perms
-            ARM_UID: "{{ .Values.securityContext.container.PUID }}"
+            ARM_UID: "{{ .Values.securityContext.pod.fsGroup }}"
             ARM_GID: "{{ .Values.securityContext.pod.fsGroup }}"
 
 persistence:
