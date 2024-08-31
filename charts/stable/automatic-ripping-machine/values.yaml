@@ -33,11 +33,11 @@ workload:
           args:
             - -c
             - |
-              echo "Setting ownership to 568:568 on data directory [/home/arm] ..."
-              chown 568:568 /home/arm
+              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/home/arm] ..."
+              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /home/arm
 
-              echo "Setting ownership to 568:568 on data directory [/etc/arm/config] ..."
-              chown 568:568 /etc/arm/config
+              echo "Setting ownership to {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} on data directory [/etc/arm/config] ..."
+              chown {{ .Values.securityContext.container.PUID }}:{{ .Values.securityContext.pod.fsGroup }} /etc/arm/config
 
               echo "Finished."
       containers:
@@ -51,6 +51,10 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/arm/config"
+    targetSelector:
+      main:
+        main: {}
+        arm-perms: {}
   arm:
     enabled: true
     mountPath: "/home/arm"
