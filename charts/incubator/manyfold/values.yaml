@@ -1,6 +1,6 @@
 image:
-  repository: ghcr.io/floppy/van_dam
-  tag: 0.54.1@sha256:27c28fe82ef1e5992590ccd30725ee74f9fe13177ec7946dc6e4dbaec0109751
+  repository: ghcr.io/manyfold3d/manyfold
+  tag: 0.76.0@sha256:5c4c847e71d29beef74cc18bd6445b91269511c0ee2bf5d2bdc49c414377f2d2
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -24,19 +24,26 @@ workload:
       containers:
         main:
           env:
-            DATABASE_URL:
+            DATABASE_ADAPTER: postgresql
+            DATABASE_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD: 
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: manyfold-secrets
+                key: SECRET_KEY_BASE
             REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
-            SECRET_KEY_BASE:
-              secretKeyRef:
-                name: vandam-secrets
-                key: SECRET_KEY_BASE
 
 persistence:
   libraries:
@@ -46,8 +53,8 @@ persistence:
 cnpg:
   main:
     enabled: true
-    user: vandam
-    database: vandam
+    user: manyfold
+    database: manyfold
 
 redis:
   enabled: true
