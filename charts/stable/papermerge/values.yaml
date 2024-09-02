@@ -24,7 +24,7 @@ workload:
             DJANGO_SUPERUSER_EMAIL: admin@example.com
             DJANGO_SUPERUSER_USENAME: admin
             DJANGO_SUPERUSER_PASSWORD: my_admin_password123
-            PAPERMERGE__MAIN__SECRET_KEY:
+            PAPERMERGE__SECURITY__SECRET_KEY:
               secretKeyRef:
                 name: papermerge-secrets
                 key: PAPERMERGE__MAIN__SECRET_KEY
