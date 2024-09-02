@@ -4,9 +4,9 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 0.54.1
+appVersion: 0.76.1
 dependencies:
   - name: common
     version: 24.1.5
@@ -16,28 +16,29 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.1.3
+    version: 15.2.2
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
     import-values: []
-deprecated: true
-description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
-home: https://truecharts.org/charts/stable/van-dam
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/van-dam.webp
+deprecated: false
+description: Manyfold is an open source, self-hosted web application for managing a collection of 3d models, particularly focused on 3d printing.
+home: https://truecharts.org/charts/incubator/manyfold
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/manyfold.webp
 keywords:
-  - vanDAM
+  - manyfold
   - media
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: van-dam
+name: manyfold
 sources:
-  - https://ghcr.io/floppy/van_dam
-  - https://github.com/Floppy/van_dam
-  - https://github.com/truecharts/charts/tree/master/charts/stable/van-dam
+  - https://manyfold.app/
+  - https://ghcr.io/manyfold3d/manyfold
+  - https://github.com/manyfold3d/manyfold
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/manyfold
 type: application
-version: 7.0.0
+version: 0.0.1
