@@ -39,7 +39,4 @@ workload:
             APACHE2_PORT: "980"
             CRON_SCHEDULE: "0 1 * * *"
             FORCE_UPDATE: "false"
-            UID: "{{ .Values.securityContext.container.PUID }}"
-            GID: "{{ .Values.securityContext.pod.fsGroup }}"
-            UMASK: "{{ .Values.securityContext.container.UMASK }}"
             DATA_PERM: "770"
