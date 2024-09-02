@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/readarr-develop
   pullPolicy: IfNotPresent
-  tag: 0.3.32.2587@sha256:df32d1acc943577c781c90afd86394a5fddf807d0f41c35717cba2c21492f865
+  tag: 0.3.32.2587@sha256:1ffa6357a1e0f2dd9c608a1a2d4064e09b76d834059dda38414c734146cfa201
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -15,14 +15,12 @@ service:
       main:
         port: 8787
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 8788
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -44,16 +42,8 @@ workload:
           env:
             READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             READARR__AUTHENTICATION_METHOD: "None"
-  exportarr:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - readarr
@@ -89,7 +79,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
