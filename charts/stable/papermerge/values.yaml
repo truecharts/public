@@ -9,8 +9,8 @@ service:
   main:
     ports:
       main:
-        targetPort: 12000
-        port: 10141
+        targetPort: 80
+        port: 12000
 workload:
   main:
     podSpec:
@@ -32,9 +32,10 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
-  varrun:
+    mountPath: "/core_app/index_db"
+  media:
     enabled: true
+    mountPath: "/core_app/media"
 redis:
   enabled: true
   redisUsername: papermerge
