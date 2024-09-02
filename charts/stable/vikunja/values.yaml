@@ -1,14 +1,7 @@
 image:
-  repository: vikunja/api
-  tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
+  repository: vikunja/vikunja
+  tag: 0.24.2@sha256:c31c7d6cad49038ab8a7d1414845d4c45539b43dd6ddd082bcd148e6fcd7b01c
   pullPolicy: IfNotPresent
-frontendImage:
-  repository: vikunja/frontend
-  tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
-  pullPolicy: IfNotPresent
-nginxImage:
-  repository: nginx
-  tag: 1.27.1@sha256:1540e37eebb9abc5afa4256de1bade6542d50bf69b61b1dd855cb7804aaaf444
 workload:
   main:
     podSpec:
@@ -17,42 +10,16 @@ workload:
           probes:
             liveness:
               type: http
-              port: 3456
+              port: 10220
               path: /health
             readiness:
               type: http
-              port: 3456
+              port: 10220
               path: /health
             startup:
               type: http
-              port: 3456
+              port: 10220
               path: /health
-        frontend:
-          enabled: true
-          imageSelector: frontendImage
-          probes:
-            liveness:
-              type: http
-              port: 80
-            readiness:
-              type: http
-              port: 80
-            startup:
-              type: http
-              port: 80
-        proxy:
-          enabled: true
-          imageSelector: nginxImage
-          probes:
-            liveness:
-              type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
-            readiness:
-              type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
-            startup:
-              type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
 vikunja:
   service:
     jwtttl: 259200
@@ -165,16 +132,6 @@ persistence:
   files:
     enabled: true
     mountPath: /app/vikunja/files
-  vikunja-nginx:
-    enabled: true
-    noMount: true
-    type: configmap
-    objectName: nginx-config
-    targetSelector:
-      main:
-        proxy:
-          mountPath: /etc/nginx/conf.d/default.conf
-          subPath: nginx-config
   vikunja-config:
     enabled: true
     type: secret

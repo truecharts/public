@@ -1,6 +1,6 @@
 image:
   repository: aceberg/watchyourlan
-  tag: 1.0.6@sha256:c42ce1dcb1af6dac44d3674f24511558cf89b99982cee8843016fd8ad3935871
+  tag: 2.0.0@sha256:c1bc72021443ddbea860b78ffeb871ab9a3edec1b15e35413c84470eee5456f3
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -17,8 +17,8 @@ watchyourlan:
   gui_ip: "0.0.0.0"
   interfaces:
     - enp1s0
-  theme: darkly
-  timeout: 300
+  theme: sand
+  timeout: 120
   shoutrrr_url: ""
 service:
   main:
@@ -33,6 +33,11 @@ persistence:
 portal:
   open:
     enabled: true
+cnpg:
+  main:
+    enabled: true
+    user: watchyourlan
+    database: watchyourlan
 workload:
   main:
     podSpec:
@@ -49,11 +54,13 @@ workload:
               type: http
               path: /
           env:
-            GUIPORT: "{{ .Values.service.main.ports.main.port }}"
-            DBPATH: /data/db.sqlite
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # unsure on postgres format for PG_CONNECT
+            PG_CONNECT: '{{ printf "postgres://%s:%s@%s:5432/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password .Values.cnpg.main.creds.host .Values.cnpg.main.database }}'
+            USE_DB: postgres
             # User Defined
-            GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
-            IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
+            HOST: "{{ .Values.watchyourlan.gui_ip }}"
+            IFACES: '{{ join " " .Values.watchyourlan.interfaces }}'
             THEME: "{{ .Values.watchyourlan.theme }}"
             TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
             SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
