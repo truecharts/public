@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
-{{- define "vandam.secrets" -}}
-{{- $secretName := (printf "%s-vandam-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- define "manyfold.secrets" -}}
+{{- $secretName := (printf "%s-manyfold-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $secretKey := randAlphaNum 64 -}}
 
