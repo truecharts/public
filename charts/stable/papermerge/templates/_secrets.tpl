@@ -5,9 +5,9 @@
 
 {{- $pass_key := randAlphaNum 32 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
-  {{- $pass_key = index .data "PAPERMERGE__MAIN__SECRET_KEY" | b64dec -}}
+  {{- $pass_key = index .data "PAPERMERGE__SECURITY__SECRET_KEY" | b64dec -}}
 {{- end }}
 enabled: true
 data:
-  PAPERMERGE__MAIN__SECRET_KEY: {{ $pass_key }}
+  PAPERMERGE__SECURITY__SECRET_KEY: {{ $pass_key }}
 {{- end -}}
