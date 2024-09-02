@@ -24,7 +24,7 @@ workload:
               secretKeyRef:
                 name: papermerge-secrets
                 key: PAPERMERGE__SECURITY__SECRET_KEY
-            PAPERMERGE__AUTH__USERNAME: admin@example.com
+            PAPERMERGE__AUTH__USERNAME: admin
             PAPERMERGE__AUTH__PASSWORD: admin
             PAPERMERGE__DATABASE__URL: '{{ printf "postgres://%s:%s@%s:5432/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password .Values.cnpg.main.creds.host .Values.cnpg.main.database }}'
             PAPERMERGE__REDIS__URL:
