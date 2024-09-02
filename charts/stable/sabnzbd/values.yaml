@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/sabnzbd
   pullPolicy: IfNotPresent
-  tag: 4.3.2@sha256:8e70a877c77805dfe93ce30a8da3362fbddf221ef806951d4e4634bb80dc87b5
+  tag: 4.3.3@sha256:4ad73733ae11eb03852ba99d6e49bff93f8087f9f77b9b193a1063c3f6f31482
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -12,14 +12,12 @@ service:
       main:
         port: 10097
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
-    targetSelector: exportarr
     ports:
       metrics:
         enabled: true
         port: 8990
-        targetSelector: exportarr
 workload:
   main:
     podSpec:
@@ -28,16 +26,8 @@ workload:
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
-  exportarr:
-    enabled: "{{ .Values.metrics.main.enabled }}"
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
         exportarr:
-          primary: true
-          enabled: true
+          enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
           args:
             - sabnzbd
@@ -69,7 +59,6 @@ persistence:
       main:
         main:
           mountPath: /config
-      exportarr:
         exportarr:
           mountPath: /config
           readOnly: true
