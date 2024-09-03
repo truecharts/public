@@ -28,7 +28,7 @@ workload:
             DATABASE_HOST: "{{ .Values.cnpg.main.creds.host }}"
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
-            DATABASE_PASSWORD: 
+            DATABASE_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
