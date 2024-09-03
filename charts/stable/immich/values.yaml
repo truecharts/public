@@ -1,22 +1,22 @@
 image:
   repository: altran1502/immich-server
-  tag: v1.113.0@sha256:9d1c9ab40f3171f1dc06d5c6bc32541ff4b0835c1d217ff5cc61c85e26d2452f
+  tag: v1.113.1@sha256:b1922303018a9bece29cce8d196ae4f66d13afdf6ab109a19e1ed50663bbf98c
   pullPolicy: IfNotPresent
 
 mlImage:
   repository: altran1502/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.113.0@sha256:f7964140e00bd615497d37040eb907a7cd87db6f06baea784d411cda572a29df
+  tag: v1.113.1@sha256:cae3c8d907d8b35160c02116f292c55ba91c489050abbd0fa2db2e5db70ed1a7
 
 mlCudaImage:
   repository: altran1502/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.113.0-cuda@sha256:5a87b7ac1d72c044e59e32c653930ef28ef4953fc3c76810836a88d00f3680ca
+  tag: v1.113.1-cuda@sha256:4ca14c5dade91cd6f88f848a16db694a0fe02726797e3d3d974db3a38204d156
 
 mlOpenvinoImage:
   repository: altran1502/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.113.0-openvino@sha256:8809d4b01fb0922010f3f216866587d45b37c827453fa3a21b7ec095b53d9583
+  tag: v1.113.1-openvino@sha256:37d72205311059b71daafa9316a707a6b7482a392bd245b4ed64e3ed1e4b56b1
 
 securityContext:
   container:
