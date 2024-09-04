@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/wg-easy/wg-easy
   pullPolicy: IfNotPresent
-  tag: 14@sha256:f6c2587da3fdc9d5927743fb4a92cff42d690b182396ffd0cdad034becb41053
+  tag: 14@sha256:66352ccb4b5095992550aa567df5118a5152b6ed31be34b0a8e118a3c3a35bf5
 securityContext:
   container:
     PUID: 0
@@ -47,7 +47,8 @@ workload:
             WG_DEFAULT_ADDRESS: "10.8.0.x"
             WG_DEFAULT_DNS: "1.1.1.1"
             WG_ALLOWED_IPS: "0.0.0.0/0, ::/0"
-            PASSWORD: "secretpass"
+            # PASSWORD_HASH uses bcrypt. You can create a hash at https://bcrypt.online/
+            PASSWORD_HASH: '$2y$12$iPAVrWmmVshBbr6CpJWGw.wlpaulOsVMpb.Tdo53xnNrpZt.T9odK'
             LANG: "en"
             UI_TRAFFIC_STATS: "false"
 persistence:
