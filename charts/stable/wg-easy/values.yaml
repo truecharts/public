@@ -48,7 +48,7 @@ workload:
             WG_DEFAULT_DNS: "1.1.1.1"
             WG_ALLOWED_IPS: "0.0.0.0/0, ::/0"
             # PASSWORD_HASH uses bcrypt. You can create a hash at https://bcrypt.online/
-            PASSWORD_HASH: '$2y$12$iPAVrWmmVshBbr6CpJWGw.wlpaulOsVMpb.Tdo53xnNrpZt.T9odK'
+            PASSWORD_HASH: "$2y$12$iPAVrWmmVshBbr6CpJWGw.wlpaulOsVMpb.Tdo53xnNrpZt.T9odK"
             LANG: "en"
             UI_TRAFFIC_STATS: "false"
 persistence:
