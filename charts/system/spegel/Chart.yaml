@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.6
+    version: 24.1.15
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: spegel
-    version: v0.0.23
+    version: v0.0.24
     repository: oci://ghcr.io/spegel-org/helm-charts
     condition: ""
     alias: spegel
