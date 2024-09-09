@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.6
+    version: 24.1.15
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: csi-driver-nfs
-    version: v4.7.0
+    version: v4.8.0
     repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts/
     condition: ""
     alias: csi-driver-nfs

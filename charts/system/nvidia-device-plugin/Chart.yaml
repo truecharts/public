@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.6
+    version: 24.1.15
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: nvidia-device-plugin
-    version: 0.15.1
+    version: 0.16.2
     repository: https://nvidia.github.io/k8s-device-plugin
     condition: ""
     alias: nvdp
