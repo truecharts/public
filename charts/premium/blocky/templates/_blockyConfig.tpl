@@ -120,13 +120,11 @@ bootstrapDns:
   {{- end }}
 {{- end }}
 
-{{- if or .Values.filtering.filtering }}
+{{- if .Values.filtering.queryTypes }}
 filtering:
-{{- if .Values.filtering.ips }}
   queryTypes:
-{{- range $id, $value := .Values.filtering.ips }}
-    - {{ $value }}
-{{- end }}
+{{- range .Values.filtering.queryTypes }}
+    - {{ . }}
 {{- end }}
 {{- end }}
 
