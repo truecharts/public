@@ -123,9 +123,9 @@ bootstrapDns:
 {{- if .Values.filtering.queryTypes }}
 filtering:
   queryTypes:
-{{- range .Values.filtering.queryTypes }}
+  {{- range .Values.filtering.queryTypes }}
     - {{ . }}
-{{- end }}
+  {{- end }}
 {{- end }}
 
 {{- if or .Values.customDNS.filterUnmappedTypes .Values.customDNS.customTTL .Values.customDNS.rewrite .Values.customDNS.mapping }}
