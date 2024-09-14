@@ -17,3 +17,13 @@ service:
 portal:
   open:
     enabled: true
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /api/prometheus
+    targetSelector: main
+    prometheusRule:
+      enabled: false
