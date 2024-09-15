@@ -50,5 +50,5 @@ workload:
             serverPort: "{{ .Values.service.comm.ports.comm.port }}"
             # User Defined
             internalNode: true
-            serverIP: "localhost"
+            serverIP: "127.0.0.1"
             nodeID: "Internal Node"
