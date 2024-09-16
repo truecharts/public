@@ -21,7 +21,7 @@ service:
         protocol: udp
       maintcp:
         enabled: true
-        targetPort: 7777
+        targetPort: "{{ .Values.service.main.ports.main.targetPort }}"
         port: "{{ .Values.service.main.ports.main.port }}"
         protocol: tcp
 portal:
