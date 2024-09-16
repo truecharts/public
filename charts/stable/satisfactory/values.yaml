@@ -25,6 +25,12 @@ service:
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 workload:
   main:
     podSpec:
@@ -38,7 +44,7 @@ workload:
             MAXOBJECTS: 2162688
             MAXPLAYERS: 4
             MAXTICKRATE: 30
-            ROOTLESS: true
+            ROOTLESS: false
             SERVERGAMEPORT: "{{ .Values.service.main.ports.main.port }}"
             SERVERIP: "0.0.0.0"
             SERVERSTREAMING: true
