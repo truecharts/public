@@ -16,12 +16,10 @@ service:
     ports:
       main:
         enabled: true
-        targetPort: 7777
         port: 7777
         protocol: udp
       maintcp:
         enabled: true
-        targetPort: "{{ .Values.service.main.ports.main.targetPort }}"
         port: "{{ .Values.service.main.ports.main.port }}"
         protocol: tcp
 portal:
@@ -54,7 +52,7 @@ workload:
             MAXPLAYERS: 4
             MAXTICKRATE: 30
             ROOTLESS: false
-            SERVERGAMEPORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            SERVERGAMEPORT: "{{ .Values.service.main.ports.main.port }}"
             SERVERIP: "0.0.0.0"
             SERVERSTREAMING: true
             SKIPUPDATE: false
