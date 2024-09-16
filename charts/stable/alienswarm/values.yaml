@@ -48,7 +48,10 @@ workload:
           probes:
             liveness:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
             readiness:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
             startup:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
