@@ -17,11 +17,11 @@ service:
       main:
         enabled: true
         port: 7777
-        protocol: udp
-      maintcp:
+        protocol: tcp
+      mainudp:
         enabled: true
         port: "{{ .Values.service.main.ports.main.port }}"
-        protocol: tcp
+        protocol: udp
 portal:
   open:
     enabled: false
@@ -36,16 +36,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              port: "{{ .Values.service.main.ports.main.port }}"
-              type: tcp
-            readiness:
-              port: "{{ .Values.service.main.ports.main.port }}"
-              type: tcp
-            startup:
-              port: "{{ .Values.service.main.ports.main.port }}"
-              type: tcp
           env:
             AUTOSAVENUM: 5
             DEBUG: false
