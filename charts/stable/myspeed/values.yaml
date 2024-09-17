@@ -14,6 +14,10 @@ service:
     ports:
       main:
         port: 5216
+persistence:
+  data:
+    enabled: true
+    mountPath: /myspeed/data
 portal:
   open:
     enabled: true
