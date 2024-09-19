@@ -36,6 +36,38 @@ workload:
     podSpec:
       containers:
         main:
+          ports:
+          - name: game
+            containerPort: {{ .Values.service.main.ports.main.port }}
+          probes:
+            liveness:
+              enabled: true
+              tcpSocket:
+                port: game
+              initialDelaySeconds: 5
+              timeoutSeconds: 1
+              periodSeconds: 5
+              failureThreshold: 3
+              successThreshold: 1
+            readiness:
+              enabled: true
+              exec:
+                command:
+                - bash
+                - /healthcheck.sh
+              initialDelaySeconds: 5
+              timeoutSeconds: 1
+              periodSeconds: 5
+              failureThreshold: 3
+              successThreshold: 1
+            startup:
+              enabled: true
+              exec:
+                command:
+                  - sh
+                  - -c
+                  - test -f /config/gamefiles/FactoryGame/Saved/Logs/FactoryGame.log
+              initialDelaySeconds: 10
           env:
             AUTOSAVENUM: 5
             DEBUG: false
