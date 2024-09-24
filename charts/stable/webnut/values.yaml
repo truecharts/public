@@ -28,3 +28,7 @@ workload:
             UPS_PORT: 3493
             UPS_USER: monuser
             UPS_PASSWORD: secret
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
