@@ -17,7 +17,7 @@ env:
 jobs:
   lint:
     name: Lint Common
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -53,7 +53,7 @@ jobs:
     needs:
       - lint
     name: Unit Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       helmUnitVersion: 0.5.0
     strategy:
@@ -96,7 +96,7 @@ jobs:
     needs:
       - lint
     name: Install Charts
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
