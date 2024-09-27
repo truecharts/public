@@ -5,7 +5,7 @@ image:
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-ffmpeg-core@sha256:612c69f08e2012a3b7b1c7d73e03b482cb73891b7d6a7d1872c6db99d2335c50
+  tag: v2.21.1-ffmpeg-core@sha256:e0d92d06f3d46c173c29e0e94912d0435fa9d36b2d2cc7d2ee7991a2719ffd12
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -13,7 +13,7 @@ cublasCuda12Image:
 cublasCuda12FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-cublas-cuda12-ffmpeg-core@sha256:d820afd3b708b4c2256536a1185bf6ee09c0e1a7f40f79154f78444c1874dde9
+  tag: v2.21.1-cublas-cuda12-ffmpeg-core@sha256:fd2052ccf90141035dee0a7c8d1e90677bd0bf36d8a67f33c0589570180fa97f
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -21,19 +21,19 @@ cublasCuda11Image:
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-cublas-cuda11-ffmpeg-core@sha256:97a44c583b51a8916ef8a7d98e003238d58f1d97974b4f828d5eba7c019518eb
+  tag: v2.21.1-cublas-cuda11-ffmpeg-core@sha256:0a64deb73e70f79291434e029f3b5b7b3abab63303965662cdef8ce344f95c88
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-aio-gpu-nvidia-cuda-12@sha256:d9343dfee13796666d2ff7725afeb6440742ced3091d9e2521b01f3c4baa624c
+  tag: v2.21.1-aio-gpu-nvidia-cuda-12@sha256:83ef278b61674a6223907e2b121237af381be65eaaa7c306b0e5df202f53ed03
 allInOneCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-aio-gpu-nvidia-cuda-11@sha256:4cc7db08beaaee87f0eca31ff1395c38ce9e06e562640c247fdadc3956ce57af
+  tag: v2.21.1-aio-gpu-nvidia-cuda-11@sha256:90e2dcf50e697224ca3c6cdae1773730a8ca24524b30ef9e8ccfa2e73eece91c
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.21.0-aio-cpu@sha256:b4e5c8507c4b1aef84d2367ab142b7fc0519ccac9e8bdbb2965d5abb6a5001de
+  tag: v2.21.1-aio-cpu@sha256:1ddb2469b7cc0d0636a3d2e0e1965a1d3e76344cf112b3974af462bf4348c192
 securityContext:
   container:
     runAsNonRoot: false
