@@ -57,7 +57,7 @@ objectData: The object data to be used to render the container.
             {{- $data = (get $data $name) -}}
 
             {{- if not $data -}}
-              {{- fail (printf "Container - Expected in [env] the referenced %s [%s] to be defined" (camelcase $item) $name) -}}
+              {{- fail (printf "Container - Expected in [env] the referenced %s [%s] to be defined" ($item | camelcase | title) $name) -}}
             {{- end -}}
 
             {{- $found := false -}}
@@ -68,7 +68,7 @@ objectData: The object data to be used to render the container.
             {{- end -}}
 
             {{- if not $found -}}
-              {{- fail (printf "Container - Expected in [env] the referenced key [%s] in %s [%s] to be defined" $obj.key (camelcase $item) $name) -}}
+              {{- fail (printf "Container - Expected in [env] the referenced key [%s] in %s [%s] to be defined" $obj.key ($item | camelcase | title) $name) -}}
             {{- end -}}
 
             {{- $name = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $name) -}}

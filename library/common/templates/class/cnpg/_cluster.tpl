@@ -143,7 +143,7 @@
   {{- $imageName := $objectData.cluster.imageName -}}
   {{- if not $imageName -}}
     {{/* Ensure version and container tracking */}}
-    {{- $imageType := camelcase ($objectData.type | default "postgres") -}}
+    {{- $imageType := ($objectData.type | default "postgres") | camelcase | title -}}
     {{- if eq $imageType "Postgres" -}}
       {{- $imageType = "" -}}
     {{- end -}}

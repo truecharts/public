@@ -7,13 +7,15 @@ backup:
   {{- end }}
   retentionPolicy: {{ $objectData.backups.retentionPolicy }}
   barmanObjectStore:
-    wal:
-      compression: gzip
-      encryption: AES256
     data:
-      compression: gzip
-      encryption: AES256
       jobs: {{ $objectData.backups.jobs | default 2 }}
+  {{- if and $objectData.backups.encryption $objectData.backups.encryption.enabled }}
+      compression: "gzip"
+      encryption: "AES256"
+    wal:
+      compression: "gzip"
+      encryption: "AES256"
+  {{- end -}}
   {{/* Fetch provider data */}}
   {{/* Get the creds defined in backup.$provider */}}
   {{- $creds := (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}

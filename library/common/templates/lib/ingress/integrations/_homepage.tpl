@@ -15,7 +15,7 @@
 
     {{- include "tc.v1.common.lib.ingress.integration.homepage.validation" (dict "objectData" $objectData) -}}
 
-    {{- $name := $homepage.name | default ($rootCtx.Release.Name | camelcase) -}}
+    {{- $name := $homepage.name | default ($rootCtx.Release.Name | camelcase | title) -}}
     {{- $desc := $homepage.description | default $rootCtx.Chart.Description -}}
     {{- $icon := $homepage.icon | default $rootCtx.Chart.Icon -}}
     {{- $defaultType := $rootCtx.Chart.Name | lower -}}

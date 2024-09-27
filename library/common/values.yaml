@@ -1092,6 +1092,8 @@ cnpg:
     backups:
       enabled: false # You need to configure backups manually, so backups are disabled by default.
 
+      encryption:
+        enabled: false
       ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
       # revision: 1
 
