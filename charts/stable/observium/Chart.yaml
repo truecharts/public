@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: 20240305.0.0
 dependencies:
   - name: common
-    version: 24.1.16
+    version: 24.1.19
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.7
+    version: 15.3.6
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://hub.docker.com/r/pvrmza/docker-observium
   - https://www.observium.org/
 type: application
-version: 9.4.9
+version: 9.4.10

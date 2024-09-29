@@ -7,7 +7,7 @@ apiVersion: v2
 appVersion: 1.7.2
 dependencies:
   - name: common
-    version: 24.1.16
+    version: 24.1.19
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -21,7 +21,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.7
+    version: 15.3.6
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mixpost
   - https://hub.docker.com/r/inovector/mixpost
 type: application
-version: 1.6.12
+version: 1.6.13

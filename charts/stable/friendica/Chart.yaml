@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: 2024.08.0
 dependencies:
   - name: common
-    version: 24.1.16
+    version: 24.1.19
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.7
+    version: 15.3.6
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
   - https://hub.docker.com/_/friendica
 type: application
-version: 16.6.17
+version: 16.6.18
