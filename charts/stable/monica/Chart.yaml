@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: 4.1.2
 dependencies:
   - name: common
-    version: 24.1.16
+    version: 24.1.19
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.7
+    version: 15.3.6
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -39,4 +39,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/monica
   - https://hub.docker.com/_/monica
 type: application
-version: 14.4.20
+version: 14.4.21
