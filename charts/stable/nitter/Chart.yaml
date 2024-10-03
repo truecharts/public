@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.2.7
+    version: 15.3.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/zedeus/nitter
   - https://hub.docker.com/r/zedeus/nitter
 type: application
-version: 8.4.0
+version: 8.5.0
