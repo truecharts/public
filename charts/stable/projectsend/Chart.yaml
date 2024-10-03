@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.7
+    version: 15.4.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/projectsend/projectsend
   - https://github.com/truecharts/charts/tree/master/charts/stable/projectsend
 type: application
-version: 14.5.0
+version: 14.6.0
