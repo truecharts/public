@@ -1,12 +1,10 @@
 image:
-  repository: linuxserver/emby
+  repository: ghcr.io/elfhosted/emby
   pullPolicy: IfNotPresent
-  tag: 4.8.10@sha256:0632e30566a10f21a555ac8cbdc34b68ef85f25d1c4bf93ef3d390af061de049
+  tag: 4.9.0.30@sha256:b771f2d6194cb6e0c6ffc42cd0807f2b018de03fb12b38dca6b43e8ae05d7078
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
 service:
   main:
     ports:
