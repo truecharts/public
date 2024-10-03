@@ -1,10 +1,12 @@
 image:
-  repository: ghcr.io/geek-cookbook/emby
+  repository: linuxserver/emby
   pullPolicy: IfNotPresent
-  tag: 4.8.7.0@sha256:7c42d1e4b2cc1c268b81a2598b6ffa610d2e2d986a0a01c52dccd7fe6706376d
+  tag: 4.8.10@sha256:0632e30566a10f21a555ac8cbdc34b68ef85f25d1c4bf93ef3d390af061de049
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
