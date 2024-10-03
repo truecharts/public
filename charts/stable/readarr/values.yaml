@@ -9,6 +9,8 @@ exportarrImage:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
