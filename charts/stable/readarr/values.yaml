@@ -1,7 +1,7 @@
 image:
-  repository: linuxserver/readarr
+  repository: ghcr.io/elfhosted/readarr-develop
   pullPolicy: IfNotPresent
-  tag: develop-version-0.4.0.2634@sha256:26915e568336a985542fe9843cc8d52bd087a273a9d83dc71fd5526a49e59114
+  tag: 0.4.0.2634@sha256:c12b03f9ada000806d414985eacf5496ee525334df679fda03505d1286e65acd
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -9,8 +9,6 @@ exportarrImage:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
 service:
   main:
     ports:
