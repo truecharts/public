@@ -1,7 +1,0 @@
-remote: origin
-target-branch: master
-helm-extra-args: --debug --set crd.verify.enabled=false
-chart-yaml-schema: .github/ct-install-config/chart_schema.yaml
-chart-dirs:
-  - library
-excluded-charts: []
