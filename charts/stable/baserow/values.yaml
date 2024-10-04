@@ -36,7 +36,7 @@ workload:
             BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
             # User Defined
             BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION: false
-            BASEROW_PUBLIC_URL: "http://localhost:10228"
+            BASEROW_PUBLIC_URL: "http://127.0.0.1:10228"
             FROM_EMAIL: ""
             EMAIL_SMTP: ""
             EMAIL_SMTP_USE_TLS: ""
