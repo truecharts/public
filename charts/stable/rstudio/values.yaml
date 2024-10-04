@@ -35,4 +35,5 @@ workload:
             PASSWORD: rstudio
             ROOT: "FALSE"
             USER: rstudio
-            USERID: "{{ .Values.securityContext.container.runAsUser }}"
+            USERID: 568 # Container deletes default user and tries to create new user with this UID. So can't be root (0).
+            # Still needs root as it uses s6-overlay
