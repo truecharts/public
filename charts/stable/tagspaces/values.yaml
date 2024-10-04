@@ -1,7 +1,7 @@
 image:
-  repository: tagspaces/tagspaces-lite-web
+  repository: fardjad/tagspaces-lite-web
   pullPolicy: IfNotPresent
-  tag: 6.0.1@sha256:08cf8353aa1a95a55dd74404728ce0e7e3b3d37ae210c4d626502e16f87dfd9f
+  tag: 6.0.1@sha256:6c71210182ee5fd0d16069822e9b448b53244ab01445085838b5dcfff15e14a5
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -11,7 +11,7 @@ service:
       main:
         protocol: http
         targetPort: 80
-        port: 5000
+        port: 8080
 workload:
   main:
     podSpec:
