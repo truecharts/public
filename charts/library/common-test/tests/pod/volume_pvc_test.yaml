@@ -1,0 +1,98 @@
+suite: pod pvc volume test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with pvc volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          type: pvc
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: pvc-vol
+            persistentVolumeClaim:
+              claimName: test-release-name-common-test-pvc-vol
+
+  - it: should pass with pvc volume with existing claim
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          type: pvc
+          existingClaim: some-existing-claim
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: pvc-vol
+            persistentVolumeClaim:
+              claimName: some-existing-claim
+
+  # Failures
+  - it: should fail when DaemonSet and RWO volume from fallback
+    set:
+      global:
+        fallbackDefaults:
+          accessModes:
+            - ReadWriteOnce
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          type: pvc
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]
+
+  - it: should fail when DaemonSet and RWO volume from persistence
+    set:
+      global:
+        fallbackDefaults:
+          accessModes:
+            - ReadWriteMany
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          accessModes:
+            - ReadWriteOnce
+          type: pvc
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]

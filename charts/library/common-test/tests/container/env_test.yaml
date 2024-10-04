@@ -1,0 +1,472 @@
+suite: container env test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create the correct env
+    set:
+      some_value: value1
+      some_other_value: 2
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                env:
+                  VAR1: "{{ .Values.some_value }}"
+                  VAR2: some_value
+                  VAR3:
+                    configMapKeyRef:
+                      name: configmap-name
+                      key: key1
+                  VAR4:
+                    secretKeyRef:
+                      name: secret-name
+                      key: key2
+                  VAR5:
+                    configMapKeyRef:
+                      expandObjectName: false
+                      name: configmap-name
+                      key: key3
+                  VAR6:
+                    secretKeyRef:
+                      expandObjectName: false
+                      name: secret-name
+                      key: key4
+                  VAR7:
+                    fieldRef:
+                      fieldPath: metadata.name
+                  VAR8: ""
+                  VAR9: false
+                  VAR10: "100000514"
+                  VAR11: 100000514
+                  VAR12: 1000text00514
+                  VAR13: "100.40"
+    asserts:
+      - documentIndex: &deploymentDoc 2
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR1
+            value: value1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR2
+            value: some_value
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR3
+            valueFrom:
+              configMapKeyRef:
+                key: key1
+                name: test-release-name-common-test-configmap-name
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR4
+            valueFrom:
+              secretKeyRef:
+                key: key2
+                name: test-release-name-common-test-secret-name
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR5
+            valueFrom:
+              configMapKeyRef:
+                key: key3
+                name: configmap-name
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR6
+            valueFrom:
+              secretKeyRef:
+                key: key4
+                name: secret-name
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR7
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR8
+            value: ""
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR9
+            value: "false"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR10
+            value: "100000514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR11
+            value: "100000514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR12
+            value: "1000text00514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: VAR13
+            value: "100.40"
+
+  # Failures
+  - it: it should fail invalid ref
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    invalidKeyRef: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected [env] with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [invalidKeyRef]
+
+  - it: it should fail with more than one ref
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    configMapKeyRef: {}
+                    secretKeyRef: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected [env] with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [configMapKeyRef, secretKeyRef]
+
+  - it: it should fail with empty name in configMapKeyRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    configMapKeyRef:
+                      name: ""
+                      key: key
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [env.configMapKeyRef.name]
+
+  - it: it should fail with empty key in configMapKeyRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    configMapKeyRef:
+                      name: name
+                      key: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [env.configMapKeyRef.key]
+
+  - it: it should fail with empty name in secretKeyRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    secretKeyRef:
+                      name: ""
+                      key: key
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [env.secretKeyRef.name]
+
+  - it: it should fail with empty key in secretKeyRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    secretKeyRef:
+                      name: name
+                      key: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [env.secretKeyRef.key]
+
+  - it: it should fail with referenced secret not defined
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    secretKeyRef:
+                      name: secret-name
+                      key: somekey
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected in [env] the referenced Secret [secret-name] to be defined
+
+  - it: it should fail with referenced configmap not defined
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    configMapKeyRef:
+                      name: configmap-name
+                      key: somekey
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected in [env] the referenced Configmap [configmap-name] to be defined
+
+  - it: it should fail with referenced key in configmap not defined
+    set:
+      image: *image
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    configMapKeyRef:
+                      name: configmap-name
+                      key: somekey
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected in [env] the referenced key [somekey] in Configmap [configmap-name] to be defined
+
+  - it: it should fail with referenced key in secret not defined
+    set:
+      image: *image
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    secretKeyRef:
+                      name: secret-name
+                      key: somekey
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected in [env] the referenced key [somekey] in Secret [secret-name] to be defined
+
+  - it: it should fail with empty fieldPath in fieldRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR:
+                    fieldRef:
+                      fieldPath: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [env.fieldRef.fieldPath]
+
+  - it: it should fail empty expandObjectName
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  key1:
+                    secretKeyRef:
+                      expandObjectName:
+                      name: '{{ printf "secret-name" }}'
+                      key: secret-key
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected the defined key [expandObjectName] in [env.key1] to not be empty

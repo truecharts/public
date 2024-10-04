@@ -1,0 +1,129 @@
+suite: pod hostAliases test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty hostAliases
+    set:
+      podOptions:
+        hostAliases: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.hostAliases
+
+  - it: should pass with hostAliases from "global"
+    set:
+      podOptions:
+        hostAliases:
+          - ip: 10.10.10.100
+            hostnames:
+              - myserver.local
+              - storage.local
+          - ip: 10.10.10.101
+            hostnames:
+              - myotherserver.local
+              - backups.local
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 10.10.10.100
+              hostnames:
+                - myserver.local
+                - storage.local
+            - ip: 10.10.10.101
+              hostnames:
+                - myotherserver.local
+                - backups.local
+
+  - it: should pass with hostAliases from "pod"
+    set:
+      podOptions:
+        hostAliases:
+          - ip: 10.10.10.100
+            hostnames:
+              - myserver.local
+              - storage.local
+          - ip: 10.10.10.101
+            hostnames:
+              - myotherserver.local
+              - backups.local
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostAliases:
+              - ip: 10.10.10.200
+                hostnames:
+                  - server.local
+                  - mystorage.local
+              - ip: 10.10.10.201
+                hostnames:
+                  - otherserver.local
+                  - mybackups.local
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 10.10.10.200
+              hostnames:
+                - server.local
+                - mystorage.local
+            - ip: 10.10.10.201
+              hostnames:
+                - otherserver.local
+                - mybackups.local
+
+  - it: should pass with schedulerName from "pod" with tpl
+    set:
+      ip: 10.10.10.200
+      host1: server.local
+      host2: mystorage.local
+      podOptions:
+        hostAliases:
+          - ip: 10.10.10.100
+            hostnames:
+              - myserver.local
+              - storage.local
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostAliases:
+              - ip: "{{ .Values.ip }}"
+                hostnames:
+                  - "{{ .Values.host1 }}"
+                  - "{{ .Values.host2 }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 10.10.10.200
+              hostnames:
+                - server.local
+                - mystorage.local

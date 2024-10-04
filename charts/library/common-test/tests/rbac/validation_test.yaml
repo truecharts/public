@@ -1,0 +1,343 @@
+suite: rbac validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      rbac:
+        zmy-rbac:
+          enabled: true
+          primary: true
+        my-rbac-has-super-long-name-that-is-longer-than-63-characters-too-bad:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-my-rbac-has-super-long-name-that-is-longer-than-63-characters-too-bad] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+        _my-rbac2:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_my-rbac2] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with more than 1 primary rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+        my-rbac2:
+          enabled: true
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Only one rbac can be primary
+
+  - it: should fail without any primary on enabled rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: false
+        my-rbac2:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - At least one enabled rbac must be primary
+
+  - it: should fail without rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules]
+
+  - it: should fail without apiGroups in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - resources:
+                - pods
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
+
+  - it: should fail without resources in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.resources]
+
+  - it: should fail without verbs in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.verbs]
+
+  - it: should fail without apiGroups in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - resources:
+                - pods
+            - verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
+
+  - it: should fail without apiGroups in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - resources:
+                - "pods"
+            - verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
+
+  - it: should fail with empty entry in resources in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+                - ""
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.resources]
+
+  - it: should fail with empty entry in nonResourceURLs in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+              nonResourceURLs:
+                - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.nonResourceURLs]
+
+  - it: should fail with empty entry in verbs in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+                - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.verbs]
+
+  - it: should fail with empty kind in subjects in rbac
+    set:
+      serviceAccount:
+        my-service-account:
+          enabled: true
+          primary: true
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+          subjects:
+            - kind: ""
+              name: my-name
+              apiGroup: my-apiGroup
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.kind]
+
+  - it: should fail with empty name in subjects in rbac
+    set:
+      serviceAccount:
+        my-service-account:
+          enabled: true
+          primary: true
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+          subjects:
+            - kind: my-kind
+              name: ""
+              apiGroup: my-apiGroup
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.name]
+
+  - it: should fail with empty apiGroup in subjects in rbac
+    set:
+      serviceAccount:
+        my-service-account:
+          enabled: true
+          primary: true
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+          subjects:
+            - kind: my-kind
+              name: my-name
+              apiGroup: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.apiGroup]
+
+  - it: should fail with empty entry in resourceName in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              resourceNames:
+                - ""
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.resourceNames]
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.

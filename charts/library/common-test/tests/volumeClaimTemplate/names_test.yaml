@@ -1,0 +1,58 @@
+suite: volumeClaimTemplate name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path1
+        my-volume2:
+          enabled: true
+          type: vct
+          mountPath: /some/path2
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[1].name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[1].metadata.name
+          value: test-release-name-common-test-my-volume2
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[2].name
+          value: test-release-name-common-test-my-volume2

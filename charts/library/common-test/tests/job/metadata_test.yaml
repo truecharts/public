@@ -1,0 +1,197 @@
+suite: job metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with job created with labels and annotations
+    set:
+      label1: label1
+      label2: global_label2
+      annotation1: annotation1
+      annotation2: global_annotation2
+      global:
+        labels:
+          g_label1: global_label1
+          g_label2: "{{ .Values.label2 }}"
+        annotations:
+          g_annotation1: global_annotation1
+          g_annotation2: "{{ .Values.annotation2 }}"
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          labels:
+            label1: "{{ .Values.label1 }}"
+            label2: label2
+          annotations:
+            annotation1: "{{ .Values.annotation1 }}"
+            annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
+          podSpec:
+            labels:
+              pod-label1: pod-label1
+              pod-label2: "{{ .Values.label2 }}"
+            annotations:
+              pod-annotation1: pod-annotation1
+              pod-annotation2: "{{ .Values.annotation2 }}"
+    asserts:
+      - documentIndex: &jobDoc 0
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.annotations
+          value:
+            annotation1: annotation1
+            annotation2: annotation2
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+            some-annotation: some-value
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.labels
+          value:
+            app: common-test-1.0.0
+            release: test-release-name
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            g_label1: global_label1
+            g_label2: global_label2
+            label1: label1
+            label2: label2
+            some-label: some-value
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.metadata.labels
+          value:
+            pod.name: workload-name
+            pod.lifecycle: fleeting
+            app: common-test-1.0.0
+            release: test-release-name
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v9.9.9
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            g_label1: global_label1
+            g_label2: global_label2
+            pod-label1: pod-label1
+            pod-label2: global_label2
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec.template.metadata.annotations
+          content:
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+            pod-annotation1: pod-annotation1
+            pod-annotation2: global_annotation2
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/cnpg
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/configmaps
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mariadb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mongodb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/persistence
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/redis
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/solr
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with Job created with object namespace from tpl
+    set:
+      key: some-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          namespace: "{{ .Values.key }}"
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with Job created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with Job created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace

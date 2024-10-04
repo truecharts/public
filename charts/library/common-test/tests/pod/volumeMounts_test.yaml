@@ -1,0 +1,728 @@
+suite: container volumeMounts test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with shared volume on multiple workloads and containers with targetSelectAll
+    set:
+      some_path: /some/path
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec:
+            restartPolicy: Never
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        shared-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: "{{ .Values.some_path }}"
+          targetSelectAll: true
+        nfs-vol-pvc:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+            server: someserver
+          mountPath: /nfs-mount
+          targetSelectAll: true
+        smb-vol-pvc:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+          mountPath: /smb-mount
+          targetSelectAll: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: shared-vol
+            mountPath: /some/path
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: shared-vol
+            mountPath: /some/path
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+      - documentIndex: &jobDoc 1
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: shared-vol
+            mountPath: /some/path
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: shared-vol
+            mountPath: /some/path
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+
+  - it: should pass with volume on primary workload and container
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec:
+            restartPolicy: Never
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          readOnly: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *deploymentDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: &jobDoc 1
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+
+  - it: should pass with volume with selected pod and container
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec:
+            restartPolicy: Never
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          readOnly: true
+          targetSelector:
+            workload-name:
+              container-name2: {}
+            workload-name2:
+              container-name1: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: &jobDoc 1
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+
+  - it: should pass with volume with selected pod and multiple containers
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec:
+            restartPolicy: Never
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          readOnly: true
+          targetSelector:
+            workload-name:
+              container-name1: {}
+              container-name2: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: &jobDoc 1
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+
+  - it: should pass with volume with selected pod and containers and specific values
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec:
+            restartPolicy: Never
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          readOnly: true
+          targetSelector:
+            workload-name:
+              container-name1:
+                mountPath: /some/other/path
+                readOnly: false
+                mountPropagation: None
+                subPath: /some/sub/path
+              container-name2: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/other/path
+            readOnly: false
+            mountPropagation: None
+            subPath: /some/sub/path
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: &jobDoc 1
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/other/path
+            readOnly: false
+            mountPropagation: None
+            subPath: /some/sub/path
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+
+  - it: should pass with volume with selected pod and containers and specific values from tpl
+    set:
+      some_path: /some/other/path
+      some_propagation: None
+      some_sub_path: /some/sub/path
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          readOnly: true
+          targetSelector:
+            workload-name:
+              container-name1:
+                mountPath: "{{ .Values.some_path }}"
+                readOnly: false
+                mountPropagation: "{{ .Values.some_propagation }}"
+                subPath: "{{ .Values.some_sub_path }}"
+              container-name2: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/other/path
+            readOnly: false
+            mountPropagation: None
+            subPath: /some/sub/path
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+
+  # Failures
+  - it: should fail with invalid mountPropagation
+    set:
+      image: *image
+      workload:
+        workload-name: &workload
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          mountPropagation: HostToContainer
+          targetSelector:
+            workload-name:
+              container-name1:
+                mountPropagation: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [mountPropagation] to be one of [None, HostToContainer, Bidirectional], but got [invalid]
+
+  - it: should fail with non-boolean readOnly
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          targetSelector:
+            workload-name:
+              container-name1:
+                readOnly: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [readOnly] to be [boolean], but got [string]
+
+  - it: should fail with empty readOnly
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          targetSelector:
+            workload-name:
+              container-name1:
+                readOnly:
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [readOnly] to be [boolean], but got [invalid]
+
+  - it: should fail with empty mountPath
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          mountPath: ""
+          targetSelector:
+            workload-name:
+              container-name1: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [mountPath]
+
+  - it: should fail with mountPath not starting with /
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          targetSelector:
+            workload-name:
+              container-name1:
+                mountPath: some/path
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [mountPath] to start with a forward slash [/]
+
+  - it: should fail with non-dict targetSelect.workloadName
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          targetSelector:
+            workload-name: string
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [targetSelector.workload-name] to be a [dict], but got [string]
+
+  - it: should fail with empty targetSelect.workloadName
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistence:
+        vol-name:
+          enabled: true
+          type: emptyDir
+          targetSelector:
+            workload-name: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [targetSelector.workload-name]

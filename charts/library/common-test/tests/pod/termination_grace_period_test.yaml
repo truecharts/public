@@ -1,0 +1,75 @@
+suite: pod termination grace period test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty terminationGracePeriodSeconds
+    set:
+      podOptions:
+        terminationGracePeriodSeconds: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &daemonSetDoc 0
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        isNull:
+          path: spec.template.spec.terminationGracePeriodSeconds
+
+  - it: should pass with terminationGracePeriodSeconds from "global"
+    set:
+      podOptions:
+        terminationGracePeriodSeconds: 100
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 100
+
+  - it: should pass with terminationGracePeriodSeconds from "pod"
+    set:
+      podOptions:
+        terminationGracePeriodSeconds: 100
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec:
+            terminationGracePeriodSeconds: 150
+    asserts:
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 150
+
+  - it: should pass with terminationGracePeriodSeconds from "pod" with tpl
+    set:
+      period: 125
+      podOptions:
+        terminationGracePeriodSeconds: 50
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec:
+            terminationGracePeriodSeconds: "{{ .Values.period }}"
+    asserts:
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 125

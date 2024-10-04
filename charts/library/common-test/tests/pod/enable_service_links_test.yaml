@@ -1,0 +1,78 @@
+suite: pod enableServiceLinks test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with enableServiceLinks disabled from "global"
+    set:
+      podOptions:
+        enableServiceLinks: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &daemonSetDoc 0
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.enableServiceLinks
+          value: false
+
+  - it: should pass with enableServiceLinks enabled from "global"
+    set:
+      podOptions:
+        enableServiceLinks: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *daemonSetDoc
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.enableServiceLinks
+          value: true
+
+  - it: should pass with disabled enableServiceLinks from pod
+    set:
+      podOptions:
+        enableServiceLinks: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec:
+            enableServiceLinks: false
+    asserts:
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.enableServiceLinks
+          value: false
+
+  - it: should pass with enabled enableServiceLinks from pod
+    set:
+      podOptions:
+        enableServiceLinks: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec:
+            enableServiceLinks: true
+    asserts:
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.enableServiceLinks
+          value: true

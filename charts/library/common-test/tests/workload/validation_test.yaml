@@ -1,0 +1,123 @@
+suite: workload validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        other-workload-name-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-other-workload-name-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        _other-workload-name:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_other-workload-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with invalid type
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: not-valid-type
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Expected [type] to be one of [Deployment, StatefulSet, DaemonSet, Job, CronJob], but got [not-valid-type]
+
+  - it: should fail without podSpec
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Expected [podSpec] key to exist
+
+  - it: should fail without primary enabled workload
+    set:
+      workload:
+        workload-name:
+          enabled: false
+          primary: true
+          type: Deployment
+          podSpec: {}
+        other-workload-name:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - One enabled workload must be primary
+
+  - it: should fail more than one primary enabled workload
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        other-workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Only one workload can be primary
+
+  - it: should fail with labels not a dict
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          labels: "not a dict"
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          annotations: "not a dict"
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Expected [annotations] to be a dictionary, but got [string]
