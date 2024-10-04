@@ -14,6 +14,8 @@ workload:
             ME_CONFIG_MONGODB_AUTH_USERNAME: "{{ .Values.mongodb.mongodbUsername }}"
             ME_CONFIG_BASICAUTH_USERNAME: admin
             ME_CONFIG_BASICAUTH_PASSWORD: pass
+            ME_CONFIG_MONGODB_SSL: false
+            ME_CONFIG_MONGODB_ENABLE_ADMIN: false
             ME_CONFIG_MONGODB_SERVER:
               secretKeyRef:
                 expandObjectName: false
