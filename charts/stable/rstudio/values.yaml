@@ -35,4 +35,4 @@ workload:
             PASSWORD: rstudio
             ROOT: "FALSE"
             USER: rstudio
-            USERID: "{{ .Values.securityContext.container.runAsUser }}"
+            USERID: 568
