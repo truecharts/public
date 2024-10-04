@@ -21,14 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: "/_health/"
+              type: tcp
             readiness:
-              type: http
-              path: "/_health/"
+              type: tcp
             startup:
-              type: http
-              path: "/_health/"
+              type: tcp
           env:
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
