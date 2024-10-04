@@ -1,0 +1,261 @@
+suite: rbac data test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with rules and subjects added with tpl and primary rbac/sa
+    set:
+      some_verb: list
+      some_group: apps
+      some_resource: deployments
+      some_kind: some-kind
+      some_name: some-name
+      some_api_group: rbac.authorization.k8s.io
+      some_non_resource_url: /health
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-other-sa:
+          enabled: true
+          primary: false
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+            - apiGroups:
+                - "{{ .Values.some_group }}"
+              resources:
+                - "{{ .Values.some_resource }}"
+              resourceNames:
+                - "{{ .Values.some_name }}"
+              verbs:
+                - "{{ .Values.some_verb }}"
+              nonResourceURLs:
+                - "{{ .Values.some_non_resource_url }}"
+          subjects:
+            - kind: a-kind
+              name: a-name
+              apiGroup: rbac.authorization.k8s.io
+            - kind: "{{ .Values.some_kind }}"
+              name: "{{ .Values.some_name }}"
+              apiGroup: "{{ .Values.some_api_group }}"
+    asserts:
+      - documentIndex: &roleDoc 2
+        isKind:
+          of: Role
+      - documentIndex: *roleDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *roleDoc
+        equal:
+          path: rules
+          value:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+              resourceNames:
+                - some-name
+              verbs:
+                - list
+              nonResourceURLs:
+                - /health
+      - documentIndex: &roleBinding 3
+        isKind:
+          of: RoleBinding
+      - documentIndex: *roleBinding
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *roleBinding
+        equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: test-release-name-common-test
+              namespace: test-release-namespace
+            - kind: a-kind
+              name: a-name
+              apiGroup: rbac.authorization.k8s.io
+            - kind: some-kind
+              name: some-name
+              apiGroup: rbac.authorization.k8s.io
+
+  - it: should pass with rules and subjects added with tpl and allSA on clusterWide
+    set:
+      some_verb: list
+      some_group: apps
+      some_resource: deployments
+      some_kind: some-kind
+      some_name: some-name
+      some_api_group: rbac.authorization.k8s.io
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-other-sa:
+          enabled: true
+          primary: false
+      rbac:
+        z-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+        my-rbac2:
+          enabled: true
+          clusterWide: true
+          allServiceAccounts: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+            - apiGroups:
+                - "{{ .Values.some_group }}"
+              resources:
+                - "{{ .Values.some_resource }}"
+              verbs:
+                - "{{ .Values.some_verb }}"
+          subjects:
+            - kind: a-kind
+              name: a-name
+              apiGroup: rbac.authorization.k8s.io
+            - kind: "{{ .Values.some_kind }}"
+              name: "{{ .Values.some_name }}"
+              apiGroup: "{{ .Values.some_api_group }}"
+    asserts:
+      - documentIndex: &clusterRoleDoc 2
+        isKind:
+          of: ClusterRole
+      - documentIndex: *clusterRoleDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-rbac2
+      - documentIndex: *clusterRoleDoc
+        equal:
+          path: rules
+          value:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+              verbs:
+                - list
+      - documentIndex: &clusterRoleBinding 3
+        isKind:
+          of: ClusterRoleBinding
+      - documentIndex: *clusterRoleBinding
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-rbac2
+      - documentIndex: *clusterRoleBinding
+        equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: test-release-name-common-test-my-other-sa
+              namespace: test-release-namespace
+            - kind: ServiceAccount
+              name: test-release-name-common-test
+              namespace: test-release-namespace
+            - apiGroup: rbac.authorization.k8s.io
+              kind: a-kind
+              name: a-name
+            - apiGroup: rbac.authorization.k8s.io
+              kind: some-kind
+              name: some-name
+
+  - it: should pass with serviceAccount selector
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-other-sa:
+          enabled: true
+          primary: false
+      rbac:
+        z-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+        my-rbac3:
+          enabled: true
+          serviceAccounts:
+            - my-other-sa
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+    asserts:
+      - documentIndex: &roleDoc 2
+        isKind:
+          of: Role
+      - documentIndex: *roleDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-rbac3
+      - documentIndex: *roleDoc
+        equal:
+          path: rules
+          value:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+      - documentIndex: &roleBinding 3
+        isKind:
+          of: RoleBinding
+      - documentIndex: *roleBinding
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-rbac3
+      - documentIndex: *roleBinding
+        equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: test-release-name-common-test-my-other-sa
+              namespace: test-release-namespace

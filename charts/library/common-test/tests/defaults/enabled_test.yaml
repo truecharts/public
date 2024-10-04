@@ -1,0 +1,78 @@
+suite: default test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail without enabled key in workload
+    set:
+      workload:
+        workload-name:
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Workload - Expected the key [enabled] in [workload.workload-name] to exist
+
+  - it: should fail without enabled key in containers
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name:
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected the key [enabled] in [containers.container-name] to exist
+
+  - it: should fail without enabled key in initContainers
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            initContainers:
+              container-name:
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Init Container - Expected the key [enabled] in [initContainers.container-name] to exist
+
+  - it: should fail without enabled key in service
+    set:
+      service:
+        service-name:
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected the key [enabled] in [service.service-name] to exist
+
+  - it: should fail without enabled key in persistence
+    set:
+      persistence:
+        persistence-name:
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected the key [enabled] in [persistence.persistence-name] to exist

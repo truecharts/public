@@ -1,0 +1,52 @@
+suite: ingress - stop test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with stopAll
+    set:
+      global:
+        stopAll: true
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress: &ingress
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+            homepage:
+              enabled: true
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.ingressClassName
+          value: tc-stopped
+      - documentIndex: *ingressDoc
+        isNotSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"

@@ -1,0 +1,34 @@
+suite: cnpg pooler validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with invalid poolMode
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          pooler:
+            enabled: true
+            poolMode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Pooler - Expected [poolMode] to be one of [session, transaction], but got [invalid]
+
+  - it: should fail with pooler instances less than 1
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          pooler:
+            enabled: true
+            instances: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Pooler - Expected [instances] to be greater than 0, but got [0]

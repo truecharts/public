@@ -1,0 +1,120 @@
+suite: container envList test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create the correct envList
+    set:
+      some_value: value1
+      some_other_value: 2
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                envList:
+                  - name: env1
+                    value: "{{ .Values.some_value }}"
+                  - name: env2
+                    value: "{{ .Values.some_other_value }}"
+                  - name: env3
+                    value: ""
+                  - name: env4
+                    value: 100000514
+                  - name: env5
+                    value: "100000514"
+                  - name: env6
+                    value: 100text000514
+                  - name: env7
+                    value: "100.400"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env1
+            value: value1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env2
+            value: "2"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env3
+            value: ""
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env4
+            value: "100000514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env5
+            value: "100000514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env6
+            value: "100text000514"
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: env7
+            value: "100.400"
+
+  # Failures
+  - it: it should fail with empty name
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envList:
+                  - name: ""
+                    value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [envList.name]

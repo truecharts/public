@@ -1,0 +1,62 @@
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        protocol: http
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+
+# -- create storageClasses on demand
+storageClass:
+  example1:
+    enabled: true
+    provisioner: some.provisioner.io
+  example2:
+    enabled: true
+    provisioner: some.provisioner.io
+    reclaimPolicy: retain
+    allowVolumeExpansion: true
+    volumeBindingMode: Immediate
+  example3:
+    enabled: true
+    provisioner: some.provisioner.io
+    parameters: {}
+    mountOptions: []
+  example4:
+    enabled: true
+    provisioner: some.provisioner.io
+    parameters: {}
+    reclaimPolicy: retain
+    allowVolumeExpansion: true
+    volumeBindingMode: Immediate
+    mountOptions: []

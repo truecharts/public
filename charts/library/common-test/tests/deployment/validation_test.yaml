@@ -1,0 +1,46 @@
+suite: deployment validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with invalid strategy
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: not-a-strategy
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Deployment - Expected [strategy] to be one of [Recreate, RollingUpdate], but got [not-a-strategy]
+
+  - it: should fail with rollingUpdate not a dict
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          rollingUpdate: "not a dict"
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Deployment - Expected [rollingUpdate] to be a dictionary, but got [string]
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Deployment - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.

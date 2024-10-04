@@ -1,0 +1,235 @@
+suite: init container data test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct init container
+    set:
+      initType: install
+      render: true
+      persistence:
+        shared-vol:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          targetSelector:
+            workload-name:
+              container-name2: {}
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      initImage: &initImage
+        repository: bash
+        tag: latest
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+            initContainers:
+              container-name1:
+                enabled: "{{ .Values.render }}"
+                type: init
+                imageSelector: initImage
+                env:
+                  key: value
+                  key2: "{{ .Values.initImage.repository }}"
+                  key3:
+                    secretKeyRef:
+                      expandObjectName: false
+                      name: '{{ printf "secret-name" }}'
+                      key: secret-key
+              container-name3:
+                enabled: true
+                type: upgrade
+                imageSelector: initImage
+              container-name2:
+                enabled: true
+                type: "{{ .Values.initType }}"
+                imageSelector: initImage
+                probes:
+                  liveness:
+                    enabled: true
+                  readiness:
+                    enabled: true
+                  startup:
+                    enabled: true
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    echo "Using image {{ .Values.initImage.repository }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            name: test-release-name-common-test-install-container-name2
+            image: bash:latest
+            command:
+              - /bin/sh
+              - -c
+              - |
+                echo "Using image bash"
+            volumeMounts:
+              - mountPath: /dev/shm
+                name: devshm
+                readOnly: false
+              - mountPath: /shared
+                name: shared
+                readOnly: false
+              - mountPath: /some/path
+                name: shared-vol
+                readOnly: false
+              - mountPath: /tmp
+                name: tmp
+                readOnly: false
+              - mountPath: /var/logs
+                name: varlogs
+                readOnly: false
+              - mountPath: /var/run
+                name: varrun
+                readOnly: false
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.initContainers[0].livenessProbe
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.initContainers[0].readinessProbe
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.initContainers[0].startupProbe
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            name: test-release-name-common-test-init-container-name1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "0022"
+              - name: "UMASK_SET"
+                value: "0022"
+              - name: "NVIDIA_VISIBLE_DEVICES"
+                value: "void"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"
+              - name: "key"
+                value: "value"
+              - name: "key2"
+                value: "bash"
+              - name: "key3"
+                valueFrom:
+                  secretKeyRef:
+                    key: "secret-key"
+                    name: "secret-name"
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.initContainers[1].command
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /dev/shm
+            name: devshm
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /shared
+            name: shared
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /tmp
+            name: tmp
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /var/logs
+            name: varlogs
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /var/run
+            name: varrun
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.initContainers[2]
+
+  - it: should NOT generate render init container
+    set:
+      render: false
+      image:
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+            initContainers:
+              container-name1:
+                enabled: "{{ .Values.render }}"
+                type: init
+                imageSelector: image
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isNullOrEmpty:
+          path: spec.template.spec.initContainers

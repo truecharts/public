@@ -1,0 +1,82 @@
+suite: cnpg scheduled backup stop test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with hibernate
+    set:
+      credentials:
+        test: &test
+          type: s3
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          url: some-url
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          hibernate: true
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: false
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: true
+
+  - it: should set suspend on stopAll
+    set:
+      credentials:
+        test: *test
+      global:
+        stopAll: true
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          hibernate: false
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: false
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: true

@@ -1,0 +1,65 @@
+suite: cnpg backup spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          encrKey: some-encr-key
+          url: some-url
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            manualBackups:
+              - name: today
+              - name: before-upgrade
+    asserts:
+      - documentIndex: &cnpgDoc 0
+        isKind:
+          of: Backup
+      - documentIndex: *cnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *cnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-backup-today
+      - documentIndex: *cnpgDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: &otherCnpgDoc 1
+        isKind:
+          of: Backup
+      - documentIndex: *otherCnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-backup-before-upgrade
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg

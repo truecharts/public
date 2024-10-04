@@ -1,0 +1,28 @@
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+mongodb:
+  enabled: true

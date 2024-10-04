@@ -1,0 +1,75 @@
+suite: pod scheduler name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty schedulerName
+    set:
+      podOptions:
+        schedulerName: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.schedulerName
+
+  - it: should pass with schedulerName from "global"
+    set:
+      podOptions:
+        schedulerName: some-scheduler
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.schedulerName
+          value: some-scheduler
+
+  - it: should pass with schedulerName from "pod"
+    set:
+      podOptions:
+        schedulerName: some-scheduler
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            schedulerName: some-other-scheduler
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.schedulerName
+          value: some-other-scheduler
+
+  - it: should pass with schedulerName from "pod" with tpl
+    set:
+      scheduler: some-other-scheduler
+      podOptions:
+        schedulerName: some-scheduler
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            schedulerName: "{{ .Values.scheduler }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.schedulerName
+          value: some-other-scheduler

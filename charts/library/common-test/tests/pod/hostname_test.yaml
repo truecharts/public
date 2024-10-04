@@ -1,0 +1,59 @@
+suite: pod hostname test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty hostname
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isNull:
+          path: spec.template.spec.hostname
+
+  - it: should pass with hostname set
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            hostname: some-other-hostname
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.hostname
+          value: some-other-hostname
+
+  - it: should pass with hostname from "pod" with tpl
+    set:
+      host: some-other-hostname
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            hostname: "{{ .Values.host }}"
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.hostname
+          value: some-other-hostname
