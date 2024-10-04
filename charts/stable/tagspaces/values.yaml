@@ -10,8 +10,8 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 80
-        port: 8080
+        targetPort: 8080
+        port: 80
 workload:
   main:
     podSpec:
