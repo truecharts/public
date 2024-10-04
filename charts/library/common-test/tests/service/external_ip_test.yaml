@@ -1,0 +1,484 @@
+suite: service externalIP test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with type externalIP and useSlice unset (default)
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+
+  - it: should pass with type ExternalIP and available options set
+    set:
+      some_policy: Local
+      some_ip: 10.200.34.53
+      some_affinity: ClientIP
+      some_timeout: 100
+      some_port: 12344
+      some_target_port: 12346
+      some_protocol: http
+      some_external_ip: 1.1.1.1
+      some_address_type: IPv6
+      some_app_protocol: http
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          publishNotReadyAddresses: true
+          externalTrafficPolicy: "{{ .Values.some_policy }}"
+          externalIP: "{{ .Values.some_external_ip }}"
+          externalIPs:
+            - "{{ .Values.some_ip }}"
+            - 10.200.34.54
+          sessionAffinity: "{{ .Values.some_affinity }}"
+          sessionAffinityConfig:
+            clientIP:
+              timeoutSeconds: "{{ .Values.some_timeout }}"
+          addressType: "{{ .Values.some_address_type }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: "{{ .Values.some_port }}"
+              targetPort: "{{ .Values.some_target_port }}"
+              protocol: "{{ .Values.some_protocol }}"
+              appProtocol: "{{ .Values.some_app_protocol }}"
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            externalTrafficPolicy: Local
+            publishNotReadyAddresses: true
+            externalIPs:
+              - 10.200.34.53
+              - 10.200.34.54
+            sessionAffinity: ClientIP
+            sessionAffinityConfig:
+              clientIP:
+                timeoutSeconds: 100
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+              - name: port-name2
+                port: 12344
+                protocol: TCP
+                targetPort: 12346
+      - documentIndex: &endpointSliceDoc 1
+        isKind:
+          of: EndpointSlice
+      - documentIndex: *endpointSliceDoc
+        isAPIVersion:
+          of: discovery.k8s.io/v1
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.labels
+          value:
+            kubernetes.io/service-name: test-release-name-common-test
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            helm.sh/chart: common-test-1.0.0
+            helm-revision: "0"
+            app: common-test-1.0.0
+            release: test-release-name
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: addressType
+          value: IPv6
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: ports
+          value:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+            - name: port-name2
+              port: 12346
+              protocol: TCP
+              appProtocol: http
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: endpoints
+          value:
+            - addresses:
+                - 1.1.1.1
+
+  - it: should pass with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 443
+                protocol: TCP
+                targetPort: 443
+      - documentIndex: &endpointSliceDoc 1
+        isKind:
+          of: EndpointSlice
+      - documentIndex: *endpointSliceDoc
+        isAPIVersion:
+          of: discovery.k8s.io/v1
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: ports
+          value:
+            - name: port-name
+              port: 443
+              protocol: TCP
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: endpoints
+          value:
+            - addresses:
+                - 1.1.1.1
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+
+  - it: should pass with type ExternalIP and useSlice set to false
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 443
+                protocol: TCP
+                targetPort: 443
+      - documentIndex: &endpointDoc 1
+        isKind:
+          of: Endpoints
+      - documentIndex: *endpointDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *endpointDoc
+        equal:
+          path: subsets
+          value:
+            - addresses:
+                - ip: 1.1.1.1
+              ports:
+                - name: port-name
+                  port: 443
+                  protocol: TCP
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+
+  - it: should pass with type ExternalIP and useSlice set to false, multiple ports
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: 12344
+              targetPort: 12346
+              protocol: http
+              appProtocol: http
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+              - name: port-name2
+                port: 12344
+                protocol: TCP
+                targetPort: 12346
+      - documentIndex: &endpointDoc 1
+        isKind:
+          of: Endpoints
+      - documentIndex: *endpointDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            helm.sh/chart: common-test-1.0.0
+            helm-revision: "0"
+            app: common-test-1.0.0
+            release: test-release-name
+      - documentIndex: *endpointDoc
+        equal:
+          path: subsets
+          value:
+            - addresses:
+                - ip: 1.1.1.1
+              ports:
+                - name: port-name
+                  port: 12345
+                  protocol: TCP
+                - name: port-name2
+                  port: 12346
+                  protocol: TCP
+                  appProtocol: http
+
+  - it: should use object namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: some-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should use global namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should use root namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should use object namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: some-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should use global namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should use root namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace

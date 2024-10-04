@@ -1,0 +1,187 @@
+suite: certificate validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 253 characters
+    set:
+      certificate:
+        my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-long-long-long-long-long-long-long-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-long-long-long-long-long-long-long-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      certificate:
+        _my-cert:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_my-cert] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      certificate:
+        my-certificate:
+          enabled: true
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          certificateIssuer: some-issuer
+          hosts:
+            - test-host
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      certificate:
+        my-certificate:
+          enabled: true
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with empty enabled
+    set:
+      certificate:
+        my-certificate:
+          enabled:
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected the defined key [enabled] in [certificate.my-certificate] to not be empty
+
+  - it: should fail if certificateIssuer is missing
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected non-empty [certificateIssuer]
+
+  - it: should fail if hosts are empty
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected non-empty [hosts]
+
+  - it: should fail if hosts is not slice
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts: not-a-slice
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected [hosts] to be a [slice], but got [string]
+
+  - it: should fail if hosts entry is empty
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected non-empty entry in [hosts]
+
+  - it: should fail if hosts entry starts with https://
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - https://test-host
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected entry in [hosts] to not start with [https://], but got [https://test-host]
+
+  - it: should fail if hosts entry starts with http://
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - http://test-host
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected entry in [hosts] to not start with [http://], but got [http://test-host]
+
+  - it: should fail if hosts entry contains ":"
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - test-host:123
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected entry in [hosts] to not contain [:], but got [test-host:123]
+
+  - it: should fail if certificateSecretTemplate missing both labels and annotations
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - test-host
+          certificateSecretTemplate:
+            some-key: some-value
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate - Expected [certificateSecretTemplate] to have at least one of [labels, annotations]
+
+  - it: should fail if certificateSecretTemplate labels are not a map
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - test-host
+          certificateSecretTemplate:
+            labels: "not a map"
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate (certificateSecretTemplate) - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail if certificateSecretTemplate annotations are not a map
+    set:
+      certificate:
+        my-cert:
+          enabled: true
+          certificateIssuer: some-issuer
+          hosts:
+            - test-host
+          certificateSecretTemplate:
+            annotations: "not a map"
+    asserts:
+      - failedTemplate:
+          errorMessage: Cert Manager Certificate (certificateSecretTemplate) - Expected [annotations] to be a dictionary, but got [string]

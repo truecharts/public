@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.1.6
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: cloudnative-pg
-    version: 0.21.5
+    version: 0.22.0
     repository: https://cloudnative-pg.github.io/charts
     condition: ""
     alias: cloudnative-pg
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/cloudnative-pg
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 8.1.1
+version: 8.2.0

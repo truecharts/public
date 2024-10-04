@@ -1,0 +1,1203 @@
+# -- Global values
+global:
+  # -- Set additional global labels
+  labels: {}
+  # -- Set additional global annotations
+  annotations: {}
+  # -- Set a global namespace
+  # TODO: Currently some objects do not support this
+  namespace: ""
+  diagnosticMode:
+    enabled: false
+  fallbackDefaults:
+    # -- Define a storageClassName that will be used for all PVCs
+    # Can be overruled per PVC
+    storageClass:
+    # -- Default probe type
+    probeType: http
+    # -- Default Service Protocol
+    serviceProtocol: tcp
+    # -- Default Service Type
+    serviceType: ClusterIP
+    # -- Default persistence type
+    persistenceType: pvc
+    # -- Default Retain PVC
+    pvcRetain: false
+    # -- Default PVC Size
+    pvcSize: 100Gi
+    # -- Default VCT Size
+    vctSize: 100Gi
+    # -- Default PVC Access Modes
+    accessModes:
+      - ReadWriteOnce
+    # -- Default VCT Access Modes
+    vctAccessModes:
+      - ReadWriteOnce
+    # -- Default probe timeouts
+    probeTimeouts:
+      liveness:
+        initialDelaySeconds: 12
+        periodSeconds: 15
+        timeoutSeconds: 5
+        failureThreshold: 5
+        successThreshold: 1
+      readiness:
+        initialDelaySeconds: 10
+        periodSeconds: 12
+        timeoutSeconds: 5
+        failureThreshold: 4
+        successThreshold: 2
+      startup:
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        timeoutSeconds: 3
+        failureThreshold: 60
+        successThreshold: 1
+    # -- Define a postgresql version for CNPG
+    # will be used for all CNPG objects
+    # Can be overruled per CNPG objects
+    pgVersion: 16
+  metallb:
+    # -- Adds metalLB annotations to services
+    addServiceAnnotations: true
+  traefik:
+    # -- Adds traefik annotations to services (when needed)
+    addServiceAnnotations: true
+    # Enables or disables the fixed middlewares on all ingresses
+    # Can be overruled per ingress
+    enableFixedMiddlewares: true
+    # Applies middleware to all ingresses
+    # Can be overruled per ingress
+    fixedMiddlewares:
+      - name: chain-basic
+        # Optional, by default will try to
+        # "lookup" the namespace based on the name
+        namespace: ""
+    # The middlewares to apply if allowCors toggle is enabled
+    allowCorsMiddlewares:
+      - name: tc-opencors-chain
+        # Optional, by default will try to
+        # "lookup" the namespace based on the name
+        namespace: ""
+  # -- Minimum nodePort value
+  minNodePort: 9000
+  # -- Enable to stop most pods and containers including cnpg
+  # does not include stand-alone pods
+  stopAll: false
+
+# -- Hook to disable having a common-dependency enabled.
+# Primarily used to ensure we don't include common multiple times with nested dependencies
+includeCommon: true
+
+# -- Explicitly set a namespace for this chart only
+namespace: ""
+
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: v1.10.3@sha256:43a68d10b9dfcfc3ffbfe4dd42100dc9aeaf29b3a5636c856337a5940f1b4f1c
+
+chartContext:
+  APPURL: ""
+  podCIDR: ""
+  svcCIDR: ""
+
+# -- Security Context
+securityContext:
+  # -- Container security context for all containers
+  # Can be overruled per container
+  container:
+    runAsUser: 568
+    runAsGroup: 568
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+    privileged: false
+    seccompProfile:
+      type: RuntimeDefault
+    capabilities:
+      add: []
+      drop:
+        - ALL
+      # When set to false, it will automatically
+      # add CHOWN, SETUID, SETGID, FOWNER, DAC_OVERRIDE
+      # capabilities ONLY when container runs as ROOT
+      disableS6Caps: false
+    # -- PUID for all containers
+    # Can be overruled per container
+    PUID: 568
+    # -- UMASK for all containers
+    # Can be overruled per container
+    UMASK: "0022"
+  # -- Pod security context for all pods
+  # Can be overruled per pod
+  pod:
+    fsGroup: 568
+    fsGroupChangePolicy: OnRootMismatch
+    supplementalGroups: []
+    sysctls: []
+
+# -- Resources
+# Can be overruled per container
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+containerOptions:
+  NVIDIA_CAPS:
+    - all
+
+# -- Options for all pods
+# Can be overruled per pod
+podOptions:
+  enableServiceLinks: false
+  hostNetwork: false
+  hostPID: false
+  hostIPC: false
+  # If this key exists, takes precedence over the automated calculation
+  # hostUsers: false
+  shareProcessNamespace: false
+  restartPolicy: Always
+  dnsPolicy: ClusterFirst
+  dnsConfig:
+    options:
+      - name: ndots
+        value: "1"
+  hostAliases: []
+  nodeSelector:
+    kubernetes.io/arch: "amd64"
+  # -- Used to enforce a good spread for Deployments and StatefulSets by default
+  defaultSpread: true
+  topologySpreadConstraints: []
+  tolerations: []
+  schedulerName: ""
+  priorityClassName: ""
+  runtimeClassName: ""
+  automountServiceAccountToken: false
+  terminationGracePeriodSeconds: 60
+
+# -- (docs/workload/README.md)
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    dbWait: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: "{{ .Values.service.main.ports.main.protocol }}"
+              port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: "{{ .Values.service.main.ports.main.protocol }}"
+              port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: "{{ .Values.service.main.ports.main.protocol }}"
+              port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
+
+# -- Timezone used everywhere applicable
+TZ: UTC
+
+# -- Diagnostic Mode
+diagnosticMode:
+  enabled: false
+
+# -- (docs/service/README.md)
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        protocol: http
+
+credentials: {}
+  # mys3:
+  #   type: s3
+  #   url: ""
+  #   path: ""
+  #   bucket: ""
+  #   accessKey: ""
+  #   secretKey: ""
+  #   ## Is used in cases where things are encrypted by a backup utility
+  #   encrKey: ""
+
+# -- (docs/persistence/README.md)
+persistence:
+  shared:
+    enabled: true
+    type: emptyDir
+    mountPath: /shared
+    targetSelectAll: true
+  varlogs:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/logs
+    medium: Memory
+    targetSelectAll: true
+  varrun:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/run
+    medium: Memory
+    targetSelectAll: true
+  tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+    medium: Memory
+    targetSelectAll: true
+  devshm:
+    enabled: true
+    type: emptyDir
+    mountPath: /dev/shm
+    medium: Memory
+    targetSelectAll: true
+#  backupexample:
+#    ## the default backup path, is the credential path suffixed by the releasename, volsync and both the pvc and volsync names
+#    enabled: true
+#    type: pvc
+#    mountPath: /backedup
+#    targetSelectAll: true
+#    volsync:
+#      - name: mybackup
+#        ## TODO: other options
+#        type: restic
+#        credentials: mys3
+#        dest:
+#          enabled: true
+#        src:
+#          enabled: true
+#  iscsi:
+#    enabled: true
+#    type: iscsi
+#    mountPath: /dev/shm
+#    iscsi:
+#      targetPortal: 10.0.2.15:3260
+#      portals: ['10.0.2.16:3260', '10.0.2.17:3260'] #optional
+#      iqn: iqn.2001-04.com.example:storage.kube.sys1.xyz
+#      lun: 0
+#      fsType: ext4 #Optional
+#      iscsiInterface: default #Optional
+#      initiatorName: iqn.1994-05.com.redhat:node1 #Optional
+#      authSession:
+#        username: "someusername"
+#        password: "somepassword"
+#        usernameInitiator: "someusernameInitiator"
+#        passwordInitiator: "somepasswordInitiator"
+#      authDiscovery:
+#        username: "someusername"
+#        password: "somepassword"
+#        usernameInitiator: "someusernameInitiator"
+#        passwordInitiator: "somepasswordInitiator"
+#  vct:
+#    enabled: true
+#    type: vct
+#    mountPath: /shared
+#  dynamic-pvc:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#  dynamic-pvc-dataSource:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    dataSource:
+#      kind: "PersistentVolumeClaim"
+#      name: "existingPVC"
+#  existing-claim:
+#    enabled: true
+#    type: pvc
+#    existingClaim: "someclaim"
+#    mountPath: /shared
+#    targetSelectAll: true
+#  existingpv-pvc:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    volumeName: "somePV"
+#  static-nfs-pvc:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    static:
+#      mode: nfs
+#      server: "/someserver"
+#      share: "someshare"
+#  static-smb-pvc:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    static:
+#      mode: smb
+#      server: "/someserver"
+#      share: "someshare"
+#      domain: "somedomain"
+#      user: "someuser"
+#      password: "somepass"
+#  static-custom-pvc:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    static:
+#      mode: custom
+#      provisioner: "some.provisioner"
+#      driver: "somedriver"
+#      # Custom CSI definition here
+#      csi: {}
+#  example-volumesnapshot:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    volumeSnapshots:
+#      - name: "mysnapshot"
+#        volumeSnapshotClassName: "mysnapshotclass" (optional)
+
+volumeSnapshotClass: {}
+volumeSnapshots: {}
+# volumeSnapshots:
+#   mysnapshot:
+#     volumeSnapshotClassName: "mycustomsnapshot" (optional)
+#     source:
+#       # pick one
+#       persistentVolumeClaimName: "mypvcname" (does not get altered)
+#       volumeSnapshotContentName: "mysnapshotname"
+
+# -- (docs/imagePullSecrets.md)
+imagePullSecret: {}
+
+# -- (docs/configmap.md)
+configmap: {}
+
+# -- (docs/secret.md)
+secret: {}
+
+# -- (docs/serviceAccount.md)
+serviceAccount: {}
+
+# -- (docs/rbac.md)
+rbac: {}
+
+# NOTES.txt
+notes:
+  header: |
+    # Thank you for installing {{ .Chart.Name }} by TrueCharts.
+  # custom: "{{ toYaml $.Values }}"
+  custom: |
+    {{- if .Values.portal }}
+    ## Connecting externally
+    You can use this Chart by opening one of the following links in your browser:
+      {{- range $p := $.Values.portal }}
+      {{- if and $p.enabled $p.rendered }}
+    - {{ toYaml $p.rendered.url }}
+      {{- end }}
+      {{- end -}}
+    {{- end }}
+
+    ## Sources for {{ .Chart.Name }}
+
+    {{- range .Chart.Sources }}
+    - {{ . }}
+    {{- end -}}
+
+    {{- $link := .Chart.Annotations.docs -}}
+    {{- if not $link -}}
+      {{- $link = .Chart.Home -}}
+    {{- end }}
+
+    See more for **{{ $.Chart.Name }}** at ({{ $link }})
+  footer: |
+    ## Documentation
+    Please check out the TrueCharts documentation on:
+    https://truecharts.org
+
+    OpenSource can only exist with your help, please consider supporting TrueCharts:
+    https://truecharts.org/sponsor
+  warnings: []
+
+####
+##
+## TrueCharts Specific Root Objects
+##
+####
+
+# -- Defines the portals for which config needs to be generated
+portal:
+  open:
+    enabled: false
+    override:
+      protocol:
+      host:
+      port:
+    path: ""
+    targetSelector:
+      ingress: ""
+      service: ""
+      port: ""
+
+# -- Set by "open" portal, used for some applications internally.
+APPURL: ""
+
+gluetunImage:
+  repository: tccr.io/tccr/gluetun
+  tag: v3.39.0@sha256:043522d3c797668666cffe6c53aa1a4bb8532ca08e71a9a862c414893a28c1cb
+  pullPolicy: IfNotPresent
+
+netshootImage:
+  repository: tccr.io/tccr/netshoot
+  tag: v0.13.0@sha256:d1e6942d828ce14180e5de6136caa9ba2d89fcd25bfe3d3aaf9851ec73366879
+  pullPolicy: IfNotPresent
+
+tailscaleImage:
+  repository: tccr.io/tccr/tailscale
+  tag: v1.74.1@sha256:86c61b69ad79d717bf6d8b9f381b36742110bfa7d3e927ad3bfc29ac230e7536
+  pullPolicy: IfNotPresent
+
+codeserverImage:
+  repository: tccr.io/tccr/code-server
+  tag: v4.93.1@sha256:0f6d7b4617569b4c2a2af19a8daa35374adcde46532d9d31eff7e0853b9fd603
+  pullPolicy: IfNotPresent
+
+alpineImage:
+  repository: tccr.io/tccr/alpine
+  tag: v3.20.3@sha256:b2b2350a8a843b7f8a0afef968e525900b5c2ae410a8ef0c6461005a06b64ffe
+  pullPolicy: IfNotPresent
+
+scratchImage:
+  repository: tccr.io/tccr/scratch
+  tag: latest@sha256:35cf289028b606a0a5bfa8efcfbc5c8424a732532121cb635c014d742c0110f6
+  pullPolicy: IfNotPresent
+
+kubectlImage:
+  repository: tccr.io/tccr/kubectl
+  tag: latest@sha256:945f44d44720e6ca42969817c903e8643c6e34b9dafd90b338710dd104530588
+  pullPolicy: IfNotPresent
+
+wgetImage:
+  repository: tccr.io/tccr/wget
+  tag: v1.0.0@sha256:2c26ff54ed4bed9e4f1a97132119ba22f75710655d08c400bcef15dc08f9e0d1
+  pullPolicy: IfNotPresent
+
+yqImage:
+  pullPolicy: IfNotPresent
+  repository: mikefarah/yq
+  tag: 4.44.3@sha256:5b3d851bf28b04ef902fee86305f4dd7e063919c1cafedab2042adb16221c025
+
+postgresClientImage:
+  repository: tccr.io/tccr/db-wait-postgres
+  tag: v1.1.0@sha256:4e4e5b9f37a5d0c8d90d744de23d1857079095fbb55d2944ec91d83241f60376
+  pullPolicy: IfNotPresent
+
+mariadbClientImage:
+  repository: tccr.io/tccr/db-wait-mariadb
+  tag: v1.1.0@sha256:62858b8191b662716d84840f8d9b3c86654f175686159c5267a1c860d75f398d
+  pullPolicy: IfNotPresent
+
+redisClientImage:
+  repository: tccr.io/tccr/db-wait-redis
+  tag: v1.1.0@sha256:e9412891c9b6c96f11143cd88f5d19df352bf7b5570f1825f67b5e1a2ddec176
+  pullPolicy: IfNotPresent
+
+mongodbClientImage:
+  repository: tccr.io/tccr/db-wait-mongodb
+  tag: v1.1.0@sha256:9268e23927c4abd9bd031ef62a8a36c58e15361cf3f617906029fa4b6f25c71c
+  pullPolicy: IfNotPresent
+
+postgres15Image:
+  repository: ghcr.io/cloudnative-pg/postgresql
+  tag: "15.8"
+  pullPolicy: IfNotPresent
+
+postgres16Image:
+  repository: ghcr.io/cloudnative-pg/postgresql
+  tag: "16.4"
+  pullPolicy: IfNotPresent
+
+postgresPostgis15Image:
+  repository: ghcr.io/cloudnative-pg/postgis
+  tag: "15-3.4"
+  pullPolicy: IfNotPresent
+
+postgresPostgis16Image:
+  repository: ghcr.io/cloudnative-pg/postgis
+  tag: "16-3.4"
+  pullPolicy: IfNotPresent
+
+postgresVectors15Image:
+  repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+  tag: "15.7-v0.2.1"
+  pullPolicy: IfNotPresent
+
+postgresVectors16Image:
+  repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+  tag: "16.3-v0.2.1"
+  pullPolicy: IfNotPresent
+
+# -- OpenVPN specific configuration
+# @default -- See below
+openvpnImage:
+  # -- Specify the openvpn client image
+  repository: tccr.io/tccr/openvpn-client
+  # -- Specify the openvpn client image tag
+  tag: latest@sha256:2816991021542042f34ca2448b8a8bde93e8e75ae52f53922b1ab70491788ee5
+  # -- Specify the openvpn client image pull policy
+  pullPolicy: IfNotPresent
+
+# -- WireGuard specific configuration
+# @default -- See below
+wireguardImage:
+  # -- Specify the WireGuard image
+  repository: tccr.io/tccr/wireguard
+  # -- Specify the WireGuard image tag
+  tag: v1.0.20210914@sha256:683b8b74d64ebd07f9955147539834c2a4b60fee51d2a36fa76b9aba689601bf
+  # -- Specify the WireGuard image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configure the ingresses for the chart here.
+# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
+# @default -- See below
+ingress:
+  main:
+    # -- Enables or disables the ingress
+    enabled: false
+    # -- Make this the primary ingress (used in probes, notes, etc...).
+    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
+    primary: true
+    # -- Ensure this ingress is always enabled.
+    required: false
+    # expandObjectName: false
+    # -- Provide additional labels which may be required.
+    labels: {}
+    # -- Provide additional annotations which may be required.
+    annotations: {}
+    # -- Set the ingressClass that is used for this ingress.
+    # Requires Kubernetes >=1.19
+    ingressClassName: ""
+    # Defaults to primary service and primary port
+    # targetSelector:
+    #   # service: port
+    #   main: main
+    ## Configure the hosts for the ingress
+    hosts: []
+    #   - # -- Host address. Helm template can be passed.
+    #     host: chart-example.local
+    #     ## Configure the paths for the host
+    #     paths:
+    #       - # -- Path.  Helm template can be passed.
+    #         path: /
+    #         # -- Ignored if not kubeVersion >= 1.14-0
+    #         pathType: Prefix
+    #         # -- Overrides the service reference for this path, by default the selector is honored
+    #         overrideService:
+    #           # -- Overrides the service name reference for this path
+    #           name:
+    #           # -- Overrides the service port reference for this path
+    #           port:
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    # Gets ignored when clusterIssuer is filled
+    tls: []
+    #  - secretName: chart-example-tls
+    #    certificateIssuer: ""
+    #    hosts:
+    #      - chart-example.local
+    integrations:
+      certManager:
+        enabled: false
+        certificateIssuer: ""
+      traefik:
+        enabled: true
+        # Default to websecure
+        entrypoints:
+          - websecure
+        # Ensures tls annotation is set
+        forceTLS: true
+        # Drops both global and local fixedMiddlewares when enabled
+        allowCors: false
+        # fixedMiddlewares:
+        #   - name: chain-basic
+        #     # Optional, by default will try to
+        #     # "lookup" the namespace based on the name
+        #     namespace: ""
+        middlewares: []
+        #   - name: my-middleware
+        #     # Optional, by default will try to
+        #     # "lookup" the namespace based on the name
+        #     namespace: ""
+      homepage:
+        enabled: false
+        # Default: chart name
+        name: ""
+        # Default: chart description
+        description: ""
+        # Default: no group
+        group: ""
+        # Default: chart icon
+        icon: ""
+        widget:
+          # Default: chartname
+          type: ""
+          # Default to ingress host 0
+          url: ""
+          custom:
+            # somesetting: some value
+          customkv:
+            # - key: some key
+            #   value: some value
+
+certificate: {}
+#   main:
+#     enabled: false
+#     certificateIssuer: someissuer
+#     hosts:
+#       - somehost
+#     # Optional
+#     certificateSecretTemplate:
+#       labels: {}
+#       annotations: {}
+
+# -- BETA: Configure the gateway routes for the chart here.
+# Additional routes can be added by adding a dictionary key similar to the 'main' route.
+# Please be aware that this is an early beta of this feature, TrueCharts does not guarantee this actually works.
+# Being BETA this can/will change in the future without notice, please do not use unless you want to take that risk
+# [[ref]](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2)
+# @default -- See below
+route:
+  main:
+    # -- Enables or disables the route
+    enabled: false
+    # -- Set the route kind
+    # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
+    kind: HTTPRoute
+    # -- Provide additional annotations which may be required.
+    annotations: {}
+    # -- Provide additional labels which may be required.
+    labels: {}
+    # -- Configure the resource the route attaches to.
+    parentRefs:
+      - # Group of the referent resource.
+        group: gateway.networking.k8s.io
+        # Kind of the referent resource.
+        kind: Gateway
+        # Name of the referent resource
+        name:
+        # Namespace of the referent resource
+        namespace:
+        # Name of the section within the target resource.
+        sectionName:
+    # -- Host addresses
+    hostnames: []
+    # -- Configure rules for routing. Defaults to the primary service.
+    rules:
+      - # -- Configure backends where matching requests should be sent.
+        backendRefs:
+          - group: ""
+            kind: Service
+            name:
+            namespace:
+            port:
+            weight: 1
+        ## Configure conditions used for matching incoming requests. Only for HTTPRoutes
+        matches:
+          - path:
+              type: PathPrefix
+              value: /
+
+podDisruptionBudget:
+  main:
+    enabled: false
+    # -- Custom Selector Labels
+    # customLabels:
+    #   customKey: customValue
+    # maxUnavailable: 1
+    # minAvailable: 1
+    targetSelector: main
+
+webhook:
+  validating:
+    enabled: false
+    type: validating
+    webhooks: []
+  mutating:
+    enabled: false
+    type: mutating
+    webhooks: []
+
+priorityClass: {}
+# priorityClass:
+#   example:
+#     provisioner: some.provisioner.io
+#     enabled: true
+#     value: 1000000
+#     preemptionPolicy: PreemptLowerPriority
+#     globalDefault: false
+#     description: "some description"
+
+# # -- create storageClasses on demand
+storageClass: {}
+# storageClass:
+#   example:
+#     provisioner: some.provisioner.io
+#     enabled: true
+#     isDefaultClass: false
+#     parameters: {}
+#     reclaimPolicy: retain
+#     allowVolumeExpansion: true
+#     volumeBindingMode: Immediate
+#     mountOptions: []
+
+metrics:
+  main:
+    enabled: false
+    primary: true
+    # options: servicemonitor, podmonitor
+    type: "servicemonitor"
+    # defaults to selectorLabels
+    selector: {}
+    endpoints:
+      - port: main
+        interval: 5s
+        scrapeTimeout: 5s
+        path: /
+        honorLabels: false
+    prometheusRule:
+      enabled: false
+      groups: {}
+      #   somegroup:
+      #     # list of rules
+      #     rules: []
+      #     # list to support adding rules via the SCALE GUI without overwrithing the rules
+      #     additionalrules: []
+      # List to support adding groups using the SCALE GUI
+      additionalgroups:
+        #-  name: "somegroup"
+        #   # list of rules
+        #   rules: []
+        #   # list to support adding rules via the SCALE GUI without overwrithing the rules
+        #   additionalrules: []
+
+# -- The common chart supports several add-ons. These can be configured under this key.
+# @default -- See below
+addons:
+  # -- The common chart supports adding a VPN add-on. It can be configured under this key.
+  # @default -- See values.yaml
+  vpn:
+    # -- Specify the VPN type. Valid options are disabled, gluetun, openvpn, wireguard or tailscale
+    # OpenVPN and Wireguard are considered deprecated
+    type: disabled
+
+    # -- Tailscale specific configuration
+    # @default -- See below
+    # See more info for the configuration
+    # https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
+    tailscale:
+      # -- Auth key to connect to the VPN Service
+      authkey: ""
+      # As a sidecar, it should only need to run in userspace
+      userspace: true
+      auth_once: true
+      accept_dns: false
+      routes: ""
+      dest_ip: ""
+      sock5_server: ""
+      extra_args: ""
+      daemon_extra_args: ""
+      outbound_http_proxy_listen: ""
+      # -- Annotations for tailscale sidecar
+      annotations: {}
+
+    # -- OpenVPN specific configuration
+    # @default -- See below
+    openvpn:
+      # -- Credentials to connect to the VPN Service (used with -a)
+      # Only using password is enough
+      username: ""
+      password: ""
+
+    # -- All variables specified here will be added to the vpn sidecar container
+    # See the documentation of the VPN image for all config values
+    env: {}
+    #  TZ: UTC
+
+    # -- All variables specified here will be added to the vpn sidecar container
+    # See the documentation of the VPN image for all config values
+    envList: []
+    #  - name: someenv
+    #   value: somevalue
+
+    # -- you can directly specify the config file here
+    config: ""
+
+    scripts:
+      # -- you can directly specify the upscript here
+      up: ""
+      # some script
+
+      # -- you can directly specify the downscript here
+      down: ""
+      # some script
+
+    # -- Provide a customized vpn configuration file location to be used by the VPN.
+    configFile: ""
+
+    # -- Provide a customized vpn configuration folder location to be added to the VPN container
+    # The config file needs to be mounted seperately
+    # the upscript and downscript need to be named: upscript.sh and downscript.sh respectively
+    configFolder: ""
+
+    # -- Provide an existing secret for vpn config storage
+    existingSecret: ""
+
+    # -- select pods to bind vpn addon to
+    # Add "codeserver" to also add the codeserver pod to VPN
+    targetSelector:
+      - main
+
+    ## Only for Wireguard and OpenVPN
+    killSwitch: true
+    excludedNetworks_IPv4: []
+    excludedNetworks_IPv6: []
+
+    ## For Gluetun to enable kubernetes network communication
+    inputPorts: []
+
+  # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
+  # @default -- See values.yaml
+  codeserver:
+    # -- Enable running a code-server container in the pod
+    enabled: false
+
+    # -- Set any environment variables for code-server here
+    env: {}
+
+    # -- All variables specified here will be added to the codeserver sidecar container
+    # See the documentation of the codeserver image for all config values
+    envList: []
+    #   - name: someenv
+    #    value: somevalue
+    # -- Set codeserver command line arguments.
+    # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
+    args:
+      - --auth
+      - none
+      # - --user-data-dir
+      # - "/config/.vscode"
+    # -- Select a container to add the addon to
+    targetSelector:
+    # -- Specify the working dir that will be opened when code-server starts
+    # If not given, the app will default to the mountpah of the first specified volumeMount
+    workingDir: "/"
+
+    service:
+      # -- Enable a service for the code-server add-on.
+      enabled: true
+      type: ClusterIP
+      # Specify the default port information
+      ports:
+        codeserver:
+          enabled: true
+          primary: true
+          protocol: http
+          port: 12321
+
+    ingress:
+      # -- Enable an ingress for the code-server add-on.
+      enabled: false
+      annotations: {}
+      #   kubernetes.io/ingress.class: nginx
+      labels: {}
+      hosts:
+        - host: code.chart-example.local
+          paths:
+            - path: /
+              # Ignored if not kubeVersion >= 1.14-0
+              pathType: Prefix
+      tls: []
+
+  netshoot:
+    # -- Enable running a netshoot container in the pod
+    enabled: false
+
+    # -- Set any environment variables for netshoot here
+    env: {}
+
+##########################################################################
+# This section contains some pre-config for frequently used dependencies #
+##########################################################################
+
+cnpg:
+  main:
+    enabled: false
+    primary: true
+    # -- Puts the cnpg cluster in hibernation mode
+    hibernate: false
+    # Additional Labels and annotations for all cnpg objects
+    labels: {}
+    annotations: {}
+
+    # Type of the CNPG database. Available types:
+    # * `postgres`
+    # * `postgis`
+    # * `timescaledb`
+    # * `vectors`
+    type: postgres
+
+    # Version of Postgresql to use, changes cluster naming scheme
+    # * `15`
+    # * `16`
+    pgVersion: 16
+
+    # Cluster mode of operation. Available modes:
+    # * `standalone` - default mode. Creates new or updates an existing CNPG cluster.
+    # * `replica` - Creates a replica cluster from an existing CNPG cluster. # TODO
+    # * `recovery` - Same as standalone but creates a cluster from a backup, object store or via pg_basebackup.
+    mode: standalone
+
+    # Database details
+    database: "app"
+    user: "app"
+    password: "PLACEHOLDERPASSWORD"
+
+    # Database cluster configuration
+    cluster:
+      # Additional Labels and annotations for cnpg cluster
+      labels: {}
+      annotations: {}
+
+      # Number of instances
+      instances: 2
+
+      # set to true on single-node clusters to allow PVCs to be kept on instance restart
+      singleNode: false
+      # # -- storage size for the data pvc's
+      # # Follows the same spec as .Values.Persistence type=PVC
+      # storage:
+      #   size: "256Gi"
+      # # -- storage size for the wal pvc's
+      # # Follows the same spec as .Values.Persistence type=PVC
+      # walStorage:
+      #   size: "256Gi"
+      # -- Gets scaled to 0 if hibernation is true
+      ## See .Values.resources for more info
+      # resources:
+
+      # Method to follow to upgrade the primary server during a rolling update procedure, after all replicas have been
+      # successfully updated. It can be switchover (default) or in-place (restart).
+      primaryUpdateMethod: switchover
+
+      # Strategy to follow to upgrade the primary server during a rolling update procedure, after all replicas have been
+      # successfully updated: it can be automated (unsupervised - default) or manual (supervised)
+      # Example of rolling update strategy:
+      # - unsupervised: automated update of the primary once all
+      #                 replicas have been upgraded (default)
+      # - supervised: requires manual supervision to perform
+      #               the switchover of the primary
+      # -- change to supervised to disable unsupervised updates
+      primaryUpdateStrategy: unsupervised
+
+      # The instances' log level, one of the following values: error, warning, info (default), debug, trace
+      logLevel: info
+
+      # The configuration for the CA and related certificates
+      # See: https://cloudnative-pg.io/documentation/current/api_reference/#CertificatesConfiguration
+      certificates:
+
+      # When this option is enabled, the operator will use the SuperuserSecret to update the postgres user password.
+      # If the secret is not present, the operator will automatically create one.
+      # When this option is disabled, the operator will ignore the SuperuserSecret content, delete it when automatically created,
+      # and then blank the password of the postgres user by setting it to NULL.
+
+      # enableSuperuserAccess: true
+
+      # Configuration of the PostgreSQL server
+      # See: https://cloudnative-pg.io/documentation/current/api_reference/#PostgresConfiguration
+      postgresql:
+
+      # BootstrapInitDB is the configuration of the bootstrap process when initdb is used
+      # See: https://cloudnative-pg.io/documentation/current/bootstrap/
+      # See: https://cloudnative-pg.io/documentation/current/api_reference/#bootstrapinitdb
+      initdb: {}
+      #   postInitSQL:
+      #     - CREATE EXTENSION IF NOT EXISTS vector;
+      #   postInitApplicationSQL:
+      #     - CREATE EXTENSION IF NOT EXISTS someextension;
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: false
+      disableDefaultQueries: false
+      customQueries: []
+      #   - name: "pg_cache_hit_ratio"
+      #     expandObjectName: true
+      #     key: "custom-key" (defaults to "custom-queries")
+      #     query: "SELECT current_database() as datname, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio FROM pg_statio_user_tables;"
+      #     metrics:
+      #       - datname:
+      #           usage: "LABEL"
+      #           description: "Name of the database database"
+      #       - ratio:
+      #           usage: GAUGE
+      #           description: "Cache hit ratio"
+    # Recovery settings if the chosen mode is `recovery`.
+    recovery:
+      ##
+      # Backup Recovery Method
+      # Available recovery methods:
+      # * `backup` - Recovers a CNPG cluster from a CNPG backup (PITR supported) Needs to be on the same cluster in the same namespace.
+      # * `object_store` - Recovers a CNPG cluster from a barman object store (PITR supported).
+      # * `pg_basebackup` - Recovers a CNPG cluster viaa streaming replication protocol. Useful if you want to
+      #        migrate databases to CloudNativePG, even from outside Kubernetes. # TODO
+      method: object_store
+      ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
+      # revision: 1
+
+      # override serverName in recovery obkect
+      servername: ""
+
+      ## Point in time recovery target. Specify one of the following:
+      pitrTarget:
+        time: "" # Time in RFC3339 format
+
+      # Name of the backup to recover from. Required if method is `backup`.
+      backupName: ""
+
+      # Object Store Recovery Method
+      clusterName: ""
+
+      # Overrides the provider specific default path. Defaults to:
+      # S3: s3://<bucket><path>
+      # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
+      # Google: gs://<bucket><path>
+      destinationPath: ""
+
+    # Database cluster backup configuration
+    backups:
+      enabled: false # You need to configure backups manually, so backups are disabled by default.
+
+      encryption:
+        enabled: false
+      ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
+      # revision: 1
+
+      # override serverName in recovery obkect
+      servername: ""
+
+      # Overrides the provider specific default path. Defaults to:
+      # S3: s3://<bucket><path>
+      # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
+      # Google: gs://<bucket><path>
+      destinationPath: ""
+
+      # default: primary, other option prefer-standby
+      target: ""
+
+      # name of credentials in .Values.Credentials
+      credentials: ""
+
+      scheduledBackups:
+        - name: daily-backup # Daily at midnight
+          schedule: "0 0 0 * * *" # Daily at midnight
+          backupOwnerReference: self
+          immediate: true
+          suspend: false
+
+      retentionPolicy: "30d"
+
+      # - Manual list of backups
+      manualBackups: []
+      #   - name: today
+      #     labels: {}
+      #     annotations: {}
+      #   - name: beforeUpgrade
+      #     labels: {}
+      #     annotations: {}
+
+    # Database cluster PgBouncer configuration
+    pooler:
+      enabled: false
+      # -- enable to create extra pgbouncer for readonly access
+      createRO: false
+      poolMode: session
+      # -- Gets scaled to 0 if hibernation is true
+      instances: 2
+      # parameters:
+      #   max_client_conn: "1000"
+      #   default_pool_size: "25"
+      labels: {}
+      annotations: {}
+
+    # -- contains credentials and urls output by generator
+    creds: {}
+
+# -- Redis dependency configuration
+# @default -- See below
+redis:
+  enabled: false
+  includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
+  # -- can be used to make an easy accessible note which URLS to use to access the DB.
+  creds: {}
+  secret:
+    credentials:
+      enabled: false
+
+# -- mariadb dependency configuration
+# @default -- See below
+mariadb:
+  enabled: false
+  includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
+  rootPassword: "PLACEHOLDERROOTPASSWORD"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  creds: {}
+
+# -- mongodb dependency configuration
+# @default -- See below
+mongodb:
+  enabled: false
+  includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
+  rootPassword: "PLACEHOLDERROOTPASSWORD"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  creds: {}
+
+# -- clickhouse dependency configuration
+# @default -- See below
+clickhouse:
+  enabled: false
+  includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  creds: {}
+
+# -- solr dependency configuration
+# @default -- See below
+solr:
+  enabled: false
+  includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
+  solrCores: 1
+  solrEnableAuthentication: "no"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  creds: {}
+
+# -- List of extra objects to deploy with the release
+extraTpl: []

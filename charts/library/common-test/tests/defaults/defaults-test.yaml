@@ -1,0 +1,141 @@
+suite: default test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with defaults
+    set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              port: 1025
+      workload:
+        main:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 1
+            revisionHistoryLimit: 3
+            strategy:
+              type: Recreate
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec
+          content:
+            serviceAccountName: default
+            automountServiceAccountToken: false
+            runtimeClassName:
+            hostNetwork: false
+            hostPID: false
+            shareProcessNamespace: false
+            enableServiceLinks: false
+            restartPolicy: Always
+            dnsPolicy: ClusterFirst
+            dnsConfig:
+              options:
+                - name: ndots
+                  value: "1"
+            terminationGracePeriodSeconds: 60
+            securityContext:
+              fsGroup: 568
+              fsGroupChangePolicy: OnRootMismatch
+              supplementalGroups:
+                - 568
+              sysctls: []
+      - documentIndex: *deploymentDoc
+        equal:
+          path: metadata.labels
+          value:
+            app: common-test-1.0.0
+            release: test-release-name
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec
+          content:
+            volumes:
+              - name: devshm
+                emptyDir:
+                  medium: Memory
+                  sizeLimit: 8Gi
+              - name: shared
+                emptyDir: {}
+              - name: tmp
+                emptyDir:
+                  medium: Memory
+                  sizeLimit: 8Gi
+              - name: varlogs
+                emptyDir:
+                  medium: Memory
+                  sizeLimit: 8Gi
+              - name: varrun
+                emptyDir:
+                  medium: Memory
+                  sizeLimit: 8Gi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            livenessProbe:
+              failureThreshold: 5
+              httpGet:
+                path: /
+                port: 1025
+                scheme: HTTP
+              initialDelaySeconds: 12
+              periodSeconds: 15
+              successThreshold: 1
+              timeoutSeconds: 5
+            readinessProbe:
+              failureThreshold: 4
+              httpGet:
+                path: /
+                port: 1025
+                scheme: HTTP
+              initialDelaySeconds: 10
+              periodSeconds: 12
+              successThreshold: 2
+              timeoutSeconds: 5
+            startupProbe:
+              failureThreshold: 60
+              httpGet:
+                path: /
+                port: 1025
+                scheme: HTTP
+              initialDelaySeconds: 10
+              periodSeconds: 5
+              successThreshold: 1
+              timeoutSeconds: 3

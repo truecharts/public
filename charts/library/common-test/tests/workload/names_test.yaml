@@ -1,0 +1,87 @@
+suite: workload name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct workload name
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        daemonset-workload-name:
+          enabled: true
+          primary: false
+          type: DaemonSet
+          podSpec: {}
+        stateful-workload-name:
+          enabled: true
+          primary: false
+          type: StatefulSet
+          podSpec: {}
+        cronjob-workload-name:
+          enabled: true
+          primary: false
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+        job-workload-name:
+          enabled: true
+          primary: false
+          type: Job
+          podSpec: {}
+    asserts:
+      - documentIndex: &cronJobDoc 0
+        isKind:
+          of: CronJob
+      - documentIndex: *cronJobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cronjob-workload-name
+      - documentIndex: &daemonSetDoc 1
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-daemonset-workload-name
+      - documentIndex: &jobDoc 2
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-job-workload-name
+      - documentIndex: &statefulSetDoc 3
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-stateful-workload-name
+      - documentIndex: &deploymentDoc 4
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test

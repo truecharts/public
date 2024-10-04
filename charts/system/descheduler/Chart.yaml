@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 24.0.9
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: descheduler
-    version: 0.30.1
+    version: 0.31.0
     repository: https://kubernetes-sigs.github.io/descheduler
     condition: ""
     alias: descheduler
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/descheduler
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 0.0.1
+version: 0.1.0

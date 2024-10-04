@@ -1,0 +1,316 @@
+suite: addon codeserver
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: addon enabled should pass
+    set:
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      addons:
+        codeserver:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &AddonServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *AddonServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-codeserver
+
+  - it: addon enabled should pass without other service
+    set:
+      workload: *workload
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      service:
+        main:
+          enabled: false
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &AddonServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *AddonServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+
+  - it: addon enabled should pass and mount volume with targetSelector on other container only
+    set:
+      workload: *workload
+      persistence:
+        data:
+          enabled: true
+          type: emptyDir
+          targetSelector:
+            main:
+              main:
+                mountPath: /data
+                readOnly: true
+        data2:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          targetSelector:
+            main:
+              main:
+                readOnly: false
+      addons:
+        codeserver:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /data
+            name: data
+            readOnly: true
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some/path
+            name: data2
+            readOnly: false
+
+  - it: should apply ingress settings without primary
+    set:
+      workload: *workload
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+            type: LoadBalancer
+            ports:
+              codeserver:
+                port: 30067
+          ingress:
+            enabled: true
+            hosts:
+              - host: code.chart-example.local
+                paths:
+                  - path: /
+            integrations:
+              traefik:
+                enabled: false
+    asserts:
+      - documentIndex: &serviceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDocument
+        equal:
+          path: spec.ports[0].port
+          value: 30067
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: code.chart-example.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.name
+          value: test-release-name-common-test
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 30067
+
+  - it: should apply ingress settings with primary
+    set:
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      ingress:
+        my-ing:
+          enabled: true
+          primary: true
+          hosts:
+            - host: chart-example.local
+              paths:
+                - path: /
+          integrations:
+            traefik:
+              enabled: false
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+            type: LoadBalancer
+            ports:
+              codeserver:
+                port: 30067
+          ingress:
+            enabled: true
+            hosts:
+              - host: code.chart-example.local
+                paths:
+                  - path: /
+            integrations:
+              traefik:
+                enabled: false
+    asserts:
+      - documentIndex: &serviceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *serviceDocument
+        equal:
+          path: spec.ports[0].port
+          value: 30067
+      - documentIndex: &IngressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: code.chart-example.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 30067

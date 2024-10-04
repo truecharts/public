@@ -1,0 +1,85 @@
+suite: pod nfs-pv-pvc volume test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with nfs-pv-pvc volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            server: my-server
+            share: /my-path
+        my-volume2:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            server: my-server2
+            share: /my-path2
+          size: 2Gi
+        my-volume3:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            server: my-server3
+            share: /my-path3
+          size: 3Gi
+    asserts:
+      - documentIndex: &pvDoc 1
+        isKind:
+          of: PersistentVolume
+      - documentIndex: *pvDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1-1599277109
+      - documentIndex: &otherPvDoc 3
+        isKind:
+          of: PersistentVolume
+      - documentIndex: *otherPvDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2-1702692922
+      - documentIndex: &thirdPvDoc 5
+        isKind:
+          of: PersistentVolume
+      - documentIndex: *thirdPvDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume3-1705052221
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: my-volume1
+            persistentVolumeClaim:
+              claimName: test-release-name-common-test-my-volume1-1599277109
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: my-volume2
+            persistentVolumeClaim:
+              claimName: test-release-name-common-test-my-volume2-1702692922
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: my-volume3
+            persistentVolumeClaim:
+              claimName: test-release-name-common-test-my-volume3-1705052221

@@ -1,0 +1,149 @@
+suite: statefulset spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with workload enabled
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 1
+            revisionHistoryLimit: 3
+            updateStrategy:
+              type: RollingUpdate
+
+  - it: should apply spec correctly
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          revisionHistoryLimit: 4
+          strategy: RollingUpdate
+          rollingUpdate:
+            partition: 5
+            maxUnavailable: 5
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            revisionHistoryLimit: 4
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                partition: 5
+                maxUnavailable: 5
+
+  - it: should apply partition with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          strategy: RollingUpdate
+          rollingUpdate:
+            partition: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                partition: 0
+
+  - it: should apply maxUnavailable with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxUnavailable: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxUnavailable: 0
+
+  - it: should apply replicas
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 2
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 2
+            updateStrategy:
+              type: RollingUpdate
+
+  - it: should set replicas to 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0
+
+  - it: should set replicas to 0 on stopAll
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 2
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0
