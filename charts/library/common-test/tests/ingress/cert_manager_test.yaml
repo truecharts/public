@@ -1,0 +1,119 @@
+suite: ingress - cert manager metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with annotations from cert manager
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik: &traefik
+              enabled: false
+            certManager:
+              enabled: true
+              certificateIssuer: some-issuer
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            cert-manager.io/cluster-issuer: some-issuer
+            cert-manager.io/private-key-rotation-policy: Always
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with ingress created without cert manager annotations when cert manager false
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik: *traefik
+            certManager:
+              enabled: false
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isNotSubset:
+          path: metadata.annotations
+          content:
+            cert-manager.io/cluster-issuer: some-issuer
+            cert-manager.io/private-key-rotation-policy: Always
+  # Failures
+  - it: should fail with missing certificateIssuer
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            certManager:
+              enabled: true
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected a non-empty [integrations.certManager.certificateIssuer]
+
+  - it: should fail with certificateIssuer not a string
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            certManager:
+              enabled: true
+              certificateIssuer:
+                - some-issuer
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.certManager.certificateIssuer] to be a [string], but got [slice]

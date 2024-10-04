@@ -1,0 +1,15 @@
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80

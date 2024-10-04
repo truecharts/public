@@ -1,0 +1,964 @@
+suite: addon vpn
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: addon vpn gluetun enabled with config and env should pass
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      addons:
+        vpn:
+          type: gluetun
+          config: |
+            some vpn config
+            with multiple lines
+          env:
+            key: value
+            key1: value1
+          envList:
+            - name: key2
+              value: value2
+            - name: key3
+              value: value3
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &SecretDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-vpnconfig
+      - documentIndex: *SecretDocument
+        equal:
+          path: stringData
+          value:
+            vpn.conf: |-
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key2
+            value: value2
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key3
+            value: value3
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: test-release-name-common-test-vpnconfig
+              defaultMode: 0777
+              optional: false
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+
+  - it: addon vpn gluetun enabled with scripts added
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          config: |
+            some vpn config
+            with multiple lines
+          scripts:
+            up: |
+              echo "up"
+              echo "done"
+            down: |
+              echo "down"
+              echo "done"
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 4
+      - documentIndex: &ConfigMapDocument 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: &SecretDocument 1
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 2
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 3
+        isKind:
+          of: Service
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-vpnconfig
+      - documentIndex: *ConfigMapDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-vpnscripts
+      - documentIndex: *ConfigMapDocument
+        equal:
+          path: data
+          value:
+            up.sh: |-
+              echo "up"
+              echo "done"
+            down.sh: |-
+              echo "down"
+              echo "done"
+      - documentIndex: *SecretDocument
+        equal:
+          path: stringData
+          value:
+            vpn.conf: |-
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnscripts
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnscripts
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: test-release-name-common-test-vpnconfig
+              defaultMode: 0777
+              optional: false
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnscripts
+            configMap:
+              name: vpnscripts
+              defaultMode: 0777
+              optional: false
+              items:
+                - key: up.sh
+                  path: up.sh
+                - key: down.sh
+                  path: down.sh
+
+  - it: addon vpn gluetun enabled with existing secret
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          existingSecret: existing-secret
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: existing-secret
+              defaultMode: 0777
+              optional: false
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+
+  - it: addon vpn gluetun enabled with configFile
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          configFile: /path/to/file
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &JobDocument 0
+        isKind:
+          of: Job
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *JobDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-autopermissions
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /mounts/vpnconfig
+            readOnly: false
+      - documentIndex: *JobDocument
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - |-
+              echo "Starting auto permissions job..."
+              touch /tmp/healthy
+
+              echo "Automatically correcting ownership and permissions..."
+                  echo "Automatically correcting ownership for /mounts/vpnconfig..."
+                  before=$(stat -c "%u:%g" /mounts/vpnconfig)
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+
+                  echo "Ownership before: [$before]"
+                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"
+                  echo ""
+              echo "Finished auto permissions job..."
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /gluetun/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+
+  - it: addon vpn gluetun enabled with configFolder
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          configFolder: /path/to/folder
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &JobDocument 0
+        isKind:
+          of: Job
+      - documentIndex: *JobDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-autopermissions
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnfolder
+            hostPath:
+              path: /path/to/folder
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnfolder
+            mountPath: /mounts/vpnfolder
+            readOnly: false
+      - documentIndex: *JobDocument
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - |-
+              echo "Starting auto permissions job..."
+              touch /tmp/healthy
+
+              echo "Automatically correcting ownership and permissions..."
+                  echo "Automatically correcting ownership for /mounts/vpnfolder..."
+                  before=$(stat -c "%u:%g" /mounts/vpnfolder)
+                  chown  -f 568:568 /mounts/vpnfolder || echo "Failed setting ownership using chown..."
+
+                  echo "Ownership before: [$before]"
+                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnfolder)]"
+                  echo ""
+              echo "Finished auto permissions job..."
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnfolder
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnfolder
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnfolder
+            hostPath:
+              path: /path/to/folder
+
+  - it: tailscale addon enabled with authkey should pass
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      addons:
+        vpn:
+          type: tailscale
+          tailscale:
+            authkey: something
+            userspace: true
+          env:
+            key: value
+            key1: value1
+      workload: *workload
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: true
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_KUBE_SECRET
+            value: ""
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_SOCKET
+            value: /var/run/tailscale/tailscaled.sock
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_STATE_DIR
+            value: /var/lib/tailscale/state
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_ONCE
+            value: "true"
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_USERSPACE
+            value: "true"
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_ACCEPT_DNS
+            value: "false"
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_KEY
+            value: something
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: tailscalestate
+            emptyDir: {}
+
+  - it: tailscale addon enabled with authkey without userspace should pass
+    set:
+      addons:
+        vpn:
+          type: tailscale
+          tailscale:
+            authkey: something
+            userspace: false
+            key1: value1
+      workload: *workload
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1].securityContext
+          content:
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
+
+  - it: addon vpn openvpn enabled with configFile
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      addons:
+        vpn:
+          type: openvpn
+          configFile: /path/to/file
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &JobDocument 0
+        isKind:
+          of: Job
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *JobDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-autopermissions
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /mounts/vpnconfig
+            readOnly: false
+      - documentIndex: *JobDocument
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - |-
+              echo "Starting auto permissions job..."
+              touch /tmp/healthy
+
+              echo "Automatically correcting ownership and permissions..."
+                  echo "Automatically correcting ownership for /mounts/vpnconfig..."
+                  before=$(stat -c "%u:%g" /mounts/vpnconfig)
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+
+                  echo "Ownership before: [$before]"
+                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"
+                  echo ""
+              echo "Finished auto permissions job..."
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+
+  - it: addon vpn wireguard enabled with configFile
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      addons:
+        vpn:
+          type: wireguard
+          configFile: /path/to/file
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &JobDocument 0
+        isKind:
+          of: Job
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *JobDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-autopermissions
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+      - documentIndex: *JobDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /mounts/vpnconfig
+            readOnly: false
+      - documentIndex: *JobDocument
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - |-
+              echo "Starting auto permissions job..."
+              touch /tmp/healthy
+
+              echo "Automatically correcting ownership and permissions..."
+                  echo "Automatically correcting ownership for /mounts/vpnconfig..."
+                  before=$(stat -c "%u:%g" /mounts/vpnconfig)
+                  chown  -f 568:568 /mounts/vpnconfig || echo "Failed setting ownership using chown..."
+
+                  echo "Ownership before: [$before]"
+                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/vpnconfig)]"
+                  echo ""
+              echo "Finished auto permissions job..."
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /etc/wireguard/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /etc/wireguard/vpn.conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File

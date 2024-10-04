@@ -1,0 +1,659 @@
+suite: pod securityContext test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with securityContext from "global"
+    set:
+      securityContext:
+        pod:
+          fsGroup: 1000
+          fsGroupChangePolicy: OnRootMismatch
+          supplementalGroups:
+            - 1000
+            - 1001
+          sysctls:
+            - name: some_name
+              value: "some_value"
+            - name: some_other_name
+              value: "some_other_value"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 1000
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 1000
+              - 1001
+              - 568
+            sysctls:
+              - name: some_name
+                value: "some_value"
+              - name: some_other_name
+                value: "some_other_value"
+
+  - it: should pass with securityContext from "global" and partial override with "pod"
+    set:
+      securityContext:
+        pod:
+          fsGroup: 1000
+          fsGroupChangePolicy: OnRootMismatch
+          supplementalGroups:
+            - 1000
+            - 1001
+          sysctls:
+            - name: some_name
+              value: "some_value"
+            - name: some_other_name
+              value: "some_other_value"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            securityContext:
+              fsGroup: 1001
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 1001
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 1000
+              - 1001
+              - 568
+            sysctls:
+              - name: some_name
+                value: "some_value"
+              - name: some_other_name
+                value: "some_other_value"
+
+  - it: should pass with securityContext from "global" and full override with "pod"
+    set:
+      some_sysctl_name: some_name
+      some_sysctl_value: 2
+      securityContext:
+        pod:
+          fsGroup: 1000
+          fsGroupChangePolicy: OnRootMismatch
+          supplementalGroups:
+            - 1000
+            - 1001
+          sysctls:
+            - name: some_name
+              value: "some_value"
+            - name: some_other_name
+              value: "some_other_value"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            securityContext:
+              fsGroup: 1001
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 1002
+                - 1003
+              sysctls:
+                - name: "{{ .Values.some_sysctl_name }}"
+                  value: "{{ .Values.some_sysctl_value }}"
+                - name: some_other_name
+                  value: "some_different_value"
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 1001
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1002
+              - 1003
+              - 568
+            sysctls:
+              - name: some_name
+                value: "2"
+              - name: some_other_name
+                value: "some_different_value"
+
+  - it: should pass with fsGroup and supplementalGroups with long int
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            securityContext:
+              fsGroup: 100000514
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 1002
+                - 100000514
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 100000514
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1002
+              - 100000514
+              - 568
+            sysctls: []
+
+  - it: should pass with sysctls automatically appended based on services
+    set:
+      some_sysctl_name: some_name
+      some_sysctl_value: 2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            securityContext:
+              fsGroup: 1001
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 1002
+                - 1003
+              sysctls:
+                - name: "{{ .Values.some_sysctl_name }}"
+                  value: "{{ .Values.some_sysctl_value }}"
+                - name: some_other_name
+                  value: "some_different_value"
+        workload-name2:
+          enabled: true
+          type: StatefulSet
+          podSpec: {}
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 80
+        service-name2:
+          enabled: true
+          type: ClusterIP
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 53
+        service-name3:
+          enabled: true
+          type: ClusterIP
+          targetSelector: workload-name2
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 1001
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1002
+              - 1003
+              - 568
+            sysctls:
+              - name: some_name
+                value: "2"
+              - name: some_other_name
+                value: "some_different_value"
+              - name: net.ipv4.ip_unprivileged_port_start
+                value: "53"
+      - documentIndex: &otherStatefulSetDoc 1
+        isKind:
+          of: StatefulSet
+      - documentIndex: *otherStatefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls:
+              - name: net.ipv4.ip_unprivileged_port_start
+                value: "443"
+
+  - it: should pass with sysctls net.ipv4.ip_unprivileged_port_start NOT appended with hostnet
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostNetwork: true
+        workload-name2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      service:
+        service-name:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          targetSelector: workload-name2
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+
+  - it: should pass with fsGroup 0
+    set:
+      securityContext:
+        pod:
+          fsGroup: 0
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 0
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+
+  - it: should pass with no sysctls port_start automatically appended based on services when port is higher than 1024
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 25000
+              targetPort: 3000
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+
+  - it: should pass with with gpu assigned to single container
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            securityContext:
+              supplementalGroups:
+                - 1000
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 1000
+              - 44
+              - 107
+              - 568
+            sysctls: []
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+
+  - it: should pass with with gpu assigned to multiple pods
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            securityContext:
+              supplementalGroups:
+                - 1000
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 1000
+              - 44
+              - 107
+              - 568
+            sysctls: []
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 44
+              - 107
+              - 568
+            sysctls: []
+
+  - it: should pass with with device assigned to selected pod
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+      persistence:
+        dev01:
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+          mountPath: /test
+          targetSelector:
+            workload-name2:
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+              - 568
+            sysctls: []
+
+  # Failures
+  - it: should fail with empty securityContext from "global"
+    set:
+      securityContext:
+        pod: null
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected non-empty [securityContext.pod]
+
+  - it: should fail with empty fsGroup
+    set:
+      securityContext:
+        pod:
+          fsGroup: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected non-empty [fsGroup]
+
+  - it: should fail with empty fsGroupChangePolicy
+    set:
+      securityContext:
+        pod:
+          fsGroup: 568
+          fsGroupChangePolicy: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected non-empty [fsGroupChangePolicy]
+
+  - it: should fail with invalid fsGroupChangePolicy
+    set:
+      securityContext:
+        pod:
+          fsGroup: 568
+          fsGroupChangePolicy: invalid
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected [fsGroupChangePolicy] to be one of [Always, OnRootMismatch], but got [invalid]
+
+  - it: should fail with empty name in sysctls
+    set:
+      securityContext:
+        pod:
+          fsGroup: 568
+          fsGroupChangePolicy: OnRootMismatch
+          sysctls:
+            - name: ""
+              value: "some_value"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected non-empty [name] in [sysctls]
+
+  - it: should fail with empty value in sysctls
+    set:
+      securityContext:
+        pod:
+          fsGroup: 568
+          fsGroupChangePolicy: OnRootMismatch
+          sysctls:
+            - name: some_name
+              value: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected non-empty [value] in [sysctls]
+
+  - it: should fail with non unique supplementalGroups
+    set:
+      securityContext:
+        pod:
+          supplementalGroups:
+            - 1000
+            - 44
+            - 107
+            - 44
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected [supplementalGroups] to have only unique values, but got [1000, 44, 107, 44, 568]

@@ -1,0 +1,46 @@
+suite: certificate name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      certificate:
+        my-cert1:
+          enabled: true
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+        my-cert2:
+          enabled: true
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+          certificateSecretTemplate:
+            labels:
+              some-label: my-cert2
+            annotations:
+              some-annotation: my-cert2
+    asserts:
+      - documentIndex: &certDoc 0
+        isKind:
+          of: Certificate
+      - documentIndex: *certDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-cert1
+      - documentIndex: &otherCertDoc 1
+        isKind:
+          of: Certificate
+      - documentIndex: *otherCertDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.name
+          value: certificate-issuer-my-cert2

@@ -1,0 +1,343 @@
+suite: cnpg cluster backup spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec with backups (s3)
+    set:
+      credentials:
+        test: &test
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          encrKey: some-encr-key
+          url: some-url
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+    asserts:
+      - documentIndex: &secretDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            backup:
+              barmanObjectStore:
+                data:
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: some-url
+                s3Credentials:
+                  accessKeyId:
+                    key: ACCESS_KEY_ID
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                  secretAccessKey:
+                    key: ACCESS_SECRET_KEY
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: test-release-name-common-test-cnpg-my-pg
+              retentionPolicy: 10d
+              target: primary
+
+  - it: should use the revision when set in server name
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            revision: some-revision
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            backup:
+              barmanObjectStore:
+                data:
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: some-url
+                s3Credentials:
+                  accessKeyId:
+                    key: ACCESS_KEY_ID
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                  secretAccessKey:
+                    key: ACCESS_SECRET_KEY
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: test-release-name-common-test-cnpg-my-pg-rsome-revision
+              retentionPolicy: 10d
+              target: primary
+
+  - it: should override serverName when set
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            serverName: some-server-name
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            backup:
+              barmanObjectStore:
+                data:
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: some-url
+                s3Credentials:
+                  accessKeyId:
+                    key: ACCESS_KEY_ID
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                  secretAccessKey:
+                    key: ACCESS_SECRET_KEY
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: some-server-name
+              retentionPolicy: 10d
+              target: primary
+
+  - it: should override serverName when set (and also take account revision)
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            serverName: some-server-name
+            revision: "1"
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            backup:
+              barmanObjectStore:
+                data:
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: some-url
+                s3Credentials:
+                  accessKeyId:
+                    key: ACCESS_KEY_ID
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                  secretAccessKey:
+                    key: ACCESS_SECRET_KEY
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: some-server-name-r1
+              retentionPolicy: 10d
+              target: primary
+
+  - it: should enable encryption when set
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            encryption:
+              enabled: true
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            backup:
+              barmanObjectStore:
+                data:
+                  compression: gzip
+                  encryption: AES256
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: some-url
+                s3Credentials:
+                  accessKeyId:
+                    key: ACCESS_KEY_ID
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                  secretAccessKey:
+                    key: ACCESS_SECRET_KEY
+                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: test-release-name-common-test-cnpg-my-pg
+                wal:
+                  compression: gzip
+                  encryption: AES256
+              retentionPolicy: 10d
+              target: primary

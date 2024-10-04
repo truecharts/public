@@ -1,0 +1,579 @@
+suite: cnpg cluster spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      postgres16Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "16.3"
+        pullPolicy: IfNotPresent
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: true
+            imageName: ghcr.io/cloudnative-pg/postgresql:16.3
+            primaryUpdateStrategy: unsupervised
+            primaryUpdateMethod: switchover
+            logLevel: info
+            instances: 2
+            nodeMaintenanceWindow:
+              reusePVC: true
+              inProgress: false
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: test-db
+                owner: test-user
+                dataChecksums: true
+
+  - it: should respect changed fallbackDefaults
+    set:
+      postgres15Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "15.6"
+      global:
+        fallbackDefaults:
+          pgVersion: 15
+          vctAccessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            imageName: ghcr.io/cloudnative-pg/postgresql:15.6
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+
+  - it: should generate correct imageName with changed type and pgVersion
+    set:
+      postgresVectors15Image:
+        repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+        tag: "15.6-v0.2.1"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: 15
+          type: vectors
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.imageName
+          value: ghcr.io/tensorchord/cloudnative-pgvecto.rs:15.6-v0.2.1
+
+  - it: should generate correct imageName with changed pgVersion
+    set:
+      postgres15Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "15.6"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: 15
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.imageName
+          value: ghcr.io/cloudnative-pg/postgresql:15.6
+
+  - it: should override options
+    set:
+      ext1: some-extension
+      ext2: some-other-extension
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            enableSuperuserAccess: false
+            imageName: some-image
+            primaryUpdateStrategy: supervised
+            primaryUpdateMethod: restart
+            logLevel: debug
+            instances: 3
+            initdb:
+              dataChecksums: false
+              encoding: some-encoding
+              localeCollate: some-locale
+              localeCtype: some-locale
+              walSegmentSize: 16
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }};
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }};
+              postInitSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }}1;
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }}2;
+              postInitTemplateSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }}1;
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }}2;
+            nodeMaintenanceWindow:
+              reusePVC: false
+              inProgress: true
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+            storage:
+              size: 200Gi
+              accessModes:
+                - ReadWriteMany
+            walStorage:
+              size: 200Gi
+              accessModes:
+                - ReadWriteMany
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: false
+            imageName: some-image
+            primaryUpdateStrategy: supervised
+            primaryUpdateMethod: restart
+            logLevel: debug
+            instances: 3
+            nodeMaintenanceWindow:
+              reusePVC: false
+              inProgress: true
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                resources:
+                  requests:
+                    storage: 200Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                resources:
+                  requests:
+                    storage: 200Gi
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: test-db
+                owner: test-user
+                dataChecksums: false
+                encoding: some-encoding
+                localeCollate: some-locale
+                localeCtype: some-locale
+                walSegmentSize: 16
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension;
+                postInitSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension1;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension2;
+                postInitTemplateSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension1;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension2;
+
+  - it: should override resources from top level
+    set:
+      resources:
+        limits:
+          cpu: 2000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+
+  - it: should pass with custom-conf
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          cluster:
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+
+  - it: should pass with timescaledb
+    set:
+      postgresTimescaledb16Image:
+        repository: timescale/timescaledb
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          type: timescaledb
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+                - timescaledb
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: true
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS timescaledb;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+
+  - it: should pass with postgis
+    set:
+      postgresPostgis16Image:
+        repository: postgis/postgisdb
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          type: postgis
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: true
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS postgis;
+                  - CREATE EXTENSION IF NOT EXISTS postgis_topology;
+                  - CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
+                  - CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+
+  - it: should pass with vectors
+    set:
+      postgresVectors16Image:
+        repository: vectors/vectors
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          type: vectors
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+                - vectors.so
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: true
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS vectors;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+
+  - it: should pass with enabled monitoring
+    set:
+      postgresTimescaledb16Image:
+        repository: timescale/timescaledb
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          type: timescaledb
+          monitoring:
+            enablePodMonitor: true
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.monitoring
+          value:
+            enablePodMonitor: true
+            disableDefaultQueries: false
+
+  - it: should pass with override monitoring
+    set:
+      postgresTimescaledb16Image:
+        repository: timescale/timescaledb
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          password: test-password
+          type: timescaledb
+          monitoring:
+            enablePodMonitor: true
+            disableDefaultQueries: true
+            customQueries:
+              - name: test-query
+                query: test-query
+                metrics:
+                  - a-gauge:
+                      usage: GAUGE
+                      description: test-metric
+                  - a-counter:
+                      usage: COUNTER
+                      description: test-metric
+              - name: test-query2
+                query: test-query2
+                metrics:
+                  - a-gauge:
+                      usage: GAUGE
+                      description: test-metric
+                  - a-counter:
+                      usage: COUNTER
+                      description: test-metric
+              - name: test-query3
+                query: test-query3
+                expandObjectName: false
+                key: test-key
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.monitoring
+          value:
+            enablePodMonitor: true
+            disableDefaultQueries: true
+            customQueriesConfigMap:
+              - name: test-release-name-common-test-cnpg-my-pg-test-query
+                key: custom-queries
+              - name: test-release-name-common-test-cnpg-my-pg-test-query2
+                key: custom-queries
+              - name: test-query3
+                key: test-key

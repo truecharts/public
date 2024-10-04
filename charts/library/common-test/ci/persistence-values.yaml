@@ -1,0 +1,99 @@
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  pvc-stock:
+    enabled: true
+    type: pvc
+    mountPath: /pvcstock
+
+  pvc-size:
+    enabled: true
+    type: pvc
+    mountPath: /pvcsize
+    size: 1Gi
+
+  pvc-readonly:
+    enabled: true
+    type: pvc
+    mountPath: /pvcro
+    readOnly: true
+
+  pvc-labeled:
+    enabled: true
+    labels:
+      labelexample1: labelvalue2
+    type: pvc
+    mountPath: /pvclabeled
+
+  pvc-sc-empty:
+    enabled: true
+    type: pvc
+    mountPath: /pvcscempty
+    readOnly: false
+    storageClass: ""
+
+  emptydir:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydir
+
+  emptydir-mem:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirmem
+    medium: Memory
+
+  emptydir-size:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirsize
+    size: 1Gi
+
+  emptydir-memsize:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirmemsize
+    medium: Memory
+    size: 1Gi
+
+  hostpath-stock:
+    enabled: true
+    type: hostPath
+    hostPath: /usr
+    mountPath: /hptest
+    hostPathType: ""

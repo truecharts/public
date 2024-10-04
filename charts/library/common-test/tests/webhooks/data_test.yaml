@@ -1,0 +1,215 @@
+suite: webhook data test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create the webhook
+    set:
+      k1: some-name
+      k2: v1
+      k3: v1beta1
+      k4: /some-path
+      k5: 5000
+      k6: "Y2FidWx0dXJl"
+      k7: https://some-url
+      k8: Fail
+      k9: Exact
+      k10: None
+      k11: IfNeeded
+      k12: CREATE
+      k13: UPDATE
+      k14: ""
+      k15: some-group
+      k16: v1
+      k17: v1beta
+      k18: pods
+      k19: configmaps
+      k20: mutating
+      webhook:
+        my-webhook1:
+          enabled: true
+          type: "{{ .Values.k20 }}"
+          webhooks:
+            - name: "{{ .Values.k1 }}"
+              failurePolicy: "{{ .Values.k8 }}"
+              matchPolicy: "{{ .Values.k9 }}"
+              sideEffects: "{{ .Values.k10 }}"
+              reinvocationPolicy: "{{ .Values.k11 }}"
+              timeoutSeconds: 28
+              admissionReviewVersions: &admissionReviewVersions
+                - "{{ .Values.k2 }}"
+                - "{{ .Values.k3 }}"
+              clientConfig:
+                caBundle: "{{ .Values.k6 }}"
+                service:
+                  name: "{{ .Values.k1 }}"
+                  namespace: "{{ .Release.Namespace }}"
+                  path: "{{ .Values.k4 }}"
+                  port: "{{ .Values.k5 }}"
+              rules: &rules
+                - operations:
+                    - "{{ .Values.k12 }}"
+                    - "{{ .Values.k13 }}"
+                  apiGroups:
+                    - "{{ .Values.k14 }}"
+                    - "{{ .Values.k15 }}"
+                  apiVersions:
+                    - "{{ .Values.k16 }}"
+                    - "{{ .Values.k17 }}"
+                  resources:
+                    - "{{ .Values.k18 }}"
+                    - "{{ .Values.k19 }}"
+            - name: "{{ .Values.k1 }}"
+              failurePolicy: "{{ .Values.k8 }}"
+              matchPolicy: "{{ .Values.k9 }}"
+              sideEffects: "{{ .Values.k10 }}"
+              reinvocationPolicy: "{{ .Values.k11 }}"
+              timeoutSeconds: 28
+              admissionReviewVersions: *admissionReviewVersions
+              clientConfig:
+                caBundle: "{{ .Values.k6 }}"
+                url: "{{ .Values.k7 }}"
+              rules: *rules
+        my-webhook2:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: some-other-name
+              failurePolicy: Ignore
+              matchPolicy: Equivalent
+              sideEffects: None
+              timeoutSeconds: 20
+              admissionReviewVersions:
+                - v2
+                - v2beta
+              clientConfig:
+                caBundle: S2WidxffdXJ3l
+                url: "{{ .Values.k7 }}"
+              rules:
+                - operations:
+                    - DELETE
+                    - PATCH
+                  apiGroups:
+                    - ""
+                    - some-other-group
+                  apiVersions:
+                    - v1
+                    - v2
+                  resources:
+                    - pods
+                    - configmaps
+                  scope: Namespaced
+    asserts:
+      - documentIndex: &webhookMutDoc 0
+        isKind:
+          of: MutatingWebhookConfiguration
+      - documentIndex: *webhookMutDoc
+        isAPIVersion:
+          of: admissionregistration.k8s.io/v1
+      - documentIndex: *webhookMutDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-webhook1
+      - documentIndex: *webhookMutDoc
+        equal:
+          path: webhooks[0]
+          value:
+            name: some-name
+            failurePolicy: Fail
+            matchPolicy: Exact
+            reinvocationPolicy: IfNeeded
+            sideEffects: None
+            timeoutSeconds: 28
+            admissionReviewVersions:
+              - v1
+              - v1beta1
+            clientConfig:
+              caBundle: Y2FidWx0dXJl
+              service:
+                name: some-name
+                namespace: test-release-namespace
+                path: /some-path
+                port: 5000
+            rules:
+              - operations:
+                  - CREATE
+                  - UPDATE
+                apiGroups:
+                  - ""
+                  - some-group
+                apiVersions:
+                  - v1
+                  - v1beta
+                resources:
+                  - pods
+                  - configmaps
+      - documentIndex: *webhookMutDoc
+        equal:
+          path: webhooks[1]
+          value:
+            name: some-name
+            failurePolicy: Fail
+            matchPolicy: Exact
+            reinvocationPolicy: IfNeeded
+            sideEffects: None
+            timeoutSeconds: 28
+            admissionReviewVersions:
+              - v1
+              - v1beta1
+            clientConfig:
+              caBundle: Y2FidWx0dXJl
+              url: https://some-url
+            rules:
+              - operations:
+                  - CREATE
+                  - UPDATE
+                apiGroups:
+                  - ""
+                  - some-group
+                apiVersions:
+                  - v1
+                  - v1beta
+                resources:
+                  - pods
+                  - configmaps
+      - documentIndex: &WebhookValDoc 1
+        isKind:
+          of: ValidatingWebhookConfiguration
+      - documentIndex: *WebhookValDoc
+        isAPIVersion:
+          of: admissionregistration.k8s.io/v1
+      - documentIndex: *WebhookValDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-webhook2
+      - documentIndex: *WebhookValDoc
+        equal:
+          path: webhooks[0]
+          value:
+            name: some-other-name
+            failurePolicy: Ignore
+            matchPolicy: Equivalent
+            sideEffects: None
+            timeoutSeconds: 20
+            admissionReviewVersions:
+              - v2
+              - v2beta
+            clientConfig:
+              caBundle: S2WidxffdXJ3l
+              url: https://some-url
+            rules:
+              - operations:
+                  - DELETE
+                  - PATCH
+                apiGroups:
+                  - ""
+                  - some-other-group
+                apiVersions:
+                  - v1
+                  - v2
+                resources:
+                  - pods
+                  - configmaps
+                scope: Namespaced

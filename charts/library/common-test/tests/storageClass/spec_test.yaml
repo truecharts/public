@@ -1,0 +1,192 @@
+suite: storageClass spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec with provisioner provided
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        isAPIVersion:
+          of: storage.k8s.io/v1
+      - documentIndex: *storageClassDoc
+        equal:
+          path: provisioner
+          value: some.provisioner.io
+      - documentIndex: *storageClassDoc
+        equal:
+          path: reclaimPolicy
+          value: Retain
+      - documentIndex: *storageClassDoc
+        equal:
+          path: allowVolumeExpansion
+          value: true
+      - documentIndex: *storageClassDoc
+        equal:
+          path: volumeBindingMode
+          value: Immediate
+      - documentIndex: *storageClassDoc
+        equal:
+          path: metadata.annotations
+          value:
+            storageclass.kubernetes.io/is-default-class: "false"
+
+  - it: should generate correct spec with non-default reclaim policy
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          reclaimPolicy: Delete
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: reclaimPolicy
+          value: Delete
+
+  - it: should generate correct spec with non-default allowVolumeExpansion
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          allowVolumeExpansion: false
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: allowVolumeExpansion
+          value: false
+
+  - it: should generate correct spec with parameters provided from tpl
+    set:
+      test:
+        key1: value1
+        key2: value2
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          parameters:
+            param1: "{{ .Values.test.key1 }}"
+            param2: "{{ .Values.test.key2 }}"
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: parameters
+          value:
+            param1: value1
+            param2: value2
+
+  - it: should generate correct spec with parameters provided
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          parameters:
+            param1: value1
+            param2: value2
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: parameters
+          value:
+            param1: value1
+            param2: value2
+
+  - it: should generate correct spec with mountOptions provided
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          mountOptions:
+            - option1
+            - option2=value2
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: mountOptions
+          value:
+            - option1
+            - option2=value2
+
+  - it: should generate correct spec with mountOptions provided from tpl
+    set:
+      test:
+        key1: option1
+        key2: value2
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          mountOptions:
+            - "{{ .Values.test.key1 }}"
+            - option2={{ .Values.test.key2 }}
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: mountOptions
+          value:
+            - option1
+            - option2=value2
+
+  # Failures
+  - it: should fail without provisioner
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Storage Class - Expected non-empty [provisioner]
+
+  - it: should fail with invalid reclaimPolicy
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          reclaimPolicy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Storage Class - Expected [reclaimPolicy] to be one of [Retain, Delete], but got [invalid]
+
+  - it: should fail with invalid volumeBindingMode
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          volumeBindingMode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Storage Class - Expected [volumeBindingMode] to be one of [WaitForFirstConsumer, Immediate], but got [invalid]
