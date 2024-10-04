@@ -694,7 +694,7 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-      -  # Group of the referent resource.
+      - # Group of the referent resource.
         group: gateway.networking.k8s.io
         # Kind of the referent resource.
         kind: Gateway
@@ -1074,7 +1074,7 @@ cnpg:
 
       ## Point in time recovery target. Specify one of the following:
       pitrTarget:
-        time: "" # Time in RFC3339 format
+        time: ""   # Time in RFC3339 format
 
       # Name of the backup to recover from. Required if method is `backup`.
       backupName: ""
