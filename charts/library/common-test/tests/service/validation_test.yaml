@@ -1,0 +1,641 @@
+suite: service validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should not fail with 2 primary, 1 disabled
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+        service-name2:
+          enabled: false
+          primary: true
+          ports:
+            port-name2:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - hasDocuments:
+          count: 1
+
+  - it: should not fail with 2 primary, 1 disabled (tpl)
+    set:
+      enabled: true
+      disabled: false
+      service:
+        service-name1:
+          enabled: "{{ .Values.enabled }}"
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+        service-name2:
+          enabled: "{{ .Values.disabled }}"
+          primary: true
+          ports:
+            port-name2:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - hasDocuments:
+          count: 1
+
+  - it: should fail without primary service
+    set:
+      service:
+        service-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - At least one enabled service must be primary
+
+  - it: should fail with more than one primary service
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+        service-name2:
+          enabled: true
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Only one service can be primary
+
+  - it: should fail without primary port in service
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - At least one enabled port in service must be primary
+
+  - it: should fail with more than one primary port in service
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+            port-name2:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Only one port per service can be primary
+
+  - it: should fail with no enabled ports in enabled service
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+            port-name2:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Only one port per service can be primary
+
+  - it: should fail with annotations not a dict
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          annotations: not-a-dict
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with labels not a dict
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          labels: not-a-dict
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with pod targetSelector not a string
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          targetSelector:
+            pod: not-a-string
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [targetSelector] to be [string], but got [map]
+
+  - it: should fail with container targetSelector not a string
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              targetSelector:
+                container: not-a-string
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [port.targetSelector] to be [string], but got [map]
+
+  - it: should fail with selected pod not defined
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          targetSelector: some-pod-name
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Selected pod [some-pod-name] is not defined
+
+  - it: should fail with selected pod not enabled
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          targetSelector: some-pod-name
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: false
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Selected pod [some-pod-name] is not enabled
+
+  - it: should fail with invalid port protocol
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+              protocol: not-a-protocol
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [port.protocol] to be one of [tcp, udp, http, https] but got [not-a-protocol]
+
+  - it: should fail without port number
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port:
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected non-empty [port.port]
+
+  - it: should fail with invalid service type
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: not-a-type
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [type] to be one of [ClusterIP, LoadBalancer, NodePort, ExternalName, ExternalIP] but got [not-a-type]
+
+  - it: should fail with invalid ipFamilyPolicy
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ipFamilyPolicy: not-a-policy
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [ipFamilyPolicy] to be one of [SingleStack, PreferDualStack, RequireDualStack], but got [not-a-policy]
+
+  - it: should fail with empty externalIP
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP: ""
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: EndpointSlice - Expected non-empty [externalIP]
+
+  - it: should fail with invalid addressType
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP: "1.2.3.4"
+          addressType: invalid
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: EndpointSlice - Expected [addressType] to be one of [IPv4, IPv6, FQDN], but got [invalid]
+
+  - it: should fail with externalIP not a string
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP:
+            - not-a-string
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: EndpointSlice - Expected [externalIP] to be a [string], but got [slice]
+
+  - it: should fail with ipFamilies not a list
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ipFamilies: not-a-list
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [ipFamilies] to be a list, but got a [string]
+
+  - it: should fail with invalid ipFamilies
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ipFamilies:
+            - not-a-family
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [ipFamilies] to be one of [IPv4, IPv6], but got [not-a-family]
+
+  - it: should fail with invalid externalTrafficPolicy
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          externalTrafficPolicy: not-a-policy
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [externalTrafficPolicy] to be one of [Cluster, Local], but got [not-a-policy]
+
+  - it: should fail with invalid externalName
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ExternalName
+          externalName: ""
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected non-empty [externalName] on ExternalName service type.
+
+  - it: should fail with invalid sessionAffinity
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          sessionAffinity: not-an-affinity
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [sessionAffinity] to be one of [ClientIP, None], but got [not-an-affinity]
+
+  - it: should fail with invalid timeoutSeconds in sessionAffinityConfig
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          sessionAffinity: ClientIP
+          sessionAffinityConfig:
+            clientIP:
+              timeoutSeconds: -1
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [sessionAffinityConfig.clientIP.timeoutSeconds] to be between [0 - 86400], but got [-1]
+
+  - it: should fail without nodePort number on NodePort
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: NodePort
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 80
+              nodePort:
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected non-empty [nodePort] on NodePort service type
+
+  - it: should fail with nodePort lower than the minimum on NodePort
+    set:
+      global:
+        minNodePort: 10000
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: NodePort
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 80
+              nodePort: 9999
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [nodePort] to be higher than [10000], but got [9999]
+
+  - it: should fail with empty expandObjectName
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          expandObjectName:
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 80
+              nodePort: 9999
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected the defined key [expandObjectName] in [service.service-name1] to not be empty
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with if loadBalancerIP is not a string
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIP:
+            - 1.2.3.4
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [loadBalancerIP] to be a string, but got [slice]
+
+  - it: should fail with if loadBalancerIPs is not a slice
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIPs: not-a-slice
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected [loadBalancerIPs] to be a slice, but got [string]
+
+  - it: should fail if both loadBalancerIP and loadBalancerIPs is provided
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIPs:
+            - 1.2.3.4
+          loadBalancerIP: 5.6.7.8
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected one of [loadBalancerIP, loadBalancerIPs] to be defined but got both

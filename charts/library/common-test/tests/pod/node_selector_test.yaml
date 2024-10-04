@@ -1,0 +1,179 @@
+suite: pod node selector test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass without default arch set
+    set:
+      podOptions:
+        nodeSelector:
+          kubernetes.io/arch: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: &cronJobDoc 0
+        isKind:
+          of: CronJob
+      - documentIndex: *cronJobDoc
+        notExists:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+
+  - it: should pass with empty nodeSelector
+    set:
+      podOptions:
+        nodeSelector: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            kubernetes.io/arch: amd64
+
+  - it: should pass with nodeSelector from "global"
+    set:
+      podOptions:
+        nodeSelector:
+          disk: ssd
+          cpu: intel
+          hasGPU: "true"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            disk: ssd
+            cpu: intel
+            kubernetes.io/arch: amd64
+            hasGPU: "true"
+
+  - it: should set nodeSelector to non-existing on DaemonSet with stopAll
+    set:
+      global:
+        stopAll: true
+      podOptions:
+        nodeSelector:
+          disk: ssd
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.template.spec.nodeSelector
+          value:
+            non-existing: "true"
+
+  - it: should not set nodeSelector to non-existent on non-DaemonSet with stopAll
+    set:
+      global:
+        stopAll: true
+      podOptions:
+        nodeSelector:
+          disk: ssd
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        notEqual:
+          path: spec.template.spec.nodeSelector
+          value:
+            non-existing: "true"
+
+  - it: should pass with nodeSelector from "pod"
+    set:
+      podOptions:
+        nodeSelector:
+          disk: ssd
+          cpu: intel
+          hasGPU: "false"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec:
+            nodeSelector:
+              disk: hdd
+              cpu: amd
+              hasGPU: "true"
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            disk: hdd
+            cpu: amd
+            hasGPU: "true"
+
+  - it: should pass with nodeSelector from "pod" with tpl
+    set:
+      disk_type: hdd
+      podOptions:
+        nodeSelector:
+          disk: ssd
+          cpu: intel
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec:
+            nodeSelector:
+              disk: "{{ .Values.disk_type }}"
+              cpu: amd
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            disk: hdd
+            cpu: amd
+
+  - it: should ignore with empty value on nodeSelector
+    set:
+      podOptions:
+        nodeSelector:
+          disk: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            kubernetes.io/arch: amd64

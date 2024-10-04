@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.2.0
+appVersion: 5.3.0
 dependencies:
   - name: common
-    version: 24.1.5
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/twofauth
   - https://hub.docker.com/r/2fauth/2fauth
 type: application
-version: 3.1.4
+version: 3.3.0

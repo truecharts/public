@@ -1,0 +1,78 @@
+suite: pod hostpid test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with hostpid disabled from "global"
+    set:
+      podOptions:
+        hostPID: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostPID
+          value: false
+
+  - it: should pass with hostpid enabled from "global"
+    set:
+      podOptions:
+        hostPID: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostPID
+          value: true
+
+  - it: should pass with disabled hostpid from pod
+    set:
+      podOptions:
+        hostPID: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostPID: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostPID
+          value: false
+
+  - it: should pass with enabled hostpid from pod
+    set:
+      podOptions:
+        hostPID: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostPID: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostPID
+          value: true

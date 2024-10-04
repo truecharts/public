@@ -1,0 +1,71 @@
+suite: cnpg scheduled backup name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      credentials:
+        test:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                backupOwnerReference: self
+        my-pg2:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: weekly
+                schedule: "0 0 * * 0"
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-sched-backup-daily
+      - documentIndex: &otherbackupDoc 2
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *otherbackupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherbackupDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg2-sched-backup-weekly

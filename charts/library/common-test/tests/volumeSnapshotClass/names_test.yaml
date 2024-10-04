@@ -1,0 +1,37 @@
+suite: volumeSnapshotClass name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      volumeSnapshotClass:
+        class1:
+          enabled: true
+          driver: csi-hostpath-snapshots
+        class2:
+          enabled: true
+          driver: csi-hostpath-snapshots
+    asserts:
+      - documentIndex: &volumeSnapshotDoc 0
+        isKind:
+          of: VolumeSnapshotClass
+      - documentIndex: *volumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *volumeSnapshotDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-class1
+      - documentIndex: &otherVolumeSnapshotDoc 1
+        isKind:
+          of: VolumeSnapshotClass
+      - documentIndex: *otherVolumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *otherVolumeSnapshotDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-class2

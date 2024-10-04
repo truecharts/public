@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.08.0
+appVersion: 24.10.0
 dependencies:
   - name: common
-    version: 24.1.10
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fileflows
   - https://hub.docker.com/r/revenz/fileflows
 type: application
-version: 12.4.3
+version: 12.7.2

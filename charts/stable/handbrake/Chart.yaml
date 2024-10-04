@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.06.1
+appVersion: 24.09.1
 dependencies:
   - name: common
-    version: 24.1.5
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://handbrake.fr/
   - https://hub.docker.com/r/jlesage/handbrake
 type: application
-version: 23.2.0
+version: 23.4.0

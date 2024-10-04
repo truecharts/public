@@ -6,17 +6,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 6.6.1
+appVersion: 6.6.2
 dependencies:
   - name: common
-    version: 24.1.5
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.3.0
+    version: 15.4.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://hub.docker.com/r/bitnami/wordpress
   - https://www.wordpress.org
 type: application
-version: 9.5.1
+version: 9.7.0

@@ -1,0 +1,296 @@
+suite: ingress - homepage metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with annotations from homepage enabled
+    set:
+      k1: some-name
+      k2: some-desc
+      k3: some-icon
+      k4: some-url
+      k5: some-type
+      k6: some-group
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              protocol: https
+              port: 9443
+        my-service2:
+          enabled: true
+          ports:
+            port-2:
+              enabled: true
+              primary: true
+              port: 80
+      someHost: test-host
+      somePath: /test-path
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik: &traefik
+              enabled: false
+            homepage:
+              enabled: true
+          hosts:
+            - host: "{{ .Values.someHost }}"
+              paths:
+                - path: "{{ .Values.somePath }}"
+        my-ingress2:
+          enabled: true
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+              name: "{{ .Values.k1 }}"
+              description: "{{ .Values.k2 }}"
+              icon: "{{ .Values.k3 }}"
+              group: "{{ .Values.k6 }}"
+              weight: 1
+              podSelector:
+                - main
+                - other
+              widget:
+                url: "{{ .Values.k4 }}"
+                type: "{{ .Values.k5 }}"
+                custom:
+                  some-key: some-value
+                  some-other-key: some-other-value
+                  some-empty-key: ""
+                customkv:
+                  - key: some-key-slice
+                    value: some-value-slice
+                  - key: some-other-key-slice
+                    value: some-other-value-slice
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+        my-ingress3:
+          enabled: true
+          targetSelector:
+            my-service2: port-2
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+          hosts:
+            - host: "{{ .Values.someHost }}"
+              paths:
+                - path: "{{ .Values.somePath }}"
+        my-ingress4:
+          enabled: true
+          hosts: *hosts
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+              widget:
+                enabled: false
+                url: some-url-4
+                type: some-type-4
+                custom:
+                  some-key: some-value
+                  some-other-key: some-other-value
+                customkv:
+                  - key: some-key-slice
+                    value: some-value-slice
+                  - key: some-other-key-slice
+                    value: some-other-value-slice
+                  - key: some-empty-key-slice
+                    value: ""
+    asserts:
+      - documentIndex: &ingressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/widget.url: https://test-release-name-common-test.test-release-namespace.svc:9443
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+            gethomepage.dev/widget.type: commontest
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: &otherIngressDoc 3
+        isKind:
+          of: Ingress
+      - documentIndex: *otherIngressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: some-name
+            gethomepage.dev/description: some-desc
+            gethomepage.dev/group: some-group
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/icon: some-icon
+            gethomepage.dev/widget.url: some-url
+            gethomepage.dev/weight: "1"
+            gethomepage.dev/widget.type: some-type
+            gethomepage.dev/pod-selector: pod.name in (main,other),pod.lifecycle in (permanent)
+            gethomepage.dev/widget.some-key: some-value
+            gethomepage.dev/widget.some-other-key: some-other-value
+            gethomepage.dev/widget.some-key-slice: some-value-slice
+            gethomepage.dev/widget.some-other-key-slice: some-other-value-slice
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress2
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: &thirdIngressDoc 4
+        isKind:
+          of: Ingress
+      - documentIndex: *thirdIngressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/widget.url: http://test-release-name-common-test-my-service2.test-release-namespace.svc:80
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+            gethomepage.dev/widget.type: commontest
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress3
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: &fourthIngressDoc 5
+        isKind:
+          of: Ingress
+      - documentIndex: *fourthIngressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+
+  # Failures
+  - it: should fail with podSelector not a slice
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              protocol: https
+              port: 9443
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+            homepage:
+              enabled: true
+              podSelector: main
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.homepage.podSelector] to be a [slice], but got [string]
+
+  - it: should fail with custom widget not a map
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+            homepage:
+              enabled: true
+              widget:
+                custom: "not a map"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.homepage.widget.custom] to be a [map], but got [string]
+
+  - it: should fail with customkv widget not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+            homepage:
+              enabled: true
+              widget:
+                customkv: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.homepage.widget.customkv] to be a [slice], but got [string]
+
+  - it: should fail with customkv having empty key
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+            homepage:
+              enabled: true
+              widget:
+                customkv:
+                  - key: ""
+                    value: some-value
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [key] in [integrations.homepage.widget.customkv]

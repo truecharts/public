@@ -1,0 +1,48 @@
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: http
+  autolink:
+    enabled: true
+    ports:
+      autolink:
+        enabled: true
+        protocol: http
+        port: 8081
+
+route:
+  main:
+    enabled: true
+    hostnames:
+      - chart-example.local
+    parentRefs:
+      # Group of the referent resource.
+      - group: gateway.networking.k8s.io
+        # Kind of the referent resource.
+        kind: Gateway
+        # Name of the referent resources
+        name: test
+        # Namespace of the referent resource
+        namespace: test

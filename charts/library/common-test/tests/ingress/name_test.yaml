@@ -1,0 +1,69 @@
+suite: ingress name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+        my-ingress2:
+          enabled: true
+          hosts: *hosts
+          integrations: *integrations
+        my-ingress3:
+          enabled: true
+          expandObjectName: false
+          hosts: *hosts
+          integrations: *integrations
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isAPIVersion:
+          of: networking.k8s.io/v1
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: &otherIngressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *otherIngressDoc
+        isAPIVersion:
+          of: networking.k8s.io/v1
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress2
+      - documentIndex: &thirdIngressDoc 3
+        isKind:
+          of: Ingress
+      - documentIndex: *thirdIngressDoc
+        isAPIVersion:
+          of: networking.k8s.io/v1
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.name
+          value: my-ingress3

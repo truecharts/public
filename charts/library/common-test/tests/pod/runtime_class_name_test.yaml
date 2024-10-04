@@ -1,0 +1,75 @@
+suite: pod runtime class name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty runtimeClassName
+    set:
+      podOptions:
+        runtimeClassName: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNullOrEmpty:
+          path: spec.template.spec.runtimeClassName
+
+  - it: should pass with runtimeClassName from "global"
+    set:
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-runtime-class
+
+  - it: should pass with runtimeClassName from "pod"
+    set:
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            runtimeClassName: some-other-runtime-class
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-other-runtime-class
+
+  - it: should pass with runtimeClassName from "pod" with tpl
+    set:
+      runtimeClass: some-other-runtime-class
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            runtimeClassName: "{{ .Values.runtimeClass }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-other-runtime-class

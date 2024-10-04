@@ -71,7 +71,7 @@ To contact the TrueCharts project:
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-262-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-264-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -420,6 +420,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/saadawan2/"><img src="https://avatars.githubusercontent.com/u/10093984?v=4?s=100" width="100px;" alt="Saad Awan"/><br /><sub><b>Saad Awan</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=KnightDoom" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Joker9944"><img src="https://avatars.githubusercontent.com/u/9194199?v=4?s=100" width="100px;" alt="Felix von Arx"/><br /><sub><b>Felix von Arx</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Joker9944" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/yodatak"><img src="https://avatars.githubusercontent.com/u/704477?v=4?s=100" width="100px;" alt="yodatak"/><br /><sub><b>yodatak</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=yodatak" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/BlacCello"><img src="https://avatars.githubusercontent.com/u/18525266?v=4?s=100" width="100px;" alt="Marcel Henrich"/><br /><sub><b>Marcel Henrich</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=BlacCello" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://blog.luxifer.fr"><img src="https://avatars.githubusercontent.com/u/419078?v=4?s=100" width="100px;" alt="Florent Viel"/><br /><sub><b>Florent Viel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=luxifer" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

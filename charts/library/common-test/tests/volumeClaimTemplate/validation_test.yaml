@@ -1,0 +1,57 @@
+suite: volumeClaimTemplates validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with annotations not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: vct
+          annotations: not-a-dict
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with labels not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: vct
+          labels: not-a-dict
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with pod targetSelector not a map
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: vct
+          targetSelector: not-a-map
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [targetSelector] to be [dict], but got [string]

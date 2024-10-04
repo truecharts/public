@@ -1,7 +1,7 @@
 image:
   repository: haveagitgat/tdarr
   pullPolicy: IfNotPresent
-  tag: 2.24.05@sha256:a93ba68e9fcbe15ef1b83fced6d62c26a168f419a15233884ad4e5c80eb1e7f7
+  tag: 2.26.01@sha256:a4a42a12022794fb7cd21fa173695aadcd17510274449c159d5fef44da3b6a1d
 service:
   main:
     ports:
@@ -50,5 +50,5 @@ workload:
             serverPort: "{{ .Values.service.comm.ports.comm.port }}"
             # User Defined
             internalNode: true
-            serverIP: "localhost"
+            serverIP: "127.0.0.1"
             nodeID: "Internal Node"

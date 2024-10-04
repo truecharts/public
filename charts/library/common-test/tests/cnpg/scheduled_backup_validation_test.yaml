@@ -1,0 +1,127 @@
+suite: cnpg scheduled backup validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail without name in scheduledBackups backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name:
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Scheduled Backup - Expected non-empty [name] in [backups.scheduledBackups] entry
+
+  - it: should fail without schedule in scheduledBackups backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Scheduled Backup - Expected non-empty [schedule] in [backups.scheduledBackups] entry
+
+  - it: should fail with invalid backupOwnerReference in scheduledBackups backup
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                backupOwnerReference: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Scheduled Backup - Expected [backupOwnerReference] in [backups.scheduledBackups] entry to be one of [none, self, cluster], but got [invalid]
+
+  - it: should fail with invalid name in scheduledBackups backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: _invalid
+                schedule: "0 0 * * *"
+                backupOwnerReference: self
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-cnpg-my-pg-sched-backup-_invalid] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with suspend not a bool in scheduledBackups backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: _invalid
+                schedule: "0 0 * * *"
+                backupOwnerReference: self
+                suspend: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Scheduled Backup - Expected [suspend] in [backups.scheduledBackups] entry to be a boolean, but got [string]
+
+  - it: should fail with immediate not a bool in scheduledBackups backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: _invalid
+                schedule: "0 0 * * *"
+                backupOwnerReference: self
+                immediate: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Scheduled Backup - Expected [immediate] in [backups.scheduledBackups] entry to be a boolean, but got [string]

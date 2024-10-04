@@ -1,0 +1,78 @@
+suite: pod shareProcessNamespace test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with shareProcessNamespace disabled from "global"
+    set:
+      podOptions:
+        shareProcessNamespace: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.shareProcessNamespace
+          value: false
+
+  - it: should pass with shareProcessNamespace enabled from "global"
+    set:
+      podOptions:
+        shareProcessNamespace: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.shareProcessNamespace
+          value: true
+
+  - it: should pass with disabled shareProcessNamespace from pod
+    set:
+      podOptions:
+        shareProcessNamespace: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            shareProcessNamespace: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.shareProcessNamespace
+          value: false
+
+  - it: should pass with enabled shareProcessNamespace from pod
+    set:
+      podOptions:
+        shareProcessNamespace: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            shareProcessNamespace: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.shareProcessNamespace
+          value: true

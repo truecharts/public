@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: rocker/rstudio
-  tag: 4.4.1@sha256:ee7c4efa46f0b5d46e051393ef05f262aceb959463b15fc3648955965290d231
+  tag: 4.4.1@sha256:e20873e75a9dfe7808a9087c683f7f3f26c31bddb1f31a24ba2f674942df2750
 persistence:
   config:
     enabled: true
@@ -35,4 +35,4 @@ workload:
             PASSWORD: rstudio
             ROOT: "FALSE"
             USER: rstudio
-            USERID: "{{ .Values.securityContext.container.runAsUser }}"
+            USERID: 568

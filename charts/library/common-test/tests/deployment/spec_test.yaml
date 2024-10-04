@@ -1,0 +1,133 @@
+suite: deployment spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with workload enabled
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 1
+            revisionHistoryLimit: 3
+            strategy:
+              type: Recreate
+
+  - it: should apply spec correctly
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          replicas: 2
+          revisionHistoryLimit: 4
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxSurge: 5
+            maxUnavailable: 5
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 2
+            revisionHistoryLimit: 4
+            strategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxSurge: 5
+                maxUnavailable: 5
+
+  - it: should apply maxSurge with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxSurge: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            strategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxSurge: 0
+
+  - it: should apply maxUnavailable with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxUnavailable: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            strategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxUnavailable: 0
+
+  - it: should set replicas to 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          replicas: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0
+
+  - it: should set replicas to 0 on stopAll
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          replicas: 2
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0
