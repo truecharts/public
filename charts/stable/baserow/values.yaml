@@ -21,11 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/api/_health"
+              path: "/_health"
             readiness:
-              path: "/api/_health"
+              path: "/_health"
             startup:
-              path: "/api/_health"
+              path: "/_health"
           env:
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
