@@ -694,7 +694,7 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-      - # Group of the referent resource.
+      -  # Group of the referent resource.
         group: gateway.networking.k8s.io
         # Kind of the referent resource.
         kind: Gateway
