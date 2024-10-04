@@ -1,0 +1,454 @@
+suite: cnpg cluster recovery spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec with recovery/backup
+    set:
+      postgres16Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "16.3"
+        pullPolicy: IfNotPresent
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: backup
+            backupName: some-backup-name
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: true
+            imageName: ghcr.io/cloudnative-pg/postgresql:16.3
+            primaryUpdateStrategy: unsupervised
+            primaryUpdateMethod: switchover
+            logLevel: info
+            instances: 2
+            nodeMaintenanceWindow:
+              reusePVC: true
+              inProgress: false
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                backup:
+                  name: some-backup-name
+
+  - it: should generate correct spec with recovery/objectStore (s3)
+    set:
+      credentials:
+        test: &test
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          encrKey: some-encr-key
+          url: https://s3.some-region.amazonaws.com
+          path: some-path
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: object_store
+            credentials: test
+    asserts:
+      - documentIndex: &secretDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: test-release-name-common-test-cnpg-my-pg
+                barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
+                  destinationPath: s3://some-bucket/some-path/test-release-name/cnpg
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should generate correct spec with recovery/objectStore (s3 - destinationPath/endpointURL)
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: object_store
+            credentials: test
+            destinationPath: s3://some-bucket
+
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: test-release-name-common-test-cnpg-my-pg
+                barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should use revision in serverName when set
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: object_store
+            credentials: test
+            destinationPath: s3://some-bucket
+            revision: some-revision
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should override serverName when set
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: object_store
+            credentials: test
+            destinationPath: s3://some-bucket
+            serverName: some-server-name
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: some-server-name
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: some-server-name
+                barmanObjectStore:
+                  serverName: some-server-name
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should override serverName when set along with revision
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: object_store
+            credentials: test
+            destinationPath: s3://some-bucket
+            serverName: some-server-name
+            revision: "20"
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: *secretDoc
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: some-server-name-r20
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: some-server-name-r20
+                barmanObjectStore:
+                  serverName: some-server-name-r20
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds

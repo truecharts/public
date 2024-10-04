@@ -1,0 +1,298 @@
+suite: cnpg cluster validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail without user
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          database: test-db
+          password: test-password
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected a non-empty [user] key
+
+  - it: should fail without database
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          password: test-password
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected a non-empty [database] key
+
+  - it: should fail without password
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected a non-empty [password] key
+
+  - it: should fail with invalid pgVersion
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected [pgVersion] to be one of [15, 16], but got [invalid]
+
+  - it: should fail with hibernate not a bool
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          hibernate: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected [hibernate] to be a boolean, but got [string]
+
+  - it: should fail with invalid mode
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [mode] to be one of [standalone, replica, recovery], but got [invalid]
+
+  - it: should fail with invalid type
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          type: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [type] to be one of [postgres, postgis, timescaledb, vectors], but got [invalid]
+
+  - it: should fail with invalid log level
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            logLevel: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [cluster.logLevel] to be one of [error, warning, info, debug, trace], but got [invalid]
+
+  - it: should fail with invalid primaryUpdateStrategy
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            primaryUpdateStrategy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [cluster.primaryUpdateStrategy] to be one of [supervised, unsupervised], but got [invalid]
+
+  - it: should fail with invalid primaryUpdateMethod
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            primaryUpdateMethod: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [cluster.primaryUpdateMethod] to be one of [switchover, restart], but got [invalid]
+
+  - it: should fail with invalid walSegmentSize
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            initdb:
+              walSegmentSize: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [cluster.initdb.walSegmentSize] to be an integer, but got [string]
+
+  - it: should fail with too large walSegmentSize
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            initdb:
+              walSegmentSize: 1025
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Cluster - Expected [cluster.initdb.walSegmentSize] to be between 1 and 1024, but got [1025]
+
+  - it: should fail without recovery object when mode is recovery
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Recovery - Expected a non-empty [recovery] key
+
+  - it: should fail with revision in recovery not a string
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: backup
+            backupName: some-backup-name
+            revision: 5
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Recovery - Expected [recovery.revision] to be a string, got [float64]
+
+  - it: should fail with invalid recovery method
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Recovery - Expected [recovery.method] to be one of [backup, object_store, pg_basebackup], but got [invalid]
+
+  - it: should fail without backupName on recovery method backup
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          mode: recovery
+          recovery:
+            method: backup
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Recovery - Expected a non-empty [recovery.backupName] key
+
+  - it: should fail with revision in backups not a string
+    set:
+      credentials:
+        test: &test
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          url: some-url
+          encrKey: some-encr-key
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            credentials: test
+            revision: 5
+            target: primary
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.revision] to be a string, got [float64]
+
+  - it: should fail with invalid target when backups are enabled
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            credentials: test
+            target: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.target] to be one of [primary, prefer-standby], but got [invalid]
+
+  - it: should fail with invalid retentionPolicy when backups are enabled
+    set:
+      credentials:
+        test: *test
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            credentials: test
+            target: primary
+            retentionPolicy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.retentionPolicy] to match regex [^[1-9][0-9]*[dwm]$], got [invalid]
+
+  - it: should fail with instances less than 1
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          instances: 0
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected [instances] to be greater than 0, but got [0]

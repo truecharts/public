@@ -1,0 +1,53 @@
+suite: volumeClaimTemplate metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with vct created with labels and annotations
+    set:
+      label1: label1
+      annotation1: annotation1
+      global:
+        labels:
+          g_label1: global_label1
+        annotations:
+          g_annotation1: global_annotation1
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          labels:
+            label1: "{{ .Values.label1 }}"
+            label2: label2
+          annotations:
+            annotation1: "{{ .Values.annotation1 }}"
+            annotation2: annotation2
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.annotations
+          value:
+            annotation1: annotation1
+            annotation2: annotation2
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.labels
+          value:
+            label1: label1
+            label2: label2

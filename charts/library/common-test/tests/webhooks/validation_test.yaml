@@ -1,0 +1,484 @@
+suite: webhook validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      webhook:
+        my-webhook-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          type: validating
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-my-webhook-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      webhook:
+        _my-webhook:
+          enabled: true
+          type: validating
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_my-webhook] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          webhooks: &webhooks
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: &clientConfig
+                service:
+                  name: test
+                  namespace: test
+              rules: &rules
+                - operations:
+                    - CREATE
+                  apiGroups:
+                    - ""
+                  apiVersions:
+                    - v1
+                  resources:
+                    - pods
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with invalid type
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: "not valid"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [type] in [webhook.my-webhook] to be one of [validating, mutating], but got [not valid]
+
+  - it: should fail without type
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type:
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [type] in [webhook.my-webhook] to not be empty
+
+  - it: should fail with empty webhooks
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [webhooks] in [webhook.my-webhook] to not be empty
+
+  - it: should fail with webhooks not a list
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks: "not a list"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [webhooks] in [webhook.my-webhook] to be a list, but got [string]
+
+  - it: should fail with empty enabled
+    set:
+      webhook:
+        my-webhook:
+          enabled:
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected the defined key [enabled] in [webhook.my-webhook] to not be empty
+
+  - it: should fail without name in webhook
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [name] in [webhook.my-webhook] to not be empty
+
+  - it: should fail with invalid failurePolicy
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              failurePolicy: "not valid"
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [failurePolicy] in [webhook.my-webhook.webhook1] to be one of [Ignore, Fail], but got [not valid]
+
+  - it: should fail with invalid matchPolicy
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              matchPolicy: "not valid"
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [matchPolicy] in [webhook.my-webhook.webhook1] to be one of [Exact, Equivalent], but got [not valid]
+
+  - it: should fail with defined reinvocationPolicy in validating webhook
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              reinvocationPolicy: Never
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [mutating] type in [webhook.my-webhook.webhook1] when [reinvocationPolicy] is defined
+
+  - it: should fail with not valid reinvocationPolicy
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: mutating
+          webhooks:
+            - name: webhook1
+              reinvocationPolicy: "not valid"
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [reinvocationPolicy] in [webhook.my-webhook.webhook1] to be one of [Never, IfNeeded], but got [not valid]
+
+  - it: should fail with invalid sideEffects
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              sideEffects: "not valid"
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [sideEffects] in [webhook.my-webhook.webhook1] to be one of [None, NoneOnDryRun], but got [not valid]
+
+  - it: should fail with empty timeoutSeconds
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              timeoutSeconds:
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected the defined key [timeoutSeconds] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with timeoutSeconds not integer
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              timeoutSeconds: "not integer"
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be an integer, but got [string]
+
+  - it: should fail with timeoutSeconds less that 1
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              timeoutSeconds: 0
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be greater than 0, but got [0]
+
+  - it: should fail with timeoutSeconds greater than 30
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              timeoutSeconds: 31
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be less than 30, but got [31]
+
+  - it: should fail without clientConfig
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              rules: *rules
+              admissionReviewVersions:
+                - v1
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [clientConfig] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with both service and url defined
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig:
+                service:
+                  name: test
+                  namespace: test
+                url: http://test.com
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected either [url] or [service] in [webhook.my-webhook.webhook1] to be defined, but got both
+
+  - it: should fail without service name
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig:
+                service:
+                  namespace: test
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [service.name] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail without service namespace
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig:
+                service:
+                  name: test
+              rules: *rules
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [service.namespace] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail without rules
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [rules] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with rules not a list
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules: "not a list"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [rules] in [webhook.my-webhook.webhook1] to be a list, but got [string]
+
+  - it: should fail with empty apiGroups in rule
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules:
+                - apiVersions:
+                    - v1
+                  resources:
+                    - pods
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [apiGroups] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with empty apiVersions in rule
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules:
+                - apiVersions:
+                    - v1
+                  resources:
+                    - pods
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [apiGroups] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with empty operations in rule
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules:
+                - apiGroups:
+                    - ""
+                  apiVersions:
+                    - v1
+                  resources:
+                    - pods
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [operations] in [webhook.my-webhook.webhook1] to not be empty
+
+  - it: should fail with invalid scope
+    set:
+      webhook:
+        my-webhook:
+          enabled: true
+          type: validating
+          webhooks:
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig: *clientConfig
+              rules:
+                - apiGroups:
+                    - ""
+                  apiVersions:
+                    - v1
+                  resources:
+                    - pods
+                  operations:
+                    - CREATE
+                  scope: "not valid"
+    asserts:
+      - failedTemplate:
+          errorMessage: Webhook - Expected [scope] in [webhook.my-webhook.webhook1] to be one of [Cluster, Namespaced, *], but got [not valid]

@@ -1,0 +1,397 @@
+suite: pod hostUsers test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with hostUsers enabled from "global"
+    set:
+      podOptions:
+        hostUsers: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with hostUsers enabled from podSpec
+    set:
+      podOptions:
+        hostUsers: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostUsers: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of pvc
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of hostNet
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostNetwork: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of hostPID
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostPID: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of hostIPC
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostIPC: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  # Tests that eq <template> "true" works // bool to string etc.
+  - it: should pass with disabled hostUsers with host* disabled explicitly
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostIPC: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: false
+
+  - it: should pass with enabled hostUsers because of sysctls
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            securityContext:
+              sysctls:
+                - name: some-sysctl
+                  value: some-value
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of nvidia gpu
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of amd gpu
+    set:
+      resources:
+        limits:
+          amd.com/gpu: 1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of intel gpu
+    set:
+      resources:
+        limits:
+          gpu.intel.com/i915: 1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because rofs is disabled
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                securityContext:
+                  readOnlyRootFilesystem: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because runAsNonRoot is disabled
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  runAsNonRoot: false
+                  # Common will reset to true if runAsUser is not 0
+                  runAsUser: 0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because privileged is enabled
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  privileged: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because allowPrivilegeEscalation is enabled
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  allowPrivilegeEscalation: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because runAsUser is 0
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  runAsUser: 0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because runAsGroup is 0
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  runAsGroup: 0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with hostUsers explicitly set on top-level regardless if runAsGroup is 0
+    set:
+      podOptions:
+        hostUsers: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  runAsGroup: 0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: false
+
+  - it: should pass with hostUsers explicitly set on pod-level regardless if runAsGroup is 0
+    set:
+      podOptions:
+        hostUsers: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostUsers: false
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  runAsGroup: 0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: false
+
+  - it: should pass with enabled hostUsers because capabilities.add is not empty
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes: *probes
+                securityContext:
+                  capabilities:
+                    add:
+                      - SYS_ADMIN
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true

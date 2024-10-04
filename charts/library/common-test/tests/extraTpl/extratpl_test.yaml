@@ -1,0 +1,68 @@
+suite: extra tpl test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with extra tpl
+    set:
+      someKey: someValue
+      extraTpl:
+        - |
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: test-release-name-common-test
+          spec:
+            type: ClusterIP
+            publishNotReadyAddresses: false
+            ports:
+              - name: main
+                port: 80
+                protocol: TCP
+                targetPort: 80
+        - |
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: test-release-name-common-test
+            labels:
+              some-label: {{ .Values.someKey }}
+          spec:
+            template:
+              spec:
+                containers:
+                  - name: test-release-name-common-test
+        - "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: {{ .Values.someKey }}"
+    asserts:
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec.ports[0].name
+          value: main
+      - documentIndex: &deploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: metadata.labels.some-label
+          value: someValue
+      - documentIndex: &otherDeploymentDoc 2
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: metadata.name
+          value: someValue
+
+  # Failures
+  - it: should fail with empty item in extra tpl
+    set:
+      extraTpl:
+        - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Extra tpl - Expected non-empty [extraTpl] item

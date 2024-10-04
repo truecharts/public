@@ -1,0 +1,250 @@
+suite: ingress - rules test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with ingressClassName
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          ingressClassName: some-class
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.ingressClassName
+          value: some-class
+
+  - it: should pass with ingress created with rules
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      someHost: test-host
+      somePath: /test-path
+      someType: Exact
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: "{{ .Values.someHost }}"
+              paths:
+                - path: "{{ .Values.somePath }}"
+                  pathType: "{{ .Values.someType }}"
+            - host: "*.test-other-host"
+              paths:
+                - path: /test-other-path
+                - path: /test-other-path2
+                  overrideService:
+                    name: some-other-service
+                    expandObjectName: false
+                    port: 8080
+            - host: "host-target-primary-service"
+              paths:
+                - path: /subpath
+                  overrideService:
+                    # It is primary, so the backend target
+                    # must be just the fullname
+                    name: my-service
+                    port: 8080
+            - host: "host-target-override-no-expand"
+              paths:
+                - path: /subpath2
+                  overrideService:
+                    name: my-custom-service
+                    expandObjectName: false
+                    port: 8080
+            - host: "host-without-explicit-paths"
+            - host: "host-without-explicit-path"
+              paths:
+                - pathType: Exact
+          integrations: *integrations
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.rules
+          value:
+            - host: test-host
+              http:
+                paths:
+                  - path: /test-path
+                    pathType: Exact
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
+            - host: "*.test-other-host"
+              http:
+                paths:
+                  - path: /test-other-path
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
+                  - path: /test-other-path2
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: some-other-service
+                        port:
+                          number: 8080
+            - host: "host-target-primary-service"
+              http:
+                paths:
+                  - path: /subpath
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 8080
+            - host: host-target-override-no-expand
+              http:
+                paths:
+                  - path: /subpath2
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: my-custom-service
+                        port:
+                          number: 8080
+            - host: "host-without-explicit-paths"
+              http:
+                paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
+            - host: "host-without-explicit-path"
+              http:
+                paths:
+                  - path: /
+                    pathType: Exact
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
+
+  - it: should pass with ingress created with rules with targetSelector
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+        my-service2:
+          enabled: true
+          ports:
+            my-port2:
+              enabled: true
+              port: 9000
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            my-service2: my-port2
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: test-other-host
+              paths:
+                - path: /test-other-path
+                - path: /test-other-path2
+                  overrideService:
+                    name: other-service
+                    port: 8080
+          integrations: *integrations
+    asserts:
+      - documentIndex: &ingressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.rules
+          value:
+            - host: test-host
+              http:
+                paths:
+                  - path: /test-path
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test-my-service2
+                        port:
+                          number: 9000
+            - host: test-other-host
+              http:
+                paths:
+                  - path: /test-other-path
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test-my-service2
+                        port:
+                          number: 9000
+                  - path: /test-other-path2
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test-other-service
+                        port:
+                          number: 8080

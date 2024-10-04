@@ -1,0 +1,98 @@
+suite: cnpg pooler spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      param: someValue
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pooler:
+            enabled: true
+        my-pg2:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pooler:
+            enabled: true
+            createRO: true
+            poolMode: transaction
+            instances: 1
+            parameters:
+              some: value
+              someOther: "{{ .Values.param }}"
+    asserts:
+      - documentIndex: &poolerDoc 0
+        isKind:
+          of: Pooler
+      - documentIndex: *poolerDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *poolerDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-pooler-rw
+      - documentIndex: *poolerDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg
+            instances: 2
+            type: rw
+            pgbouncer:
+              poolMode: session
+      - documentIndex: &otherpoolerDoc 2
+        isKind:
+          of: Pooler
+      - documentIndex: *otherpoolerDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherpoolerDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg2-pooler-rw
+      - documentIndex: *otherpoolerDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg2
+            instances: 1
+            type: rw
+            pgbouncer:
+              poolMode: transaction
+              parameters:
+                some: value
+                someOther: someValue
+      - documentIndex: &otherpoolerDoc 3
+        isKind:
+          of: Pooler
+      - documentIndex: *otherpoolerDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherpoolerDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg2-pooler-ro
+      - documentIndex: *otherpoolerDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg2
+            instances: 1
+            type: ro
+            pgbouncer:
+              poolMode: transaction
+              parameters:
+                some: value
+                someOther: someValue

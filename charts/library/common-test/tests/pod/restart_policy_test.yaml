@@ -1,0 +1,168 @@
+suite: pod restart policy test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with restartPolicy empty
+    set:
+      podOptions:
+        restartPolicy: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.restartPolicy
+          value: Always
+
+  - it: should pass with restartPolicy set from "global"
+    set:
+      podOptions:
+        restartPolicy: Always
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.restartPolicy
+          value: Always
+
+  - it: should pass with restartPolicy set from "pod"
+    set:
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            restartPolicy: Always
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.restartPolicy
+          value: Always
+
+  - it: should pass with restartPolicy set from "pod" on Jobs
+    set:
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec:
+            restartPolicy: OnFailure
+    asserts:
+      - documentIndex: &jobDoc 0
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.spec.restartPolicy
+          value: OnFailure
+
+  - it: should pass with restartPolicy set from "pod" on Jobs from tpl
+    set:
+      policy: OnFailure
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec:
+            restartPolicy: "{{ .Values.policy }}"
+    asserts:
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.spec.restartPolicy
+          value: OnFailure
+
+  # Failures
+  - it: should fail with restartPolicy to Never on Deployment
+    set:
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be [Always] for [Deployment] but got [Never]
+
+  - it: should fail with restartPolicy to Never on DaemonSet
+    set:
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be [Always] for [DaemonSet] but got [Never]
+
+  - it: should fail with restartPolicy to Never on StatefulSet
+    set:
+      podOptions:
+        restartPolicy: Never
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be [Always] for [StatefulSet] but got [Never]
+
+  - it: should fail with restartPolicy to invalid on global
+    set:
+      podOptions:
+        restartPolicy: invalid
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be one of [Never, Always, OnFailure] but got [invalid]
+
+  - it: should fail with restartPolicy to invalid-policy on pod
+    set:
+      podOptions:
+        restartPolicy: invalid
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec:
+            restartPolicy: invalid-policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be one of [Never, Always, OnFailure] but got [invalid-policy]

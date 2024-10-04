@@ -1,0 +1,245 @@
+suite: volumeClaimTemplate data test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create vct
+    set:
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteOnce
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 100Gi
+      - documentIndex: *statefulSetDoc
+        notExists:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+
+  - it: should create vct with accessModes set as string
+    set:
+      some_mode: ReadWriteMany
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          accessModes: "{{ .Values.some_mode }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+
+  - it: should create vct with changed fallback accessModes
+    set:
+      global:
+        fallbackDefaults:
+          vctAccessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce
+
+  - it: should create vct with accessModes set as list
+    set:
+      some_mode: ReadWriteMany
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          accessModes:
+            - "{{ .Values.some_mode }}"
+            - ReadWriteOnce
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce
+
+  - it: should create vct with size set
+    set:
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          size: 20Gi
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 20Gi
+
+  - it: should create vct with size set from tpl
+    set:
+      some_size: 40Gi
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          size: "{{ .Values.some_size }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 40Gi
+
+  - it: should create vct with storageClass set "-"
+    set:
+      some_storage_class: "-"
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          storageClass: "{{ .Values.some_storage_class }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: ""
+
+  - it: should create vct with storageClass set
+    set:
+      some_storage_class: some-storage-class
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          storageClass: "{{ .Values.some_storage_class }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: some-storage-class
+
+  - it: should create vct with storageClass not set, but have fallbackDefaults set
+    set:
+      global:
+        fallbackDefaults:
+          storageClass: some-storage-class
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: some-storage-class

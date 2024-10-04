@@ -1,0 +1,158 @@
+suite: cnpg db-wait test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct db-wait script
+    set:
+      workload: &workload
+        my-workload:
+          type: Deployment
+          enabled: true
+          primary: true
+          podSpec:
+            my-container:
+              enabled: true
+              primary: true
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - documentIndex: &deployDoc 3
+        isKind:
+          of: Deployment
+      - documentIndex: *deployDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].name
+          value: test-release-name-common-test-system-cnpg-wait
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].command
+          value:
+            - /bin/sh
+            - -c
+            - |-
+              /bin/sh <<'EOF'
+              echo "Executing DB waits..."
+              echo "Testing Database availability on [CNPG RW]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-rw
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+              echo "Done executing DB waits..."
+              EOF
+
+  - it: should generate correct db-wait script with pooler, only rw
+    set:
+      workload: *workload
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pooler:
+            enabled: true
+            createRO: false
+    asserts:
+      - documentIndex: &deployDoc 4
+        isKind:
+          of: Deployment
+      - documentIndex: *deployDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].name
+          value: test-release-name-common-test-system-cnpg-wait
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].command
+          value:
+            - /bin/sh
+            - -c
+            - |-
+              /bin/sh <<'EOF'
+              echo "Executing DB waits..."
+              echo "Testing Database availability on [CNPG RW]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-rw
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+              echo "Testing Database availability on [CNPG Pooler RW]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-pooler-rw]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-pooler-rw
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-pooler-rw]"
+              echo "Done executing DB waits..."
+              EOF
+
+  - it: should generate correct db-wait script with pooler rw and ro
+    set:
+      workload: *workload
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pooler:
+            enabled: true
+            createRO: true
+    asserts:
+      - documentIndex: &deployDoc 5
+        isKind:
+          of: Deployment
+      - documentIndex: *deployDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].name
+          value: test-release-name-common-test-system-cnpg-wait
+      - documentIndex: *deployDoc
+        equal:
+          path: spec.template.spec.initContainers[0].command
+          value:
+            - /bin/sh
+            - -c
+            - |-
+              /bin/sh <<'EOF'
+              echo "Executing DB waits..."
+              echo "Testing Database availability on [CNPG RW]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-rw
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-rw]"
+              echo "Testing Database availability on [CNPG Pooler RW]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-pooler-rw]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-pooler-rw
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-pooler-rw]"
+              echo "Testing Database availability on [CNPG Pooler RO]"
+              until
+                echo "Testing database on url: [test-release-name-common-test-cnpg-my-pg-pooler-ro]"
+                pg_isready -U test-user -d test-db -h test-release-name-common-test-cnpg-my-pg-pooler-ro
+                do sleep 5
+              done
+              echo "Database available on url: [test-release-name-common-test-cnpg-my-pg-pooler-ro]"
+              echo "Done executing DB waits..."
+              EOF

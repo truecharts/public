@@ -1,0 +1,360 @@
+suite: persistence validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with annotations not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          annotations: not-a-dict
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with labels not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          labels: not-a-dict
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with pod targetSelector not a map
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          targetSelector: not-a-map
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [targetSelector] to be [dict], but got [string]
+
+  - it: should fail with invalid type
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: not-a-type
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [type] to be one of [pvc, vct, emptyDir, nfs, iscsi, hostPath, secret, configmap, device, projected], but got [not-a-type]
+
+  - it: should fail with invalid accessMode
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          accessModes:
+            - not-an-access-mode
+    asserts:
+      - failedTemplate:
+          errorMessage: PVC - Expected [accessModes] entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
+
+  - it: should fail with non-existent configmap
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          data:
+            foo: bar
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          mountPath: /mnt/volume1
+          objectName: my-non-existent-configmap
+      workload:
+        main:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected configmap [my-non-existent-configmap] defined in [objectName] to exist
+
+  - it: should fail with non-existent secret
+    set:
+      secret:
+        my-secret:
+          enabled: true
+          data:
+            foo: bar
+      persistence:
+        volume1:
+          enabled: true
+          type: secret
+          mountPath: /mnt/volume1
+          objectName: my-non-existent-secret
+      workload:
+        main:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected secret [my-non-existent-secret] defined in [objectName] to exist
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistent Volume Claim - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail without server on pvc static nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS CSI - Expected [server] to be non-empty
+
+  - it: should fail without share on pvc static nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            server: someserver
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS CSI - Expected [share] to be non-empty
+
+  - it: should fail without server on pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected [server] to be non-empty
+
+  - it: should fail without share on pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            server: someserver
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected [share] to be non-empty
+
+  - it: should fail without username pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected [username] to be non-empty
+
+  - it: should fail without password on pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected [password] to be non-empty
+
+  - it: should fail with server starting with // on pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: //someserver
+            username: someuser
+            password: someuserpoassword
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Did not expect [server] to start with [//]
+
+  - it: should fail with share starting with / on pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: /someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Did not expect [share] to start with [/]
+
+  - it: should fail without share starting with / on pvc static nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: someshare
+            server: someserver
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS CSI - Expected [share] to start with [/]
+
+  - it: should fail with empty key on mountOptions in pvc static nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+            server: someserver
+          mountOptions:
+            - key: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS CSI - Expected key in [mountOptions] to be non-empty
+
+  - it: should fail with empty key on mountOptions in pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+          mountOptions:
+            - key: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected key in [mountOptions] to be non-empty
+
+  - it: should fail with item in mountOptions not a map in pvc static smb
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+          mountOptions:
+            - not-a-map
+    asserts:
+      - failedTemplate:
+          errorMessage: SMB CSI - Expected [mountOption] item to be a dict, but got [string]
+
+  - it: should fail with item in mountOptions not a map in pvc static nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+            server: someserver
+          mountOptions:
+            - not-a-map
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS CSI - Expected [mountOption] item to be a dict, but got [string]
+
+  - it: should fail with invalid static mode
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: not-a-mode
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [static.mode] to be one of [disabled, smb, nfs, custom], but got [not-a-mode]
+
+  - it: should fail with missing name in dataSource
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          dataSource:
+            kind: PersistentVolumeClaim
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [dataSource.name] to be non-empty
+
+  - it: should fail with missing kind in dataSource
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          dataSource:
+            name: some name
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [dataSource.kind] to be non-empty
+
+  - it: should fail with invalid kind in dataSource
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          dataSource:
+            name: some name
+            kind: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [dataSource.kind] to be one of [VolumeSnapshot, PersistentVolumeClaim], but got [invalid]

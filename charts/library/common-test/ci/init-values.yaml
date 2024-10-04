@@ -1,0 +1,52 @@
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+      initContainers:
+        init-cont:
+          enabled: true
+          type: init
+          imageSelector: alpineImage
+          args:
+            - echo
+            - "Hello World"
+        install-cont:
+          enabled: true
+          type: install
+          imageSelector: alpineImage
+          args:
+            - echo
+            - "Hello World"
+
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        protocol: http
+        port: 8080
