@@ -21,10 +21,13 @@ workload:
         main:
           probes:
             liveness:
+              type: http
               path: "/_health/"
             readiness:
+              type: http
               path: "/_health/"
             startup:
+              type: http
               path: "/_health/"
           env:
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
