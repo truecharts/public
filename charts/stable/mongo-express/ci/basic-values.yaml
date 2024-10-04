@@ -10,7 +10,7 @@ workload:
         main:
           env:
             ME_CONFIG_MONGODB_PORT: 27017
-            ME_CONFIG_MONGODB_AUTH_USERNAME: "{{ .Values.mongodb.mongodbUsername }}"
+            ME_CONFIG_MONGODB_AUTH_USERNAME: mongoexpress
             ME_CONFIG_MONGODB_ENABLE_ADMIN: "false"
             ME_CONFIG_BASICAUTH_ENABLED: true
             ME_CONFIG_BASICAUTH_USERNAME: admin
@@ -20,4 +20,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
                 key: plainhost
-            ME_CONFIG_MONGODB_AUTH_PASSWORD: "{{ .Values.mongodb.password }}"
+            ME_CONFIG_MONGODB_AUTH_PASSWORD: "PLACEHOLDERPASSWORD"
