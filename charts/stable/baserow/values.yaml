@@ -1,6 +1,6 @@
 image:
   repository: baserow/baserow
-  tag: 1.23.0@sha256:32bff9b60b22a8b815e41710e62d8c1245608518f15263661d313507681a757f
+  tag: 1.24.2@sha256:c0f601fd71ea00f76eead4421f4a146b49402e51de2acfa2c96b3a27500441b4
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -21,11 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/_health"
+              type: tcp
             readiness:
-              path: "/_health"
+              type: tcp
             startup:
-              path: "/_health"
+              type: tcp
           env:
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
@@ -35,8 +35,8 @@ workload:
             REDIS_PROTOCOL: "redis"
             BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
             # User Defined
-
-            BASEROW_PUBLIC_URL: "http://localhost:10228"
+            BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION: false
+            BASEROW_PUBLIC_URL: "http://127.0.0.1:10228"
             FROM_EMAIL: ""
             EMAIL_SMTP: ""
             EMAIL_SMTP_USE_TLS: ""
