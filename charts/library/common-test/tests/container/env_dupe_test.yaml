@@ -5,7 +5,7 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-# Failures
+  # Failures
   - it: should fail with dupe env in env and envList
     set:
       image: &image

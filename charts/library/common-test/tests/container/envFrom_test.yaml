@@ -260,7 +260,6 @@ tests:
       - failedTemplate:
           errorMessage: Container - Expected Secret [secret-other-name] defined in [envFrom] to exist
 
-
   - it: it should fail empty expandObjectName
     set:
       image: *image

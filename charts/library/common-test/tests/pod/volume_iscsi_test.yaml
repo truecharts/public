@@ -204,7 +204,7 @@ tests:
             discovery.sendtargets.auth.username_in: some-usernameInitiator
             discovery.sendtargets.auth.password_in: some-passwordInitiator
 
-# Failures
+  # Failures
   - it: should fail without iscsi object in iscsi volume
     set:
       workload:

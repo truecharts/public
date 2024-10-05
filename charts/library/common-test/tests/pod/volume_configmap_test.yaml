@@ -138,7 +138,7 @@ tests:
               name: test-release-name-common-test-some-non-existent-object
               optional: true
 
-# Failures
+  # Failures
   - it: should fail without objectName in configmap
     set:
       workload:

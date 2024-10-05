@@ -121,7 +121,7 @@ tests:
               path: /dev/nvme0n1
               type: BlockDevice
 
-# Failures
+  # Failures
   - it: should fail without hostPath
     set:
       workload:

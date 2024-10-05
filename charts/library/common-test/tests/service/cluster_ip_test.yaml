@@ -41,10 +41,10 @@ tests:
             type: ClusterIP
             publishNotReadyAddresses: false
             ports:
-            - name: port-name
-              port: 12345
-              protocol: TCP
-              targetPort: 12345
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
             selector:
               app.kubernetes.io/instance: test-release-name
               app.kubernetes.io/name: common-test
@@ -115,14 +115,14 @@ tests:
               clientIP:
                 timeoutSeconds: 100
             ports:
-            - name: port-name
-              port: 12345
-              protocol: TCP
-              targetPort: 12345
-            - name: port-name2
-              port: 12344
-              protocol: TCP
-              targetPort: 12346
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+              - name: port-name2
+                port: 12344
+                protocol: TCP
+                targetPort: 12346
             selector:
               app.kubernetes.io/instance: test-release-name
               app.kubernetes.io/name: common-test

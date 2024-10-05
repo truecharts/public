@@ -33,8 +33,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  http://127.0.0.1:12345
-            appUrlWithPortAndPath:  http://127.0.0.1:12345/
+            appUrl: http://127.0.0.1:12345
+            appUrlWithPortAndPath: http://127.0.0.1:12345/
             appHost: "127.0.0.1"
             appPort: "12345"
             appPath: /
@@ -69,8 +69,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  http://1.2.3.4:12345
-            appUrlWithPortAndPath:  http://1.2.3.4:12345/
+            appUrl: http://1.2.3.4:12345
+            appUrlWithPortAndPath: http://1.2.3.4:12345/
             appHost: "1.2.3.4"
             appPort: "12345"
             appPath: /
@@ -116,8 +116,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  https://example.com
-            appUrlWithPortAndPath:  https://example.com:443/some-path
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
             appHost: "example.com"
             appPort: "443"
             appPath: /some-path
@@ -163,8 +163,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  http://example.com
-            appUrlWithPortAndPath:  http://example.com:80/some-path
+            appUrl: http://example.com
+            appUrlWithPortAndPath: http://example.com:80/some-path
             appHost: "example.com"
             appPort: "80"
             appPath: /some-path
@@ -214,8 +214,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  https://example.com
-            appUrlWithPortAndPath:  https://example.com:443/some-path
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
             appHost: "example.com"
             appPort: "443"
             appPath: /some-path
@@ -265,8 +265,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  https://example.com
-            appUrlWithPortAndPath:  https://example.com:443/some-path
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
             appHost: "example.com"
             appPort: "443"
             appPath: /some-path
@@ -315,8 +315,8 @@ tests:
           value:
             podCIDR: 172.16.0.0/16
             svcCIDR: 172.17.0.0/16
-            appUrl:  https://example.com
-            appUrlWithPortAndPath:  https://example.com:443/some-path
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
             appHost: "example.com"
             appPort: "443"
             appPath: /some-path

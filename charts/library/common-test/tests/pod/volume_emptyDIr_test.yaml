@@ -167,7 +167,7 @@ tests:
               medium: Memory
               sizeLimit: 1Gi
 
-# Failures
+  # Failures
   - it: should fail with invalid medium in emptyDir
     set:
       workload:

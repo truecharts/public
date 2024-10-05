@@ -139,4 +139,4 @@ tests:
                 imageSelector: image
     asserts:
       - failedTemplate:
-          errorMessage:  Container - Expected [.Values.image.pullPolicy] to be one of [IfNotPresent, Always, Never], but got [invalid]
+          errorMessage: Container - Expected [.Values.image.pullPolicy] to be one of [IfNotPresent, Always, Never], but got [invalid]

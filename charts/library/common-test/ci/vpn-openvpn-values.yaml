@@ -38,7 +38,7 @@ workload:
 
 args:
   - --port
-  - '8080'
+  - "8080"
 
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below
@@ -62,7 +62,6 @@ addons:
     # See the documentation of the VPN image for all config values
     env:
       something: UTC
-
 
     # -- you can directly specify the config file here
     config: "fdgdfsg"
