@@ -1,0 +1,353 @@
+name: "Containers: Test-and-Build"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+    paths:
+    - 'apps/**'
+    - 'base/**'
+    - ".github/workflows/containers.build.yaml"
+  pull_request:
+    paths:
+    - 'apps/**'
+    - 'base/**'
+    - ".github/workflows/containers.build.yaml"
+
+env:
+  # How long to sleep before running the tests (gives the application time to start)
+  GOSS_SLEEP: 30
+  # Number of times to run the goss test
+  GOSS_ITERATIONS: 3
+
+# Detect which folders in project-root (which contain the containers) contain changes
+jobs:
+  changes:
+    name: Get changes
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: "{\"container\": ${{ steps.reduce.outputs.containers }} }"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+    - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3
+      id: filter
+      with:
+        list-files: json
+        filters: |
+          changed:
+          - 'apps/**'
+          - 'dev/**'
+          - 'base/**'
+    - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+    - id: reduce
+      run: |
+        CONTAINERS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[/]?)[^/]+/)(?<second_directory>(?<root2>[/]?)[^/]+)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json)
+        echo ::set-output name=containers::${CONTAINERS}
+
+  hadolint:
+    name: Run hadolint
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+    - name: hadolint
+      uses: reviewdog/action-hadolint@73fec8b28091e5082c19df69815dd749d97b882a # v1.46.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        reporter: github-pr-review
+        filter_mode: diff_context
+        hadolint_ignore: DL3007
+        fail_on_error: true
+
+  build:
+    permissions:
+      actions: read # for detecting the Github Actions environment.
+      id-token: write # for creating OIDC tokens for signing.
+      packages: write # for uploading attestations.
+    name: Build
+    runs-on: ubuntu-24.04
+    needs:
+    - hadolint
+    - changes
+    strategy:
+      matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
+      fail-fast: false
+    if: "!contains(github.event.head_commit.message, '[ci-skip]')"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+
+    # Define if tests and push should be run against which versions/platforms
+    - name: Prepare
+      id: prep
+      run: |
+        # Make sure we have the latest version in the version file
+        # To avoid publishing a new container version with an old tag
+        bash ./.github/update-version-file.sh "${{ matrix.container }}"
+        if test -f "./apps/${{ matrix.container }}/VERSION"; then
+          CATEGORY="apps"
+          VERSION=$(cat ./${CATEGORY}/${{ matrix.container }}/VERSION)
+        elif test -f "./apps/${{ matrix.container }}/Dockerfile"; then
+          CATEGORY="apps"
+          echo ::set-output name=category::${CATEGORY}
+          VERSION="$(head -1 ./${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
+          VERSION=$(echo $VERSION | sed "s/latest-//g")
+          VERSION=$(echo $VERSION | sed "s/stable-//g")
+          VERSION=$(echo $VERSION | sed "s/edge-//g")
+          VERSION=$(echo $VERSION | sed "s/build-//g")
+          VERSION=$(echo $VERSION | sed "s/cpu-//g")
+          VERSION=$(echo $VERSION | sed "s/gpu-//g")
+          VERSION=$(echo $VERSION | sed "s/release-//g")
+          VERSION=$(echo $VERSION | sed "s/release_//g")
+          VERSION=$(echo $VERSION | sed "s/version-//g")
+          VERSION=$(echo $VERSION | sed "s/version_//g")
+          VERSION=$(echo $VERSION | sed "s/apache-//g")
+          VERSION=$(echo $VERSION | sed "s/ubuntu-//g")
+          VERSION=$(echo $VERSION | sed "s/focal-//g")
+          VERSION=$(echo $VERSION | sed "s/fpm-//g")
+          VERSION=$(echo $VERSION | sed "s/vaapi-//g")
+          VERSION=$(echo $VERSION | sed "s/cuda-//g")
+          VERSION=$(echo $VERSION | sed "s/-centos7//g")
+          VERSION=$(echo $VERSION | sed "s/java[0-9]*-//g")
+          VERSION="${VERSION#*V.}"
+          VERSION="${VERSION#*v.}"
+          VERSION="${VERSION#*v-}"
+          VERSION="${VERSION#*v}"
+          VERSION="${VERSION%-*}"
+          if (echo "$VERSION" | grep -Pq "^\d+\.\d+$"); then
+            VERSION="${VERSION}.0"
+          fi;
+        else
+          CATEGORY="base"
+          VERSION=$(cat ./${CATEGORY}/${{ matrix.container }}/VERSION) || VERSION="$(head -1 ./${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
+          VERSION=$(echo $VERSION | sed "s/latest-//g")
+          VERSION=$(echo $VERSION | sed "s/stable-//g")
+          VERSION="${VERSION#*V.}"
+          VERSION="${VERSION#*v.}"
+          VERSION="${VERSION#*v-}"
+          VERSION="${VERSION#*v}"
+          VERSION="${VERSION%-*}"
+          if (echo "$VERSION" | grep -Pq "^\d+\.\d+$"); then
+            VERSION="${VERSION}.0"
+          fi;
+        fi
+        echo ::set-output name=category::${CATEGORY}
+        echo ::set-output name=version::${VERSION}
+        PLATFORM="linux/amd64"
+        echo ::set-output name=platform::${PLATFORM}
+        if test -f "./${CATEGORY}/${{ matrix.container }}/goss.yaml"; then
+          echo ::set-output name=goss::true
+        else
+          echo ::set-output name=goss::false
+        fi
+        if [ "${{github.event_name}}" == "pull_request" ]; then
+          echo ::set-output name=push::false
+          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/truecharts/${{ matrix.container }}:buildcache" || echo ::set-output name=cache_from::""
+          echo ::set-output name=cache_to::""
+        else
+          echo ::set-output name=push::true
+          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/truecharts/${{ matrix.container }}:buildcache"
+          echo ::set-output name=cache_to::"type=registry,ref=ghcr.io/truecharts/${{ matrix.container }}:buildcache,mode=max"
+        fi
+
+    - name: Commit and Push Housekeeping
+      run: |
+        git config user.name "TrueCharts-Bot"
+        git config user.email "bot@truecharts.org"
+        # add only VERSION and BASE files
+        git add ./apps/${{ matrix.container }}/VERSION ./apps/${{ matrix.container }}/BASE || true
+        git commit -sm "Update ${{ matrix.container }} version file" || exit 0
+        git push
+
+    - name: Get Time
+      id: time
+      uses: nanzm/get-time-action@887e4db9af58ebae64998b7105921b816af77977 # v2.0
+      with:
+        timeZone: 1
+        format: 'YYYYMMDDHHmmss'
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3
+      with:
+        platforms: amd64
+        
+    - uses: sigstore/cosign-installer@main
+        
+    - name: Install Syft
+      uses: anchore/sbom-action/download-syft@61119d458adab75f756bc0b9e4bde25725f86a7a # v0.17.2
+
+    - name: Login to Quay
+      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+      if: github.event_name != 'pull_request'
+      with:
+        registry: quay.io
+        username: ${{ secrets.QUAY_TCCR_USER }}
+        password: ${{ secrets.QUAY_TCCR_TOKEN }}
+
+    - name: Login to GHCR
+      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+      if: github.event_name != 'pull_request'
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.GHCR_USERNAME }}
+        password: ${{ secrets.GHCR_TOKEN }}
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5
+      with:
+        # list of Docker images to use as base name for tags
+        images: |
+          quay.io/tccr/${{ matrix.container }}
+          tccr.io/tccr/${{ matrix.container }}
+
+    # Install and configure Buildx
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3
+      with:
+        install: true
+        version: latest
+        driver-opts: image=moby/buildkit:latest
+
+    # Install the GOSS testing framework
+    - name: Set up goss/dgoss
+      uses: e1himself/goss-installation-action@fbb6fb55d3e59c96045b2500eeb8ce0995d99ac1 # v1.2.1
+      if: ${{ steps.prep.outputs.goss == 'true' }}
+      with:
+        version: 'v0.3.16'
+
+    # Creates a local build to run tests on
+    - name: Build and Load local test-container
+      if: ${{ steps.prep.outputs.goss == 'true' }}
+      uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6
+      with:
+        build-args: |
+          VERSION=${{ steps.prep.outputs.version }}
+          CONTAINER_NAME=${{ matrix.container }}
+          CONTAINER_VER=${{ steps.prep.outputs.version }}
+        context: .
+        file: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+        load: true
+        tags: |
+          tccr.io/tccr/${{ matrix.container }}:test
+        cache-from: ${{ steps.prep.outputs.cache_from }}
+        cache-to: ${{ steps.prep.outputs.cache_to }}
+
+    # Run GOSS tests if included with the container
+    - name: Run GOSS tests
+      if: ${{ steps.prep.outputs.goss == 'true' }}
+      env:
+        GOSS_FILE: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/goss.yaml
+      run:  |
+        for i in $(seq 1 ${{ env.GOSS_ITERATIONS }}); do
+          echo "Running GOSS test iteration $i of ${{ env.GOSS_ITERATIONS }}..."
+          dgoss run tccr.io/tccr/${{ matrix.container }}:test
+        done
+
+    # Push if not a PR, otherwise just test the build process for all requested platforms
+    - name: Build and Push
+      id: push
+      uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6
+      with:
+        build-args: |
+          VERSION=${{ steps.prep.outputs.version }}
+          CONTAINER_NAME=${{ matrix.container }}
+          CONTAINER_VER=${{ steps.prep.outputs.version }}
+        context: .
+        platforms: ${{ steps.prep.outputs.platform }}
+        file: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+        push: ${{ steps.prep.outputs.push }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: ${{ steps.prep.outputs.cache_from }}
+        cache-to: ${{ steps.prep.outputs.cache_to }}
+        tags: |
+          quay.io/tccr/${{ matrix.container }}:latest
+          quay.io/tccr/${{ matrix.container }}:v${{ steps.prep.outputs.version }}
+          quay.io/tccr/${{ matrix.container }}:build${{ steps.time.outputs.time }}
+
+    - name: Set quay to Public
+      if: github.event_name != 'pull_request'
+      run: |
+        curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TCCR_API_TOKEN }}" "https://quay.io/api/v1/repository/tccr/${{ matrix.container }}/changevisibility"
+      
+    - name: Sign the images
+      if: github.event_name != 'pull_request'
+      run: |
+         cosign sign quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} -y -a "repo=${{ github.repository }}" -a "workflow=${{ github.workflow }}" -a "ref=${{ github.sha }}"
+        
+    - name: Verify the pushed tags
+      if: github.event_name != 'pull_request'
+      run: |
+         cosign verify quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master
+      
+    - name: Generate SBOM 
+      if: github.event_name != 'pull_request'
+      run: |
+        syft "quay.io/tccr/${{ matrix.container }}:v${{ steps.prep.outputs.version }}@${{ steps.push.outputs.digest }}" -o spdx-json=${{ matrix.container }}-sbom-spdx.json
+      
+    - name: Attach SBOM to image
+      if: github.event_name != 'pull_request'
+      run: |
+        cosign attest --predicate ${{ matrix.container }}-sbom-spdx.json --type spdx "quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}" -y
+
+        
+    - name: Verify SBOM attestation
+      if: github.event_name != 'pull_request'
+      run: |
+        cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+        
+    - name: Generate provenance
+      id: gen-prov
+      if: github.event_name != 'pull_request'
+      run: |
+        wget https://github.com/slsa-framework/slsa-github-generator/releases/download/v1.5.0/slsa-generator-container-linux-amd64
+        chmod +x slsa-generator-container-linux-amd64
+        # Generate a predicate only.
+        ./slsa-generator-container-linux-amd64 generate --predicate="${{ matrix.container }}-predicate.json"
+      env:
+        UNTRUSTED_IMAGE: "quay.io/tccr/${{ matrix.container }}"
+        UNTRUSTED_DIGEST: "${{ steps.push.outputs.digest }}"
+        GITHUB_CONTEXT: "${{ toJSON(github) }}"
+          
+    - name: Sign provenance
+      id: sign-prov
+      if: github.event_name != 'pull_request'
+      run: |
+        cosign attest --predicate="${{ matrix.container }}-predicate.json" \
+          --type slsaprovenance \
+          --yes \
+          "quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}"
+      env:
+        COSIGN_EXPERIMENTAL: 1
+        
+    - name: Verify provenance attestation
+      if: github.event_name != 'pull_request'
+      id: verf-prov
+      run: |
+        cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --type slsaprovenance --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+      env:
+        COSIGN_EXPERIMENTAL: 1
+          
+  container-build-complete:
+    needs: [build]
+    name: Container Build Completed
+    runs-on: ubuntu-latest
+    steps:
+      - name: complete message
+        run: echo "Container Build and Tests Completed Successfully"
+
+  automerge:
+    needs: [container-build-complete]
+    if: github.event_name == 'pull_request'
+    name: Automerge build
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          UPDATE_RETRIES: 12
+          UPDATE_RETRY_SLEEP: 60000
