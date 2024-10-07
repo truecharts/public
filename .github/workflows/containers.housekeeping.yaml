@@ -24,7 +24,7 @@ jobs:
       - name: Containers - Fetch new application versions
         run: |
           find ./apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
-            bash ./.github/update-version-file.sh "${app}"
+            bash ./.github/scripts/update-version-file.sh "${app}"
           done
 
       - name: Commit and Push Housekeeping

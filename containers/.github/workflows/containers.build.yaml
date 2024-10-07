@@ -6,8 +6,8 @@ on:
     branches:
     - master
     paths:
-    - 'apps/**'
-    - 'base/**'
+    - 'containers/apps/**'
+    - 'containers/base/**'
     - ".github/workflows/containers.build.yaml"
   pull_request:
     paths:
@@ -37,9 +37,9 @@ jobs:
         list-files: json
         filters: |
           changed:
-          - 'apps/**'
-          - 'dev/**'
-          - 'base/**'
+          - 'containers/apps/**'
+          - 'containers/dev/**'
+          - 'containers/base/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
@@ -88,11 +88,11 @@ jobs:
         bash ./.github/update-version-file.sh "${{ matrix.container }}"
         if test -f "./apps/${{ matrix.container }}/VERSION"; then
           CATEGORY="apps"
-          VERSION=$(cat ./${CATEGORY}/${{ matrix.container }}/VERSION)
-        elif test -f "./apps/${{ matrix.container }}/Dockerfile"; then
+          VERSION=$(cat ./containers/${CATEGORY}/${{ matrix.container }}/VERSION)
+        elif test -f "./containers/apps/${{ matrix.container }}/Dockerfile"; then
           CATEGORY="apps"
           echo ::set-output name=category::${CATEGORY}
-          VERSION="$(head -1 ./${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
+          VERSION="$(head -1 ./containers/${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
           VERSION=$(echo $VERSION | sed "s/latest-//g")
           VERSION=$(echo $VERSION | sed "s/stable-//g")
           VERSION=$(echo $VERSION | sed "s/edge-//g")
@@ -121,7 +121,7 @@ jobs:
           fi;
         else
           CATEGORY="base"
-          VERSION=$(cat ./${CATEGORY}/${{ matrix.container }}/VERSION) || VERSION="$(head -1 ./${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
+          VERSION=$(cat ./containers/${CATEGORY}/${{ matrix.container }}/VERSION) || VERSION="$(head -1 ./containers/${CATEGORY}/${{ matrix.container }}/Dockerfile |  cut -d'@' -f1 | sed 's/^FROM.*://' )"
           VERSION=$(echo $VERSION | sed "s/latest-//g")
           VERSION=$(echo $VERSION | sed "s/stable-//g")
           VERSION="${VERSION#*V.}"
@@ -157,7 +157,7 @@ jobs:
         git config user.name "TrueCharts-Bot"
         git config user.email "bot@truecharts.org"
         # add only VERSION and BASE files
-        git add ./apps/${{ matrix.container }}/VERSION ./apps/${{ matrix.container }}/BASE || true
+        git add ./containers/apps/${{ matrix.container }}/VERSION ./containers/apps/${{ matrix.container }}/BASE || true
         git commit -sm "Update ${{ matrix.container }} version file" || exit 0
         git push
 
