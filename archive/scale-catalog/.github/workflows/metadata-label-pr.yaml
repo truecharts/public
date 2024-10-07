@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label Size
-        uses: pascalgn/size-label-action@v0.4.3
+        uses: pascalgn/size-label-action@be08a2d5f857dc99c5b9426cdb5a8ea1aa7f0399 # v0.5.4
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
         with:

@@ -6,14 +6,14 @@ jobs:
   test-apps:
     runs-on: ubuntu-latest
     container:
-      image: ixsystems/catalog_validation:latest
+      image: ixsystems/catalog_validation:latest@sha256:ec054455af9857782d13f0507b0e0378ed0dee83dab11a3e1e5939eebb083522
 
     steps:
       - name: Install Helm
         run: /bin/bash -c "curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash"
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
           fetch-depth: 0
 
