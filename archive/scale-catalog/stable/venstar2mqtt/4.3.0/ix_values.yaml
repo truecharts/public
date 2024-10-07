@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: terafin/mqtt-venstar-bridge
+  tag: latest@sha256:18cc80c881fdbaaaac1cf3d938784cb36e79828ec8827029ab4686373eb6d08f
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MQTT_HOST: ""
+            MQTT_PASS: ""
+            MQTT_USER: ""
+            TOPIC_PREFIX: venstar2mqtt
+            VENSTAR_HOST: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

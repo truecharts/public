@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tardisx/linkwallet
+  tag: v0.0.36@sha256:a8b2ed2b80256d701428222bea69b686114dd240be0f479f01c5e8f1757d55d1
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+service:
+  main:
+    ports:
+      main:
+        port: 10353
+        protocol: http
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - -db-path
+            - /data/linkwallet.db

@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: test
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.1.2
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Container for proxmox backup server
+home: https://truecharts.org/charts/stable/proxmox-backup-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/proxmox-backup-server.webp
+keywords:
+  - proxmox-backup-server
+  - pbs
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: proxmox-backup-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/proxmox-backup-server
+  - https://hub.docker.com/r/ayufan/proxmox-backup-server
+type: application
+version: 3.8.14

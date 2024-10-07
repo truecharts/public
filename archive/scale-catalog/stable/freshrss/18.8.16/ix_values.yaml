@@ -1,0 +1,23 @@
+image:
+  repository: ghcr.io/linuxserver/freshrss
+  pullPolicy: IfNotPresent
+  tag: 1.23.1@sha256:549562feadc202cd5b97af6baeeaa24e596bc0fbadabdab08656e9b4257c65a6
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10010
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Multi-arch tar1090 Chart for visualising ADSB data.
+home: https://truecharts.org/charts/stable/tar1090
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tar1090.webp
+keywords:
+  - tar1090
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tar1090
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tar1090
+  - https://hub.docker.com/r/mikenye/tar1090
+type: application
+version: 6.0.29

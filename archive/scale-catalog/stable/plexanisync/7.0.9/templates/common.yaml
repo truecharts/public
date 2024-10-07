@@ -1,0 +1,29 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $config := (include "plexanisync.config" . | fromYaml) }}
+{{- if $config -}}
+  {{- $_ := set .Values.configmap "config" $config -}}
+{{- end -}}
+
+{{- $secret := (include "plexanisync.secret" . | fromYaml) }}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "secret" $secret -}}
+{{- end -}}
+
+{{- define "plexanisync.custom.mappings" -}}
+enabled: true
+type: secret
+readOnly: true
+defaultMode: "0600"
+objectName: secret
+mountPath: /plexanisync/custom_mappings.yaml
+subPath: custom_mappings.yaml
+{{- end -}}
+
+{{- if .Values.custom_mappings -}}
+  {{- $_ := set .Values.persistence "custommappings" (include "plexanisync.custom.mappings" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: auth
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.2.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: OpenSource Radius implementation
+home: https://truecharts.org/charts/stable/freeradius
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/freeradius.webp
+keywords:
+  - radius
+  - auth
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: freeradius
+sources:
+  - https://freeradius.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
+  - https://github.com/truecharts/containers/tree/master/apps/freeradius
+type: application
+version: 14.0.7

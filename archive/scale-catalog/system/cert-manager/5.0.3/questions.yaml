@@ -1,0 +1,287 @@
+groups:
+  - name: Image
+    description: |
+      Configured the images to be used for the Chart.
+      It's wise to use "digest pinned" tags and to avoid using "latest".
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/#images
+
+
+  - name: General
+    description: |
+      For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.
+
+      Checkout the following documentation for more information:
+        - https://truecharts.org/common/global/
+        - https://truecharts.org/common/#tz
+        - https://truecharts.org/common/podoptions/
+        - Image Pull Secrets
+
+
+  - name: Workload
+    description: |
+      These settings configure how the actual Pods and containers are running.
+      Generally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/workload/
+      - https://truecharts.org/common/container/
+
+
+  - name: App Configuration
+    description: |
+       Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.
+       Most options should have a Tooltip (Circled Question Mark) to further describe said option.
+
+       To find more information, lookup your chart-specific documentation in the Charts List: https://truecharts.org/charts/description-list/
+
+  - name: Services
+    description: |
+      Service and Networking options for any applications are contained here.
+      Some applications may have complicated networking setups with multiple options or some may have no options here at all.
+
+      Options here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/service/
+
+  - name: Networking
+    description: |
+      Contains advanced networking options that are not actively supported by the TrueCharts team.
+      Currently only contains scaleExternalInterfaces.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/scaleexternalinterface/
+
+  - name: Persistence
+    description: |
+      Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types.
+      This storage is called Persistence since it is not deleted upon restart or upgrade of an application.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/persistence/
+      - https://truecharts.org/scale/guides/nfs-share/
+      - https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath
+
+
+  - name: Ingress
+    description: |
+      Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names).
+      If you choose to enable this you must have a "Ingress Provider" aka "Reverse Proxy" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/)
+      It also requiresa DNS service to actually resolve the DNS name of the FQDN specified.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/ingress/
+
+
+  - name: SecurityContext
+    description: |
+      The security settings for each application and/or permissions that each application may have for the files/directories created.
+      Each application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities.
+
+      Unless necessary users are advised to keep this section mostly to defaults.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/securitycontext/
+
+
+  - name: Resources
+    description: |
+      Resources limits that have been defined by each application are in this section.
+      Most will have a specific default that some users may want to change based on their specific hardware or needs.
+
+      This also contains the options to mount GPUs or, more precisely, "request" GPU's to be mounted.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/resources/
+
+  - name: Devices
+    description: |
+      These are special "mountpoints" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.
+      For clearity we've decided to seperate this from persistence on SCALE.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/persistence/device/
+      - https://truecharts.org/scale/guides/pci-passthrough/
+
+  - name: Middlewares
+    description: Traefik Middlewares
+
+  - name: StorageClass
+    description: |
+      StorageClasses define where to storage Storage.
+
+      Checkout the following documentation for more information:
+
+  - name: Metrics
+    description: |
+      Contains options to configure Prometheus metrics for the application.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/metrics/
+
+
+  - name: Addons
+    description: |
+      Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application’s defaults.
+      Things included here are VPN addons, Codeserver for editing files inside the application’s container, Netshoot for network troubelshooting, etc.
+
+      Generally not required for use but may be necessary or usefull at times for specific applications.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/addons/
+      - https://truecharts.org/scale/guides/vpn-setup/
+
+
+  - name: Experimental
+    description: |
+      Experimental Configuration Options
+      Often these are not fully flushed-out, could randomly break or might not work at-all.
+
+  - name: Postgresql
+    description: |
+      For Postgresql we use "CloudNative-PG" as a backend, which has to be installed first.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/cnpg/
+      - https://truecharts.org/scale/guides/sql-export/
+      - https://truecharts.org/scale/guides/recover-cnpg/
+
+  - name: Dependencies
+    description: |
+      contains dependency setting for which we, currently, do not have seperate catagories (yet)
+
+
+  - name: Documentation
+    description: |
+      We added this section to make everyone aware that OpenSource isn't always easy.
+      It doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.
+
+      Before installing, be sure you've followed the https://truecharts.org/scale/guides/getting-started/
+      We would also advice going over our https://truecharts.org/scale/guides/scale-intro/
+      and many of the other documentation pages...
+
+questions:
+  - variable: global
+    group: General
+    label: "Global Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: stopAll
+          label: Stop All
+          description: "Stops All Running pods and hibernates cnpg"
+          schema:
+            type: boolean
+            default: false
+
+  - variable: credentialsList
+    group: General
+    label: "Credentials (Experimental)"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: credentialsEntry
+          label: "Enter Credentials"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: "Name"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: type
+                label: Type
+                description: "Type of Credential"
+                schema:
+                  type: string
+                  default: "s3"
+                  enum:
+                    - value: s3
+                      description: s3 Storage
+              - variable: url
+                label: "url"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: path
+                label: "path"
+                description: "Path Prefix not needed for most cases"
+                schema:
+                  type: string
+                  default: ""
+              - variable: region
+                label: "region"
+                description: "region is primarily for AWS not needed for most cases"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+              - variable: bucket
+                label: "bucket"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: accessKey
+                label: "accessKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: secretKey
+                label: "secretKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: encrKey
+                label: "encrKey"
+                description: "The Encryption key is needed for tools like volsync if not needed it will be ignored"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: "MYSECRETPASSPHRASE"
+                  required: true
+
+  - variable: certmanager
+    group: App Configuration
+    label: Cert Manager Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: dns01RecursiveNameservers
+          label: DNS01 Recursive Nameservers (Modifications are unsupported)
+          description: |
+            Comma separated list of DNS servers to use for recursive
+            name resolution when performing DNS01 challenges.
+            Default is: 1.1.1.1:53,1.0.0.1:53 </br>
+            If this is modified, you are NOT covered by support.
+          schema:
+            type: string
+            required: true
+            default: "1.1.1.1:53,1.0.0.1:53"
+        - variable: dns01RecursiveNameserversOnly
+          label: DNS01 Recursive Nameservers Only (Modifications are unsupported)
+          description: |
+            Forces cert-manager to only use the recursive nameservers for verification.
+            Enabling this option could cause the DNS01 self check to take longer
+            due to caching performed by the recursive nameservers.
+            Default is: false </br>
+            If this is modified, you are NOT covered by support.
+          schema:
+            type: boolean
+            required: true
+            default: false

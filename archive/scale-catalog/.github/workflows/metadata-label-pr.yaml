@@ -1,0 +1,33 @@
+---
+name: "Metadata: Label pull requests"
+
+on:
+  workflow_dispatch:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - closed
+      - reopened
+      - ready_for_review
+      - synchronize
+
+jobs:
+  label-size:
+    name: Label Size
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label Size
+        uses: pascalgn/size-label-action@v0.4.3
+        env:
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+        with:
+          sizes: >
+            {
+              "0": "XS",
+              "20": "S",
+              "50": "M",
+              "200": "L",
+              "800": "XL",
+              "2000": "XXL"
+            }

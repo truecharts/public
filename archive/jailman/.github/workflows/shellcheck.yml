@@ -1,0 +1,19 @@
+# This is a workflow to run shellcheck on all scripts
+name: Shell Linter QC
+
+# Controls when the action will run. Triggers the workflow on push or pull request 
+# events but only for the master branch
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+      - minor-dev
+
+jobs:
+  Shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Shell Linter
+        uses: azohra/shell-linter@v0.3.0

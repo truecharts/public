@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.68.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Sonatype Nexus open source is a artifact repository manager
+home: https://truecharts.org/charts/stable/nexus-oss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nexus-oss.webp
+keywords:
+  - nexus-oss
+  - productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nexus-oss
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nexus-oss
+  - https://hub.docker.com/r/sonatype/nexus3
+type: application
+version: 6.1.5

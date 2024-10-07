@@ -1,0 +1,42 @@
+{
+  "normalize/interfaceConfiguration": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.10-MASTER-somever"}
+  },
+  "normalize/ixVolume": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.10-MASTER-somever"}
+  },
+  "definitions/interface": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.10-MASTER-somever"}
+  },
+  "definitions/gpuConfiguration": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.10-MASTER-somever"}
+  },
+  "definitions/timezone": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.12-MASTER"}
+  },
+  "definitions/nodeIP": {
+    "stable": {"min":  "20.12-ALPHA"},
+    "nightlies": {"min":  "20.12-MASTER"}
+  },
+  "definitions/certificate": {
+    "stable": {"min": "21.04-ALPHA"},
+    "nightlies": {"min": "21.02-MASTER"}
+  },
+  "definitions/certificateAuthority": {
+    "stable": {"min": "21.04-ALPHA"},
+    "nightlies": {"min": "21.02-MASTER"}
+  },
+  "validations/containerImage": {
+    "stable": {"min": "21.06-BETA"},
+    "nightlies": {"min": "21.04-MASTER"}
+  },
+  "validations/nodePort": {
+    "stable": {"min": "21.04-ALPHA"},
+    "nightlies": {"min": "21.04-MASTER"}
+  }
+}

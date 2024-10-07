@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Automate Cloudflare DNS records for those with a dynamic IP.
+home: https://truecharts.org/charts/stable/cloudflareddns
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
+keywords:
+  - cloudflareddns
+  - ddns
+  - cloudflare
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cloudflareddns
+sources:
+  - https://hotio.dev/containers/cloudflareddns/
+  - https://github.com/hotio/cloudflareddns
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
+  - https://ghcr.io/hotio/cloudflareddns
+type: application
+version: 8.2.1

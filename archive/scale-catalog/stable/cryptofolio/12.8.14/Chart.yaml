@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.2.0
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Track your cryptocurrency holdings/portfolio
+home: https://truecharts.org/charts/stable/cryptofolio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptofolio.webp
+keywords:
+  - cryptofolio
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cryptofolio
+sources:
+  - https://github.com/Xtrendence/cryptofolio
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cryptofolio
+  - https://hub.docker.com/r/xtrendence/cryptofolio
+type: application
+version: 12.8.14

@@ -1,0 +1,71 @@
+image:
+  repository: wolveix/satisfactory-server
+  pullPolicy: IfNotPresent
+  tag: v1.6.2@sha256:5443b92765d330834ab767bb2dc63f303ee1775711753781a86c96b0add4a327
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  tmp-dumps:
+    enabled: true
+    type: emptyDir
+    mountPath: "/tmp/dumps"
+service:
+  main:
+    ports:
+      main:
+        targetPort: 7777
+        port: 7777
+        protocol: udp
+  beacon:
+    enabled: true
+    ports:
+      beacon:
+        enabled: true
+        port: 15000
+        targetPort: 15000
+        protocol: udp
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        port: 15777
+        targetPort: 15777
+        protocol: udp
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            AUTOPAUSE: true
+            AUTOSAVEINTERVAL: 300
+            AUTOSAVENUM: 3
+            AUTOSAVEONDISCONNECT: true
+            CRASHREPORT: true
+            DEBUG: false
+            DISABLESEASONALEVENTS: false
+            MAXPLAYERS: 4
+            SERVERBEACONPORT: "{{ .Values.service.beacon.ports.beacon.targetPort }}"
+            SERVERGAMEPORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            SERVERIP: "0.0.0.0"
+            SERVERQUERYPORT: "{{ .Values.service.query.ports.query.targetPort }}"
+            SKIPUPDATE: false
+            STEAMBETA: false

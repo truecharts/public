@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: redvex2460/fogproject
+  tag: latest@sha256:bc656be89fa82dac9782187c0b755c6fa8bef7f5c82e3178b517cf0945c8eddf
+persistence:
+  images:
+    enabled: true
+    mountPath: /images
+  mysql:
+    enabled: true
+    mountPath: /var/lib/mysql
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

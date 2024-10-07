@@ -1,0 +1,64 @@
+image:
+  repository: minio/minio
+  tag: RELEASE.2024-05-27T19-17-46Z@sha256:3675de348d27585bea81e54fcf1dfcb98117334af2fb864f3000b359b8e2264c
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10107
+        targetPort: 10107
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        targetPort: 10106
+        port: 10106
+ingress:
+  api:
+    enabled: false
+    targetSelector:
+      api: api
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/minio/health/live"
+                  port: 10106
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/minio/health/ready"
+                  port: 10106
+          args:
+            - "server"
+            - "/data"
+            - "--address"
+            - ":10106"
+            - "--console-address"
+            - ":10107"
+          env:
+            MINIO_ROOT_USER: "minio"
+            MINIO_BROWSER_REDIRECT_URL: ""
+            MINIO_SERVER_URL: ""
+            MINIO_ROOT_PASSWORD: "changeme"

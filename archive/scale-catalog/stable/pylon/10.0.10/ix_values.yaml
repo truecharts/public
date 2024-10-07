@@ -1,0 +1,34 @@
+image:
+  repository: ghcr.io/linuxserver/pylon
+  pullPolicy: IfNotPresent
+  tag: 2.10.0@sha256:1c869a6422f3ef94af318679750bb9cb8ad4f1ce25feaf328a72fa6c12853e39
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3131
+        port: 3131
+persistence:
+  code:
+    enabled: true
+    mountPath: "/code"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GITURL: ""
+            PYUSER: ""
+            PYPASS: ""

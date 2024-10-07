@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: lscr.io/linuxserver/kdenlive
+  tag: latest@sha256:6875c42725e4339bf04a400627b3673406f83468a58d53bbb584258602b1cb28
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            KEYBOARD: ""
+            SUBFOLDER: ""

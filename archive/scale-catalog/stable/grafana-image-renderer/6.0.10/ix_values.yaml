@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: grafana/grafana-image-renderer
+  tag: latest@sha256:5ce9f0cb7b658d977cdf368b92ae4aa456e7c0bfa5b75900b0aab3c2cffa9734
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

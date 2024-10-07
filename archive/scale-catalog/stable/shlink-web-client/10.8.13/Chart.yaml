@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.10.2
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A ReactJS-based progressive web application for Shlink.
+home: https://truecharts.org/charts/stable/shlink-web-client
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shlink-web-client.webp
+keywords:
+  - url
+  - shortener
+  - frontend
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: shlink-web-client
+sources:
+  - https://github.com/shlinkio/shlink-web-client
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shlink-web-client
+  - https://hub.docker.com/r/shlinkio/shlink-web-client
+type: application
+version: 10.8.13

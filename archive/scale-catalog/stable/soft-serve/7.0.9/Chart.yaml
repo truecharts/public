@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: git
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.7.4
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A tasty, self-hostable Git server for the command line.
+home: https://truecharts.org/charts/stable/soft-serve
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/soft-serve.webp
+keywords:
+  - soft-serve
+  - git
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: soft-serve
+sources:
+  - https://github.com/charmbracelet/soft-serve
+  - https://github.com/truecharts/charts/tree/master/charts/stable/soft-serve
+  - https://hub.docker.com/r/charmcli/soft-serve
+type: application
+version: 7.0.9

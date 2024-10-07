@@ -1,0 +1,156 @@
+image:
+  repository: ghcr.io/nwithan8/tauticord
+  pullPolicy: IfNotPresent
+  tag: 3.19.0@sha256:1de58793fd893137e78f75c7d0a5ac18661da418ba311027a05f3b1f8ff619a8
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+tauticord:
+  refresh_seconds: 15
+  terminate_message: "Your stream has ended."
+  use_24_hour_time: false
+  use_friendly_names: false
+  allow_analytics: false
+  discord:
+    bot_token: ""
+    server_id: ""
+    admin_ids: []
+    post_summary_message: true
+    channel_name: "Tautulli Status"
+    nitro: false
+  tautulli:
+    key: ""
+    url: ""
+  plex:
+    pass: false
+    server_name: "My Plex Server"
+  hide:
+    usernames: false
+    platforms: false
+    player_names: false
+    quality: false
+    bandwidth: false
+    transcode: false
+    progress: false
+    eta: false
+  cat_stats:
+    name: "Tautulli Stats"
+    stream_count_enabled: false
+    stream_count_channel_id: 0
+    stream_transcode_count_enabled: false
+    stream_transcode_count_channel_id: 0
+    stream_bandwidth_enabled: false
+    stream_bandwidth_channel_id: 0
+    stream_local_bandwidth_enabled: false
+    stream_local_bandwidth_channel_id: 0
+    stream_remote_bandwidth_enabled: false
+    stream_remote_bandwidth_channel_id: 0
+    stream_plex_status_enabled: false
+    stream_plex_status_channel_id: 0
+  cat_libraries:
+    name: "Plex Library Stats"
+    library_stats_enabled: false
+    library_names:
+      - TV SHows
+      - Movies
+      - Music
+    refresh_seconds: 3600
+    use_emojis: true
+    tv_series_count_enabled: true
+    tv_episode_count_enabled: true
+    music_artist_count_enabled: true
+    music_track_count_enabled: true
+  cat_performance:
+    name: "Performance"
+    monitor_cpu_enabled: false
+    monitor_memory_enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            TC_USE_SELF_SIGNED_CERT: false
+            TC_USE_24_HOUR_TIME: "{{.Values.tauticord.use_24_hour_time }}"
+            TC_USE_FRIENDLY_NAMES: "{{.Values.tauticord.use_friendly_names }}"
+            TC_REFRESH_SECONDS: "{{.Values.tauticord.refresh_seconds }}"
+            TC_TERMINATE_MESSAGE: "{{.Values.tauticord.terminate_message }}"
+            TC_ALLOWS_ANALYTICS: "{{.Values.tauticord.allow_analytics }}"
+            # Discord
+            TC_DISCORD_BOT_TOKEN: "{{.Values.tauticord.discord.bot_token }}"
+            TC_DISCORD_SERVER_ID: "{{.Values.tauticord.discord.server_id }}"
+            TC_DISCORD_ADMIN_IDS: '{{ join "," .Values.tauticord.discord.admin_ids }}'
+            TC_DISCORD_POST_SUMMARY_MESSAGE: "{{.Values.tauticord.discord.post_summary_message }}"
+            TC_DISCORD_CHANNEL_NAME: "{{.Values.tauticord.discord.channel_name }}"
+            TC_DISCORD_NITRO: "{{.Values.tauticord.discord.nitro }}"
+            # Tautulli
+            TC_TAUTULLI_KEY: "{{.Values.tauticord.tautulli.key }}"
+            TC_TAUTULLI_URL: "{{.Values.tauticord.tautulli.url }}"
+            # Plex
+            TC_PLEX_PASS: "{{.Values.tauticord.plex.pass }}"
+            TC_SERVER_NAME: "{{.Values.tauticord.plex.server_name }}"
+            # Hide Info
+            TC_HIDE_USERNAMES: "{{.Values.tauticord.hide.usernames }}"
+            TC_HIDE_PLATFORMS: "{{.Values.tauticord.hide.platforms }}"
+            TC_HIDE_PLAYER_NAMES: "{{.Values.tauticord.hide.player_names }}"
+            TC_HIDE_QUALITY: "{{.Values.tauticord.hide.quality }}"
+            TC_HIDE_BANDWIDTH: "{{.Values.tauticord.hide.bandwidth }}"
+            TC_HIDE_TRANSCODE: "{{.Values.tauticord.hide.transcode }}"
+            TC_HIDE_PROGRESS: "{{.Values.tauticord.hide.progress }}"
+            TC_HIDE_ETA: "{{.Values.tauticord.hide.eta }}"
+            # Stats Cat
+            TC_VC_STATS_CATEGORY_NAME: "{{.Values.tauticord.cat_stats.name }}"
+            TC_VC_STREAM_COUNT: "{{.Values.tauticord.cat_stats.stream_count_enabled }}"
+            TC_VC_STREAM_COUNT_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_count_channel_id }}"
+            # Transcode
+            TC_VC_TRANSCODE_COUNT: "{{.Values.tauticord.cat_stats.stream_transcode_count_enabled }}"
+            TC_VC_TRANSCODE_COUNT_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_transcode_count_channel_id }}"
+            # Bandwidth
+            TC_VC_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_bandwidth_enabled }}"
+            TC_VC_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_bandwidth_channel_id }}"
+            # Bandwidth
+            TC_VC_LOCAL_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_local_bandwidth_enabled }}"
+            TC_VC_LOCAL_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_local_bandwidth_channel_id }}"
+            # Bandwidth
+            TC_VC_REMOTE_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_remote_bandwidth_enabled }}"
+            TC_VC_REMOTE_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_remote_bandwidth_channel_id }}"
+            # Plex
+            TC_VC_PLEX_STATUS: "{{.Values.tauticord.cat_stats.stream_plex_status_enabled }}"
+            TC_VC_PLEX_STATUS_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_plex_status_channel_id }}"
+            # Libraries Cat
+            TC_VC_LIBRARIES_CATEGORY_NAME: "{{.Values.tauticord.cat_libraries.name }}"
+            TC_VC_LIBRARY_STATS: "{{.Values.tauticord.cat_libraries.library_stats_enabled }}"
+            TC_VC_LIBRARY_NAMES: '{{ join "," .Values.tauticord.cat_libraries.library_names }}'
+            TC_VC_LIBRARY_REFRESH_SECONDS: "{{.Values.tauticord.cat_libraries.refresh_seconds }}"
+            TC_VC_LIBRARY_USE_EMOJIS: "{{.Values.tauticord.cat_libraries.use_emojis }}"
+            TC_VC_TV_SERIES_COUNT: "{{.Values.tauticord.cat_libraries.tv_series_count_enabled }}"
+            TC_VC_TV_EPISODE_COUNT: "{{.Values.tauticord.cat_libraries.tv_episode_count_enabled }}"
+            TC_VC_MUSIC_ARTIST_COUNT: "{{.Values.tauticord.cat_libraries.music_artist_count_enabled }}"
+            TC_VC_MUSIC_TRACK_COUNT: "{{.Values.tauticord.cat_libraries.music_track_count_enabled }}"
+            # Performance Cat
+            TC_VC_PERFORMANCE_CATEGORY_NAME: "{{.Values.tauticord.cat_performance.name }}"
+            TC_MONITOR_CPU: "{{.Values.tauticord.cat_performance.monitor_cpu_enabled }}"
+            TC_MONITOR_MEMORY: "{{.Values.tauticord.cat_performance.monitor_memory_enabled }}"
+persistence:
+  logs:
+    enabled: true
+    mountPath: "/logs"
+portal:
+  open:
+    enabled: false

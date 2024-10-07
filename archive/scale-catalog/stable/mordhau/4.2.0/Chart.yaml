@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: mordhau
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "This Docker will download and install SteamCMD. It will also install Mordhau and run it. Initial login SERVERNAME: MordhauDocker SERVERPASSWORD: Chart ADMINPASSWORD adminChart"
+home: https://truecharts.org/charts/stable/mordhau
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mordhau.png
+keywords:
+  - mordhau
+  - GameServers
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mordhau
+sources:
+  - https://www.steampowered.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mordhau
+  - https://hub.docker.com/r/ich777/steamcmd
+type: application
+version: 4.2.0

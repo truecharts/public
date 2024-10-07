@@ -1,0 +1,40 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 48aabb98
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A gallery software at its easiest, it doesn't even require a database.
+home: https://truecharts.org/charts/stable/photoshow
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
+keywords:
+  - photoshow
+  - photo
+  - show
+  - gallary
+  - image
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: photoshow
+sources:
+  - https://github.com/linuxserver/docker-photoshow
+  - https://github.com/thibaud-rohmer/PhotoShow
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
+  - https://ghcr.io/linuxserver/photoshow
+type: application
+version: 9.2.0

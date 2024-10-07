@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2023.12.30
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A lightweight NodeJS server that emulates the iOS HomeKit API
+home: https://truecharts.org/charts/stable/homebridge
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebridge.png
+keywords:
+  - homebridge
+  - homekit
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: homebridge
+sources:
+  - https://github.com/oznu/docker-homebridge
+  - https://homebridge.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/homebridge
+  - https://hub.docker.com/r/homebridge/homebridge
+type: application
+version: 6.2.0

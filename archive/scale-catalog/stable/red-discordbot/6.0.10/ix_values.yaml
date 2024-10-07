@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: phasecorex/red-discordbot
+  tag: full@sha256:9848fe66910b3fbc6f657d3c252a63d67b9c5047b5b1b933eff40b07bbd42809
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PREFIX: ""
+            TOKEN: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

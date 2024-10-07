@@ -1,0 +1,60 @@
+image:
+  repository: ghcr.io/linkwarden/linkwarden
+  pullPolicy: IfNotPresent
+  tag: v2.5.3@sha256:af88a2f27df8a7758de7326a8aa9c7dd7cd997b9c363af2033dbb854ce216e33
+
+config:
+  nextauth_url: "http://example.com"
+  pagination_take_count: 20
+  autoscroll_timeout: 30
+  disable_registration: false
+  archive_limit: 5
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 2985
+        targetPort: 3000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            NEXTAUTH_SECRET:
+              secretKeyRef:
+                name: linkwarden-secrets
+                key: NEXTAUTH_SECRET
+            NEXTAUTH_URL: "{{ .Values.config.nextauth_url }}"
+            PAGINATION_TAKE_COUNT: "{{ .Values.config.pagination_take_count }}"
+            STORAGE_FOLDER: "data"
+            AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"
+            NEXT_PUBLIC_DISABLE_REGISTRATION: "{{ .Values.config.disable_registration }}"
+            RE_ARCHIVE_LIMIT: "{{ .Values.config.archive_limit }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data/data"
+
+cnpg:
+  main:
+    enabled: true
+    database: linkwarden
+    user: linkwarden
+
+portal:
+  open:
+    enabled: true

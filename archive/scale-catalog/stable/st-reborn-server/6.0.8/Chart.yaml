@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.2.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Skyrim Together Reborn server files.
+home: https://truecharts.org/charts/stable/st-reborn-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/st-reborn-server.webp
+keywords:
+  - st-reborn-server
+  - gameserver
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: st-reborn-server
+sources:
+  - https://github.com/tiltedphoques/TiltedEvolution
+  - https://github.com/truecharts/charts/tree/master/charts/stable/st-reborn-server
+  - https://hub.docker.com/r/tiltedphoques/st-reborn-server
+type: application
+version: 6.0.8

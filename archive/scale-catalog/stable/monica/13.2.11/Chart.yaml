@@ -1,0 +1,40 @@
+annotations:
+  truecharts.org/category: crm
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.1.2
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.10
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Monica is a great open source personal relationship management system.
+home: https://truecharts.org/charts/stable/monica
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/monica.webp
+keywords:
+  - crm
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: monica
+sources:
+  - https://github.com/monicahq/monica
+  - https://github.com/truecharts/charts/tree/master/charts/stable/monica
+  - https://hub.docker.com/_/monica
+type: application
+version: 13.2.11

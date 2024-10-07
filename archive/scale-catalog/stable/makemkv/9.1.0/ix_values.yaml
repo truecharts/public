@@ -1,0 +1,96 @@
+image:
+  repository: jlesage/makemkv
+  tag: v24.01.1@sha256:7e7e6a00431d0247dd61ed714b7ea51a3d36db6837c7bbc5c0f6cac119a1548b
+  pullPolicy: IfNotPresent
+makemkv:
+  # General Settings
+  KEEP_APP_RUNNING: false
+  # GUI Settings
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  DARK_MODE: false
+  # App Settings
+  MAKEMKV_KEY: "BETA"
+  AUTO_DISC_RIPPER_INTERVAL: 5
+  AUTO_DISC_RIPPER_BD_MODE: "mkv"
+  AUTO_DISC_RIPPER_MAKEMKV_PROFILE: ""
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+  AUTO_DISC_RIPPER: false
+  AUTO_DISC_RIPPER_EJECT: false
+  AUTO_DISC_RIPPER_PARALLEL_RIP: false
+  AUTO_DISC_RIPPER_NO_GUI_PROGRESS: false
+  AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: false
+service:
+  main:
+    ports:
+      main:
+        port: 10180
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10181
+        targetPort: 5900
+configmap:
+  makemkv:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.makemkv.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.makemkv.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.makemkv.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.makemkv.DISPLAY_HEIGHT }}"
+      DARK_MODE: '{{ ternary "1" "0" .Values.makemkv.DARK_MODE }}'
+      MAKEMKV_KEY: "{{ .Values.makemkv.MAKEMKV_KEY }}"
+      AUTO_DISC_RIPPER_INTERVAL: "{{ .Values.makemkv.AUTO_DISC_RIPPER_INTERVAL }}"
+      AUTO_DISC_RIPPER_BD_MODE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_BD_MODE }}"
+      AUTO_DISC_RIPPER_MAKEMKV_PROFILE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_MAKEMKV_PROFILE }}"
+      AUTO_DISC_RIPPER: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER }}'
+      AUTO_DISC_RIPPER_EJECT: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_EJECT }}'
+      AUTO_DISC_RIPPER_PARALLEL_RIP: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_PARALLEL_RIP }}'
+      AUTO_DISC_RIPPER_NO_GUI_PROGRESS: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_NO_GUI_PROGRESS }}'
+      AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR }}'
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+  output:
+    enabled: true
+    mountPath: "/output"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "makemkv"

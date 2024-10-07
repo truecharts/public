@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Teedy is an open-source, lightweight document management system (DMS) for individuals and businesses.
+home: https://truecharts.org/charts/stable/teedy-docs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/teedy-docs.png
+keywords:
+  - teedy-docs
+  - Cloud
+  - Productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: teedy-docs
+sources:
+  - https://github.com/sismics/docs
+  - https://github.com/truecharts/charts/tree/master/charts/stable/teedy-docs
+  - https://hub.docker.com/r/sismics/docs
+type: application
+version: 4.3.0

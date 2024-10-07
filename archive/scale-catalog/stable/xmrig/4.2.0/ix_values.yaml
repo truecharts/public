@@ -1,0 +1,40 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: lnxd/xmrig
+  tag: latest@sha256:ca138a54b0bfd76400dab458df69bcd4b379146bb31eb5c231a61a2d5789c7ce
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADDITIONAL: "--no-color "
+            COIN: monero
+            DONATE: "1"
+            DRIVERV: ""
+            FEE: lnxd-fee
+            POOL: xmr-au1.nanopool.org:14444
+            WALLET: 84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw
+            WORKER: Unraid
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

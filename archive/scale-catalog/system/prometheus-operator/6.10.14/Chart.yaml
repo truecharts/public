@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: kube-prometheus-stack
+    version: 56.21.0
+    repository: oci://ghcr.io/prometheus-community/charts
+    condition: ""
+    alias: kps
+    tags: []
+    import-values: []
+deprecated: false
+description: Prometheus Operator is an operator for prometheus
+home: https://truecharts.org/charts/system/prometheus-operator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.webp
+keywords:
+  - operator
+  - prometheus
+  - metics
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: prometheus-operator
+sources:
+  - https://github.com/prometheus-operator
+  - https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
+type: application
+version: 6.10.14

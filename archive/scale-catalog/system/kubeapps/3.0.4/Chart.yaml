@@ -1,0 +1,42 @@
+annotations:
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: 0.0.3
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: kubeapps
+    version: 15.0.2
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: ""
+    alias: ogkubeapps
+    tags: []
+    import-values: []
+deprecated: false
+description: KubeApps is a Kubernetes-as-Apps solution
+home: https://truecharts.org/charts/system/kubeapps
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.webp
+keywords:
+  - kubeapps
+  - catalog
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kubeapps
+sources:
+  - https://cert-manager.io/
+  - https://github.com/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/system/kubeapps
+  - https://ghcr.io/xstar97/my-proxy-service
+type: application
+version: 3.0.4

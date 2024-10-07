@@ -1,0 +1,16 @@
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "valheim.hardcodedValues" -}}
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "valheim.hardcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

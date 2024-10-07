@@ -1,0 +1,36 @@
+image:
+  repository: mpepping/cyberchef
+  tag: v10.8.1@sha256:108ba27d98ee58fe4fb403ccebe01c548fd53bb6cda2ba59d2311fbdab668a5a
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10219
+        protocol: http
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+portal:
+  open:
+    enabled: true

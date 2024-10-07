@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.5.5
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Guacd - Apache Guacamole is a clientless remote desktop gateway.
+home: https://truecharts.org/charts/stable/guacd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacd.webp
+keywords:
+  - guacd
+  - guacamole
+  - remote
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: guacd
+sources:
+  - https://github.com/apache/guacamole-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/guacd
+  - https://hub.docker.com/r/guacamole/guacd
+type: application
+version: 9.8.13

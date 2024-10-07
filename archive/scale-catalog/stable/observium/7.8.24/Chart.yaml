@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Network-Management
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 20240305.0.0
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 13.9.20
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]
+home: https://truecharts.org/charts/stable/observium
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/observium.webp
+keywords:
+  - observium
+  - Network-Management
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: observium
+sources:
+  - https://www.observium.org/
+  - https://github.com/pvrmza/docker-observium
+  - https://github.com/truecharts/charts/tree/master/charts/stable/observium
+  - https://hub.docker.com/r/pvrmza/docker-observium
+type: application
+version: 7.8.24

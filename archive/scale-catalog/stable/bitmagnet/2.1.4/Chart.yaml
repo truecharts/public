@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.8.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted BitTorrent indexer, DHT crawler, content classifier and torrent search engine with web UI, GraphQL API and Servarr stack integration.
+home: https://truecharts.org/charts/stable/bitmagnet
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitmagnet.webp
+keywords:
+  - torrent
+  - bitmagnet
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bitmagnet
+sources:
+  - https://bitmagnet.io
+  - https://ghcr.io/bitmagnet-io/bitmagnet
+  - https://github.com/bitmagnet-io/bitmagnet
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bitmagnet
+type: application
+version: 2.1.4

@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: songkong/songkong
+  tag: latest@sha256:12273f97c10e59f24015badca2c576c23311348b67366549afe5329eca6b8aa7
+persistence:
+  music:
+    enabled: true
+    mountPath: /music
+  songkongconfig:
+    enabled: true
+    mountPath: /songkong
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4567
+        protocol: tcp
+        targetPort: 4567

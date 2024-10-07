@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.2.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The open source VNC client
+home: https://truecharts.org/charts/stable/novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.webp
+keywords:
+  - novnc
+  - vnc
+  - remote
+  - desktop
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: novnc
+sources:
+  - https://ghcr.io/nicholaswilde/novnc
+  - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
+  - https://novnc.com/
+type: application
+version: 11.0.9

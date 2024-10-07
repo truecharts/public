@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: MediaApp-Photos
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Damselfly is a server-based Digital Asset Management system.  The goal of Damselfly is to index an extremely large collection of images, and allow easy search and retrieval of those images, using metadata such as the IPTC keyword tags, as well as the folder and file names.  See https://damselfly.info for more details.
+home: https://truecharts.org/charts/stable/damselfly
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/damselfly.webp
+keywords:
+  - damselfly
+  - MediaApp-Photos
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: damselfly
+sources:
+  - https://github.com/Webreaper/Damselfly
+  - https://github.com/truecharts/charts/tree/master/charts/stable/damselfly
+  - https://hub.docker.com/r/webreaper/damselfly
+type: application
+version: 5.8.14

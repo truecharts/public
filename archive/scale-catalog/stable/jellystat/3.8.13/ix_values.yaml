@@ -1,0 +1,67 @@
+image:
+  repository: cyfershepard/jellystat
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:d321b59ef6dcd3061cd917da4ef532659ecbe13b31a050fb05cb3affb5722d10
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: http
+        port: 10681
+        targetPort: 3000
+      ws:
+        enabled: true
+        protocol: tcp
+        port: 10682
+        targetPort: 3004
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+            readiness:
+              path: "/"
+            startup:
+              path: "/"
+          env:
+            # PORT variables do not work.
+            # PORT: "{{ .Values.service.main.ports.main.port }}"
+            # WS_PORT: "{{ .Values.service.main.ports.ws.port }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_IP:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            POSTGRES_PORT: 5432
+            JWT_SECRET:
+              secretKeyRef:
+                name: jellystat-secrets
+                key: JWT_SECRET
+persistence:
+  backup:
+    enabled: true
+    mountPath: "/app/backend/backup-data"
+cnpg:
+  main:
+    enabled: true
+    # static name
+    user: jfstat
+    database: jfstat
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: social
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Easy platform to combine all your social links
+home: https://truecharts.org/charts/stable/littlelink
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/littlelink.webp
+keywords:
+  - littlelink
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: littlelink
+sources:
+  - https://ghcr.io/techno-tim/littlelink-server
+  - https://github.com/sethcottle/littlelink
+  - https://github.com/techno-tim/littlelink-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/littlelink
+type: application
+version: 14.0.12

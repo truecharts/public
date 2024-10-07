@@ -1,0 +1,59 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+fail_fast: false
+repos:
+    #  - repo: https://github.com/adrienverge/yamllint.git
+    #    rev: v1.26.3
+    #    hooks:
+    #      - id: yamllint
+    #        args:
+    #          - --config-file
+    #          - .github/linters/.yamllint.yaml
+    #  - repo: https://github.com/igorshubovych/markdownlint-cli
+    #    rev: v0.31.1
+    #    hooks:
+    #      - id: markdownlint
+    #        args:
+    #          - --config
+    #          - ".github/linters/.markdownlint.yaml"
+    #  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    #    rev: 2.1.6
+    #    hooks:
+    #      - id: shellcheck
+    #        language: script
+    #        args: [--severity=error]
+    #        additional_dependencies: []
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.2.0
+      hooks:
+        - id: trailing-whitespace
+        - id: end-of-file-fixer
+        - id: fix-byte-order-marker
+        - id: mixed-line-ending
+        # - id: check-added-large-files
+        #   args:
+        #     - --maxkb=2048
+        - id: check-merge-conflict
+        - id: check-executables-have-shebangs
+        - id: mixed-line-ending
+    - repo: https://github.com/sirosen/fix-smartquotes
+      rev: 0.2.0
+      hooks:
+        - id: fix-smartquotes
+    - repo: local
+      hooks:
+        - id: custom-script-file
+          name: custom-script-file
+          entry: deps/encryption.sh ensure
+          language: script
+    - repo: https://github.com/Lucas-C/pre-commit-hooks
+      rev: v1.1.13
+      hooks:
+        - id: remove-crlf
+        - id: remove-tabs
+        - id: forbid-crlf
+        - id: forbid-tabs
+    - repo: https://github.com/k8s-at-home/sops-pre-commit
+      rev: v2.1.0
+      hooks:
+        - id: forbid-secrets

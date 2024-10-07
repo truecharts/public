@@ -1,0 +1,38 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: adminer
+  tag: latest@sha256:c9592a99120164a7a4cc75ec76b3632fa3520a4de2d801bbb93c3753fe34e048
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            ADMINER_DESIGN: ""
+            ADMINER_PLUGINS: ""
+service:
+  main:
+    ports:
+      main:
+        port: 18080
+        protocol: http
+        targetPort: 8080
+portal:
+  open:
+    enabled: true

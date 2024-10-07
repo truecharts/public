@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1380.0.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A remote control and remote scripting solution, built with .NET 5, Blazor, SignalR Core, and WebRTC.
+home: https://truecharts.org/charts/stable/remotely
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/remotely.webp
+keywords:
+  - remotely
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: remotely
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/remotely
+  - https://hub.docker.com/r/immybot/remotely
+  - https://remotely.one/
+type: application
+version: 6.0.8

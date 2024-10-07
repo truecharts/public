@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.5.28
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Web GUI for youtube-dl.
+home: https://truecharts.org/charts/stable/metube
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metube.webp
+keywords:
+  - metube
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: metube
+sources:
+  - https://github.com/alexta69/metube
+  - https://github.com/truecharts/charts/tree/master/charts/stable/metube
+  - https://hub.docker.com/r/alexta69/metube
+type: application
+version: 13.1.7

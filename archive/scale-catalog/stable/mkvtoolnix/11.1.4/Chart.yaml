@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.05.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: MKVToolNix is a set of tools to create, alter and inspect Matroska files.
+home: https://truecharts.org/charts/stable/mkvtoolnix
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mkvtoolnix.webp
+keywords:
+  - media
+  - mkvtoolnix
+  - mkv
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mkvtoolnix
+sources:
+  - https://github.com/jlesage/docker-mkvtoolnix
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mkvtoolnix
+  - https://hub.docker.com/r/jlesage/mkvtoolnix
+  - https://mkvtoolnix.download/
+type: application
+version: 11.1.4

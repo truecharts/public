@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Downloaders
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Chart with rTorrent and the Flood UI.
+home: https://truecharts.org/charts/stable/rflood
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rflood.webp
+keywords:
+  - rflood
+  - downloaders
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rflood
+sources:
+  - https://ghcr.io/hotio/rflood
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rflood
+  - https://hotio.dev/containers/rflood
+type: application
+version: 6.0.11

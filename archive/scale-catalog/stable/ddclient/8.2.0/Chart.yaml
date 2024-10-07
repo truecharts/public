@@ -1,0 +1,34 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.11.2
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Ddclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.
+home: https://truecharts.org/charts/stable/ddclient
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddclient.png
+keywords:
+  - ddclient
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ddclient
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
+  - https://ghcr.io/linuxserver/ddclient
+type: application
+version: 8.2.0

@@ -1,0 +1,17 @@
+name: "Apps: Test Push"
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ixsystems/catalog_validation:latest
+
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout
+      
+    - name: Validate catalog format
+      run: |
+        /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"

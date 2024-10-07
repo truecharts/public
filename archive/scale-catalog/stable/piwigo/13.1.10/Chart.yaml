@@ -1,0 +1,43 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 14.4.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.10
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A photo gallery software for the web.
+home: https://truecharts.org/charts/stable/piwigo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/piwigo.webp
+keywords:
+  - piwigo
+  - gallery
+  - photo
+  - image
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: piwigo
+sources:
+  - https://ghcr.io/linuxserver/piwigo
+  - https://github.com/linuxserver/docker-piwigo
+  - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
+type: application
+version: 13.1.10

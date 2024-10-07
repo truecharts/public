@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Grafana remote image renderer that handles rendering panels &amp; dashboards to PNGs using headless chrome.
+home: https://truecharts.org/charts/stable/grafana-image-renderer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grafana-image-renderer.webp
+keywords:
+  - grafana-image-renderer
+  - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: grafana-image-renderer
+sources:
+  - https://github.com/grafana/grafana-image-renderer/blob/master/docs/remote_rendering_using_docker.md
+  - https://github.com/truecharts/charts/tree/master/charts/stable/grafana-image-renderer
+  - https://hub.docker.com/r/grafana/grafana-image-renderer
+type: application
+version: 6.0.10

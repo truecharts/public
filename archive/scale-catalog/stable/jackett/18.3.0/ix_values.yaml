@@ -1,0 +1,35 @@
+image:
+  repository: ghcr.io/linuxserver/jackett
+  pullPolicy: IfNotPresent
+  tag: 0.21.1155@sha256:5c408d64cb2385a3ee2934c8a5773eaadd5cd114e6b338328d60ab964ec0c88c
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 9117
+        port: 9117
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/UI/Login"
+            readiness:
+              path: "/UI/Login"
+            startup:
+              path: "/UI/Login"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true

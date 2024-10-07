@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/krusader
+  tag: latest@sha256:174030fbbcfd3338015b59e21cbb959409d7331a22e157165b803be414e70640
+persistence:
+  containerpath:
+    enabled: true
+    mountPath: /krusader
+  datapath:
+    enabled: true
+    mountPath: /mnt/user
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1280"
+            NOVNC_RESIZE: remote
+            RUNASROOT: "false"
+            USER_LOCALES: en_US.UTF-8 UTF-8

@@ -1,0 +1,40 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.6.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A music library manager and not, for the most part, a music player.
+home: https://truecharts.org/charts/stable/beets
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/beets.png
+keywords:
+  - music
+  - library
+  - manager
+  - player
+  - beets
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: beets
+sources:
+  - https://beets.io/
+  - https://github.com/linuxserver/docker-beets
+  - https://github.com/truecharts/charts/tree/master/charts/stable/beets
+  - https://ghcr.io/linuxserver/beets
+type: application
+version: 10.3.0

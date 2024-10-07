@@ -1,0 +1,61 @@
+image:
+  repository: ghcr.io/linuxserver/quassel-core
+  pullPolicy: IfNotPresent
+  tag: 0.14.0@sha256:2421f5503fc2906d718c3b083593805b0576ce977ddc2ace47a041e61d177899
+service:
+  main:
+    ports:
+      main:
+        targetPort: 4242
+        port: 4242
+  ident:
+    enabled: true
+    ports:
+      ident:
+        enabled: true
+        targetPort: 10113
+        port: 10113
+persistence:
+  varrun:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    user: quassel-core
+    database: quassel-core
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            DB_BACKEND: "PostgreSQL"
+            DB_PGSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PGSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_PGSQL_PORT: 5432
+            AUTH_AUTHENTICATOR: "Database"
+            RUN_OPTS: "--config-from-environment"
+            DB_PGSQL_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_PGSQL_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

@@ -1,0 +1,33 @@
+image:
+  repository: ghcr.io/tigerblue77/dell_idrac_fan_controller
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:1b82a31214f0022bab0548132a4cf980f39cfd65ef121c580ed7734f92feaeee
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            IDRAC_HOST: ""
+            IDRAC_USERNAME: ""
+            IDRAC_PASSWORD: ""
+            FAN_SPEED: 5
+            CPU_TEMPERATURE_THRESHOLD: 50
+            CHECK_INTERVAL: 60
+            DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE: false
+portal:
+  open:
+    enabled: false

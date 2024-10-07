@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: xanderstrike/goplaxt
+  tag: latest@sha256:adaaa573a91536b58eb3765b14fee558d9007927ea0b3f55dda0239ea05ddbee
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+        protocol: http
+        targetPort: 8000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/keystore"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TRAKT_ID: ""
+            TRAKT_SECRET: ""

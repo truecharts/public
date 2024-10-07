@@ -1,0 +1,33 @@
+image:
+  repository: skrashevich/double-take
+  pullPolicy: IfNotPresent
+  tag: v1.13.11@sha256:bdb7e1f1f1b28c178539b5003218e33b44142f11a8175d01ce3a29bfaebb3254
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10200
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  data:
+    enabled: true
+    mountPath: /.storage
+portal:
+  open:
+    enabled: true

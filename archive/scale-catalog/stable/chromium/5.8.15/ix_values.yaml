@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/chrome
+  tag: latest@sha256:5ad51c7eb543eccdb85ec6a50d677c34113118194f6fca2ef4f6896c03f21aa3
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /chrome
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1280"
+            EXTRA_PARAMETERS: ""

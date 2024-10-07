@@ -1,0 +1,31 @@
+image:
+  repository: gabekangas/owncast
+  tag: 0.1.3@sha256:dcad03787236e0414162e6ed4113484415f023b154fcb628ea19ae91f8efebb7
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10088
+        targetPort: 8080
+  rtmp:
+    enabled: true
+    # externalTrafficPolicy: Local
+    ports:
+      rtmp:
+        enabled: true
+        port: 1935
+        targetPort: 1935
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

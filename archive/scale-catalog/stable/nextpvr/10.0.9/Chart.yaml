@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: stable
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: NextPVR is a personal video recorder application, with the goal making it easy to watch or record live TV.
+home: https://truecharts.org/charts/stable/nextpvr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextpvr.webp
+keywords:
+  - pvr
+  - recorder
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nextpvr
+sources:
+  - https://github.com/sub3/NextPVR/wiki/Install-Docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nextpvr
+  - https://hub.docker.com/r/nextpvr/nextpvr_amd64
+type: application
+version: 10.0.9

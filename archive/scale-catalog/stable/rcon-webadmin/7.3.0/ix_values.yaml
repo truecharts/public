@@ -1,0 +1,69 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: itzg/rcon
+  tag: 0.14.1-1@sha256:4bec01981dc95e14f54c243ced5db23591c67e5a63d474a3f4f8acda72ce5a28
+rcon:
+  rwa_admin: true
+  rwa_env: false
+  rwa_web_rcon: false
+  rwa_read_only_widget_options: false
+  rwa_game: minecraft
+  rwa_server_name: minecraft
+  rwa_rcon_host: ""
+  rwa_rcon_port: 25575
+  rwa_websocket_url_ssl: ""
+  rwa_websocket_url: ""
+  rwa_restrict_commands: []
+  rwa_restrict_widgets: []
+service:
+  main:
+    ports:
+      main:
+        port: 4326
+        protocol: http
+        targetPort: 4326
+  websocketaccess:
+    enabled: true
+    ports:
+      websocketaccess:
+        enabled: true
+        port: 4327
+        protocol: tcp
+        targetPort: 4327
+ingress:
+  websocketaccess:
+    autoLink: true
+persistence:
+  db:
+    enabled: true
+    mountPath: /opt/rcon-web-admin/db
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RWA_ADMIN: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_admin }}'
+            RWA_ENV: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_env }}'
+            RWA_WEB_RCON: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_web_rcon }}'
+            RWA_READ_ONLY_WIDGET_OPTIONS: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_read_only_widget_options }}'
+            RWA_GAME: "{{ .Values.rcon.rwa_game }}"
+            RWA_SERVER_NAME: "{{ .Values.rcon.rwa_server_name }}"
+            RWA_RCON_HOST: "{{ .Values.rcon.rwa_rcon_host }}"
+            RWA_RCON_PORT: "{{ .Values.rcon.rwa_rcon_port }}"
+            RWA_RESTRICT_COMMANDS: '{{ join "," .Values.rcon.rwa_restrict_commands }}'
+            RWA_RESTRICT_WIDGETS: '{{ join "," .Values.rcon.rwa_restrict_widgets }}'
+            RWA_WEBSOCKET_URL_SSL: "{{ .Values.rcon.rwa_websocket_url_ssl }}"
+            RWA_WEBSOCKET_URL: "{{ .Values.rcon.rwa_websocket_url }}"
+            RWA_USERNAME: admin
+            RWA_PASSWORD: pass
+            RWA_RCON_PASSWORD: pass

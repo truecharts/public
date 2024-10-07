@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.30.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Filebrowser provides a file managing interface within a specified directory
+home: https://truecharts.org/charts/stable/filebrowser
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebrowser.webp
+keywords:
+  - filebrowser
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: filebrowser
+sources:
+  - https://filebrowser.org/cli/filebrowser
+  - https://github.com/filebrowser/filebrowser
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filebrowser
+  - https://hub.docker.com/r/filebrowser/filebrowser
+type: application
+version: 10.2.3

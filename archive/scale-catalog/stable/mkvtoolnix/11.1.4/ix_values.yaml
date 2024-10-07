@@ -1,0 +1,75 @@
+image:
+  repository: jlesage/mkvtoolnix
+  tag: v24.05.1@sha256:025857d7ce2fe1fcde4e3d96e89545b32dc3a2fa2d90d388de38fc475dcad136
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10236
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10237
+        targetPort: 5900
+mkvtoolnix:
+  # General Settings
+  KEEP_APP_RUNNING: false
+  # GUI Settings
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  DARK_MODE: false
+  # App Settings
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  mkvtoolnix:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.mkvtoolnix.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.mkvtoolnix.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mkvtoolnix.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.mkvtoolnix.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.mkvtoolnix.DISPLAY_HEIGHT }}"
+      DARK_MODE: '{{ ternary "1" "0" .Values.mkvtoolnix.DARK_MODE }}'
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "mkvtoolnix"

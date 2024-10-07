@@ -1,0 +1,36 @@
+image:
+  repository: ghcr.io/linuxserver/ngircd
+  pullPolicy: IfNotPresent
+  tag: 2021.11.21@sha256:cc8a4f29827e7c9d0d015481f4c3b1f5548cc854e0e1f29be124f6ff45a813b7
+service:
+  main:
+    ports:
+      main:
+        targetPort: 6667
+        port: 6667
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

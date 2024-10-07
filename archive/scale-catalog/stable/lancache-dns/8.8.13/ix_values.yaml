@@ -1,0 +1,50 @@
+image:
+  repository: lancachenet/lancache-dns
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b27344af0fdcaf411008382ada3b36c4727ba557e6b91c9d94ef6ef30e0cd95a
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
+            CACHE_DOMAINS_BRANCH: "master"
+            UPSTREAM_DNS: "1.1.1.1;1.0.0.1"
+            # If you are using a single monolithic instance set this to true
+            # USE_GENERIC_CACHE: true
+            # Set IP for the monolithic app, only if USE_GENERIC_CACHE is true
+            # LANCACHE_IP: "127.0.0.1"
+            DISABLE_BLIZZARD: false
+            DISABLE_RIOT: false
+            DISABLE_UPLAY: false
+            DISABLE_ORIGIN: false
+            DISABLE_SONY: false
+            DISABLE_SQUARE: false
+service:
+  main:
+    ports:
+      main:
+        port: 53
+        targetPort: 53
+      dns:
+        enabled: true
+        protocol: udp
+        port: 53
+        targetPort: 53
+portal:
+  open:
+    enabled: false

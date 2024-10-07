@@ -1,0 +1,44 @@
+image:
+  repository: bitnami/dokuwiki
+  pullPolicy: IfNotPresent
+  tag: 20230404.1.0@sha256:cab4650245b3cccf5584c69b2ab2db4f03bdef5ecf434748f48e2ee915c3119c
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10123
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            DOKUWIKI_USERNAME: "admin"
+            DOKUWIKI_PASSWORD: "supersecret"
+            DOKUWIKI_FULL_NAME: "Super Admin"
+            DOKUWIKI_EMAIL: "admin@example.com"
+            DOKUWIKI_WIKI_NAME: "DokuWiki"
+persistence:
+  config:
+    enabled: true
+    mountPath: /bitnami/dokuwiki
+portal:
+  open:
+    enabled: true

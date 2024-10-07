@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.10.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Pylon is a web based integrated development environment.
+home: https://truecharts.org/charts/stable/pylon
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pylon.webp
+keywords:
+  - pylon
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pylon
+sources:
+  - https://ghcr.io/linuxserver/pylon
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pylon
+type: application
+version: 10.0.11

@@ -1,0 +1,122 @@
+yourhostnamehere:80 JAIL-IP:80 {
+
+	root   /usr/local/www/nextcloud
+	log    /var/log/nextcloud_access.log
+	errors /var/log/nextcloud_errors.log
+
+	fastcgi / 127.0.0.1:9000 php {
+		env PATH /bin
+		env modHeadersAvailable true
+		env front_controller_active true
+		connect_timeout 60s
+		read_timeout 3600s
+		send_timeout 300s
+	}
+
+	header / {
+		Strict-Transport-Security		"max-age=15768000;"
+		X-Content-Type-Options			"nosniff"
+		X-XSS-Protection			"1; mode=block"
+		X-Robots-Tag				"none"
+		X-Download-Options			"noopen"
+		X-Permitted-Cross-Domain-Policies	"none"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy				"no-referrer"
+	}
+
+	header /core/fonts {
+		Cache-Control				"max-age=604800"
+	}
+
+	# checks for images
+	rewrite {
+		ext .png .html .ttf .ico .jpg .jpeg .css .js .woff .woff2 .svg .gif .map
+		r ^/index.php/.*$
+		to /{1} /index.php?{query}
+	}
+	
+	rewrite {
+                r ^/\.well-known/host-meta$
+                to /public.php?service=host-meta&{query}
+        }
+	rewrite {
+                r ^/\.well-known/host-meta\.json$
+                to /public.php?service=host-meta-json&{query}
+        }
+	rewrite {
+                r ^/\.well-known/webfinger$
+                to /public.php?service=webfinger&{query}
+        }
+
+	rewrite {
+		r ^/index.php/.*$
+		to /index.php?{query}
+	}
+
+	rewrite / {
+		if {path} not_starts_with /remote.php
+		if {path} not_starts_with /public.php
+		ext .png .html .ttf .ico .jpg .jpeg .css .js .woff .woff2 .svg .gif .map .html .ttf 
+		r ^/(.*)$
+		to /{1} /index.php{uri}
+	}
+
+	rewrite / {
+		if {path} not /core/img/favicon.ico
+		if {path} not /core/img/manifest.json
+		if {path} not_starts_with /remote.php
+		if {path} not_starts_with /public.php
+		if {path} not_starts_with /cron.php
+		if {path} not_starts_with /core/ajax/update.php
+		if {path} not_starts_with /status.php
+		if {path} not_starts_with /ocs/v1.php
+		if {path} not_starts_with /ocs/v2.php
+		if {path} not /robots.txt
+		if {path} not_starts_with /updater/
+		if {path} not_starts_with /ocs-provider/
+		if {path} not_starts_with /ocm-provider/ 
+		if {path} not_starts_with /.well-known/
+		to /index.php{uri}
+	}
+
+	# client support (e.g. os x calendar / contacts)
+	redir /.well-known/carddav /remote.php/carddav 301
+	redir /.well-known/caldav /remote.php/caldav 301
+
+	# remove trailing / as it causes errors with php-fpm
+	rewrite {
+		r ^/remote.php/(webdav|caldav|carddav|dav)(\/?)(\/?)$
+		to /remote.php/{1}
+	}
+
+	rewrite {
+		r ^/remote.php/(webdav|caldav|carddav|dav)/(.+?)(\/?)(\/?)$
+		to /remote.php/{1}/{2}
+	}
+
+	rewrite {
+		r ^/public.php/(dav|webdav|caldav|carddav)(\/?)(\/?)$
+		to /public.php/{1}
+	}
+
+	rewrite {
+		r ^/public.php/(dav|webdav|caldav|carddav)/(.+)(\/?)(\/?)$
+		to /public.php/{1}/{2}
+	}
+
+	# .htaccess / data / config / ... shouldn't be accessible from outside
+	status 404 {
+		/.htaccess
+		/data
+		/config
+		/db_structure
+		/.xml
+		/README
+		/3rdparty
+		/lib
+		/templates
+		/occ
+		/console.php
+	}
+
+}

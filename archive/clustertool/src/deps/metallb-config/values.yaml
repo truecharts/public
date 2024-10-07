@@ -1,0 +1,10 @@
+ipAddressPools:
+  - name: main
+    autoAssign: false
+    avoidBuggyIPs: true
+    addresses:
+      - METALLB_RANGE
+L2Advertisements:
+  - name: main
+    addressPools:
+      - main

@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: RSS feed for Chart Hub images.
+home: https://truecharts.org/charts/stable/docker-hub-rss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker-hub-rss.webp
+keywords:
+  - docker-hub-rss
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: docker-hub-rss
+sources:
+  - https://github.com/TheConnMan/docker-hub-rss
+  - https://github.com/truecharts/charts/tree/master/charts/stable/docker-hub-rss
+  - https://hub.docker.com/r/theconnman/docker-hub-rss
+type: application
+version: 6.0.8

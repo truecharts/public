@@ -1,0 +1,62 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: latest@sha256:e5f6e2e3bf9486cbcf7f229e9198dc47d17f0eee0f1b073a07ccc7dce3c01578
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "740"
+            GAME_NAME: csgo
+            GAME_PARAMS:
+              +game_type 0 -usercon +game_mode 0 +mapgroup mg_active +map
+              de_dust2
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            readiness:
+              eabled: true
+              type: tcp
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"

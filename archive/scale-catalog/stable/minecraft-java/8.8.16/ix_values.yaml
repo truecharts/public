@@ -1,0 +1,269 @@
+image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1@sha256:cb98ad8c143ab0cf83351ec6a9fd76256152f7b310988f9aa1acfaaf4aacbc77
+  pullPolicy: Always
+j21Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21@sha256:312de713187f40206d2433f6c76c4f1f5efe993dcf7c0f842b8a7e0274bd5edd
+  pullPolicy: Always
+j21graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21-graalvm@sha256:49d25c5aa26dd67326f4626ae015dcf5033ed6e9178587dce915a04b16de6ac0
+  pullPolicy: Always
+j21alpineImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21-alpine@sha256:18c2c81eff7ce4a630b676f99223fcb8aa20c525f3b8ae1cd6fbf612d5d39cf0
+  pullPolicy: Always
+j17j9Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-openj9@sha256:6e3078b58bb3728c0ccdf18402712faab39624cfcc24a72ef237d31579fd2bdc
+  pullPolicy: Always
+j17jdkImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-jdk@sha256:e8ddd3a22c01937554332dae55bce53a0149740ccf22a6105138126382dfee38
+  pullPolicy: Always
+j17graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-graalvm@sha256:1ede29fa5a96bd278d64400f548dde321c7c0762922c1097f17ba5c6a6f047f6
+  pullPolicy: Always
+j17alpineImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-alpine@sha256:c330401db62f07fbf447eef1c269394e8690d6b659f679821315f5c4c6463849
+  pullPolicy: Always
+j11Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11@sha256:749a17891fb0a2b211062fc2d7a3dd97e0fc76e71e9a908906ec8310cc8aaf95
+  pullPolicy: Always
+j11jdkImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11-jdk@sha256:d8167b33d2da2d8f5ca1e41b9a170c07561b59497b4206140796ba2e98569a2a
+  pullPolicy: Always
+j11j9Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11-openj9@sha256:f327ea42b512896544fc7b44f1029d311ebf79312863a2ceb909ea6570ccf410
+  pullPolicy: Always
+j8Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8@sha256:cf744e3945c3a3c3dd4c4f98e639f9b959c73d6766217dda42fdf91fc9f80b27
+  pullPolicy: Always
+j8graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-graalvm-ce@sha256:8a878a24266f5d6c8d448b28f8c8bcc6d167cc5f5c10e629913c9a58db0d7cad
+  pullPolicy: Always
+j8jdkImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-jdk@sha256:3810bf10ff4f637851a950c47b2c4eb6de377b3afdde25ebcb16d263f536c6dd
+  pullPolicy: Always
+j8j9Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-openj9@sha256:076c6a872b241df47580064171e67ff6d9b1826134169fe4201c5cedd3456f58
+  pullPolicy: Always
+mcBackupImage:
+  repository: itzg/mc-backup
+  tag: latest@sha256:db4562d32f37fcf934e1bd42c475081e07a6f181b8318d9b706e0ad692f945f1
+  pullPolicy: Always
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: tcp
+        port: 25565
+      query:
+        enabled: true
+        protocol: udp
+        port: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+
+mcbackup:
+  enabled: true
+  initial_delay: 2m
+  backup_interval: 24h
+  player_online_check_interval: 5m
+  prune_backups_days: 7
+  pause_if_no_players: false
+  link_latest: false
+  # values gzip,bzip2,zstd
+  tar_compress_method: gzip
+  # White spaced separated list
+  zstd_params:
+    - --long=25
+    - --single-thread
+  # comma separated list
+  excludes:
+    - "*.jar"
+    - "cache"
+    - "logs"
+    - "*.tmp"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            QUERY_PORT: "{{ .Values.service.main.ports.query.port }}"
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            ENABLE_QUERY: "true"
+            EULA: "TRUE"
+            GUI: "FALSE"
+            OVERRIDE_SERVER_PROPERTIES: true
+            VERSION: "LATEST"
+            TYPE: "VANILLA"
+            DIFFICULTY: easy
+            MAX_PLAYERS: 20
+            MAX_WORLD_SIZE: 10000
+            ALLOW_NETHER: true
+            ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+            ENABLE_COMMAND_BLOCK: false
+            FORCE_GAMEMODE: false
+            GENERATE_STRUCTURES: true
+            HARDCORE: false
+            MAX_BUILD_HEIGHT: 256
+            MAX_TICK_TIME: 60000
+            SPAWN_ANIMALS: true
+            SPAWN_MONSTERS: true
+            SPAWN_NPCS: true
+            VIEW_DISTANCE: 16
+            MODE: survival
+            MOTD: "Welcome to Minecraft on TrueNAS Scale!"
+            PVP: false
+            LEVEL_TYPE: DEFAULT
+            LEVEL: world
+            ONLINE_MODE: true
+            MEMORY: 2048M
+            RCON_PASSWORD: "secretrconpass"
+            # PACKWIZ_URL: ""
+            # CUSTOM_SERVER: ""
+            # QUILT_LOADER_VERSION: ""
+            # QUILT_LAUNCHER: ""
+            # QUILT_LAUNCHER_URL: ""
+            # PUFFERFISH_BUILD: "lastSuccessfulBuild"
+            # FORGEVERSION: ""
+            # FORGE_INSTALLER: ""
+            # FORGE_INSTALLER_URL: ""
+            # FABRIC_LOADER_VERSION: ""
+            # FABRIC_INSTALLER: ""
+            # FABRIC_INSTALLER_URL: ""
+            # SPIGOT_DOWNLOAD_URL: ""
+            # BUILD_FROM_SOURCE: false
+            # BUKKIT_DOWNLOAD_URL: ""
+            # PAPERBUILD: ""
+            # PAPER_DOWNLOAD_URL: ""
+            # AIRPLANE_BUILD: "lastSuccessfulBuild"
+            # MAGMA_CHANNEL: "stable"
+            # MOHIST_BUILD: ""
+            # CANYON_BUILD: ""
+            # SPONGEBRANCH: "STABLE"
+            # SPONGEVERSION: ""
+            # LIMBO_BUILD: "LATEST"
+            # LIMBO_SCHEMA_FILENAME: "default.schem"
+            # CRUCIBLE_RELEASE: "latest"
+            # FTB_MODPACK_ID: ""
+            # FTB_MODPACK_VERSION_ID: ""
+            # CF_SERVER_MOD: ""
+            # CF_BASE_DIR: ""
+            # USE_MODPACK_START_SCRIPT: true
+            # FTB_LEGACYJAVAFIXER: false
+            # WHITELIST: ""
+            # OPS: ""
+            # ICON: ""
+            # SEED: ""
+            # GENERATOR_SETTINGS: ""
+            # WORLD: ""
+            # FORCE_REDOWNLOAD: false
+            # USE_FLARE_FLAGS: false
+            # USE_AIKAR_FLAGS: true
+            # USE_SIMD_FLAGS: false
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+            # CF_API_KEY
+            # CF_PAGE_URL
+            # CF_SLUG
+            # CF_EXCLUDE_INCLUDE_FILE
+            # CF_EXCLUDE_MODS
+            # CF_FORCE_INCLUDE_MODS
+            # CF_FORCE_SYNCHRONIZE
+            # CF_OVERRIDES_SKIP_EXISTING
+            # CF_PARALLEL_DOWNLOADS
+            # CF_SET_LEVEL_FROM
+  mcbackup:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        mcbackup:
+          primary: true
+          enabled: true
+          imageSelector: mcBackupImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            BACKUP_METHOD: "tar"
+            DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
+            SRC_DIR: "{{.Values.persistence.data.mountPath }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            RCON_HOST: '{{ printf "%s-rcon" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
+            INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
+            BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
+            PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
+            PAUSE_IF_NO_PLAYERS: "{{ .Values.mcbackup.pause_if_no_players }}"
+            PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
+            LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
+            TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
+            ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
+            EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
+
+persistence:
+  data:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+      mcbackup:
+        mcbackup:
+          mountPath: /data
+          readOnly: true
+  backups:
+    enabled: true
+    targetSelector:
+      mcbackup:
+        mcbackup:
+          mountPath: /backups
+
+portal:
+  open:
+    enabled: false

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Very simple WebDAV server based on Apache. You need a WebDAV client to transfer files. It does not include a WebUI to upload files through your browser.
+home: https://truecharts.org/charts/stable/apache-webdav
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-webdav.webp
+keywords:
+  - apache-webdav
+  - Cloud
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: apache-webdav
+sources:
+  - https://github.com/mgutt/docker-apachewebdav
+  - https://github.com/truecharts/charts/tree/master/charts/stable/apache-webdav
+  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
+  - https://hub.docker.com/r/apachewebdav/apachewebdav
+type: application
+version: 6.0.8

@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $newArgs := (include "externaldns.args" . | fromYaml) }}
+{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list)  $newArgs.args }}
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

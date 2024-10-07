@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: stable
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A safe and private place for your life's work.
+home: https://truecharts.org/charts/stable/standardnotes-web
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/standardnotes-web.webp
+keywords:
+  - standardnotes-web
+  - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: standardnotes-web
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/standardnotes-web
+  - https://hub.docker.com/r/standardnotes/web
+  - https://standardnotes.org/
+type: application
+version: 6.0.8

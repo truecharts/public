@@ -1,0 +1,56 @@
+image:
+  repository: sissbruecker/linkding
+  tag: 1.30.0@sha256:d706f0d32aa2d3bd816e0a0a03b77a59eebd9b8043de471e59d946d37eab2219
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10210
+persistence:
+  data:
+    enabled: true
+    mountPath: "/etc/linkding/data"
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          if [ -f /etc/linkding/data/.superuser_exists ]; then
+            echo "Superuser has been created before. Skipping...";
+          else
+            echo "Creating superuser...";
+            export status=99;
+            until [ $status -eq 0 ];
+            do
+              python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;
+              status=$?;
+              sleep 3;
+            done;
+            echo "This file is to ensure that init script won't try to create a superuser again and fail because it already exsits" > /etc/linkding/data/.superuser_exists;
+            echo "Superuser Created!";
+          fi;
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            LD_REQUEST_TIMEOUT: 60
+            LD_DISABLE_BACKGROUND_TASKS: false
+            LD_DISABLE_URL_VALIDATION: false
+            LD_SUPERUSER_NAME: "superuser"
+            LD_SUPERUSER_PASSWORD: "somesecret"

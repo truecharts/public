@@ -1,0 +1,839 @@
+{
+    "__elements": {},
+    "__requires": [
+        {
+            "type": "panel",
+            "id": "barchart",
+            "name": "Bar chart",
+            "version": ""
+        },
+        {
+            "type": "grafana",
+            "id": "grafana",
+            "name": "Grafana",
+            "version": "10.4.0"
+        },
+        {
+            "type": "datasource",
+            "id": "grafana-postgresql-datasource",
+            "name": "PostgreSQL",
+            "version": "1.0.0"
+        },
+        {
+            "type": "panel",
+            "id": "table",
+            "name": "Table",
+            "version": ""
+        }
+    ],
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "definition": "TeslaMate|U2FsdGVkX1/cEWK+8cz7pjEKXtzJnDN7b21ZDXt1MGneFGPWTLqOPtxKmu02mJPLzi/f29I+NBHd3vi0FB8R4Xn0+GtobWDgk6VAVSBTdSNniOKO8i2WPlhRaOsl2+hG7gnZ7wrf1Th2nxR7f1uYCrbwOek0IzkfLzrkjh7gkr6inT6bbDuJqrmogZajLxmAMrQ6V+/vHxBRGiwjJhgiEeq3hM1q2h04JKkNiZ8RHbsF5Cd/xd8Q9u0JVrZzIrtnhM/SFlaApU7RtRMu8CSj1llTX7WEOj6VDZAMSf+XUAanWdk725kEPN9MNu89o2zEq5P3E3cju8IbbBdPzXLV3oVuzD6/tMnxFToIIV1E/BrpF7s2RtNa8+KJJ1PF8xgs6m+/KTD2hy+WsP0636AgObRAmYg7+qotGrgNvpNPdE0EgrB7WHYlV7R/1q66bcq6tCe51X1Un70k+zo+K6AK0o4B1H6IyMlEVuRH/Fz8QVl9aYu2ztd08RbuKJlYVKpkH+pxVETAO9MclYQ90tzE6TfwDZrQZzsAlMenr4s1ZB1OlFXjLjVjnddnUilzO76cqv4yI2THQEuyQ47nuVQ4gUbx02K59vMQhns3C01JOAYokOaSXe66Y7QYdMlk09Lf|aes-256-cbc",
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "target": {
+                    "limit": 100,
+                    "matchAny": false,
+                    "tags": [],
+                    "type": "dashboard"
+                },
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [
+        {
+            "icon": "dashboard",
+            "tags": [],
+            "title": "TeslaMate",
+            "tooltip": "",
+            "type": "link",
+            "url": "[[base_url:raw]]"
+        },
+        {
+            "asDropdown": true,
+            "icon": "external link",
+            "tags": ["tesla"],
+            "title": "Dashboards",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "icon": "external link",
+            "includeVars": false,
+            "keepTime": false,
+            "tags": ["TeslamateCustomDashboards"],
+            "targetBlank": false,
+            "title": "Custom Dashboards",
+            "tooltip": "",
+            "type": "dashboards",
+            "url": ""
+        }
+    ],
+    "liveNow": false,
+    "panels": [
+        {
+            "datasource": "TeslaMate",
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            },
+            "id": 4,
+            "panels": [],
+            "repeat": "car_id",
+            "title": "$car_id",
+            "type": "row"
+        },
+        {
+            "datasource": {
+                "type": "grafana-postgresql-datasource",
+                "uid": "TeslaMate"
+            },
+            "description": "",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": "left",
+                        "cellOptions": {
+                            "type": "auto"
+                        },
+                        "filterable": false,
+                        "inspect": false,
+                        "width": 120
+                    },
+                    "mappings": [],
+                    "noValue": "--",
+                    "thresholds": {
+                        "mode": "percentage",
+                        "steps": [
+                            {
+                                "color": "red",
+                                "value": null
+                            },
+                            {
+                                "color": "#EAB839",
+                                "value": 50
+                            },
+                            {
+                                "color": "green",
+                                "value": 90
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Time driven"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "dtdurations"
+                            },
+                            {
+                                "id": "custom.align",
+                                "value": "auto"
+                            },
+                            {
+                                "id": "custom.width"
+                            },
+                            {
+                                "id": "decimals",
+                                "value": 2
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Period"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.width",
+                                "value": 200
+                            },
+                            {
+                                "id": "links",
+                                "value": [
+                                    {
+                                        "targetBlank": true,
+                                        "title": "Trip",
+                                        "url": "d/FkUpJpQZk/trip?from=${__data.fields.date_from}&to=${__data.fields.date_to}&var-car_id=$car_id"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Efficiency"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "percentunit"
+                            },
+                            {
+                                "id": "custom.cellOptions",
+                                "value": {
+                                    "mode": "gradient",
+                                    "type": "gauge"
+                                }
+                            },
+                            {
+                                "id": "custom.align",
+                                "value": "auto"
+                            },
+                            {
+                                "id": "custom.width"
+                            },
+                            {
+                                "id": "max",
+                                "value": 1
+                            },
+                            {
+                                "id": "min",
+                                "value": 0
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "# drives"
+                        },
+                        "properties": [
+                            {
+                                "id": "links",
+                                "value": [
+                                    {
+                                        "targetBlank": true,
+                                        "title": "Drives",
+                                        "url": "d/Y8upc6ZRk/drives?from=${__data.fields.date_from}&to=${__data.fields.date_to}&var-car_id=$car_id"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "custom.align",
+                                "value": "auto"
+                            },
+                            {
+                                "id": "custom.width",
+                                "value": 80
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byRegexp",
+                            "options": "/sum_distance_km/"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "km"
+                            },
+                            {
+                                "id": "displayName",
+                                "value": "Distance"
+                            },
+                            {
+                                "id": "custom.align",
+                                "value": "auto"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byRegexp",
+                            "options": "/sum_distance_mi/"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Distance"
+                            },
+                            {
+                                "id": "unit",
+                                "value": "mi"
+                            },
+                            {
+                                "id": "custom.align",
+                                "value": "auto"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "date_from"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.hidden",
+                                "value": true
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "date_to"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.hidden",
+                                "value": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 14,
+                "w": 9,
+                "x": 0,
+                "y": 1
+            },
+            "id": 10,
+            "maxPerRow": 2,
+            "options": {
+                "cellHeight": "sm",
+                "footer": {
+                    "countRows": false,
+                    "fields": "",
+                    "reducer": ["sum"],
+                    "show": false
+                },
+                "frameIndex": 1,
+                "showHeader": true,
+                "sortBy": [
+                    {
+                        "desc": true,
+                        "displayName": "Starting at"
+                    }
+                ]
+            },
+            "pluginVersion": "10.4.0",
+            "repeatDirection": "h",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "grafana-postgresql-datasource",
+                        "uid": "TeslaMate"
+                    },
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "WITH data AS (\nSELECT\n  duration_min > 1 AND\n  distance > 1 AND\n  ( \n    start_position.usable_battery_level IS NULL OR\n    (end_position.battery_level - end_position.usable_battery_level) = 0 \n  ) AS is_sufficiently_precise,\n  NULLIF(GREATEST(start_ideal_range_km - end_ideal_range_km, 0), 0) AS range_diff,\n  date_trunc('$period', start_date::TIMESTAMP) as local_period,\n  drives.*\nFROM drives\n  LEFT JOIN positions start_position ON start_position_id = start_position.id\n  LEFT JOIN positions end_position ON end_position_id = end_position.id)\nSELECT\n  EXTRACT(EPOCH FROM date_trunc('$period', local_period))*1000 AS date_from,\n  EXTRACT(EPOCH FROM date_trunc('$period', local_period + ('1 ' || '$period')::INTERVAL))*1000 AS date_to,\n  CASE '$period'\n    WHEN 'month' THEN to_char(local_period, 'YYYY Month')\n    WHEN 'year' THEN to_char(local_period, 'YYYY')\n    WHEN 'week' THEN 'week ' || to_char(local_period, 'WW') || ' starting ' || to_char(local_period, 'YYYY-MM-DD')\n    ELSE to_char(local_period, 'YYYY-MM-DD')\n  END AS display,\n  local_period AS date,\n  sum(duration_min)*60 AS sum_duration_h, \n  convert_km(max(end_km)::integer - min(start_km)::integer, '$length_unit') AS sum_distance_$length_unit,\n  count(*) AS cnt,\n  sum(distance)/sum(range_diff) AS efficiency\nFROM data WHERE\n  car_id = $car_id AND\n  $__timeFilter(start_date)\nGROUP BY date\nORDER BY date",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": ["start_km"],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "table": "drives",
+                    "timeColumn": "start_date",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "Stats per ${period}",
+            "transformations": [
+                {
+                    "id": "seriesToColumns",
+                    "options": {
+                        "byField": "date"
+                    }
+                },
+                {
+                    "id": "calculateField",
+                    "options": {
+                        "alias": "efficiency_charged_net_km_temp",
+                        "binary": {
+                            "left": "sum_consumption_kwh",
+                            "operator": "/",
+                            "reducer": "sum",
+                            "right": "sum_distance_km"
+                        },
+                        "mode": "binary",
+                        "reduce": {
+                            "reducer": "sum"
+                        },
+                        "replaceFields": false
+                    }
+                },
+                {
+                    "id": "calculateField",
+                    "options": {
+                        "alias": "efficiency_charged_net_km",
+                        "binary": {
+                            "left": "efficiency_charged_net_km_temp",
+                            "operator": "*",
+                            "reducer": "sum",
+                            "right": "1000"
+                        },
+                        "mode": "binary",
+                        "reduce": {
+                            "reducer": "sum"
+                        }
+                    }
+                },
+                {
+                    "id": "calculateField",
+                    "options": {
+                        "alias": "efficiency_charged_net_mi_temp",
+                        "binary": {
+                            "left": "sum_consumption_kwh",
+                            "operator": "/",
+                            "reducer": "sum",
+                            "right": "sum_distance_mi"
+                        },
+                        "mode": "binary",
+                        "reduce": {
+                            "reducer": "sum"
+                        },
+                        "replaceFields": false
+                    }
+                },
+                {
+                    "id": "calculateField",
+                    "options": {
+                        "alias": "efficiency_charged_net_mi",
+                        "binary": {
+                            "left": "efficiency_charged_net_mi_temp",
+                            "operator": "*",
+                            "reducer": "sum",
+                            "right": "1000"
+                        },
+                        "mode": "binary",
+                        "reduce": {
+                            "reducer": "sum"
+                        }
+                    }
+                },
+                {
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "date": true,
+                            "date_from": false,
+                            "date_to": false,
+                            "efficiency_charged_net_km_temp": true,
+                            "efficiency_charged_net_mi_temp": true,
+                            "timezone": true
+                        },
+                        "indexByName": {
+                            "avg_consumption_kwh": 9,
+                            "avg_outside_temp_c": 5,
+                            "cnt": 6,
+                            "cnt_charges": 11,
+                            "cost_charges": 10,
+                            "date": 1,
+                            "date_from": 16,
+                            "date_to": 17,
+                            "display": 0,
+                            "efficiency": 7,
+                            "efficiency_charged_net_km": 14,
+                            "efficiency_charged_net_mi": 15,
+                            "efficiency_net_km": 12,
+                            "efficiency_net_mi": 13,
+                            "sum_consumption_kwh": 8,
+                            "sum_distance_km": 3,
+                            "sum_distance_mi": 4,
+                            "sum_duration_h": 2
+                        },
+                        "renameByName": {
+                            "avg_consumption_kwh": "Avg charged",
+                            "avg_outside_temp_c": "",
+                            "cnt": "# drives",
+                            "cnt_charges": "# charges",
+                            "cost_charges": "Costs",
+                            "date": "Starting at",
+                            "date_from": "",
+                            "date_to": "",
+                            "display": "Period",
+                            "efficiency": "Efficiency",
+                            "efficiency_net_km": "",
+                            "sum_consumption_kwh": "Energy charged",
+                            "sum_distance_km": "",
+                            "sum_duration_h": "Time driven"
+                        }
+                    }
+                }
+            ],
+            "type": "table"
+        },
+        {
+            "datasource": {
+                "type": "grafana-postgresql-datasource",
+                "uid": "TeslaMate"
+            },
+            "description": "With this dashboard you may analize your mileage and number of drives by year, month, week or day.\n\nThe dashboard shows a table with the selected period, time driven, distance, number of drives and efficiency then a bar chart to have a better look for comparison.",
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisBorderShow": false,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "axisSoftMin": 0,
+                        "fillOpacity": 80,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineWidth": 1,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "noValue": "--",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "red",
+                                "value": null
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byRegexp",
+                            "options": "/sum_distance_km/"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "km"
+                            },
+                            {
+                                "id": "displayName",
+                                "value": "Distance"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byRegexp",
+                            "options": "/sum_distance_mi/"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Distance"
+                            },
+                            {
+                                "id": "unit",
+                                "value": "mi"
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "cnt"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "drives"
+                            },
+                            {
+                                "id": "custom.axisPlacement",
+                                "value": "hidden"
+                            },
+                            {
+                                "id": "displayName",
+                                "value": "Count"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 14,
+                "w": 15,
+                "x": 9,
+                "y": 1
+            },
+            "id": 27,
+            "options": {
+                "barRadius": 0,
+                "barWidth": 0.97,
+                "fullHighlight": false,
+                "groupWidth": 0.7,
+                "legend": {
+                    "calcs": ["max", "min"],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "orientation": "auto",
+                "showValue": "always",
+                "stacking": "none",
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 0
+            },
+            "pluginVersion": "8.5.6",
+            "repeatDirection": "h",
+            "targets": [
+                {
+                    "datasource": {
+                        "type": "grafana-postgresql-datasource",
+                        "uid": "TeslaMate"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "group": [],
+                    "metricColumn": "none",
+                    "rawQuery": true,
+                    "rawSql": "WITH data AS (\nSELECT\n  duration_min > 1 AND\n  distance > 1 AND\n  ( \n    start_position.usable_battery_level IS NULL OR\n    (end_position.battery_level - end_position.usable_battery_level) = 0 \n  ) AS is_sufficiently_precise,\n  NULLIF(GREATEST(start_ideal_range_km - end_ideal_range_km, 0), 0) AS range_diff,\n  date_trunc('$period', start_date::TIMESTAMP) as local_period,\n  drives.*\nFROM drives\n  LEFT JOIN positions start_position ON start_position_id = start_position.id\n  LEFT JOIN positions end_position ON end_position_id = end_position.id)\nSELECT\n  EXTRACT(EPOCH FROM date_trunc('$period', local_period))*1000 AS date_from,\n  EXTRACT(EPOCH FROM date_trunc('$period', local_period + ('1 ' || '$period')::INTERVAL))*1000 AS date_to,\n  CASE '$period'\n    WHEN 'month' THEN to_char(local_period, 'YYYY Month')\n    WHEN 'year' THEN to_char(local_period, 'YYYY')\n    WHEN 'week' THEN 'week ' || to_char(local_period, 'WW') || ' starting ' || to_char(local_period, 'YYYY-MM-DD')\n    ELSE to_char(local_period, 'YYYY-MM-DD')\n  END AS \"Period\",\n  local_period AS date,\n  sum(duration_min)*60 AS sum_duration_h, \n  convert_km(max(end_km)::integer - min(start_km)::integer, '$length_unit') AS sum_distance_$length_unit,\n  count(*) AS cnt,\n  sum(distance)/sum(range_diff) AS efficiency\nFROM data WHERE\n  car_id = $car_id AND\n  $__timeFilter(start_date)\nGROUP BY date\nORDER BY date",
+                    "refId": "A",
+                    "select": [
+                        [
+                            {
+                                "params": ["start_km"],
+                                "type": "column"
+                            }
+                        ]
+                    ],
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
+                    "table": "drives",
+                    "timeColumn": "start_date",
+                    "timeColumnType": "timestamp",
+                    "where": [
+                        {
+                            "name": "$__timeFilter",
+                            "params": [],
+                            "type": "macro"
+                        }
+                    ]
+                }
+            ],
+            "title": "${length_unit} & drives per ${period}",
+            "transformations": [
+                {
+                    "id": "filterFieldsByName",
+                    "options": {
+                        "include": {
+                            "names": [
+                                "Period",
+                                "sum_distance_mi",
+                                "cnt",
+                                "sum_distance_km"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "type": "barchart"
+        }
+    ],
+    "refresh": "",
+    "schemaVersion": 39,
+    "tags": ["TeslamateCustomDashboards"],
+    "templating": {
+        "list": [
+            {
+                "current": {},
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "TeslaMate"
+                },
+                "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+                "hide": 2,
+                "includeAll": true,
+                "label": "Car",
+                "multi": false,
+                "name": "car_id",
+                "options": [],
+                "query": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "current": {},
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "TeslaMate"
+                },
+                "definition": "select unit_of_length from settings limit 1;",
+                "hide": 2,
+                "includeAll": false,
+                "label": "",
+                "multi": false,
+                "name": "length_unit",
+                "options": [],
+                "query": "select unit_of_length from settings limit 1;",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "current": {},
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "TeslaMate"
+                },
+                "definition": "select base_url from settings limit 1;",
+                "hide": 2,
+                "includeAll": false,
+                "label": "",
+                "multi": false,
+                "name": "base_url",
+                "options": [],
+                "query": "select base_url from settings limit 1;",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "current": {
+                    "selected": false,
+                    "text": "month",
+                    "value": "month"
+                },
+                "hide": 0,
+                "includeAll": false,
+                "label": "Period",
+                "multi": false,
+                "name": "period",
+                "options": [
+                    {
+                        "selected": true,
+                        "text": "month",
+                        "value": "month"
+                    },
+                    {
+                        "selected": false,
+                        "text": "year",
+                        "value": "year"
+                    },
+                    {
+                        "selected": false,
+                        "text": "day",
+                        "value": "day"
+                    },
+                    {
+                        "selected": false,
+                        "text": "week",
+                        "value": "week"
+                    }
+                ],
+                "query": "month,year,day,week",
+                "queryValue": "",
+                "skipUrlSync": false,
+                "type": "custom"
+            }
+        ]
+    },
+    "time": {
+        "from": "now-6M",
+        "to": "now"
+    },
+    "timepicker": {
+        "refresh_intervals": [
+            "5s",
+            "10s",
+            "30s",
+            "1m",
+            "5m",
+            "15m",
+            "30m",
+            "1h",
+            "2h",
+            "1d"
+        ],
+        "time_options": [
+            "5m",
+            "15m",
+            "1h",
+            "6h",
+            "12h",
+            "24h",
+            "2d",
+            "7d",
+            "30d"
+        ]
+    },
+    "timezone": "",
+    "title": "Mileage Stats",
+    "uid": "jchmNjtMTFx",
+    "version": 5,
+    "weekStart": ""
+}

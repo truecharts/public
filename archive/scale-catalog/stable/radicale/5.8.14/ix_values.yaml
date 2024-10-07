@@ -1,0 +1,80 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tomsquest/docker-radicale
+  tag: 3.1.9.1@sha256:e45df19819ea11fea14eec7e465ab351f2dd2a03c715f7013a67998faaa9f508
+
+securityContext:
+  container:
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
+        - KILL
+      drop:
+        - ALL
+    runAsUser: 2999
+    runAsGroup: 2999
+  pod:
+    fsGroup: 2999
+
+service:
+  main:
+    ports:
+      main:
+        port: 5232
+        protocol: http
+
+radicale:
+  auth:
+    delay: 1
+    realm: Radicale - Password Required
+    type: htpasswd
+    users: []
+  encoding:
+    request: utf-8
+    stock: utf-8
+  logging:
+    level: warning
+    mask_passwords: true
+  rights:
+    type: owner_only
+  server:
+    max_connections: 8
+    max_content_length: 100000000
+    timeout: 30
+  storage:
+    max_sync_token_age: 2592000
+    type: multifilesystem
+  web:
+    type: internal
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TAKE_FILE_OWNERSHIP: false
+
+persistence:
+  config-file:
+    enabled: true
+    type: configmap
+    objectName: radicale-config
+    mountPath: /config/config
+    subPath: config
+    readOnly: false
+  users:
+    enabled: true
+    type: configmap
+    objectName: radicale-users
+    mountPath: /config/users
+    subPath: users
+    readOnly: false
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

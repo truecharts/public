@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: MediaApp
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A super-sexy voice interface for the Plex HTPC.
+home: https://truecharts.org/charts/stable/flextv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flextv.webp
+keywords:
+  - flextv
+  - MediaApp
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flextv
+sources:
+  - https://github.com/d8ahazard/FlexTV
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flextv
+  - https://hub.docker.com/r/jcreynolds/flextv
+  - https://registry.hub.docker.com/r/jcreynolds/flextv/
+type: application
+version: 6.0.7

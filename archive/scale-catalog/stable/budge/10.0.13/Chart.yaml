@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.0.9
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Budge is an open source 'budgeting with envelopes' personal finance app.
+home: https://truecharts.org/charts/stable/budge
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/budge.webp
+keywords:
+  - finance
+  - budge
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: budge
+sources:
+  - https://ghcr.io/linuxserver/budge
+  - https://github.com/linuxserver/budge
+  - https://github.com/linuxserver/docker-BudgE
+  - https://github.com/truecharts/charts/tree/master/charts/stable/budge
+type: application
+version: 10.0.13

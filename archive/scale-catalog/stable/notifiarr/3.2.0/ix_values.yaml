@@ -1,0 +1,74 @@
+image:
+  repository: golift/notifiarr
+  pullPolicy: IfNotPresent
+  tag: 0.7.0@sha256:5080028cabe9169a84ebfeab0d38df1496a56965fa72a1072397e13dac5cf9bc
+notifiarr:
+  # This will be your password for your first-time login.
+  # Use the username 'admin' and the API key as password to log in.
+  # After login you must change your password from the UI
+  apikey: "test"
+  upstreams:
+    - 172.16.0.0/16
+service:
+  main:
+    ports:
+      main:
+        port: 5454
+        protocol: http
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init-conf:
+          enabled: true
+          # We run it on every boot just in case an upgrade (or the user)
+          # manages to nuke the config file
+          type: init
+          imageSelector: alpineImage
+          command: /bin/sh
+          # This script creates an (almost) empty config file with the aim to prevent
+          # Notifiarr from generating a default password.
+          # When no default password is generated the configured API key and a default
+          # username ('admin') are used for logging in.
+          args:
+            - -c
+            - |
+              export CONF={{ printf "%s/notifiarr.conf" .Values.persistence.config.targetSelector.main.main.mountPath }}
+
+              test -f "$CONF" && echo "Config exists, skipping creation..." && exit 0
+
+              echo "Creating a minimal config in [$CONF]..."
+
+              echo "# Dummy comment" > "$CONF" || echo "Failed to create a minimal config..."
+
+              echo "Finished."
+      containers:
+        main:
+          env:
+            TMPDIR: /tmpdir
+            DN_API_KEY: "{{ .Values.notifiarr.apikey }}"
+            DN_BIND_ADDR: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
+            DN_UPSTREAMS_0: '{{ join " " .Values.notifiarr.upstreams }}'
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+        init-conf:
+          mountPath: /config
+  machine-id:
+    enabled: true
+    type: hostPath
+    hostPath: /etc/machine-id
+    mountPath: /etc/machine-id
+    readOnly: true
+  tmpdir:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmpdir
+    medium: Memory
+portal:
+  open:
+    enabled: true

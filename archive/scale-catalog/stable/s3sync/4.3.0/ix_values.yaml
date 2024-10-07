@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: whatname/docker-s3sync
+  tag: latest@sha256:dbfa5eff4d67ac54dded4434a73c036c11a54dda3ade152bb9ecc53431eed9d0
+persistence:
+  backupsourceexample:
+    enabled: true
+    mountPath: /data/example
+    readOnly: true
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ACCESS_KEY: your_access_key_here
+            CRON_SCHEDULE: 0 * * * *
+            REGION: bucket_region_here
+            S3PATH: s3://your_bucket_name
+            S3SYNCPARAMS: ""
+            SECRET_KEY: your_secret_key_here
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

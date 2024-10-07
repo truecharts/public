@@ -1,0 +1,52 @@
+image:
+  repository: ghcr.io/onedr0p/plex
+  pullPolicy: IfNotPresent
+  tag: 1.40.0.7998-c29d4c0c8@sha256:6aee52b3ad59747bd8d794820be9771ab11d8ee60168c77ea2871f69301bdc35
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 32400
+        targetPort: 32400
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  transcode:
+    enabled: true
+    mountPath: "/transcode"
+    type: emptyDir
+    medium: Memory
+    targetSelectAll: true
+plex:
+  # User Defined
+  serverIP: "127.0.0.1"
+  additionalAdvertiseURL: ""
+  disableGDM: true
+  requireHTTPS: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              path: /identity
+            readiness:
+              enabled: true
+              path: /identity
+            startup:
+              enabled: true
+              path: /identity
+          env:
+            PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
+            # 0=Required, 1=Preferred
+            PLEX_PREFERENCE_SEC_CON: 'secureConnections={{ ternary "0" "1" .Values.plex.requireHTTPS }}'
+            # User Defined
+            ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
+            PLEX_CLAIM: ""
+portal:
+  open:
+    enabled: true

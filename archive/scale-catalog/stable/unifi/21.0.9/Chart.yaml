@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: Networking
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 8.1.127
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Ubiquiti Network's Unifi Controller
+home: https://truecharts.org/charts/stable/unifi
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.webp
+keywords:
+  - ubiquiti
+  - unifi
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: unifi
+sources:
+  - https://ghcr.io/goofball222/unifi
+  - https://github.com/jacobalberty/unifi-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
+  - https://unifi-network.ui.com
+type: application
+version: 21.0.9

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install the version of OpenTTD that you enter in the variable 'GAME_VERSION' (if you define 'latest' it will always pull the latest build, if you define 'testing' it will always pull down the latest testing build).
+home: https://truecharts.org/charts/stable/openttd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openttd.webp
+keywords:
+  - openttd
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openttd
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openttd
+  - https://hub.docker.com/r/ich777/openttdserver
+  - https://www.openttd.org/
+type: application
+version: 6.0.8

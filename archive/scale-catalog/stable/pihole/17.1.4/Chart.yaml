@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.05.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: DNS and Ad-filtering for your network
+home: https://truecharts.org/charts/stable/pihole
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.webp
+keywords:
+  - DNS
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pihole
+sources:
+  - https://github.com/pi-hole
+  - https://github.com/pi-hole/docker-pi-hole
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
+  - https://hub.docker.com/r/pihole/pihole
+  - https://pi-hole.net/
+type: application
+version: 17.1.4

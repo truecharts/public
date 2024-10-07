@@ -1,0 +1,19 @@
+image:
+  repository: emcniece/dockeryourxyzzy
+  tag: 4@sha256:04eccbccc15cb755bbdcdd277d7ceaefb776d22b1ca8de6a97cc97eccfc7cd17
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10094
+        targetPort: 8080
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

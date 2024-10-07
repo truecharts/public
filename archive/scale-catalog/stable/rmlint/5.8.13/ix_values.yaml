@@ -1,0 +1,34 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: bobbintb/docker-rmlint-unraid
+  tag: latest@sha256:82ed86fe2fa8e6f43036f2196d37dc90946e6e6bfa21cdc7626f3b0c4ba6f306
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  searchlocation:
+    enabled: true
+    mountPath: /root
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8322
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GUAC_PASS: ""
+            GUAC_USER: ""

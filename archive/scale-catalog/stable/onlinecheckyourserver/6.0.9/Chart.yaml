@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is a simple Chart that will check if a domain name or IP address is pingable and send you a message with Pushover if it goes offline.
+home: https://truecharts.org/charts/stable/onlinecheckyourserver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlinecheckyourserver.webp
+keywords:
+  - onlinecheckyourserver
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: onlinecheckyourserver
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/onlinecheckyourserver
+  - https://hub.docker.com/r/ich777/online-check-pushover
+type: application
+version: 6.0.9

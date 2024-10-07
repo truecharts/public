@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.8.4
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted, ad-free, privacy-respecting metasearch engine
+home: https://truecharts.org/charts/stable/whoogle
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/whoogle.webp
+keywords:
+  - whoogle
+  - search
+  - open source
+  - privacy
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: whoogle
+sources:
+  - https://github.com/benbusby/whoogle-search
+  - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
+  - https://hub.docker.com/r/benbusby/whoogle-search
+type: application
+version: 11.0.8

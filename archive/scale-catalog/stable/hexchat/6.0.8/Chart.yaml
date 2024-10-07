@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: HexChat is an IRC client based on XChat, but unlike XChat it’s completely free for both Windows and Unix-like systems. Since XChat is open source, it’s perfectly legal. For more info. HexChat was originally called XChat-WDK which in turn was a successor of freakschat.
+home: https://truecharts.org/charts/stable/hexchat
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hexchat.webp
+keywords:
+  - hexchat
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hexchat
+sources:
+  - https://github.com/binhex/documentation
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hexchat
+  - https://hexchat.github.io/
+  - https://hub.docker.com/r/binhex/arch-hexchat
+  - https://registry.hub.docker.com/r/binhex/arch-hexchat/
+type: application
+version: 6.0.8

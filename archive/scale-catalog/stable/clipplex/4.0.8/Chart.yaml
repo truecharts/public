@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Clip your plex media to share.
+home: https://truecharts.org/charts/stable/clipplex
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/clipplex.webp
+keywords:
+  - clipplex
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: clipplex
+sources:
+  - https://github.com/jo-nike/clipplex
+  - https://github.com/truecharts/charts/tree/master/charts/stable/clipplex
+  - https://hub.docker.com/r/jonnike/clipplex
+type: application
+version: 4.0.8

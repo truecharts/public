@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Simple text sharing
+home: https://truecharts.org/charts/stable/haste-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/haste-server.webp
+keywords:
+  - haste
+  - hastebin
+  - haste-server
+  - pastebin
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: haste-server
+sources:
+  - https://ghcr.io/k8s-at-home/haste-server
+  - https://github.com/k8s-at-home/container-images
+  - https://github.com/seejohnrun/haste-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
+type: application
+version: 14.0.7

@@ -1,0 +1,48 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/openttdserver
+  tag: latest@sha256:3bf5295ef70e5f07ba77d5bda7f4e4c068be47282eec67cb0c65dcc6bdf89b22
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 9015
+        protocol: http
+        targetPort: 8080
+  tcpgameport:
+    enabled: true
+    ports:
+      tcpgameport:
+        enabled: true
+        port: 3979
+        protocol: tcp
+        targetPort: 3979
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 3979
+        protocol: udp
+        targetPort: 3979
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_PARAMS: ""
+            GAME_VERSION: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+            GFX_PK_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030

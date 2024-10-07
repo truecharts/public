@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.1.1
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A knowledge base that works on local Markdown files.
+home: https://truecharts.org/charts/stable/obsidian
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/obsidian.png
+keywords:
+  - obsidian
+  - productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: obsidian
+sources:
+  - https://github.com/sytone/obsidian-remote
+  - https://github.com/sytone/obsidian-remote/pkgs/container/obsidian-remote
+  - https://github.com/truecharts/charts/tree/master/charts/stable/obsidian
+  - https://ghcr.io/sytone/obsidian-remote
+type: application
+version: 4.3.0

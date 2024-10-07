@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: tools
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.1.9
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Node-RED is low-code programming for event-driven applications
+home: https://truecharts.org/charts/stable/node-red
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-red.webp
+keywords:
+  - node-red
+  - nodered
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: node-red
+sources:
+  - https://github.com/node-red/node-red-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/node-red
+  - https://hub.docker.com/r/nodered/node-red
+type: application
+version: 19.0.10

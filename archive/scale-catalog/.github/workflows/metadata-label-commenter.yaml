@@ -1,0 +1,32 @@
+---
+name: "Metadata: Label Commenter"
+
+on:
+  workflow_dispatch:
+  issues:
+    types:
+      - labeled
+      - unlabeled
+  pull_request_target:
+    types:
+      - labeled
+      - unlabeled
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  comment:
+    name: Label commenter
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: master
+
+      - uses: peaceiris/actions-label-commenter@v1
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}

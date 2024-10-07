@@ -1,0 +1,45 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.05.20240520
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.10
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A simple, self-hosted, easy-to-use platform for organising and storing information.
+home: https://truecharts.org/charts/stable/bookstack
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.webp
+keywords:
+  - bookstack
+  - book
+  - stack
+  - organizer
+  - server
+  - hosted
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bookstack
+sources:
+  - https://ghcr.io/linuxserver/bookstack
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
+  - https://www.bookstackapp.com/
+type: application
+version: 14.2.11

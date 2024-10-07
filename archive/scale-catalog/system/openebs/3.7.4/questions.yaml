@@ -1,0 +1,164 @@
+groups:
+  - name: Container Image
+    description: Image to be used for container
+  - name: General Settings
+    description: General Deployment Settings
+  - name: Workload Settings
+    description: Workload Settings
+  - name: App Configuration
+    description: App Specific Config Options
+  - name: Networking and Services
+    description: Configure Network and Services for Container
+  - name: Storage and Persistence
+    description: Persist and Share Data that is Separate from the Container
+  - name: Ingress
+    description: Ingress Configuration
+  - name: Security and Permissions
+    description: Configure Security Context and Permissions
+  - name: Resources and Devices
+    description: "Specify Resources/Devices to be Allocated to Workload"
+  - name: Middlewares
+    description: Traefik Middlewares
+  - name: Metrics
+    description: Metrics
+  - name: Addons
+    description: Addon Configuration
+  - name: Backup Configuration
+    description: Configure Velero Backup Schedule
+  - name: Advanced
+    description: Advanced Configuration
+  - name: Postgresql
+    description: Postgresql
+  - name: Documentation
+    description: Documentation
+
+questions:
+  - variable: global
+    group: General Settings
+    label: "Global Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: stopAll
+          label: Stop All
+          description: "Stops All Running pods and hibernates cnpg"
+          schema:
+            type: boolean
+            default: false
+
+
+  - variable: openebs
+    group: "Storage and Persistence"
+    label: "OpenEBS Settings"
+    schema:
+      type: dict
+      additional_attrs: true
+      hidden: true
+      attrs:
+        - variable: zfs-localpv
+          label: "ZFS Localpv Settings"
+          schema:
+            type: dict
+            additional_attrs: true
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+        - variable: localprovisioner
+          label: "Localprovisioner Settings"
+          schema:
+            type: dict
+            additional_attrs: true
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+              - variable: deviceClass
+                label: "deviceClass"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
+              - variable: hostpathClass
+                label: "hostpathClass"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
+
+
+  - variable: storageClass
+    group: "Storage and Persistence"
+    label: "StorageClass Settings"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: zfs-main
+          label: "ZFS Localpv Settings"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: provisioner
+                label: "provisioner"
+                schema:
+                  type: string
+                  default: "zfs.csi.openebs.io"
+                  hidden: true
+                  required: true
+              - variable: isDefaultClass
+                label: "Default Class"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: reclaimPolicy
+                label: "reclaimPolicy"
+                schema:
+                  type: string
+                  required: true
+                  default: "Retain"
+                  enum:
+                    - value: Retain
+                      description: Retain (Keep Data on App Deletion)
+                    - value: Delete
+                      description: Delete (Delete data on App Deletion)
+              - variable: parameters
+                label: "parameters"
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: poolname
+                      label: "Pool/Dataset"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true

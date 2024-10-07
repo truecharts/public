@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.1.14
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A cross-platform Anki sync server.
+home: https://truecharts.org/charts/stable/anki-sync-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/anki-sync-server.png
+keywords:
+  - anki-sync-server
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: anki-sync-server
+sources:
+  - https://github.com/ankicommunity/anki-devops-services
+  - https://github.com/truecharts/charts/tree/master/charts/stable/anki-sync-server
+  - https://hub.docker.com/r/ankicommunity/anki-sync-server-rs
+type: application
+version: 5.3.0

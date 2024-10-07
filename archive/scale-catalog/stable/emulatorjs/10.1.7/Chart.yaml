@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/category: emulator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.9.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Emulatorjs - In browser web based emulation portable to nearly any device for many retro consoles.
+home: https://truecharts.org/charts/stable/emulatorjs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.webp
+keywords:
+  - emulatorjs
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: emulatorjs
+sources:
+  - https://ghcr.io/linuxserver/emulatorjs
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
+type: application
+version: 10.1.7

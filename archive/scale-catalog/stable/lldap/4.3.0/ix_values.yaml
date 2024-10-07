@@ -1,0 +1,68 @@
+image:
+  repository: docker.io/nitnelave/lldap
+  pullPolicy: IfNotPresent
+  tag: v0.5.0-debian@sha256:872610a32c9c2bc1392fbd934fa5a355d70b467b92032637ea017c5717c2f1bf
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+service:
+  main:
+    ports:
+      main:
+        port: 17170
+  ldap:
+    enabled: true
+    ports:
+      ldap:
+        enabled: true
+        port: 3890
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - "/app/lldap"
+          args:
+            - "run"
+          env:
+            LLDAP_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            LLDAP_LDAP_PORT: "{{ .Values.service.ldap.ports.ldap.port }}"
+            LLDAP_HTTP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
+            # ADMIN
+            LLDAP_LDAP_USER_DN: "admin"
+            LLDAP_LDAP_USER_EMAIL: "admin@example.com"
+            LLDAP_LDAP_USER_PASS: "password"
+            # LOGGING
+            LLDAP_VERBOSE: false
+            # SMTP
+            LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET: false
+            LLDAP_SMTP_OPTIONS__SERVER: ""
+            LLDAP_SMTP_OPTIONS__PORT: 587
+            LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: "STARTTLS"
+            LLDAP_SMTP_OPTIONS__USER: ""
+            LLDAP_SMTP_OPTIONS__PASSWORD: ""
+            LLDAP_SMTP_OPTIONS__FROM: "LLDAP Admin <sender@gmail.com>"
+            LLDAP_SMTP_OPTIONS__REPLY_TO: "Do not reply <noreply@localhost>"
+            LLDAP_JWT_SECRET:
+              - secretRef:
+                  name: secrets
+                  key: LLDAP_JWT_SECRET
+            LLDAP_key_file: "/data/private_key"
+            LLDAP_database_url:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+cnpg:
+  main:
+    enabled: true
+    user: lldap
+    database: lldap
+portal:
+  open:
+    enabled: true

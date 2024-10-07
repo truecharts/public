@@ -1,0 +1,79 @@
+image:
+  repository: ghcr.io/rickdb/plexanisync
+  pullPolicy: IfNotPresent
+  tag: 1.3.27@sha256:20c8a82a604889d81d546a83186ef4bf54198d6e0fdd4e85daeed1fa08f10f0f
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+plexanisync:
+  interval: 3600
+  plex:
+    anime_section: []
+    # - section1
+    # - section2
+    # direct | myplex
+    plex_auth_method: direct
+    # myplex
+    myplex_server: ""
+    myplex_user: ""
+    myplex_token: ""
+    # direct
+    plex_url: ""
+    plex_token: ""
+    # Home user sync
+    home_user_sync: false
+    home_username: ""
+    home_server_url: ""
+  anilist:
+    ani_username: ""
+    ani_token: ""
+    plex_ep_count_priority: false
+    skip_list_update: false
+    log_failed_matches: false
+custom_mappings: []
+# remote_urls:
+#   - https://blabal
+# entries:
+#   - title: title
+#     seasons:
+#       - season: 1
+#         anilist_id: 2345
+#     synonyms:
+#       - asfdasd
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - configMapRef:
+                name: config
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  settings:
+    enabled: true
+    type: secret
+    readOnly: true
+    defaultMode: "0600"
+    objectName: secret
+    mountPath: /plexanisync/settings.ini
+    subPath: settings.ini
+portal:
+  open:
+    enabled: false

@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: Backup
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 6.0.4
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A high-performance, enterprise-grade system for backing up Linux, Windows and macOS PCs and laptops to a server's disk.
+home: https://truecharts.org/charts/stable/backuppc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/backuppc.webp
+keywords:
+  - backuppc
+  - Backup
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: backuppc
+sources:
+  - https://backuppc.github.io/backuppc/index.html
+  - https://github.com/tiredofit/docker-backuppc
+  - https://github.com/truecharts/charts/tree/master/charts/stable/backuppc
+  - https://hub.docker.com/r/tiredofit/backuppc
+type: application
+version: 7.0.9

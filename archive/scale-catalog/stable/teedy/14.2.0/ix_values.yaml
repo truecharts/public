@@ -1,0 +1,45 @@
+image:
+  repository: sismics/docs
+  tag: v1.11@sha256:4533ff3038becf9d062e965167f683e8ab0fb63770b71b7e8da2463a0d12f910
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10100
+        targetPort: 8080
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+cnpg:
+  main:
+    enabled: true
+    user: teedyuser
+    database: teedydb
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOCS_DEFAULT_LANGUAGE: "eng"
+            DOCS_BASE_URL: ""
+            DOCS_SMTP_HOSTNAME: ""
+            DOCS_SMTP_PORT: 0
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: jdbc
+            DOCS_ADMIN_EMAIL_INIT: ""
+            DOCS_ADMIN_PASSWORD_INIT: ""
+            DOCS_SMTP_USERNAME: ""
+            DOCS_SMTP_PASSWORD: ""

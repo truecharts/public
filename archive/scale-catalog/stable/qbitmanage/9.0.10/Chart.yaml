@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: Downloaders
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.1.5
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
+home: https://truecharts.org/charts/stable/qbitmanage
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitmanage.webp
+keywords:
+  - qbitmanage
+  - Downloaders
+  - MediaApp-Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qbitmanage
+sources:
+  - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
+  - https://hub.docker.com/r/bobokun/qbit_manage
+type: application
+version: 9.0.10

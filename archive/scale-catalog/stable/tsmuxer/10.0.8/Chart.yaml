@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.01.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: tsMuxer is a Transport Stream muxer.
+home: https://truecharts.org/charts/stable/tsmuxer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsmuxer.webp
+keywords:
+  - media
+  - tsmuxer
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tsmuxer
+sources:
+  - https://github.com/jlesage/docker-tsmuxer
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tsmuxer
+  - https://hub.docker.com/r/jlesage/tsmuxer
+type: application
+version: 10.0.8

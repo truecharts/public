@@ -1,0 +1,60 @@
+# Default values for qbittorrent.
+
+image:
+  repository: ghcr.io/truecharts/qbittorrent
+  pullPolicy: IfNotPresent
+  tag: v4.3.5
+
+strategy:
+  type: Recreate
+
+env: {}
+    # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+  # UMASK: 022
+
+services:
+  main:
+    port:
+      port: 8080
+  tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 6881
+      protocol: TCP
+      targetPort: 51413
+  udp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 6881
+      protocol: UDP
+      targetPort: 51413
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
+additionalVolumes:
+  - name: qbittorrent-scripts
+    emptyDir: {}
+    ## When you want to enable automatic port configuration at startup, adjust this to:
+    # configMap:
+    #   name: <RELEASENAME>-scripts
+    #   defaultMode: 511
+
+additionalVolumeMounts:
+  - mountPath: /config/custom-cont-init.d
+    name: qbittorrent-scripts
+
+
+appAdditionalServicesEnabled: true
+appAdditionalServices:

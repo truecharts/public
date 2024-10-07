@@ -1,0 +1,132 @@
+image:
+  repository: gitea/gitea
+  tag: 1.21.11-rootless@sha256:ff14c3531ed8615261e6e1db617efa1eb9a9c23d5b8fe7f2742c02b190837aea
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10037
+        targetPort: 3000
+  ssh:
+    enabled: true
+    ports:
+      ssh:
+        enabled: true
+        port: 2222
+        targetPort: 2222
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+    targetSelectAll: true
+  varlib:
+    enabled: true
+    mountPath: "/var/lib/gitea"
+    type: emptyDir
+# Configure commit/action signing prerequisites
+signing:
+  enabled: true
+  gpgHome: /data/git/.gnupg
+admin:
+  username: giteaadmin
+  password: r8sA8CPHD9!bt6d
+  email: "gitea@local.domain"
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+ldap:
+  enabled: false
+  # name:
+  # securityProtocol:
+  # host:
+  # port:
+  # userSearchBase:
+  # userFilter:
+  # adminFilter:
+  # emailAttribute:
+  # bindDn:
+  # bindPassword:
+  # usernameAttribute:
+  # sshPublicKeyAttribute:
+oauth:
+  enabled: false
+  # name:
+  # provider:
+  # key:
+  # secret:
+  # autoDiscoverUrl:
+  # useCustomUrls:
+  # customAuthUrl:
+  # customTokenUrl:
+  # customProfileUrl:
+  # customEmailUrl:
+config:
+  APP_NAME: "Gitea: Git with a cup of tea"
+  RUN_MODE: dev
+  ALLOWED_HOST_LIST: "127.0.0.1"
+  nodeIP: 127.0.0.1
+customConfig: []
+# - name: test
+#   keys:
+#     - name: testkey
+#       value: testvalue
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: gitea
+    database: gitea
+# --  memcached dependency settings
+memcached:
+  enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+workload:
+  main:
+    podSpec:
+      initContainers:
+        1-init-directories:
+          enabled: true
+          imageSelector: image
+          type: init
+          command:
+            - "/usr/sbin/init_directory_structure.sh"
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          envFrom:
+            - configMapRef:
+                name: gitea-env
+        2-configure-gitea:
+          enabled: true
+          imageSelector: image
+          type: init
+          command:
+            - "/usr/sbin/configure_gitea.sh"
+          envFrom:
+            - configMapRef:
+                name: gitea-env
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          envFrom:
+            - configMapRef:
+                name: gitea-env

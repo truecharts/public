@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: master
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Sia is a decentralized cloud storage platform that radically alters the landscape of cloud storage. By leveraging smart contracts, client-side encryption, and sophisticated redundancy (via Reed-Solomon codes), Sia allows users to safely store their data with hosts that they do not know or trust. The result is a cloud storage marketplace where hosts compete to offer the best service at the lowest price. And since there is no barrier to entry for hosts, anyone with spare storage capacity can join the network and start making money.
+home: https://truecharts.org/charts/stable/sia-daemon
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sia-daemon.webp
+keywords:
+  - sia-daemon
+  - Cloud
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sia-daemon
+sources:
+  - https://ghcr.io/siafoundation/siad
+  - https://github.com/SiaFoundation/siad/pkgs/container/siad
+  - https://github.com/siafoundation/siad
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sia-daemon
+type: application
+version: 6.0.8

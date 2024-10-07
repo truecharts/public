@@ -1,0 +1,64 @@
+#!/bin/sh
+# shellcheck disable=SC1091,SC2034,SC2223,SC2154,SC1090,SC2046,SC2086,SC2155,SC2181,SC2006
+
+# PROVIDE: mongod
+# REQUIRE: NETWORK ldconfig
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# mongod_enable (bool):  Set to "NO" by default.
+#                        Set it to "YES" to enable mongod.
+# mongod_limits (bool):  Set to "NO" by default.
+#                        Set it to yes to run `limits -e -U mongodb`
+#                        just before mongod starts.
+# mongod_dbpath (str):   Default to "/var/db/mongodb"
+#                        Base database directory.
+# mongod_flags (str):    Custom additional arguments to be passed to mongod.
+#                        Default to "--logpath ${mongod_dbpath}/mongod.log --logappend".
+# mongod_config (str):	 Default to "/usr/local/etc/mongodb.conf"
+#                        Path to config file
+#
+
+. /etc/rc.subr
+
+name="mongod"
+rcvar=mongod_enable
+
+load_rc_config $name
+
+: ${mongod_enable="NO"}
+: ${mongod_limits="NO"}
+: ${mongod_dbpath="/config/mongodb"}
+: ${mongod_flags="--logpath ${mongod_dbpath}/mongod.log --logappend --setParameter=disabledSecureAllocatorDomains=\*"}
+: ${mongod_user="mongodb"}
+: ${mongod_group="mongodb"}
+: ${mongod_config="/usr/local/etc/mongodb.conf"}
+
+pidfile="${mongod_dbpath}/mongod.lock"
+command=/usr/local/bin/${name}
+command_args="--config $mongod_config --dbpath $mongod_dbpath --fork >/dev/null 2>/dev/null"
+start_precmd="${name}_prestart"
+
+mongod_create_dbpath()
+{
+        mkdir "${mongod_dbpath}" >/dev/null 2>/dev/null
+        [ $? -eq 0 ] && chown -R "${mongod_user}":"${mongod_group}" "${mongod_dbpath}"
+}
+
+mongod_prestart()
+{
+        if [ ! -d "${mongod_dbpath}" ]; then
+                mongod_create_dbpath || return 1
+        fi
+        if checkyesno mongod_limits; then
+                # TODO check this and clean this up
+                # Shellcheck disable=SC2046,SC2006
+                eval `/usr/bin/limits -e -U ${mongod_user}` 2>/dev/null
+        else
+                return 0
+        fi
+}
+
+run_rc_command "$1"

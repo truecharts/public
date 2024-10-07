@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: hauxir/imgpush
+  tag: latest@sha256:2e390756537974ad7b01e6779a457c42f59ae8f1f7a82c61a8ed34487040f2a6
+persistence:
+  storagecache:
+    enabled: true
+    mountPath: /cache
+  storageimages:
+    enabled: true
+    mountPath: /images
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: tcp
+        targetPort: 5000

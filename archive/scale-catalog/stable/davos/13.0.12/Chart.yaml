@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.2.2
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An FTP automation tool that periodically scans given host locations for new files.
+home: https://truecharts.org/charts/stable/davos
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/davos.webp
+keywords:
+  - davos
+  - ftp
+  - automation
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: davos
+sources:
+  - https://ghcr.io/linuxserver/davos
+  - https://github.com/linuxserver/davos/
+  - https://github.com/linuxserver/docker-davos
+  - https://github.com/truecharts/charts/tree/master/charts/stable/davos
+type: application
+version: 13.0.12

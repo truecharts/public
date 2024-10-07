@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install Thunderbird in the preferred version and language.
+home: https://truecharts.org/charts/stable/thunderbird
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/thunderbird.webp
+keywords:
+  - thunderbird
+  - mail
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: thunderbird
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/thunderbird
+  - https://hub.docker.com/r/ich777/thunderbird
+  - https://www.thunderbird.net/
+type: application
+version: 6.0.9

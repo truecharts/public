@@ -1,0 +1,32 @@
+image:
+  repository: ghcr.io/static-web-server/static-web-server
+  pullPolicy: IfNotPresent
+  tag: 2.31.1@sha256:5c8267a1661fb04028b265ce1524d60d413cefa73bcad505f04c1dfe0ad1560e
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 38080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SERVER_ROOT: "/public"
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+persistence:
+  config:
+    enabled: true
+    mountPath: "/public"
+portal:
+  open:
+    enabled: true

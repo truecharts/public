@@ -1,0 +1,62 @@
+image:
+  repository: gaseousgames/gaseousserver
+  pullPolicy: IfNotPresent
+  tag: v1.7.3@sha256:a1016222d7e5ec75b1039dbb314d39efd64084c3bb03e117958027f53f61f86f
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 5198
+
+gaseous:
+  igdb:
+    id: ""
+    secret: ""
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            dbhost:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            dbuser: "{{ .Values.mariadb.mariadbUsername }}"
+            dbname: "{{ .Values.mariadb.mariadbDatabase }}"
+            dbpass: "{{ .Values.mariadb.password }}"
+            dbport: 3306
+            igdbclientid: "{{ .Values.gaseous.igdb.id }}"
+            igdbclientsecret: "{{ .Values.gaseous.igdb.secret }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/root/.gaseous-server"
+  logs:
+    enabled: true
+    mountPath: "/root/.gaseous-server/Logs"
+  data:
+    enabled: true
+    mountPath: "/root/.gaseous-server/Data"
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: gaseous
+  mariadbDatabase: gaseous
+
+portal:
+  open:
+    enabled: true

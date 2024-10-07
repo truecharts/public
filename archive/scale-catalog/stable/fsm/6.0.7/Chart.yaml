@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: No description provide.
+home: https://truecharts.org/charts/stable/fsm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fsm.webp
+keywords:
+  - fsm
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fsm
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fsm
+  - https://hub.docker.com/r/ofsm/ofsm
+  - https://registry.hub.docker.com/r/ofsm/ofsm
+type: application
+version: 6.0.7

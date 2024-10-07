@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: webpsh/webps
+  tag: latest@sha256:cdbdd5fe9aba664dfe8c16f6d0298a5e1b6a49c27d4a94bb5ef0b55e4a8a4c59
+persistence:
+  storagecache:
+    enabled: true
+    mountPath: /opt/exhaust
+  storagepics:
+    enabled: true
+    mountPath: /opt/pics
+    readOnly: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        protocol: tcp
+        targetPort: 3333
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
+            ENABLE_AVIF: "false"
+            QUALITY: "80"

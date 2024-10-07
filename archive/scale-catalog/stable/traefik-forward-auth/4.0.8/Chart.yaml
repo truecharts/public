@@ -1,0 +1,38 @@
+annotations:
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A minimal forward authentication service that provides OAuth/SSO login and authentication for the traefik reverse proxy/load balancer. An example for a typical setup is included in the source (docs/how-to.md).
+home: https://truecharts.org/charts/stable/traefik-forward-auth
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik-forward-auth.webp
+keywords:
+  - traefik-forward-auth
+  - traefik
+  - forward-auth
+  - auth
+  - ingress
+  - middleware
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: traefik-forward-auth
+sources:
+  - https://github.com/thomseddon/traefik-forward-auth
+  - https://github.com/truecharts/charts/tree/master/charts/stable/traefik-forward-auth
+  - https://hub.docker.com/r/thomseddon/traefik-forward-auth
+type: application
+version: 4.0.8

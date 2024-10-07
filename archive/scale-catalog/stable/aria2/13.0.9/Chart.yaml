@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: aria server for downloading web content
+home: https://truecharts.org/charts/stable/aria2
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/aria2.webp
+keywords:
+  - aria2
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: aria2
+sources:
+  - https://github.com/P3TERX/Aria2-Pro-Docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/aria2
+  - https://hub.docker.com/r/p3terx/aria2-pro
+type: application
+version: 13.0.9

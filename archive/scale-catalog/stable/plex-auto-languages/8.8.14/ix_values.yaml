@@ -1,0 +1,38 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: remirigal/plex-auto-languages
+  tag: latest@sha256:869af6402302e1fd1d23e391cef81eb70c19dfb42dc371695de8a994eb6634f2
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_TOKEN: YOUR_TOKEN_PLEX
+            PLEX_URL: http://plex:32400

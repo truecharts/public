@@ -1,0 +1,23 @@
+image:
+  repository: whyour/qinglong
+  pullPolicy: IfNotPresent
+  tag: 2.17.5@sha256:9f86dca37086978f06e4dc229a0e24ed3b1faa9d90fd0bc4dedbe2fe4989cadb
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5700
+        port: 10176
+persistence:
+  data:
+    enabled: true
+    mountPath: "/ql/data"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing and 2D/3D drawing
+home: https://truecharts.org/charts/stable/freecad-desktop-g3
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/freecad-desktop-g3.png
+keywords:
+  - freecad-desktop-g3
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Photos
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: freecad-desktop-g3
+sources:
+  - https://github.com/accetto/headless-drawing-g3/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freecad-desktop-g3
+  - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-freecad-g3
+type: application
+version: 4.2.0

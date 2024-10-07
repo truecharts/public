@@ -1,0 +1,89 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    # manifests generated during bootstrap
+    - gotk-components.yaml
+    - gotk-sync.yaml
+patches:
+    - patch: |
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: not-used
+        spec:
+          template:
+            spec:
+              containers:
+                - name: manager
+                  resources:
+                    limits:
+                      cpu: 2000m
+                      memory: "2Gi"
+      target:
+        kind: Deployment
+        name: (kustomize-controller|helm-controller|source-controller)
+    - patch: |
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --concurrent=8
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --kube-api-qps=500
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --kube-api-burst=1000
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --requeue-dependency=5s
+      # Increase the number of reconciliations that can be performed in parallel and bump the resources limits
+      # https://fluxcd.io/flux/cheatsheets/bootstrap/#increase-the-number-of-workers
+      target:
+        kind: Deployment
+        name: (kustomize-controller|helm-controller|source-controller)
+    - patch: |
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --feature-gates=OOMWatch=true
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --oom-watch-memory-threshold=95
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --oom-watch-interval=500ms
+      # Enable Helm near OOM detection
+      # https://fluxcd.io/flux/cheatsheets/bootstrap/#enable-helm-near-oom-detection
+      target:
+        kind: Deployment
+        name: helm-controller
+    - patch: |
+        - op: add
+          path: /rules/-
+          value:
+            apiGroups: ["infra.contrib.fluxcd.io"]
+            resources: ["*"]
+            verbs: ["*"]
+      target:
+        kind: ClusterRole
+        name: crd-controller-flux-system
+    - patch: |
+        $patch: delete
+        apiVersion: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+          name: not-used
+      target:
+        group: networking.k8s.io
+        version: v1
+        kind: NetworkPolicy
+    #- patch: |
+    #    - op: add
+    #      path: /spec/template/spec/containers/0/args/-
+    #      value: --feature-gates=DetectDrift=true,CorrectDrift=false
+    #    - op: add
+    #      path: /spec/template/spec/containers/0/args/-
+    #      value: --log-level=debug
+    #  # Enable drift detection for HelmReleases and set the log level to debug
+    #  # https://fluxcd.io/flux/components/helm/helmreleases/#drift-detection
+    #  target:
+    #    kind: Deployment
+    #    name: helm-controller

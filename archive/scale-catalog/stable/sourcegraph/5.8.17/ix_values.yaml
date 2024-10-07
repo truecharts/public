@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: sourcegraph/server
+  tag: 5.3.12303@sha256:c12a8324b3c75855d80cd579866e3dcad38e2ebce6a02bf1e06053d666b015d4
+persistence:
+  applicationdatastoragepath:
+    enabled: true
+    mountPath: /var/opt/sourcegraph
+  configstoragepath:
+    enabled: true
+    mountPath: /etc/sourcegraph
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  adminconsolepo:
+    enabled: true
+    ports:
+      adminconsolepo:
+        enabled: true
+        port: 2633
+        protocol: tcp
+        targetPort: 2633
+  grafanaport:
+    enabled: true
+    ports:
+      grafanaport:
+        enabled: true
+        port: 3370
+        protocol: tcp
+        targetPort: 3370
+  main:
+    ports:
+      main:
+        port: 7080
+        protocol: http
+        targetPort: 7080

@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: crazymax/ddns-route53
+  tag: latest@sha256:4c9c9118603273a1ceb056f6e663967ae5e337b616c99a30823a1575d60f931e
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DDNSR53_CREDENTIALS_ACCESSKEYID: ABCDEFGHIJKLMNO123456
+            DDNSR53_CREDENTIALS_SECRETACCESSKEY: abcdefgh123456IJKLMN+OPQRS7890+ABCDEFGH
+            DDNSR53_ROUTE53_HOSTEDZONEID: ABCEEFG123456789
+            DDNSR53_ROUTE53_RECORDSSET_0_NAME: ddns.example.com.
+            DDNSR53_ROUTE53_RECORDSSET_0_TTL: "300"
+            DDNSR53_ROUTE53_RECORDSSET_0_TYPE: A
+            LOG_JSON: "false"
+            LOG_LEVEL: info
+            MAX_RETRIES: "3"
+            SCHEDULE: "*/30 * * * *"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

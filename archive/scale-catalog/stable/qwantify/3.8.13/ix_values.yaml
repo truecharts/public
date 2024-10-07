@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/wanjohiryan/qwantify
+  tag: 20.04@sha256:008fae84dc4d9c80eeddb9b2dc2438c0ba92a8c3a3776835a7a24321f7ea6ce1
+persistence:
+  games:
+    enabled: true
+    mountPath: /games
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10603
+        protocol: http
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPFILE: /game.exe
+            APPPATH: /games

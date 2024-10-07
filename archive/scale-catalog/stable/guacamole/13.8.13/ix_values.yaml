@@ -1,0 +1,261 @@
+image:
+  repository: guacamole/guacamole
+  pullPolicy: IfNotPresent
+  tag: 1.5.5@sha256:0f62f6d17ab379e46aa66874b2ff564dab856a6ef5e754a69cbb34c32d3e588a
+guacdImage:
+  repository: guacamole/guacd
+  pullPolicy: IfNotPresent
+  tag: 1.5.5@sha256:38232cae271361ef53db46faf5c49fe64049a1320a05b82c597425b69d6ce77e
+guacamole:
+  general:
+    EXTENSION_PRIORITY: ""
+  api:
+    API_SESSION_TIMEOUT: 60
+  ldap: {}
+  # LDAP_HOSTNAME: ""
+  # LDAP_USER_BASE_DN: ""
+  # LDAP_PORT: 389
+  # LDAP_ENCRYPTION_METHOD: none
+  # LDAP_MAX_SEARCH_RESULTS: 1000
+  # LDAP_SEARCH_BIND_DN: ""
+  # LDAP_USER_ATTRIBUTES: ""
+  # LDAP_SEARCH_BIND_PASSWORD: ""
+  # LDAP_USERNAME_ATTRIBUTE: uid
+  # LDAP_MEMBER_ATTRIBUTE: member
+  # LDAP_USER_SEARCH_FILTER: "(objectClass=*)"
+  # LDAP_CONFIG_BASE_DN: ""
+  # LDAP_GROUP_BASE_DN: ""
+  # LDAP_GROUP_SEARCH_FILTER: "(objectClass=*)"
+  # LDAP_MEMBER_ATTRIBUTE_TYPE: dn
+  # LDAP_GROUP_NAME_ATTRIBUTE: cn
+  # LDAP_DEREFERENCE_ALIASES: never
+  # LDAP_FOLLOW_REFERRALS: false
+  # LDAP_MAX_REFERRAL_HOPS: 5
+  # LDAP_OPERATION_TIMEOUT: 30
+  header: {}
+  # HEADER_ENABLED: false
+  # HTTP_AUTH_HEADER: REMOTE_USER
+  saml: {}
+  # SAML_IDP_METADATA_URL: ""
+  # SAML_IDP_URL: ""
+  # SAML_ENTITY_ID: ""
+  # SAML_CALLBACK_URL: ""
+  # SAML_STRICT: true
+  # SAML_DEBUG: false
+  # SAML_COMPRESS_REQUEST: true
+  # SAML_COMPRESS_RESPONSE: true
+  # SAML_GROUP_ATTRIBUTE: groups
+  proxy: {}
+  # REMOTE_IP_VALVE_ENABLED: false
+  # PROXY_ALLOWED_IPS_REGEX: ""
+  # PROXY_IP_HEADER: ""
+  # PROXY_PROTOCOL_HEADER: ""
+  # PROXY_BY_HEADER: ""
+  totp: {}
+  # TOTP_ENABLED: false
+  # TOTP_ISSUER: Apache Guacamole
+  # TOTP_DIGITS: 6
+  # TOTP_PERIOD: 30
+  # TOTP_MODE: sha1
+  duo: {}
+  # DUO_API_HOSTNAME: ""
+  # DUO_INTEGRATION_KEY: ""
+  # DUO_SECRET_KEY: ""
+  # DUO_APPLICATION_KEY: ""
+  radius: {}
+  # RADIUS_SHARED_SECRET: ""
+  # RADIUS_AUTH_PROTOCOL: eap-tls
+  # RADIUS_HOSTNAME: ""
+  # RADIUS_AUTH_PORT: 1812
+  # RADIUS_KEY_FILE: ""
+  # RADIUS_KEY_TYPE: pkcs12
+  # RADIUS_KEY_PASSWORD: ""
+  # RADIUS_CA_FILE: ""
+  # RADIUS_CA_TYPE: pem
+  # RADIUS_CA_PASSWORD: ""
+  # RADIUS_TRUST_ALL: false
+  # RADIUS_RETRIES: 5
+  # RADIUS_TIMEOUT: 60
+  # RADIUS_EAP_TTLS_INNER_PROTOCOL: eap-tls
+  # RADIUS_NAS_IP: ""
+  openid: {}
+  # OPENID_AUTHORIZATION_ENDPOINT: ""
+  # OPENID_JWKS_ENDPOINT: ""
+  # OPENID_ISSUER: ""
+  # OPENID_CLIENT_ID: ""
+  # OPENID_REDIRECT_URI: ""
+  # OPENID_USERNAME_CLAIM_TYPE: email
+  # OPENID_GROUPS_CLAIM_TYPE: groups
+  # OPENID_SCOPE: openid email profile
+  # OPENID_ALLOWED_CLOCK_SKEW: 30
+  # OPENID_MAX_TOKEN_VALIDITY: 300
+  # OPENID_MAX_NONCE_VALIDITY: 300
+  cas: {}
+  # CAS_AUTHORIZATION_ENDPOINT: ""
+  # CAS_REDIRECT_URI: ""
+  # CAS_CLEARPASS_KEY: ""
+  # CAS_GROUP_ATTRIBUTE: ""
+  # CAS_GROUP_FORMAT: plain
+  # CAS_GROUP_LDAP_BASE_DN: ""
+  # CAS_GROUP_LDAP_ATTRIBUTE: ""
+  json: {}
+  # JSON_SECRET_KEY: ""
+  # JSON_TRUSTED_NETWORKS: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: guacamole-config
+          probes:
+            liveness:
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+      # zz is used to ensure that the initContainers are run after db-waits
+      initContainers:
+        1-create-seed:
+          enabled: true
+          type: install
+          imageSelector: image
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: guacamole-config
+          command:
+            - /bin/sh
+          args:
+            - -c
+            - /tc-scripts/create-seed.sh
+        2-apply-seed:
+          enabled: true
+          type: install
+          imageSelector: postgresClientImage
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: guacamole-config
+          command:
+            - /bin/sh
+          args:
+            - -c
+            - /tc-scripts/apply-seed.sh
+  guacd:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        guacd:
+          enabled: true
+          primary: true
+          imageSelector: guacdImage
+          command:
+            - /opt/guacamole/sbin/guacd
+          args:
+            # Listen Address
+            - -b
+            - "0.0.0.0"
+            # Listen Port
+            - -l
+            - "{{ .Values.service.guacd.ports.guacd.port }}"
+            # Log Level
+            - -L
+            - info
+            # Foreground
+            - -f
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.guacd.ports.guacd.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.guacd.ports.guacd.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.guacd.ports.guacd.port }}"
+service:
+  main:
+    ports:
+      main:
+        port: 10123
+        targetPort: 8080
+  guacd:
+    enabled: true
+    targetSelector: guacd
+    ports:
+      guacd:
+        enabled: true
+        targetSelector: guacd
+        port: 10124
+persistence:
+  recordings:
+    enabled: true
+    # Check how this works and
+    # which containers need it mounted
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/lib/guacamole/recordings
+          readOnly: true
+      guacd:
+        guacd:
+          mountPath: /var/lib/guacamole/recordings
+  drive:
+    enabled: true
+    targetSelector:
+      guacd:
+        guacd:
+          mountPath: /var/lib/guacamole/drive
+  tc-init:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      main:
+        1-create-seed:
+          mountPath: /tc-init
+        2-apply-seed:
+          mountPath: /tc-init
+  db-seed:
+    enabled: true
+    type: configmap
+    objectName: db-init
+    defaultMode: "0770"
+    targetSelector:
+      main:
+        1-create-seed:
+          mountPath: /tc-scripts/create-seed.sh
+          subPath: create-seed.sh
+        2-apply-seed:
+          mountPath: /tc-scripts/apply-seed.sh
+          subPath: apply-seed.sh
+cnpg:
+  main:
+    enabled: true
+    user: guacamole
+    database: guacamole
+portal:
+  open:
+    enabled: true
+updated: true

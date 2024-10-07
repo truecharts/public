@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.3.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A simple null file http and https server
+home: https://truecharts.org/charts/stable/nullserv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nullserv.webp
+keywords:
+  - nullserv
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nullserv
+sources:
+  - https://ghcr.io/k8s-at-home/nullserv
+  - https://github.com/bmrzycki/nullserv
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nullserv
+type: application
+version: 14.0.8

@@ -1,0 +1,39 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.0.21
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An automatic Video Library Manager for TV Shows
+home: https://truecharts.org/charts/stable/medusa
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/medusa.webp
+keywords:
+  - medusa
+  - video
+  - library
+  - manager
+  - tv
+  - shows
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: medusa
+sources:
+  - https://ghcr.io/linuxserver/medusa
+  - https://github.com/linuxserver/docker-medusa
+  - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
+  - https://pymedusa.com/
+type: application
+version: 11.0.13

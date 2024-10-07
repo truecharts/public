@@ -1,0 +1,49 @@
+name: "Prune Versions"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Prune:
+    runs-on: ubuntu-latest
+    name: "Pruning"
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Prune App Versions
+        run: |
+          for train in stable incubator dependency core dev games enterprise
+          do
+            for chart in ${train}/*; do
+              if [ -f "${chart}/item.yaml" ]; then
+                maxchartversion=$(ls ${chart} | grep -v item.yaml | sort -Vr | head -n1)
+                maxchartversion=${maxchartversion%/}
+                chartname=$(basename ${chart})
+                  for version in ${chart}/*; do
+                    versionname=$(basename ${version})
+                    if [ -f "${version}/Chart.yaml" ]; then
+                      if [[ "${versionname}" != "${maxchartversion}" ]]; then
+                        echo "Removing older version ${versionname} for ${chartname}"  
+                        rm -Rf ${version}
+                      else
+                        echo "${versionname} is the latest version, skipping..."
+                      fi
+                    fi
+                  done
+              else
+                echo "Invalid App"
+              fi
+            done
+          done
+
+      - name: Commit and Push Pruned catalog
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Daily Prune" || exit 0
+          git push

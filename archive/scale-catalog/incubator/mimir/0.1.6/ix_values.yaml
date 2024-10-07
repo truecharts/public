@@ -1,0 +1,244 @@
+image:
+  repository: tccr.io/truecharts/scratch
+  pullPolicy: IfNotPresent
+  tag: 18.0.1@sha256:49df5708d7fc085acf76c7868f10f25fa7ba947c8a7d3354a97207ba69c85cc3
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+
+portal:
+  open:
+    enabled: false
+    
+configmap:
+  grafana-datasource:
+    enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
+    labels:
+      grafana_datasources: "1"
+    data:
+      datasource.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: Mimir
+          type: prometheus
+          uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
+          url: http://{{ if ne .Release.Name "mimir" }}{{ .Release.Name }}-{{ end }}mimir-nginx.{{ .Release.Namespace }}/prometheus
+          access: proxy
+          isDefault: {{ .Values.grafana.datasource.default | default true }}
+          jsonData:
+            httpMethod: {{ .Values.grafana.datasource.httpMethod | default "POST" }}
+            timeInterval: {{ .Values.grafana.datasource.scrapeInterval | default "30s" }}
+            {{- if .Values.grafana.datasource.timeout }}
+            timeout: {{ .Values.grafana.datasource.timeout }}
+            {{- end }}
+
+grafana:
+  datasource:
+    enabled: true
+    default: true
+    httpMethod: "POST"
+    scrapeInterval: "30s"
+    uid: "prometheus"
+
+# -- Mimir chart values. Resources are set to a minimum by default.
+mimir:
+  metaMonitoring:
+    # Dashboard configuration for deploying Grafana dashboards for Mimir
+    dashboards:
+      enabled: true
+      annotations: {}
+    serviceMonitor:
+      enabled: true
+      
+    grafanaAgent:
+      enabled: true
+      installOperator: false
+
+  alertmanager:
+    persistentVolume:
+      enabled: true
+    replicas: 2
+    resources:
+      limits:
+        cpu: 1.4
+        memory: 1.4Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+    statefulSet:
+      enabled: true
+  
+  compactor:
+    persistentVolume:
+      size: 20Gi
+    resources:
+      limits:
+        cpu: 1.4
+        memory: 2.1Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  distributor:
+    replicas: 2
+    resources:
+      limits:
+        cpu: 3.5
+        memory: 5.7Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  ingester:
+    persistentVolume:
+      size: 50Gi
+    replicas: 3
+    resources:
+      limits:
+        cpu: 5
+        memory: 12Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+    topologySpreadConstraints: {}
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: target
+                  operator: In
+                  values:
+                    - ingester
+            topologyKey: 'kubernetes.io/hostname'
+  
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - ingester
+            topologyKey: 'kubernetes.io/hostname'
+    zoneAwareReplication:
+      topologyKey: 'kubernetes.io/hostname'
+  
+  admin-cache:
+    enabled: true
+    replicas: 2
+  
+  chunks-cache:
+    enabled: true
+    replicas: 2
+  
+  index-cache:
+    enabled: true
+    replicas: 3
+  
+  metadata-cache:
+    enabled: true
+  
+  results-cache:
+    enabled: true
+  
+  minio:
+    enabled: true
+  
+  overrides_exporter:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  querier:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 2.8
+        memory: 5.6Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  query_frontend:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 2.8
+        memory: 2.8Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  ruler:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 1.4
+        memory: 2.8Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  
+  store_gateway:
+    persistentVolume:
+      size: 10Gi
+    replicas: 3
+    resources:
+      limits:
+        cpu: 1.4
+        memory: 2.1Gi
+      requests:
+        cpu: 20m
+        memory: 10Mi
+    topologySpreadConstraints: {}
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: target
+                  operator: In
+                  values:
+                    - store-gateway
+            topologyKey: 'kubernetes.io/hostname'
+  
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - store-gateway
+            topologyKey: 'kubernetes.io/hostname'
+  
+    zoneAwareReplication:
+      topologyKey: 'kubernetes.io/hostname'
+  chunks-cache:
+    resources:
+      requests:
+        cpu: 20m
+        memory: 10Mi
+  nginx:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 1.4
+        memory: 731Mi
+      requests:
+        cpu: 20m
+        memory: 10Mi

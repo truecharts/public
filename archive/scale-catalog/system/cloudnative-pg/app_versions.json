@@ -1,0 +1,649 @@
+{
+    "7.0.5": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/system/cloudnative-pg/7.0.5",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "latest_7.0.5",
+        "version": "7.0.5",
+        "chart_metadata": {
+            "annotations": {
+                "truecharts.org/category": "operators",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.11",
+                "truecharts.org/train": "system"
+            },
+            "apiVersion": "v2",
+            "appVersion": "latest",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "23.0.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "cloudnative-pg",
+                    "version": "0.20.2",
+                    "repository": "https://cloudnative-pg.github.io/charts",
+                    "condition": "",
+                    "alias": "cloudnative-pg",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "CloudNativePG is a clustered postgresql database operator",
+            "home": "https://truecharts.org/charts/system/cloudnative-pg",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
+            "keywords": [
+                "database",
+                "cloudnative-pg",
+                "cnpg"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "cloudnative-pg",
+            "sources": [
+                "https://cloudnative-pg.io/",
+                "https://github.com/cloudnative-pg",
+                "https://github.com/truecharts/charts/tree/master/charts/system/cloudnative-pg",
+                "https://github.com/truecharts/containers/tree/master/apps/alpine"
+            ],
+            "type": "application",
+            "version": "7.0.5"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Image",
+                    "description": "Configured the images to be used for the Chart.\nIt's wise to use \"digest pinned\" tags and to avoid using \"latest\".\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/#images\n"
+                },
+                {
+                    "name": "General",
+                    "description": "For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.\n\nCheckout the following documentation for more information:\n  - https://truecharts.org/common/global/\n  - https://truecharts.org/common/#tz\n  - https://truecharts.org/common/podoptions/\n  - Image Pull Secrets\n"
+                },
+                {
+                    "name": "Workload",
+                    "description": "These settings configure how the actual Pods and containers are running.\nGenerally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/workload/\n- https://truecharts.org/common/container/\n"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.\nMost options should have a Tooltip (Circled Question Mark) to further describe said option.\n\nTo find more information, lookup your chart-specific documentation in the Charts List: https://truecharts.org/charts/description-list/\n"
+                },
+                {
+                    "name": "Services",
+                    "description": "Service and Networking options for any applications are contained here.\nSome applications may have complicated networking setups with multiple options or some may have no options here at all.\n\nOptions here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/service/\n"
+                },
+                {
+                    "name": "Networking",
+                    "description": "Contains advanced networking options that are not actively supported by the TrueCharts team.\nCurrently only contains scaleExternalInterfaces.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/scaleexternalinterface/\n"
+                },
+                {
+                    "name": "Persistence",
+                    "description": "Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types.\nThis storage is called Persistence since it is not deleted upon restart or upgrade of an application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/\n- https://truecharts.org/scale/guides/nfs-share/\n- https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath\n"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names).\nIf you choose to enable this you must have a \"Ingress Provider\" aka \"Reverse Proxy\" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/)\nIt also requiresa DNS service to actually resolve the DNS name of the FQDN specified.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/ingress/\n"
+                },
+                {
+                    "name": "SecurityContext",
+                    "description": "The security settings for each application and/or permissions that each application may have for the files/directories created.\nEach application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities.\n\nUnless necessary users are advised to keep this section mostly to defaults.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/securitycontext/\n"
+                },
+                {
+                    "name": "Resources",
+                    "description": "Resources limits that have been defined by each application are in this section.\nMost will have a specific default that some users may want to change based on their specific hardware or needs.\n\nThis also contains the options to mount GPUs or, more precisely, \"request\" GPU's to be mounted.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/resources/\n"
+                },
+                {
+                    "name": "Devices",
+                    "description": "These are special \"mountpoints\" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.\nFor clearity we've decided to seperate this from persistence on SCALE.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/device/\n- https://truecharts.org/scale/guides/pci-passthrough/\n"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "StorageClass",
+                    "description": "StorageClasses define where to storage Storage.\n\nCheckout the following documentation for more information:\n"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Contains options to configure Prometheus metrics for the application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/metrics/\n"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application\u2019s defaults.\nThings included here are VPN addons, Codeserver for editing files inside the application\u2019s container, Netshoot for network troubelshooting, etc.\n\nGenerally not required for use but may be necessary or usefull at times for specific applications.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/addons/\n- https://truecharts.org/scale/guides/vpn-setup/\n"
+                },
+                {
+                    "name": "Experimental",
+                    "description": "Experimental Configuration Options\nOften these are not fully flushed-out, could randomly break or might not work at-all.\n"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "For Postgresql we use \"CloudNative-PG\" as a backend, which has to be installed first.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/cnpg/\n- https://truecharts.org/scale/guides/sql-export/\n- https://truecharts.org/scale/guides/recover-cnpg/\n"
+                },
+                {
+                    "name": "Dependencies",
+                    "description": "contains dependency setting for which we, currently, do not have seperate catagories (yet)\n"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "We added this section to make everyone aware that OpenSource isn't always easy.\nIt doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.\n\nBefore installing, be sure you've followed the https://truecharts.org/scale/guides/getting-started/\nWe would also advice going over our https://truecharts.org/scale/guides/scale-intro/\nand many of the other documentation pages...\n"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "global",
+                    "group": "General",
+                    "label": "Global Settings",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "stopAll",
+                                "label": "Stop All",
+                                "description": "Stops All Running pods and hibernates cnpg",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>CloudNativePG is a clustered postgresql database operator</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">https://truecharts.org/charts/system/cloudnative-pg</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as TrueNAS SCALE Apps.\nBoth solutions are fully supported, but we heavily advice the use of normal Helm Charts where possible</p>\n<p>For more information about this Chart, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Installation</h2>\n<h3>Helm-Chart installation</h3>\n<p>To install TrueCharts Helm charts using Helm, you can use our OCI Repository.</p>\n<p><code>helm install mychart oci://tccr.io/truecharts/CHARTNAME</code></p>\n<p>For more information on how to install TrueCharts Helm charts, checkout the instructions on the website: https://truecharts.org/helm/</p>\n<h3>TrueNAS SCALE Apps</h3>\n<p>For more information on how to use TrueCharts as TrueNAS SCALE Apps, please checkout the <a href=\"https://truecharts.org/scale\">quick-start guides for TrueNAS SCALE</a>.</p>\n<h2>Chart Specific Guides and information</h2>\n<p>All our charts have dedicated documentation pages.\nThe documentation for this chart can be found here:\nhttps://truecharts.org/charts/system/cloudnative-pg</p>\n<h2>Configuration Options</h2>\n<p>Please note: For TrueNAS SCALE, only options available in the GUI are supported.\nHence most of these docs do not apply to TrueNAS SCALE</p>\n<p>To view the chart specific options, please view Values.yaml included in the chart.\nThe most recent version of which, is available here: https://github.com/truecharts/charts/charts/system/cloudnative-pg/values.yaml</p>\n<p>All our Charts use a shared \"common\" library chart that contains most of the templating and options.\nFor the complete overview of all available options, please checkout the documentation for them on the website: https://truecharts.org/common/</p>\n<p>For information about the common chart and all defaults included with it, please review its values.yaml file available here: https://github.com/truecharts/library-charts/blob/main/library/common/values.yaml</p>\n<h2>Support</h2>\n<ul>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/general/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": "<p><em>for the complete changelog, please refer to the website</em></p>\n<p><strong>Important:</strong></p>"
+    },
+    "7.0.4": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/system/cloudnative-pg/7.0.4",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "latest_7.0.4",
+        "version": "7.0.4",
+        "chart_metadata": {
+            "annotations": {
+                "truecharts.org/category": "operators",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.11",
+                "truecharts.org/train": "system"
+            },
+            "apiVersion": "v2",
+            "appVersion": "latest",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "23.0.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "cloudnative-pg",
+                    "version": "0.20.2",
+                    "repository": "https://cloudnative-pg.github.io/charts",
+                    "condition": "",
+                    "alias": "cloudnative-pg",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "CloudNativePG is a clustered postgresql database operator",
+            "home": "https://truecharts.org/charts/system/cloudnative-pg",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
+            "keywords": [
+                "database",
+                "cloudnative-pg",
+                "cnpg"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "cloudnative-pg",
+            "sources": [
+                "https://cloudnative-pg.io/",
+                "https://github.com/cloudnative-pg",
+                "https://github.com/truecharts/charts/tree/master/charts/system/cloudnative-pg",
+                "https://github.com/truecharts/containers/tree/master/apps/alpine"
+            ],
+            "type": "application",
+            "version": "7.0.4"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Image",
+                    "description": "Configured the images to be used for the Chart.\nIt's wise to use \"digest pinned\" tags and to avoid using \"latest\".\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/#images\n"
+                },
+                {
+                    "name": "General",
+                    "description": "For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.\n\nCheckout the following documentation for more information:\n  - https://truecharts.org/common/global/\n  - https://truecharts.org/common/#tz\n  - https://truecharts.org/common/podoptions/\n  - Image Pull Secrets\n"
+                },
+                {
+                    "name": "Workload",
+                    "description": "These settings configure how the actual Pods and containers are running.\nGenerally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/workload/\n- https://truecharts.org/common/container/\n"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.\nMost options should have a Tooltip (Circled Question Mark) to further describe said option.\n\nTo find more information, lookup your chart-specific documentation in the Charts List: https://truecharts.org/charts/description-list/\n"
+                },
+                {
+                    "name": "Services",
+                    "description": "Service and Networking options for any applications are contained here.\nSome applications may have complicated networking setups with multiple options or some may have no options here at all.\n\nOptions here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/service/\n"
+                },
+                {
+                    "name": "Networking",
+                    "description": "Contains advanced networking options that are not actively supported by the TrueCharts team.\nCurrently only contains scaleExternalInterfaces.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/scaleexternalinterface/\n"
+                },
+                {
+                    "name": "Persistence",
+                    "description": "Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types.\nThis storage is called Persistence since it is not deleted upon restart or upgrade of an application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/\n- https://truecharts.org/scale/guides/nfs-share/\n- https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath\n"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names).\nIf you choose to enable this you must have a \"Ingress Provider\" aka \"Reverse Proxy\" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/)\nIt also requiresa DNS service to actually resolve the DNS name of the FQDN specified.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/ingress/\n"
+                },
+                {
+                    "name": "SecurityContext",
+                    "description": "The security settings for each application and/or permissions that each application may have for the files/directories created.\nEach application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities.\n\nUnless necessary users are advised to keep this section mostly to defaults.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/securitycontext/\n"
+                },
+                {
+                    "name": "Resources",
+                    "description": "Resources limits that have been defined by each application are in this section.\nMost will have a specific default that some users may want to change based on their specific hardware or needs.\n\nThis also contains the options to mount GPUs or, more precisely, \"request\" GPU's to be mounted.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/resources/\n"
+                },
+                {
+                    "name": "Devices",
+                    "description": "These are special \"mountpoints\" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.\nFor clearity we've decided to seperate this from persistence on SCALE.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/device/\n- https://truecharts.org/scale/guides/pci-passthrough/\n"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "StorageClass",
+                    "description": "StorageClasses define where to storage Storage.\n\nCheckout the following documentation for more information:\n"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Contains options to configure Prometheus metrics for the application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/metrics/\n"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application\u2019s defaults.\nThings included here are VPN addons, Codeserver for editing files inside the application\u2019s container, Netshoot for network troubelshooting, etc.\n\nGenerally not required for use but may be necessary or usefull at times for specific applications.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/addons/\n- https://truecharts.org/scale/guides/vpn-setup/\n"
+                },
+                {
+                    "name": "Experimental",
+                    "description": "Experimental Configuration Options\nOften these are not fully flushed-out, could randomly break or might not work at-all.\n"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "For Postgresql we use \"CloudNative-PG\" as a backend, which has to be installed first.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/cnpg/\n- https://truecharts.org/scale/guides/sql-export/\n- https://truecharts.org/scale/guides/recover-cnpg/\n"
+                },
+                {
+                    "name": "Dependencies",
+                    "description": "contains dependency setting for which we, currently, do not have seperate catagories (yet)\n"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "We added this section to make everyone aware that OpenSource isn't always easy.\nIt doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.\n\nBefore installing, be sure you've followed the https://truecharts.org/scale/guides/getting-started/\nWe would also advice going over our https://truecharts.org/scale/guides/scale-intro/\nand many of the other documentation pages...\n"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "global",
+                    "group": "General",
+                    "label": "Global Settings",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "stopAll",
+                                "label": "Stop All",
+                                "description": "Stops All Running pods and hibernates cnpg",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "credentialsList",
+                    "group": "General",
+                    "label": "Credentials (Experimental)",
+                    "schema": {
+                        "type": "list",
+                        "default": [],
+                        "items": [
+                            {
+                                "variable": "credentialsEntry",
+                                "label": "Enter Credentials",
+                                "schema": {
+                                    "additional_attrs": true,
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "name",
+                                            "label": "Name",
+                                            "description": "Name",
+                                            "schema": {
+                                                "type": "string",
+                                                "required": true,
+                                                "default": ""
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of Credential",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "s3",
+                                                "enum": [
+                                                    {
+                                                        "value": "s3",
+                                                        "description": "s3 Storage"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "url",
+                                            "label": "url",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "path",
+                                            "label": "path",
+                                            "description": "Path Prefix not needed for most cases",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": ""
+                                            }
+                                        },
+                                        {
+                                            "variable": "bucket",
+                                            "label": "bucket",
+                                            "schema": {
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "s3"
+                                                    ]
+                                                ],
+                                                "type": "string",
+                                                "default": "",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "accessKey",
+                                            "label": "accessKey",
+                                            "schema": {
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "s3"
+                                                    ]
+                                                ],
+                                                "type": "string",
+                                                "default": "",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "secretKey",
+                                            "label": "secretKey",
+                                            "schema": {
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "s3"
+                                                    ]
+                                                ],
+                                                "type": "string",
+                                                "default": "",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "encrKey",
+                                            "label": "encrKey",
+                                            "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
+                                            "schema": {
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "s3"
+                                                    ]
+                                                ],
+                                                "type": "string",
+                                                "default": "MYSECRETPASSPHRASE",
+                                                "required": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>CloudNativePG is a clustered postgresql database operator</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">https://truecharts.org/charts/system/cloudnative-pg</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as TrueNAS SCALE Apps.\nBoth solutions are fully supported, but we heavily advice the use of normal Helm Charts where possible</p>\n<p>For more information about this Chart, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Installation</h2>\n<h3>Helm-Chart installation</h3>\n<p>To install TrueCharts Helm charts using Helm, you can use our OCI Repository.</p>\n<p><code>helm install mychart oci://tccr.io/truecharts/CHARTNAME</code></p>\n<p>For more information on how to install TrueCharts Helm charts, checkout the instructions on the website: https://truecharts.org/helm/</p>\n<h3>TrueNAS SCALE Apps</h3>\n<p>For more information on how to use TrueCharts as TrueNAS SCALE Apps, please checkout the <a href=\"https://truecharts.org/scale/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</p>\n<h2>Configuration Options</h2>\n<p>To view the chart specific options, please view Values.yaml included in the chart.</p>\n<p>All our Charts use a shared \"common\" library chart that contains most of the templating and options.\nFor the complete overview of all available options, please checkout the documentation for them on the website: https://truecharts.org/common/</p>\n<h2>Chart Specific Guides and information</h2>\n<p>All our charts have dedicated documentation pages.\nThe documentation for this chart can be found here:\nhttps://truecharts.org/charts/system/cloudnative-pg</p>\n<h2>Support</h2>\n<ul>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/general/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": "<p><em>for the complete changelog, please refer to the website</em></p>\n<p><strong>Important:</strong></p>"
+    },
+    "6.10.2": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/system/cloudnative-pg/6.10.2",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "latest_6.10.2",
+        "version": "6.10.2",
+        "chart_metadata": {
+            "annotations": {
+                "max_scale_version": "24.04.0",
+                "min_scale_version": "23.10.0",
+                "truecharts.org/category": "operators",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.11",
+                "truecharts.org/train": "system"
+            },
+            "apiVersion": "v2",
+            "appVersion": "latest",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "20.3.12",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "cloudnative-pg",
+                    "version": "0.20.2",
+                    "repository": "https://cloudnative-pg.github.io/charts",
+                    "condition": "",
+                    "alias": "cloudnative-pg",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "CloudNativePG is a clustered postgresql database operator",
+            "home": "https://truecharts.org/charts/system/cloudnative-pg",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
+            "keywords": [
+                "database",
+                "cloudnative-pg",
+                "cnpg"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "cloudnative-pg",
+            "sources": [
+                "https://cloudnative-pg.io/",
+                "https://github.com/cloudnative-pg",
+                "https://github.com/truecharts/charts/tree/master/charts/system/cloudnative-pg",
+                "https://github.com/truecharts/containers/tree/master/apps/alpine"
+            ],
+            "type": "application",
+            "version": "6.10.2"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Image",
+                    "description": "Configured the images to be used for the Chart.\nIt's wise to use \"digest pinned\" tags and to avoid using \"latest\".\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/#images\n"
+                },
+                {
+                    "name": "General",
+                    "description": "For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.\n\nCheckout the following documentation for more information:\n  - https://truecharts.org/common/global/\n  - https://truecharts.org/common/#tz\n  - https://truecharts.org/common/podoptions/\n  - Image Pull Secrets\n"
+                },
+                {
+                    "name": "Workload",
+                    "description": "These settings configure how the actual Pods and containers are running.\nGenerally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/workload/\n- https://truecharts.org/common/container/\n"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.\nMost options should have a Tooltip (Circled Question Mark) to further describe said option.\n\nTo find more information, lookup your chart-specific documentation in the Charts List: https://truecharts.org/charts/description-list/\n"
+                },
+                {
+                    "name": "Services",
+                    "description": "Service and Networking options for any applications are contained here.\nSome applications may have complicated networking setups with multiple options or some may have no options here at all.\n\nOptions here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/service/\n"
+                },
+                {
+                    "name": "Networking",
+                    "description": "Contains advanced networking options that are not actively supported by the TrueCharts team.\nCurrently only contains scaleExternalInterfaces.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/scaleexternalinterface/\n"
+                },
+                {
+                    "name": "Persistence",
+                    "description": "Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types.\nThis storage is called Persistence since it is not deleted upon restart or upgrade of an application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/\n- https://truecharts.org/scale/guides/nfs-share/\n- https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath\n"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names).\nIf you choose to enable this you must have a \"Ingress Provider\" aka \"Reverse Proxy\" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/)\nIt also requiresa DNS service to actually resolve the DNS name of the FQDN specified.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/ingress/\n"
+                },
+                {
+                    "name": "SecurityContext",
+                    "description": "The security settings for each application and/or permissions that each application may have for the files/directories created.\nEach application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities.\n\nUnless necessary users are advised to keep this section mostly to defaults.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/securitycontext/\n"
+                },
+                {
+                    "name": "Resources",
+                    "description": "Resources limits that have been defined by each application are in this section.\nMost will have a specific default that some users may want to change based on their specific hardware or needs.\n\nThis also contains the options to mount GPUs or, more precisely, \"request\" GPU's to be mounted.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/resources/\n"
+                },
+                {
+                    "name": "Devices",
+                    "description": "These are special \"mountpoints\" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.\nFor clearity we've decided to seperate this from persistence on SCALE.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/persistence/device/\n- https://truecharts.org/scale/guides/pci-passthrough/\n"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "StorageClass",
+                    "description": "StorageClasses define where to storage Storage.\n\nCheckout the following documentation for more information:\n"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Contains options to configure Prometheus metrics for the application.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/metrics/\n"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application\u2019s defaults.\nThings included here are VPN addons, Codeserver for editing files inside the application\u2019s container, Netshoot for network troubelshooting, etc.\n\nGenerally not required for use but may be necessary or usefull at times for specific applications.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/addons/\n- https://truecharts.org/scale/guides/vpn-setup/\n"
+                },
+                {
+                    "name": "Experimental",
+                    "description": "Experimental Configuration Options\nOften these are not fully flushed-out, could randomly break or might not work at-all.\n"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "For Postgresql we use \"CloudNative-PG\" as a backend, which has to be installed first.\n\nCheckout the following documentation for more information:\n- https://truecharts.org/common/cnpg/\n- https://truecharts.org/scale/guides/sql-export/\n- https://truecharts.org/scale/guides/recover-cnpg/\n"
+                },
+                {
+                    "name": "Dependencies",
+                    "description": "contains dependency setting for which we, currently, do not have seperate catagories (yet)\n"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "We added this section to make everyone aware that OpenSource isn't always easy.\nIt doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.\n\nBefore installing, be sure you've followed the https://truecharts.org/scale/guides/getting-started/\nWe would also advice going over our https://truecharts.org/scale/guides/scale-intro/\nand many of the other documentation pages...\n"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "global",
+                    "group": "General",
+                    "label": "Global Settings",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "stopAll",
+                                "label": "Stop All",
+                                "description": "Stops All Running pods and hibernates cnpg",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>CloudNativePG is a clustered postgresql database operator</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">https://truecharts.org/charts/system/cloudnative-pg</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as TrueNAS SCALE Apps.\nBoth solutions are fully supported, but we heavily advice the use of normal Helm Charts where possible</p>\n<p>For more information about this Chart, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/system/cloudnative-pg\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Installation</h2>\n<h3>Helm-Chart installation</h3>\n<p>To install TrueCharts Helm charts using Helm, you can use our OCI Repository.</p>\n<p><code>helm install mychart oci://tccr.io/truecharts/CHARTNAME</code></p>\n<p>For more information on how to install TrueCharts Helm charts, checkout the instructions on the website: https://truecharts.org/helm/</p>\n<h3>TrueNAS SCALE Apps</h3>\n<p>For more information on how to use TrueCharts as TrueNAS SCALE Apps, please checkout the <a href=\"https://truecharts.org/scale/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</p>\n<h2>Configuration Options</h2>\n<p>To view the chart specific options, please view Values.yaml included in the chart.</p>\n<p>All our Charts use a shared \"common\" library chart that contains most of the templating and options.\nFor the complete overview of all available options, please checkout the documentation for them on the website: https://truecharts.org/common/</p>\n<h2>Chart Specific Guides and information</h2>\n<p>All our charts have dedicated documentation pages.\nThe documentation for this chart can be found here:\nhttps://truecharts.org/charts/system/cloudnative-pg</p>\n<h2>Support</h2>\n<ul>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/general/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": "<p><em>for the complete changelog, please refer to the website</em></p>\n<p><strong>Important:</strong></p>"
+    }
+}

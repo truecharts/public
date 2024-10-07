@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: system
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 18.1.0
+dependencies:
+  - name: common
+    version: 22.0.3
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Magical shell history.
+home: https://truecharts.org/charts/incubator/atuin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/atuin.webp
+keywords:
+  - atuin
+  - shell
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: atuin
+sources:
+  - https://github.com/atuinsh/atuin
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/atuin
+  - https://ghcr.io/atuinsh/atuin
+type: application
+version: 3.0.3

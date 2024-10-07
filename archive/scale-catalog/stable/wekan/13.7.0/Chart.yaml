@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 7.31.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 11.1.22
+    repository: oci://tccr.io/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: WeKan - Open Source kanban
+home: https://truecharts.org/charts/stable/wekan
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wekan.png
+keywords:
+  - wekan
+  - kanban
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wekan
+sources:
+  - https://wekan.github.io/
+  - https://github.com/wekan/wekan
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wekan
+  - https://hub.docker.com/r/wekanteam/wekan
+type: application
+version: 13.7.0

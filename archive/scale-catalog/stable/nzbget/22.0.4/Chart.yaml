@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.1.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: NZBGet is a Usenet downloader client
+home: https://truecharts.org/charts/stable/nzbget
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nzbget.webp
+keywords:
+  - nzbget
+  - usenet
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nzbget
+sources:
+  - https://ghcr.io/geek-cookbook/nzbget
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nzbget
+  - https://nzbget.net/
+type: application
+version: 22.0.4

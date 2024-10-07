@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: dashboard
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.1.2
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Dashy helps you organize your self-hosted services by making them accessible from a single place
+home: https://truecharts.org/charts/stable/dashy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashy.webp
+keywords:
+  - dashboard
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dashy
+sources:
+  - https://github.com/Lissy93/dashy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dashy
+  - https://hub.docker.com/r/lissy93/dashy
+type: application
+version: 6.8.13

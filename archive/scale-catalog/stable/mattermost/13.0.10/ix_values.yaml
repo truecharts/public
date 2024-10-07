@@ -1,0 +1,48 @@
+image:
+  repository: mattermost/mattermost-enterprise-edition
+  tag: release-9.6@sha256:11dc2e7f31b7492749334c254703ec7dfef9b41240ae503d9232f5854a5055db
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TIMEZONE: "{{ .Values.TZ }}"
+            MM_SQLSETTINGS_DRIVERNAME: "postgres"
+            MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+            MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
+            MM_SQLSETTINGS_DATASOURCE: '{{ .Values.cnpg.main.creds.std | trimAll "\""  }}'
+service:
+  main:
+    ports:
+      main:
+        port: 10239
+        targetPort: 8065
+persistence:
+  config:
+    enabled: true
+    mountPath: "/mattermost/config"
+  data:
+    enabled: true
+    mountPath: "/mattermost/data"
+  logs:
+    enabled: true
+    mountPath: "/mattermost/logs"
+  plugins:
+    enabled: true
+    mountPath: "/mattermost/plugins"
+  clientplugins:
+    enabled: true
+    mountPath: "/mattermost/client/plugins"
+  bleveindexes:
+    enabled: true
+    mountPath: "/mattermost/bleve-indexes"
+cnpg:
+  main:
+    enabled: true
+    user: mattermost
+    database: mattermost
+portal:
+  open:
+    enabled: true

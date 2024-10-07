@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ipsingh06/seedsync
+  tag: latest@sha256:78715911d1c3510c3dcc595a109778e541faa4f6ebb836b0e396e840509a2c33
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8800
+        protocol: http
+        targetPort: 8800
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /downloads
+portal:
+  open:
+    enabled: true

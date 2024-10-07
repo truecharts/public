@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: 'Another web application bookmark dashboard, with fun features.[br][br][b][u][span style=''color: #ff9900;'']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]'
+home: https://truecharts.org/charts/stable/dashmachine
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashmachine.webp
+keywords:
+  - dashmachine
+  - Productivity
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dashmachine
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dashmachine
+  - https://hub.docker.com/r/rmountjoy/dashmachine
+type: application
+version: 6.0.8

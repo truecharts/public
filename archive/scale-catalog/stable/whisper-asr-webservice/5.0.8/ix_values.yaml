@@ -1,0 +1,53 @@
+image:
+  repository: onerahmet/openai-whisper-asr-webservice
+  pullPolicy: IfNotPresent
+  tag: "v1.3.0@sha256:9332d6faf787ce42886f5e220f3cea801d8530251991192c470847e9efb1239e\r"
+gpuImage:
+  repository: onerahmet/openai-whisper-asr-webservice
+  pullPolicy: IfNotPresent
+  tag: "v1.3.0-gpu@sha256:61a54aca45045aa04e31c27ef098890ab196696cc15c55875fb9f0c6ed804456\r"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: http
+              path: "/docs"
+            startup:
+              type: http
+              path: "/docs"
+          env:
+            ASR_MODEL: tiny
+            ASR_ENGINE: faster_whisper
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 9000
+        port: 19900
+persistence:
+  pip:
+    enabled: true
+    mountPath: "/root/.cache/pip"
+  poetry:
+    enabled: true
+    mountPath: "/root/.cache/poetry"
+  whisper:
+    enabled: true
+    mountPath: "/root/.cache/whisper"
+portal:
+  open:
+    enabled: true
+updated: true

@@ -1,0 +1,138 @@
+image:
+  repository: outlinewiki/outline
+  pullPolicy: IfNotPresent
+  tag: 0.75.1@sha256:64c3ed1eeb4084aa5bc5aebcd24e70215bd923e3d3dc2c1b0642a2b42ec37114
+service:
+  main:
+    ports:
+      main:
+        port: 10196
+# Enabled redis
+redis:
+  enabled: true
+  redisUsername: default
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: outline
+    database: outline
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      initContainers:
+        1-migratedb:
+          enabled: true
+          imageSelector: image
+          type: init
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            REDIS_URL:
+              secretKeyRef:
+                name: secrets
+                key: REDIS_CUSTOM_URL
+            SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY
+            UTILS_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: UTILS_SECRET
+          command:
+            - sh
+            - -c
+            - yarn sequelize db:migrate --env=production-ssl-disabled
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/_health"
+            readiness:
+              path: "/_health"
+            startup:
+              path: "/_health"
+          env:
+            FORCE_HTTPS: false
+            PGSSLMODE: "disable"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User defined
+            URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            SLACK_MESSAGE_ACTIONS: true
+            ENABLE_UPDATES: true
+            WEB_CONCURRENCY: 1
+            MAXIMUM_IMPORT_SIZE: 5120000
+            DEFAULT_LANGUAGE: "en_US"
+            FILE_STORAGE: ""
+            FILE_STORAGE_UPLOAD_MAX_SIZE: ""
+            # TEAM_LOGO: ""
+            # COLLABORATION_URL: ""
+            # SLACK_KEY: ""
+            # SLACK_SECRET: ""
+            # SLACK_VERIFICATION_TOKEN: ""
+            # SLACK_APP_ID: ""
+            # GOOGLE_CLIENT_ID: ""
+            # GOOGLE_CLIENT_SECRET: ""
+            # GOOGLE_ANALYTICS_ID: ""
+            # AZURE_CLIENT_ID: ""
+            # AZURE_CLIENT_SECRET: ""
+            # AZURE_RESOURCE_APP_ID: ""
+            # OIDC_CLIENT_ID: ""
+            # OIDC_CLIENT_SECRET: ""
+            # OIDC_AUTH_URI: ""
+            # OIDC_TOKEN_URI: ""
+            # OIDC_USERINFO_URI: ""
+            # OIDC_USERNAME_CLAIM: ""
+            # OIDC_DISPLAY_NAME: ""
+            # OIDC_SCOPES: ""
+            # SENTRY_DSN: ""
+            # AWS_ACCESS_KEY_ID: ""
+            # AWS_SECRET_ACCESS_KEY: ""
+            # AWS_REGION: ""
+            # AWS_S3_ACCELERATE_URL: ""
+            # AWS_S3_UPLOAD_BUCKET_URL: ""
+            # AWS_S3_UPLOAD_BUCKET_NAME: ""
+            # AWS_S3_UPLOAD_MAX_SIZE: 26214400
+            # AWS_S3_FORCE_PATH_STYLE: true
+            # AWS_S3_ACL: ""
+            # SMTP_HOST: ""
+            # SMTP_PORT: 587
+            # SMTP_USERNAME: ""
+            # SMTP_PASSWORD: ""
+            # SMTP_FROM_EMAIL: ""
+            # SMTP_REPLY_EMAIL: ""
+            # SMTP_SECURE: true
+
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY
+            UTILS_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: UTILS_SECRET
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/lib/outline/data

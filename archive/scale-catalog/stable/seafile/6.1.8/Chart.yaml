@@ -1,0 +1,43 @@
+annotations:
+  truecharts.org/category: file-storage
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 11.0.8
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.10
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Reliable and Performant File Sync and Share Solution
+home: https://truecharts.org/charts/stable/seafile
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/seafile.webp
+keywords:
+  - seafile
+  - files
+  - cloud
+  - file-storage
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: seafile
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
+  - https://hub.docker.com/r/seafileltd/seafile-mc
+  - https://seafile.com
+type: application
+version: 6.1.8

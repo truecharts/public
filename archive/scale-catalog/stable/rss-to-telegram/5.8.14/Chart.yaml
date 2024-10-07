@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted telegram JS/TS bot that dumps posts from RSS feeds to a telegram chat. This script was created because all the third party services were unreliable, slow.
+home: https://truecharts.org/charts/stable/rss-to-telegram
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-to-telegram.webp
+keywords:
+  - rss-to-telegram
+  - Network-Other
+  - Network-Messenger
+  - Productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rss-to-telegram
+sources:
+  - https://github.com/BoKKeR/RSS-to-Telegram-Bot
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rss-to-telegram
+  - https://hub.docker.com/r/bokker/rss.to.telegram
+type: application
+version: 5.8.14

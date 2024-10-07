@@ -1,0 +1,33 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: bpatrik/pigallery2
+  tag: latest@sha256:317a50a5d1b81ad3469ac534c39e4c8022b13b8e504a30bc279716ceabed1e1f
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/data/config
+  db:
+    enabled: true
+    mountPath: /app/data/db
+  image:
+    enabled: true
+    mountPath: /app/data/images/
+    readOnly: true
+  tmp:
+    enabled: true
+    mountPath: /app/data/tmp
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: tcp
+        targetPort: 80

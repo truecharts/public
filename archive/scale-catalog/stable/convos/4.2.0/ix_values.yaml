@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: convos/convos
+  tag: stable@sha256:8531a54546bc3f93727de6aeeb151704108461aab65166cb58967dd7c2f61944
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3520
+        protocol: tcp
+        targetPort: 3000

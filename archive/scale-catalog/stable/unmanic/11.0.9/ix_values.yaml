@@ -1,0 +1,35 @@
+image:
+  repository: josh5/unmanic
+  tag: 0.2.7@sha256:7652682370454f509d718d9dcfbd27c7099def3800f770bb7bb932c5a6e0212a
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10157
+        targetPort: 8888
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  library:
+    enabled: true
+    mountPath: "/library"
+  remote:
+    enabled: true
+    mountPath: "/tmp/unmanic/remote_library"
+  cache:
+    enabled: true
+    mountPath: "/tmp/unmanic"
+    type: emptyDir
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

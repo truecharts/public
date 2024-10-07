@@ -1,0 +1,47 @@
+annotations:
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.11.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
+home: https://truecharts.org/charts/stable/etesync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/etesync.webp
+keywords:
+  - etesync
+  - sync
+  - contacts
+  - calendars
+  - tasks
+  - notes
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: etesync
+sources:
+  - https://github.com/etesync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/etesync
+  - https://github.com/victor-rds/docker-etebase
+  - https://hub.docker.com/r/victorrds/etesync
+  - https://www.etesync.com/
+type: application
+version: 10.1.4

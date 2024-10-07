@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: wabayang/jelu
+  tag: latest@sha256:649e9835b109af781263389716caa4e8f58bdae4c898b610af06311d8e99d265
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  databasepath:
+    enabled: true
+    mountPath: /database
+  imagespath:
+    enabled: true
+    mountPath: /files/images
+  importspath:
+    enabled: true
+    mountPath: /files/imports
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 11111
+        protocol: tcp
+        targetPort: 11111

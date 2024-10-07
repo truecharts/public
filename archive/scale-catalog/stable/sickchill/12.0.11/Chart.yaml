@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.3.1
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An Automatic Video Library Manager for TV Shows
+home: https://truecharts.org/charts/stable/sickchill
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.webp
+keywords:
+  - sickchill
+  - video
+  - library
+  - manager
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sickchill
+sources:
+  - https://ghcr.io/linuxserver/sickchill
+  - https://github.com/SickChill/SickChill
+  - https://github.com/linuxserver/docker-sickchill
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
+type: application
+version: 12.0.11

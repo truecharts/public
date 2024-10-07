@@ -1,0 +1,69 @@
+image:
+  repository: pihole/pihole
+  pullPolicy: IfNotPresent
+  tag: 2024.05.0@sha256:8b1f31f46d94c3c1b8f509b302f28b4028483009bd27a9cbfd9b80185dd0687d
+pihole:
+  webPassword: somepassword"
+  dnsServers:
+    - "9.9.9.9"
+    - "149.112.112.112"
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SETFCAP
+        - SETPCAP
+        - KILL
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: pihole-env
+          probes:
+            liveness:
+              type: http
+              path: /admin/index.php
+            readiness:
+              type: http
+              path: /admin/index.php
+            startup:
+              type: http
+              path: /admin/index.php
+service:
+  main:
+    ports:
+      main:
+        port: 9089
+        targetPort: 80
+  dns:
+    enabled: true
+    ports:
+      dns:
+        enabled: true
+        protocol: udp
+        port: 53
+        targetPort: 53
+      dns-tcp:
+        enabled: true
+        protocol: tcp
+        port: "{{ .Values.service.dns.ports.dns.port }}"
+        targetPort: 53
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/pihole"
+  dnsmasq:
+    enabled: true
+    mountPath: "/etc/dnsmasq.d"
+portal:
+  open:
+    enabled: true

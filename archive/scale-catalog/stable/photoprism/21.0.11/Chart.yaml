@@ -1,0 +1,45 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 240420.0.0
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 13.9.20
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
+home: https://truecharts.org/charts/stable/photoprism
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoprism.webp
+keywords:
+  - photos
+  - photoprism
+  - pictures
+  - sharing
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: photoprism
+sources:
+  - https://github.com/photoprism/photoprism
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
+  - https://hub.docker.com/r/photoprism/photoprism
+type: application
+version: 21.0.11

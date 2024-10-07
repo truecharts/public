@@ -1,0 +1,56 @@
+annotations:
+  truecharts.org/category: CSI
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: localpv-provisioner
+    version: 4.0.0
+    repository: https://openebs.github.io/dynamic-localpv-provisioner
+    condition: localpv-provisioner.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: zfs-localpv
+    version: 2.5.1
+    repository: https://openebs.github.io/zfs-localpv
+    condition: zfs-localpv.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: lvm-localpv
+    version: 1.5.1
+    repository: https://openebs.github.io/lvm-localpv
+    condition: lvm-localpv.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: OpenEBS is a umbrella chart for multiple container storage provisioners
+home: https://truecharts.org/charts/system/openebs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.webp
+keywords:
+  - openebs
+  - backup
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openebs
+sources:
+  - https://cert-manager.io/
+  - https://github.com/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/system/openebs
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
+type: application
+version: 6.0.1

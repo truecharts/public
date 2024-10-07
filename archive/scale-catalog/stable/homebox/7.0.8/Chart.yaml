@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: inventory
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.10.3
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Inventory and organization system built for the Home User.
+home: https://truecharts.org/charts/stable/homebox
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebox.webp
+keywords:
+  - homebox
+  - inventory
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: homebox
+sources:
+  - https://ghcr.io/hay-kot/homebox
+  - https://github.com/hay-kot/homebox
+  - https://github.com/truecharts/charts/tree/master/charts/stable/homebox
+type: application
+version: 7.0.8

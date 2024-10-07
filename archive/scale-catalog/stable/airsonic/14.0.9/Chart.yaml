@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 10.6.2
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Airsonic is a Free and Open Source community driven media server
+home: https://truecharts.org/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.webp
+keywords:
+  - airsonic
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: airsonic
+sources:
+  - https://ghcr.io/linuxserver/airsonic
+  - https://github.com/airsonic/airsonic
+  - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
+  - https://github.com/linuxserver/docker-airsonic
+  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
+type: application
+version: 14.0.9

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: machine-learning
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.3.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Whisper is a general-purpose speech recognition model.
+home: https://truecharts.org/charts/stable/whisper-asr-webservice
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/whisper-asr-webservice.webp
+keywords:
+  - whisper-asr-webservice
+  - machine-learning
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: whisper-asr-webservice
+sources:
+  - https://github.com/ahmetoner/whisper-asr-webservice
+  - https://github.com/truecharts/charts/tree/master/charts/stable/whisper-asr-webservice
+  - https://hub.docker.com/r/onerahmet/openai-whisper-asr-webservice
+type: application
+version: 5.0.7

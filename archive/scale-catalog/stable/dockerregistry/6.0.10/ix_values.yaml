@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: registry
+  tag: 2@sha256:4fac7a8257b1d7a86599043fcc181dfbdf9c8f57e337db763ac94b0e67c6cfb5
+persistence:
+  datastoragepath:
+    enabled: true
+    mountPath: /var/lib/registry
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: tcp
+        targetPort: 5000

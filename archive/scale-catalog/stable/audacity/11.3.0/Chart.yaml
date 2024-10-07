@@ -1,0 +1,40 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.0.2
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An easy-to-use, multi-track audio editor and recorder
+home: https://truecharts.org/charts/stable/audacity
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/audacity.png
+keywords:
+  - audacity
+  - music
+  - recorder
+  - editor
+  - audio
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: audacity
+sources:
+  - https://www.audacityteam.org/
+  - https://github.com/linuxserver/docker-audacity
+  - https://github.com/truecharts/charts/tree/master/charts/stable/audacity
+  - https://ghcr.io/linuxserver/audacity
+type: application
+version: 11.3.0

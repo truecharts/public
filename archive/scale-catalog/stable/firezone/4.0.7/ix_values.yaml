@@ -1,0 +1,163 @@
+image:
+  repository: firezone/firezone
+  pullPolicy: IfNotPresent
+  tag: 0.7.36@sha256:e44d84d836a4df35558944c3109ebc54beea9868fd0cec5db8dee78e57ff3f59
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    PUID: 0
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SYS_MODULE
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 13000
+  wireguard:
+    enabled: true
+    ports:
+      wireguard:
+        enabled: true
+        protocol: udp
+        port: 51820
+firezone:
+  web:
+    external_url: "https://example.com"
+    trusted_proxies: []
+    private_clients: []
+  admin:
+    reset_admin_on_boot: false
+    default_email: "admin@email.com"
+    default_password: "1234567890"
+  devices:
+    allow_unprivileged_device_management: true
+    allow_unprivileged_device_config: true
+    vpn_session_duration: 0
+    client_persistent_keepalive: 25
+    default_client_mtu: 1280
+    client_endpoint: ""
+    client_dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    client_allowed_ips:
+      - 0.0.0.0/0
+    max_devices_per_user: 10
+  authorization:
+    local_auth_enabled: true
+    disable_vpn_on_oidc_error: false
+  wireguard:
+    ipv4_masquerade_enabled: true
+  connectivity:
+    checks_enabled: true
+    checks_interval: 43200
+  other:
+    telemetry_enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # web
+            PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            EXTERNAL_URL: "{{ .Values.firezone.web.external_url }}"
+            PHOENIX_SECURE_COOKIES: "{{ .Values.firezone.web.secure_cookies }}"
+            # PHOENIX_HTTP_PROTOCOL_OPTIONS: "{}"
+            PHOENIX_EXTERNAL_TRUSTED_PROXIES: "{{ toJson .Values.firezone.web.trusted_proxies }}"
+            PHOENIX_PRIVATE_CLIENTS: "{{ toJson .Values.firezone.web.private_clients }}"
+            # DB
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DATABASE_PORT: 5432
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # DATABASE_POOL_SIZE
+            DATABASE_SSL_ENABLED: false
+            # DATABASE_SSL_OPTS: "{}"
+            # Admin
+            RESET_ADMIN_ON_BOOT: "{{ .Values.firezone.admin.reset_admin_on_boot }}"
+            DEFAULT_ADMIN_EMAIL: "{{ .Values.firezone.admin.default_email }}"
+            DEFAULT_ADMIN_PASSWORD: "{{ .Values.firezone.admin.default_password }}"
+            # Secrets and Encryption
+            GUARDIAN_SECRET_KEY:
+              secretKeyRef:
+                name: firezone-secrets
+                key: GUARDIAN_SECRET_KEY
+            DATABASE_ENCRYPTION_KEY:
+              secretKeyRef:
+                name: firezone-secrets
+                key: DATABASE_ENCRYPTION_KEY
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: firezone-secrets
+                key: SECRET_KEY_BASE
+            LIVE_VIEW_SIGNING_SALT:
+              secretKeyRef:
+                name: firezone-secrets
+                key: LIVE_VIEW_SIGNING_SALT
+            COOKIE_SIGNING_SALT:
+              secretKeyRef:
+                name: firezone-secrets
+                key: COOKIE_SIGNING_SALT
+            COOKIE_ENCRYPTION_SALT:
+              secretKeyRef:
+                name: firezone-secrets
+                key: COOKIE_ENCRYPTION_SALT
+            # Devices
+            ALLOW_UNPRIVILEGED_DEVICE_MANAGEMENT: "{{ .Values.firezone.devices.allow_unprivileged_device_management }}"
+            ALLOW_UNPRIVILEGED_DEVICE_CONFIGURATION: "{{ .Values.firezone.devices.allow_unprivileged_device_config }}"
+            VPN_SESSION_DURATION: "{{ .Values.firezone.devices.vpn_session_duration }}"
+            DEFAULT_CLIENT_PERSISTENT_KEEPALIVE: "{{ .Values.firezone.devices.client_persistent_keepalive }}"
+            DEFAULT_CLIENT_MTU: "{{ .Values.firezone.devices.default_client_mtu }}"
+            DEFAULT_CLIENT_ENDPOINT: "{{ .Values.firezone.devices.client_endpoint }}"
+            DEFAULT_CLIENT_DNS: '{{ join "," .Values.firezone.devices.client_dns }}'
+            DEFAULT_CLIENT_ALLOWED_IPS: '{{ join "," .Values.firezone.devices.client_allowed_ips }}'
+            # Limits
+            MAX_DEVICES_PER_USER: "{{ .Values.firezone.devices.max_devices_per_user }}"
+            # Authorization
+            LOCAL_AUTH_ENABLED: "{{ .Values.firezone.authorization.local_auth_enabled }}"
+            DISABLE_VPN_ON_OIDC_ERROR: "{{ .Values.firezone.authorization.disable_vpn_on_oidc_error }}"
+            # SAML_ENTITY_ID: "urn:firezone.dev:firezone-app"
+            # SAML_KEYFILE_PATH: "/var/firezone/saml.key"
+            # SAML_CERTFILE_PATH: "/var/firezone/saml.crt"
+            # OPENID_CONNECT_PROVIDERS: "[]"
+            # SAML_IDENTITY_PROVIDERS: "[]"
+            # WireGuard
+            WIREGUARD_PORT: "{{ .Values.service.wireguard.ports.wireguard.port }}"
+            WIREGUARD_IPV4_ENABLED: true
+            WIREGUARD_IPV4_MASQUERADE: "{{ .Values.firezone.wireguard.ipv4_masquerade_enabled }}"
+            WIREGUARD_IPV6_ENABLED: false
+            WIREGUARD_IPV6_MASQUERADE: false
+            # Outbound Emails
+            # OUTBOUND_EMAIL_FROM: ""
+            # OUTBOUND_EMAIL_ADAPTER: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
+            # OUTBOUND_EMAIL_ADAPTER_OPTS: "{}"
+            # Connectivity Checks
+            CONNECTIVITY_CHECKS_ENABLED: "{{ .Values.firezone.connectivity.checks_enabled }}"
+            CONNECTIVITY_CHECKS_INTERVAL: "{{ .Values.firezone.connectivity.checks_interval }}"
+            # Telemetry
+            TELEMETRY_ENABLED: "{{ .Values.firezone.other.telemetry_enabled }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/firezone"
+cnpg:
+  main:
+    enabled: true
+    user: firezone
+    database: firezone
+portal:
+  open:
+    enabled: true

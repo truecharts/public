@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: x86_64
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Home Assistant online configurator Chart from https://github.com/danielperna84/hass-configurator
+home: https://truecharts.org/charts/stable/hassconfigurator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hassconfigurator.png
+keywords:
+  - hassconfigurator
+  - home-automation
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hassconfigurator
+sources:
+  - https://github.com/danielperna84/hass-configurator
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hassconfigurator
+  - https://hub.docker.com/r/causticlab/hass-configurator-docker
+type: application
+version: 4.3.0

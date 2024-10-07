@@ -1,0 +1,66 @@
+image:
+  repository: lissy93/dashy
+  tag: 2.1.1@sha256:ce8ae2d82ee02606d0fdc9402b39c29d40e1b180f14b9601ac6f9c0371ced0a8
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10310
+        protocol: http
+        targetPort: 80
+dashy:
+  # Enable config file mount from host path
+  enabled: false
+  configFileHostPath: ""
+  configFileHostReadOnly: true
+# Leave empty if you plan to use config file from host path
+dashyConfig: {}
+# pageInfo:
+#   title: Home Lab
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NODE_ENV: production
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+persistence:
+  icons:
+    enabled: true
+    mountPath: /app/public/item-icons
+portal:
+  open:
+    enabled: true

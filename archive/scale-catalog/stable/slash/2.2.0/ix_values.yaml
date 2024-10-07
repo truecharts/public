@@ -1,0 +1,24 @@
+image:
+  repository: yourselfhosted/slash
+  pullPolicy: IfNotPresent
+  tag: 0.5.3@sha256:99333431fc87f672caf0574dec2427ee30b8dc34c3c02f5b40a9513a884098fa
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 5231
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SLASH_PORT: "{{ .Values.service.main.ports.main.port }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/opt/slash"
+portal:
+  open:
+    enabled: true

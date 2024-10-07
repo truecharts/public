@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Chart file for the new Core Keeper dedicated server running from SteamCMD. (No account etc needed)
+home: https://truecharts.org/charts/stable/core-keeper-dedicated-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/core-keeper-dedicated-server.webp
+keywords:
+  - core-keeper-dedicated-server
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: core-keeper-dedicated-server
+sources:
+  - https://github.com/escapingnetwork/core-keeper-dedicated/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/core-keeper-dedicated-server
+  - https://hub.docker.com/r/escaping/core-keeper-dedicated
+type: application
+version: 6.0.9

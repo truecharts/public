@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: finance
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.5.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Actual is a super fast privacy-focused app for managing your finances.
+home: https://truecharts.org/charts/stable/actualserver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/actualserver.webp
+keywords:
+  - actualserver
+  - finance
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: actualserver
+sources:
+  - https://ghcr.io/actualbudget/actual-server
+  - https://github.com/Kippenhof/docker-templates
+  - https://github.com/truecharts/charts/tree/master/charts/stable/actualserver
+type: application
+version: 11.1.3

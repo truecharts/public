@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.8.5.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Emby Server is a home media server
+home: https://truecharts.org/charts/stable/emby
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby.webp
+keywords:
+  - jellyfin
+  - plex
+  - emby
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: emby
+sources:
+  - https://github.com/linuxserver/docker-emby.git
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emby
+  - https://ghcr.io/geek-cookbook/emby
+type: application
+version: 18.8.16

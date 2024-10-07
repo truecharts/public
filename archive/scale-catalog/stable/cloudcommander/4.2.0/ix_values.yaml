@@ -1,0 +1,33 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: coderaiser/cloudcmd
+  tag: latest@sha256:80238d3371848f721002622eb0293b4505bca613cfe94ef0aa2f1edc270c9cc9
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /root
+  mountpath:
+    enabled: true
+    mountPath: /UNRAID
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8765
+        protocol: tcp
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOME: /root

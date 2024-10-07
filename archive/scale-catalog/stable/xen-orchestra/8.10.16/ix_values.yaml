@@ -1,0 +1,55 @@
+image:
+  repository: ronivay/xen-orchestra
+  tag: 5.140.1@sha256:11626747b6f64065e424824b5331c2ffeb2a66ad86138d8669ce36f2732819e5
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        protocol: https
+        port: 10324
+persistence:
+  xo-data:
+    enabled: true
+    mountPath: "/var/lib/xo-server"
+  redis-data:
+    enabled: true
+    mountPath: "/var/lib/redis"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - SYS_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+          env:
+            HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Just so it doesn't try to bind port 80
+            HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
+            REDIRECT_TO_HTTPS: true

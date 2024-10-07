@@ -1,0 +1,30 @@
+image:
+  repository: osixia/phpldapadmin
+  pullPolicy: IfNotPresent
+  tag: 0.9.0@sha256:d112b82be1336f91e028b0348755133fda333992355b533419355a65c32ff9ad
+service:
+  main:
+    ports:
+      main:
+        port: 10026
+        targetPort: 80
+persistence:
+  varrun:
+    enabled: false
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PHPLDAPADMIN_HTTPS: "false"
+            PHPLDAPADMIN_TRUST_PROXY_SSL: "true"

@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Security
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "Shapeshifter-Obfuscator is a Chartized implementation of shapeshifter-dispatcher provided by The Operator Foundation. The shapeshifter suite provides command-line proxy and obfuscation tools that effectively modify packets to evade advanced IDS systems. "
+home: https://truecharts.org/charts/stable/shapeshifter-obfuscator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shapeshifter-obfuscator.webp
+keywords:
+  - shapeshifter-obfuscator
+  - Security
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: shapeshifter-obfuscator
+sources:
+  - https://github.com/juchong/shapeshifter-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shapeshifter-obfuscator
+  - https://hub.docker.com/r/juchong/shapeshifter-docker
+type: application
+version: 5.8.14

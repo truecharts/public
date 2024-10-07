@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
+home: https://truecharts.org/charts/stable/website-shot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/website-shot.png
+keywords:
+  - website-shot
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: website-shot
+sources:
+  - https://github.com/Flowko/website-shot
+  - https://github.com/truecharts/charts/tree/master/charts/stable/website-shot
+  - https://hub.docker.com/r/flowko1/website-shot
+type: application
+version: 9.2.0

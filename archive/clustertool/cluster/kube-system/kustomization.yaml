@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - namespace.yaml
+    - cilium/install.yaml
+    - kubelet-csr-approver/install.yaml
+    - metrics-server/install.yaml

@@ -1,0 +1,31 @@
+image:
+  repository: linuxserver/heimdall
+  tag: 2.6.1@sha256:0a45b98671664dde4db151f07458a02913147ef0a9007d211f081a4a5b6f3444
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10014
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            startup:
+              enabled: true

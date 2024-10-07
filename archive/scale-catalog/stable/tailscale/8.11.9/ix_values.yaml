@@ -1,0 +1,101 @@
+image:
+  repository: tailscale/tailscale
+  pullPolicy: IfNotPresent
+  tag: v1.64.2@sha256:7ee2ab4b9efadc5a68c92fb4549206eedac240a758f61b5431e39e8c0806930d
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+rbac:
+  main:
+    enabled: true
+    primary: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - create
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        resourceNames:
+          - '{{ printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+        verbs:
+          - get
+          - update
+          - patch
+tailscale:
+  authkey: supersecret
+  auth_once: true
+  userspace: true
+  accept_dns: false
+  routes: ""
+  dest_ip: ""
+  sock5_server: ""
+  outbound_http_proxy_listen: ""
+  extra_args: ""
+  daemon_extra_args: ""
+  hostname: ""
+  advertise_as_exit_node: false
+hostNetwork: true
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  varrun:
+    enabled: true
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - NET_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
+            readiness:
+              enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
+            startup:
+              enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
+          envFrom:
+            - configMapRef:
+                name: "tailscale-config"
+          command:
+            - /usr/local/bin/containerboot

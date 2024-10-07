@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.6.5
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: qBittorrent is a cross-platform free and open-source BitTorrent client
+home: https://truecharts.org/charts/stable/qbittorrent
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.webp
+keywords:
+  - qbittorrent
+  - torrrent
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qbittorrent
+sources:
+  - https://ghcr.io/onedr0p/qbittorrent
+  - https://github.com/qbittorrent/qBittorrent
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
+  - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
+type: application
+version: 20.0.10

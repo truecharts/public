@@ -1,0 +1,34 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.3.20230704
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Nntp2nntp proxy allow you to use your NNTP Account from multiple systems, each with own user name and password.
+home: https://truecharts.org/charts/stable/nntp2nntp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nntp2nntp.png
+keywords:
+  - nntp2nntp
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nntp2nntp
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nntp2nntp
+  - https://ghcr.io/linuxserver/nntp2nntp
+type: application
+version: 8.2.0

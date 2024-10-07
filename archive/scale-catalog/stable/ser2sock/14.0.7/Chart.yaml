@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Serial to Socket Redirector
+home: https://truecharts.org/charts/stable/ser2sock
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ser2sock.webp
+keywords:
+  - ser2sock
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ser2sock
+sources:
+  - https://github.com/nutechsoftware/ser2sock
+  - https://github.com/tenstartups/ser2sock
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ser2sock
+  - https://hub.docker.com/r/tenstartups/ser2sock
+type: application
+version: 14.0.7

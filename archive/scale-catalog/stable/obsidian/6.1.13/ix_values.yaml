@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/sytone/obsidian-remote
+  tag: 0.1.1@sha256:0494ea57446e77609a469caf08a6886f3825f893883bfab2f4736e06d01c19b2
+persistence:
+  config:
+    enabled: true
+    mountPath: /config/.config/obsidian
+  vaults:
+    enabled: true
+    mountPath: /vaults
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  api:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 27123
+        targetPort: 27123
+      https:
+        enabled: true
+        port: 27124
+        targetPort: 27124
+  main:
+    ports:
+      main:
+        port: 10292
+        protocol: http
+        targetPort: 8080

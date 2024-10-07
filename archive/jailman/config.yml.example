@@ -1,0 +1,105 @@
+global:
+  # Config file syntax version (not same as script version)
+  version: 1.2
+  # Relevant dataset paths, please use the ZFS dataset syntax such as: tank/apps
+  dataset:
+   # dataset for internal jail config files
+   config: tank/apps
+   # Media library dataset
+   media: tank/media
+   # Parent downloads dataset 
+   # (is going to contain: Complete and Incomplete datasets for downloads)
+   downloads: tank/downloads
+  jails:
+   # jail version to install
+   version: 11.3-RELEASE
+   # Global pkgs to install in all jails.
+   # Please use standard space delimited pkg install syntax.
+   pkgs: curl ca_root_nss bash
+
+jail:
+  plex: 
+    blueprint: plex
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    beta: false
+  
+  lidarr: 
+    blueprint: lidarr
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    
+  sonarr: 
+    blueprint: sonarr
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    
+  radarr: 
+    blueprint: radarr
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    
+  kms: 
+    blueprint: kms
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+  
+  jackett: 
+    blueprint: jackett
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    
+  organizr: 
+    blueprint: organizr
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    
+  tautulli: 
+    blueprint: tautulli
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+  
+  transmission: 
+    blueprint: transmission
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+  
+  
+  nextcloud: 
+    blueprint: nextcloud
+    ip4_addr: 192.168.1.99/24
+    gateway: 192.168.1.1
+    time_zone: Europe/Amsterdam
+    host_name: cloud.example.com
+    db_jail: "mariadb"
+    admin_password: "PUTYOUROWNADMINPASSWORDHERE"
+	db_password: "PLEASEALSOPUTYOURPASSWORDHEREADIFFERNTONE"
+    
+  mariadb: 
+    blueprint: mariadb
+    ip4_addr: 192.168.1.98/24
+    gateway: 192.168.1.1
+    db_root_password: ReplaceThisWithYourOwnRootPAssword
+    host_name: mariadb.local.example
+  
+  bitwarden:
+    blueprint: bitwarden
+    ip4_addr: 192.168.1.97/24
+    gateway: 192.168.1.1
+    db_jail: "mariadb"
+    db_password: "YourDBPasswordHerePLEASE"
+    admin_token: "PUTYOURADMINTOKENHEREANDREMOVETHIS"
+
+  influxdb: 
+    blueprint: influxdb
+    ip4_addr: 192.168.1.250/24
+    gateway: 192.168.1.1
+
+  unifi:
+    blueprint: unifi
+    ip4_addr: 192.168.1.251/24
+    gateway: 192.168.1.1
+    unifi_poller: true
+    db_jail: influxdb
+    up_db_password: unifi-poller
+    up_password: upoller

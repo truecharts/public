@@ -1,0 +1,27 @@
+name: catalog_validation_test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truenas/middleware:master
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup dependencies
+      run: |
+        /usr/bin/install-dev-tools
+
+    - name: Install dependencies
+      run: |
+        pip install --break-system-packages -r catalog_validation/pytest/requirements.txt
+        pip install --break-system-packages -r requirements.txt
+
+    - name: Installing catalog validation
+      run: python setup.py install
+
+    - name: Running test
+      run: pytest catalog_validation/pytest/

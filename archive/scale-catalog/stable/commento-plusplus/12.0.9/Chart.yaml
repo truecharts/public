@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.8.7
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Commento++ is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
+home: https://truecharts.org/charts/stable/commento-plusplus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/commento-plusplus.webp
+keywords:
+  - commento
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: commento-plusplus
+sources:
+  - https://github.com/souramoo/commentoplusplus
+  - https://github.com/truecharts/charts/tree/master/charts/stable/commento-plusplus
+  - https://hub.docker.com/r/caroga/commentoplusplus
+type: application
+version: 12.0.9

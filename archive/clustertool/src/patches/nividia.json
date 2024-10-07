@@ -1,0 +1,19 @@
+[
+  {"op": "add", "path": "/machine/kernel", "value":
+      {
+      "modules":
+      [
+      "name": "nvidia",
+      "name": "nvidia_uvm",
+      "name": "nvidia_drm",
+      "name": "nvidia_modeset",
+      ]
+      }
+  },
+  {"op": "add", "path": "/machine/sysctls", "value":
+      {
+      "net.core.bpf_jit_harden": 1
+      }
+  },
+
+]

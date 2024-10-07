@@ -1,0 +1,10 @@
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for sheetable */}}
+{{- $secrets := include "sheetable.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "sheetable-secrets" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

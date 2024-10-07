@@ -1,0 +1,39 @@
+annotations:
+  truecharts.org/category: security
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: premium
+apiVersion: v2
+appVersion: 1.30.5
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Unofficial Bitwarden compatible server written in Rust
+home: https://truecharts.org/charts/premium/vaultwarden
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.webp
+keywords:
+  - bitwarden
+  - bitwardenrs
+  - bitwarden_rs
+  - vaultwarden
+  - password
+  - rust
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: vaultwarden
+sources:
+  - https://ghcr.io/timshel/vaultwarden
+  - https://github.com/dani-garcia/vaultwarden
+  - https://github.com/truecharts/charts/tree/master/charts/premium/vaultwarden
+  - https://hub.docker.com/r/vaultwarden/server
+type: application
+version: 27.1.1

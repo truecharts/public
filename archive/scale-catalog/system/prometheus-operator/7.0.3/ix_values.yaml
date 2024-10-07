@@ -1,0 +1,146 @@
+image:
+  repository: tccr.io/tccr/alpine
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false
+
+operator:
+  register: true
+
+kps:
+  ## Install Prometheus Operator CRDs
+  ##
+  crds:
+    enabled: true
+
+  ## Manages Prometheus and Alertmanager components
+  ##
+  prometheusOperator:
+    enabled: true
+
+  ####
+  ##
+  ## Everything down here, explicitly disables everything BUT the operator itself
+  ##
+  ####
+
+  ##
+  global:
+    rbac:
+      create: true
+
+  ## Create default rules for monitoring the cluster
+  ##
+  defaultRules:
+    create: false
+
+  windowsMonitoring:
+    ## Deploys the windows-exporter and Windows-specific dashboards and rules (job name must be 'windows-exporter')
+    enabled: false
+
+  ## Configuration for prometheus-windows-exporter
+  ## ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-windows-exporter
+  ##
+  prometheus-windows-exporter:
+    ## Enable ServiceMonitor and set Kubernetes label to use as a job label
+    ##
+    prometheus:
+      monitor:
+        enabled: false
+
+  ## Configuration for alertmanager
+  ## ref: https://prometheus.io/docs/alerting/alertmanager/
+  ##
+  alertmanager:
+    ## Deploy alertmanager
+    ##
+    enabled: false
+
+  ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+  ##
+  grafana:
+    enabled: false
+    forceDeployDashboards: false
+    defaultDashboardsEnabled: false
+
+  ## Flag to disable all the kubernetes component scrapers
+  ##
+  kubernetesServiceMonitors:
+    enabled: false
+
+  ## Component scraping the kube api server
+  ##
+  kubeApiServer:
+    enabled: false
+
+  ## Component scraping the kubelet and kubelet-hosted cAdvisor
+  ##
+  kubelet:
+    enabled: false
+
+  ## Component scraping the kube controller manager
+  ##
+  kubeControllerManager:
+    enabled: false
+
+  ## Component scraping coreDns. Use either this or kubeDns
+  ##
+  coreDns:
+    enabled: false
+
+  ## Component scraping kubeDns. Use either this or coreDns
+  ##
+  kubeDns:
+    enabled: false
+
+  ## Component scraping etcd
+  ##
+  kubeEtcd:
+    enabled: false
+
+  ## Component scraping kube scheduler
+  ##
+  kubeScheduler:
+    enabled: false
+
+  ## Component scraping kube proxy
+  ##
+  kubeProxy:
+    enabled: false
+
+  ## Component scraping kube state metrics
+  ##
+  kubeStateMetrics:
+    enabled: false
+
+  ## dontDeploy node exporter as a daemonset to all nodes
+  ##
+  nodeExporter:
+    enabled: false
+
+  ## dont Deploy a Prometheus instance
+  ##
+  prometheus:
+    enabled: false
+
+  ## Configuration for thanosRuler
+  ## ref: https://thanos.io/tip/components/rule.md/
+  ##
+  thanosRuler:
+    ## Dont Deploy thanosRuler
+    ##
+    enabled: false

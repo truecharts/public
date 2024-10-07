@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: ssh
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: SSHwifty is a SSH and Telnet connector made for the Web.
+home: https://truecharts.org/charts/stable/sshwifty
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sshwifty.webp
+keywords:
+  - ssh
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sshwifty
+sources:
+  - https://github.com/niruix/sshwifty
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sshwifty
+  - https://hub.docker.com/r/niruix/sshwifty
+type: application
+version: 6.0.8

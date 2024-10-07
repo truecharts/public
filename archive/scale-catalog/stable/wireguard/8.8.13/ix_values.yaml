@@ -1,0 +1,58 @@
+image:
+  repository: ghcr.io/k8s-at-home/wireguard
+  tag: v1.0.20210914@sha256:4dd54954cbd06d92d8c8fc6b10871eb07a0c1869edfe7a15029f1a7d3178d432
+  pullPolicy: IfNotPresent
+wg:
+  killswitch: false
+  excludedIP4networks: []
+  excludedIP6networks: []
+  # Leave empty if you going to use the paste your config bellow
+  configFileHostPath: ""
+  config:
+    enabled: false
+    # Your wg config here eg:
+    data: |
+      [Interface]
+      Address = 10.0.0.1/24
+      ListenPort = 51820
+      PrivateKey = PRIVATE_KEY
+
+      [Peer]
+      PublicKey = PUBLIC_KEY
+      AllowedIPs = 0.0.0.0/0
+      Endpoint = wg.example:51820
+service:
+  main:
+    ports:
+      main:
+        port: 51821
+        targetPort: 51820
+        protocol: udp
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SYS_MODULE
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - configMapRef:
+                name: "wg-env-config"

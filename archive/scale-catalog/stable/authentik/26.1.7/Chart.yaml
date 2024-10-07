@@ -1,0 +1,45 @@
+annotations:
+  truecharts.org/category: authentication
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.4.2
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
+home: https://truecharts.org/charts/stable/authentik
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
+keywords:
+  - authentik
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: authentik
+sources:
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/maxmind/geoipupdate
+  - https://github.com/goauthentik/authentik
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://goauthentik.io/docs/
+type: application
+version: 26.1.7

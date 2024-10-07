@@ -1,0 +1,75 @@
+groups:
+  - name: Container Image
+    description: Image to be used for container
+  - name: General Settings
+    description: General Deployment Settings
+  - name: Workload Settings
+    description: Workload Settings
+  - name: App Configuration
+    description: App Specific Config Options
+  - name: Networking and Services
+    description: Configure Network and Services for Container
+  - name: Storage and Persistence
+    description: Persist and Share Data that is Separate from the Container
+  - name: Ingress
+    description: Ingress Configuration
+  - name: Security and Permissions
+    description: Configure Security Context and Permissions
+  - name: Resources and Devices
+    description: "Specify Resources/Devices to be Allocated to Workload"
+  - name: Middlewares
+    description: Traefik Middlewares
+  - name: Metrics
+    description: Metrics
+  - name: Addons
+    description: Addon Configuration
+  - name: Backup Configuration
+    description: Configure Velero Backup Schedule
+  - name: Advanced
+    description: Advanced Configuration
+  - name: Postgresql
+    description: Postgresql
+  - name: Documentation
+    description: Documentation
+
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_tcportal-open_protocol"
+    host:
+      - "$kubernetes-resource_configmap_tcportal-open_host"
+    ports:
+      - "$kubernetes-resource_configmap_tcportal-open_port"
+
+questions:
+
+  - variable: docs
+    group: Documentation
+    label: Please read the documentation at https://truecharts.org
+    description: Please read the documentation at
+      <br /><a href="https://truecharts.org">https://truecharts.org</a>
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: confirmDocs
+          label: I have checked the documentation
+          schema:
+            type: boolean
+            default: true
+  - variable: donateNag
+    group: Documentation
+    label: Please consider supporting TrueCharts, see https://truecharts.org/sponsor
+    description: Please consider supporting TrueCharts, see
+      <br /><a href="https://truecharts.org/sponsor">https://truecharts.org/sponsor</a>
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: confirmDonate
+          label: I have considered donating
+          schema:
+            type: boolean
+            default: true
+            hidden: true
+

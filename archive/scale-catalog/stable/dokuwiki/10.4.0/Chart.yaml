@@ -1,0 +1,34 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 20230404.1.0
+dependencies:
+  - name: common
+    version: 19.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
+home: https://truecharts.org/charts/stable/dokuwiki
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dokuwiki.png
+keywords:
+  - dokuwiki
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dokuwiki
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dokuwiki
+  - https://hub.docker.com/r/bitnami/dokuwiki
+type: application
+version: 10.4.0

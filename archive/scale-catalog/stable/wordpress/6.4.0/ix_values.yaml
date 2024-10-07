@@ -1,0 +1,71 @@
+image:
+  repository: bitnami/wordpress
+  pullPolicy: IfNotPresent
+  tag: 6.4.3@sha256:83386e4ab0d78848206bfbb70da1a0f9a39413b1b9912c587d0158b30b9377a0
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 10591
+            readiness:
+              enabled: true
+              type: tcp
+              port: 10591
+            startup:
+              enabled: true
+              type: tcp
+              port: 10591
+wordpress:
+  user: user
+  pass: bitnami
+  email: user@example.com
+  first_name: TrueCharts
+  last_name: TrueCharts
+  blog_name: Truecharts Blog
+  enable_reverse_proxy_headers: true
+smtp:
+  enabled: false
+  host: ""
+  port: 587
+  user: ""
+  pass: ""
+php-config:
+  PHP_ENABLE_OPCACHE: "yes"
+  PHP_EXPOSE_PHP: ""
+  PHP_MAX_EXECUTION_TIME: ""
+  PHP_MAX_INPUT_TIME: ""
+  PHP_MAX_INPUT_VARS: ""
+  PHP_MEMORY_LIMIT: 512M
+  PHP_POST_MAX_SIZE: ""
+  PHP_UPLOAD_MAX_FILESIZE: ""
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10591
+persistence:
+  config:
+    enabled: true
+    mountPath: /bitnami/wordpress
+mariadb:
+  enabled: true
+  mariadbUsername: wordpress
+  mariadbDatabase: wordpress
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,84 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: arkse@sha256:e9c0f374a60639064d8562d5500a2a381666ca28a7440b37d801b8cb79eac4ac
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: udp
+      game:
+        enabled: true
+        port: 7778
+        # This should always be main +1
+        protocol: udp
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        protocol: udp
+        port: 27015
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        protocol: tcp
+        port: 27020
+ark:
+  # setting pass for rcon
+  srv_admin_pass: "123456789"
+  srv_password: ""
+  username: ""
+  password: ""
+  game_id: "376030"
+  rcon_enabled: true
+  game_params: []
+  game_params_extra: []
+  easy_game_extra_params:
+    server: true
+    log: true
+    crossplay: true
+  map: TheIsland
+  # Used only for SCALE GUI
+  custom_map: ""
+  server_name: ""
+  validate: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+          envFrom:
+            - secretRef:
+                name: "ark-secrets"
+persistence:
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+portal:
+  open:
+    enabled: false

@@ -1,0 +1,779 @@
+{
+    "0.2.0": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/incubator/mimir/0.2.0",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "18.0.1_0.2.0",
+        "version": "0.2.0",
+        "chart_metadata": {
+            "annotations": {
+                "max_scale_version": "24.04.0",
+                "min_scale_version": "23.10.0",
+                "truecharts.org/category": "system",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.12",
+                "truecharts.org/train": "incubator"
+            },
+            "apiVersion": "v2",
+            "appVersion": "18.0.1",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "17.5.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "mimir-distributed",
+                    "version": "5.2.1",
+                    "repository": "https://grafana.github.io/helm-charts",
+                    "condition": "",
+                    "alias": "mimir",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "kube-prometheus-stack",
+                    "version": "56.9.0",
+                    "repository": "oci://ghcr.io/prometheus-community/charts",
+                    "condition": "",
+                    "alias": "kps",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "A scalable metrics database",
+            "home": "https://truecharts.org/charts/incubator/mimir",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/mimir.png",
+            "keywords": [
+                "mimir",
+                "shell"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "mimir",
+            "sources": [
+                "https://grafana.com"
+            ],
+            "type": "application",
+            "version": "0.2.0"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Container Image",
+                    "description": "Image to be used for container"
+                },
+                {
+                    "name": "General Settings",
+                    "description": "General Deployment Settings"
+                },
+                {
+                    "name": "Workload Settings",
+                    "description": "Workload Settings"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "App Specific Config Options"
+                },
+                {
+                    "name": "Networking and Services",
+                    "description": "Configure Network and Services for Container"
+                },
+                {
+                    "name": "Storage and Persistence",
+                    "description": "Persist and Share Data that is Separate from the Container"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress Configuration"
+                },
+                {
+                    "name": "Security and Permissions",
+                    "description": "Configure Security Context and Permissions"
+                },
+                {
+                    "name": "Resources and Devices",
+                    "description": "Specify Resources/Devices to be Allocated to Workload"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Metrics"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addon Configuration"
+                },
+                {
+                    "name": "Backup Configuration",
+                    "description": "Configure Velero Backup Schedule"
+                },
+                {
+                    "name": "Advanced",
+                    "description": "Advanced Configuration"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "Postgresql"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "Documentation"
+                }
+            ],
+            "portals": {
+                "open": {
+                    "protocols": [
+                        "$kubernetes-resource_configmap_tcportal-open_protocol"
+                    ],
+                    "host": [
+                        "$kubernetes-resource_configmap_tcportal-open_host"
+                    ],
+                    "ports": [
+                        "$kubernetes-resource_configmap_tcportal-open_port"
+                    ]
+                }
+            },
+            "questions": [
+                {
+                    "variable": "docs",
+                    "group": "Documentation",
+                    "label": "Please read the documentation at https://truecharts.org",
+                    "description": "Please read the documentation at <br /><a href=\"https://truecharts.org\">https://truecharts.org</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDocs",
+                                "label": "I have checked the documentation",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "donateNag",
+                    "group": "Documentation",
+                    "label": "Please consider supporting TrueCharts, see https://truecharts.org/sponsor",
+                    "description": "Please consider supporting TrueCharts, see <br /><a href=\"https://truecharts.org/sponsor\">https://truecharts.org/sponsor</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDonate",
+                                "label": "I have considered donating",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "hidden": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>A scalable metrics database</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/incubator/mimir\">https://truecharts.org/charts/incubator/mimir</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as Apps on TrueNAS SCALE.\nHowever only installations using the TrueNAS SCALE Apps system are supported.</p>\n<p>For more information about this App, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/incubator/atuin\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Support</h2>\n<ul>\n<li>Please check our <a href=\"https://truecharts.org/manual/SCALE/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</li>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": ""
+    },
+    "0.1.9": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/incubator/mimir/0.1.9",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "18.0.1_0.1.9",
+        "version": "0.1.9",
+        "chart_metadata": {
+            "annotations": {
+                "max_scale_version": "24.04.0",
+                "min_scale_version": "23.10.0",
+                "truecharts.org/category": "system",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.12",
+                "truecharts.org/train": "incubator"
+            },
+            "apiVersion": "v2",
+            "appVersion": "18.0.1",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "17.5.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "mimir-distributed",
+                    "version": "5.2.1",
+                    "repository": "https://grafana.github.io/helm-charts",
+                    "condition": "",
+                    "alias": "mimir",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "A scalable metrics database",
+            "home": "https://truecharts.org/charts/incubator/mimir",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/mimir.png",
+            "keywords": [
+                "mimir",
+                "shell"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "mimir",
+            "sources": [
+                "https://grafana.com"
+            ],
+            "type": "application",
+            "version": "0.1.9"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Container Image",
+                    "description": "Image to be used for container"
+                },
+                {
+                    "name": "General Settings",
+                    "description": "General Deployment Settings"
+                },
+                {
+                    "name": "Workload Settings",
+                    "description": "Workload Settings"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "App Specific Config Options"
+                },
+                {
+                    "name": "Networking and Services",
+                    "description": "Configure Network and Services for Container"
+                },
+                {
+                    "name": "Storage and Persistence",
+                    "description": "Persist and Share Data that is Separate from the Container"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress Configuration"
+                },
+                {
+                    "name": "Security and Permissions",
+                    "description": "Configure Security Context and Permissions"
+                },
+                {
+                    "name": "Resources and Devices",
+                    "description": "Specify Resources/Devices to be Allocated to Workload"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Metrics"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addon Configuration"
+                },
+                {
+                    "name": "Backup Configuration",
+                    "description": "Configure Velero Backup Schedule"
+                },
+                {
+                    "name": "Advanced",
+                    "description": "Advanced Configuration"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "Postgresql"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "Documentation"
+                }
+            ],
+            "portals": {
+                "open": {
+                    "protocols": [
+                        "$kubernetes-resource_configmap_tcportal-open_protocol"
+                    ],
+                    "host": [
+                        "$kubernetes-resource_configmap_tcportal-open_host"
+                    ],
+                    "ports": [
+                        "$kubernetes-resource_configmap_tcportal-open_port"
+                    ]
+                }
+            },
+            "questions": [
+                {
+                    "variable": "docs",
+                    "group": "Documentation",
+                    "label": "Please read the documentation at https://truecharts.org",
+                    "description": "Please read the documentation at <br /><a href=\"https://truecharts.org\">https://truecharts.org</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDocs",
+                                "label": "I have checked the documentation",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "donateNag",
+                    "group": "Documentation",
+                    "label": "Please consider supporting TrueCharts, see https://truecharts.org/sponsor",
+                    "description": "Please consider supporting TrueCharts, see <br /><a href=\"https://truecharts.org/sponsor\">https://truecharts.org/sponsor</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDonate",
+                                "label": "I have considered donating",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "hidden": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>A scalable metrics database</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/incubator/mimir\">https://truecharts.org/charts/incubator/mimir</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as Apps on TrueNAS SCALE.\nHowever only installations using the TrueNAS SCALE Apps system are supported.</p>\n<p>For more information about this App, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/incubator/atuin\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Support</h2>\n<ul>\n<li>Please check our <a href=\"https://truecharts.org/manual/SCALE/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</li>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": ""
+    },
+    "0.1.8": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/incubator/mimir/0.1.8",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "18.0.1_0.1.8",
+        "version": "0.1.8",
+        "chart_metadata": {
+            "annotations": {
+                "max_scale_version": "24.04.0",
+                "min_scale_version": "23.10.0",
+                "truecharts.org/category": "system",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.12",
+                "truecharts.org/train": "incubator"
+            },
+            "apiVersion": "v2",
+            "appVersion": "18.0.1",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "17.5.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "mimir-distributed",
+                    "version": "5.2.1",
+                    "repository": "https://grafana.github.io/helm-charts",
+                    "condition": "",
+                    "alias": "mimir",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "A scalable metrics database",
+            "home": "https://truecharts.org/charts/incubator/mimir",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/mimir.png",
+            "keywords": [
+                "mimir",
+                "shell"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "mimir",
+            "sources": [
+                "https://grafana.com"
+            ],
+            "type": "application",
+            "version": "0.1.8"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Container Image",
+                    "description": "Image to be used for container"
+                },
+                {
+                    "name": "General Settings",
+                    "description": "General Deployment Settings"
+                },
+                {
+                    "name": "Workload Settings",
+                    "description": "Workload Settings"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "App Specific Config Options"
+                },
+                {
+                    "name": "Networking and Services",
+                    "description": "Configure Network and Services for Container"
+                },
+                {
+                    "name": "Storage and Persistence",
+                    "description": "Persist and Share Data that is Separate from the Container"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress Configuration"
+                },
+                {
+                    "name": "Security and Permissions",
+                    "description": "Configure Security Context and Permissions"
+                },
+                {
+                    "name": "Resources and Devices",
+                    "description": "Specify Resources/Devices to be Allocated to Workload"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Metrics"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addon Configuration"
+                },
+                {
+                    "name": "Backup Configuration",
+                    "description": "Configure Velero Backup Schedule"
+                },
+                {
+                    "name": "Advanced",
+                    "description": "Advanced Configuration"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "Postgresql"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "Documentation"
+                }
+            ],
+            "portals": {
+                "open": {
+                    "protocols": [
+                        "$kubernetes-resource_configmap_tcportal-open_protocol"
+                    ],
+                    "host": [
+                        "$kubernetes-resource_configmap_tcportal-open_host"
+                    ],
+                    "ports": [
+                        "$kubernetes-resource_configmap_tcportal-open_port"
+                    ]
+                }
+            },
+            "questions": [
+                {
+                    "variable": "docs",
+                    "group": "Documentation",
+                    "label": "Please read the documentation at https://truecharts.org",
+                    "description": "Please read the documentation at <br /><a href=\"https://truecharts.org\">https://truecharts.org</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDocs",
+                                "label": "I have checked the documentation",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "donateNag",
+                    "group": "Documentation",
+                    "label": "Please consider supporting TrueCharts, see https://truecharts.org/sponsor",
+                    "description": "Please consider supporting TrueCharts, see <br /><a href=\"https://truecharts.org/sponsor\">https://truecharts.org/sponsor</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDonate",
+                                "label": "I have considered donating",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "hidden": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>A scalable metrics database</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/incubator/mimir\">https://truecharts.org/charts/incubator/mimir</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as Apps on TrueNAS SCALE.\nHowever only installations using the TrueNAS SCALE Apps system are supported.</p>\n<p>For more information about this App, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/incubator/atuin\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Support</h2>\n<ul>\n<li>Please check our <a href=\"https://truecharts.org/manual/SCALE/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</li>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": ""
+    },
+    "0.1.6": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/home/runner/_work/catalog/catalog/incubator/mimir/0.1.6",
+        "last_update": "2024-05-29 12:35:14",
+        "required_features": [],
+        "human_version": "18.0.1_0.1.6",
+        "version": "0.1.6",
+        "chart_metadata": {
+            "annotations": {
+                "max_scale_version": "24.04.0",
+                "min_scale_version": "23.10.0",
+                "truecharts.org/category": "system",
+                "truecharts.org/max_helm_version": "3.14",
+                "truecharts.org/min_helm_version": "3.12",
+                "truecharts.org/train": "incubator"
+            },
+            "apiVersion": "v2",
+            "appVersion": "18.0.1",
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "17.5.0",
+                    "repository": "oci://tccr.io/truecharts",
+                    "condition": "",
+                    "alias": "",
+                    "tags": [],
+                    "import-values": []
+                },
+                {
+                    "name": "mimir-distributed",
+                    "version": "5.2.1",
+                    "repository": "https://grafana.github.io/helm-charts",
+                    "condition": "",
+                    "alias": "mimir",
+                    "tags": [],
+                    "import-values": []
+                }
+            ],
+            "deprecated": false,
+            "description": "A scalable metrics database",
+            "home": "https://truecharts.org/charts/incubator/mimir",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/mimir.png",
+            "keywords": [
+                "mimir",
+                "shell"
+            ],
+            "kubeVersion": ">=1.24.0-0",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "name": "mimir",
+            "sources": [
+                "https://grafana.com"
+            ],
+            "type": "application",
+            "version": "0.1.6"
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Container Image",
+                    "description": "Image to be used for container"
+                },
+                {
+                    "name": "General Settings",
+                    "description": "General Deployment Settings"
+                },
+                {
+                    "name": "Workload Settings",
+                    "description": "Workload Settings"
+                },
+                {
+                    "name": "App Configuration",
+                    "description": "App Specific Config Options"
+                },
+                {
+                    "name": "Networking and Services",
+                    "description": "Configure Network and Services for Container"
+                },
+                {
+                    "name": "Storage and Persistence",
+                    "description": "Persist and Share Data that is Separate from the Container"
+                },
+                {
+                    "name": "Ingress",
+                    "description": "Ingress Configuration"
+                },
+                {
+                    "name": "Security and Permissions",
+                    "description": "Configure Security Context and Permissions"
+                },
+                {
+                    "name": "Resources and Devices",
+                    "description": "Specify Resources/Devices to be Allocated to Workload"
+                },
+                {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Metrics"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addon Configuration"
+                },
+                {
+                    "name": "Backup Configuration",
+                    "description": "Configure Velero Backup Schedule"
+                },
+                {
+                    "name": "Advanced",
+                    "description": "Advanced Configuration"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "Postgresql"
+                },
+                {
+                    "name": "Documentation",
+                    "description": "Documentation"
+                }
+            ],
+            "portals": {
+                "open": {
+                    "protocols": [
+                        "$kubernetes-resource_configmap_tcportal-open_protocol"
+                    ],
+                    "host": [
+                        "$kubernetes-resource_configmap_tcportal-open_host"
+                    ],
+                    "ports": [
+                        "$kubernetes-resource_configmap_tcportal-open_port"
+                    ]
+                }
+            },
+            "questions": [
+                {
+                    "variable": "docs",
+                    "group": "Documentation",
+                    "label": "Please read the documentation at https://truecharts.org",
+                    "description": "Please read the documentation at <br /><a href=\"https://truecharts.org\">https://truecharts.org</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDocs",
+                                "label": "I have checked the documentation",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "donateNag",
+                    "group": "Documentation",
+                    "label": "Please consider supporting TrueCharts, see https://truecharts.org/sponsor",
+                    "description": "Please consider supporting TrueCharts, see <br /><a href=\"https://truecharts.org/sponsor\">https://truecharts.org/sponsor</a>",
+                    "schema": {
+                        "additional_attrs": true,
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "confirmDonate",
+                                "label": "I have considered donating",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "hidden": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>A scalable metrics database</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/incubator/mimir\">https://truecharts.org/charts/incubator/mimir</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "detailed_readme": "<hr />\n<h2>title: README</h2>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as Apps on TrueNAS SCALE.\nHowever only installations using the TrueNAS SCALE Apps system are supported.</p>\n<p>For more information about this App, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/incubator/atuin\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Support</h2>\n<ul>\n<li>Please check our <a href=\"https://truecharts.org/manual/SCALE/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</li>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
+        "changelog": ""
+    }
+}

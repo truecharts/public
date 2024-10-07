@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+resources:
+    - helm-release.yaml
+configMapGenerator:
+    - name: cilium-values
+      files:
+        - values.yaml=./cilium-values.yaml
+generatorOptions:
+    disableNameSuffixHash: true

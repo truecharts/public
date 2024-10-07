@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: SinusBot is a MusicBot that will let you listen to music together with your friends on either TeamSpeak 3 or Discord.
+home: https://truecharts.org/charts/stable/sinusbot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sinusbot.webp
+keywords:
+  - sinusbot
+  - Productivity
+  - Tools-Utilities
+  - MediaServer-Music
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sinusbot
+sources:
+  - https://forum.sinusbot.com
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sinusbot
+  - https://hub.docker.com/r/sinusbot/docker
+type: application
+version: 6.0.7

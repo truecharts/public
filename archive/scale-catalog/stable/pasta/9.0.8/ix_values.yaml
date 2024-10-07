@@ -1,0 +1,20 @@
+image:
+  repository: cglatot/pasta
+  pullPolicy: IfNotPresent
+  tag: 1.6.2@sha256:73d290b3195f6199fb316aebea22d3b0a537a78b100a3de344981efa09ffc3ea
+service:
+  main:
+    ports:
+      main:
+        port: 10302
+        protocol: http
+        targetPort: 80
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

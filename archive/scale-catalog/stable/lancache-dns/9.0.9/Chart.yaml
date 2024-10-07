@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: DNS Chart service for a steam cache.
+home: https://truecharts.org/charts/stable/lancache-dns
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-dns.webp
+keywords:
+  - lancache-dns
+  - dns
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lancache-dns
+sources:
+  - https://github.com/lancachenet/lancache-dns
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-dns
+  - https://hub.docker.com/r/lancachenet/lancache-dns
+type: application
+version: 9.0.9

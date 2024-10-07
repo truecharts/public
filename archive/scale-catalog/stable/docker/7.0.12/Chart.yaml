@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/category: docker
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 26.1.3
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Dedicated App for using Docker-in-Docker
+home: https://truecharts.org/charts/stable/docker
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker.webp
+keywords:
+  - docker
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: docker
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/docker
+  - https://hub.docker.com/_/docker
+type: application
+version: 7.0.12

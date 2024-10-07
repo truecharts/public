@@ -1,0 +1,48 @@
+image:
+  repository: ghcr.io/linuxserver/babybuddy
+  pullPolicy: IfNotPresent
+  tag: 2.4.0@sha256:1ca2de21c56ef86712a1172d8ff8ea02420a803c6da346672b8e77d82d65ff1d
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10069
+        protocol: http
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_ENGINE: "django.db.backends.postgresql"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            CSRF_TRUSTED_ORIGINS: ""
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+cnpg:
+  main:
+    enabled: true
+    user: babybuddy
+    database: babybuddy
+portal:
+  open:
+    enabled: true

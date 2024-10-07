@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: openaudible/openaudible
+  tag: latest@sha256:268d8121db70d88d8076649605bfadb50ba671460fa9060b67ef5e9b4d8f07a2
+persistence:
+  config:
+    enabled: true
+    mountPath: /config/OpenAudible
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10325
+        protocol: http
+        targetPort: 3000

@@ -1,0 +1,34 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.0.1
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Pwndrop is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.
+home: https://truecharts.org/charts/stable/pwndrop
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwndrop.png
+keywords:
+  - pwndrop
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pwndrop
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pwndrop
+  - https://ghcr.io/linuxserver/pwndrop
+type: application
+version: 8.2.1

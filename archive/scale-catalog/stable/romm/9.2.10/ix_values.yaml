@@ -1,0 +1,97 @@
+image:
+  repository: ghcr.io/rommapp/romm
+  pullPolicy: IfNotPresent
+  tag: 3.1@sha256:a14e28a0ffb26b9891e5f4234de476068edce4d5b8dd37f6a6092a5f1753e82b
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10680
+
+romm:
+  auth:
+    user: "admin"
+    pass: "admin"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            ROMM_BASE_PATH: /romm
+            ROMM_DB_DRIVER: mariadb
+            # IGDB client id
+            CLIENT_ID: ""
+            # IGDB client secret
+            CLIENT_SECRET: ""
+            STEAMGRIDDB_API_KEY: ""
+            DB_PORT: 3306
+            DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWD: "{{ .Values.mariadb.password }}"
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
+            REDIS_PORT: 6379
+            ROMM_AUTH_SECRET_KEY:
+              secretKeyRef:
+                name: romm-secrets
+                key: ROMM_AUTH_SECRET_KEY
+            ROMM_AUTH_ENABLED: true
+            ENABLE_EXPERIMENTAL_REDIS: true
+            ROMM_AUTH_USERNAME: "{{ .Values.romm.auth.user}}"
+            ROMM_AUTH_PASSWORD: "{{ .Values.romm.auth.pass}}"
+
+persistence:
+  library:
+    enabled: true
+    mountPath: /romm/library
+  resources:
+    enabled: true
+    mountPath: /romm/resources
+  config:
+    enabled: true
+    mountPath: /romm/config
+  assets:
+    enabled: true
+    mountPath: /romm/assets
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: romm
+  mariadbDatabase: romm
+
+redis:
+  enabled: true
+  includeCommon: true
+
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.3.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Free and easy binary newsreader
+home: https://truecharts.org/charts/stable/sabnzbd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sabnzbd.webp
+keywords:
+  - sabnzbd
+  - usenet
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sabnzbd
+sources:
+  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/sabnzbd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sabnzbd
+  - https://sabnzbd.org/
+type: application
+version: 20.1.5

@@ -1,0 +1,48 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.1.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 14.0.10
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: game library manager focused in retro gaming
+home: https://truecharts.org/charts/stable/romm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.webp
+keywords:
+  - romm
+  - rom-manager
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: romm
+sources:
+  - https://ghcr.io/rommapp/romm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/romm
+  - https://github.com/zurdi15/romm
+type: application
+version: 9.2.10

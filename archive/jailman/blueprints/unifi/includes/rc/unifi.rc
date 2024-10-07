@@ -1,0 +1,87 @@
+#!/bin/sh
+# shellcheck disable=SC1091,SC2034,SC2223,SC2154,SC1090,SC2046,SC2086,SC2155,SC2237
+#
+# Created by: Mark Felder <feld@FreeBSD.org>
+# $FreeBSD: branches/2020Q2/net-mgmt/unifi5/files/unifi.in 512281 2019-09-18 17:37:59Z feld $
+#
+
+# PROVIDE: unifi
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following line to /etc/rc.conf to enable `unifi':
+#
+# unifi_enable="YES"
+#
+# Other configuration settings for unifi that can be set in /etc/rc.conf:
+#
+# unifi_user (str)
+#   This is the user that unifi runs as
+#   Set to unifi by default
+#
+# unifi_group (str)
+#   This is the group that unifi runs as
+#   Set to unifi by default
+#
+# unifi_chdir (str)
+#   This is the directory that unifi chdirs into before starting
+#   Set to /usr/local/share/java/unifi by default
+#
+# unifi_java_home (str)
+#   The path to the base directory for the Java to use to run unifi
+#   Defaults to /usr/local/openjdk8
+#
+# unifi_javaflags (str)
+#   Flags passed to Java to run unifi
+#   Set to "-Djava.awt.headless=true -Xmx1024M" by default
+#
+
+. /etc/rc.subr
+name=unifi
+
+rcvar=unifi_enable
+load_rc_config ${name}
+
+: ${unifi_enable:=NO}
+: ${unifi_user:=unifi}
+: ${unifi_group:=unifi}
+: ${unifi_chdir=/config/controller/unifi}
+: ${unifi_java_home=/usr/local/openjdk8}
+: ${unifi_javaflags="-Djava.awt.headless=true -Xmx1024M"}
+
+pidfile="/var/run/unifi/${name}.pid"
+procname=${unifi_java_home}/bin/java
+command=/usr/sbin/daemon
+command_args="-f -p ${pidfile} ${unifi_java_home}/bin/java ${unifi_javaflags} com.ubnt.ace.Launcher start"
+start_precmd=start_precmd
+stop_precmd=stop_precmd
+stop_postcmd=stop_postcmd
+
+export CLASSPATH=$(echo ${unifi_chdir}/lib/*.jar | tr ' ' ':')
+
+start_precmd()
+{
+	if [ ! -e /var/run/unifi ] ; then
+		install -d -o unifi -g unifi /var/run/unifi;
+	fi
+}
+
+stop_precmd()
+{
+	if [ -r ${pidfile} ]; then
+		_UNIFIPID=$(check_pidfile ${pidfile} ${procname})
+		export _UNIFI_CHILDREN=$(pgrep -P ${_UNIFIPID})
+	fi
+}
+
+stop_postcmd()
+{
+	if ! [ -z ${_UNIFI_CHILDREN} ]; then
+		echo "Cleaning up leftover child processes."
+		kill $sig_stop ${_UNIFI_CHILDREN}
+		wait_for_pids ${_UNIFI_CHILDREN}
+	fi
+}
+
+run_rc_command "$1"

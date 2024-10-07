@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.7.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Flood is a monitoring service for various torrent clients
+home: https://truecharts.org/charts/stable/flood
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flood.png
+keywords:
+  - flood
+  - rtorrent
+  - qbittorrent
+  - transmission
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flood
+sources:
+  - https://github.com/jesec/flood
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flood
+  - https://hub.docker.com/r/jesec/flood
+type: application
+version: 12.3.0

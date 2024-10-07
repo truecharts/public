@@ -1,0 +1,38 @@
+image:
+  repository: quay.io/pussthecatorg/libremdb
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:91458123d8bb7a8f6d3a7edf0b116c154df509cb40fd1f217eb7d325b700d9c8
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3000
+        port: 10593
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/app
+redis:
+  enabled: true
+  redisUsername: default
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NEXT_PUBLIC_URL: http://localhost:3000
+            NEXT_TELEMETRY_DISABLED: 1
+            AXIOS_USERAGENT: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
+            AXIOS_ACCEPT: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+            AXIOS_LANGUAGE: "en-US,en;q=0.5"
+            USE_REDIS: true
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url

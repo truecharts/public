@@ -1,0 +1,39 @@
+image:
+  repository: tenstartups/ser2sock
+  tag: latest@sha256:379d9338c720da30b63dc4cf2ecea07eb89dac7d62d5c79047294fffe97ae559
+  pullPolicy: Always
+service:
+  main:
+    ports:
+      main:
+        port: 10000
+        protocol: tcp
+        targetPort: 10000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+# -- Affinity constraint rules to place the Pod on a specific node.
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+affinity: {}
+#   nodeAffinity:
+#     requiredDuringSchedulingIgnoredDuringExecution:
+#       nodeSelectorTerms:
+#       - matchExpressions:
+#         - key: app
+#           operator: In
+#           values:
+#           - ser2sock-controller
+
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SERIAL_DEVICE: ""
+            BAUD_RATE: 115200

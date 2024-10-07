@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.0.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Docker registry v2 command line client and repo listing generator with security checks.
+home: https://truecharts.org/charts/stable/reg
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.webp
+keywords:
+  - reg
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: reg
+sources:
+  - https://github.com/genuinetools/reg
+  - https://github.com/k8s-at-home/container-images/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
+  - https://hub.docker.com/_/registry
+type: application
+version: 14.0.8

@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: monitor
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.0.10
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A simple discord/telegram/slack bot to monitor your game servers and players in style.
+home: https://truecharts.org/charts/stable/game-server-watcher
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/game-server-watcher.webp
+keywords:
+  - game-server-watcher
+  - monitoring
+  - bots
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: game-server-watcher
+sources:
+  - https://github.com/a-sync/game-server-watcher
+  - https://github.com/truecharts/charts/tree/master/charts/stable/game-server-watcher
+  - https://ghcr.io/a-sync/game-server-watcher
+type: application
+version: 1.5.16

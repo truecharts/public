@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.8.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Jellyseerr is a fork of Overseerr with support for Jellyfin and Emby. It can be used to manage requests for your media library.
+home: https://truecharts.org/charts/stable/jellyseerr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.webp
+keywords:
+  - jellyseerr
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: jellyseerr
+sources:
+  - https://github.com/Fallenbagel/jellyseerr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jellyseerr
+  - https://hub.docker.com/r/fallenbagel/jellyseerr
+type: application
+version: 10.0.8

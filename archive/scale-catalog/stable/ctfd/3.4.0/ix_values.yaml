@@ -1,0 +1,81 @@
+image:
+  repository: ghcr.io/ctfd/ctfd
+  tag: 3.6.1@sha256:8033c370c30499873e99dc8888140d78c6d62b01a2f2d991a5c554e2024ce8d1
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8000
+        port: 10613
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # filesystem  | s3
+            UPLOAD_PROVIDER: filesystem
+            # set storage locations.
+            UPLOAD_FOLDER: "{{ .Values.persistence.uploads.mountPath }}"
+            LOG_FOLDER: "{{ .Values.persistence.logs.mountPath }}"
+            SECRET_KEY:
+              secretKeyRef:
+                name: ctfd-secrets
+                key: SECRET_KEY
+            DATABASE_PORT: 3306
+            DATABASE_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DATABASE_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DATABASE_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            MAIL_USEAUTH: false
+            MAILFROM_ADDR: ""
+            MAIL_SERVER: ""
+            MAIL_PORT: 587
+            MAIL_USERNAME: ""
+            MAIL_PASSWORD: ""
+            MAIL_TLS: false
+            MAIL_SSL: false
+            # CTFd will not load any plugins which may alleviate issues preventing CTFd from starting, default is false.
+            SAFE_MODE: true
+            REVERSE_PROXY: false
+            # majorleaguecyber
+            OAUTH_CLIENT_ID: ""
+            OAUTH_CLIENT_SECRET: ""
+
+mariadb:
+  enabled: true
+  mariadbUsername: ctfd
+  mariadbDatabase: ctfd
+
+redis:
+  enabled: true
+  redisUsername: default
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: "/uploads"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+
+portal:
+  open:
+    enabled: true

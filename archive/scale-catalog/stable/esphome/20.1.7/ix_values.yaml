@@ -1,0 +1,51 @@
+image:
+  repository: esphome/esphome
+  pullPolicy: IfNotPresent
+  tag: 2024.5.4@sha256:29e21efe64d03646530025d056d545485ab9c40a35f3d99e8e0a90d79bde2356
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    privileged: true
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6052
+        targetPort: 6052
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            ESPHOME_DASHBOARD_USE_PING: false
+            ESPHOME_DASHBOARD_RELATIVE_URL: /
+            # ESPHOME_QUICKWIZARD:
+            # ESPHOME_IS_HASSIO:
+            # DISABLE_HA_AUTHENTICATION:
+            # USERNAME:
+            # PASSWORD:
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  platformio:
+    enabled: true
+    mountPath: /.platformio
+portal:
+  open:
+    enabled: true

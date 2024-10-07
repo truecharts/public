@@ -1,0 +1,40 @@
+annotations:
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.207.2
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
+home: https://truecharts.org/charts/stable/nocodb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.webp
+keywords:
+  - nocodb
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nocodb
+sources:
+  - https://github.com/nocodb/nocodb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
+  - https://hub.docker.com/r/nocodb/nocodb
+type: application
+version: 14.2.6

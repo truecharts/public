@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: AI
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2022.01.1
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: DeepStack AI provides AI features including Face Recognition, Object Detection, Scene Recognition and custom AI Models
+home: https://truecharts.org/charts/stable/deepstack
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deepstack.webp
+keywords:
+  - AI
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: deepstack
+sources:
+  - https://github.com/johnolafenwa/DeepStack
+  - https://www.deepstack.cc/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deepstack
+  - https://hub.docker.com/r/deepquestai/deepstack
+type: application
+version: 11.8.14

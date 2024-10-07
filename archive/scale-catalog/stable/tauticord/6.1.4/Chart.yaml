@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: discord
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 5.4.1
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Discord bot that displays live data from Tautulli.
+home: https://truecharts.org/charts/stable/tauticord
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tauticord.webp
+keywords:
+  - tauticord
+  - tautulli
+  - discord
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tauticord
+sources:
+  - https://ghcr.io/nwithan8/tauticord
+  - https://github.com/nwithan8/tauticord
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tauticord
+type: application
+version: 6.1.4

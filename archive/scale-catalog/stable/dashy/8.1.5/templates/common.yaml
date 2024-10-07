@@ -1,0 +1,37 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- define "dashy.configvolume" -}}
+enabled: true
+type: configmap
+objectName: dashy-config
+readOnly: true
+defaultMode: "0755"
+mountPath: /app/public
+items:
+- key: conf.yml
+  path: conf.yml
+{{- end -}}
+
+{{- define "dashy.confighostpath" -}}
+enabled: true
+type: hostPath
+readOnly: {{ .Values.dashy.configDirectoryHostReadOnly }}
+hostPathType: Directory
+hostPath: {{ .Values.dashy.configDirectoryHostPath }}
+mountPath: /app/user-data/
+{{- end -}}
+
+{{- if .Values.dashyConfig -}}
+  {{/* Render config for dashy */}}
+  {{- $config := include "dashy.config" . | fromYaml -}}
+  {{- if $config -}}
+    {{- $_ := mustMergeOverwrite .Values $config -}}
+  {{- end -}}
+  {{- $_ := set .Values.persistence "dashy-config" (include "dashy.configvolume" . | fromYaml) -}}
+{{- else if .Values.dashy.enabled -}}
+  {{- $_ := set .Values.persistence "dashy-config" (include "dashy.confighostpath" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

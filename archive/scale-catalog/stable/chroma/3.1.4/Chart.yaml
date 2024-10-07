@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: AI
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.5.0
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: the AI-native open-source embedding database.
+home: https://truecharts.org/charts/stable/chroma
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/chroma.webp
+keywords:
+  - chroma
+  - embedding
+  - database
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: chroma
+sources:
+  - https://ghcr.io/chroma-core/chroma
+  - https://github.com/chroma-core/chroma
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chroma
+type: application
+version: 3.1.4

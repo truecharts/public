@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.9.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Audiobookshelf is a self-hosted audiobook server for managing and playing your audiobooks.
+home: https://truecharts.org/charts/stable/audiobookshelf
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/audiobookshelf.webp
+keywords:
+  - audiobookshelf
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: audiobookshelf
+sources:
+  - https://github.com/advplyr/audiobookshelf
+  - https://github.com/truecharts/charts/tree/master/charts/stable/audiobookshelf
+  - https://hub.docker.com/r/advplyr/audiobookshelf
+type: application
+version: 9.9.1

@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
+home: https://truecharts.org/charts/stable/plaxt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.webp
+keywords:
+  - plaxt
+  - Other
+  - MediaApp-Other
+  - MediaServer-Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plaxt
+sources:
+  - https://github.com/XanderStrike/goplaxt
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
+  - https://hub.docker.com/r/xanderstrike/goplaxt
+type: application
+version: 9.0.8

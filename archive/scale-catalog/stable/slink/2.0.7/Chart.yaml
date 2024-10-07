@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.1.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted image sharing platform built with Symfony and SvelteKit️.
+home: https://truecharts.org/charts/stable/slink
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/slink.webp
+keywords:
+  - media
+  - photos
+  - pictures
+  - sharing
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: slink
+sources:
+  - https://github.com/andrii-kryvoviaz/slink
+  - https://github.com/truecharts/charts/tree/master/charts/stable/slink
+  - https://hub.docker.com/r/anirdev/slink
+type: application
+version: 2.0.7

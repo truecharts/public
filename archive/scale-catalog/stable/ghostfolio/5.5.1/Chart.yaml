@@ -1,0 +1,42 @@
+annotations:
+  truecharts.org/category: finance
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.82.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 14.0.5
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Ghostfolio is a privacy-first, open source dashboard for your personal finances. Break down your asset allocation, know your net worth and make solid, data-driven investment decisions.
+home: https://truecharts.org/charts/stable/ghostfolio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghostfolio.webp
+keywords:
+  - ghostfolio
+  - finance
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ghostfolio
+sources:
+  - https://ghostfol.io/
+  - https://github.com/ghostfolio/ghostfolio
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
+  - https://hub.docker.com/r/ghostfolio/ghostfolio
+type: application
+version: 5.5.1

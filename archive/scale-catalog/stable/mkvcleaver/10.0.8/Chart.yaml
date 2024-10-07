@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.02.1
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: MKVCleaver is a tool for batch extraction of data from MKV files
+home: https://truecharts.org/charts/stable/mkvcleaver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mkvcleaver.webp
+keywords:
+  - media
+  - mkvcleaver
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mkvcleaver
+sources:
+  - https://github.com/jlesage/docker-mkvcleaver
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mkvcleaver
+  - https://hub.docker.com/r/jlesage/mkvcleaver
+type: application
+version: 10.0.8

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: vpn
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.7.36
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: WireGuard-based VPN server and egress firewall
+home: https://truecharts.org/charts/stable/firezone
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/firezone.webp
+keywords:
+  - firezone
+  - wireguard
+  - vpn
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: firezone
+sources:
+  - https://github.com/firezone/firezone
+  - https://github.com/truecharts/charts/tree/master/charts/stable/firezone
+  - https://hub.docker.com/r/firezone/firezone
+type: application
+version: 4.0.8

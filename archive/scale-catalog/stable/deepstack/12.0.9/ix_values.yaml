@@ -1,0 +1,73 @@
+image:
+  repository: deepquestai/deepstack
+  pullPolicy: IfNotPresent
+  tag: cpu-2022.01.1@sha256:4320be73987468b3040b2ca63daf2d3935c4d469b53aa40efb6176858488b500
+gpuImage:
+  repository: deepquestai/deepstack
+  pullPolicy: IfNotPresent
+  tag: cpu-2022.01.1@sha256:4320be73987468b3040b2ca63daf2d3935c4d469b53aa40efb6176858488b500
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10049
+        protocol: http
+        targetPort: 5000
+deepstack:
+  vision_face: true
+  vision_detection: true
+  vision_scene: true
+  vision_enhance: true
+configmap:
+  deepstack:
+    enabled: true
+    data:
+      VISION-FACE: '{{ ternary "True" "False" .Values.deepstack.vision_face }}'
+      VISION-DETECTION: '{{ ternary "True" "False" .Values.deepstack.vision_detection }}'
+      VISION-SCENE: '{{ ternary "True" "False" .Values.deepstack.vision_scene }}'
+      VISION-ENHANCE: '{{ ternary "True" "False" .Values.deepstack.vision_enhance }}'
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: "image"
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            # Path to custom models (needs to be on documentation)
+            MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
+            # High|Medium|Low
+
+            MODE: "High"
+            THREADCOUNT: 5
+            API-KEY: ""
+            ADMIN-KEY: ""
+          envFrom:
+            - configMapRef:
+                name: "deepstack"
+persistence:
+  data:
+    enabled: true
+    mountPath: /datastore
+  modelstore:
+    enabled: true
+    mountPath: /modelstore/detection
+portal:
+  open:
+    enabled: true
+updated: true

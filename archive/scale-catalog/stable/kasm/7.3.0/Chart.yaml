@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.15.0
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Kasm Workspaces is a streaming platform for delivering browser-based access to desktops, applications, and web services.
+home: https://truecharts.org/charts/stable/kasm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kasm.png
+keywords:
+  - kasm
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kasm
+sources:
+  - https://www.kasmweb.com/
+  - https://github.com/orgs/linuxserver/packages/container/package/kasm
+  - https://github.com/linuxserver/docker-kasm#readme
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kasm
+  - https://hub.docker.com/r/kasmweb/workspaces
+type: application
+version: 7.3.0

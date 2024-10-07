@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.3.151.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is the multi-platform Docker image for My Media for Alexa - https://www.mymediaalexa.com .
+home: https://truecharts.org/charts/stable/mymediaforalexa
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mymediaforalexa.webp
+keywords:
+  - media
+  - alexa
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mymediaforalexa
+sources:
+  - https://www.mymediaalexa.com/home/docker#dockerhub
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mymediaforalexa
+  - https://hub.docker.com/r/bizmodeller/mymediaforalexa
+type: application
+version: 8.8.13

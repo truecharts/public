@@ -1,0 +1,33 @@
+image:
+  repository: ghcr.io/ajnart/homarr
+  tag: 0.15.2@sha256:caf77d79272d16e8081a90e0f2b2928d385ca0b3c0dd36e50cb46ff3aa940ab9
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NEXTAUTH_SECRET:
+              secretKeyRef:
+                name: homarr-secrets
+                key: NEXTAUTH_SECRET
+service:
+  main:
+    ports:
+      main:
+        port: 10245
+        targetPort: 7575
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data/configs"
+  icons:
+    enabled: true
+    mountPath: "/app/public/icons"
+  data:
+    enabled: true
+    mountPath: "/data"
+portal:
+  open:
+    enabled: true

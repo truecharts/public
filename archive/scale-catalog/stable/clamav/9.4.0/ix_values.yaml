@@ -1,0 +1,82 @@
+image:
+  repository: clamav/clamav
+  pullPolicy: IfNotPresent
+  tag: 1.3.0@sha256:426527229938cc5886873b2ad40193d45189476f9be81006d8103ef59c9e5e76
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+clamav:
+  report_path: "/logs"
+  # User Defined
+
+  cron_enabled: true
+  cron_schedule: "* * * * *"
+  date_format: "+%m-%d-%Y_%H.%M.%S"
+  log_file_name: "clamscan_report"
+  extra_args: ""
+service:
+  main:
+    ports:
+      main:
+        port: 3310
+        protocol: http
+        targetPort: 3310
+  milter:
+    enabled: true
+    ports:
+      milter:
+        enabled: true
+        port: 7357
+        protocol: http
+        targetPort: 7357
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - clamdcheck.sh
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - clamdcheck.sh
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - clamdcheck.sh
+          env:
+            CLAMAV_NO_CLAMD: false
+            CLAMAV_NO_FRESHCLAMD: false
+            CLAMAV_NO_MILTERD: true
+            CLAMD_STARTUP_TIMEOUT: 1800
+            FRESHCLAM_CHECKS: 1
+persistence:
+  sigdatabase:
+    enabled: true
+    mountPath: /var/lib/clamav
+    targetSelectAll: true
+  scandir:
+    enabled: true
+    mountPath: /scandir
+    readOnly: true
+    targetSelectAll: true
+  logs:
+    enabled: true
+    mountPath: /logs
+    targetSelectAll: true
+portal:
+  open:
+    enabled: false

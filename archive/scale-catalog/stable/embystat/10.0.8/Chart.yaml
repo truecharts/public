@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.2.0
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Embystat is a personal web server that can calculate all kinds of statistics from your (local) Emby server.
+home: https://truecharts.org/charts/stable/embystat
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/embystat.webp
+keywords:
+  - embystat
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: embystat
+sources:
+  - https://ghcr.io/linuxserver/embystat
+  - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
+type: application
+version: 10.0.8

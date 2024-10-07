@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.21.2476
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: API Support for your favorite torrent trackers.
+home: https://truecharts.org/charts/stable/jackett
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.webp
+keywords:
+  - jackett
+  - torrent
+  - usenet
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: jackett
+sources:
+  - https://github.com/Jackett/Jackett
+  - https://github.com/geek-cookbook/containers/pkgs/container/jackett
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+  - https://ghcr.io/geek-cookbook/jackett
+type: application
+version: 20.1.26

@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser. It provides fast and valuable HTTP statistics for system administrators that require a visual server report on the fly.
+home: https://truecharts.org/charts/stable/goaccess
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess.webp
+keywords:
+  - goaccess
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: goaccess
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/goaccess
+  - https://hub.docker.com/r/gregyankovoy/goaccess
+type: application
+version: 5.8.13

@@ -1,0 +1,46 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: jasongdove/ersatztv
+  tag: v0.8.6@sha256:f82b0772286e546fe6e061fa2935549a5f73fbdc1cddb66abdad78fc22dd539b
+imageSelector: image
+nvidiaImage:
+  pullPolicy: Always
+  repository: jasongdove/ersatztv
+  tag: v0.8.6-nvidia@sha256:4c0adacf9ed7f2ddc8334633f0640cb8c7dc1897275e5640b96a91ca0234c8cd
+persistence:
+  config:
+    enabled: true
+    mountPath: /root/.local/share/ersatztv
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10607
+        protocol: http
+        targetPort: 8409
+vaapiImage:
+  pullPolicy: Always
+  repository: jasongdove/ersatztv
+  tag: v0.8.6-vaapi@sha256:d27f4a842dbe702b340a1be6ba4c152bc8880e1f66f4f2878d5cb4d0033c42d0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http

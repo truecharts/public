@@ -1,0 +1,37 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/truecharts/readarr
+  pullPolicy: IfNotPresent
+  tag: v0.1.0.643
+
+probes:
+    liveness:
+      enabled: true
+      ## Set this to true if you wish to specify your own livenessProbe
+      custom: true
+      ## The spec field contains the values for the default livenessProbe.
+      ## If you selected custom: true, this field holds the definition of the livenessProbe.
+      spec:
+        exec:
+          command:
+          - /usr/bin/env
+          - bash
+          - -c
+          - curl --fail localhost:8787/api/v1/system/status?apiKey=`IFS=\> && while
+            read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+        failureThreshold: 5
+        initialDelaySeconds: 60
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 10
+
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

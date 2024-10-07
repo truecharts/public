@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Runs a python script at a crontab defined interval that downloads/imports ics files into a caldav server.
+home: https://truecharts.org/charts/stable/import-ics
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/import-ics.webp
+keywords:
+  - import-ics
+  - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: import-ics
+sources:
+  - https://github.com/Vilhjalmr26/import_ics
+  - https://github.com/truecharts/charts/tree/master/charts/stable/import-ics
+  - https://hub.docker.com/r/vilhjalmr26/import_ics
+type: application
+version: 6.0.8

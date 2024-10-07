@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 0.20.1
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Slskd is a modern client-server application for the Soulseek file sharing network.
+home: https://truecharts.org/charts/incubator/slskd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/slskd.webp
+keywords:
+  - slskd
+  - music
+  - soulseek
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: slskd
+sources:
+  - https://github.com/ansible-slskd/slskd
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/slskd
+  - https://ghcr.io/slskd/slskd
+type: application
+version: 0.1.18

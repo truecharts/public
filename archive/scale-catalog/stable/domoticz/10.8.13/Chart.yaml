@@ -1,0 +1,34 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.4.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more.
+home: https://truecharts.org/charts/stable/domoticz
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/domoticz.webp
+keywords:
+  - domoticz
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: domoticz
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/domoticz
+  - https://hub.docker.com/r/domoticz/domoticz
+type: application
+version: 10.8.13

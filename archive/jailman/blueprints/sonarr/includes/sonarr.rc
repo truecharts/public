@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: sonarr
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# sonarr_enable: Set to YES to enable sonarr
+# Default: NO
+# sonarr_user: The user account used to run the sonarr daemon.
+# This is optional, however do not specifically set this to an
+# empty string as this will cause the daemon to run as root.
+# Default: media
+	# sonarr_group: The group account used to run the sonarr daemon.
+# This is optional, however do not specifically set this to an
+# empty string as this will cause the daemon to run with group wheel.
+# Default: media
+# sonarr_data_dir: Directory where sonarr configuration
+# data is stored.
+# Default: /var/db/sonarr
+
+. /etc/rc.subr
+name=sonarr
+rcvar=${name}_enable
+load_rc_config $name
+
+: ${sonarr_enable:="NO"}
+: ${sonarr_user:="sonarr"}
+: ${sonarr_group:="sonarr"}
+: ${sonarr_data_dir:="/config"}
+
+pidfile="${sonarr_data_dir}/nzbdrone.pid"
+command="/usr/sbin/daemon"
+procname="/usr/local/bin/mono"
+command_args="-f ${procname} /usr/local/share/NzbDrone/NzbDrone.exe --data=${sonarr_data_dir} --nobrowser"
+
+start_precmd=sonarr_precmd
+sonarr_precmd() {
+if [ ! -d ${sonarr_data_dir} ]; then
+install -d -o ${sonarr_user} -g ${sonarr_group} ${sonarr_data_dir}
+fi
+
+export XDG_CONFIG_HOME=${sonarr_data_dir}
+}
+
+run_rc_command "$1"

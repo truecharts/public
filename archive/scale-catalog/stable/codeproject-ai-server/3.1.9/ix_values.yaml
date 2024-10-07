@@ -1,0 +1,45 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: codeproject/ai-server
+  tag: cpu-2.6.5@sha256:181c85af30bb464a1ad5db396ba0803ec82d9f912e54ff751f171f3342d27489
+gpu12Image:
+  pullPolicy: IfNotPresent
+  repository: codeproject/ai-server
+  tag: cuda12_2@sha256:fd128680364bf9e314b5ed44da1eb0f93534c9284f7e742849f397d2286a0055
+gpu11Image:
+  pullPolicy: IfNotPresent
+  repository: codeproject/ai-server
+  tag: cuda11_7@sha256:49d862f7bf8e1220ad1d58c3c0ba43dea0a7a512d1965730438094abb3d402f8
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 32168
+        targetPort: 32168
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /etc/codeproject/ai
+  downloads:
+    enabled: true
+    mountPath: /app/modules
+
+portal:
+  open:
+    enabled: true

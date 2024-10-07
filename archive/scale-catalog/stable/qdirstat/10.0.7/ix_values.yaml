@@ -1,0 +1,70 @@
+image:
+  repository: jlesage/qdirstat
+  tag: v24.01.1@sha256:3416d53afc9f4438b9684a04f8946e575de932f9b995a94a27a5f50ebf5ff27f
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10262
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10263
+        targetPort: 5900
+qdirstat:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  qdirstat:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.qdirstat.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.qdirstat.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.qdirstat.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.qdirstat.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.qdirstat.DISPLAY_HEIGHT }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "qdirstat"

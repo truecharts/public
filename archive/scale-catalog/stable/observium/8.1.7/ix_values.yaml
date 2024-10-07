@@ -1,0 +1,67 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: pvrmza/docker-observium
+  tag: 20240305@sha256:5f08bcd08cba39f719ae5c671ae99667c1c46090e07326cc5b7c665e2446c3f2
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8668
+        protocol: http
+        targetPort: 80
+  udpport1:
+    enabled: true
+    ports:
+      udpport1:
+        enabled: true
+        port: 8514
+        protocol: udp
+        targetPort: 514
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            OBSERVIUM_ADMIN_USER: "please-change"
+            OBSERVIUM_ADMIN_PASS: "Ch4angeME"
+            OBSERVIUM_base_url: ""
+            #
+            OBSERVIUM_auth_mechanism: "mysql"
+            OBSERVIUM_db_extension: "mysqli"
+            OBSERVIUM_db_host:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            OBSERVIUM_db_name: observium
+            OBSERVIUM_db_pass: "{{ .Values.mariadb.password }}"
+            OBSERVIUM_db_user: observium
+            OBSERVIUM_cache__enable: true
+            OBSERVIUM_cache__driver: "auto"
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: observium
+  mariadbDatabase: observium
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: false
+
+portal:
+  open:
+    enabled: true

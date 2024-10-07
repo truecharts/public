@@ -1,0 +1,151 @@
+image:
+  repository: n8nio/n8n
+  tag: 1.43.1@sha256:b0fe233e6255a364c3bc2d1a603bb97c85f2266f31721e5d6c256b7d5a102768
+  pullPolicy: IfNotPresent
+timezoneandlocale: {}
+# N8N_DEFAULT_LOCALE: "en"
+credentials: {}
+# CREDENTIALS_OVERWRITE_DATA: ""
+# CREDENTIALS_OVERWRITE_ENDPOINT: ""
+# CREDENTIALS_DEFAULT_NAME: "My credentials"
+deployment:
+  N8N_HOST: "localhost"
+  # N8N_EDITOR_BASE_URL: ""
+  # N8N_CONFIG_FILES: ""
+  # N8N_ENCRYPTION_KEY: ""
+  # N8N_DIAGNOSTICS_ENABLED: true
+  # N8N_DISABLE_UI: false
+  # N8N_TEMPLATES_ENABLED: false
+  # N8N_TEMPLATES_HOST: ""
+  # N8N_PERSONALIZATION_ENABLED: true
+  # N8N_VERSION_NOTIFICATIONS_ENABLED: true
+  # N8N_DIAGNOSTICS_ENABLED: false
+  # N8N_HIRING_BANNER_ENABLED: false
+endpoints: {}
+# WEBHOOK_URL: ""
+# N8N_PAYLOAD_SIZE_MAX: 16
+# N8N_METRICS: false
+# N8N_METRICS_PREFIX: "n8n_"
+# N8N_ENDPOINT_REST: "rest"
+# N8N_ENDPOINT_WEBHOOK: "webhook"
+# N8N_ENDPOINT_WEBHOOK_TEST: "webhook-test"
+# N8N_ENDPOINT_WEBHOOK_WAIT: "webhook-waiting"
+# N8N_DISABLE_PRODUCTION_MAIN_PROCESS: false
+# N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: false
+executions: {}
+# EXECUTIONS_PROCESS: "own"
+# EXECUTIONS_MODE: "regular"
+# EXECUTIONS_TIMEOUT: "-1"
+# EXECUTIONS_TIMEOUT_MAX: 3600
+# EXECUTIONS_DATA_SAVE_ON_ERROR: "all"
+# EXECUTIONS_DATA_SAVE_ON_SUCCESS: "all"
+# EXECUTIONS_DATA_SAVE_ON_PROGRESS: false
+# EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: false
+# EXECUTIONS_DATA_PRUNE: false
+# EXECUTIONS_DATA_MAX_AGE: 336
+# EXECUTIONS_DATA_PRUNE_TIMEOUT: 3600
+logs:
+  # N8N_LOG_LEVEL: "info"
+  # N8N_LOG_OUTPUT: "console"
+  # N8N_LOG_FILE_COUNT_MAX: 100
+  # N8N_LOG_FILE_SIZE_MAX: 16
+  N8N_LOG_FILE_LOCATION: "/data/logs"
+n8n_security: {}
+# N8N_BLOCK_ENV_ACCESS_IN_NODE: false
+# N8N_BASIC_AUTH_ACTIVE: false
+# N8N_BASIC_AUTH_USER: ""
+# N8N_BASIC_AUTH_PASSWORD: ""
+# N8N_BASIC_AUTH_HASH: false
+# N8N_JWT_AUTH_ACTIVE: false
+# N8N_JWT_AUTH_HEADER: ""
+# N8N_JWT_AUTH_HEADER_VALUE_PREFIX: ""
+# N8N_JWKS_URI: ""
+# N8N_JWT_ISSUER: ""
+# N8N_JWT_NAMESPACE: ""
+# N8N_JWT_ALLOWED_TENANT: ""
+# N8N_JWT_ALLOWED_TENANT_KEY: ""
+# N8N_AUTH_EXCLUDE_ENDPOINTS: ""
+workflows: {}
+# WORKFLOWS_DEFAULT_NAME: "My workflow"
+# N8N_ONBOARDING_FLOW_DISABLED: false
+# N8N_WORKFLOW_TAGS_DISABLED: false
+externalhooks: {}
+# EXTERNAL_HOOK_FILES: ""
+usermanagement: {}
+# N8N_USER_MANAGEMENT_DISABLED: false
+# N8N_EMAIL_MODE: "smtp"
+# N8N_SMTP_HOST: ""
+# N8N_SMTP_PORT: 0
+# N8N_SMTP_USER: ""
+# N8N_SMTP_PASS: ""
+# N8N_SMTP_SENDER: ""
+# N8N_SMTP_SSL: true
+# N8N_UM_EMAIL_TEMPLATES_INVITE: ""
+# N8N_UM_EMAIL_TEMPLATES_PWRESET: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 5678
+        targetPort: 5678
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+# Enabled redis
+redis:
+  enabled: true
+  includeCommon: true
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: n8n
+    database: n8n
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    fsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/healthz"
+            readiness:
+              path: "/healthz"
+            startup:
+              path: "/healthz"
+          envFrom:
+            - configMapRef:
+                name: n8n-config
+          env:
+            GENERIC_TIMEZONE: "{{ .Values.TZ }}"
+            DB_TYPE: "postgresdb"
+            DB_POSTGRESDB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_POSTGRESDB_PORT: 5432
+            QUEUE_BULL_REDIS_PORT: 6379
+            N8N_USER_FOLDER: "/data"
+            DB_POSTGRESDB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_POSTGRESDB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            QUEUE_BULL_REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            QUEUE_BULL_REDIS_PASSWORD: "{{ .Values.redis.password }}"

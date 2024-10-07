@@ -1,0 +1,54 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: pawelmalak/flame
+  tag: 2.3.1@sha256:ed331453caf5ad167b8cc4c6d03d855e7a1d11e7387aa7c4c312cf0680dbe601
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10291
+        protocol: http
+        targetPort: 5005
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASSWORD: flame_password
+            enable_integration: "true"
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - "networking.k8s.io"
+        resources:
+          - "ingresses"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+podOptions:
+  automountServiceAccountToken: true

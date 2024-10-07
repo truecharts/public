@@ -1,0 +1,110 @@
+image:
+  repository: bitnami/solr
+  pullPolicy: IfNotPresent
+  tag: 9.5.0@sha256:4bd186b90015e1dde5cc7b9c0a4f4a9276a4a833caf0640d616b05248473bf20
+
+includeCommon: true
+workload:
+  main:
+    replicas: 1
+    podSpec:
+      containers:
+        main:
+          env:
+            SOLR_CORES: "{{ .Values.solrCores }}"
+            SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
+            SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
+            SOLR_OPTS: "{{ .Values.solrOpts }}"
+            SOLR_ADMIN_PASSWORD: "{{ .Values.password }}"
+          # -- Probe configuration
+          # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+          # @default -- See below
+          probes:
+            # -- Liveness probe configuration
+            # @default -- See below
+            liveness:
+              # -- Enable the liveness probe
+              enabled: true
+              # -- Set this to `true` if you wish to specify your own livenessProbe
+              custom: true
+              # -- The spec field contains the values for the default livenessProbe.
+              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - |
+                      if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+                        until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      else
+                        until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      fi;
+            # -- Redainess probe configuration
+            # @default -- See below
+            readiness:
+              # -- Enable the readiness probe
+              enabled: true
+              # -- Set this to `true` if you wish to specify your own readinessProbe
+              custom: true
+              # -- The spec field contains the values for the default readinessProbe.
+              # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - |
+                      if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+                        until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      else
+                        until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      fi;
+            # -- Startup probe configuration
+            # @default -- See below
+            startup:
+              # -- Enable the startup probe
+              enabled: true
+              custom: true
+              # -- The spec field contains the values for the default livenessProbe.
+              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - |
+                      if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+                        until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      else
+                        until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+                      fi;
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 1001
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8983
+        targetPort: 8983
+persistence:
+  db:
+    enabled: true
+    mountPath: "/bitnami/solr"
+# Currently only single core is supported, with multiple cores, probes will fail.
+solrCores: "testcore"
+solrEnableAuthentication: "yes"
+solrUsername: "test"
+# Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
+solrOpts: ""
+password: "PLACEHOLDERPASSWORD"
+portal:
+  open:
+    enabled: true

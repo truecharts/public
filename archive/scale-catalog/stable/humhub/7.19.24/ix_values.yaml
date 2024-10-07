@@ -1,0 +1,206 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/mriedmann/humhub-phponly
+  tag: 1.15.4@sha256:b3d656bcb60a7b8e5e052ec0bd0f2beecaeb3319fa7ec99af9ca498a0a633bec
+nginxImage:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/mriedmann/humhub-nginx
+  tag: 1.15.4@sha256:afb417b4161a09ddaafdc2003f074b17099865be22d0547a76a731b213561344
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    targetSelector: nginx
+    ports:
+      main:
+        protocol: http
+        targetSelector: nginx
+        targetPort: 80
+        port: 8080
+  backend:
+    enabled: true
+    type: ClusterIP
+    targetSelector: main
+    ports:
+      backend:
+        enabled: true
+        targetPort: 9000
+        targetSelector: main
+        port: 9000
+
+humhub:
+  nginx:
+    max_client_body_size: 10m
+    keep_alive_timeout: 65
+  proto: http
+  host: localhost:8080
+  admin:
+    login: admin
+    password: test
+    email: humhub@example.com
+  mailer:
+    sys_address: noreply@example.com
+    sys_name: HumHub
+    type: smtp
+    hostname: ""
+    port: 1025
+    user: ""
+    password: ""
+    encrypt: ""
+    allow_self_sign_certs: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command: /usr/local/bin/php-fpm-healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command: /usr/local/bin/php-fpm-healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command: /usr/local/bin/php-fpm-healthcheck
+          env:
+            HUMHUB_AUTO_INSTALL: true
+            HUMHUB_INTEGRITY_CHECK: true
+            WAIT_FOR_DB: true
+            # Database
+            HUMHUB_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            HUMHUB_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            HUMHUB_DB_PASSWORD: "{{ .Values.mariadb.password }}"
+            HUMHUB_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            # Redis
+            HUMHUB_QUEUE_CLASS: humhub\modules\queue\driver\Redis
+            HUMHUB_CACHE_CLASS: yii\redis\Cache
+            HUMHUB_CACHE_EXPIRE_TIME: 3600
+            HUMHUB_REDIS_PORT: 6379
+            HUMHUB_REDIS_HOSTNAME:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            HUMHUB_REDIS_PASSWORD: "{{ .Values.redis.password }}"
+            # Mailer
+            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
+            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
+            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.mailer.type }}"
+            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.mailer.hostname }}"
+            HUMHUB_MAILER_PORT: "{{ .Values.humhub.mailer.port }}"
+            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.mailer.user }}"
+            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.mailer.password }}"
+            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.mailer.encrypt }}"
+            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.mailer.allow_self_sign_certs }}"
+            # -- Initial install only
+            # HTTP/HTTPS configuration
+            HUMHUB_PROTO: "{{ .Values.humhub.proto }}"
+            HUMHUB_HOST: "{{ .Values.humhub.host }}"
+            # -- Initial install only
+            # Admin creattion
+            HUMHUB_ADMIN_LOGIN: "{{ .Values.humhub.admin.login }}"
+            HUMHUB_ADMIN_EMAIL: "{{ .Values.humhub.admin.email }}"
+            HUMHUB_ADMIN_PASSWORD: "{{ .Values.humhub.admin.password }}"
+
+  nginx:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        nginx:
+          enabled: true
+          primary: true
+          imageSelector: nginxImage
+          env:
+            NGINX_CLIENT_MAX_BODY_SIZE: "{{ .Values.humhub.nginx.max_client_body_size }}"
+            NGINX_KEEPALIVE_TIMEOUT: "{{ .Values.humhub.nginx.keep_alive_timeout }}"
+            NGINX_UPSTREAM: '{{ printf "%s-backend:9000" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            # Allow IPs for `/ping` ONLY
+            HUMHUB_REVERSEPROXY_WHITELIST: "10.0.0.0/8;172.16.0.0/16;192.168.0.0/24"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /ping
+              port: 80
+            readiness:
+              enabled: true
+              type: http
+              path: /ping
+              port: 80
+            startup:
+              enabled: true
+              type: tcp
+              port: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/protected/config
+  assets:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/assets
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/localhost/htdocs/assets
+      nginx:
+        nginx:
+          mountPath: /var/www/localhost/htdocs/assets
+  themes:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/themes
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/localhost/htdocs/themes
+      nginx:
+        nginx:
+          mountPath: /var/www/localhost/htdocs/themes
+  modules:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/localhost/htdocs/protected/modules
+      nginx:
+        nginx:
+          mountPath: /var/www/localhost/htdocs/protected/modules
+  uploads:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/localhost/htdocs/uploads
+      nginx:
+        nginx:
+          mountPath: /var/www/localhost/htdocs/uploads
+
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: humhub
+  mariadbDatabase: humhub
+
+redis:
+  enabled: true
+  includeCommon: true
+
+portal:
+  open:
+    enabled: true

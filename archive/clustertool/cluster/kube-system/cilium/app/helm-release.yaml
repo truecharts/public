@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+    name: cilium
+    namespace: kube-system
+    annotations:
+        meta.helm.sh/release-name: cilium
+        meta.helm.sh/release-namespace: kube-system
+    labels:
+        app.kubernetes.io/managed-by: Helm
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: cilium
+            version: 1.14.4
+            sourceRef:
+                kind: HelmRepository
+                name: cilium-charts
+                namespace: flux-system
+            interval: 15m
+    maxHistory: 3
+    install:
+        remediation:
+            retries: 3
+    upgrade:
+        cleanupOnFail: true
+        remediation:
+            retries: 3
+            remediateLastFailure: true
+    uninstall:
+        keepHistory: false
+    valuesFrom:
+        - kind: ConfigMap
+          name: cilium-values
+    values:
+        hubble:
+            metrics:
+                serviceMonitor:
+                    enabled: true
+            relay:
+                prometheus:
+                    serviceMonitor:
+                        enabled: true
+        prometheus:
+            enabled: true
+            serviceMonitor:
+                enabled: true
+        operator:
+            prometheus:
+                enabled: true
+                serviceMonitor:
+                    enabled: true

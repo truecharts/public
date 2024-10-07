@@ -1,0 +1,78 @@
+image:
+  repository: jlesage/czkawka
+  pullPolicy: IfNotPresent
+  tag: v24.02.1@sha256:431aa6dc171ac202386a1b76f33b5065ae704fc8c43e189c7cbcd6a9c74e9eaf
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10258
+        protocol: http
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10259
+        protocol: tcp
+        targetPort: 5900
+czkawka:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  czkawka:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.czkawka.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.czkawka.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.czkawka.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "czkawka"
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+  trash:
+    enabled: true
+    mountPath: /trash
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,39 @@
+image:
+  repository: itzg/mc-router
+  pullPolicy: IfNotPresent
+  tag: 1.20.3@sha256:2ea67189f42b47a9b3f5b51fa748cf0d1e4cccfa1e31a2ea53f77321081f69d7
+service:
+  main:
+    ports:
+      main:
+        port: 25564
+  minecraft:
+    enabled: true
+    ports:
+      minecraft:
+        enabled: true
+        port: 25565
+mcrouter:
+  host_minecraft: []
+  #  - "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - secretRef:
+                name: "secrets"
+          env:
+            API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
+portal:
+  open:
+    enabled: false

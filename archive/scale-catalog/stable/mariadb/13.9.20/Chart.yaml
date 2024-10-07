@@ -1,0 +1,40 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 11.3.2
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: includeCommon
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Fast, reliable, scalable, and easy to use open-source relational database system.
+home: https://truecharts.org/charts/stable/mariadb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mariadb.webp
+keywords:
+  - mariadb
+  - mysql
+  - database
+  - sql
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mariadb
+sources:
+  - https://github.com/prometheus/mysqld_exporter
+  - https://mariadb.org
+  - https://github.com/bitnami/bitnami-docker-mariadb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mariadb
+  - https://hub.docker.com/r/bitnami/mariadb
+type: application
+version: 13.9.20

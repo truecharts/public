@@ -1,0 +1,54 @@
+image:
+  repository: jonnyan404/verysync
+  tag: 2.17.0@sha256:7431e6b56344029e26cb2b5ec66907664fcaea699c8510a47e15a5c8b384ec40
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10193
+  bt-udp1:
+    enabled: true
+    ports:
+      bt-udp1:
+        enabled: true
+        port: 22037
+        targetPort: 22037
+        protocol: udp
+  bt-udp2:
+    enabled: true
+    ports:
+      bt-udp2:
+        enabled: true
+        port: 22027
+        targetPort: 22027
+        protocol: udp
+  data:
+    enabled: true
+    ports:
+      data:
+        enabled: true
+        port: 22330
+        targetPort: 22330
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  sync:
+    enabled: true
+    mountPath: "/Sync"
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            VUID: "{{- $.Values.securityContext.container.PUID -}}"

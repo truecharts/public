@@ -1,0 +1,55 @@
+image:
+  repository: monica
+  tag: 4.1.2@sha256:166ecd36f5600a2abbcccc0dce94670fb1827e6f7096b79d30a3f7ab3557989d
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10119
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/www/html/storage"
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: monica
+  mariadbDatabase: monica
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            APP_ENV: production
+            APP_URL: https://crm.k8s-at-home.com
+            DB_DATABASE: monica
+            DB_USERNAME: monica
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
+            APP_KEY:
+              secretKeyRef:
+                name: appkey
+                key: appkey

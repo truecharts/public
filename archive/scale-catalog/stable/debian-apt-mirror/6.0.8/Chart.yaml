@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 23.0.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will run apt-mirror and Apache2. This allows you to create a local apt mirror for Debian packages.
+home: https://truecharts.org/charts/stable/debian-apt-mirror
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-apt-mirror.webp
+keywords:
+  - debian-apt-mirror
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
+  - Drivers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: debian-apt-mirror
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/debian-apt-mirror
+  - https://hub.docker.com/r/ich777/debian-mirror
+  - https://www.debian.org/
+type: application
+version: 6.0.8

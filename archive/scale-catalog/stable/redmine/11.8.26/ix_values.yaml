@@ -1,0 +1,57 @@
+image:
+  repository: redmine
+  pullPolicy: IfNotPresent
+  tag: 5.1.2@sha256:1eebf4c98f362e005cb20589e10a498a070a9a31f223c80c491a1577a8a82188
+redmine:
+  plugins_migrate: true
+  no_db_migrate: false
+service:
+  main:
+    ports:
+      main:
+        port: 10171
+        targetPort: 3000
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/src/redmine/files"
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: redmine
+    database: redmine
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 999
+    runAsGroup: 999
+  pod:
+    fsGroup: 999
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            REDMINE_DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            REDMINE_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            REDMINE_DB_PORT: "5432"
+            # Anything but empty means true, empty means false
+            REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'
+            REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
+            REDMINE_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            REDMINE_DB_POSTGRES:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            REDMINE_SECRET_KEY_BASE:
+              secretKeyRef:
+                name: secrets
+                key: REDMINE_SECRET_KEY_BASE

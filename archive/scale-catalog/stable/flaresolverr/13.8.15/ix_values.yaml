@@ -1,0 +1,37 @@
+image:
+  repository: ghcr.io/flaresolverr/flaresolverr
+  pullPolicy: IfNotPresent
+  tag: v3.3.17@sha256:5f5661db1e69a6f80ac24d47d9fa5580f6f741ee5ec967818396ae0dacecd7ea
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8191
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            HOST: "0.0.0.0"
+            TEST_URL: "https://www.google.com"
+            BROWSER_TIMEOUT: 40000
+            HEADLESS: true
+            LOG_LEVEL: info
+            LOG_HTML: false
+            # At this time none of the captcha solvers work, defaults to none.
+            CAPTCHA_SOLVER: none
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: false

@@ -1,0 +1,70 @@
+image:
+  repository: jlesage/tsmuxer
+  tag: v24.01.1@sha256:631b1db2da541d3e23d6f40da4d12f7ee0e7e1e4d5181f1f83e612adc3af3bdd
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10274
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10275
+        targetPort: 5900
+tsmuxer:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  tsmuxer:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.tsmuxer.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.tsmuxer.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.tsmuxer.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.tsmuxer.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.tsmuxer.DISPLAY_HEIGHT }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "tsmuxer"

@@ -1,0 +1,112 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/drakkan/sftpgo
+  tag: v2.6.0-plugins@sha256:3b90adefa53611427cfeda58bf9f251b01290e867bed9b1850fda3e12b18a107
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 2221
+        protocol: http
+        targetPort: 8080
+  ftpport:
+    enabled: true
+    ports:
+      ftpport:
+        enabled: true
+        port: 2121
+        protocol: http
+        targetPort: 2121
+  passiveports:
+    enabled: true
+    ports:
+      passiveports:
+        enabled: true
+        port: 50000
+        protocol: http
+        targetPort: 50000
+  sftpport:
+    enabled: true
+    ports:
+      sftpport:
+        enabled: true
+        port: 2022
+        protocol: tcp
+        targetPort: 2022
+  webdavport:
+    enabled: true
+    ports:
+      webdavport:
+        enabled: true
+        port: 10080
+        protocol: tcp
+        targetPort: 10080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SFTPGO_COMMON__DEFENDER__ENABLED: "true"
+            SFTPGO_FTPD__BINDINGS__0__DEBUG: "0"
+            SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
+            SFTPGO_FTPD__BINDINGS__0__PORT: "2121"
+            SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
+            SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
+            SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"
+            # plugins section
+            # each plugin will require couple more manual settings due to
+            # how they can each be combined differently. see docs on truecharts website
+            # ref - https://github.com/sftpgo/sftpgo-plugin-auth
+            SFTPGO_PLUGIN_AUTH_LDAP_URL: "ldap://192.168.1.5:389"
+            SFTPGO_PLUGIN_AUTH_LDAP_BASE_DN: "dc=mylab,dc=local"
+            SFTPGO_PLUGIN_AUTH_LDAP_BIND_DN: "cn=Administrator,cn=users,dc=mylab,dc=local"
+            SFTPGO_PLUGIN_AUTH_LDAP_PASSWORD: "Password.123456"
+            SFTPGO_PLUGIN_AUTH_LDAP_SEARCH_QUERY: "(&(objectClass=user)(sAMAccountType=805306368)(sAMAccountName=%username%))"
+            SFTPGO_PLUGIN_AUTH_LDAP_GROUP_ATTRIBUTES: "memberOf"
+            SFTPGO_PLUGIN_AUTH_PRIMARY_GROUP_PREFIX: ""
+            SFTPGO_PLUGIN_AUTH_SECONDARY_GROUP_PREFIX: ""
+            SFTPGO_PLUGIN_AUTH_MEMBERSHIP_GROUP_PREFIX: ""
+            SFTPGO_PLUGIN_AUTH_REQUIRE_GROUPS: ""
+            SFTPGO_PLUGIN_AUTH_STARTTLS: "0"
+            SFTPGO_PLUGIN_AUTH_USERS_BASE_DIR: "/mnt/home"
+            SFTPGO_PLUGIN_AUTH_CACHE_TIME: 0
+            SFTPGO_PLUGIN_AUTH_SKIP_TLS_VERIFY: "0"
+            SFTPGO_PLUGIN_AUTH_CA_CERTIFICATES: ""
+            # ref - https://github.com/sftpgo/sftpgo-plugin-eventsearch
+            SFTPGO_PLUGIN_EVENTSEARCH_DRIVER: ""
+            SFTPGO_PLUGIN_EVENTSEARCH_DSN: ""
+            # ref - https://github.com/sftpgo/sftpgo-plugin-eventstore
+            SFTPGO_PLUGIN_EVENTSTORE_DRIVER: ""
+            SFTPGO_PLUGIN_EVENTSTORE_DSN: ""
+            SFTPGO_PLUGIN_EVENTSTORE_INSTANCE_ID: ""
+            SFTPGO_PLUGIN_EVENTSTORE_RETENTION: "0"
+            # ref - https://github.com/sftpgo/sftpgo-plugin-geoipfilter
+            SFTPGO_PLUGIN_GEOIPFILTER_DB_FILE: "/mnt/database/geolite.db"
+            SFTPGO_PLUGIN_GEOIPFILTER_ALLOWED_COUNTRIES: "JP"
+            SFTPGO_PLUGIN_GEOIPFILTER_DENIED_COUNTRIES: "KP"
+            # ref - https://github.com/sftpgo/sftpgo-plugin-kms
+            # ref - https://github.com/sftpgo/sftpgo-plugin-pubsub
+
+persistence:
+  backupdirectory:
+    enabled: true
+    mountPath: /srv/sftpgo/backups
+  configpath:
+    enabled: true
+    mountPath: /var/lib/sftpgo
+  data:
+    enabled: true
+    mountPath: /srv/sftpgo/data
+  shareaccess:
+    enabled: true
+    mountPath: /shareaccess
+portal:
+  open:
+    enabled: true

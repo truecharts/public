@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: kylemanna/bitcoind
+  tag: latest@sha256:47f4596c3534b2334ca09bc4109068ebb8663b6b405c5fc03a9e00aff57340c3
+persistence:
+  blockhainstorage:
+    enabled: true
+    mountPath: /bitcoin/.bitcoin
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8332
+        protocol: tcp
+        targetPort: 8332
+  port2:
+    enabled: true
+    ports:
+      port2:
+        enabled: true
+        port: 8333
+        protocol: tcp
+        targetPort: 8333
