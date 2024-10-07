@@ -7,10 +7,10 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truenas/middleware:master
+      image: ghcr.io/truenas/middleware:master@sha256:f6d1c7a932e0745d3bf9928711de0e715d7d130e317931a2498457aec5aa555b
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
     - name: Setup dependencies
       run: |
         /usr/bin/install-dev-tools
