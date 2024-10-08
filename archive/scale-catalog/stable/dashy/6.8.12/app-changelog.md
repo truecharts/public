@@ -1,10 +1,6 @@
-
-
 ## [dashy-6.8.12](https://github.com/truecharts/charts/compare/dashy-6.6.0...dashy-6.8.12) (2024-04-22)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -45,7 +41,5 @@
 - update container image common to v20.2.0[@91ade87](https://github.com/91ade87) by renovate ([#19361](https://github.com/truecharts/charts/issues/19361))
 
 ### Chore
-
-
 
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))

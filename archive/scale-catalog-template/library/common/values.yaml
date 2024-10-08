@@ -32,18 +32,20 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-
-env: {}
+env:
+  {}
   # TZ: UTC
 
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
-envTpl: {}
+envTpl:
+  {}
   # TEMPLATE_VALUE: "{{ .Release.Name }}-admin"
 
 ## Variables with values from (for example) the Downward API
 ## See https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/
-envValueFrom: {}
+envValueFrom:
+  {}
   # NODE_NAME:
   #   fieldRef:
   #     fieldPath: spec.nodeName
@@ -91,7 +93,6 @@ podSecurityContext:
 
 # Configure the Security Context for the main container
 securityContext: {}
-
 
 initContainers: []
 
@@ -295,7 +296,6 @@ PUID: 568
 PGID: 568
 UMASK: "002"
 fixMountPermissions: true
-
 # deviceMounts:
 #   config:
 #     enabled: false

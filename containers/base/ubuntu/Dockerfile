@@ -56,7 +56,7 @@ RUN \
         moreutils \
         pv \
         tini \
-	nano \
+    nano \
         tzdata \
         vim-tiny \
         unrar \
@@ -67,7 +67,7 @@ RUN \
         mariadb-client \
         libicu70 \
         pv \
-	git \
+    git \
     && \
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/vi \

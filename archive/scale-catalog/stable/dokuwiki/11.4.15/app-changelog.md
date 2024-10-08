@@ -1,10 +1,6 @@
-
-
 ## [dokuwiki-11.4.15](https://github.com/truecharts/charts/compare/dokuwiki-11.2.0...dokuwiki-11.4.15) (2024-04-24)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -56,12 +52,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

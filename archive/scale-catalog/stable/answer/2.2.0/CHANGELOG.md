@@ -95,5 +95,3 @@ title: Changelog
 ## [answer-2.1.4](https://github.com/truecharts/charts/compare/answer-2.1.3...answer-2.1.4) (2024-01-01)
 
 ### Chore
-
-

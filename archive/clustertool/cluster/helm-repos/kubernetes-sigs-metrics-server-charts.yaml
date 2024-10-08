@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-    name: kubernetes-sigs-metrics-server-charts
-    namespace: flux-system
+  name: kubernetes-sigs-metrics-server-charts
+  namespace: flux-system
 spec:
-    interval: 30m
-    url: https://kubernetes-sigs.github.io/metrics-server/
-    timeout: 3m
+  interval: 30m
+  url: https://kubernetes-sigs.github.io/metrics-server/
+  timeout: 3m

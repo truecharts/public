@@ -96,4 +96,3 @@ title: Changelog
 ## [farmos-4.1.6](https://github.com/truecharts/charts/compare/farmos-4.1.5...farmos-4.1.6) (2024-01-08)
 
 ### Chore
-

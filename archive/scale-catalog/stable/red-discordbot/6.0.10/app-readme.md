@@ -1,4 +1,4 @@
-The newest Red-Discordbot in a convenient multi-arch Chart 
+The newest Red-Discordbot in a convenient multi-arch Chart
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/red-discordbot](https://truecharts.org/charts/stable/red-discordbot)
 

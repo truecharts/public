@@ -1,6 +1,6 @@
 #!/usr/local/bin/bash
 # This file contains the update script for bitwarden
-# Due to it being build from scratch or downloaded directly to execution dir, 
+# Due to it being build from scratch or downloaded directly to execution dir,
 # Update for Bitwarden is pretty similair to installation
 
 # Initialise defaults
@@ -23,28 +23,28 @@ DB_STRING="mysql://${!DB_USER}:${!DB_PASSWORD}@${DB_HOST}/${!DB_DATABASE}"
 ADMIN_TOKEN="jail_${1}_admin_token"
 
 if [ -z "${!DB_USER}" ]; then
-	echo "db_user can't be empty"
-	exit 1
+    echo "db_user can't be empty"
+    exit 1
 fi
 
 if [ -z "${!DB_DATABASE}" ]; then
-	echo "db_database can't be empty"
-	exit 1
+    echo "db_database can't be empty"
+    exit 1
 fi
 
 if [ -z "${!DB_PASSWORD}" ]; then
-	echo "db_password can't be empty"
-	exit 1
+    echo "db_password can't be empty"
+    exit 1
 fi
 
 if [ -z "${!DB_JAIL}" ]; then
-	echo "db_jail can't be empty"
-	exit 1
-	fi
+    echo "db_jail can't be empty"
+    exit 1
+    fi
 
 if [ -z "${!JAIL_IP}" ]; then
-	echo "ip4_addr can't be empty"
-	exit 1
+    echo "ip4_addr can't be empty"
+    exit 1
 fi
 
 if [ -z "${!ADMIN_TOKEN}" ]; then
@@ -62,11 +62,11 @@ TAG=$(iocage exec "${1}" "git -C /usr/local/share/bitwarden/src tag --sort=v:ref
 iocage exec "${1}" "git -C /usr/local/share/bitwarden/src checkout ${TAG}"
 #TODO replace with: cargo build --features mysql --release
 if [ "${INSTALL_TYPE}" == "mariadb" ]; then
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features mysql --release"
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features mysql"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features mysql --release"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features mysql"
 else
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features sqlite --release"
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features sqlite-bundled"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features sqlite --release"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features sqlite-bundled"
 fi
 
 
@@ -87,10 +87,10 @@ echo 'export DATABASE_URL="'"${DB_STRING}"'"' >> /mnt/"${global_dataset_iocage}"
 echo 'export ADMIN_TOKEN="'"${!ADMIN_TOKEN}"'"' >> /mnt/"${global_dataset_iocage}"/jails/"${1}"/root/usr/local/etc/rc.conf.d/bitwarden
 
 if [ "${!ADMIN_TOKEN}" == "NONE" ]; then
-	echo "Admin_token set to NONE, disabling admin portal"
+    echo "Admin_token set to NONE, disabling admin portal"
 else
-	echo "Admin_token set and admin portal enabled"
-	iocage exec "${1}" echo "${DB_NAME} Admin Token is ${!ADMIN_TOKEN}" > /root/"${1}"_admin_token.txt
+    echo "Admin_token set and admin portal enabled"
+    iocage exec "${1}" echo "${DB_NAME} Admin Token is ${!ADMIN_TOKEN}" > /root/"${1}"_admin_token.txt
 fi
 
 

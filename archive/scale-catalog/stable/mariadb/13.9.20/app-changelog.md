@@ -1,10 +1,6 @@
-
-
 ## [mariadb-13.9.20](https://github.com/truecharts/charts/compare/mariadb-13.6.0...mariadb-13.9.20) (2024-04-26)
 
 ### Chore
-
-
 
 - bump everything to regenerate readme's and site index
 
@@ -58,13 +54,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - fix scale gui password reference
 

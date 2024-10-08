@@ -95,5 +95,3 @@ title: Changelog
 ## [rsshub-11.2.0](https://github.com/truecharts/charts/compare/rsshub-11.1.32...rsshub-11.2.0) (2024-01-29)
 
 ### Chore
-
-

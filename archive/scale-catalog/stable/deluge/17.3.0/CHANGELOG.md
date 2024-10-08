@@ -96,4 +96,3 @@ title: Changelog
 ## [deluge-17.1.4](https://github.com/truecharts/charts/compare/deluge-17.1.3...deluge-17.1.4) (2024-01-01)
 
 ### Chore
-

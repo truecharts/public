@@ -1,10 +1,6 @@
-
-
 ## [traccar-15.8.3](https://github.com/truecharts/charts/compare/traccar-15.6.0...traccar-15.8.3) (2024-04-10)
 
 ### Chore
-
-
 
 - update container image common to v20.3.5[@aedd88a](https://github.com/aedd88a) by renovate ([#20535](https://github.com/truecharts/charts/issues/20535))
 

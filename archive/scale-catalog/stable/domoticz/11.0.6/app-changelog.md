@@ -1,10 +1,6 @@
-
-
 ## [domoticz-11.0.6](https://github.com/truecharts/charts/compare/domoticz-10.6.0...domoticz-11.0.6) (2024-05-19)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -54,19 +50,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

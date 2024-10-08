@@ -96,4 +96,3 @@ title: Changelog
 ## [komga-12.2.0](https://github.com/truecharts/charts/compare/komga-12.1.5...komga-12.2.0) (2024-01-08)
 
 ### Chore
-

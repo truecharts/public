@@ -95,5 +95,3 @@ title: Changelog
 ## [pylon-8.1.8](https://github.com/truecharts/charts/compare/pylon-8.1.7...pylon-8.1.8) (2024-01-21)
 
 ### Chore
-
-

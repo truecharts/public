@@ -95,5 +95,3 @@ title: Changelog
 ## [multi-scrobbler-5.1.9](https://github.com/truecharts/charts/compare/multi-scrobbler-5.1.8...multi-scrobbler-5.1.9) (2024-01-09)
 
 ### Chore
-
-

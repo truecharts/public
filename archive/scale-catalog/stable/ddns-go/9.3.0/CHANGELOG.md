@@ -96,4 +96,3 @@ title: Changelog
 
 
 - update container image jeessy/ddns-go to v6.0.2[@02e7174](https://github.com/02e7174) by renovate ([#17220](https://github.com/truecharts/charts/issues/17220))
-

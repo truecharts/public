@@ -7,7 +7,6 @@ This also means we don't support all features of traefik. We use traefik as a ce
 
 To make things as streamlined as possible we had to make choices. Hence we only support DNS-verification for certificate generation. No http(s) verification is included.
 
-
 **For more information about Traefik, please checkout:**
 https://containo.us/traefik/
 
@@ -21,16 +20,18 @@ Here is the list of configuration parameters:
 - cert_email: The email adress to link to the Lets Encrypt certificate
 - dashboard: set to "true" to enable the dashboard.
 - cert_env: For DNS verification we need login credentials and need to write those in a way Traefik understands. You can find the requirements for your DNS provider at the traefik website: https://docs.traefik.io/https/acme/
-You will need to use 2 spaces(!) in front and enter them below this configuration option. Like this:
+  You will need to use 2 spaces(!) in front and enter them below this configuration option. Like this:
+
 ```
-	cert_env:
-	  CF_API_EMAIL: fake@email.adress
-	  CF_API_KEY: ftyhsfgufsgusfgjhsfghjsgfhj
+    cert_env:
+      CF_API_EMAIL: fake@email.adress
+      CF_API_KEY: ftyhsfgufsgusfgjhsfghjsgfhj
 ```
 
 ### Advanced settings
 
 These settings are normally not required or normally used, but might come in handy for advanced users.
+
 - cert_staging: Set this to "true" if you want to test it out using the Lets Encrypt staging server. Set it to "false" or (preferable) just leave it out to use the production server.
 - cert_wildcard_domain: If you want to generate wildcard certificates, please enter the domain name here, without `*.` (ex. `test.testdomain.com`)
 - cert_strict_sni: set to "true" to enable strict SNI checking, set to false or (preferably) just leave it out to disable strict-SNI checking.
@@ -42,6 +43,7 @@ These settings are normally not required or normally used, but might come in han
 ## Installing
 
 To make traefik as easy as possible to install, we advice to base your config.yml settings on the following example:
+
 ```
 traefikjail:
   blueprint: traefik
@@ -63,11 +65,11 @@ traefikjail:
   influxdb_password: traefikmetricspass
 ```
 
-
 ## Usages
 
 To add a jail to traefik, you will need a domain name (which can be accessed using the cert_env settings on traefik).
 If you have the domain name configured correctly on traefik, just add the following config parameter to the other jail (not traefik), where $traefikjail is the name of your traefik-jail:
+
 ```
   domain_name: myjail.test.com
   traefik_proxy: $traefikjail
@@ -78,6 +80,7 @@ If you have the domain name configured correctly on traefik, just add the follow
 If you want to add security to a jail, there are two opions: basic_auth or forward_auth.
 **basic_auth:**
 Basic_auth uses a simpel username and passowrd prompt before it allows anyone to open the site. It can be enabled by adding the following config parameter in addition to traefik_proxy.
+
 ```
   traefik_basic_auth: user1:password1 user2:password2
 
@@ -86,6 +89,7 @@ Basic_auth uses a simpel username and passowrd prompt before it allows anyone to
 **forward_auth:**
 forward_auth checks if you already have access (http not-403) to another website. It's more advanced to setup, but it (for example) enables you to easily add central authentication to jails using organizr.
 The following is an example config, using an organizr jail. It needs to be added in addition to traefik_proxy:
+
 ```
   traefik_auth_forward: https://organizr.testdomain.com/api/?v1/auth&group=1
 

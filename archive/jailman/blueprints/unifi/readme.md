@@ -18,9 +18,7 @@
 
 After the script runs and the unifi jail is running, open the web gui of the unifi jail at port 8443 (i.e. https://192.168.2.250:8443). After completing the initial setup wizard, go to Admins --> Add New Admin. Select "Manually set and share the password", enter the username and password used for up_user & up_password. Uncheck 'Require the user to change their password'. Verify "Role" is set to 'Read Only'. Click Create.
 
-
 ## Unifi Controller documentation can be found at https://www.ui.com/download/unifi/default/default/unifi-controller-v5-user-guide
-
 
 ## Original README from the upstream Unifi-Poller Github.
 

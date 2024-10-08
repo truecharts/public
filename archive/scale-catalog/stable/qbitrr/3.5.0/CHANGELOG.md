@@ -95,5 +95,3 @@ title: Changelog
 ## [qbitrr-3.2.2](https://github.com/truecharts/charts/compare/qbitrr-3.2.1...qbitrr-3.2.2) (2024-01-21)
 
 ### Chore
-
-

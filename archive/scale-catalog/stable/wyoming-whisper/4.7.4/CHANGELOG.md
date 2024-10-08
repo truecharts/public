@@ -96,4 +96,3 @@ title: Changelog
 ## [wyoming-whisper-4.7.3](https://github.com/truecharts/charts/compare/wyoming-whisper-4.6.0...wyoming-whisper-4.7.3) (2024-03-25)
 
 ### Chore
-

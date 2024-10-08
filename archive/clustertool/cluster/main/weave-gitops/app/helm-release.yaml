@@ -38,7 +38,7 @@ spec:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         cert-manager.io/cluster-issuer: tc-le-prod
         cert-manager.io/private-key-rotation-policy: Always
-        traefik.ingress.kubernetes.io/router.tls: 'true'
+        traefik.ingress.kubernetes.io/router.tls: "true"
       tls:
         - hosts:
             - gitops.${BASE_DOMAIN}

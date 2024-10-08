@@ -10,6 +10,6 @@ Thanks to the folks at OpenSubtitles for their logo that was an inspiration for 
 
 https://github.com/morpheus65535/bazarr
 
-
 ## Known issues
+
 - The Bazarr installer might throw SSL errors if your TrueNAS "date and time" settings are incorrect, these errors break the installation process.

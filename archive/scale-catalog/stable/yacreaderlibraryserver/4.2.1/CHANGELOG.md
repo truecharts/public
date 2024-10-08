@@ -96,4 +96,3 @@ title: Changelog
 ## [yacreaderlibraryserver-4.1.3](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-4.1.0...yacreaderlibraryserver-4.1.3) (2024-01-01)
 
 ### Chore
-

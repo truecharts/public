@@ -1,10 +1,6 @@
-
-
 ## [nzbhydra-19.7.7](https://github.com/truecharts/charts/compare/nzbhydra-19.6.0...nzbhydra-19.7.7) (2024-03-30)
 
 ### Chore
-
-
 
 - update container image common to v20.2.10[@6f99c97](https://github.com/6f99c97) by renovate ([#19876](https://github.com/truecharts/charts/issues/19876))
 

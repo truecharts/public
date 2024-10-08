@@ -1,10 +1,6 @@
-
-
 ## [wyoming-whisper-4.7.3](https://github.com/truecharts/charts/compare/wyoming-whisper-4.6.0...wyoming-whisper-4.7.3) (2024-03-25)
 
 ### Chore
-
-
 
 - update container image common to v20.2.4[@f245f5c](https://github.com/f245f5c) by renovate ([#19731](https://github.com/truecharts/charts/issues/19731))
 

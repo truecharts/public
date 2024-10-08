@@ -13,7 +13,8 @@ services:
     port:
       port: 5076
 
-env: {}
+env:
+  {}
   # TZ: UTC
   # PUID: 1001
   # PGID: 1001
@@ -52,7 +53,6 @@ probes:
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
-
 
 persistence:
   config:

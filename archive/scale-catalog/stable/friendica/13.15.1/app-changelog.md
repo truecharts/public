@@ -1,10 +1,6 @@
-
-
 ## [friendica-13.15.1](https://github.com/truecharts/charts/compare/friendica-13.11.0...friendica-13.15.1) (2024-03-23)
 
 ### Chore
-
-
 
 - update container image friendica to v[@85105b0](https://github.com/85105b0) by renovate ([#19662](https://github.com/truecharts/charts/issues/19662))
 

@@ -1,10 +1,6 @@
-
-
 ## [rflood-5.8.23](https://github.com/truecharts/charts/compare/rflood-5.6.0...rflood-5.8.23) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -70,12 +66,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

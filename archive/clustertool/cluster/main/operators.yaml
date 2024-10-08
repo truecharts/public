@@ -1,20 +1,20 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-    name: operators
-    namespace: flux-system
+  name: operators
+  namespace: flux-system
 spec:
-    interval: 10m0s
-    dependsOn:
+  interval: 10m0s
+  dependsOn:
     - name: crds
     - name: helm-repos
     - name: flux-config
-    path: ./cluster/operators
-    prune: true
-    sourceRef:
-        kind: GitRepository
-        name: flux-system
-    decryption:
-        provider: sops
-        secretRef:
-            name: sops-age
+  path: ./cluster/operators
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age

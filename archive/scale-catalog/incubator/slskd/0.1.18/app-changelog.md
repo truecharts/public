@@ -1,10 +1,6 @@
-
-
 ## [slskd-0.1.18]slskd-0.1.18 (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -40,18 +36,12 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add slskd (Soulseek daemon) to incubator ([#19918](https://github.com/truecharts/charts/issues/19918))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

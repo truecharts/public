@@ -1,10 +1,6 @@
-
-
 ## [blocky-14.8.20](https://github.com/truecharts/charts/compare/blocky-14.4.0...blocky-14.8.20) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -80,13 +76,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
-
-
 
 - update setup guide ([#19658](https://github.com/truecharts/charts/issues/19658))
 
@@ -94,14 +86,10 @@
 
 ### Feat
 
-
-
 - add pihole default blocklists as well.
 
 - add default blocklist, default whitelist, default group and enable customised prefetcher
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

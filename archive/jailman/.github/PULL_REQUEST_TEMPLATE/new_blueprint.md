@@ -1,10 +1,9 @@
 ---
 name: New Blueprint
 about: Submit a new blueprint to help us expand JailMan
-title: ''
+title: ""
 labels: feature
-assignees: ''
-
+assignees: ""
 ---
 
 **Description**

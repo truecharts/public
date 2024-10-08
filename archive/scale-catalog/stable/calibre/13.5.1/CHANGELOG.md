@@ -95,5 +95,3 @@ title: Changelog
 ## [calibre-13.3.1](https://github.com/truecharts/charts/compare/calibre-13.3.0...calibre-13.3.1) (2024-01-21)
 
 ### Chore
-
-

@@ -3,7 +3,7 @@
 upgrade_talos_nodes () {
 
   talhelper gencommand upgrade --extra-flags=--preserve=true | bash
-  
+
   prompt_yn_manifests
 
   check_health

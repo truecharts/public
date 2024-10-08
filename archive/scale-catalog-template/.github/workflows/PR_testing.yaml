@@ -27,10 +27,10 @@ jobs:
           git clone https://github.com/truenas/catalog_validation
           sudo pip3 install --disable-pip-version-check --exists-action w -r catalog_validation/requirements.txt > /dev/null 2>&1
           sudo pip3 install -U catalog_validation/.
-          
+
       - name: Validate catalog format
         run: |
           /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
-          
+
       - name: Validate changed charts
         run: /bin/bash -c "PWD=${pwd}; sudo /usr/local/bin/charts_validate deploy --path $PWD"

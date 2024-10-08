@@ -1,10 +1,6 @@
-
-
 ## [immich-14.16.17](https://github.com/truecharts/charts/compare/immich-13.0.1...immich-14.16.17) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -78,19 +74,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Return to Stable ([#19563](https://github.com/truecharts/charts/issues/19563))
 
 ### Fix
-
-
 
 - expose ml image type
 

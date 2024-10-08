@@ -1,10 +1,6 @@
-
-
 ## [wg-easy-13.0.4](https://github.com/truecharts/charts/compare/wg-easy-11.6.0...wg-easy-13.0.4) (2024-05-06)
 
 ### Chore
-
-
 
 - bump everything to regenerate readme's and site index
 
@@ -58,25 +54,17 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
-
-
 
 - fix asides ([#21073](https://github.com/truecharts/charts/issues/21073))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

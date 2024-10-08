@@ -1,10 +1,6 @@
-
-
 ## [ispy-agent-dvr-9.11.17](https://github.com/truecharts/charts/compare/ispy-agent-dvr-9.8.0...ispy-agent-dvr-9.11.17) (2024-04-28)
 
 ### Chore
-
-
 
 - bump everything to regenerate readme's and site index
 
@@ -74,12 +70,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

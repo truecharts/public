@@ -1,10 +1,6 @@
-
-
 ## [tt-rss-16.8.23](https://github.com/truecharts/charts/compare/tt-rss-16.6.0...tt-rss-16.8.23) (2024-04-29)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -66,12 +62,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

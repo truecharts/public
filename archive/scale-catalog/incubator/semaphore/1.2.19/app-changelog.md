@@ -1,10 +1,6 @@
-
-
 ## [semaphore-1.2.19](https://github.com/truecharts/charts/compare/semaphore-1.1.2...semaphore-1.2.19) (2024-04-28)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -48,12 +44,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

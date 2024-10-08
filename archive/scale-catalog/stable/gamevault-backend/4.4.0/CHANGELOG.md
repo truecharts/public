@@ -96,4 +96,3 @@ title: Changelog
 ## [gamevault-backend-4.1.5](https://github.com/truecharts/charts/compare/gamevault-backend-4.1.4...gamevault-backend-4.1.5) (2024-01-01)
 
 ### Chore
-

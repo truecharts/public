@@ -96,4 +96,3 @@ title: Changelog
 ## [handbrake-19.1.4](https://github.com/truecharts/charts/compare/handbrake-19.1.3...handbrake-19.1.4) (2024-01-01)
 
 ### Chore
-

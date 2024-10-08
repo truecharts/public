@@ -21,7 +21,7 @@ workload:
 portal:
   open:
     enabled: false
-    
+
 configmap:
   grafana-datasource:
     enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
@@ -64,7 +64,7 @@ mimir:
       annotations: {}
     serviceMonitor:
       enabled: true
-      
+
     grafanaAgent:
       enabled: true
       installOperator: false
@@ -82,7 +82,7 @@ mimir:
         memory: 10Mi
     statefulSet:
       enabled: true
-  
+
   compactor:
     persistentVolume:
       size: 20Gi
@@ -93,7 +93,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   distributor:
     replicas: 2
     resources:
@@ -103,7 +103,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   ingester:
     persistentVolume:
       size: 50Gi
@@ -125,22 +125,22 @@ mimir:
                   operator: In
                   values:
                     - ingester
-            topologyKey: 'kubernetes.io/hostname'
-  
+            topologyKey: "kubernetes.io/hostname"
+
           - labelSelector:
               matchExpressions:
                 - key: app.kubernetes.io/component
                   operator: In
                   values:
                     - ingester
-            topologyKey: 'kubernetes.io/hostname'
+            topologyKey: "kubernetes.io/hostname"
     zoneAwareReplication:
-      topologyKey: 'kubernetes.io/hostname'
-  
+      topologyKey: "kubernetes.io/hostname"
+
   admin-cache:
     enabled: true
     replicas: 2
-  
+
   chunks-cache:
     enabled: true
     replicas: 2
@@ -148,20 +148,20 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   index-cache:
     enabled: true
     replicas: 3
-  
+
   metadata-cache:
     enabled: true
-  
+
   results-cache:
     enabled: true
-  
+
   minio:
     enabled: true
-  
+
   overrides_exporter:
     replicas: 1
     resources:
@@ -171,7 +171,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   querier:
     replicas: 1
     resources:
@@ -181,7 +181,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   query_frontend:
     replicas: 1
     resources:
@@ -191,7 +191,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   ruler:
     replicas: 1
     resources:
@@ -201,7 +201,7 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
-  
+
   store_gateway:
     persistentVolume:
       size: 10Gi
@@ -223,18 +223,18 @@ mimir:
                   operator: In
                   values:
                     - store-gateway
-            topologyKey: 'kubernetes.io/hostname'
-  
+            topologyKey: "kubernetes.io/hostname"
+
           - labelSelector:
               matchExpressions:
                 - key: app.kubernetes.io/component
                   operator: In
                   values:
                     - store-gateway
-            topologyKey: 'kubernetes.io/hostname'
-  
+            topologyKey: "kubernetes.io/hostname"
+
     zoneAwareReplication:
-      topologyKey: 'kubernetes.io/hostname'
+      topologyKey: "kubernetes.io/hostname"
 
   nginx:
     replicas: 1

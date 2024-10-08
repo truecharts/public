@@ -9,13 +9,13 @@ ENV NOTIFY_PUSH_VERSION 0.7.0
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN set -ex; \
-	arch="x86_64"; \
-	triplet="unknown-linux-musl"; \
-	\
-	wget -q -O /usr/local/bin/notify_push "https://github.com/nextcloud/notify_push/releases/download/v${NOTIFY_PUSH_VERSION}/notify_push-$arch-$triplet"; \
-	\
-	chmod +x /usr/local/bin/notify_push; \
-	notify_push --version
+    arch="x86_64"; \
+    triplet="unknown-linux-musl"; \
+    \
+    wget -q -O /usr/local/bin/notify_push "https://github.com/nextcloud/notify_push/releases/download/v${NOTIFY_PUSH_VERSION}/notify_push-$arch-$triplet"; \
+    \
+    chmod +x /usr/local/bin/notify_push; \
+    notify_push --version
 
 USER nobody
 

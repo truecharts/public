@@ -1,17 +1,23 @@
 [
-  {"op": "add", "path": "/cluster/proxy/extraArgs", "value":
     {
-      "metrics-bind-address": "0.0.0.0:10249"
-    }
-  },
-  {"op": "add", "path": "/cluster/controllerManager/extraArgs", "value":
+        "op": "add",
+        "path": "/cluster/proxy/extraArgs",
+        "value": {
+            "metrics-bind-address": "0.0.0.0:10249"
+        }
+    },
     {
-      "bind-address": "0.0.0.0"
-    }
-  },
-  {"op": "add", "path": "/cluster/scheduler/extraArgs", "value":
+        "op": "add",
+        "path": "/cluster/controllerManager/extraArgs",
+        "value": {
+            "bind-address": "0.0.0.0"
+        }
+    },
     {
-      "bind-address": "0.0.0.0"
+        "op": "add",
+        "path": "/cluster/scheduler/extraArgs",
+        "value": {
+            "bind-address": "0.0.0.0"
+        }
     }
-  },
 ]

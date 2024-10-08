@@ -96,4 +96,3 @@ title: Changelog
 ## [ersatztv-2.1.4](https://github.com/truecharts/charts/compare/ersatztv-2.1.3...ersatztv-2.1.4) (2024-01-01)
 
 ### Chore
-

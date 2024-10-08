@@ -95,5 +95,3 @@ title: Changelog
 ## [observium-4.1.10](https://github.com/truecharts/charts/compare/observium-4.1.9...observium-4.1.10) (2024-01-26)
 
 ### Chore
-
-

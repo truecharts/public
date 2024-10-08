@@ -5,7 +5,7 @@
 POLLER="jail_${1}_unifi_poller"
 
 # shellcheck disable=SC2154
-if [ "${!POLLER}" == true ]; then	
+if [ "${!POLLER}" == true ]; then
   FILE_NAME=$(curl -s https://api.github.com/repos/unifi-poller/unifi-poller/releases/latest | jq -r ".assets[] | select(.name | contains(\"amd64.txz\")) | .name")
   DOWNLOAD=$(curl -s https://api.github.com/repos/unifi-poller/unifi-poller/releases/latest | jq -r ".assets[] | select(.name | contains(\"amd64.txz\")) | .browser_download_url")
 

@@ -5,9 +5,7 @@
         "healthy_error": null,
         "location": "/home/runner/_work/catalog/catalog/system/kubernetes-reflector/5.0.4",
         "last_update": "2024-05-29 12:35:14",
-        "required_features": [
-            "definitions/certificate"
-        ],
+        "required_features": ["definitions/certificate"],
         "human_version": "7.1.217_5.0.4",
         "version": "5.0.4",
         "chart_metadata": {
@@ -222,11 +220,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -238,11 +232,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -254,11 +244,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -271,11 +257,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -328,11 +310,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -1945,11 +1923,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -1988,11 +1962,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -2095,11 +2065,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -2111,11 +2077,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -2137,11 +2099,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -2162,11 +2120,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -2177,11 +2131,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -2274,9 +2224,7 @@
         "healthy_error": null,
         "location": "/home/runner/_work/catalog/catalog/system/kubernetes-reflector/5.0.3",
         "last_update": "2024-05-29 12:35:14",
-        "required_features": [
-            "definitions/certificate"
-        ],
+        "required_features": ["definitions/certificate"],
         "human_version": "7.1.217_5.0.3",
         "version": "5.0.3",
         "chart_metadata": {
@@ -2492,11 +2440,7 @@
                                             "description": "region is primarily for AWS not needed for most cases",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -2507,11 +2451,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -2523,11 +2463,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -2539,11 +2475,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -2556,11 +2488,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -2613,11 +2541,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -4230,11 +4154,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -4273,11 +4193,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -4380,11 +4296,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -4396,11 +4308,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4422,11 +4330,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4447,11 +4351,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -4462,11 +4362,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4559,9 +4455,7 @@
         "healthy_error": null,
         "location": "/home/runner/_work/catalog/catalog/system/kubernetes-reflector/4.8.15",
         "last_update": "2024-05-29 12:35:14",
-        "required_features": [
-            "definitions/certificate"
-        ],
+        "required_features": ["definitions/certificate"],
         "human_version": "7.1.217_4.8.15",
         "version": "4.8.15",
         "chart_metadata": {
@@ -4755,11 +4649,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -6372,11 +6262,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -6415,11 +6301,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -6522,11 +6404,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -6538,11 +6416,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -6564,11 +6438,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -6589,11 +6459,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -6604,11 +6470,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -6701,9 +6563,7 @@
         "healthy_error": null,
         "location": "/home/runner/_work/catalog/catalog/system/kubernetes-reflector/4.8.14",
         "last_update": "2024-05-29 12:35:14",
-        "required_features": [
-            "definitions/certificate"
-        ],
+        "required_features": ["definitions/certificate"],
         "human_version": "7.1.217_4.8.14",
         "version": "4.8.14",
         "chart_metadata": {
@@ -6897,11 +6757,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -8514,11 +8370,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -8557,11 +8409,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -8664,11 +8512,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -8680,11 +8524,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -8706,11 +8546,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -8731,11 +8567,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -8746,11 +8578,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [

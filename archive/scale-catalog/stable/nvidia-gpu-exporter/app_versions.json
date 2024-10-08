@@ -37,11 +37,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.webp",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -223,11 +219,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -239,11 +231,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -255,11 +243,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -272,11 +256,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -329,11 +309,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -462,9 +438,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -3673,11 +3647,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -3716,11 +3686,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -3823,11 +3789,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -3839,11 +3801,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -3865,11 +3823,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -3890,11 +3844,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -3905,11 +3855,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4034,11 +3980,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.webp",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -4220,11 +4162,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -4236,11 +4174,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -4252,11 +4186,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -4269,11 +4199,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -4326,11 +4252,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -4459,9 +4381,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -7670,11 +7590,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -7713,11 +7629,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -7820,11 +7732,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -7836,11 +7744,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -7862,11 +7766,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -7887,11 +7787,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -7902,11 +7798,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -8033,11 +7925,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.webp",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -8196,11 +8084,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -8329,9 +8213,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -11540,11 +11422,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -11583,11 +11461,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -11690,11 +11564,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -11706,11 +11576,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -11732,11 +11598,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -11757,11 +11619,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -11772,11 +11630,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -11903,11 +11757,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.webp",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -12066,11 +11916,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -12199,9 +12045,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -15410,11 +15254,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -15453,11 +15293,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -15560,11 +15396,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -15576,11 +15408,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -15602,11 +15430,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -15627,11 +15451,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -15642,11 +15462,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -15774,11 +15590,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.png",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -15925,11 +15737,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -16058,9 +15866,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -19323,11 +19129,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -19366,11 +19168,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -19473,11 +19271,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -19489,11 +19283,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19515,11 +19305,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19540,11 +19326,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -19555,11 +19337,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19687,11 +19465,7 @@
             "description": "Prometheus exporter for Nvidia GPU's using nvidia-smi binary to gather metrics.",
             "home": "https://truecharts.org/charts/stable/nvidia-gpu-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-gpu-exporter.png",
-            "keywords": [
-                "prometheus",
-                "nvidia-gpu-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "nvidia-gpu-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -19838,11 +19612,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -19971,9 +19741,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -23236,11 +23004,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -23279,11 +23043,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -23386,11 +23146,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -23402,11 +23158,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -23428,11 +23180,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -23453,11 +23201,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -23468,11 +23212,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [

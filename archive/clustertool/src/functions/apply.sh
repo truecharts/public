@@ -16,11 +16,11 @@ apply_talos_config(){
       echo ""
       echo "Applying new Talos Config to ${name}"
       $cmd -i 2>/dev/null || $cmd || echo "Failed to apply config..."
-	  if $bootstrap; then
+      if $bootstrap; then
         check_node_health ${ip} "booting"
-	  else
+      else
         check_node_health ${ip}
-	  fi
+      fi
     done
   done 3< <(talhelper gencommand apply)
   echo ""
@@ -30,8 +30,8 @@ apply_talos_config(){
     bootstrap
   else
     echo "Applying new TalosConfig Finished"
-	prompt_yn_manifests
+    prompt_yn_manifests
   fi
-  
+
 }
 export -f apply_talos_config

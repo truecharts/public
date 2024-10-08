@@ -95,5 +95,3 @@ title: Changelog
 ## [alist-8.1.5](https://github.com/truecharts/charts/compare/alist-8.1.4...alist-8.1.5) (2024-01-02)
 
 ### Chore
-
-

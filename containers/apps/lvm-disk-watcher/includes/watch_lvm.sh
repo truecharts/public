@@ -75,13 +75,13 @@ while true; do
 
         # Create VG with the disk name (remove /dev/ prefix)
         vgcreate "${VG_NAME}" "$disk"
-        
-        # Create a thin pool (disabled auto metadata update backup), it will create a warning for this 
+
+        # Create a thin pool (disabled auto metadata update backup), it will create a warning for this
         lvcreate -l 100%FREE --chunksize 256 -T -A n -n topolvm_thin ${VG_NAME}
 
         # /sbin/dmeventd: stat failed: No such file or directory. WARNING: Failed to monitor ${VG_NAME}/topolvm_thin.
         # will be output as well. When somebody have a fix feel fry to add.
-        
+
       else
         echo "Disk $disk has partitions. Skipping."
       fi

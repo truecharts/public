@@ -95,5 +95,3 @@ title: Changelog
 ## [omada-controller-13.0.4](https://github.com/truecharts/charts/compare/omada-controller-13.0.3...omada-controller-13.0.4) (2024-01-21)
 
 ### Chore
-
-

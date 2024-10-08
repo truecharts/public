@@ -1,10 +1,6 @@
-
-
 ## [googlephotossync-6.1.13](https://github.com/truecharts/charts/compare/googlephotossync-5.6.0...googlephotossync-6.1.13) (2024-04-23)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -42,16 +38,12 @@
 
 - update container image common to v20.2.2[@f7d0b92](https://github.com/f7d0b92) by renovate ([#19432](https://github.com/truecharts/charts/issues/19432))
 
-- *BREAKING CHANGES* cleanup questions ([#19713](https://github.com/truecharts/charts/issues/19713))
+- _BREAKING CHANGES_ cleanup questions ([#19713](https://github.com/truecharts/charts/issues/19713))
 
 ### Chore
-
-
 
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

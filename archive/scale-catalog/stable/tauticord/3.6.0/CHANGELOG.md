@@ -95,5 +95,3 @@ title: Changelog
 ## [tauticord-2.4.0](https://github.com/truecharts/charts/compare/tauticord-2.3.0...tauticord-2.4.0) (2024-01-29)
 
 ### Chore
-
-

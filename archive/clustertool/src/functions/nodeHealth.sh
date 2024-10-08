@@ -29,16 +29,16 @@ check_node_health_probe(){
     status=$(timeout 1 talosctl --talosconfig=talosconfig -e "${1}" -n "${1}" get machinestatus -o jsonpath={.spec.stage}) 2>&1
     if [ "$status" == "running" ]; then
       echo "detected running node ${1}, checking ready..."
-	  ready=$(timeout 1 talosctl --talosconfig=talosconfig -e "${1}" -n "${1}" get machinestatus -o jsonpath={.spec.status.ready}) 2>&1
-	      if [ "$ready" == "true" ]; then
-		    echo "node ready!"
-	        isup=1
-		  fi
-	elif [ ! -z "${2}" ]; then
-	  if [ "$status" == "$2" ]; then
+      ready=$(timeout 1 talosctl --talosconfig=talosconfig -e "${1}" -n "${1}" get machinestatus -o jsonpath={.spec.status.ready}) 2>&1
+          if [ "$ready" == "true" ]; then
+            echo "node ready!"
+            isup=1
+          fi
+    elif [ ! -z "${2}" ]; then
+      if [ "$status" == "$2" ]; then
         echo "detected node ${1} in mode ${2} , continuing..."
-	    isup=1
-	  fi
+        isup=1
+      fi
     fi
    done
 

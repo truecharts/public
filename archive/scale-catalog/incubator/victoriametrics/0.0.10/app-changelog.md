@@ -1,10 +1,6 @@
-
-
 ## [victoriametrics-0.0.10]victoriametrics-0.0.10 (2024-04-23)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -22,18 +18,12 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - add VictoriaMetrics database ([#20158](https://github.com/truecharts/charts/issues/20158))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

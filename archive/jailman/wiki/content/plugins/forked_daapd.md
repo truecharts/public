@@ -9,4 +9,4 @@ on a Xeon E3-1230 v5 @ 3.40GHz).
 - itunes_media: Path to your itunes media that will be mounted in the jail. (ex. /mnt/tank/media/music/itunes/)
 
 `forked-daapd` needs to know the location of your iTunes Library. Add a `itunes_media:`
-section to your `config.yaml` with the  path to your itunes library as value.
+section to your `config.yaml` with the path to your itunes library as value.

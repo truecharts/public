@@ -1,6 +1,5 @@
 Chart Chart with Fast.com CLI sending data directly to MQTT Broker
 
-
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/fastcom-mqtt](https://truecharts.org/charts/stable/fastcom-mqtt)
 
 ---

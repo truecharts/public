@@ -96,4 +96,3 @@ title: Changelog
 ## [syncthing-17.1.4](https://github.com/truecharts/charts/compare/syncthing-17.1.3...syncthing-17.1.4) (2024-01-01)
 
 ### Chore
-

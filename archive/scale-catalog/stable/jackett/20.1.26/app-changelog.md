@@ -1,10 +1,6 @@
-
-
 ## [jackett-20.1.26](https://github.com/truecharts/charts/compare/jackett-19.6.0...jackett-20.1.26) (2024-04-26)
 
 ### Chore
-
-
 
 - update groups html ([#21121](https://github.com/truecharts/charts/issues/21121))
 
@@ -106,17 +102,13 @@
 
 - update container image common to v20.3.2[@0722ebb](https://github.com/0722ebb) by renovate ([#20334](https://github.com/truecharts/charts/issues/20334))
 
-- *BREAKING CHANGES* switch image to geek-cookbook ([#19700](https://github.com/truecharts/charts/issues/19700))
+- _BREAKING CHANGES_ switch image to geek-cookbook ([#19700](https://github.com/truecharts/charts/issues/19700))
 
 ### Chore
-
-
 
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - Update severely outdated container again ([#19677](https://github.com/truecharts/charts/issues/19677))
 

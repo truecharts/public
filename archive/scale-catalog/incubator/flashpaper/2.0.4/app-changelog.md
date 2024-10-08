@@ -1,10 +1,6 @@
-
-
 ## [flashpaper-2.0.4](https://github.com/truecharts/charts/compare/flashpaper-5.0.14...flashpaper-2.0.4) (2024-05-06)
 
 ### Chore
-
-
 
 - bump everything to regenerate readme's and site index
 
@@ -48,19 +44,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

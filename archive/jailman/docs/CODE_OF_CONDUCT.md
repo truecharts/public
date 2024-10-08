@@ -5,8 +5,8 @@
 In the interest of fostering an open and welcoming environment, we as
 contributors and maintainers pledge to making participation in our project and
 our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, sex characteristics, gender, level of experience, 
-education, socio-economic status, nationality, personal appearance, race, 
+size, disability, ethnicity, sex characteristics, gender, level of experience,
+education, socio-economic status, nationality, personal appearance, race,
 religion, or sexual identity and orientation.
 
 ## Our Standards
@@ -14,17 +14,17 @@ religion, or sexual identity and orientation.
 Examples of behavior that contributes to creating a positive environment
 include:
 
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexual imagery and unwelcome sexual advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
- address, without explicit permission
+- The use of sexual imagery and unwelcome sexual advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic
+  address, without explicit permission
 
 ## Our Responsibilities
 

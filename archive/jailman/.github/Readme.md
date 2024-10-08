@@ -1,9 +1,7 @@
-
-
-
 ### JailMan is a collection of shell scripts designed to make it easier to install all sorts of iocage Jails on FreeNAS.
 
 ## Important:
+
 ### Jailman as a project has stopped development in favor of [TrueCharts](https://github.com/truecharts/truecharts) for TrueNAS SCALE.
 
 ---
@@ -19,47 +17,49 @@ We do not aim to be some sort of XKCD like "solution to replace all solutions", 
 The goal of this project is to be able to install, update, reinstall, upgrade and delete most of your services by just running a single command using a single config file. While doing this we aim for a "docker like" scenario, where the jail is completely disposable and all configuration is saved outside of the jail.
 
 ## Getting started
+
 ### Installing
+
 - Get into FreeNAS using the in-gui console or SSH.
-Run the following commands to install jailman:
+  Run the following commands to install jailman:
 - `git clone https://github.com/jailmanager/jailman.git`
 - `cd jailman`
 - `cp config.yml.example config.yml`
 - edit config.yml to reflect your personal settings (optional, see "use")
 - Run one of the commands under "How-To Use"
 
-
 ### Updating
+
 This script includes an autoupdate feature which checks if changes to the script has been posted to github.
 
-
 ## How-To Use
+
 Replace $jailname with the name of the jail you want to install.
 For supported jails, please see this readme or config.yml.example
 
 - First: CD into the directory you downloaded jailman into (see above)
-example:
-`cd /root/jailman`
+  example:
+  `cd /root/jailman`
 
 - Install:
-`./jailman.sh -i $jailname`
-Example:
-`./jailman.sh -i sonarr`
+  `./jailman.sh -i $jailname`
+  Example:
+  `./jailman.sh -i sonarr`
 
 - ReInstall:
-`./jailman.sh -r $jailname`
-Example:
-`./jailman.sh -r sonarr`
+  `./jailman.sh -r $jailname`
+  Example:
+  `./jailman.sh -r sonarr`
 
 - Update:
-`./jailman.sh -u $jailname`
-Example:
-`./jailman.sh -u sonarr`
+  `./jailman.sh -u $jailname`
+  Example:
+  `./jailman.sh -u sonarr`
 
 - Destroy
-`./jailman.sh -d $jailname`
-Example:
-`./jailman.sh -d sonarr`
+  `./jailman.sh -d $jailname`
+  Example:
+  `./jailman.sh -d sonarr`
 
 You can also do multiple jails in one pass:
 Example:
@@ -83,6 +83,7 @@ Basic means: The same setup as a FreeNAS plugin would've, DHCP on bridge0.
 - unifi controller
 
 #### Backend
+
 - mariadb
 - influxdb
 
@@ -102,13 +103,15 @@ Basic means: The same setup as a FreeNAS plugin would've, DHCP on bridge0.
 ## Get involved
 
 ### Preparing your own copy of JailMan
+
 Getting involved with JailMan and creating your own Jails, is really simple although experience with Bash, BSD and iocage is highly recommended.
 
 - Fork the JailMan Repository and clone your own fork to disk.
 - Create a new branch, starting from the dev branch (with all current development changes)
-- Open Jailman.sh and `BRANCH="dev"`into your own branch. 
+- Open Jailman.sh and `BRANCH="dev"`into your own branch.
 
 ### Making changes
+
 To add a jail, you need 4 things:
 
 - A jailfolder under jails/
@@ -117,19 +120,21 @@ To add a jail, you need 4 things:
 - an entry in `config.yml` with the name of your jail
 
 All jails created by JailMan start with their own persistant data folder in a seperate dataset, mounted under `/config`.
-You can safely use this, or create additional datasets and mount those. 
+You can safely use this, or create additional datasets and mount those.
 
-To make your experience making changes to Jailman as easy as possible, we already made some  convenience functions in global.sh, those are available to your jail install and update scripts from the start!
+To make your experience making changes to Jailman as easy as possible, we already made some convenience functions in global.sh, those are available to your jail install and update scripts from the start!
 
 But above all: Have fun building it!
 
 ## LICENCE
+
 This work is dual licenced under GPLv2 and BSD-2 clause
 
 ### Sub-Licences
+
 Some sub-modules available under "jails" might be licenced under a different licence.
 Please be aware of this and take note of any LICENCE files signaling a differently licenced sub-module.
 
-
 ---
-![built-with-resentment](http://forthebadge.com/images/badges/built-with-resentment.svg)       ![contains-technical-debt](http://forthebadge.com/images/badges/contains-technical-debt.svg)
+
+![built-with-resentment](http://forthebadge.com/images/badges/built-with-resentment.svg) ![contains-technical-debt](http://forthebadge.com/images/badges/contains-technical-debt.svg)

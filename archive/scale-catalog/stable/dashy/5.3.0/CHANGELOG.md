@@ -96,4 +96,3 @@ title: Changelog
 ## [dashy-5.1.4](https://github.com/truecharts/charts/compare/dashy-5.1.3...dashy-5.1.4) (2024-01-01)
 
 ### Chore
-

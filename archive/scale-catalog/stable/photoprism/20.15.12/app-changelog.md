@@ -1,10 +1,6 @@
-
-
 ## [photoprism-20.15.12](https://github.com/truecharts/charts/compare/photoprism-20.9.0...photoprism-20.15.12) (2024-04-20)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 

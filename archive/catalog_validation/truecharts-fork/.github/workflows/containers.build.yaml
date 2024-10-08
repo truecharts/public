@@ -3,7 +3,7 @@ name: build_image
 on:
   push:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   build:
@@ -15,166 +15,164 @@ jobs:
     runs-on: ubuntu-22.04
     if: "!contains(github.event.head_commit.message, '[ci-skip]')"
     steps:
-    - name: Checkout
-      uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+      - name: Checkout
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
 
-    # Define if tests and push should be run against which versions/platforms
-    - name: Prepare
-      id: prep
-      run: |
-        PLATFORM="linux/amd64"
-        echo ::set-output name=platform::${PLATFORM}
+      # Define if tests and push should be run against which versions/platforms
+      - name: Prepare
+        id: prep
+        run: |
+          PLATFORM="linux/amd64"
+          echo ::set-output name=platform::${PLATFORM}
 
-        if [ "${{github.event_name}}" == "pull_request" ]; then
-          echo ::set-output name=push::false
-          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache" || echo ::set-output name=cache_from::""
-          echo ::set-output name=cache_to::""
-        else
-          echo ::set-output name=push::true
-          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache"
-          echo ::set-output name=cache_to::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache,mode=max"
-        fi
-    - name: Get Time
-      id: time
-      uses: nanzm/get-time-action@887e4db9af58ebae64998b7105921b816af77977 # v2.0
-      with:
-        timeZone: 1
-        format: 'YYYYMMDDHHmmss'
+          if [ "${{github.event_name}}" == "pull_request" ]; then
+            echo ::set-output name=push::false
+            echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache" || echo ::set-output name=cache_from::""
+            echo ::set-output name=cache_to::""
+          else
+            echo ::set-output name=push::true
+            echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache"
+            echo ::set-output name=cache_to::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache,mode=max"
+          fi
+      - name: Get Time
+        id: time
+        uses: nanzm/get-time-action@887e4db9af58ebae64998b7105921b816af77977 # v2.0
+        with:
+          timeZone: 1
+          format: "YYYYMMDDHHmmss"
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3
-      with:
-        platforms: amd64
-        
-    - uses: sigstore/cosign-installer@main
-        
-    - name: Install Syft
-      uses: anchore/sbom-action/download-syft@61119d458adab75f756bc0b9e4bde25725f86a7a # v0.17.2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3
+        with:
+          platforms: amd64
 
-    - name: Login to Quay
-      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
-      if: github.event_name != 'pull_request'
-      with:
-        registry: quay.io
-        username: ${{ secrets.QUAY_USER }}
-        password: ${{ secrets.QUAY_SECRET }}
+      - uses: sigstore/cosign-installer@main
 
-    - name: Login to GHCR
-      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
-      if: github.event_name != 'pull_request'
-      with:
-        registry: ghcr.io
-        username: ${{ secrets.GHCR_USERNAME }}
-        password: ${{ secrets.GHCR_TOKEN }}
-        
-    - name: Docker meta
-      id: meta
-      uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5
-      with:
-        # list of Docker images to use as base name for tags
-        images: |
-          quay.io/truecharts/catalog_validation
-          ghcr.io/truecharts/catalog_validation
-          tccr.io/truecharts/catalog_validation
+      - name: Install Syft
+        uses: anchore/sbom-action/download-syft@61119d458adab75f756bc0b9e4bde25725f86a7a # v0.17.2
 
-    # Install and configure Buildx
-    - name: Set up Docker Buildx
-      id: buildx
-      uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3
-      with:
-        install: true
-        version: latest
-        driver-opts: image=moby/buildkit:latest
+      - name: Login to Quay
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+        if: github.event_name != 'pull_request'
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USER }}
+          password: ${{ secrets.QUAY_SECRET }}
 
-    # Creates a local build to run tests on
-    - name: Build and Load local test-container
-      if: ${{ steps.prep.outputs.goss == 'true' }}
-      uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
-      with:
-        build-args: |
-          CONTAINER_NAME=catalog_validation
-        context: .
-        file: ./Dockerfile
-        load: true
-        tags: |
-          ghcr.io/${{ github.repository_owner }}/catalog_validation:test
+      - name: Login to GHCR
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
-    # Push if not a PR, otherwise just test the build process for all requested platforms
-    - name: Build and Push
-      id: push
-      uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
-      with:
-        build-args: |
-          CONTAINER_NAME=catalog_validation
-        context: .
-        platforms: ${{ steps.prep.outputs.platform }}
-        file: ./Dockerfile
-        push: ${{ steps.prep.outputs.push }}
-        labels: ${{ steps.meta.outputs.labels }}
-        tags: |
-          quay.io/truecharts/catalog_validation:latest
-          quay.io/truecharts/catalog_validation:build${{ steps.time.outputs.time }}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            quay.io/truecharts/catalog_validation
+            ghcr.io/truecharts/catalog_validation
+            tccr.io/truecharts/catalog_validation
 
-    - name: Set quay to Public
-      if: github.event_name != 'pull_request'
-      run: |
-        curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/catalog_validation/changevisibility"
-      
-    - name: Sign the images
-      if: github.event_name != 'pull_request'
-      run: |
-         cosign sign quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} -y -a "repo=${{ github.repository }}" -a "workflow=${{ github.workflow }}" -a "ref=${{ github.sha }}"
-        
-    - name: Verify the pushed tags
-      if: github.event_name != 'pull_request'
-      run: |
-         cosign verify quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master
-      
-    - name: Generate SBOM 
-      if: github.event_name != 'pull_request'
-      run: |
-        syft "quay.io/truecharts/catalog_validation:build${{ steps.time.outputs.time }}@${{ steps.push.outputs.digest }}" -o spdx-json=catalog_validation-sbom-spdx.json
-      
-    - name: Attach SBOM to image
-      if: github.event_name != 'pull_request'
-      run: |
-        cosign attest --predicate catalog_validation-sbom-spdx.json --type spdx "quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}" -y
+      # Install and configure Buildx
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3
+        with:
+          install: true
+          version: latest
+          driver-opts: image=moby/buildkit:latest
 
-        
-    - name: Verify SBOM attestation
-      if: github.event_name != 'pull_request'
-      run: |
-        cosign verify-attestation quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
-        
-    - name: Generate provenance
-      id: gen-prov
-      if: github.event_name != 'pull_request'
-      run: |
-        wget https://github.com/slsa-framework/slsa-github-generator/releases/download/v1.5.0/slsa-generator-container-linux-amd64
-        chmod +x slsa-generator-container-linux-amd64
-        # Generate a predicate only.
-        ./slsa-generator-container-linux-amd64 generate --predicate="catalog_validation-predicate.json"
-      env:
-        UNTRUSTED_IMAGE: "quay.io/truecharts/catalog_validation"
-        UNTRUSTED_DIGEST: "${{ steps.push.outputs.digest }}"
-        GITHUB_CONTEXT: "${{ toJSON(github) }}"
-          
-    - name: Sign provenance
-      id: sign-prov
-      if: github.event_name != 'pull_request'
-      run: |
-        cosign attest --predicate="catalog_validation-predicate.json" \
-          --type slsaprovenance \
-          --yes \
-          "quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}"
-      env:
-        COSIGN_EXPERIMENTAL: 1
-        
-    - name: Verify provenance attestation
-      if: github.event_name != 'pull_request'
-      id: verf-prov
-      run: |
-        cosign verify-attestation quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} --type slsaprovenance --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
-      env:
-        COSIGN_EXPERIMENTAL: 1
-        
+      # Creates a local build to run tests on
+      - name: Build and Load local test-container
+        if: ${{ steps.prep.outputs.goss == 'true' }}
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
+        with:
+          build-args: |
+            CONTAINER_NAME=catalog_validation
+          context: .
+          file: ./Dockerfile
+          load: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/catalog_validation:test
+
+      # Push if not a PR, otherwise just test the build process for all requested platforms
+      - name: Build and Push
+        id: push
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
+        with:
+          build-args: |
+            CONTAINER_NAME=catalog_validation
+          context: .
+          platforms: ${{ steps.prep.outputs.platform }}
+          file: ./Dockerfile
+          push: ${{ steps.prep.outputs.push }}
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            quay.io/truecharts/catalog_validation:latest
+            quay.io/truecharts/catalog_validation:build${{ steps.time.outputs.time }}
+
+      - name: Set quay to Public
+        if: github.event_name != 'pull_request'
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/catalog_validation/changevisibility"
+
+      - name: Sign the images
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign sign quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} -y -a "repo=${{ github.repository }}" -a "workflow=${{ github.workflow }}" -a "ref=${{ github.sha }}"
+
+      - name: Verify the pushed tags
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign verify quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master
+
+      - name: Generate SBOM
+        if: github.event_name != 'pull_request'
+        run: |
+          syft "quay.io/truecharts/catalog_validation:build${{ steps.time.outputs.time }}@${{ steps.push.outputs.digest }}" -o spdx-json=catalog_validation-sbom-spdx.json
+
+      - name: Attach SBOM to image
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign attest --predicate catalog_validation-sbom-spdx.json --type spdx "quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}" -y
+
+      - name: Verify SBOM attestation
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign verify-attestation quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+
+      - name: Generate provenance
+        id: gen-prov
+        if: github.event_name != 'pull_request'
+        run: |
+          wget https://github.com/slsa-framework/slsa-github-generator/releases/download/v1.5.0/slsa-generator-container-linux-amd64
+          chmod +x slsa-generator-container-linux-amd64
+          # Generate a predicate only.
+          ./slsa-generator-container-linux-amd64 generate --predicate="catalog_validation-predicate.json"
+        env:
+          UNTRUSTED_IMAGE: "quay.io/truecharts/catalog_validation"
+          UNTRUSTED_DIGEST: "${{ steps.push.outputs.digest }}"
+          GITHUB_CONTEXT: "${{ toJSON(github) }}"
+
+      - name: Sign provenance
+        id: sign-prov
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign attest --predicate="catalog_validation-predicate.json" \
+            --type slsaprovenance \
+            --yes \
+            "quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }}"
+        env:
+          COSIGN_EXPERIMENTAL: 1
+
+      - name: Verify provenance attestation
+        if: github.event_name != 'pull_request'
+        id: verf-prov
+        run: |
+          cosign verify-attestation quay.io/truecharts/catalog_validation@${{ steps.push.outputs.digest }} --type slsaprovenance --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/catalog_validation/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+        env:
+          COSIGN_EXPERIMENTAL: 1

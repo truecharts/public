@@ -62,26 +62,26 @@ export CLASSPATH=$(echo ${unifi_chdir}/lib/*.jar | tr ' ' ':')
 
 start_precmd()
 {
-	if [ ! -e /var/run/unifi ] ; then
-		install -d -o unifi -g unifi /var/run/unifi;
-	fi
+    if [ ! -e /var/run/unifi ] ; then
+        install -d -o unifi -g unifi /var/run/unifi;
+    fi
 }
 
 stop_precmd()
 {
-	if [ -r ${pidfile} ]; then
-		_UNIFIPID=$(check_pidfile ${pidfile} ${procname})
-		export _UNIFI_CHILDREN=$(pgrep -P ${_UNIFIPID})
-	fi
+    if [ -r ${pidfile} ]; then
+        _UNIFIPID=$(check_pidfile ${pidfile} ${procname})
+        export _UNIFI_CHILDREN=$(pgrep -P ${_UNIFIPID})
+    fi
 }
 
 stop_postcmd()
 {
-	if ! [ -z ${_UNIFI_CHILDREN} ]; then
-		echo "Cleaning up leftover child processes."
-		kill $sig_stop ${_UNIFI_CHILDREN}
-		wait_for_pids ${_UNIFI_CHILDREN}
-	fi
+    if ! [ -z ${_UNIFI_CHILDREN} ]; then
+        echo "Cleaning up leftover child processes."
+        kill $sig_stop ${_UNIFI_CHILDREN}
+        wait_for_pids ${_UNIFI_CHILDREN}
+    fi
 }
 
 run_rc_command "$1"

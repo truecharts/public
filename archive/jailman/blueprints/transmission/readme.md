@@ -9,10 +9,11 @@ https://github.com/transmission/transmission
 ## About
 
 Transmission is a fast, easy, and free BitTorrent client. It comes in several flavors:
-  * A native Mac OS X GUI application
-  * GTK+ and Qt GUI applications for Linux, BSD, etc.
-  * A headless daemon for servers and routers
-  * A web UI for remote controlling any of the above
+
+- A native Mac OS X GUI application
+- GTK+ and Qt GUI applications for Linux, BSD, etc.
+- A headless daemon for servers and routers
+- A web UI for remote controlling any of the above
 
 Visit https://transmissionbt.com/ for more information.
 

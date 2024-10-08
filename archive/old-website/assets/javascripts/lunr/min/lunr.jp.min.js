@@ -1,1 +1,1 @@
-module.exports=require("./lunr.ja");
+module.exports = require("./lunr.ja");

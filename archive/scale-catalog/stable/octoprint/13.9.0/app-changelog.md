@@ -1,10 +1,6 @@
-
-
 ## [octoprint-13.9.0](https://github.com/truecharts/charts/compare/octoprint-13.6.0...octoprint-13.9.0) (2024-04-25)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -46,13 +42,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - update icon ([#20369](https://github.com/truecharts/charts/issues/20369))
 

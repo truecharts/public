@@ -35,18 +35,18 @@ UP_PASS="jail_${1}_up_password"
 INCLUDES_PATH="${SCRIPT_DIR}/blueprints/unifi/includes"
 
 if [ -z "${!DB_PASS}" ]; then
-	echo "up_db_password can't be empty"
-	exit 1
+    echo "up_db_password can't be empty"
+    exit 1
 fi
 
 if [ -z "${!DB_JAIL}" ]; then
-	echo "db_jail can't be empty"
-	exit 1
+    echo "db_jail can't be empty"
+    exit 1
 fi
 
 if [ -z "${!UP_PASS}" ]; then
-	echo "up_password can't be empty"
-	exit 1
+    echo "up_password can't be empty"
+    exit 1
 fi
 
 # Enable persistent Unifi Controller data
@@ -91,7 +91,7 @@ if [ "${!POLLER}" == true ]; then
   DOWNLOAD=$(curl -s https://api.github.com/repos/unifi-poller/unifi-poller/releases/latest | jq -r ".assets[] | select(.name | contains(\"amd64.txz\")) | .browser_download_url")
   iocage exec "${1}" fetch -o /config "${DOWNLOAD}"
 
-  # Install downloaded Unifi-Poller package, configure and enable 
+  # Install downloaded Unifi-Poller package, configure and enable
   iocage exec "${1}" pkg install -qy /config/"${FILE_NAME}"
   # shellcheck disable=SC2154
   cp "${INCLUDES_PATH}"/up.conf /mnt/"${global_dataset_config}"/"${1}"

@@ -16,17 +16,17 @@ Lidarr is a music collection manager for Usenet and BitTorrent users. It can mon
 
 ## Major Features Include:
 
-* Support for major platforms: Windows, Linux, macOS, Raspberry Pi, etc.
-* Automatically detects new tracks.
-* Can scan your existing library and download any missing tracks.
-* Can watch for better quality of the tracks you already have and do an automatic upgrade.
-* Automatic failed download handling will try another release if one fails
-* Manual search so you can pick any release or to see why a release was not downloaded automatically
-* Fully configurable track renaming
-* Full integration with SABnzbd and NZBGet
-* Full integration with Kodi, Plex (notification, library update, metadata)
-* Full support for specials and multi-album releases
-* And a beautiful UI
+- Support for major platforms: Windows, Linux, macOS, Raspberry Pi, etc.
+- Automatically detects new tracks.
+- Can scan your existing library and download any missing tracks.
+- Can watch for better quality of the tracks you already have and do an automatic upgrade.
+- Automatic failed download handling will try another release if one fails
+- Manual search so you can pick any release or to see why a release was not downloaded automatically
+- Fully configurable track renaming
+- Full integration with SABnzbd and NZBGet
+- Full integration with Kodi, Plex (notification, library update, metadata)
+- Full support for specials and multi-album releases
+- And a beautiful UI
 
 ## Feature Requests
 
@@ -44,13 +44,11 @@ Lidarr is a music collection manager for Usenet and BitTorrent users. It can mon
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/lidarr/Lidarr/graphs/contributors"><img src="https://opencollective.com/lidarr/contributors.svg?width=890&button=false" /></a>
 
-
 ## Backers
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/lidarr#backer)]
 
 <a href="https://opencollective.com/lidarr#backers" target="_blank"><img src="https://opencollective.com/lidarr/backers.svg?width=890"></a>
-
 
 ## Sponsors
 
@@ -69,5 +67,5 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ### License
 
-* [GNU GPL v3](http://www.gnu.org/licenses/gpl.html)
-* Copyright 2010-2019
+- [GNU GPL v3](http://www.gnu.org/licenses/gpl.html)
+- Copyright 2010-2019

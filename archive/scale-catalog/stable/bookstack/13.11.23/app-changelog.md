@@ -1,10 +1,6 @@
-
-
 ## [bookstack-13.11.23](https://github.com/truecharts/charts/compare/bookstack-13.5.0...bookstack-13.11.23) (2024-04-26)
 
 ### Chore
-
-
 
 - update groups html ([#21121](https://github.com/truecharts/charts/issues/21121))
 
@@ -96,12 +92,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

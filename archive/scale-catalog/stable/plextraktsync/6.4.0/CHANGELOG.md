@@ -96,4 +96,3 @@ title: Changelog
 
 
 - update container image ghcr.io/taxel/plextraktsync to v0.28.12[@97bab51](https://github.com/97bab51) by renovate ([#17425](https://github.com/truecharts/charts/issues/17425))
-

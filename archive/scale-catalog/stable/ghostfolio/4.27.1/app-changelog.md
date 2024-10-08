@@ -1,10 +1,6 @@
-
-
 ## [ghostfolio-4.27.1](https://github.com/truecharts/charts/compare/ghostfolio-4.9.0...ghostfolio-4.27.1) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -94,12 +90,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

@@ -28,18 +28,18 @@ DB_STRING="mysql://${DB_USER}:${!DB_PASSWORD}@${DB_HOST}/${DB_DATABASE}"
 ADMIN_TOKEN="jail_${1}_admin_token"
 
 if [ -z "${!DB_PASSWORD}" ]; then
-	echo "db_password can't be empty"
-	exit 1
+    echo "db_password can't be empty"
+    exit 1
 fi
 
 if [ -z "${!DB_JAIL}" ]; then
-	echo "db_jail can't be empty"
-	exit 1
+    echo "db_jail can't be empty"
+    exit 1
 fi
 
 if [ -z "${!JAIL_IP}" ]; then
-	echo "ip4_addr can't be empty"
-	exit 1
+    echo "ip4_addr can't be empty"
+    exit 1
 fi
 
 if [ -z "${!ADMIN_TOKEN}" ]; then
@@ -56,11 +56,11 @@ TAG=$(iocage exec "${1}" "git -C /usr/local/share/bitwarden/src tag --sort=v:ref
 iocage exec "${1}" "git -C /usr/local/share/bitwarden/src checkout ${TAG}"
 #TODO replace with: cargo build --features mysql --release
 if [ "${INSTALL_TYPE}" == "mariadb" ]; then
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features mysql --release"
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features mysql"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features mysql --release"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features mysql"
 else
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features sqlite --release"
-	iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features sqlite-bundled"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo build --features sqlite --release"
+    iocage exec "${1}" "cd /usr/local/share/bitwarden/src && $HOME/.cargo/bin/cargo install diesel_cli --no-default-features --features sqlite-bundled"
 fi
 
 
@@ -77,23 +77,23 @@ iocage exec "${1}" rm /usr/local/share/bitwarden/bw_web_"$WEB_TAG".tar.gz
 if [ -f "/mnt/${global_dataset_config}/${1}/ssl/bitwarden-ssl.crt" ]; then
     echo "certificate exist... Skipping cert generation"
 else
-	"No ssl certificate present, generating self signed certificate"
-	if [ ! -d "/mnt/${global_dataset_config}/${1}/ssl" ]; then
-		echo "cert folder not existing... creating..."
-		iocage exec "${1}" mkdir /config/ssl
-	fi
-	openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=localhost" -keyout /mnt/"${global_dataset_config}"/"${1}"/ssl/bitwarden-ssl.key -out /mnt/"${global_dataset_config}"/"${1}"/ssl/bitwarden-ssl.crt
+    "No ssl certificate present, generating self signed certificate"
+    if [ ! -d "/mnt/${global_dataset_config}/${1}/ssl" ]; then
+        echo "cert folder not existing... creating..."
+        iocage exec "${1}" mkdir /config/ssl
+    fi
+    openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=localhost" -keyout /mnt/"${global_dataset_config}"/"${1}"/ssl/bitwarden-ssl.key -out /mnt/"${global_dataset_config}"/"${1}"/ssl/bitwarden-ssl.crt
 fi
 
 if [ -f "/mnt/${global_dataset_config}/${1}/bitwarden.log" ]; then
-	echo "Reinstall of Bitwarden detected... using existing config and database"
+    echo "Reinstall of Bitwarden detected... using existing config and database"
 elif [ "${INSTALL_TYPE}" == "mariadb" ]; then
-	echo "No config detected, doing clean install, utilizing the Mariadb database ${DB_HOST}"
-	iocage exec "${!DB_JAIL}" mysql -u root -e "CREATE DATABASE ${DB_DATABASE};"
-	iocage exec "${!DB_JAIL}" mysql -u root -e "GRANT ALL ON ${DB_DATABASE}.* TO ${DB_USER}@${JAIL_IP} IDENTIFIED BY '${!DB_PASSWORD}';"
-	iocage exec "${!DB_JAIL}" mysqladmin reload
+    echo "No config detected, doing clean install, utilizing the Mariadb database ${DB_HOST}"
+    iocage exec "${!DB_JAIL}" mysql -u root -e "CREATE DATABASE ${DB_DATABASE};"
+    iocage exec "${!DB_JAIL}" mysql -u root -e "GRANT ALL ON ${DB_DATABASE}.* TO ${DB_USER}@${JAIL_IP} IDENTIFIED BY '${!DB_PASSWORD}';"
+    iocage exec "${!DB_JAIL}" mysqladmin reload
 else
-	echo "No config detected, doing clean install."
+    echo "No config detected, doing clean install."
 fi
 
 iocage exec "${1}" "pw user add bitwarden -c bitwarden -u 725 -d /nonexistent -s /usr/bin/nologin"
@@ -106,10 +106,10 @@ echo 'export DATABASE_URL="'"${DB_STRING}"'"' >> /mnt/"${global_dataset_iocage}"
 echo 'export ADMIN_TOKEN="'"${!ADMIN_TOKEN}"'"' >> /mnt/"${global_dataset_iocage}"/jails/"${1}"/root/usr/local/etc/rc.conf.d/bitwarden
 
 if [ "${!ADMIN_TOKEN}" == "NONE" ]; then
-	echo "Admin_token set to NONE, disabling admin portal"
+    echo "Admin_token set to NONE, disabling admin portal"
 else
-	echo "Admin_token set and admin portal enabled"
-	iocage exec "${1}" echo "${DB_NAME} Admin Token is ${!ADMIN_TOKEN}" > /root/"${1}"_admin_token.txt
+    echo "Admin_token set and admin portal enabled"
+    iocage exec "${1}" echo "${DB_NAME} Admin Token is ${!ADMIN_TOKEN}" > /root/"${1}"_admin_token.txt
 fi
 
 iocage exec "${1}" chmod u+x /usr/local/etc/rc.d/bitwarden

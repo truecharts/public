@@ -1,10 +1,6 @@
-
-
 ## [redis-13.3.20](https://github.com/truecharts/charts/compare/redis-13.1.0...redis-13.3.20) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -56,13 +52,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - incorrect password reference in SCALE GUI
 

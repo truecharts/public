@@ -1,10 +1,6 @@
-
-
 ## [cops-8.10.16](https://github.com/truecharts/charts/compare/cops-8.8.0...cops-8.10.16) (2024-04-23)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -62,12 +58,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

@@ -96,4 +96,3 @@ title: Changelog
 ## [traccar-14.1.4](https://github.com/truecharts/charts/compare/traccar-14.1.3...traccar-14.1.4) (2024-01-01)
 
 ### Chore
-

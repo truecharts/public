@@ -1,4 +1,4 @@
-Alpine-based Chart for Hastebin, the node.js paste service  
+Alpine-based Chart for Hastebin, the node.js paste service
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/hastebin](https://truecharts.org/charts/stable/hastebin)
 

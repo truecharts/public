@@ -95,5 +95,3 @@ title: Changelog
 ## [go-playground-4.1.4](https://github.com/truecharts/charts/compare/go-playground-4.1.3...go-playground-4.1.4) (2024-01-01)
 
 ### Chore
-
-

@@ -96,4 +96,3 @@ title: Changelog
 ## [auto-yt-dl-4.1.4](https://github.com/truecharts/charts/compare/auto-yt-dl-4.1.3...auto-yt-dl-4.1.4) (2024-01-01)
 
 ### Chore
-

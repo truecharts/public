@@ -16,7 +16,7 @@ podSecurityContext:
   fsGroup: 0
 
 envTpl:
-# Permissions Settings
+  # Permissions Settings
   UNIFI_GID: "{{ .Values.PUID }}"
   UNIFI_UID: "{{ .Values.PGID }}"
 
@@ -39,7 +39,8 @@ services:
       protocol: UDP
       targetPort: 3478
 
-env: {}
+env:
+  {}
   # TZ:
   # PUID:
   # PGID:

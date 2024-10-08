@@ -1,10 +1,6 @@
-
-
 ## [cloudnative-pg-6.10.2](https://github.com/truecharts/charts/compare/cloudnative-pg-6.7.0...cloudnative-pg-6.10.2) (2024-04-27)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -54,13 +50,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - revert cnpg update
 

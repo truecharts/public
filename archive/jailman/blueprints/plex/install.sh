@@ -18,9 +18,9 @@ createmount "$1" "${global_dataset_media}"/shows /mnt/media/shows
 # Create plex ramdisk if specified
 # shellcheck disable=SC2154
 if [ -z "${plex_ramdisk}" ]; then
-	echo "no ramdisk specified for plex, continuing without ramdisk"
+    echo "no ramdisk specified for plex, continuing without ramdisk"
 else
-	iocage fstab -a "$1" tmpfs /tmp_transcode tmpfs rw,size="${plex_ramdisk}",mode=1777 0 0
+    iocage fstab -a "$1" tmpfs /tmp_transcode tmpfs rw,size="${plex_ramdisk}",mode=1777 0 0
 fi
 
 iocage exec "$1" chown -R plex:plex /config
@@ -35,17 +35,17 @@ iocage exec "$1" pw groupmod -n video -m plex
 # Run different install procedures depending on Plex vs Plex Beta
 # shellcheck disable=SC2154
 if [ "$plex_beta" == "true" ]; then
-	echo "beta enabled in config.yml... using plex beta for install"
-	iocage exec "$1" sysrc "plexmediaserver_plexpass_enable=YES"
-	iocage exec "$1" sysrc plexmediaserver_plexpass_support_path="/config"
-	iocage exec "$1" chown -R plex:plex /usr/local/share/plexmediaserver-plexpass/
-	iocage exec "$1" service plexmediaserver_plexpass restart
+    echo "beta enabled in config.yml... using plex beta for install"
+    iocage exec "$1" sysrc "plexmediaserver_plexpass_enable=YES"
+    iocage exec "$1" sysrc plexmediaserver_plexpass_support_path="/config"
+    iocage exec "$1" chown -R plex:plex /usr/local/share/plexmediaserver-plexpass/
+    iocage exec "$1" service plexmediaserver_plexpass restart
 else
-	echo "beta disabled in config.yml... NOT using plex beta for install"
-	iocage exec "$1" sysrc "plexmediaserver_enable=YES"
-	iocage exec "$1" sysrc plexmediaserver_support_path="/config"
-	iocage exec "$1" chown -R plex:plex /usr/local/share/plexmediaserver/
-	iocage exec "$1" service plexmediaserver restart
+    echo "beta disabled in config.yml... NOT using plex beta for install"
+    iocage exec "$1" sysrc "plexmediaserver_enable=YES"
+    iocage exec "$1" sysrc plexmediaserver_support_path="/config"
+    iocage exec "$1" chown -R plex:plex /usr/local/share/plexmediaserver/
+    iocage exec "$1" service plexmediaserver restart
 fi
 
 echo "Finished installing plex"

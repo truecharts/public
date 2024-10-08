@@ -1,10 +1,6 @@
-
-
 ## [ctfd-4.20.24](https://github.com/truecharts/charts/compare/ctfd-4.12.0...ctfd-4.20.24) (2024-04-26)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -114,12 +110,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

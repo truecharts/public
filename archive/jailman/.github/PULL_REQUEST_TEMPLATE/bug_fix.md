@@ -1,10 +1,9 @@
 ---
 name: Bug Fix
 about: Submit a fix to help us improve JailMan
-title: ''
+title: ""
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 **Description**

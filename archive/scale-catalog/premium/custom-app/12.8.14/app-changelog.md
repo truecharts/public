@@ -1,10 +1,6 @@
-
-
 ## [custom-app-12.8.14](https://github.com/truecharts/charts/compare/custom-app-12.6.0...custom-app-12.8.14) (2024-04-26)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -18,12 +14,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

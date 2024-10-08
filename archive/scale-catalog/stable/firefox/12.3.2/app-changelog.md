@@ -1,10 +1,6 @@
-
-
 ## [firefox-12.3.2](https://github.com/truecharts/charts/compare/firefox-12.2.0...firefox-12.3.2) (2024-03-18)
 
 ### Chore
-
-
 
 - update container image common to v20.2.2[@f7d0b92](https://github.com/f7d0b92) by renovate ([#19432](https://github.com/truecharts/charts/issues/19432))
 

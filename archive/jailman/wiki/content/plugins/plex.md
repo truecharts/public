@@ -1,12 +1,13 @@
 # Plex
+
 Plex gives you one place to find and access all the media that matters to you. From personal media on your own server, to podcasts, web shows, and news, to streaming music, you can enjoy it all in one app, on any device.
 
 **For more information about Plex, please checkout:**
 https://plex.tv
 
 #### Advanced config parameters:
-- ramdisk: Specify the `size` parameter to create a transcoding ramdisk under /tmp_transcode. Requires manual setting it un plex to be used for transcoding. (optional)
 
+- ramdisk: Specify the `size` parameter to create a transcoding ramdisk under /tmp_transcode. Requires manual setting it un plex to be used for transcoding. (optional)
 
 #### Experimental config parameters:
 

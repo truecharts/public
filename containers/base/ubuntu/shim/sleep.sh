@@ -20,7 +20,7 @@ printf "\e[1;32m%-6s\e[m\n" "$(logz "max seconds set to ${max_seconds}" "debug")
 
 printf "\e[1;32m%-6s\e[m\n" "$(logz "sleeping for $(datez "${seconds}")" "info")"
 
-for ((i=seconds;i>0;i--)); do 
+for ((i=seconds;i>0;i--)); do
     printf "\e[1;32m%-6s\e[m\n" "$(logz "sleeping for $(datez "${i}")" "info")"
     sleep 1
 done

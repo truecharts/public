@@ -18,8 +18,8 @@ iocage exec "${1}" service php-fpm stop
 fetch -o /tmp https://getcaddy.com
 if ! iocage exec "${1}" bash -s personal "${DL_FLAGS}" < /tmp/getcaddy.com
 then
-	echo "Failed to download/install Caddy"
-	exit 1
+    echo "Failed to download/install Caddy"
+    exit 1
 fi
 
 # Copy and edit pre-written config files

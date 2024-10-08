@@ -2,7 +2,7 @@
 # This script installs the current release of InfluxDB
 
 #####
-# 
+#
 # Init and Mounts
 #
 #####

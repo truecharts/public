@@ -40,11 +40,7 @@
             "description": "Prometheus exporter for SMART using smartctl binary to gather metrics.",
             "home": "https://truecharts.org/charts/incubator/smartctl-exporter",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/smartctl-exporter.png",
-            "keywords": [
-                "prometheus",
-                "smartctl-exporter",
-                "monitoring"
-            ],
+            "keywords": ["prometheus", "smartctl-exporter", "monitoring"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -191,11 +187,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -324,9 +316,7 @@
                     "schema": {
                         "type": "string",
                         "default": "America/Los_Angeles",
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
+                        "$ref": ["definitions/timezone"],
                         "enum": [
                             {
                                 "value": "Asia/Damascus",
@@ -3626,11 +3616,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -3669,11 +3655,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -3776,11 +3758,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -3792,11 +3770,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -3818,11 +3792,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -3843,11 +3813,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -3858,11 +3824,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [

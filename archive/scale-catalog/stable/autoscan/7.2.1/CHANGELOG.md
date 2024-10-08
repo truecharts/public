@@ -96,4 +96,3 @@ title: Changelog
 ## [autoscan-7.1.11](https://github.com/truecharts/charts/compare/autoscan-7.1.10...autoscan-7.1.11) (2024-01-21)
 
 ### Chore
-

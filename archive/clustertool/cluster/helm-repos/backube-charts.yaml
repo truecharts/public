@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-    name: backube-charts
-    namespace: flux-system
+  name: backube-charts
+  namespace: flux-system
 spec:
-    interval: 2h
-    url: https://backube.github.io/helm-charts/
+  interval: 2h
+  url: https://backube.github.io/helm-charts/

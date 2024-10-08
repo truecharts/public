@@ -95,5 +95,3 @@ title: Changelog
 ## [openbooks-3.1.4](https://github.com/truecharts/charts/compare/openbooks-3.1.3...openbooks-3.1.4) (2024-01-01)
 
 ### Chore
-
-

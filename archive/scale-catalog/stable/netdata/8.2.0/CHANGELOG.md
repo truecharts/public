@@ -95,5 +95,3 @@ title: Changelog
 ## [netdata-8.1.4](https://github.com/truecharts/charts/compare/netdata-8.1.3...netdata-8.1.4) (2024-01-01)
 
 ### Chore
-
-

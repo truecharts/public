@@ -96,4 +96,3 @@ title: Changelog
 
 
 - update container image ghcr.io/tasmoadmin/tasmoadmin to v3.3.1[@1077de2](https://github.com/1077de2) by renovate ([#16811](https://github.com/truecharts/charts/issues/16811))
-

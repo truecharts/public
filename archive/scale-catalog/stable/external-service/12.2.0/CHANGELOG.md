@@ -95,5 +95,3 @@ title: Changelog
 ## [external-service-12.1.4](https://github.com/truecharts/charts/compare/external-service-12.1.3...external-service-12.1.4) (2024-01-01)
 
 ### Chore
-
-

@@ -1,6 +1,5 @@
 App for taking notes and tracking tasks on a daily basis.
 
-
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/dailynotes](https://truecharts.org/charts/stable/dailynotes)
 
 ---

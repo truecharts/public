@@ -32,10 +32,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -229,11 +226,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -245,11 +238,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -261,11 +250,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -278,11 +263,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -361,11 +342,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"
@@ -1450,10 +1427,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -1647,11 +1621,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -1663,11 +1633,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -1679,11 +1645,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -1696,11 +1658,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -1779,11 +1737,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"
@@ -2870,10 +2824,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -3070,11 +3021,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"
@@ -4161,10 +4108,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -4361,11 +4305,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"
@@ -5452,10 +5392,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.png",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -5640,11 +5577,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"
@@ -6731,10 +6664,7 @@
             "description": "Allow external services to be used like Apps.",
             "home": "https://truecharts.org/charts/stable/external-service",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/external-service.png",
-            "keywords": [
-                "external-service",
-                "reverse-proxy"
-            ],
+            "keywords": ["external-service", "reverse-proxy"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -6919,11 +6849,7 @@
                                             "description": "IP of External service",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "ExternalIP"
-                                                    ]
+                                                    ["type", "=", "ExternalIP"]
                                                 ],
                                                 "type": "string",
                                                 "default": "1.1.1.1"

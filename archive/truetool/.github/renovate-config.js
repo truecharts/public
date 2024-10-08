@@ -1,22 +1,20 @@
 module.exports = {
   dryRun: false,
-  username: 'truecharts-admin',
-  gitAuthor: 'truecharts-admin <bot@truecharts.org>',
+  username: "truecharts-admin",
+  gitAuthor: "truecharts-admin <bot@truecharts.org>",
   onboarding: false,
-  platform: 'github',
-  repositories: [
-    'truecharts/truetool',
-  ],
+  platform: "github",
+  repositories: ["truecharts/truetool"],
   packageRules: [
     {
-      description: 'lockFileMaintenance',
+      description: "lockFileMaintenance",
       matchUpdateTypes: [
-        'pin',
-        'digest',
-        'patch',
-        'minor',
-        'major',
-        'lockFileMaintenance',
+        "pin",
+        "digest",
+        "patch",
+        "minor",
+        "major",
+        "lockFileMaintenance",
       ],
       dependencyDashboardApproval: false,
       stabilityDays: 0,

@@ -5,13 +5,13 @@ read -p "Do you want to remove the included helm-charts and manifests? THIS IS D
 
 case $yn in
     yes ) echo "ok, we will proceed";
-	    remove_manifests;
-	    ;;
+        remove_manifests;
+        ;;
     no ) echo "not removing...";
         exit;;
     y ) echo "ok, we will proceed";
-	    remove_manifests;
-	    ;;
+        remove_manifests;
+        ;;
     n ) echo "not removing...";
         exit;;
     * ) echo "invalid response";

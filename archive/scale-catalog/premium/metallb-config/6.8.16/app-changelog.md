@@ -1,10 +1,6 @@
-
-
 ## [metallb-config-6.8.16](https://github.com/truecharts/charts/compare/metallb-config-6.6.0...metallb-config-6.8.16) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -46,19 +42,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
 
-
-
 - fix asides ([#21073](https://github.com/truecharts/charts/issues/21073))
 
 ### Fix
-
-
 
 - allow explicit setting metallb namespace as a temporary hotfix
 

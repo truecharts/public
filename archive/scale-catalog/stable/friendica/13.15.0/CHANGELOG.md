@@ -96,4 +96,3 @@ title: Changelog
 ## [friendica-13.14.3](https://github.com/truecharts/charts/compare/friendica-13.11.0...friendica-13.14.3) (2024-03-20)
 
 ### Chore
-

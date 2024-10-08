@@ -95,5 +95,3 @@ title: Changelog
 ## [external-dns-3.1.3](https://github.com/truecharts/charts/compare/external-dns-3.1.0...external-dns-3.1.3) (2024-01-01)
 
 ### Chore
-
-

@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 # This script installs the current release of Mariadb and PhpMyAdmin into a created jail
 #####
-# 
+#
 # Init and Mounts
 #
 #####
@@ -30,8 +30,8 @@ fi
 # Make sure DB_PATH is empty -- if not, MariaDB/PostgreSQL will choke
 # shellcheck disable=SC2154
 if [ "$(ls -A "/mnt/${global_dataset_config}/${1}/db")" ]; then
-	echo "Reinstall of mariadb detected... Continuing"
-	REINSTALL="true"
+    echo "Reinstall of mariadb detected... Continuing"
+    REINSTALL="true"
 fi
 
 # Mount database dataset and set zfs preferences
@@ -60,7 +60,7 @@ iocage exec "${1}" sed -i '' "s|mypassword|${!DB_ROOT_PASSWORD}|" /config/my.cnf
 iocage exec "${1}" ln -s /config/my.cnf /usr/local/etc/mysql/my.cnf
 
 #####
-# 
+#
 # Install Caddy and PhpMyAdmin
 #
 #####
@@ -68,8 +68,8 @@ iocage exec "${1}" ln -s /config/my.cnf /usr/local/etc/mysql/my.cnf
 fetch -o /tmp https://getcaddy.com
 if ! iocage exec "${1}" bash -s personal "${DL_FLAGS}" < /tmp/getcaddy.com
 then
-	echo "Failed to download/install Caddy"
-	exit 1
+    echo "Failed to download/install Caddy"
+    exit 1
 fi
 
 # Copy and edit pre-written config files
@@ -89,21 +89,21 @@ iocage restart "${1}"
 sleep 10
 
 if [ "${REINSTALL}" == "true" ]; then
-	echo "Reinstall detected, skipping generaion of new config and database"
+    echo "Reinstall detected, skipping generaion of new config and database"
 else
-	
-	# Secure database, set root password, create Nextcloud DB, user, and password
-	iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.user WHERE User='';"
-	iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
-	iocage exec "${1}" mysql -u root -e "DROP DATABASE IF EXISTS test;"
-	iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';"
-	iocage exec "${1}" mysqladmin --user=root password "${!DB_ROOT_PASSWORD}"
-	iocage exec "${1}" mysqladmin reload
+
+    # Secure database, set root password, create Nextcloud DB, user, and password
+    iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.user WHERE User='';"
+    iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
+    iocage exec "${1}" mysql -u root -e "DROP DATABASE IF EXISTS test;"
+    iocage exec "${1}" mysql -u root -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';"
+    iocage exec "${1}" mysqladmin --user=root password "${!DB_ROOT_PASSWORD}"
+    iocage exec "${1}" mysqladmin reload
 fi
 
 # Save passwords for later reference
 iocage exec "${1}" echo "MariaDB root password is ${!DB_ROOT_PASSWORD}" > /root/"${1}"_db_password.txt
-	
+
 
 # Don't need /mnt/includes any more, so unmount it
 iocage fstab -r "${1}" "${INCLUDES_PATH}" /mnt/includes nullfs rw 0 0
@@ -113,11 +113,11 @@ echo "Installation complete!"
 echo "Using your web browser, go to http://${!HOST_NAME} to log in"
 
 if [ "${REINSTALL}" == "true" ]; then
-	echo "You did a reinstall, please use your old database and account credentials"
+    echo "You did a reinstall, please use your old database and account credentials"
 else
-	echo "Database Information"
-	echo "--------------------"
-	echo "The MariaDB root password is ${!DB_ROOT_PASSWORD}"
-	fi
+    echo "Database Information"
+    echo "--------------------"
+    echo "The MariaDB root password is ${!DB_ROOT_PASSWORD}"
+    fi
 echo ""
 echo "All passwords are saved in /root/${1}_db_password.txt"

@@ -1,10 +1,6 @@
-
-
 ## [redmine-11.8.26](https://github.com/truecharts/charts/compare/redmine-11.6.0...redmine-11.8.26) (2024-04-26)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -76,12 +72,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

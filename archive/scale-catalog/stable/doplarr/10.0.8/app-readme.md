@@ -1,4 +1,4 @@
-An *arr Request Bot for Discord
+An \*arr Request Bot for Discord
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/doplarr](https://truecharts.org/charts/stable/doplarr)
 

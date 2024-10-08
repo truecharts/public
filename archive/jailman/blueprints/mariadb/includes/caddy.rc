@@ -38,7 +38,7 @@
 #                             e.g. (in your rc.conf)   caddy_env="CLOUDFLARE_EMAIL=me@domain.com CLOUDFLARE_API_KEY=my_api_key"
 #
 
-. /etc/rc.subr                                           
+. /etc/rc.subr
 
 name="caddy"
 rcvar="${name}_enable"

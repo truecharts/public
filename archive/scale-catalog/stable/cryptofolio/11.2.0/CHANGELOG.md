@@ -95,5 +95,3 @@ title: Changelog
 ## [cryptofolio-11.1.3](https://github.com/truecharts/charts/compare/cryptofolio-11.1.0...cryptofolio-11.1.3) (2024-01-01)
 
 ### Chore
-
-

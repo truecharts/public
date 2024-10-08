@@ -1,10 +1,6 @@
-
-
 ## [nginx-proxy-manager-9.15.25](https://github.com/truecharts/charts/compare/nginx-proxy-manager-9.9.0...nginx-proxy-manager-9.15.25) (2024-04-26)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -98,18 +94,12 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
 
-
-
 - fix asides ([#21073](https://github.com/truecharts/charts/issues/21073))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

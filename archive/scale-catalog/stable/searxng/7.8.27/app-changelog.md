@@ -1,10 +1,6 @@
-
-
 ## [searxng-7.8.27](https://github.com/truecharts/charts/compare/searxng-7.6.0...searxng-7.8.27) (2024-04-28)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -88,12 +84,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

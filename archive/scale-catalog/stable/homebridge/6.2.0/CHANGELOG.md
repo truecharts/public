@@ -95,5 +95,3 @@ title: Changelog
 ## [homebridge-6.1.4](https://github.com/truecharts/charts/compare/homebridge-6.1.3...homebridge-6.1.4) (2024-01-01)
 
 ### Chore
-
-

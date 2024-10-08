@@ -1,10 +1,6 @@
-
-
 ## [authentik-24.10.8](https://github.com/truecharts/charts/compare/authentik-24.6.0...authentik-24.10.8) (2024-04-11)
 
 ### Chore
-
-
 
 - update container image common to v20.3.6[@27edfed](https://github.com/27edfed) by renovate ([#20599](https://github.com/truecharts/charts/issues/20599))
 

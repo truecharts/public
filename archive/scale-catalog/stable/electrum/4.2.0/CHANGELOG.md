@@ -95,5 +95,3 @@ title: Changelog
 ## [electrum-4.1.4](https://github.com/truecharts/charts/compare/electrum-4.1.3...electrum-4.1.4) (2024-01-01)
 
 ### Chore
-
-

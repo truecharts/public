@@ -36,10 +36,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.webp",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -233,11 +230,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -249,11 +242,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -265,11 +254,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -282,11 +267,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -339,11 +320,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -1019,11 +996,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1034,11 +1007,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1049,11 +1018,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -1177,11 +1142,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -1242,11 +1203,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -1256,11 +1213,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -1282,11 +1235,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -1298,11 +1247,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1314,11 +1259,7 @@
                                             "description": "Backup, Restore and Synchronise PVC storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -1415,11 +1356,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -1536,11 +1473,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -1639,11 +1572,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1654,11 +1583,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1669,11 +1594,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -1797,11 +1718,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -1862,11 +1779,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -1887,11 +1800,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -1912,11 +1821,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -1928,11 +1833,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -1944,11 +1845,7 @@
                                             "description": "Backup, Restore and Synchronise PVC storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -2045,11 +1942,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -2166,11 +2059,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -3223,11 +3112,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -4775,11 +4660,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -4818,11 +4699,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -4925,11 +4802,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -4941,11 +4814,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4967,11 +4836,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -4992,11 +4857,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -5007,11 +4868,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -5135,10 +4992,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.webp",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -5332,11 +5186,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -5348,11 +5198,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -5364,11 +5210,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -5381,11 +5223,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -5438,11 +5276,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -6118,11 +5952,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -6133,11 +5963,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -6148,11 +5974,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -6276,11 +6098,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -6341,11 +6159,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -6355,11 +6169,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -6381,11 +6191,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -6397,11 +6203,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -6413,11 +6215,7 @@
                                             "description": "Backup, Restore and Synchronise PVC storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -6514,11 +6312,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -6635,11 +6429,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -6738,11 +6528,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -6753,11 +6539,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -6768,11 +6550,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -6896,11 +6674,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -6961,11 +6735,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -6986,11 +6756,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -7011,11 +6777,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -7027,11 +6789,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -7043,11 +6801,7 @@
                                             "description": "Backup, Restore and Synchronise PVC storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -7144,11 +6898,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -7265,11 +7015,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -8322,11 +8068,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -9874,11 +9616,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -9917,11 +9655,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -10024,11 +9758,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -10040,11 +9770,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -10066,11 +9792,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -10091,11 +9813,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -10106,11 +9824,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -10236,10 +9950,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.webp",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -10410,11 +10121,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -11090,11 +10797,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11105,11 +10808,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11120,11 +10819,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -11248,11 +10943,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -11313,11 +11004,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -11327,11 +11014,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -11353,11 +11036,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -11369,11 +11048,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11385,11 +11060,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -11506,11 +11177,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -11609,11 +11276,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11624,11 +11287,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11639,11 +11298,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -11767,11 +11422,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -11832,11 +11483,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -11857,11 +11504,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -11882,11 +11525,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -11898,11 +11537,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -11914,11 +11549,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -12035,11 +11666,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -13092,11 +12719,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -14644,11 +14267,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -14687,11 +14306,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -14794,11 +14409,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -14810,11 +14421,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -14836,11 +14443,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -14861,11 +14464,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -14876,11 +14475,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -15006,10 +14601,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.webp",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -15180,11 +14772,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -15860,11 +15448,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -15875,11 +15459,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -15890,11 +15470,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16018,11 +15594,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16083,11 +15655,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -16097,11 +15665,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -16123,11 +15687,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -16139,11 +15699,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -16155,11 +15711,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16276,11 +15828,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -16379,11 +15927,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -16394,11 +15938,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -16409,11 +15949,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16537,11 +16073,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16602,11 +16134,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -16627,11 +16155,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -16652,11 +16176,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -16668,11 +16188,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -16684,11 +16200,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -16805,11 +16317,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -17862,11 +17370,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -19414,11 +18918,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -19457,11 +18957,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -19564,11 +19060,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -19580,11 +19072,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19606,11 +19094,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19631,11 +19115,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -19646,11 +19126,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -19777,10 +19253,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.png",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -19939,11 +19412,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -20631,11 +20100,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -20646,11 +20111,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -20661,11 +20122,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -20789,11 +20246,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -20854,11 +20307,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -20868,11 +20317,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -20894,11 +20339,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -20910,11 +20351,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -20926,11 +20363,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -21047,11 +20480,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -21150,11 +20579,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -21165,11 +20590,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -21180,11 +20601,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -21308,11 +20725,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -21373,11 +20786,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -21398,11 +20807,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -21423,11 +20828,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -21439,11 +20840,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -21455,11 +20852,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -21576,11 +20969,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -22633,11 +22022,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -24227,11 +23612,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -24270,11 +23651,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -24377,11 +23754,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -24393,11 +23766,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -24419,11 +23788,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -24444,11 +23809,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -24459,11 +23820,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -24590,10 +23947,7 @@
             "description": "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;\n",
             "home": "https://truecharts.org/charts/stable/bitcoinwalletgui",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.png",
-            "keywords": [
-                "bitcoinwalletgui",
-                "Other"
-            ],
+            "keywords": ["bitcoinwalletgui", "Other"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -24752,11 +24106,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "DaemonSet"
-                                                    ]
+                                                    ["type", "!=", "DaemonSet"]
                                                 ],
                                                 "default": 1
                                             }
@@ -25444,11 +24794,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -25459,11 +24805,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -25474,11 +24816,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -25602,11 +24940,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -25667,11 +25001,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -25681,11 +25011,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -25707,11 +25033,7 @@
                                             "description": "This value can ONLY be INCREASED after the installation",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -25723,11 +25045,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -25739,11 +25057,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -25860,11 +25174,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -25963,11 +25273,7 @@
                                             "label": "NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -25978,11 +25284,7 @@
                                             "label": "Path on NFS Server",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "nfs"
-                                                    ]
+                                                    ["type", "=", "nfs"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -25993,11 +25295,7 @@
                                             "label": "iSCSI Options",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "iscsi"
-                                                    ]
+                                                    ["type", "=", "iscsi"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -26121,11 +25419,7 @@
                                             "description": "Automatically set permissions",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "!=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -26186,11 +25480,7 @@
                                             "description": "Path inside the container the storage is mounted",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "hostPath"
-                                                    ]
+                                                    ["type", "=", "hostPath"]
                                                 ],
                                                 "type": "hostpath"
                                             }
@@ -26211,11 +25501,7 @@
                                             "label": "EmptyDir Medium",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "emptyDir"
-                                                    ]
+                                                    ["type", "=", "emptyDir"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -26236,11 +25522,7 @@
                                             "label": "Size Quotum of Storage",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": "256Gi"
@@ -26252,11 +25534,7 @@
                                             "description": "sets the storageClass to something other than iX default. Only for advanced usecases!",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "string",
                                                 "default": ""
@@ -26268,11 +25546,7 @@
                                             "description": "Link a PVC to a specific storage location",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "dict",
                                                 "additional_attrs": true,
@@ -26389,11 +25663,7 @@
                                             "description": "Add an entry to the list to force creation of a volumeSnapshot of this PVC",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "pvc"
-                                                    ]
+                                                    ["type", "=", "pvc"]
                                                 ],
                                                 "type": "list",
                                                 "default": [],
@@ -27446,11 +26716,7 @@
                                             "schema": {
                                                 "type": "int",
                                                 "show_if": [
-                                                    [
-                                                        "runAsUser",
-                                                        "=",
-                                                        0
-                                                    ]
+                                                    ["runAsUser", "=", 0]
                                                 ],
                                                 "default": 568
                                             }
@@ -29040,11 +28306,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "openvpn"
-                                                    ]
+                                                    ["type", "=", "openvpn"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -29083,11 +28345,7 @@
                                                 "additional_attrs": true,
                                                 "type": "dict",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "tailscale"
-                                                    ]
+                                                    ["type", "=", "tailscale"]
                                                 ],
                                                 "attrs": [
                                                     {
@@ -29190,11 +28448,7 @@
                                             "schema": {
                                                 "type": "boolean",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": true
                                             }
@@ -29206,11 +28460,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -29232,11 +28482,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [
@@ -29257,11 +28503,7 @@
                                             "schema": {
                                                 "type": "string",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": ""
                                             }
@@ -29272,11 +28514,7 @@
                                             "schema": {
                                                 "type": "list",
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "!=",
-                                                        "disabled"
-                                                    ]
+                                                    ["type", "!=", "disabled"]
                                                 ],
                                                 "default": [],
                                                 "items": [

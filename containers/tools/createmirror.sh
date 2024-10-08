@@ -10,7 +10,7 @@ for container in ${CONTAINERS}; do
   else
     basename=${container##*/}
     echo "processing ${basename}..."
-	mkdir -p mirror/${basename}
+    mkdir -p mirror/${basename}
     cp -Rf tools/template/* mirror/${basename}
     sed -i "s|PLACEHOLDER|${container}|g"  mirror/${basename}/Dockerfile
   fi

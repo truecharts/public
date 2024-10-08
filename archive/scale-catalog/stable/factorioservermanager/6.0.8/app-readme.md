@@ -1,4 +1,4 @@
-A tool for managing Factorio servers 
+A tool for managing Factorio servers
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/factorioservermanager](https://truecharts.org/charts/stable/factorioservermanager)
 

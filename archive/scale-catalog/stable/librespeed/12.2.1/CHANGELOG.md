@@ -96,4 +96,3 @@ title: Changelog
 ## [librespeed-12.1.9](https://github.com/truecharts/charts/compare/librespeed-12.1.8...librespeed-12.1.9) (2024-01-21)
 
 ### Chore
-

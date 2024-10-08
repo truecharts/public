@@ -1,10 +1,6 @@
-
-
 ## [authentik-24.10.9](https://github.com/truecharts/charts/compare/authentik-24.6.0...authentik-24.10.9) (2024-04-13)
 
 ### Chore
-
-
 
 - update container image redis to v13.3.0[@66b03ae](https://github.com/66b03ae) by renovate ([#20417](https://github.com/truecharts/charts/issues/20417))
 

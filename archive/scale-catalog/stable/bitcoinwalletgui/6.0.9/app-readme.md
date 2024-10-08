@@ -1,6 +1,5 @@
 Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
 
-
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/bitcoinwalletgui](https://truecharts.org/charts/stable/bitcoinwalletgui)
 
 ---

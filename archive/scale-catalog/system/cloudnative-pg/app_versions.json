@@ -41,11 +41,7 @@
             "description": "CloudNativePG is a clustered postgresql database operator",
             "home": "https://truecharts.org/charts/system/cloudnative-pg",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
-            "keywords": [
-                "database",
-                "cloudnative-pg",
-                "cnpg"
-            ],
+            "keywords": ["database", "cloudnative-pg", "cnpg"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -213,11 +209,7 @@
             "description": "CloudNativePG is a clustered postgresql database operator",
             "home": "https://truecharts.org/charts/system/cloudnative-pg",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
-            "keywords": [
-                "database",
-                "cloudnative-pg",
-                "cnpg"
-            ],
+            "keywords": ["database", "cloudnative-pg", "cnpg"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {
@@ -400,11 +392,7 @@
                                             "label": "bucket",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -416,11 +404,7 @@
                                             "label": "accessKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -432,11 +416,7 @@
                                             "label": "secretKey",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "",
@@ -449,11 +429,7 @@
                                             "description": "The Encryption key is needed for tools like volsync if not needed it will be ignored",
                                             "schema": {
                                                 "show_if": [
-                                                    [
-                                                        "type",
-                                                        "=",
-                                                        "s3"
-                                                    ]
+                                                    ["type", "=", "s3"]
                                                 ],
                                                 "type": "string",
                                                 "default": "MYSECRETPASSPHRASE",
@@ -516,11 +492,7 @@
             "description": "CloudNativePG is a clustered postgresql database operator",
             "home": "https://truecharts.org/charts/system/cloudnative-pg",
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.webp",
-            "keywords": [
-                "database",
-                "cloudnative-pg",
-                "cnpg"
-            ],
+            "keywords": ["database", "cloudnative-pg", "cnpg"],
             "kubeVersion": ">=1.24.0-0",
             "maintainers": [
                 {

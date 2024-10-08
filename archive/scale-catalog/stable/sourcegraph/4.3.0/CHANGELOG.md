@@ -96,4 +96,3 @@ title: Changelog
 ## [sourcegraph-4.1.4](https://github.com/truecharts/charts/compare/sourcegraph-4.1.3...sourcegraph-4.1.4) (2024-01-01)
 
 ### Chore
-

@@ -1,10 +1,6 @@
-
-
 ## [gamevault-backend-5.8.3](https://github.com/truecharts/charts/compare/gamevault-backend-5.6.0...gamevault-backend-5.8.3) (2024-04-01)
 
 ### Chore
-
-
 
 - update container image phalcode/gamevault-backend to v10.3.3[@e5b84c0](https://github.com/e5b84c0) by renovate ([#20023](https://github.com/truecharts/charts/issues/20023))
 

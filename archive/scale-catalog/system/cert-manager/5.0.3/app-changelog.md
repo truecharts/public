@@ -1,10 +1,6 @@
-
-
 ## [cert-manager-5.0.3](https://github.com/truecharts/charts/compare/cert-manager-4.6.0...cert-manager-5.0.3) (2024-04-30)
 
 ### Chore
-
-
 
 - bump everything to regenerate readme's and site index
 
@@ -62,19 +58,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

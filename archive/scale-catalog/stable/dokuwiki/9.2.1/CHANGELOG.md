@@ -95,5 +95,3 @@ title: Changelog
 ## [dokuwiki-9.1.9](https://github.com/truecharts/charts/compare/dokuwiki-9.1.8...dokuwiki-9.1.9) (2024-01-21)
 
 ### Chore
-
-

@@ -2,9 +2,9 @@
 
 adv_menu(){
     clear -x
-	echo ""
+    echo ""
     echo "ClusterTool: Advanced"
-	echo ""
+    echo ""
     echo -e "${bold}Available Utilities${reset}"
     echo -e "${bold}-------------------${reset}"
     echo -e "h)  Help"

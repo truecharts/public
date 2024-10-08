@@ -37,7 +37,7 @@ func HandleProxy(w http.ResponseWriter, r *http.Request) {
     if config.AuthTokenPrefix != "" {
       authTokenValue = config.AuthTokenPrefix  + " " + authTokenValue
      }
-    
+
     log.Printf("Token: %s", authTokenValue)
 
     if len(authTokenValue) == 0 {

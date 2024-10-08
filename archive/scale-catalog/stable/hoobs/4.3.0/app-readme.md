@@ -1,4 +1,4 @@
-HOOBS is a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for Homebridge.  
+HOOBS is a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for Homebridge.
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/hoobs](https://truecharts.org/charts/stable/hoobs)
 

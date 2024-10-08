@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-    name: tf-controller-charts
-    namespace: flux-system
+  name: tf-controller-charts
+  namespace: flux-system
 spec:
-    interval: 30m
-    url: https://weaveworks.github.io/tf-controller/
-    timeout: 3m
+  interval: 30m
+  url: https://weaveworks.github.io/tf-controller/
+  timeout: 3m

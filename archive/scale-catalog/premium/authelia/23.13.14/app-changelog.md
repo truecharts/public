@@ -1,10 +1,6 @@
-
-
 ## [authelia-23.13.14](https://github.com/truecharts/charts/compare/authelia-23.6.0...authelia-23.13.14) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -84,27 +80,19 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
 
-
-
 - fix asides ([#21073](https://github.com/truecharts/charts/issues/21073))
 
 ### Feat
-
-
 
 - add client authentication method for oidc ([#20756](https://github.com/truecharts/charts/issues/20756))
 
 - add pkce for oidc ([#20306](https://github.com/truecharts/charts/issues/20306))
 
 ### Fix
-
-
 
 - token_endpoint_auth_method is a string ([#20790](https://github.com/truecharts/charts/issues/20790))
 

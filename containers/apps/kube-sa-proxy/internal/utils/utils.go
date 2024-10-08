@@ -5,9 +5,9 @@ import (
     "log"
     "sync"
 
-	"net/http"
+    "net/http"
     "my-proxy-service/internal/config"
-	"github.com/fsnotify/fsnotify"
+    "github.com/fsnotify/fsnotify"
 )
 
 var mutex sync.Mutex
@@ -71,16 +71,16 @@ func WatchFile() {
 
 
 func handleFileChange(filePath string) error {
-	content, err := ioutil.ReadFile(filePath)
-	if err != nil {
-		return err
-	}
+    content, err := ioutil.ReadFile(filePath)
+    if err != nil {
+        return err
+    }
 
-	if len(content) == 0 {
-		log.Println("Warning: Empty file content.")
-		return nil
-	}
+    if len(content) == 0 {
+        log.Println("Warning: Empty file content.")
+        return nil
+    }
 
-	log.Println("Authentication token updated successfully.")
-	return nil
+    log.Println("Authentication token updated successfully.")
+    return nil
 }

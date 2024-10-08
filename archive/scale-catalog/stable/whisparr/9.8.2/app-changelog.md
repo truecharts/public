@@ -1,10 +1,6 @@
-
-
 ## [whisparr-9.8.2](https://github.com/truecharts/charts/compare/whisparr-9.6.0...whisparr-9.8.2) (2024-04-10)
 
 ### Chore
-
-
 
 - update container image common to v20.3.4[@d7e1b23](https://github.com/d7e1b23) by renovate ([#20527](https://github.com/truecharts/charts/issues/20527))
 

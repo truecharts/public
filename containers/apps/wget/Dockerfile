@@ -8,7 +8,7 @@ USER root
 
 # hadolint ignore=DL3018,DL4006
 RUN apk update && apk add --no-cache curl
-	
+
 
 USER apps
 

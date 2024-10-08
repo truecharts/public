@@ -96,4 +96,3 @@ title: Changelog
 ## [qbitmanage-7.1.4](https://github.com/truecharts/charts/compare/qbitmanage-7.1.3...qbitmanage-7.1.4) (2024-01-01)
 
 ### Chore
-

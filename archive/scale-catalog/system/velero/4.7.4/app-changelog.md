@@ -1,10 +1,6 @@
-
-
 ## [velero-4.7.4](https://github.com/truecharts/charts/compare/velero-4.6.0...velero-4.7.4) (2024-03-27)
 
 ### Chore
-
-
 
 - update container image common to v20.2.9[@10fd6c5](https://github.com/10fd6c5) by renovate ([#19817](https://github.com/truecharts/charts/issues/19817))
 

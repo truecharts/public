@@ -1,10 +1,6 @@
-
-
 ## [rdesktop-8.8.75](https://github.com/truecharts/charts/compare/rdesktop-8.6.0...rdesktop-8.8.75) (2024-04-28)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -78,12 +74,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

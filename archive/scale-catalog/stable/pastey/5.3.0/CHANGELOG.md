@@ -96,4 +96,3 @@ title: Changelog
 ## [pastey-5.1.6](https://github.com/truecharts/charts/compare/pastey-5.1.4...pastey-5.1.6) (2024-01-02)
 
 ### Chore
-

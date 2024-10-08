@@ -1,10 +1,6 @@
-
-
 ## [victoriametrics-0.0.9]victoriametrics-0.0.9 (2024-04-22)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -22,12 +18,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
-
-
 
 - add VictoriaMetrics database ([#20158](https://github.com/truecharts/charts/issues/20158))

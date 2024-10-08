@@ -95,5 +95,3 @@ title: Changelog
 ## [tubearchivist-redisjson-4.1.4](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-4.1.3...tubearchivist-redisjson-4.1.4) (2024-01-01)
 
 ### Chore
-
-

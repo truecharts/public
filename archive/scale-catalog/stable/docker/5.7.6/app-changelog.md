@@ -1,10 +1,6 @@
-
-
 ## [docker-5.7.6](https://github.com/truecharts/charts/compare/docker-5.6.0...docker-5.7.6) (2024-03-21)
 
 ### Chore
-
-
 
 - update container image docker to 25.0.5-dind[@b1ac36e](https://github.com/b1ac36e) by renovate ([#19543](https://github.com/truecharts/charts/issues/19543))
 

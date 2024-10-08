@@ -1,10 +1,6 @@
-
-
 ## [nextcloud-29.11.0](https://github.com/truecharts/charts/compare/nextcloud-29.6.0...nextcloud-29.11.0) (2024-04-29)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -130,13 +126,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Docs
-
-
 
 - fix asides ([#21073](https://github.com/truecharts/charts/issues/21073))
 
@@ -148,13 +140,9 @@
 
 ### Feat
 
-
-
 - support database migration
 
 ### Fix
-
-
 
 - fix gpu allocation ([#19409](https://github.com/truecharts/charts/issues/19409))
 

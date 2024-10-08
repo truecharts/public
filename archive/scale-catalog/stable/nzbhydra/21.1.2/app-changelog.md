@@ -1,10 +1,6 @@
-
-
 ## [nzbhydra-21.1.2](https://github.com/truecharts/charts/compare/nzbhydra-19.6.0...nzbhydra-21.1.2) (2024-05-19)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -64,19 +60,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

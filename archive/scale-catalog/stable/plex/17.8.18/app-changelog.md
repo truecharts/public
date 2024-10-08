@@ -1,10 +1,6 @@
-
-
 ## [plex-17.8.18](https://github.com/truecharts/charts/compare/plex-17.6.0...plex-17.8.18) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -54,13 +50,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - hotpatch common to ensure plex update works
 

@@ -96,4 +96,3 @@ title: Changelog
 ## [velero-4.7.4](https://github.com/truecharts/charts/compare/velero-4.6.0...velero-4.7.4) (2024-03-27)
 
 ### Chore
-

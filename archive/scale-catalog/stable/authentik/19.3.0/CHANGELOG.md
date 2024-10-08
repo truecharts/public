@@ -96,4 +96,3 @@ title: Changelog
 ## [authentik-19.1.9](https://github.com/truecharts/charts/compare/authentik-19.1.8...authentik-19.1.9) (2024-01-09)
 
 ### Chore
-

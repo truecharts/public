@@ -27,7 +27,7 @@ jobs:
                     versionname=$(basename ${version})
                     if [ -f "${version}/Chart.yaml" ]; then
                       if [[ "${versionname}" != "${maxchartversion}" ]]; then
-                        echo "Removing older version ${versionname} for ${chartname}"  
+                        echo "Removing older version ${versionname} for ${chartname}"
                         rm -Rf ${version}
                       else
                         echo "${versionname} is the latest version, skipping..."

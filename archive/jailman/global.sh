@@ -26,27 +26,27 @@ parse_yaml() {
 gitupdate() {
 if [ "$(git config --get remote.origin.url)" = "https://github.com/Ornias1993/jailman" ]
 then
-	echo "The repository has been moved, please reinstall using the new repository: jailmanager/jailman"
-	exit 1
+    echo "The repository has been moved, please reinstall using the new repository: jailmanager/jailman"
+    exit 1
 fi
 if [ "$1" = "" ] || [ "$1" = "HEAD" ];
 then
-	echo "Detatched or invalid GIT HEAD detected, please reinstall"
+    echo "Detatched or invalid GIT HEAD detected, please reinstall"
 else
-	echo "checking for updates using Branch: $1"
-	git fetch > /dev/null 2>&1
-	git update-index -q --refresh > /dev/null 2>&1
-	CHANGED=$(git diff --name-only "$1")
-	if [ -n "$CHANGED" ];
-	then
-		echo "script requires update"
-		git reset --hard > /dev/null 2>&1
-		git pull > /dev/null 2>&1
-		echo "script updated, please restart the script manually"
-		exit 1
-	else
-		echo "script up-to-date"
-	fi
+    echo "checking for updates using Branch: $1"
+    git fetch > /dev/null 2>&1
+    git update-index -q --refresh > /dev/null 2>&1
+    CHANGED=$(git diff --name-only "$1")
+    if [ -n "$CHANGED" ];
+    then
+        echo "script requires update"
+        git reset --hard > /dev/null 2>&1
+        git pull > /dev/null 2>&1
+        echo "script updated, please restart the script manually"
+        exit 1
+    else
+        echo "script up-to-date"
+    fi
 fi
 }
 
@@ -60,15 +60,15 @@ jailgateway="jail_${1}_gateway"
 jaildhcp="jail_${1}_dhcp"
 setdhcp=${!jaildhcp}
 
-if [ -z "${!jailinterfaces}" ]; then 
-	jailinterfaces="vnet0:bridge0"
+if [ -z "${!jailinterfaces}" ]; then
+    jailinterfaces="vnet0:bridge0"
 else
-	jailinterfaces=${!jailinterfaces}
+    jailinterfaces=${!jailinterfaces}
 fi
 
-if [ -z "${setdhcp}" ] && [ -z "${!jailip4}" ] && [ -z "${!jailgateway}" ]; then 
-	echo 'no network settings specified in config.yml, defaulting to dhcp="on"'
-	setdhcp="on"
+if [ -z "${setdhcp}" ] && [ -z "${!jailip4}" ] && [ -z "${!jailgateway}" ]; then
+    echo 'no network settings specified in config.yml, defaulting to dhcp="on"'
+    setdhcp="on"
 fi
 
 echo "Creating jail for $1"
@@ -77,19 +77,19 @@ pkgs="$(sed 's/[^[:space:]]\{1,\}/"&"/g;s/ /,/g' <<<"${global_jails_pkgs} ${!blu
 echo '{"pkgs":['"${pkgs}"']}' > /tmp/pkg.json
 if [ "${setdhcp}" == "on" ]
 then
-	# shellcheck disable=SC2154
-	if ! iocage create -n "${1}" -p /tmp/pkg.json -r "${global_jails_version}" interfaces="${jailinterfaces}" dhcp="on" vnet="on" allow_raw_sockets="1" boot="on" -b
-	then
-		echo "Failed to create jail"
-		exit 1
-	fi
+    # shellcheck disable=SC2154
+    if ! iocage create -n "${1}" -p /tmp/pkg.json -r "${global_jails_version}" interfaces="${jailinterfaces}" dhcp="on" vnet="on" allow_raw_sockets="1" boot="on" -b
+    then
+        echo "Failed to create jail"
+        exit 1
+    fi
 else
-	# shellcheck disable=SC2154
-	if ! iocage create -n "${1}" -p /tmp/pkg.json -r "${global_jails_version}" interfaces="${jailinterfaces}" ip4_addr="vnet0|${!jailip4}" defaultrouter="${!jailgateway}" vnet="on" allow_raw_sockets="1" boot="on" -b
-	then
-		echo "Failed to create jail"
-		exit 1
-	fi
+    # shellcheck disable=SC2154
+    if ! iocage create -n "${1}" -p /tmp/pkg.json -r "${global_jails_version}" interfaces="${jailinterfaces}" ip4_addr="vnet0|${!jailip4}" defaultrouter="${!jailgateway}" vnet="on" allow_raw_sockets="1" boot="on" -b
+    then
+        echo "Failed to create jail"
+        exit 1
+    fi
 fi
 
 rm /tmp/pkg.json
@@ -104,10 +104,10 @@ createmount "${1}" "${global_dataset_config}"/portsnap/db /var/db/portsnap || ex
 createmount "${1}" "${global_dataset_config}"/portsnap/ports /usr/ports || exit 1
 if [ "${!blueprintports}" == "true" ]
 then
-	echo "Mounting and fetching ports"
-	iocage exec "${1}" "if [ -z /usr/ports ]; then portsnap fetch extract; else portsnap auto; fi"
+    echo "Mounting and fetching ports"
+    iocage exec "${1}" "if [ -z /usr/ports ]; then portsnap fetch extract; else portsnap auto; fi"
 else
-	echo "Ports not enabled for blueprint, skipping"
+    echo "Ports not enabled for blueprint, skipping"
 fi
 
 echo "Jail creation completed for ${1}"
@@ -119,28 +119,28 @@ echo "Jail creation completed for ${1}"
 # $3 = Target mountpoint
 # $4 = fstab prefernces
 createmount() {
-	if [ -z "$2" ] ; then
-		echo "ERROR: No Dataset specified to create and/or mount"
-		exit 1
-	else
-		if [ ! -d "/mnt/$2" ]; then
-			echo "Dataset does not exist... Creating... $2"
-			zfs create "${2}" || exit 1
-		else
-			echo "Dataset already exists, skipping creation of $2"
-		fi
+    if [ -z "$2" ] ; then
+        echo "ERROR: No Dataset specified to create and/or mount"
+        exit 1
+    else
+        if [ ! -d "/mnt/$2" ]; then
+            echo "Dataset does not exist... Creating... $2"
+            zfs create "${2}" || exit 1
+        else
+            echo "Dataset already exists, skipping creation of $2"
+        fi
 
-		if [ -n "$1" ] && [ -n "$3" ]; then
-			iocage exec "${1}" mkdir -p "${3}"
-			if [ -n "${4}" ]; then
-				iocage fstab -a "${1}" /mnt/"${2}" "${3}" "${4}" || exit 1
-			else
-				iocage fstab -a "${1}" /mnt/"${2}" "${3}" nullfs rw 0 0 || exit 1
-			fi
-		else
-			echo "No Jail Name or Mount target specified, not mounting dataset"
-		fi
+        if [ -n "$1" ] && [ -n "$3" ]; then
+            iocage exec "${1}" mkdir -p "${3}"
+            if [ -n "${4}" ]; then
+                iocage fstab -a "${1}" /mnt/"${2}" "${3}" "${4}" || exit 1
+            else
+                iocage fstab -a "${1}" /mnt/"${2}" "${3}" nullfs rw 0 0 || exit 1
+            fi
+        else
+            echo "No Jail Name or Mount target specified, not mounting dataset"
+        fi
 
-	fi
+    fi
 }
 export -f createmount

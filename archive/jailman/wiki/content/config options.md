@@ -18,10 +18,12 @@ All Datasets are auto-created if they do not exist already, no need to worry abo
 - downloads: The dataset containging temporary download files. These are moved to media when finished. complete, incomplete etc. sub-datasets are auto-created.
 
 ## jails
+
 All config options under "jails" change default jail settings that are the same for every created jail. The indentation and "jails" flag are not optional.
+
 - version: the current to-be-installed version for jails
 - pkgs: packages that are installed to all created jails
-   
+
 ## (hidden) Auto created datasets
 
 Some datasets are auto created and can not be changed from the config file. This is done to ease troubleshooting.
@@ -40,9 +42,10 @@ Please be aware that dhcp is not actively supported, many of the jails depend on
 Some also depend on other jails having a fixed IP in the config file. Use of DHCP is on your own risk and might not work.
 
 - ip4_addr: To set a static IP (recommended), enter the desired ip address here. Leave blank (or remove the line) for DHCP.
-- gateway: Set the gateway IP for static IP setup. Leave blank (or remove the line) for DHCP. 
+- gateway: Set the gateway IP for static IP setup. Leave blank (or remove the line) for DHCP.
 
 ### Advanced
+
 - interfaces: Set the "interfaces" flag for iocage. Example: `vnet0:bridge0` (optional)
 - dhcp: Set to "on" to force DHCP (not required for DHCP, see above)
 - pkgs: Override the to-be-install packages for this jail (might break now or break updates)

@@ -1,10 +1,6 @@
-
-
 ## [photostructure-7.9.13](https://github.com/truecharts/charts/compare/photostructure-7.6.0...photostructure-7.9.13) (2024-04-23)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -44,13 +40,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - Update Image to Beta from Alpha tags ([#20326](https://github.com/truecharts/charts/issues/20326))
 

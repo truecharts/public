@@ -1,10 +1,6 @@
-
-
 ## [tsn-ranksystem-1.5.24](https://github.com/truecharts/charts/compare/tsn-ranksystem-0.0.1...tsn-ranksystem-1.5.24) (2024-04-26)
 
 ### Chore
-
-
 
 - update groups html ([#21121](https://github.com/truecharts/charts/issues/21121))
 
@@ -92,13 +88,9 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))
 

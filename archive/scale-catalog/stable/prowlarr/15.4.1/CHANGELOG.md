@@ -95,5 +95,3 @@ title: Changelog
 ## [prowlarr-14.2.5](https://github.com/truecharts/charts/compare/prowlarr-14.2.4...prowlarr-14.2.5) (2024-01-21)
 
 ### Chore
-
-

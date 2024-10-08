@@ -1,10 +1,6 @@
-
-
 ## [nzbget-21.0.4](https://github.com/truecharts/charts/compare/nzbget-20.6.0...nzbget-21.0.4) (2024-04-30)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -50,19 +46,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

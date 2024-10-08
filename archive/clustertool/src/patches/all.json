@@ -1,51 +1,61 @@
 [
-  {"op": "replace", "path": "/machine/time", "value":
     {
-      "disabled": false,
-      "servers": [
-        "time.cloudflare.com"
-      ]
-    }
-  },
-  {"op": "replace", "path": "/cluster/proxy", "value":
-      {
-        "disabled": true
-      }
-  },
-  {"op": "add", "path": "/machine/kubelet/extraArgs", "value":
+        "op": "replace",
+        "path": "/machine/time",
+        "value": {
+            "disabled": false,
+            "servers": ["time.cloudflare.com"]
+        }
+    },
     {
-      "rotate-server-certificates": true
-    }
-  },
-  {"op": "add", "path": "/machine/kubelet/extraConfig", "value":
+        "op": "replace",
+        "path": "/cluster/proxy",
+        "value": {
+            "disabled": true
+        }
+    },
     {
-      "maxPods": 250,
-      "shutdownGracePeriod": "15s",
-      "shutdownGracePeriodCriticalPods": "10s"
-    }
-  },
-  {"op": "add", "path": "/machine/features/kubePrism", "value":
-      {
-        "enabled": true,
-        "port": 7445
-      }
-  },
-  {"op": "add", "path": "/machine/features/kubePrism", "value":
-      {
-        "enabled": true,
-        "port": 7445
-      }
-  },
-  {"op": "add", "path": "/machine/kubelet/extraMounts", "value":
-      [{
-      "destination": "/var/openebs/local",
-      "type": "bind",
-      "source": "/var/openebs/local",
-      "options": [
-        "bind",
-        "rshared",
-        "rw",
+        "op": "add",
+        "path": "/machine/kubelet/extraArgs",
+        "value": {
+            "rotate-server-certificates": true
+        }
+    },
+    {
+        "op": "add",
+        "path": "/machine/kubelet/extraConfig",
+        "value": {
+            "maxPods": 250,
+            "shutdownGracePeriod": "15s",
+            "shutdownGracePeriodCriticalPods": "10s"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/machine/features/kubePrism",
+        "value": {
+            "enabled": true,
+            "port": 7445
+        }
+    },
+    {
+        "op": "add",
+        "path": "/machine/features/kubePrism",
+        "value": {
+            "enabled": true,
+            "port": 7445
+        }
+    },
+    {
+        "op": "add",
+        "path": "/machine/kubelet/extraMounts",
+        "value": [
+            {
+                "destination": "/var/openebs/local",
+                "type": "bind",
+                "source": "/var/openebs/local",
+                "options": ["bind", "rshared", "rw"]
+            }
         ]
-      }]
-  },
+    }
 ]

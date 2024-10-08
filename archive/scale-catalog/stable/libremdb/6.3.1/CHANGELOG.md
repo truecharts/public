@@ -96,4 +96,3 @@ title: Changelog
 
 
 - update container image quay.io/pussthecatorg/libremdb to latest[@24a90e7](https://github.com/24a90e7) by renovate ([#16962](https://github.com/truecharts/charts/issues/16962))
-

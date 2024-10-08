@@ -95,5 +95,3 @@ title: Changelog
 ## [clamav-9.1.9](https://github.com/truecharts/charts/compare/clamav-9.1.8...clamav-9.1.9) (2024-01-21)
 
 ### Chore
-
-

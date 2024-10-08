@@ -8,8 +8,9 @@ image:
 strategy:
   type: Recreate
 
-env: {}
-    # TZ: UTC
+env:
+  {}
+  # TZ: UTC
   # PUID: 1001
   # PGID: 1001
   # UMASK: 022
@@ -33,7 +34,6 @@ services:
       protocol: UDP
       targetPort: 51413
 
-
 persistence:
   config:
     enabled: true
@@ -54,7 +54,6 @@ additionalVolumes:
 additionalVolumeMounts:
   - mountPath: /config/custom-cont-init.d
     name: qbittorrent-scripts
-
 
 appAdditionalServicesEnabled: true
 appAdditionalServices:

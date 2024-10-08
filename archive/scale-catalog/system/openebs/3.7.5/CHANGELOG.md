@@ -95,5 +95,3 @@ title: Changelog
 ## [openebs-3.7.5](https://github.com/truecharts/charts/compare/openebs-3.6.0...openebs-3.7.5) (2024-03-25)
 
 ### Chore
-
-

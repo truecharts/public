@@ -95,5 +95,3 @@ title: Changelog
 ## [zwavejs2mqtt-18.2.0](https://github.com/truecharts/charts/compare/zwavejs2mqtt-18.1.6...zwavejs2mqtt-18.2.0) (2024-01-15)
 
 ### Chore
-
-

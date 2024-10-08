@@ -96,4 +96,3 @@ title: Changelog
 ## [unifi-19.1.4](https://github.com/truecharts/charts/compare/unifi-19.1.3...unifi-19.1.4) (2024-01-01)
 
 ### Chore
-

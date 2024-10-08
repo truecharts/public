@@ -96,4 +96,3 @@ title: Changelog
 ## [fogproject-4.1.2](https://github.com/truecharts/charts/compare/fogproject-4.1.0...fogproject-4.1.2) (2024-01-01)
 
 ### Chore
-

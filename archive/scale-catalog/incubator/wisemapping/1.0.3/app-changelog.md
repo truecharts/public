@@ -1,10 +1,6 @@
-
-
 ## [wisemapping-1.0.3](https://github.com/truecharts/charts/compare/wisemapping-0.1.2...wisemapping-1.0.3) (2024-04-30)
 
 ### Chore
-
-
 
 - bump common
 
@@ -44,19 +40,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

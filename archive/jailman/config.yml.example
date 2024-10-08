@@ -7,7 +7,7 @@ global:
    config: tank/apps
    # Media library dataset
    media: tank/media
-   # Parent downloads dataset 
+   # Parent downloads dataset
    # (is going to contain: Complete and Incomplete datasets for downloads)
    downloads: tank/downloads
   jails:
@@ -18,54 +18,54 @@ global:
    pkgs: curl ca_root_nss bash
 
 jail:
-  plex: 
+  plex:
     blueprint: plex
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
     beta: false
-  
-  lidarr: 
+
+  lidarr:
     blueprint: lidarr
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-    
-  sonarr: 
+
+  sonarr:
     blueprint: sonarr
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-    
-  radarr: 
+
+  radarr:
     blueprint: radarr
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-    
-  kms: 
+
+  kms:
     blueprint: kms
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-  
-  jackett: 
+
+  jackett:
     blueprint: jackett
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-    
-  organizr: 
+
+  organizr:
     blueprint: organizr
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-    
-  tautulli: 
+
+  tautulli:
     blueprint: tautulli
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-  
-  transmission: 
+
+  transmission:
     blueprint: transmission
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
-  
-  
-  nextcloud: 
+
+
+  nextcloud:
     blueprint: nextcloud
     ip4_addr: 192.168.1.99/24
     gateway: 192.168.1.1
@@ -73,15 +73,15 @@ jail:
     host_name: cloud.example.com
     db_jail: "mariadb"
     admin_password: "PUTYOUROWNADMINPASSWORDHERE"
-	db_password: "PLEASEALSOPUTYOURPASSWORDHEREADIFFERNTONE"
-    
-  mariadb: 
+    db_password: "PLEASEALSOPUTYOURPASSWORDHEREADIFFERNTONE"
+
+  mariadb:
     blueprint: mariadb
     ip4_addr: 192.168.1.98/24
     gateway: 192.168.1.1
     db_root_password: ReplaceThisWithYourOwnRootPAssword
     host_name: mariadb.local.example
-  
+
   bitwarden:
     blueprint: bitwarden
     ip4_addr: 192.168.1.97/24
@@ -90,7 +90,7 @@ jail:
     db_password: "YourDBPasswordHerePLEASE"
     admin_token: "PUTYOURADMINTOKENHEREANDREMOVETHIS"
 
-  influxdb: 
+  influxdb:
     blueprint: influxdb
     ip4_addr: 192.168.1.250/24
     gateway: 192.168.1.1

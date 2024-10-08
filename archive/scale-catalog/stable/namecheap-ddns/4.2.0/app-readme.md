@@ -1,4 +1,4 @@
-This simple Chart will update a namecheap dynamic dns domain. You must set an 'A + Dynamic DNS Record' for the host and enable Dynamic DNS in the manage page for your domain. 
+This simple Chart will update a namecheap dynamic dns domain. You must set an 'A + Dynamic DNS Record' for the host and enable Dynamic DNS in the manage page for your domain.
 
 This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/namecheap-ddns](https://truecharts.org/charts/stable/namecheap-ddns)
 

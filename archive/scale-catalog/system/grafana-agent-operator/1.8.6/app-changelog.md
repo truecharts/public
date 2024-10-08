@@ -1,10 +1,6 @@
-
-
 ## [grafana-agent-operator-1.8.6](https://github.com/truecharts/charts/compare/grafana-agent-operator-1.6.0...grafana-agent-operator-1.8.6) (2024-04-17)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 

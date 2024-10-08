@@ -95,5 +95,3 @@ title: Changelog
 ## [avidemux-7.1.4](https://github.com/truecharts/charts/compare/avidemux-7.1.3...avidemux-7.1.4) (2024-01-01)
 
 ### Chore
-
-

@@ -8,18 +8,17 @@ image:
 strategy:
   type: Recreate
 
-
 services:
   main:
     enabled: true
     port:
       port: 9117
 
-env: {}
+env:
+  {}
   # TZ: UTC
   # PUID: 1001
   # PGID: 1001
-
 
 persistence:
   config:
@@ -29,7 +28,6 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
 
 ## TrueCharts Values
 

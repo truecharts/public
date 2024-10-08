@@ -96,4 +96,3 @@ title: Changelog
 ## [foldingathome-8.1.8](https://github.com/truecharts/charts/compare/foldingathome-8.1.7...foldingathome-8.1.8) (2024-01-21)
 
 ### Chore
-

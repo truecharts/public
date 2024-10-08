@@ -95,5 +95,3 @@ title: Changelog
 ## [prusaslicer-novnc-7.1.11](https://github.com/truecharts/charts/compare/prusaslicer-novnc-7.1.10...prusaslicer-novnc-7.1.11) (2024-01-21)
 
 ### Chore
-
-

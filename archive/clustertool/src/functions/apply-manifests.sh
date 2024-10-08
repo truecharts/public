@@ -5,16 +5,16 @@ read -p "Do you want to update/reinstall the included helm-charts and manifests?
 
 case $yn in
     yes ) echo "ok, we will proceed";
-	    apply_manifests;
-	    ;;
+        apply_manifests;
+        ;;
     no ) echo "not installing...";
-	    apply_kubeconfig
+        apply_kubeconfig
         ;;
     y ) echo "ok, we will proceed";
-	    apply_manifests;
-	    ;;
+        apply_manifests;
+        ;;
     n ) echo "not installing...";
-	    apply_kubeconfig
+        apply_kubeconfig
         ;;
     * ) echo "invalid response";
         prompt_yn_manifests;;

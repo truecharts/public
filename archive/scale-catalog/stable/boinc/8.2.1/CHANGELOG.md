@@ -96,4 +96,3 @@ title: Changelog
 ## [boinc-8.1.11](https://github.com/truecharts/charts/compare/boinc-8.1.10...boinc-8.1.11) (2024-01-21)
 
 ### Chore
-

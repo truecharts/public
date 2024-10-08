@@ -96,4 +96,3 @@ title: Changelog
 
 
 - update helm general non-major by renovate ([#16820](https://github.com/truecharts/charts/issues/16820))
-

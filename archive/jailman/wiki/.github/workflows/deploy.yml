@@ -12,7 +12,7 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1
         with:
-          ref: 'master'
+          ref: "master"
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:

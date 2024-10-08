@@ -1,10 +1,6 @@
-
-
 ## [grafana-14.10.15](https://github.com/truecharts/charts/compare/grafana-14.7.0...grafana-14.10.15) (2024-04-25)
 
 ### Chore
-
-
 
 - bump charts to ensure new icons are released
 
@@ -48,18 +44,12 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Enable grafana folders ([#20461](https://github.com/truecharts/charts/issues/20461))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

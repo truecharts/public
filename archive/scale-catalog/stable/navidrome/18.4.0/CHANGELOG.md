@@ -95,5 +95,3 @@ title: Changelog
 ## [navidrome-18.1.4](https://github.com/truecharts/charts/compare/navidrome-18.1.3...navidrome-18.1.4) (2024-01-01)
 
 ### Chore
-
-

@@ -96,4 +96,3 @@ title: Changelog
 ## [unturned-5.1.4](https://github.com/truecharts/charts/compare/unturned-5.1.3...unturned-5.1.4) (2024-01-01)
 
 ### Chore
-

@@ -96,4 +96,3 @@ title: Changelog
 ## [kdenlive-4.1.8](https://github.com/truecharts/charts/compare/kdenlive-4.1.7...kdenlive-4.1.8) (2024-01-09)
 
 ### Chore
-

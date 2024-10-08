@@ -95,5 +95,3 @@ title: Changelog
 ## [transmission-19.1.4](https://github.com/truecharts/charts/compare/transmission-19.1.3...transmission-19.1.4) (2024-01-01)
 
 ### Chore
-
-

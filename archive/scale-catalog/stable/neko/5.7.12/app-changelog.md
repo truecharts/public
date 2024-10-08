@@ -1,10 +1,6 @@
-
-
 ## [neko-5.7.12](https://github.com/truecharts/charts/compare/neko-5.6.0...neko-5.7.12) (2024-03-23)
 
 ### Chore
-
-
 
 - update container image common to v20.2.3[@06e462e](https://github.com/06e462e) by renovate ([#19673](https://github.com/truecharts/charts/issues/19673))
 

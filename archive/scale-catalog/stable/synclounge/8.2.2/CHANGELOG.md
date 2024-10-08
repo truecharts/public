@@ -96,4 +96,3 @@ title: Changelog
 ## [synclounge-8.1.11](https://github.com/truecharts/charts/compare/synclounge-8.1.10...synclounge-8.1.11) (2024-01-21)
 
 ### Chore
-

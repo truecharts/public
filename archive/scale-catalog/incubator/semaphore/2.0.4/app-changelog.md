@@ -1,10 +1,6 @@
-
-
 ## [semaphore-2.0.4](https://github.com/truecharts/charts/compare/semaphore-1.1.2...semaphore-2.0.4) (2024-05-02)
 
 ### Chore
-
-
 
 - bump common to release improved checks on volsync and cnpg ([#21454](https://github.com/truecharts/charts/issues/21454))
 
@@ -52,19 +48,13 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Feat
 
-
-
 - Add VolSync support and move CNPG backup credentials on SCALE ([#21443](https://github.com/truecharts/charts/issues/21443))
 
 ### Fix
-
-
 
 - fixup all chart volsync/credentials settings
 

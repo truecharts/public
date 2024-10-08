@@ -1,10 +1,6 @@
-
-
 ## [docker-6.2.2](https://github.com/truecharts/charts/compare/docker-5.6.0...docker-6.2.2) (2024-04-26)
 
 ### Chore
-
-
 
 - bump charts to release new docs to fix broken links
 
@@ -82,12 +78,8 @@
 
 ### Chore
 
-
-
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - replace serviceexpert with externalinterfaces/networking-group in the SCALE GUI ([#21154](https://github.com/truecharts/charts/issues/21154))

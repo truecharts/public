@@ -5,8 +5,8 @@
 https://github.com/influxdata/influxdb
 
 # InfluxDB [![CircleCI](https://circleci.com/gh/influxdata/influxdb.svg?style=svg)](https://circleci.com/gh/influxdata/influxdb)
-[![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://www.influxdata.com/slack)
 
+[![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://www.influxdata.com/slack)
 
 InfluxDB is an open source time series platform. This includes APIs for storing and querying data, processing it in the background for ETL or monitoring and alerting purposes, user dashboards, and visualizing and exploring the data and more. The master branch on this repo now represents the latest InfluxDB, which now includes functionality for Kapacitor (background processing) and Chronograf (the UI) all in a single binary.
 
@@ -27,24 +27,29 @@ Our current plans are to release RCs suitable for production usage, but we will 
 ### What you can expect in the Beta and RC Phases
 
 #### Beta
+
 **Releases every two weeks or as needed**
 
 Planned additions include:
-- Compatibility layer with 1.x including: 1.x HTTP Write API  and HTTP Read API support for InfluxQL
+
+- Compatibility layer with 1.x including: 1.x HTTP Write API and HTTP Read API support for InfluxQL
 - Import Bulk Data from 1.x - convert TSM from 1.x to 2.x
 - Performance tuning, stability improvements, and fine tuning based on community feedback.
 - Finalization of supported client libraries starting with JavaScript and Go.
 
 #### RC
+
 **As needed**
 
 Planned activities include:
+
 - Performance tuning, stability improvements, and fine-tuning based on community feedback.
 
 ### What is **NOT** planned?
-- Migration of users/security permissions from InfluxDB v1.x to 2.x.  ACTION REQUIRED: Re-establish users and permissions within the new unified security model which now spans the underlying database and user interface.
-- Migration of Continuous Queries.  ACTION REQUIRED: These will need to be re-implemented as Flux tasks.
-- Direct support by InfluxDB for CollectD, StatsD, Graphite, or UDP.  ACTION REQUIRED: Leverage Telegraf 1.9+ along with the InfluxDB v2.0 output plugin to translate these protocols/formats.
+
+- Migration of users/security permissions from InfluxDB v1.x to 2.x. ACTION REQUIRED: Re-establish users and permissions within the new unified security model which now spans the underlying database and user interface.
+- Migration of Continuous Queries. ACTION REQUIRED: These will need to be re-implemented as Flux tasks.
+- Direct support by InfluxDB for CollectD, StatsD, Graphite, or UDP. ACTION REQUIRED: Leverage Telegraf 1.9+ along with the InfluxDB v2.0 output plugin to translate these protocols/formats.
 
 ## Installing from Source
 
@@ -92,7 +97,7 @@ $ bin/$(uname -s | tr '[:upper:]' '[:lower:]')/influxd
 
 ## Getting Started
 
-For a complete getting started guide, please see our full [online documentation site](https://v2.docs.influxdata.com/v2.0/). 
+For a complete getting started guide, please see our full [online documentation site](https://v2.docs.influxdata.com/v2.0/).
 
 To write and query data or use the API in any way, you'll need to first create a user, credentials, organization and bucket.
 Everything in InfluxDB is organized under a concept of an organization. The API is designed to be multi-tenant.
@@ -108,15 +113,14 @@ InfluxDB will thereafter continue to use 8086.
 You can also get set up from the CLI using the subcommands `influx user`, `influx auth`, `influx org` and `influx bucket`,
 or do it all in one breath with `influx setup`:
 
-
 ```
 $ bin/$(uname -s | tr '[:upper:]' '[:lower:]')/influx setup
 Welcome to InfluxDB 2.0!
 Please type your primary username: marty
 
-Please type your password: 
+Please type your password:
 
-Please type your password again: 
+Please type your password again:
 
 Please type your primary organization name.: InfluxData
 
@@ -140,6 +144,7 @@ Your token has been stored in /Users/marty/.influxdbv2/credentials
 
 You may get into a development loop where `influx setup` becomes tedious.
 Some added flags can help:
+
 ```
 $ bin/$(uname -s | tr '[:upper:]' '[:lower:]')/influx setup --username marty --password F1uxKapacit0r85 --org InfluxData --bucket telegraf --retention 168 --token where-were-going-we-dont-need-roads --force
 ```
@@ -196,7 +201,6 @@ Table: keys: [_start, _stop, _field, _measurement]
 2019-12-30T22:22:44.776351000Z  2019-12-30T23:22:44.776351000Z                       v                       m  2019-12-30T23:17:02.000000000Z                             2
 >
 ```
-
 
 ## Introducing Flux
 

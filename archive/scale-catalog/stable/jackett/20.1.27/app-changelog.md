@@ -1,10 +1,6 @@
-
-
 ## [jackett-20.1.27](https://github.com/truecharts/charts/compare/jackett-19.6.0...jackett-20.1.27) (2024-04-28)
 
 ### Chore
-
-
 
 - bump everything to release new doc pages
 
@@ -108,17 +104,13 @@
 
 - update container image ghcr.io/geek-cookbook/jackett to v0.21.2329[@848d1a1](https://github.com/848d1a1) by renovate ([#20481](https://github.com/truecharts/charts/issues/20481))
 
-- *BREAKING CHANGES* switch image to geek-cookbook ([#19700](https://github.com/truecharts/charts/issues/19700))
+- _BREAKING CHANGES_ switch image to geek-cookbook ([#19700](https://github.com/truecharts/charts/issues/19700))
 
 ### Chore
-
-
 
 - rework SCALE catagories/groups to match helm and remove deprecated charts ([#21111](https://github.com/truecharts/charts/issues/21111))
 
 ### Fix
-
-
 
 - Update severely outdated container again ([#19677](https://github.com/truecharts/charts/issues/19677))
 

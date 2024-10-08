@@ -1,10 +1,6 @@
-
-
 ## [docker-5.7.5](https://github.com/truecharts/charts/compare/docker-5.6.0...docker-5.7.5) (2024-03-20)
 
 ### Chore
-
-
 
 - update container image docker to v25.0.5[@aec3945](https://github.com/aec3945) by renovate ([#19533](https://github.com/truecharts/charts/issues/19533))
 

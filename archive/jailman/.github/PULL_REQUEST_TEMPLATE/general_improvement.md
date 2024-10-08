@@ -1,10 +1,9 @@
 ---
 name: General Improvement
 about: Submit a fix to help us improve JailMan
-title: ''
+title: ""
 labels: enhancement
-assignees: ''
-
+assignees: ""
 ---
 
 **Description**
