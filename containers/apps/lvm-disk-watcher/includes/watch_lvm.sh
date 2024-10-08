@@ -86,26 +86,25 @@ while true; do
         echo "Disk $disk has partitions. Skipping."
       fi
     done
-# Check if the VG is already active
-vg_active=$(vgdisplay "$VG_NAME" | grep "VG Status" | awk '{print $3}')
-
-if [ "$vg_active" == "available" ]; then
-    echo "Volume group $VG_NAME is already active."
-else
-    echo "Activating volume group $VG_NAME..."
-    vgchange -ay "$VG_NAME"
-    if [ $? -eq 0 ]; then
-        echo "Volume group $VG_NAME has been activated."
+    
+    # Check if the VG is already active
+    vg_active=$(vgdisplay "$VG_NAME" | grep "VG Status" | awk '{print $3}')
+    
+    if [ "$vg_active" == "available" ]; then
+        echo "Volume group $VG_NAME is already active."
     else
-        echo "Failed to activate volume group $VG_NAME."
+        echo "Activating volume group $VG_NAME..."
+        vgchange -ay "$VG_NAME" || echo "Failed to activate volume group $VG_NAME."
+        if [ $? -eq 0 ]; then
+            echo "Volume group $VG_NAME has been activated."
+        fi
     fi
-fi
   else
     echo "Configuration file not found. Exiting."
     exit 1
   fi
 
 
-
+  echo "sleeping 60 seconds"
   sleep 60  # Sleep for 1 minute before checking again
 done
