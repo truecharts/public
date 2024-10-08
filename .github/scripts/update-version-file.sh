@@ -8,6 +8,8 @@ if test -f "/containers/apps/${app}/latest-version.sh"; then
     echo "${version}" | tee "/containers/apps/${app}/VERSION" >/dev/null
     echo "App: ${app} using version: ${version}"
   fi
+else if test -f "/containers/apps/${app}/VERSION"; then
+  version=$(bash "/containers/apps/${app}/VERSION")
 fi
 
 if test -f "/containers/apps/${app}/BASE"; then
