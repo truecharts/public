@@ -17,11 +17,7 @@ workload:
           enabled: true
           imageSelector: yqImage
           command: /config/init/init.sh
-# # Enable devices to be discoverable
-# hostNetwork: true
 
-# # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
-# dnsPolicy: ClusterFirstWithHostNet
 homeassistant:
   trusted_proxies: []
 # Enable a prometheus-operator servicemonitor
