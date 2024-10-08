@@ -9,33 +9,49 @@ repos:
     rev: v4.6.0
     hooks:
       - id: trailing-whitespace # trims trailing whitespace.
+        exclude: ^archive/
       - id: end-of-file-fixer # ensures that a file is either empty, or ends with one newline.
+        exclude: ^archive/
       - id: fix-byte-order-marker
+        exclude: ^archive/
       - id: mixed-line-ending # replaces or checks mixed line ending.
+        exclude: ^archive/
       - id: check-merge-conflict # checks for files that contain merge conflict strings.
+        exclude: ^archive/
       - id: check-case-conflict # checks for files that would conflict in case-insensitive filesystems.
+        exclude: ^archive/
       - id: check-executables-have-shebangs # ensures that (non-binary) executables have a shebang.
+        exclude: ^archive/
       - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable.
+        exclude: ^archive/
       - id: check-docstring-first
+        exclude: ^archive/
       - id: check-symlinks
+        exclude: ^archive/
       - id: destroyed-symlinks
+        exclude: ^archive/
       - id: fix-byte-order-marker # removes utf-8 byte order marker.
+        exclude: ^archive/
       - id: requirements-txt-fixer # sorts entries in requirements.txt.
+        exclude: ^archive/
       - id: check-added-large-files # prevents giant files from being committed.
         exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl)$
       - id: check-yaml # checks yaml files for parseable syntax.
-        exclude: (templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|common-test\/.*\.yaml)
+        exclude: (^archive|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|common-test\/.*\.yaml)
       - id: detect-private-key # detects the presence of private keys.
+        exclude: ^archive/
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:
       - id: text-unicode-replacement-char
+        exclude: ^archive/
       - id: rst-backticks
+        exclude: ^archive/
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.1.0
     hooks:
       - id: prettier
-        exclude: (templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
+        exclude: (^archive|templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
         files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
