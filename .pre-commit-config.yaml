@@ -21,9 +21,9 @@ repos:
       - id: check-case-conflict # checks for files that would conflict in case-insensitive filesystems.
         exclude: ^archive/
       - id: check-executables-have-shebangs # ensures that (non-binary) executables have a shebang.
-        exclude: ^archive/
+        exclude: (^archive/|^containers/)
       - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable.
-        exclude: ^archive/
+        exclude: (^archive/|^containers/)
       - id: check-docstring-first
         exclude: ^archive/
       - id: check-symlinks
