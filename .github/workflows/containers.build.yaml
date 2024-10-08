@@ -228,7 +228,7 @@ jobs:
             CONTAINER_NAME=${{ matrix.container }}
             CONTAINER_VER=${{ steps.prep.outputs.version }}
           context: .
-          file: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+          file: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
           load: true
           tags: |
             tccr.io/tccr/${{ matrix.container }}:test
@@ -239,7 +239,7 @@ jobs:
       - name: Run GOSS tests
         if: ${{ steps.prep.outputs.goss == 'true' }}
         env:
-          GOSS_FILE: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/goss.yaml
+          GOSS_FILE: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/goss.yaml
         run: |
           for i in $(seq 1 ${{ env.GOSS_ITERATIONS }}); do
             echo "Running GOSS test iteration $i of ${{ env.GOSS_ITERATIONS }}..."
@@ -257,7 +257,7 @@ jobs:
             CONTAINER_VER=${{ steps.prep.outputs.version }}
           context: .
           platforms: ${{ steps.prep.outputs.platform }}
-          file: ./${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+          file: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
           push: ${{ steps.prep.outputs.push }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: ${{ steps.prep.outputs.cache_from }}
