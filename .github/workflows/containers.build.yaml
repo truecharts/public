@@ -280,7 +280,7 @@ jobs:
       - name: Verify the pushed tags
         if: github.event_name != 'pull_request'
         run: |
-          cosign verify quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master
+          cosign verify quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/public/.github/workflows/containers.build.yaml@refs/heads/master
 
       - name: Generate SBOM
         if: github.event_name != 'pull_request'
