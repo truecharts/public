@@ -5,8 +5,9 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsUser: 101
-    runAsGroup: 101
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 service:
   main:
     ports:
