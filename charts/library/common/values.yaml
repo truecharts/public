@@ -536,12 +536,12 @@ postgres16Image:
 
 postgresPostgis15Image:
   repository: ghcr.io/cloudnative-pg/postgis
-  tag: "15-3.4"
+  tag: "17-3.4@sha256:1d80b5317ea2977f3cc7b818a4055c6c7fc8ace4adca1d7a776d2b7489443685"
   pullPolicy: IfNotPresent
 
 postgresPostgis16Image:
   repository: ghcr.io/cloudnative-pg/postgis
-  tag: "16-3.4"
+  tag: "17-3.4@sha256:1d80b5317ea2977f3cc7b818a4055c6c7fc8ace4adca1d7a776d2b7489443685"
   pullPolicy: IfNotPresent
 
 postgresVectors15Image:
