@@ -6,7 +6,7 @@ ARG VERSION
 # hadolint ignore=DL3002
 USER root
 
-COPY ./apps/lvm-disk-watcher/includes/watch_lvm.sh /scripts/watch_lvm.sh
+COPY ./containers/apps/lvm-disk-watcher/includes/watch_lvm.sh /scripts/watch_lvm.sh
 
 # hadolint ignore=DL3018,DL4006
 RUN apk update && apk add --no-cache bash lvm2 lvm2-dmeventd device-mapper-event-libs \
