@@ -85,7 +85,7 @@ jobs:
         run: |
           # Make sure we have the latest version in the version file
           # To avoid publishing a new container version with an old tag
-          bash ./.github/update-version-file.sh "${{ matrix.container }}"
+          bash ./.github/scripts/update-version-file.sh "${{ matrix.container }}"
           if test -f "./apps/${{ matrix.container }}/VERSION"; then
             CATEGORY="apps"
             VERSION=$(cat ./containers/${CATEGORY}/${{ matrix.container }}/VERSION)
