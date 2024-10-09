@@ -155,7 +155,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts2:
     needs:
@@ -209,7 +214,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts3:
     needs:
@@ -263,7 +273,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts4:
     needs:
@@ -317,7 +332,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts5:
     needs:
@@ -371,7 +391,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   install-charts6:
     needs:
@@ -425,7 +450,12 @@ jobs:
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+        run: |
+          if [ -d "${{ matrix.chart }}/test-chart" ]; then
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}/test-chart"
+          else
+            ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}"
+          fi
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:
