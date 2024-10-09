@@ -1,0 +1,44 @@
+image:
+  repository: ghcr.io/linuxserver/airsonic
+  tag: version-v10.6.2@sha256:8b42de38222839c0ff8914479853cfd5e4a8160d81c9a9ef6e9896be6629bf29
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+          # -- sets the context path parameter
+          # Example: "url-base"
+          # CONTEXT_PATH:
+          # JAVA_OPTS:
+service:
+  main:
+    ports:
+      main:
+        port: 10047
+        protocol: http
+        targetPort: 4040
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

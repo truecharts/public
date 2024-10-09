@@ -1,0 +1,76 @@
+image:
+  repository: tiredofit/backuppc
+  tag: 6.0.4@sha256:d722c0b2fe09c85d7b72c44a024e65ef8068264a5eca0a6244d4503aa5471430
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 8000
+
+backuppc:
+  smtp:
+    auto_from: false
+    host: postfix-relay
+    port: 25
+    domain: docker
+    maildomain: local
+    auth: none
+    user: ""
+    pass: ""
+    tls: false
+    starttls: false
+    tlscertcheck: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            USER_BACKUPPC: "{{ .Values.securityContext.container.PUID }}"
+            GROUP_BACKUPPC: "{{ .Values.securityContext.pod.fsGroup }}"
+            CONFIG_PATH: "{{ .Values.persistence.config.mountPath }}"
+            LOG_PATH: "{{ .Values.persistence.logs.mountPath }}"
+            SSH_KEYS_PATH: "{{ .Values.persistence.ssh.mountPath }}"
+            DATA_PATH: "{{ .Values.persistence.data.mountPath }}"
+            # SMTP
+            SMTP_AUTO_FROM: "{{ .Values.backuppc.smtp.auto_from }}"
+            SMTP_HOST: "{{ .Values.backuppc.smtp.host }}"
+            SMTP_PORT: "{{ .Values.backuppc.smtp.port }}"
+            SMTP_DOMAIN: "{{ .Values.backuppc.smtp.domain }}"
+            SMTP_MAILDOMAIN: "{{ .Values.backuppc.smtp.maildomain }}"
+            SMTP_AUTHENTICATION: "{{ .Values.backuppc.smtp.auth }}"
+            SMTP_USER: "{{ .Values.backuppc.smtp.user }}"
+            SMTP_PASS: "{{ .Values.backuppc.smtp.pass }}"
+            SMTP_TLS: "{{ .Values.backuppc.smtp.tls }}"
+            SMTP_STARTTLS: "{{ .Values.backuppc.smtp.starttls }}"
+            SMTP_TLSCERTCHECK: "{{ .Values.backuppc.smtp.tlscertcheck }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  ssh:
+    enabled: true
+    mountPath: /.ssh
+  logs:
+    enabled: true
+    mountPath: /logs
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

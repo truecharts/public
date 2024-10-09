@@ -1,0 +1,84 @@
+image:
+  repository: mbentley/omada-controller
+  tag: 5.13@sha256:538ec216054f51558c15a649d9e12de13d95a7a01542fbb8fe7d1e12dc6e3164
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        protocol: https
+        port: 8043
+  comm:
+    enabled: true
+    ports:
+      comm:
+        protocol: https
+        enabled: true
+        port: 8843
+  omada-tcp:
+    enabled: true
+    ports:
+      omada-tcp1:
+        enabled: true
+        port: 29811
+        targetPort: 29811
+      omada-tcp2:
+        enabled: true
+        port: 29812
+        targetPort: 29812
+      omada-tcp3:
+        enabled: true
+        port: 29813
+        targetPort: 29813
+      omada-tcp4:
+        enabled: true
+        port: 29814
+        targetPort: 29814
+  omada-udp:
+    enabled: true
+    ports:
+      omada-udp1:
+        enabled: true
+        protocol: udp
+        port: 29810
+        targetPort: 29810
+ingress:
+  comm:
+    autoLink: true
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt/tplink/EAPController/data
+  work:
+    enabled: true
+    mountPath: /opt/tplink/EAPController/work
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
+          probes:
+            startup:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            liveness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            readiness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health

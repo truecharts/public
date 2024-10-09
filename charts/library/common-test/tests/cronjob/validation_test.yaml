@@ -1,0 +1,60 @@
+suite: cronjob validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with invalid concurrencyPolicy
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          concurrencyPolicy: not-a-policy
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: CronJob - Expected [concurrencyPolicy] to be one of [Allow, Forbid, Replace], but got [not-a-policy]
+
+  - it: should fail with empty schedule
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule:
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: CronJob - Expected non-empty [schedule]
+
+  - it: should fail with invalid completionMode (make sure job validation kicks in)
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "* * * * *"
+          completionMode: not-a-mode
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Job - Expected [completionMode] to be one of [Indexed, NonIndexed], but got [not-a-mode]
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "* * * * *"
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: CronJob - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.

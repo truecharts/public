@@ -1,0 +1,85 @@
+image:
+  repository: fireflyiii/core
+  pullPolicy: IfNotPresent
+  tag: version-6.1.15@sha256:3d10369ee9d6c1991b0b5355cc03d163b510c86c86d2aa9fa0370a2cf6d66687
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/login"
+            readiness:
+              path: "/login"
+            startup:
+              path: "/login"
+          env:
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_CONNECTION: pgsql
+            DB_PORT: 5432
+            REDIS_DB: "0"
+            REDIS_CACHE_DB: "1"
+            CACHE_DRIVER: redis
+            SESSION_DRIVER: redis
+            REDIS_SCHEME: tcp
+            REDIS_PORT: 6379
+            APP_URL: ""
+            TRUSTED_PROXIES: "172.16.0.0/16"
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
+            STATIC_CRON_TOKEN:
+              secretKeyRef:
+                name: firefly-secrets
+                key: STATIC_CRON_TOKEN
+            APP_KEY:
+              secretKeyRef:
+                name: firefly-secrets
+                key: APP_KEY
+service:
+  main:
+    ports:
+      main:
+        port: 10082
+        targetPort: 8080
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/www/html/storage/upload"
+cronjob:
+  schedule: "0 3 * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+# Enabled redis
+redis:
+  enabled: true
+  includeCommon: true
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: firefly
+    database: firefly
+portal:
+  open:
+    enabled: true

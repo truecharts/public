@@ -1,0 +1,192 @@
+suite: ingress - tls test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with certManager integration
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: "*.other-test-host"
+              paths:
+                - path: /other-test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+            certManager:
+              enabled: true
+              certificateIssuer: some-issuer
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.tls
+          value:
+            - hosts:
+                - test-host
+              secretName: test-release-name-common-test-tls-0
+            - hosts:
+                - "*.other-test-host"
+              secretName: test-release-name-common-test-tls-1
+
+  - it: should pass with ingress created with clusterCertificate
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: other-test-host
+              paths:
+                - path: /other-test-path
+          tls:
+            - hosts:
+                - test-host
+                - other-test-host
+              clusterCertificate: some-cert
+            - hosts:
+                - some-other-test-host
+              clusterCertificate: some-other-cert
+          integrations: &integrations
+            traefik:
+              enabled: false
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.tls
+          value:
+            - hosts:
+                - test-host
+                - other-test-host
+              secretName: certificate-issuer-some-cert
+            - hosts:
+                - some-other-test-host
+              secretName: certificate-issuer-some-other-cert
+
+  - it: should pass with ingress created with tls with certificateIssuer
+    set:
+      service: *service
+      otherhost: other-test-host
+      othercertissuer: some-other-issuer
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: other-test-host
+              paths:
+                - path: /other-test-path
+          tls:
+            - hosts:
+                - test-host
+                - "{{ .Values.otherhost }}"
+              certificateIssuer: some-issuer
+            - hosts:
+                - some-other-test-host
+              certificateIssuer: "{{ .Values.othercertissuer }}"
+          integrations: &integrations
+            traefik:
+              enabled: false
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.tls
+          value:
+            - hosts:
+                - test-host
+                - other-test-host
+              secretName: test-release-name-common-test-tls-0
+            - hosts:
+                - some-other-test-host
+              secretName: test-release-name-common-test-tls-1
+      - documentIndex: &certDoc 2
+        isKind:
+          of: Certificate
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-tls-0
+      - documentIndex: *certDoc
+        equal:
+          path: spec.secretName
+          value: test-release-name-common-test-tls-0
+      - documentIndex: *certDoc
+        isSubset:
+          path: spec
+          content:
+            secretName: test-release-name-common-test-tls-0
+            dnsNames:
+              - test-host
+              - other-test-host
+            issuerRef:
+              name: some-issuer
+              kind: ClusterIssuer
+              group: cert-manager.io
+      - documentIndex: &otherCertDoc 3
+        isKind:
+          of: Certificate
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-tls-1
+      - documentIndex: *otherCertDoc
+        equal:
+          path: spec.secretName
+          value: test-release-name-common-test-tls-1
+      - documentIndex: *otherCertDoc
+        isSubset:
+          path: spec
+          content:
+            secretName: test-release-name-common-test-tls-1
+            dnsNames:
+              - some-other-test-host
+            issuerRef:
+              name: some-other-issuer
+              kind: ClusterIssuer
+              group: cert-manager.io

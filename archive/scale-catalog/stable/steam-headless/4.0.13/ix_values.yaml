@@ -1,0 +1,61 @@
+image:
+  repository: josh5/steam-headless
+  tag: latest@sha256:f7dd7e6b904ebbc97f4dc5764b8b25a7b2dbba9be470307ad7dd0c722b0887ec
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    privileged: true
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PORT_NOVNC_WEB: "{{ .Values.service.main.ports.main.port }}"
+            MODE: "primary"
+            # MODE = secondary
+            # DISPLAY: :0
+            # HOST_DBUS: true
+            WEB_UI_MODE: "vnc"
+            ENABLE_VNC_AUDIO: false
+            # NEKO_NAT1TO1: "" needs to be the ip of the host
+            ENABLE_SUNSHINE: false
+            # SUNSHINE_USER: ""
+            # SUNSHINE_PASS: ""
+            # USER_PASSWORD: ""
+            ENABLE_EVDEV_INPUTS: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8083
+
+persistence:
+  home:
+    enabled: true
+    mountPath: /home/default
+  games:
+    enabled: true
+    mountPath: /mnt/games
+  flatpak:
+    enabled: true
+    mountPath: /var/lib/flatpak
+
+portal:
+  open:
+    enabled: true

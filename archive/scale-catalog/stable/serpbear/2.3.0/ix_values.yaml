@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: towfiqi/serpbear
+  tag: latest@sha256:54e23130cf44ead798af27e924dd5a91dd3599304fbec04ae2ebad9e8bf38e2e
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+portal:
+  open:
+    enabled: true
+serpbear:
+  api_key: ""
+  app_url: http://localhost:10605
+  password: secret
+  session_duration: 24
+  user: admin
+service:
+  main:
+    ports:
+      main:
+        port: 10605
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: serpbear-secret

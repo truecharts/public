@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.4.1
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Index and stream music using apache-musicindex and m3u playlists
+home: https://truecharts.org/charts/stable/apache-musicindex
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-musicindex.png
+keywords:
+  - apache-musicindex
+  - streaming
+  - m3u
+  - playlist
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: apache-musicindex
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/apache-musicindex
+  - https://ghcr.io/k8s-at-home/apache-musicindex
+type: application
+version: 10.3.0

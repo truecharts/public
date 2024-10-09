@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.4.1
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Plex to AniList Sync.
+home: https://truecharts.org/charts/stable/plexanisync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexanisync.webp
+keywords:
+  - plexanisync
+  - media
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plexanisync
+sources:
+  - https://github.com/RickDB/PlexAniSync
+  - https://github.com/RickDB/PlexAniSync/pkgs/container/plexanisync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plexanisync
+  - https://ghcr.io/rickdb/plexanisync
+type: application
+version: 6.9.15

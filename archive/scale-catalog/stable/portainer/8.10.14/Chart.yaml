@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: management
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.20.1
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Container management made easy
+home: https://truecharts.org/charts/stable/portainer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.webp
+keywords:
+  - portainer
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: portainer
+sources:
+  - https://docs.portainer.io/start/install-ce/server
+  - https://docs.portainer.io/start/install/server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
+  - https://hub.docker.com/r/portainer/portainer-ce
+  - https://hub.docker.com/r/portainer/portainer-ee
+type: application
+version: 8.10.14

@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: jcreynolds/flextv
+  tag: latest@sha256:5a322ebf61462ab66188cee1fd110b4b8b4bfe845ae51925946a74ddcc802a6d
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5666
+        protocol: http
+        targetPort: 80
+  tcpport1:
+    enabled: true
+    ports:
+      tcpport1:
+        enabled: true
+        port: 5667
+        protocol: tcp
+        targetPort: 443
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:

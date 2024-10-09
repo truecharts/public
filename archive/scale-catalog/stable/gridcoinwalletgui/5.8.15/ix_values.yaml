@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: sublivion/gridcoinwalletgui
+  tag: latest@sha256:e939d0fe55cda172d754f521c8ee5902ec1ae3745d8e68feb9c8c6bace8f8253
+persistence:
+  appdataconfigpath:
+    enabled: true
+    mountPath: /headless/.GridcoinResearch/
+  boincdatadir:
+    enabled: true
+    mountPath: /var/lib/boinc-client/
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: vncpassword
+            VNC_RESOLUTION: 1920x1080

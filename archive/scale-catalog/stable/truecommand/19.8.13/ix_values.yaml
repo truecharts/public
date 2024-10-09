@@ -1,0 +1,23 @@
+image:
+  repository: ixsystems/truecommand
+  pullPolicy: IfNotPresent
+  tag: 3.0.1@sha256:df4fe22a1940d31ac5d0df7f1fb31ee56d7e15229ec71f11257f660c5128a6a8
+service:
+  main:
+    ports:
+      main:
+        port: 10031
+        targetPort: 80
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

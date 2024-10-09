@@ -1,0 +1,41 @@
+image:
+  repository: ghcr.io/linuxserver/firefox
+  pullPolicy: IfNotPresent
+  tag: 125.0.3@sha256:f2ea15d8fa64df8df7d2358be3285bffae37bb9cd55f49b5af322128a0c2052f
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10131
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            FM_HOME: "/config"
+            CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
+            TITLE: "TrueChartVNC Client"
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: false
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,108 @@
+image:
+  repository: phalcode/gamevault-backend
+  pullPolicy: IfNotPresent
+  tag: 10.3.2@sha256:403ecfb903d6408750e7de113dd3d0d80959da42e737119a0b5e693eac7554d7
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+        targetPort: 8080
+gamevault:
+  server:
+    admin_username: admin
+    admin_password: password
+    registration_disabled: false
+    account_activation_disabled: false
+    allowed_origins:
+      - "*"
+    log_level: info
+  games:
+    index_interval_in_minutes: 5
+    search_recursive: true
+    file_formats:
+      - ".7z"
+  images:
+    gc_keep_days: 30
+    gc_interval_minutes: 60
+  rawg:
+    api_url: https://api.rawg.io/api
+    api_cache_days: 7
+    api_key: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /api/v1/health
+              type: http
+            readiness:
+              path: /api/v1/health
+              type: http
+            startup:
+              path: /api/v1/health
+              type: http
+          env:
+            # manually set and change to /games so its easy for users to know where to place their game files.
+            VOLUMES_FILES: "{{.Values.persistence.games.mountPath }}"
+            VOLUMES_IMAGES: "{{.Values.persistence.images.mountPath }}"
+            VOLUMES_LOG: "{{.Values.persistence.logs.mountPath }}"
+            # DB
+            DB_SYSTEM: POSTGRESQL
+            DB_PORT: 5432
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # ADMIN
+            SERVER_ADMIN_USERNAME: "{{ .Values.gamevault.server.admin_username }}"
+            SERVER_ADMIN_PASSWORD: "{{ .Values.gamevault.server.admin_password }}"
+            SERVER_REGISTRATION_DISABLED: "{{ .Values.gamevault.server.registration_disabled }}"
+            SERVER_ACCOUNT_ACTIVATION_DISABLED: "{{ .Values.gamevault.server.account_activation_disabled }}"
+            # SERVER
+            SERVER_LOG_LEVEL: "{{ .Values.gamevault.server.log_level }}"
+            SERVER_CORS_ALLOWED_ORIGINS: '{{ join "," .Values.gamevault.server.allowed_origins }}'
+            # GAMES
+            GAMES_INDEX_INTERVAL_IN_MINUTES: "{{ .Values.gamevault.games.index_interval_in_minutes }}"
+            GAMES_SEARCH_RECURSIVE: "{{ .Values.gamevault.games.search_recursive }}"
+            GAMES_SUPPORTED_FILE_FORMATS: '{{ join "," .Values.gamevault.games.file_formats }}'
+            # IMAGES
+            IMAGE_GC_KEEP_DAYS: "{{ .Values.gamevault.images.gc_keep_days }}"
+            IMAGE_GC_INTERVAL_MINUTES: "{{ .Values.gamevault.images.gc_interval_minutes }}"
+            # RAWG
+            RAWG_API_URL: "{{ .Values.gamevault.rawg.api_url }}"
+            RAWG_API_CACHE_DAYS: "{{ .Values.gamevault.rawg.api_cache_days }}"
+            RAWG_API_KEY: "{{ .Values.gamevault.rawg.api_key }}"
+persistence:
+  logs:
+    enabled: true
+    mountPath: /logs
+  images:
+    enabled: true
+    mountPath: /images
+  games:
+    enabled: true
+    mountPath: /games
+cnpg:
+  main:
+    enabled: true
+    user: gamevault
+    database: gamevault
+portal:
+  open:
+    enabled: false

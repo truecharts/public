@@ -1,0 +1,139 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: boredazfcuk/icloudpd
+  tag: 1.0.733@sha256:266005e7846e941c7e8ec45b06b49d7e4520c84ec7d5ac123df83a160d3c58d0
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+    capabilities:
+      add:
+        - NET_RAW
+        - NET_ADMIN
+
+icloudpd:
+  apple_id: your@appleid.com
+  authentication_type: 2FA
+  icloud_china: false
+  synchronisation_interval: 86400
+  synchronisation_delay: 0
+  notification_days: 7
+  photo_size: original
+  live_photo_size: original
+  recent_only: 0
+  until_found: 0
+  photo_album: ""
+  set_exif_datetime: false
+  convert_heic_to_jpeg: false
+  jpeg_quality: 90
+  skip_check: false
+  skip_live_photos: false
+  skip_videos: false
+  auto_delete: false
+  download_notifications: true
+  delete_notifications: true
+  delete_accompanying: false
+  delete_empty_directories: false
+  command_line_options: ""
+  notification_title: "iCloud PD"
+  # https://github.com/boredazfcuk/docker-icloudpd/blob/master/NOTIFICATIONS.md
+  notification_type: ""
+  # prowl_api_key: ""
+  # pushover_user: ""
+  # pushover_token: ""
+  # pushover_sound: ""
+  # telegram_token: ""
+  # telegram_chat_id: ""
+  # webhook_server: ""
+  # webhook_port: ""
+  # webhook_path: ""
+  # webhook_id: ""
+  # webhook_https: ""
+  # webhook_body: ""
+  # dingtalk_token: ""
+  # discord_id: ""
+  # discord_token: ""
+  # iyuu_token: ""
+  # wecom_id: ""
+  # wecom_secret: ""
+  # agentid: ""
+  # touser: ""
+  # content_source_url: ""
+  # name: ""
+  # media_id_startup: ""
+  # media_id_download: ""
+  # media_id_delete: ""
+  # media_id_expiration: ""
+  # media_id_warning: ""
+  # gotify_app_token: ""
+  # gotify_server_url: ""
+  # bark_device_key: ""
+  # bark_server: ""
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            user: apps
+            group: apps
+            user_id: "{{ .Values.securityContext.container.runAsUser }}"
+            group_id: "{{ .Values.securityContext.container.runAsGroup }}"
+            download_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
+            jpeg_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
+            # User Defined
+            apple_id: "{{ .Values.icloudpd.apple_id }}"
+            synchronisation_interval: "{{ .Values.icloudpd.synchronisation_interval }}"
+            synchronisation_delay: "{{ .Values.icloudpd.synchronisation_delay }}"
+            notification_days: "{{ .Values.icloudpd.notification_days }}"
+            authentication_type: "{{ .Values.icloudpd.authentication_type }}"
+            skip_check: '{{ ternary "True" "False" .Values.icloudpd.skip_check }}'
+            download_notifications: '{{ ternary "True" "False" .Values.icloudpd.download_notifications }}'
+            delete_notifications: '{{ ternary "True" "False" .Values.icloudpd.delete_notifications }}'
+            delete_accompanying: '{{ ternary "True" "False" .Values.icloudpd.delete_accompanying }}'
+            delete_empty_directories: '{{ ternary "True" "False" .Values.icloudpd.delete_empty_directories }}'
+            set_exif_datetime: '{{ ternary "True" "False" .Values.icloudpd.set_exif_datetime }}'
+            auto_delete: '{{ ternary "True" "False" .Values.icloudpd.auto_delete }}'
+            photo_size: "{{ .Values.icloudpd.photo_size }}"
+            skip_live_photos: '{{ ternary "True" "False" .Values.icloudpd.skip_live_photos }}'
+            live_photo_size: "{{ .Values.icloudpd.live_photo_size }}"
+            skip_videos: '{{ ternary "True" "False" .Values.icloudpd.skip_videos }}'
+            recent_only: '{{ ternary "" .Values.icloudpd.recent_only (eq 0 (int .Values.icloudpd.recent_only)) }}'
+            until_found: '{{ ternary "" .Values.icloudpd.until_found (eq 0 (int .Values.icloudpd.until_found)) }}'
+            photo_album: "{{ .Values.icloudpd.photo_album }}"
+            convert_heic_to_jpeg: '{{ ternary "True" "False" .Values.icloudpd.convert_heic_to_jpeg }}'
+            jpeg_quality: "{{ .Values.icloudpd.jpeg_quality }}"
+            icloud_china: '{{ ternary "True" "" .Values.icloudpd.icloud_china }}'
+            command_line_options: "{{ .Values.icloudpd.command_line_options }}"
+            notification_title: "{{ .Values.icloudpd.notification_title }}"
+            notification_type: "{{ .Values.icloudpd.notification_type }}"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /home/apps/iCloud
+
+portal:
+  open:
+    enabled: false

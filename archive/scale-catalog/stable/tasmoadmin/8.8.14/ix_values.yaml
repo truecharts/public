@@ -1,0 +1,36 @@
+image:
+  repository: ghcr.io/tasmoadmin/tasmoadmin
+  tag: v4.0.2@sha256:ba3fa1d17858bc6b4f6734520ae6798a1034a66f5a926f350868738a715ca0e5
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TASMO_DEBUG: 1
+
+service:
+  main:
+    ports:
+      main:
+        port: 9541
+        protocol: http
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

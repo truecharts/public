@@ -1,0 +1,34 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: mikeah/prusaslicer-novnc
+  tag: latest@sha256:26ca7a1a803146fa5457ba680126837963e21badf097a66cfbac4070825a7815
+persistence:
+  configsfolder:
+    enabled: true
+    mountPath: /configs/
+  prints:
+    enabled: true
+    mountPath: /prints/
+service:
+  main:
+    ports:
+      main:
+        port: 16080
+        protocol: http
+        targetPort: 8080
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt

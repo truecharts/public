@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - truechartsoci.yaml
+  - actions-runner-controller-charts.yaml
+  - bitnami-charts.yaml
+  - backube-charts.yaml
+  - bjw-s-charts.yaml
+  - cilium-charts.yaml
+  - cloudnative-pg-charts.yaml
+  - deliveryhero-charts.yaml
+  - democratic-csi-charts.yaml
+  - descheduler-charts.yaml
+  - dysnix-charts.yaml
+  - external-dns-charts.yaml
+  - external-secrets-charts.yaml
+  - fairwinds-charts.yaml
+  - grafana-charts.yaml
+  - ingress-nginx-charts.yaml
+  - intel-charts.yaml
+  - jaegertracing-charts.yaml
+  - jetstack-charts.yaml
+  - kubernetes-sigs-metrics-server-charts.yaml
+  - kyverno-charts.yaml
+  - lwolf-charts.yaml
+  - node-feature-discovery-charts.yaml
+  - piraeus-charts.yaml
+  - postfinance-charts.yaml
+  - prometheus-community-charts.yaml
+  - rook-ceph-charts.yaml
+  - runix-charts.yaml
+  - stakater-charts.yaml
+  - tf-controller-charts.yaml
+  - weave-gitops-charts.yaml
+  - authentik-charts.yaml
+  - fluent-bit-charts.yaml
+  - infracloudio-charts.yaml
+  - k8s-at-home-charts.yaml
+  - metallb-charts.yaml
+  - traefik-charts.yaml

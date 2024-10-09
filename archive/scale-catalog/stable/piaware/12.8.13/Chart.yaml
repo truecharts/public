@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 9.0.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Program for forwarding ADS-B data to FlightAware
+home: https://truecharts.org/charts/stable/piaware
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/piaware.webp
+keywords:
+  - piaware
+  - flight-aware
+  - flight-tracker
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: piaware
+sources:
+  - https://github.com/flightaware/piaware
+  - https://github.com/truecharts/charts/tree/master/charts/stable/piaware
+  - https://hub.docker.com/r/mikenye/piaware
+type: application
+version: 12.8.13

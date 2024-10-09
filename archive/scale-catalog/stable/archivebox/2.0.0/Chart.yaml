@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: bookmarks
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: ArchiveBox is an open-source, self-hosted internet archiving solution.
+home: https://truecharts.org/charts/stable/archivebox
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/archivebox.webp
+keywords:
+  - archivebox
+  - archiving
+  - digipres
+  - backup
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: archivebox
+sources:
+  - https://github.com/ArchiveBox/ArchiveBox
+  - https://github.com/truecharts/charts/tree/master/charts/stable/archivebox
+  - https://hub.docker.com/r/archivebox/archivebox
+type: application
+version: 2.0.0

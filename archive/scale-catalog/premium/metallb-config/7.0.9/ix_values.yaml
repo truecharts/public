@@ -1,0 +1,72 @@
+image:
+  repository: hello-world
+  tag: latest@sha256:266b191e926f65542fa8daaec01a192c4d292bff79426f47300a046e1bc576fd
+  pullPolicy: IfNotPresent
+manifestManager:
+  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+        port: 9999
+operator:
+  metallb:
+    namespace: metallb
+portal:
+  open:
+    enabled: false
+ipAddressPools: []
+#   - name: example
+#     autoAssign: true
+#     avoidBuggyIPs: true
+#     addresses:
+#       - 192.168.1.1-192.168.1.100
+L2Advertisements: []
+#   - name: l2adv
+#     addressPools:
+#       - pool1
+#     nodeSelectors:
+#       - nodeA
+BGPAdvertisements: []
+#   - name: bgpadv
+#     addressPools:
+#       - pool1
+#     aggregationLength: 24
+#     localpref: 100
+#     communities:
+#       - 1234:1
+#     peers:
+#       - peer1
+Communities: []
+#   - name: community1
+#     value: 1234:1
+Peers: []
+#   - name: peer1
+#     myASN: 1234
+#     password: pass
+#     routerID: 1234
+#     bfdProfile: profile
+#     ebgpMultiHop: false
+#     holdTime: 10
+#     keepaliveTime: 10
+#     peerAddress: 172.30.0.2
+#     peerPort: 179
+#     sourceAddress: 172.30.0.3
+#     nodeSelectors:
+#       - nodeA

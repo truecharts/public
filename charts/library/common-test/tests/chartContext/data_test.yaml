@@ -1,0 +1,323 @@
+suite: chart context data test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with service default values
+    set:
+      createChartContextConfigmap: true
+      enabled: true
+      port: 12345
+      service:
+        my-service:
+          enabled: "{{ .Values.enabled }}"
+          primary: true
+          ports:
+            my-port:
+              enabled: "{{ .Values.enabled }}"
+              primary: true
+              port: "{{ .Values.port }}"
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: http://127.0.0.1:12345
+            appUrlWithPortAndPath: http://127.0.0.1:12345/
+            appHost: "127.0.0.1"
+            appPort: "12345"
+            appPath: /
+            appProtocol: http
+
+  - it: should pass with service loadBalancer values
+    set:
+      createChartContextConfigmap: true
+      ip: 1.2.3.4
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIP: "{{ .Values.ip }}"
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: http://1.2.3.4:12345
+            appUrlWithPortAndPath: http://1.2.3.4:12345/
+            appHost: "1.2.3.4"
+            appPort: "12345"
+            appPath: /
+            appProtocol: http
+
+  - it: should pass with ingress
+    set:
+      createChartContextConfigmap: true
+      enabled: true
+      host: example.com
+      path: /some-path
+      ingress:
+        my-ingress:
+          enabled: "{{ .Values.enabled }}"
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+          hosts:
+            - host: "{{ .Values.host }}"
+              paths:
+                - path: "{{ .Values.path }}"
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
+            appHost: "example.com"
+            appPort: "443"
+            appPath: /some-path
+            appProtocol: https
+
+  - it: should pass with ingress and traefik integration
+    set:
+      createChartContextConfigmap: true
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+              enableFixedMiddlewares: false
+          hosts:
+            - host: example.com
+              paths:
+                - path: /some-path
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: http://example.com
+            appUrlWithPortAndPath: http://example.com:80/some-path
+            appHost: "example.com"
+            appPort: "80"
+            appPath: /some-path
+            appProtocol: http
+
+  - it: should pass with ingress and tls and traefik integration
+    set:
+      createChartContextConfigmap: true
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+              enableFixedMiddlewares: false
+          hosts:
+            - host: example.com
+              paths:
+                - path: /some-path
+          tls:
+            - hosts:
+                - example.com
+              secretName: example-tls
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
+            appHost: "example.com"
+            appPort: "443"
+            appPath: /some-path
+            appProtocol: https
+
+  - it: should pass with ingress and tls and traefik integration
+    set:
+      createChartContextConfigmap: true
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+              enableFixedMiddlewares: false
+          hosts:
+            - host: example.com
+              paths:
+                - path: /some-path
+          tls:
+            - hosts:
+                - example.com
+              secretName: example-tls
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
+            appHost: "example.com"
+            appPort: "443"
+            appPath: /some-path
+            appProtocol: https
+
+  - it: should pass with ingress and certManager integration and traefik integration
+    set:
+      createChartContextConfigmap: true
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            certManager:
+              enabled: true
+              certificateIssuer: some-issuer
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+              enableFixedMiddlewares: false
+          hosts:
+            - host: example.com
+              paths:
+                - path: /some-path
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &configMapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-chart-context
+      - documentIndex: *configMapDoc
+        equal:
+          path: data
+          value:
+            podCIDR: 172.16.0.0/16
+            svcCIDR: 172.17.0.0/16
+            appUrl: https://example.com
+            appUrlWithPortAndPath: https://example.com:443/some-path
+            appHost: "example.com"
+            appPort: "443"
+            appPath: /some-path
+            appProtocol: https

@@ -1,0 +1,41 @@
+image:
+  repository: ghcr.io/go-shiori/shiori
+  pullPolicy: IfNotPresent
+  tag: v1.6.2@sha256:95485c7f19eeee98d2db3d382230724a2ffd51f9f4ed650b6f5ed562502cd508
+service:
+  main:
+    ports:
+      main:
+        port: 10098
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SHIORI_DIR: "{{ .Values.persistence.data.mountPath }}"
+            SHIORI_DBMS: "postgresql"
+            SHIORI_PG_PORT: "5432"
+            SHIORI_PG_USER: "{{ .Values.cnpg.main.user }}"
+            SHIORI_PG_NAME: "{{ .Values.cnpg.main.database }}"
+            SHIORI_PG_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SHIORI_PG_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+cnpg:
+  main:
+    enabled: true
+    user: shiori
+    password: shiori
+portal:
+  open:
+    enabled: true

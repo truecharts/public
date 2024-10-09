@@ -1,0 +1,47 @@
+image:
+  repository: docker.io/mongo-express
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:6e692b3f812183586f425a2bbb23778b4168845c4633ab740e6c8940a9d6a15a
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8081
+        port: 18081
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+            readiness:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+            startup:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+          env:
+            ME_CONFIG_MONGODB_PORT: ""
+            ME_CONFIG_MONGODB_SERVER: ""
+            ME_CONFIG_BASICAUTH_USERNAME: ""
+            ME_CONFIG_BASICAUTH_PASSWORD: ""
+            # https://codemirror.net/5/demo/theme.html
+            ME_CONFIG_OPTIONS_EDITORTHEME: default
+            ME_CONFIG_MONGODB_AUTH_DATABASE: ""
+            ME_CONFIG_MONGODB_AUTH_USERNAME: ""
+            ME_CONFIG_MONGODB_AUTH_PASSWORD: ""
+mongodb:
+  enabled: false
+portal:
+  open:
+    enabled: true

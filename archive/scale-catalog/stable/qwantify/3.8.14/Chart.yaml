@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 20.04.0
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Play games with your friends right from the browser.
+home: https://truecharts.org/charts/stable/qwantify
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qwantify.webp
+keywords:
+  - qwantify
+  - games
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qwantify
+sources:
+  - https://github.com/wanjohiryan/qwantify
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qwantify
+  - https://ghcr.io/wanjohiryan/qwantify
+type: application
+version: 3.8.14

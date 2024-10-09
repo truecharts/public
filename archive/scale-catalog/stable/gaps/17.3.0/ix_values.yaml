@@ -1,0 +1,26 @@
+image:
+  repository: housewrecker/gaps
+  pullPolicy: IfNotPresent
+  tag: x64-v0.10.4@sha256:beef4e3dcb48b021ac4c409e27affbbaff4bf312ace632d69f50c1e5ae6c9de8
+service:
+  main:
+    ports:
+      main:
+        port: 8484
+        targetPort: 8484
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/data"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

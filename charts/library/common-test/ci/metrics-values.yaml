@@ -1,0 +1,66 @@
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    matchLabels: ""
+    endpoints:
+      - port: "8080"
+        interval: "10s"
+        scrapeTimeout: "10s"
+        path: /
+        honorLabels: false
+    prometheusRule:
+      enabled: false
+  podmon:
+    enabled: true
+    type: "podmonitor"
+    matchLabels: ""
+    endpoints:
+      - port: "8080"
+        interval: "10s"
+        scrapeTimeout: "10s"
+        path: /
+        honorLabels: false
+    prometheusRule:
+      enabled: false
+  promrule:
+    enabled: true
+    type: "servicemonitor"
+    matchLabels: ""
+    endpoints:
+      - port: "8080"
+        interval: "10s"
+        scrapeTimeout: "10s"
+        path: /
+        honorLabels: false
+    prometheusRule:
+      enabled: true
+      groups:
+        somegroup:
+          rules: []

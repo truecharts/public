@@ -1,0 +1,5 @@
+{{- include "tc.v1.common.lib.chart.notes" $ -}}
+
+To generate a Login Token, run this in terminal:
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+(k3s) kubectl create token {{ $fullname }} -n {{ .Release.Namespace }}

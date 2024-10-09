@@ -1,0 +1,89 @@
+image:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4@sha256:baa86875905b853933a6c2ae636a5235a5354542133e219fdc46714b1bd9faab
+ffmpegImage:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4-ffmpeg-core@sha256:a87d399961b213bffe550dce16e87b3305320b13609e73359b8be7ce44f03a73
+cublasCuda12Image:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4-cublas-cuda12-core@sha256:58b394bc8cb30bc8131b27f37c145466d867a4bbb6170f928b0c184f880ed38f
+cublasCuda12FfmpegImage:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4-cublas-cuda12-ffmpeg-core@sha256:03903f874c405d097d6c474a92f79c1a2b91177785d210d21beea97920bd9626
+cublasCuda11Image:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4-cublas-cuda11-core@sha256:afc2d9dba03b16205db3ef1b2a2e21abe9de14db3013f3614e2dd3cd103cfc05
+cublasCuda11FfmpegImage:
+  repository: docker.io/localai/localai
+  pullPolicy: IfNotPresent
+  tag: v2.12.4-cublas-cuda11-ffmpeg-core@sha256:452d8e38bcd40cc379536fa7d3c14a4ef0ec02609384f33b9ea179164f0be828
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+localai:
+  # Specify a build type. Available: cublas, openblas, clblas.
+  build_type: "openblas"
+  debug: false
+  cors: true
+  cors_allow_origins: "*"
+  galleries: []
+  #  - name: model-gallery
+  #    url: github:go-skynet/model-gallery/index.yaml
+  preload_models: []
+  #    url: github:go-skynet/model-gallery/gpt4all-j.yaml
+  # UPLOAD_LIMIT
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /readyz
+            readiness:
+              enabled: true
+              type: http
+              path: /readyz
+            startup:
+              enabled: true
+              type: tcp
+          imageSelector: image
+          env:
+            ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
+            MODELS_PATH: "{{ .Values.persistence.models.mountPath }}"
+            IMAGE_PATH: "{{ .Values.persistence.images.mountPath }}"
+            BUILD_TYPE: "{{ .Values.localai.build_type }}"
+            # breaks chart if true, keep it false.
+            REBUILD: false
+            DEBUG: "{{ .Values.localai.debug }}"
+            CORS: "{{ .Values.localai.cors }}"
+            GALLERIES: "{{ toJson .Values.localai.galleries }}"
+            PRELOAD_MODELS: "{{ toJson .Values.localai.preload_models }}"
+            CORS_ALLOW_ORIGINS: "{{ .Values.localai.cors_allow_origins }}"
+persistence:
+  models:
+    enabled: true
+    mountPath: "/models"
+  images:
+    enabled: true
+    mountPath: "/images"
+portal:
+  open:
+    enabled: false
+updated: true

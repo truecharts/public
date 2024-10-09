@@ -1,0 +1,71 @@
+suite: init container data test (upgrade)
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  # Failures
+  - it: should fail with empty type on init container
+    set:
+      image:
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+            initContainers:
+              container-name1:
+                enabled: true
+                type: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: InitContainer - Expected non-empty [type]
+
+  - it: should fail with invalid type on init container
+    set:
+      image:
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+            initContainers:
+              container-name1:
+                enabled: true
+                type: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: InitContainer - Expected [type] to be one of [system, init, install, upgrade], but got [invalid]

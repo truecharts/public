@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 24.01.1
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Avidemux is a free video editor designed for simple cutting, filtering and encoding tasks.
+home: https://truecharts.org/charts/stable/avidemux
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/avidemux.png
+keywords:
+  - media
+  - avidemux
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: avidemux
+sources:
+  - https://github.com/jlesage/docker-avidemux
+  - https://github.com/truecharts/charts/tree/master/charts/stable/avidemux
+  - https://hub.docker.com/r/jlesage/avidemux
+type: application
+version: 8.2.0

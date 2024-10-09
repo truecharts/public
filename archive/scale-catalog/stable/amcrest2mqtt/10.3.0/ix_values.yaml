@@ -1,0 +1,46 @@
+image:
+  repository: dchesterton/amcrest2mqtt
+  tag: 1.0.16@sha256:5a503bcf7b39bd846ca60be1846ce8b73eae979fd074f2a31e14462f85447260
+  pullPolicy: IfNotPresent
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            # -- Host name used to connect to the Amcrest device
+            AMCREST_HOST: "localhost"
+            # -- Port used to connect to the Amcrest device
+            AMCREST_PORT: 80
+            # -- Host name used to connect to the MQTT broker
+            MQTT_HOST: "localhost"
+            # -- Port used to connect to the MQTT broker
+            MQTT_PORT: 1883
+            # -- Enable Home Assistant autodiscovery
+            HOME_ASSISTANT: "false"
+            # -- Home Assistant autodiscovery prefix
+            HOME_ASSISTANT_PREFIX: "homeassistant"
+            # -- User name used to connect to the Amcrest device
+            AMCREST_USERNAME: "admin"
+            # -- Password used to connect to the Amcrest device
+            AMCREST_PASSWORD: "changeme"
+            # -- User name used to connect to the MQTT broker
+            MQTT_USERNAME: "mqttuser"
+            # -- Password used to connect to the MQTT broker
+            MQTT_PASSWORD: "changeme"
+portal:
+  open:
+    enabled: false

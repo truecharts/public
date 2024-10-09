@@ -1,0 +1,83 @@
+image:
+  repository: answerdev/answer
+  pullPolicy: IfNotPresent
+  tag: 1.2.0@sha256:9b7fd1410df5587e56d446741760ecbd63d342c5e50587d3570e33282cf9cd77
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9080
+        targetPort: 80
+
+answer:
+  app:
+    language: en-US
+    # DEBUG | INFO | WARN | ERROR
+    log_level: DEBUG
+  site:
+    name: Answer
+    url: http://localhost:9080
+    contact_email: contact@example.com
+  admin:
+    name: admin
+    password: super-secret-password
+    email: admin@example.com
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /healthz
+            readiness:
+              path: /healthz
+            startup:
+              type: tcp
+          env:
+            AUTO_INSTALL: true
+            # Don't change this, its only used for the initial install
+            # Does not alter the port the app listens on
+            INSTALL_PORT: 80
+            DB_TYPE: postgres
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # Host + port
+            DB_HOST: '{{ printf "%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") }}'
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            # App
+            LANGUAGE: "{{ .Values.answer.app.language }}"
+            LOG_LEVEL: "{{ .Values.answer.app.log_level }}"
+            # Site
+            SITE_NAME: "{{ .Values.answer.site.name }}"
+            SITE_URL: "{{ .Values.answer.site.url }}"
+            CONTACT_EMAIL: "{{ .Values.answer.site.contact_email }}"
+            # Admin
+            ADMIN_NAME: "{{ .Values.answer.admin.name }}"
+            ADMIN_PASSWORD: "{{ .Values.answer.admin.password }}"
+            ADMIN_EMAIL: "{{ .Values.answer.admin.email }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+cnpg:
+  main:
+    enabled: true
+    user: answer
+    database: answer
+
+portal:
+  open:
+    enabled: true
+
+operator:
+  verify:
+    enabled: false

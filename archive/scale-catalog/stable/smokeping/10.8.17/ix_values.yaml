@@ -1,0 +1,46 @@
+image:
+  repository: ghcr.io/linuxserver/smokeping
+  pullPolicy: IfNotPresent
+  tag: 2.8.2@sha256:9e0e5795752d8e7becfa5f11832e824cd11ef5784a474ba39eb2f0bcdd5bc6c1
+strategy:
+  type: Recreate
+service:
+  main:
+    ports:
+      main:
+        port: 10030
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
+  varrun:
+    enabled: false
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    capabilities:
+      add:
+        - NET_RAW
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

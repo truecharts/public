@@ -1,0 +1,33 @@
+image:
+  repository: minio/console
+  tag: v0.30.0@sha256:a87290ed76af9e61fae8f80405a2e5e4fdef7d025c346eec45abb82e3d90bc38
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 9090
+        targetPort: 9090
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CONSOLE_MINIO_SERVER: ""
+            CONSOLE_PBKDF_PASSPHRASE: "changeme"
+            CONSOLE_PBKDF_SALT: "changeme"
+          args:
+            - "server"

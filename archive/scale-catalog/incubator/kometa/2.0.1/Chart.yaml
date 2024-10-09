@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 2.0.0
+dependencies:
+  - name: common
+    version: 23.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Python script to update metadata and automatically build collections.
+home: https://truecharts.org/charts/incubator/kometa
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kometa.webp
+keywords:
+  - kometa
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kometa
+sources:
+  - https://github.com/kometa-team/kometa
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kometa
+  - https://hub.docker.com/r/kometateam/kometa
+type: application
+version: 2.0.1

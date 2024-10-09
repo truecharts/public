@@ -1,0 +1,60 @@
+image:
+  repository: ghcr.io/linuxserver/emulatorjs
+  pullPolicy: IfNotPresent
+  tag: 1.8.8@sha256:153aed34d85bb716e52027cbbbdf90ad72663da33fe49b0a7a02291b192ce484
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10130
+  front:
+    enabled: true
+    ports:
+      front:
+        enabled: true
+        targetPort: 80
+        port: 10124
+  ipfs:
+    enabled: true
+    ports:
+      ipfs:
+        enabled: true
+        targetPort: 4001
+        port: 10138
+ingress:
+  front:
+    targetSelector:
+      front: front
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true

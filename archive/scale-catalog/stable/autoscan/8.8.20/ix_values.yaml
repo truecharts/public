@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/hotio/autoscan
+  tag: latest@sha256:0220a3de8f4781858f6a17ba27578168b7ff3884308b4cffa1468714108a19d4
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3030
+        protocol: http
+        targetPort: 3030
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_LOGIN: ""
+            PLEX_PASSWORD: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: false

@@ -1,0 +1,40 @@
+image:
+  repository: 601096721/mosdns
+  pullPolicy: IfNotPresent
+  tag: v5.3.1@sha256:8095c47d4109233c48fa52ce49cdf5a868cdd2862076c3e370f127e46263d6df
+service:
+  main:
+    ports:
+      main:
+        targetPort: 53
+        port: 53
+      dns-upd:
+        enabled: true
+        protocol: udp
+        targetPort: 53
+        port: 53
+persistence:
+  data:
+    enabled: true
+    mountPath: "/etc/mosdns"
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

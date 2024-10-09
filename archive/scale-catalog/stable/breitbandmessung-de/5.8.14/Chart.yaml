@@ -1,0 +1,40 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A script to enable customers of lazy ISPs to perform measurement campaigns of the connection speed as described here in an automated way.
+home: https://truecharts.org/charts/stable/breitbandmessung-de
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/breitbandmessung-de.webp
+keywords:
+  - breitbandmessung-de
+  - home-automation
+  - Productivity
+  - Tools-Utilities
+  - Other
+  - Network-Management
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: breitbandmessung-de
+sources:
+  - https://github.com/shneezin/breitbandmessung-node
+  - https://github.com/truecharts/charts/tree/master/charts/stable/breitbandmessung-de
+  - https://hub.docker.com/r/shneezin/breitbandmessung-node
+type: application
+version: 5.8.14

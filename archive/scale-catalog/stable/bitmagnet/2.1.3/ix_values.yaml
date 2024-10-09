@@ -1,0 +1,110 @@
+image:
+  repository: ghcr.io/bitmagnet-io/bitmagnet
+  tag: v0.8.0@sha256:c638773151d97e6bd2e19f181f0845be4c82893974975037aa06665c711e4466
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        targetPort: 3333
+  torrent:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 3334
+        targetPort: 3334
+        protocol: tcp
+      udp:
+        enabled: true
+        port: "{{ .Values.service.torrent.ports.tcp.port }}"
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
+        protocol: udp
+cnpg:
+  main:
+    enabled: true
+    user: bitmagnet
+    database: bitmagnet
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            POSTGRES_NAME: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            TMDB_API_KEY: ""
+            DHT_CRAWLER_SAVE_FILES_THRESHOLD: "100"
+          args:
+            - worker
+            - run
+            - --all
+          probes:
+            readiness:
+              enabled: true
+              type: http
+              path: /status
+            liveness:
+              enabled: true
+              type: http
+              path: /status
+            startup:
+              enabled: true
+              type: http
+              path: /status
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    targetSelector: main
+    prometheusRule:
+      enabled: false
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      bitmagnet.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+  datasource:
+    enabled: true
+    labels:
+      grafana_datasources: "1"
+    data:
+      bitmagnetpsql.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: BitmagnetPostgres
+          type: postgres
+          uid: bitmagnetpostgres
+          url: {{ printf "%s.%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace }}
+          access: proxy
+          user: {{ .Values.cnpg.main.user }}
+          secureJsonData:
+            password: {{ .Values.cnpg.main.creds.password | default "na" }}
+          jsonData:
+            database: {{ .Values.cnpg.main.database }}
+            sslmode: 'disable' # disable/require/verify-ca/verify-full
+            maxOpenConns: 100 # Grafana v5.4+
+            maxIdleConns: 100 # Grafana v5.4+
+            maxIdleConnsAuto: true # Grafana v9.5.1+
+            connMaxLifetime: 14400 # Grafana v5.4+
+            postgresVersion: 1500 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+            timescaledb: false

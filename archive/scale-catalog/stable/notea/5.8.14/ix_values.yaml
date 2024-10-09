@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: diamkil/notea
+  tag: latest@sha256:e331f787662bafb3722845045ac1753a084bf16b71b43c820e84dc5af6fe2aa1
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASSWORD: ""
+            STORE_PASSWORD: ""
+            STORE_USER: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

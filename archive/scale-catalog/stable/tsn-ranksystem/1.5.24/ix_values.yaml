@@ -1,0 +1,131 @@
+image:
+  repository: serverlein/tsn-ranksystem-webserver
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:9b5cbc1b3b505d91918c295ebea683cbc432b54ee3296d68a77388be25f63d22
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+ranksystem:
+  cron_enabled: true
+  cron_schedule: "*/5 * * * *"
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        download-ranksystem:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              web_location={{ .Values.persistence.web.targetSelector.main.main.mountPath }}
+              indexFile=${web_location}/index.php
+
+              if [ ! -f "${indexFile}" ]; then
+                # download with curl as git & wget not available
+                # automatically fetch newest version
+                LOCATION=$(curl -s https://api.github.com/repos/Newcomer1989/TSN-Ranksystem/releases/latest \
+                | grep "tarball_url" \
+                | awk '{ print $2 }' \
+                | sed 's/,$//'       \
+                | sed 's/"//g' )     \
+                ; curl -sL -o ${web_location}/ranksystem.tar.gz $LOCATION
+                # unzip file
+                tar -xzf ${web_location}/ranksystem.tar.gz
+                # get topfolder
+                top_folder=$(find ${web_location} -type d -name "Newcomer*" -exec basename \{} .po \;)
+                # move to topfolder
+                mv ${top_folder}/* ${web_location}
+                # delete obsolete folders & files
+                rm -rf ${web_location}/ranksystem.tar.gz ${top_folder}
+
+                webinterface_location=${web_location}/webinterface
+                navFile=${webinterface_location}/_nav.php
+                workerFile=${web_location}/worker.php
+
+                # remove annoying SSL message (doesnt work with traefik/ingress)
+                sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
+
+                # change help() to check() in worker.php
+                sed -i "s/\bhelp();/check();/g" ${workerFile}
+                echo "Files downloaded and installed."
+                echo "Folder :$PWD"
+                echo "Files:"
+                ls
+              else
+                echo "Files Located. No action needed."
+              fi
+      containers:
+        main:
+          lifecycle:
+            postStart:
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  web_location={{ .Values.persistence.web.targetSelector.main.main.mountPath }}
+                  if [ -f "${web_location}/install.php" ]; then
+                    curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/install.php
+                    sleep 1;
+                    curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/install.php
+                    echo "Install script executed."
+                  else
+                    echo "Install script doesnt exists, no further action is needed."
+                  fi
+  ranksystem-cron:
+    enabled: "{{ .Values.ranksystem.cron_enabled }}"
+    type: CronJob
+    schedule: "{{ .Values.ranksystem.cron_schedule }}"
+    podSpec:
+      restartPolicy: OnFailure
+      containers:
+        ranksystem-cron:
+          primary: true
+          enabled: true
+          imageSelector: "image"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          command:
+            - /bin/sh
+            - -c
+            - |
+              name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+              port={{ .Values.service.main.ports.main.port }}
+              while ! curl -s -o -v /dev/null http://${name}:${port}/worker.php; do sleep 1; done && \
+              curl -v -X GET -d "action=run_command" http://${name}:${port}/worker.php
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 9300
+persistence:
+  web:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html
+        download-ranksystem:
+          mountPath: /var/www/html
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: ranksystem
+  mariadbDatabase: ranksystem
+portal:
+  open:
+    enabled: true

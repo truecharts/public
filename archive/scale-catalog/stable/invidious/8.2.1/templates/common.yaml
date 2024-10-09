@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for invidious */}}
+{{- $secretFile := include "invidious.secret" . | fromYaml -}}
+{{- if $secretFile -}}
+  {{- $_ := set .Values.secret "invidious-secret" $secretFile -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -1,0 +1,29 @@
+image:
+  repository: quay.io/pussthecatorg/rimgo
+  tag: latest@sha256:269fde6911e5c62eb3efcffdf1ec6b8642f037854dc418fd4f54b2602672b85d
+  pullPolicy: IfNotPresent
+persistence: {}
+
+env:
+  ADDRESS: 0.0.0.0
+  IMGUR_CLIENT_ID: 546c25a59c58ad7
+  FORCE_WEBP: "0"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000
+
+portal:
+  open:
+    enabled: true

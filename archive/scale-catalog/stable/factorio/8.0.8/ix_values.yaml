@@ -1,0 +1,59 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: factoriotools/factorio
+  tag: stable@sha256:fae8a40742bd6fc42c92eac3956ad36737cf0ce5a31d2793438b65ad8b50d50a
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 34197
+        protocol: udp
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            GENERATE_NEW_SAVE: false
+            LOAD_LATEST_SAVE: true
+            SAVE_NAME: "_autosave1"
+            TOKEN: ""
+            UPDATE_MODS_ON_START: ""
+            USERNAME: ""
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /factorio
+
+portal:
+  open:
+    enabled: false

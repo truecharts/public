@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: download-tools
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.0.5
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: fast, easy, and free BitTorrent client.
+home: https://truecharts.org/charts/stable/transmission
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.webp
+keywords:
+  - transmission
+  - torrent
+  - usenet
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: transmission
+sources:
+  - https://github.com/transmission/transmission
+  - https://github.com/truecharts/charts/tree/master/charts/stable/transmission
+  - https://ghcr.io/onedr0p/transmission
+type: application
+version: 20.8.13

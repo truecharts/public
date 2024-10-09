@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 22.0.3
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: volumesnapshots contains the CRD's for Kubernetes Volume Snapshots
+home: https://truecharts.org/charts/system/volumesnapshots
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/volumesnapshots.webp
+keywords:
+  - storage
+  - snapshots
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: volumesnapshots
+sources:
+  - https://github.com/traefik/traefik
+  - https://github.com/traefik/traefik-helm-chart
+  - https://github.com/truecharts/charts/tree/master/charts/system/volumesnapshots
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
+type: application
+version: 2.0.3

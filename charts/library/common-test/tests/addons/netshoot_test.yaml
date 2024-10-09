@@ -1,0 +1,82 @@
+suite: addon netshoot
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: addon enabled should pass
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      addons:
+        netshoot:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-netshoot
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test

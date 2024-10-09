@@ -1,0 +1,28 @@
+image:
+  repository: biospheere/promcord
+  tag: latest@sha256:16d4fd269e665890d92e8ab2bf64f6cdd6f8bd45f27e829d414c4bad447c4974
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        type: ClusterIP
+        enabled: true
+        port: 8080
+# env:
+#   DISCORD_TOKEN:
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    prometheusRule:
+      enabled: false
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false

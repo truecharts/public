@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 5.4.6.8723
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A fork of Sonarr to work with movies à la Couchpotato
+home: https://truecharts.org/charts/stable/radarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/radarr.webp
+keywords:
+  - radarr
+  - torrent
+  - usenet
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: radarr
+sources:
+  - https://github.com/Radarr/Radarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
+  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/radarr
+type: application
+version: 21.7.10

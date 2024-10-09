@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for traggo */}}
+{{- $secrets := include "traggo.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

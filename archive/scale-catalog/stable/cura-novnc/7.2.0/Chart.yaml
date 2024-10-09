@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Enjoy Cura directly in your browser with this easy to use Chart
+home: https://truecharts.org/charts/stable/cura-novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cura-novnc.png
+keywords:
+  - cura-novnc
+  - home-automation
+  - Productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cura-novnc
+sources:
+  - https://ultimaker.com/software/ultimaker-cura
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cura-novnc
+  - https://hub.docker.com/r/mikeah/cura-novnc
+type: application
+version: 7.2.0

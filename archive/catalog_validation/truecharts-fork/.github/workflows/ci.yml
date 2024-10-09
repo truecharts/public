@@ -1,0 +1,34 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+    container:
+      image: tccr.io/truecharts/catalog_validation:latest@sha256:35d6b9765e7f86f064b494c640b60ca485b4a82a12e4851930dd50fca83c6c2e
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1
+
+      - name: Build deb package
+        run: >
+          dpkg-buildpackage
+          -B
+          --no-sign
+          -jauto
+
+      - name: Create artifacts dir
+        run: mkdir artifacts
+        if: success()
+
+      - name: Move artifacts
+        run: mv ../*.deb artifacts
+        if: success()
+
+      - uses: actions/upload-artifact@3446296876d12d4e3a0f3145a3c87e67bf0a16b5 # v1
+        with:
+          name: py-catalog-validation
+          path: artifacts
+        if: success()

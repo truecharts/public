@@ -1,0 +1,26 @@
+{{- range $index, $middlewareData := .Values.middlewares.buffering }}
+---
+# Declaring the user list
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  buffering: {{/* Only render if its not <nil> and has a value of 0 or greater */}}
+    {{- if and (not (kindIs "invalid" $middlewareData.maxRequestBodyBytes)) (ge ($middlewareData.maxRequestBodyBytes | int) 0) }}
+    maxRequestBodyBytes: {{ $middlewareData.maxRequestBodyBytes }}
+    {{- end -}}
+    {{- if and (not (kindIs "invalid" $middlewareData.memRequestBodyBytes)) (ge ($middlewareData.memRequestBodyBytes | int) 0) }}
+    memRequestBodyBytes: {{ $middlewareData.memRequestBodyBytes }}
+    {{- end -}}
+    {{- if and (not (kindIs "invalid" $middlewareData.maxResponseBodyBytes)) (ge ($middlewareData.maxResponseBodyBytes | int) 0) }}
+    maxResponseBodyBytes: {{ $middlewareData.maxResponseBodyBytes }}
+    {{- end -}}
+    {{- if and (not (kindIs "invalid" $middlewareData.memResponseBodyBytes)) (ge ($middlewareData.memResponseBodyBytes | int) 0) }}
+    memResponseBodyBytes: {{ $middlewareData.memResponseBodyBytes }}
+    {{- end -}}
+    {{- if $middlewareData.retryExpression }}
+    retryExpression: {{ $middlewareData.retryExpression | quote }}
+    {{- end -}}
+{{- end -}}

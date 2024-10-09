@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: dlandon/z80pack
+  tag: latest@sha256:b000d57d42da267dca6338ad562674b6792ef7d774836ded6aa19e21f6b75734
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4200
+        protocol: tcp
+        targetPort: 4200

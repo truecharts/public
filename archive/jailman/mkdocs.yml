@@ -1,0 +1,23 @@
+# Project Information
+site_name: JailMan
+site_description: "Project Design and Documentation for development"
+site_author: "Ornias1993"
+site_url: "https://ornias1993.github.io/jailman/"
+
+# Repository
+repo_name: "ornias1993/jailman"
+repo_url: "https://github.com/Ornias1993/jailman/"
+edit_uri: "edit/dev/docs/"
+
+theme:
+  name: "material"
+  features:
+    - tabs
+  language: "en"
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true

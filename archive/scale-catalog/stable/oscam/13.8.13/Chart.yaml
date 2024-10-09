@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: DIY
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 11719.0.0
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Open Source Conditional Access Module software
+home: https://truecharts.org/charts/stable/oscam
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/oscam.webp
+keywords:
+  - oscam
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: oscam
+sources:
+  - https://trac.streamboard.tv/oscam/browser/trunk
+  - https://github.com/truecharts/charts/tree/master/charts/stable/oscam
+  - https://ghcr.io/linuxserver/oscam
+type: application
+version: 13.8.13

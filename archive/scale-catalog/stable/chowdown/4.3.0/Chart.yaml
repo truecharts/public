@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Simple recipes in Markdown format.
+home: https://truecharts.org/charts/stable/chowdown
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/chowdown.png
+keywords:
+  - chowdown
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: chowdown
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chowdown
+  - https://hub.docker.com/r/gregyankovoy/chowdown
+type: application
+version: 4.3.0

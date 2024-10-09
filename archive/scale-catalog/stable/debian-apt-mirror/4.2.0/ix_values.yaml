@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/debian-mirror
+  tag: latest@sha256:25a5c7d23ba0e27b416088938b36b5ac559594f9b2b59a15310692585f10e32f
+persistence:
+  config:
+    enabled: true
+    mountPath: /debian-mirror/config
+  data:
+    enabled: true
+    mountPath: /debian-mirror/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 980
+        protocol: tcp
+        targetPort: 980
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APACHE2_PORT: "980"
+            DATA_PERM: "770"
+            FORCE_UPDATE: "false"
+            UMASK: "0000"

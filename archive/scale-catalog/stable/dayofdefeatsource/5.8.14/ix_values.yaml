@@ -1,0 +1,54 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: dods@sha256:e16be127641f0dc1bd1c50c043a80a9fe9e176c0f600dde9dde266c0a4af7870
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: tcp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "232290"
+            GAME_NAME: dod
+            GAME_PARAMS: -secure +maxplayers 24 +map dod_kalt
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"

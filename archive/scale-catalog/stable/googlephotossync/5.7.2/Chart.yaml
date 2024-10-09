@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.2.1
+dependencies:
+  - name: common
+    version: 20.2.3
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Google Photos Sync downloads your Google Photos to the local file system. It will backup all the photos the user uploaded to Google Photos, but also the album information and additional Google Photos 'Creations' (animations, panoramas, movies, effects and collages).
+home: https://truecharts.org/charts/stable/googlephotossync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/googlephotossync.png
+keywords:
+  - googlephotossync
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: googlephotossync
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/googlephotossync
+  - https://ghcr.io/gilesknap/gphotos-sync
+type: application
+version: 5.7.2

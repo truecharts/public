@@ -1,0 +1,40 @@
+image:
+  repository: xtrendence/cryptofolio
+  tag: V.2.2.0@sha256:e6e6612bb94c877b5e31853c639761d09076180fe0a6c4fdb0fb91f73d9f480e
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10007
+        protocol: http
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/api/data
+portal:
+  open:
+    enabled: true

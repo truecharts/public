@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
-  tag: alienswarmreactivedrop@sha256:ec187541294848a4637dacce2a303e1b8f283b6b181051cb5988c38d12d4ebee
+  tag: alienswarmreactivedrop@sha256:72a103648301d035e1a09aa4bd4d59bd67c5ebe259920899e55f82d6c418008a
 persistence:
   serverfiles:
     enabled: true
@@ -48,7 +48,10 @@ workload:
           probes:
             liveness:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
             readiness:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp
             startup:
               port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+              type: tcp

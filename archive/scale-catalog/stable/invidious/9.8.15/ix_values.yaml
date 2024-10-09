@@ -1,0 +1,163 @@
+image:
+  repository: quay.io/invidious/invidious
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:3909fabfb06210b8f314b74e01628df481a9f22a19295d9b78a9487ec732aaea
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10594
+        protocol: http
+workload:
+  main:
+    podSpec:
+      initContainers:
+        dbseed:
+          type: install
+          enabled: true
+          imageSelector: postgresClientImage
+          env:
+            POSTGRES_DB:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            # PG* variables are for the psql client
+            PGPORT: "5432"
+            PGPASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "Starting DB Seed..."
+              mkdir -p invidious && cd invidious
+
+              echo "Fetching seed files..."
+              git init && \
+              git remote add invidious https://github.com/iv-org/invidious.git && \
+              git fetch invidious && \
+              # Fetch config and docker dirs
+              git checkout invidious/master -- docker config
+
+              # Move config into docker dir
+              echo "Preparing directory structure..."
+              mv -fv config docker
+
+              echo "Performing the seed..."
+              cd docker
+              ./init-invidious-db.sh
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          envFrom:
+            - secretRef:
+                name: invidious-secret
+invidious:
+  network:
+    inbound:
+      external_port: 10594
+      https_only: false
+      domain: ""
+      hsts: true
+    outbound:
+      disable_proxy: false
+      pool_size: 100
+      use_quic: false
+      cookies: []
+      force_resolve: "ipv4"
+  logging:
+    output: STDOUT
+    log_level: "Info"
+  features:
+    popular_enabled: true
+    statistics_enabled: false
+  users_accounts:
+    registration_enabled: true
+    login_enabled: true
+    captcha_enabled: true
+    admins: []
+    enable_user_notifications: true
+  background_jobs:
+    channel_threads: 1
+    channel_refresh_interval: 30m
+    full_refresh: false
+    feed_threads: 1
+    decrypt_polling: false
+  jobs:
+    clear_expired_items:
+      enable: true
+    refresh_channels:
+      enable: true
+    refresh_feeds:
+      enable: true
+  captcha:
+    captcha_api_url: "https://api.anti-captcha.com"
+    captcha_key: ""
+  miscellaneous:
+    banner: ""
+    use_pubsub_feeds: false
+    dmca_content: []
+    cache_annotations: false
+    playlist_length_limit: 500
+  default_user_preferences:
+    internationalization:
+      locale: en-US
+      region: US
+      captions: []
+    interface:
+      dark_mode: dark
+      thin_mode: false
+      feed_menu: []
+      default_home: Popular
+      max_results: 40
+      annotations: false
+      annotations_subscribed: false
+      comments: []
+      player_style: invidious
+      related_videos: true
+    video_player_behavior:
+      autoplay: false
+      continue: false
+      continue_autoplay: true
+      listen: false
+      video_loop: false
+    video_playback_settings:
+      quality: hd720
+      quality_dash: auto
+      speed: 1.00
+      volume: 100
+      vr_mode: true
+    subscription_feed:
+      latest_only: false
+      notifications_only: false
+      unseen_only: false
+      sort: published
+    miscellaneous:
+      local: false
+      show_nick: true
+      automatic_instance_redirect: false
+      extend_desc: false
+cnpg:
+  main:
+    enabled: true
+    database: invidious
+    # DB User cannot be changed
+    # hardcoded from upstream
+    user: kemal
+portal:
+  open:
+    enabled: true

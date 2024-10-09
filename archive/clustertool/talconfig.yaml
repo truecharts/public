@@ -1,0 +1,79 @@
+clusterName: main
+talosVersion: v1.6.4
+kubernetesVersion: v1.29.1
+endpoint: https://${VIP}:6443
+allowSchedulingOnControlPlanes: true
+additionalMachineCertSans:
+  - ${VIP}
+additionalApiServerCertSans:
+  - ${VIP}
+# Warning: Also used in Cilium CNI values!
+clusterPodNets:
+  - 172.16.0.0/16
+clusterSvcNets:
+  - 172.17.0.0/16
+cniConfig:
+  name: none
+patches:
+  - "@./patches/all.json"
+nodes:
+  - hostname: k8s-control-1
+    ipAddress: ${MASTER1IP}
+    controlPlane: true
+    nameservers:
+      - 8.8.8.8
+      - 1.1.1.1
+    installDiskSelector:
+      size: <= 100TB
+    networkInterfaces:
+      # suffix is the adapter mac adres.
+      - interface: eth0
+        addresses:
+          - ${MASTER1IP}/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: ${GATEWAY}
+        vip:
+          ip: ${VIP}
+controlPlane:
+  patches:
+    - "@./patches/controlplane.json"
+    - "@./patches/sopssecret.yaml"
+    - "@./patches/manifests.yaml"
+    # - '@./patches/kubePrism.json'
+    # - '@./patches/nvidia.json'
+  schematic:
+    customization:
+      extraKernelArgs:
+        - net.ifnames=0
+      systemExtensions:
+        officialExtensions:
+          - siderolabs/iscsi-tools
+          - siderolabs/qemu-guest-agent
+          # Enable where needed
+          # - siderolabs/amd-ucode
+          # - siderolabs/bnx2-bnx2x
+          # - siderolabs/drbd
+          # - siderolabs/gasket-driver
+          # - siderolabs/i915-ucode
+          # - siderolabs/intel-ucode
+          # - siderolabs/thunderbolt
+worker:
+  patches:
+    - "@./patches/worker.json"
+    # - '@./patches/kubePrism.json'
+    # - '@./patches/nvidia.json'
+  schematic:
+    customization:
+      systemExtensions:
+        officialExtensions:
+          # Enable where needed
+          # - siderolabs/amd-ucode
+          # - siderolabs/bnx2-bnx2x
+          - siderolabs/iscsi-tools
+          - siderolabs/qemu-guest-agent
+          # - siderolabs/drbd
+          # - siderolabs/gasket-driver
+          # - siderolabs/i915-ucode
+          # - siderolabs/intel-ucode
+          # - siderolabs/thunderbolt

@@ -6,22 +6,22 @@ image:
 webImage:
   repository: kubernetesui/dashboard-web
   pullPolicy: IfNotPresent
-  tag: 1.4.0@sha256:4445b31a2c25c875e2df8ca103a8e3f3275778d10065c7c011f6ca42cd4bec5f
+  tag: 1.5.0@sha256:fc2c7fea19cb016d9ab7122229ede48ec38702a299ad5b379a3765c7c73883b3
 
 authImage:
   repository: docker.io/kubernetesui/dashboard-auth
   pullPolicy: IfNotPresent
-  tag: 1.1.3@sha256:07135c09e9ff6faf1370e0b105fa22d38f79e2bc671f248814066630fbf026a1
+  tag: 1.2.0@sha256:74a3d61a0d766bebf45f8adda77994ec74b334f9f351ce8f721ae77502e26b77
 
 apiImage:
   repository: kubernetesui/dashboard-api
   pullPolicy: IfNotPresent
-  tag: 1.7.0@sha256:60595892c2cf21b7fbd09324120e339e0e44874cd96267bc4712cb86694835f1
+  tag: 1.9.0@sha256:6b6db6adafe7811600232027c1f0c83068d3296ad6bb1bb1ed63f2e8203c2798
 
 scraperImage:
   repository: kubernetesui/dashboard-metrics-scraper
   pullPolicy: IfNotPresent
-  tag: 1.1.1@sha256:7747d363c9fee7392597a683c2853a2052710d620ada0e2323561bb0f4d32b4f
+  tag: 1.2.0@sha256:bd9efff1241cbdb3fd5ff2514d52cea65137ad6ef2cf25c5f3dc06855c44ee4b
 
 service:
   main:

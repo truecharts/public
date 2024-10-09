@@ -1,0 +1,85 @@
+image:
+  repository: jlesage/jdownloader-2
+  pullPolicy: IfNotPresent
+  tag: v24.01.1@sha256:b020fd3132a1e1f4b3d13b85df0c3046e13ce4b5d2d3e4234c0e2af62cb5d472
+service:
+  main:
+    ports:
+      main:
+        port: 10054
+        targetPort: 5800
+  myjd:
+    enabled: true
+    ports:
+      myjd:
+        enabled: true
+        port: 3129
+        targetPort: 3129
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10056
+        targetPort: 5900
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: jdownloader
+jdownloader:
+  # General Settings
+  KEEP_APP_RUNNING: false
+  # GUI Settings
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  jdownloader:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.jdownloader.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.jdownloader.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.jdownloader.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.jdownloader.DISPLAY_HEIGHT }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  output:
+    enabled: true
+    mountPath: "/output"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "jdownloader"

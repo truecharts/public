@@ -1,0 +1,77 @@
+image:
+  repository: ghcr.io/rodber/chevereto-free
+  pullPolicy: IfNotPresent
+  tag: 1.6.2@sha256:2e3a78eff5ade90d72cceb63fa9dba4b539f1def55debc0c23b15fb08d6e549b
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 33
+chevereto:
+  https: false
+  disable_update_http: true
+  disable_update_cli: true
+configmap:
+  chevereto:
+    enabled: true
+    data:
+      CHEVERETO_HTTPS: '{{ ternary "1" "0" .Values.chevereto.https }}'
+      CHEVERETO_DISABLE_UPDATE_HTTP: '{{ ternary "1" "0" .Values.chevereto.disable_update_http }}'
+      CHEVERETO_DISABLE_UPDATE_CLI: '{{ ternary "1" "0" .Values.chevereto.disable_update_cli }}'
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        protocol: http
+        port: 10197
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            CHEVERETO_DB_DRIVER: mysql
+            CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
+            CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+            CHEVERETO_DB_PORT: "3306"
+            CHEVERETO_TAG: "free"
+            CHEVERETO_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
+            CHEVERETO_DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+          envFrom:
+            - configMapRef:
+                name: "chevereto"
+persistence:
+  storage:
+    enabled: true
+    mountPath: /var/www/html/images/
+  content:
+    enabled: true
+    mountPath: /var/www/html/content/
+mariadb:
+  enabled: true
+  mariadbUsername: chevereto
+  mariadbDatabase: chevereto
+portal:
+  open:
+    enabled: true

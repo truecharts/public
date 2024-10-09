@@ -1,0 +1,55 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: patrickstigler/obs-ndi
+  tag: latest@sha256:7d1efa37b34b9a01e83b9c334ca9986c468745a017c4d8dab1c2b0c8d4942a2d
+securityContext:
+  container:
+    runAsGroup: 0
+    runAsUser: 0
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PW: "headless"
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  websocket:
+    enabled: true
+    ports:
+      websocket:
+        enabled: true
+        port: 4455
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 5901
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /config/obs-studio
+portal:
+  open:
+    enabled: true

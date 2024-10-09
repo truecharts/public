@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: rss
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.1.2
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Miniflux is a minimalist and opinionated feed reader.
+home: https://truecharts.org/charts/stable/miniflux
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/miniflux.webp
+keywords:
+  - miniflux
+  - rss
+  - news
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: miniflux
+sources:
+  - https://github.com/miniflux/v2
+  - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
+  - https://hub.docker.com/r/miniflux/miniflux
+type: application
+version: 14.8.13

@@ -1,0 +1,80 @@
+image:
+  repository: flowiseai/flowise
+  pullPolicy: IfNotPresent
+  tag: 1.5.1@sha256:533a1fab691f78fdebcadeac5b071f51ffc3428179d5797e1d8544c744ed4c1d
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+            readiness:
+              path: "/"
+            startup:
+              path: "/"
+          args:
+            - npx
+            - flowise
+            - start
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Set paths
+            APIKEY_PATH: "{{.Values.persistence.api.mountPath }}"
+            LOG_PATH: "{{.Values.persistence.logs.mountPath }}"
+            # Postgres DB
+            DATABASE_TYPE: postgres
+            OVERRIDE_DATABASE: true
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DATABASE_PORT: 5432
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            # child | main
+            EXECUTION_MODE: main
+            # error | warn | info | verbose | debug
+            LOG_LEVEL: debug
+            DEBUG: true
+            # optional auth
+            FLOWISE_USERNAME: user
+            FLOWISE_PASSWORD: 1234
+            PASSPHRASE:
+              secretKeyRef:
+                name: flowise-secrets
+                key: PASSPHRASE
+            # TOOL_FUNCTION_BUILTIN_DEP
+            # TOOL_FUNCTION_EXTERNAL_DEP
+persistence:
+  api:
+    enabled: true
+    mountPath: "/config/api"
+  logs:
+    enabled: true
+    mountPath: "/config/logs"
+cnpg:
+  main:
+    enabled: true
+    user: flowise
+    database: flowise
+portal:
+  open:
+    enabled: true

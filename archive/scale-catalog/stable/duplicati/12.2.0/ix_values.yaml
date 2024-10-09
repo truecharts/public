@@ -1,0 +1,33 @@
+image:
+  repository: duplicati/duplicati
+  tag: latest@sha256:b22ed912e91eb97786dc1223ae64adac8bfa61f83a6ae6f66c9dada6af9b98c9
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8200
+        targetPort: 8200
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true

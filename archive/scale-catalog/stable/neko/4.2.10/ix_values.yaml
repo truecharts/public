@@ -1,0 +1,93 @@
+braveImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: brave@sha256:7e6b9341face69a37946a369bfb7174a971412403fce4646d6591c97e1522eae
+chromeImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: google-chrome@sha256:dcf4bebc224e3a01f7cb51ad6b8ba0b9818361325bce186a71106a37e3774c15
+chromiumImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: chromium@sha256:8ca28d21bc6bc69046779f1cbbb078468e552fa60a9e018c5c2266c82c7a5a2e
+edgeImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: microsoft-edge@sha256:ef159a3d6909571e5cc2ee5e9dfe5bcafddef69b536ff14e90f8b8e2aff2e8dc
+image:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: firefox@sha256:72f72672bd5e3b447010a57f987282e86ee3017d1f3237f4bb7e5d1e787b23da
+imageSelector: image
+portal:
+  open:
+    enabled: true
+remminaImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: remmina@sha256:e1f6e8731009fbd56729b0e225f40cb4b1a128a2848f4516d311576611f99cb7
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10294
+        protocol: http
+        targetPort: 8080
+  mux-tcp:
+    enabled: true
+    ports:
+      mux-tcp:
+        enabled: true
+        port: 52100
+        protocol: tcp
+        targetPort: 52100
+  mux-udp:
+    enabled: true
+    ports:
+      mux-udp:
+        enabled: true
+        port: 52100
+        protocol: udp
+        targetPort: 52100
+torImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: tor-browser@sha256:2f831187ebad4bb7fa460c81134f13fc1caf570fecfb422685f7d02570cdd28b
+vivaldiImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: vivaldi@sha256:e3c44a09a4796ea4f99915685a3ba810ecfdd1f9b583b80c3a3daac43115df63
+vlcImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: vlc@sha256:0a22c52e34d956050c2184a9f88addf7feaba24f63e1d9f48065e97d3f793eef
+vncviewerImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: vncviewer@sha256:d6e961e5b15fc58639ac6b4eeb791c5b48c859e69d65d25c20ff92bf7c95b458
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NEKO_CONTROL_PROTECTION: "false"
+            NEKO_IMPLICIT_CONTROL: "false"
+            NEKO_IPFETCH: ""
+            NEKO_LOCKS: ""
+            NEKO_NAT1TO1: ""
+            NEKO_PASSWORD: userpass
+            NEKO_PASSWORD_ADMIN: adminpass
+            NEKO_PROXY: "true"
+            NEKO_SCREEN: 1920x1080@30
+            NEKO_tcpMUX: "52100"
+            NEKO_udpMUX: "52100"
+xfceImage:
+  pullPolicy: IfNotPresent
+  repository: m1k1o/neko
+  tag: xfce@sha256:242ad91b15e5fbf8eaf85d7f9ea46bb211569e60be781a8689c22d185e7ff1ad

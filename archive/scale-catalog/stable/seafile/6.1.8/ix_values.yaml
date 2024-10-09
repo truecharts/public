@@ -1,0 +1,46 @@
+image:
+  repository: seafileltd/seafile-mc
+  tag: 11.0.8@sha256:91099e2822f5a053c13c90eba3b5ec50440d32c920fc7c7bd2cb35de709ac039
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 13080
+        protocol: http
+        targetPort: 80
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_ROOT_PASSWD: "{{ .Values.mariadb.rootPassword }}"
+            SEAFILE_SERVER_LETSENCRYPT: false
+            SEAFILE_SERVER_HOSTNAME: ""
+            SEAFILE_ADMIN_EMAIL: me@example.com
+            SEAFILE_ADMIN_PASSWORD: a_very_secret_password
+            FORCE_HTTPS_IN_CONF: false
+persistence:
+  storage:
+    enabled: true
+    mountPath: "/shared/seafile"
+mariadb:
+  enabled: true
+  includeCommon: true
+  mariadbUsername: seafile
+  mariadbDatabase: seafile
+portal:
+  open:
+    enabled: true

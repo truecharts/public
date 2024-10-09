@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.6.5
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Synchronize AdGuardHome config to replica instances.
+home: https://truecharts.org/charts/stable/adguardhome-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.png
+keywords:
+  - adguardhome-sync
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: adguardhome-sync
+sources:
+  - https://github.com/bakito/adguardhome-sync/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/adguardhome-sync
+  - https://ghcr.io/bakito/adguardhome-sync
+type: application
+version: 5.4.0

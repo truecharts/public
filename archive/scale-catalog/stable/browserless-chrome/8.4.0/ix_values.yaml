@@ -1,0 +1,68 @@
+image:
+  repository: browserless/chrome
+  tag: 1.61.1-chrome-stable@sha256:efac47cfff3830d9a50b27d29f8bbb61949058ae336c823fbe9bd3c0d1debcc8
+  pullPolicy: IfNotPresent
+puppeteerImage:
+  repository: browserless/chrome
+  pullPolicy: IfNotPresent
+  tag: 1.61.1-puppeteer-13.1.3@sha256:1562864d80cc4ed4436af2ba206edf7cafcecd560430658213b5d10d2dc7c999
+service:
+  main:
+    ports:
+      main:
+        port: 10194
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: "image"
+          probes:
+            liveness:
+              path: "/metrics"
+            readiness:
+              path: "/metrics"
+            startup:
+              path: "/metrics"
+          env:
+            WORKSPACE_DIR: "/downloads"
+            METRICS_JSON_PATH: "/metrics/metrics.json"
+            # User Defined
+
+            HOST: ""
+            WORKSPACE_DELETE_EXPIRED: false
+            WORKSPACE_EXPIRE_DAYS: 30
+            CHROME_REFRESH_TIME: 3600000
+            MAX_CONCURRENT_SESSIONS: 5
+            MAX_QUEUE_LENGTH: 5
+            CONNECTION_TIMEOUT: 30000
+            DEFAULT_BLOCK_ADS: true
+            DEFAULT_HEADLESS: true
+            DEFAULT_IGNORE_HTTPS_ERRORS: true
+            DEFAULT_IGNORE_DEFAULT_ARGS: true
+            ENABLE_API_GET: true
+            FUNCTION_ENABLE_INCOGNITO_MODE: true
+            EXIT_ON_HEALTH_FAILURE: true
+            DISABLE_AUTO_SET_DOWNLOAD_BEHAVIOR: false
+            ENABLE_DEBUGGER: true
+            ENABLE_CORS: false
+            ENABLE_XVBF: true
+            # Enabling those, makes probe/app fail
+
+            # KEEP_ALIVE: true
+
+            # PREBOOT_CHROME: true
+            TOKEN: ""
+persistence:
+  downloads:
+    enabled: true
+    mountPath: /downloads
+  metrics:
+    enabled: true
+    mountPath: /metrics
+portal:
+  open:
+    enabled: true
+updated: true

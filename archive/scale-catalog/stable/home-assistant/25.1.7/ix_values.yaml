@@ -1,0 +1,153 @@
+image:
+  repository: homeassistant/home-assistant
+  pullPolicy: IfNotPresent
+  tag: 2024.5.5@sha256:031d355a2e52e82fc33cd6854753fb19fc5d6a31af6f0f54c277d6f118ad993e
+service:
+  main:
+    ports:
+      main:
+        port: 8123
+        targetPort: 8123
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          type: init
+          enabled: true
+          imageSelector: yqImage
+          command: /config/init/init.sh
+# # Enable devices to be discoverable
+# hostNetwork: true
+
+# # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
+# dnsPolicy: ClusterFirstWithHostNet
+homeassistant:
+  trusted_proxies: []
+# Enable a prometheus-operator servicemonitor
+prometheus:
+  serviceMonitor:
+    enabled: false
+    # interval: 1m
+    # additionalLabels: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+    targetSelectAll: true
+  init:
+    enabled: true
+    type: configmap
+    objectName: init
+    mountPath: "/config/init"
+    defaultMode: "0777"
+    readOnly: true
+    targetSelector:
+      main:
+        init: {}
+configmap:
+  init:
+    enabled: true
+    data:
+      init.sh: |-
+        #!/bin/sh
+        {{- $haDBURL := (printf "%s?client_encoding=utf8" ($.Values.cnpg.main.creds.std | trimAll "\"")) }}
+        config="/config/configuration.yaml"
+        default="/config/init"
+        if [ ! -f "$config" ]; then
+          echo "File [$config] does NOT exist. Creating..."
+          cp "$default/configuration.yaml.default" "$config"
+        fi
+        if ! grep -q "recorder:" "$config"; then
+          echo "Section [recorder] does NOT exist in [$config]. Appending..."
+          echo "" >> "$config"
+          cat "$default/recorder.default" >> "$config"
+        fi
+        if ! grep -q "http:" "$config"; then
+          echo "Section [http] does NOT exist in [$config]. Appending..."
+          echo "" >> "$config"
+          cat "$default/http.default" >> "$config"
+        fi
+
+        echo "Updating database URL"
+        yq -i '.recorder.db_url = "{{ $haDBURL }}"' "$config"
+        echo "Done"
+
+        echo "Creating include files..."
+        for include_file in groups.yaml automations.yaml scripts.yaml scenes.yaml; do
+          if [ ! -f "/config/$include_file" ]; then
+            echo "File [$include_file] missing. Creating"
+            touch "/config/$include_file"
+          fi
+        done
+
+        cd "/config" || echo "Could not change path to /config"
+        echo "Creating custom_components directory..."
+        mkdir -p "/config/custom_components" || echo "custom_components directory already exists"
+
+        echo "Changing to the custom_components directory..."
+        cd "/config/custom_components" || echo "Could not change path to /config/custom_components"
+
+        echo "Downloading HACS"
+        wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
+
+        if [ -d "/config/custom_components/hacs" ]; then
+          echo "HACS directory already exist, cleaning up..."
+          rm -R "/config/custom_components/hacs"
+        fi
+
+        echo "Creating HACS directory..."
+        mkdir -p "/config/custom_components/hacs"
+
+        echo "Unpacking HACS..."
+        unzip "/config/custom_components/hacs.zip" -d "/config/custom_components/hacs" >/dev/null 2>&1
+
+        echo "Removing HACS zip file..."
+        rm "/config/custom_components/hacs.zip"
+        echo "Installation complete."
+      configuration.yaml.default: |-
+        # Configure a default setup of Home Assistant (frontend, api, etc)
+        default_config:
+
+        # Text to speech
+        tts:
+          - platform: google_translate
+
+        group: !include groups.yaml
+        automation: !include automations.yaml
+        script: !include scripts.yaml
+        scene: !include scenes.yaml
+      recorder.default: |-
+        recorder:
+          purge_keep_days: 30
+          commit_interval: 3
+          db_url: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
+      http.default: |-
+        http:
+          use_x_forwarded_for: true
+          trusted_proxies:
+            {{- if hasKey .Values "ixChartContext" }}
+            - {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}
+            {{- else }}
+              {{- range .Values.homeassistant.trusted_proxies }}
+            - {{ . }}
+              {{- end }}
+            {{- end }}
+cnpg:
+  main:
+    enabled: true
+    user: home-assistant
+    database: home-assistant
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - CAP_NET_RAW
+        - CAP_NET_BIND_SERVICE

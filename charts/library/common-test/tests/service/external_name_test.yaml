@@ -1,0 +1,134 @@
+suite: service externalName test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with type externalName
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalName
+          externalName: my-external-name
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ExternalName
+            externalName: my-external-name
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+
+  - it: should pass with type externalName, without ports
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalName
+          externalName: my-external-name
+    asserts:
+      - documentIndex: *serviceDoc
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ExternalName
+            externalName: my-external-name
+            publishNotReadyAddresses: false
+
+  - it: should pass with type ExternalName and available options set
+    set:
+      some_ip: 172.16.20.35
+      some_other_ip: 10.200.34.53
+      some_name: my-external-name
+      some_policy: Local
+      some_affinity: ClientIP
+      some_timeout: 100
+      some_port: 12344
+      some_target_port: 12346
+      some_protocol: http
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalName
+          clusterIP: "{{ .Values.some_ip }}"
+          externalName: "{{ .Values.some_name }}"
+          publishNotReadyAddresses: true
+          externalTrafficPolicy: "{{ .Values.some_policy }}"
+          externalIPs:
+            - "{{ .Values.some_other_ip }}"
+            - 10.200.34.54
+          sessionAffinity: "{{ .Values.some_affinity }}"
+          sessionAffinityConfig:
+            clientIP:
+              timeoutSeconds: "{{ .Values.some_timeout }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: "{{ .Values.some_port }}"
+              targetPort: "{{ .Values.some_target_port }}"
+              protocol: "{{ .Values.some_protocol }}"
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ExternalName
+            clusterIP: 172.16.20.35
+            externalTrafficPolicy: Local
+            externalName: my-external-name
+            publishNotReadyAddresses: true
+            externalIPs:
+              - 10.200.34.53
+              - 10.200.34.54
+            sessionAffinity: ClientIP
+            sessionAffinityConfig:
+              clientIP:
+                timeoutSeconds: 100
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+              - name: port-name2
+                port: 12344
+                protocol: TCP
+                targetPort: 12346

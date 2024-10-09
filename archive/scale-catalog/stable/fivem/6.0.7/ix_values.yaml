@@ -1,0 +1,67 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/fivemserver
+  tag: latest@sha256:c7e8ca8960f11806e143d6f97048ab220732e617ef628f45ef738ce774163f3e
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 9016
+        protocol: http
+        targetPort: 8080
+  tcp1:
+    enabled: true
+    ports:
+      tcp1:
+        enabled: true
+        port: 30110
+        protocol: tcp
+        targetPort: 30110
+  tcp2:
+    enabled: true
+    ports:
+      tcp2:
+        enabled: true
+        port: 30120
+        protocol: tcp
+        targetPort: 30120
+  udp1:
+    enabled: true
+    ports:
+      udp1:
+        enabled: true
+        port: 30110
+        protocol: udp
+        targetPort: 30110
+  udp2:
+    enabled: true
+    ports:
+      udp2:
+        enabled: true
+        port: 30120
+        protocol: udp
+        targetPort: 30120
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_CONFIG: server.cfg
+            MANUAL_UPDATES: ""
+            SERVER_KEY: ""
+            SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
+            SRV_NAME: ""
+            START_VARS: ""

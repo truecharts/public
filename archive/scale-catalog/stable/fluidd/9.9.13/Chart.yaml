@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.29.1
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Fluidd is a free and open-source Klipper web interface for managing your 3d printer.
+home: https://truecharts.org/charts/stable/fluidd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fluidd.webp
+keywords:
+  - fluidd
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fluidd
+sources:
+  - https://github.com/fluidd-core/fluidd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fluidd
+  - https://ghcr.io/fluidd-core/fluidd
+type: application
+version: 9.9.13

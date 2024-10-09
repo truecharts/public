@@ -1,0 +1,55 @@
+image:
+  repository: ghcr.io/crazy-max/firefox-syncserver
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 1.8.0@sha256:ab1a959d8105c478f0f1523c8c3bbdc53bb8d44f325501b93297bc80cf627da6
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            FF_SYNCSERVER_PUBLIC_URL: "firefox-syncserver.192.168.1.189.nip.io"
+            FF_SYNCSERVER_FORCE_WSGI_ENVIRON: true
+            FF_SYNCSERVER_ACCESSLOG: false
+            FF_SYNCSERVER_LOGLEVEL: "info"
+            FF_SYNCSERVER_ALLOW_NEW_USERS: true
+            FF_SYNCSERVER_FORWARDED_ALLOW_IPS: "*"
+            FF_SYNCSERVER_SQLURI:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            FF_SYNCSERVER_SECRET: "changeme"
+service:
+  main:
+    ports:
+      main:
+        port: 10051
+        targetPort: 5000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: firefox-syncserver
+    database: firefox-syncserver
+portal:
+  open:
+    enabled: true

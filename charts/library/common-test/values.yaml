@@ -1,0 +1,34 @@
+# This file disables all defaults for the common-test chart.
+# This is to have common test cases without getting affected
+# by any default values.
+
+global:
+  createTCNamespace: false
+
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+# The above just disables the "main" objects,
+# every other config is stays as it is set in common's values.yaml.
+# Tests need to use a different name, other than `main`,
+# so they don't "inherit" values from common.
+# The above just makes it easier to test with specific values,
+# set on each test case, without having to worry about pre-defined values.
+
+# TODO:
+# It will be a test case using a different values.yaml (default-values.yaml),
+# that do not disable any objects. So we can make sure that defaults apply.
+
+# Everything disabled above, must be explicitly enabled in the default-values.yaml
+# As helm first applies values.yaml and then the specified values file,
+# in this case default-values.yaml

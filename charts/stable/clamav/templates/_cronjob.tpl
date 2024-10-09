@@ -1,13 +1,13 @@
 {{/* Define the cronjob */}}
 {{- define "clamav.cronjob" -}}
-enabled: true
+enabled: {{ .Values.clamav.cron_enabled }}
 type: "CronJob"
-schedule: "0 8 * * *"
+schedule: {{ .Values.clamav.cron_schedule }}
 podSpec:
   restartPolicy: Never
   containers:
     cron:
-      enabled: true
+      enabled: {{ .Values.clamav.cron_enabled }}
       primary: true
       imageSelector: "image"
       env:

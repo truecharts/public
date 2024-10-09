@@ -1,0 +1,156 @@
+suite: service loadBalancer test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with type LoadBalancer
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          loadBalancerIPs:
+            - 1.2.3.4
+            - 5.6.7.8
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: LoadBalancer
+            allocateLoadBalancerNodePorts: false
+            publishNotReadyAddresses: false
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: test-release-name
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/loadBalancerIPs: "1.2.3.4,5.6.7.8"
+
+  - it: should pass with type LoadBalancer and available options set
+    set:
+      some_ip: 172.16.20.35
+      some_other_ip: 10.100.200.45
+      some_extra_ip: 10.200.34.53
+      some_policy: Local
+      some_range: 11.100.200.0/24
+      some_family: IPv6
+      some_affinity: ClientIP
+      some_timeout: 100
+      some_port: 12344
+      some_target_port: 12346
+      some_protocol: http
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          clusterIP: "{{ .Values.some_ip }}"
+          loadBalancerIP: "{{ .Values.some_other_ip }}"
+          loadBalancerSourceRanges:
+            - "{{ .Values.some_range }}"
+            - 10.100.200.0/24
+          externalTrafficPolicy: "{{ .Values.some_policy }}"
+          allocateLoadBalancerNodePorts: true
+          publishNotReadyAddresses: true
+          ipFamilyPolicy: PreferDualStack
+          ipFamilies:
+            - IPv4
+            - "{{ .Values.some_family }}"
+          externalIPs:
+            - "{{ .Values.some_extra_ip }}"
+            - 10.200.34.54
+          sessionAffinity: "{{ .Values.some_affinity }}"
+          sessionAffinityConfig:
+            clientIP:
+              timeoutSeconds: "{{ .Values.some_timeout }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: "{{ .Values.some_port }}"
+              targetPort: "{{ .Values.some_target_port }}"
+              protocol: "{{ .Values.some_protocol }}"
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: LoadBalancer
+            clusterIP: 172.16.20.35
+            loadBalancerSourceRanges:
+              - 11.100.200.0/24
+              - 10.100.200.0/24
+            externalTrafficPolicy: Local
+            ipFamilyPolicy: PreferDualStack
+            allocateLoadBalancerNodePorts: true
+            publishNotReadyAddresses: true
+            ipFamilies:
+              - IPv4
+              - IPv6
+            externalIPs:
+              - 10.200.34.53
+              - 10.200.34.54
+            sessionAffinity: ClientIP
+            sessionAffinityConfig:
+              clientIP:
+                timeoutSeconds: 100
+            ports:
+              - name: port-name
+                port: 12345
+                protocol: TCP
+                targetPort: 12345
+              - name: port-name2
+                port: 12344
+                protocol: TCP
+                targetPort: 12346
+            selector:
+              app.kubernetes.io/instance: test-release-name
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/loadBalancerIPs: "10.100.200.45"

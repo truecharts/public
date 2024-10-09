@@ -1,0 +1,41 @@
+image:
+  repository: ghcr.io/linuxserver/healthchecks
+  tag: 3.2.20240219@sha256:1d4c35985eb9ab08f8c2b17b544666f10b1505b04bd6600d842f1977c9ebdbd3
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10074
+        targetPort: 8000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            REGENERATE_SETTINGS: "True"
+            SITE_ROOT: "https://healthchecks.domain"
+            SITE_NAME: ""
+            SUPERUSER_EMAIL: "email@healthchecks.io"
+            SUPERUSER_PASSWORD: "myVeryStrongPassword"

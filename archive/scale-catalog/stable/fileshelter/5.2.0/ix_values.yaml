@@ -1,0 +1,22 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: epoupon/fileshelter
+  tag: 6.1.0@sha256:b8d12b464bfcac2b6b56c27dc2bc8bd5230610d13d971434c0d3d06f471693db
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5091
+        targetPort: 5091
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/fileshelter
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,57 @@
+image:
+  repository: deconzcommunity/deconz
+  tag: 2.26.3@sha256:f88d59ec80ae0ef100dcd5c5a0552e6b5177f78026821a8a8964b4a03417c62f
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+          env:
+            DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
+            DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
+            DECONZ_UID: "{{ .Values.securityContext.container.PUID }}"
+            DECONZ_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
+            # Example: /dev/ttyUSB0
+            DECONZ_DEVICE: ""
+            DECONZ_UPNP: 0
+            DECONZ_START_VERBOSE: 0
+            # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
+            DECONZ_VNC_MODE: 1
+            DECONZ_VNC_PASSWORD: ""
+service:
+  main:
+    ports:
+      main:
+        port: 10008
+  websocket:
+    enabled: true
+    ports:
+      websocket:
+        enabled: true
+        port: 10001
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10002
+persistence:
+  config:
+    enabled: true
+    mountPath: "/opt/deCONZ"
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 11.3.0
+    repository: oci://tccr.io/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
+home: https://truecharts.org/charts/stable/mongo-express
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.png
+keywords:
+  - mongo
+  - mongodb
+  - database
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mongo-express
+sources:
+  - https://github.com/mongo-express/mongo-express
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+  - https://hub.docker.com/_/mongo-express
+type: application
+version: 5.4.0

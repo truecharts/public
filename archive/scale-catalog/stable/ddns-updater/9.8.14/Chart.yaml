@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.5.0
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Light container updating DNS A and/or AAAA records periodically for multiple DNS providers
+home: https://truecharts.org/charts/stable/ddns-updater
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-updater.webp
+keywords:
+  - ddns-updater
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ddns-updater
+sources:
+  - https://github.com/qdm12/ddns-updater
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
+  - https://hub.docker.com/r/qmcgaw/ddns-updater
+type: application
+version: 9.8.14

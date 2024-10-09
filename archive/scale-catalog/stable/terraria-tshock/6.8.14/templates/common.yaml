@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for terraria */}}
+{{- $secrets := include "terraria.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "terraria-secret" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

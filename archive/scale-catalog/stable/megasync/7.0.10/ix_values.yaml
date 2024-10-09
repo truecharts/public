@@ -1,0 +1,42 @@
+image:
+  repository: ich777/megasync
+  tag: latest@sha256:a01453fea5f2aae3c4602a95f52ba1ba859f8daded15607327fdcc0e8e28bda9
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: http
+        targetPort: 8080
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
+            CUSTOM_RES_H: "600"
+            CUSTOM_RES_W: "800"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  hostpath:
+    enabled: true
+    mountPath: /mnt/host
+    readOnly: true
+
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,93 @@
+image:
+  repository: ghcr.io/paperless-ngx/paperless-ngx
+  pullPolicy: IfNotPresent
+  tag: 2.8.6@sha256:2744572313cf3026520243f00e064d8fa82d838173a160d63b7e481575a86fdc
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8000
+        port: 10140
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  consume:
+    enabled: true
+    mountPath: "/consume"
+  media:
+    enabled: true
+    mountPath: "/media"
+  varrun:
+    enabled: false
+redis:
+  enabled: true
+  includeCommon: true
+  redisUsername: default
+cnpg:
+  main:
+    enabled: true
+    user: paperless-ng
+    database: paperless-ng
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              httpHeaders:
+                Host: localhost
+            startup:
+              type: http
+              httpHeaders:
+                Host: localhost
+            readiness:
+              type: http
+              httpHeaders:
+                Host: localhost
+          env:
+            PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            PAPERLESS_DATA_DIR: "/data/"
+            PAPERLESS_CONSUMPTION_DIR: "/consume/"
+            PAPERLESS_MEDIA_ROOT: "/media/"
+            PAPERLESS_URL: ""
+            USERMAP_UID: "{{ .Values.securityContext.container.PUID }}"
+            USERMAP_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
+            PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
+            PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
+            PAPERLESS_DBPORT: "5432"
+            PAPERLESS_WEBSERVER_WORKERS: 2
+            PAPERLESS_DBPASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            PAPERLESS_DBHOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            PAPERLESS_SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: PAPERLESS_SECRET_KEY
+            PAPERLESS_REDIS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            PAPERLESS_ADMIN_USER: "admin"
+            PAPERLESS_ADMIN_PASSWORD: "admin"
+            PAPERLESS_ADMIN_MAIL: "admin@admin.com"
+            PAPERLESS_OCR_LANGUAGE: "eng"
+            PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"

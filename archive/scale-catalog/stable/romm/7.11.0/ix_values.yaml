@@ -1,0 +1,100 @@
+image:
+  repository: ghcr.io/zurdi15/romm
+  pullPolicy: IfNotPresent
+  tag: 2.3.1@sha256:2db88fe44c89fad393c61cd75f28c5c03bce915292c98053bb36131b21177e64
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10680
+
+romm:
+  auth:
+    user: "admin"
+    pass: "admin"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            ROMM_BASE_PATH: /romm
+            ROMM_DB_DRIVER: mariadb
+            # IGDB client id
+            CLIENT_ID: ""
+            # IGDB client secret
+            CLIENT_SECRET: ""
+            STEAMGRIDDB_API_KEY: ""
+            DB_PORT: 3306
+            DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            REDIS_PORT: 6379
+            ROMM_AUTH_SECRET_KEY:
+              secretKeyRef:
+                name: romm-secrets
+                key: ROMM_AUTH_SECRET_KEY
+            ROMM_AUTH_ENABLED: true
+            ENABLE_EXPERIMENTAL_REDIS: true
+            ROMM_AUTH_USERNAME: "{{ .Values.romm.auth.user}}"
+            ROMM_AUTH_PASSWORD: "{{ .Values.romm.auth.pass}}"
+
+persistence:
+  library:
+    enabled: true
+    mountPath: /romm/library
+  resources:
+    enabled: true
+    mountPath: /romm/resources
+  logs:
+    enabled: true
+    mountPath: /romm/logs
+
+mariadb:
+  enabled: true
+  mariadbUsername: romm
+  mariadbDatabase: romm
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

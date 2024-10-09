@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.17.3
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A timed task management panel that supports typescript, javaScript, python3, and shell
+home: https://truecharts.org/charts/stable/qinglong
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qinglong.webp
+keywords:
+  - qinglong
+  - task
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qinglong
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qinglong
+  - https://hub.docker.com/r/whyour/qinglong
+type: application
+version: 9.8.14

@@ -1,0 +1,40 @@
+image:
+  repository: ghcr.io/linuxserver/minisatip
+  pullPolicy: IfNotPresent
+  tag: 2021.12.01@sha256:d252018c680acedebb91a7b5cc87c2c3d74bb1ee0323b57f5a322b9f40a5969b
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8875
+        port: 8875
+  rtsp:
+    enabled: true
+    ports:
+      rtsp:
+        enabled: true
+        targetPort: 554
+        port: 554
+  discovery:
+    enabled: true
+    ports:
+      discovery:
+        enabled: true
+        protocol: udp
+        targetPort: 1900
+        port: 1900
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

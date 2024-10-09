@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: mikolatero/vlmcsd
+  tag: latest@sha256:217a03280410aa06bca7dd1b4e3e206317ba740a990d90683462fb21b17c9e7d
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 1688
+        port: 1688
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+portal:
+  open:
+    enabled: false

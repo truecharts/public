@@ -1,0 +1,10 @@
+{{/* Make sure all variables are set properly */}}
+{{ include "tc.v1.common.loader.init" . }}
+
+{{- $configmap := (include "guacamole.configmap" $ | fromYaml) -}}
+{{- if $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

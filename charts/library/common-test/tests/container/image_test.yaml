@@ -1,0 +1,142 @@
+suite: container image test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct image
+    set:
+      imageDictToUse: image
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      imageGPU:
+        repository: some-gpu-image
+        tag: 5.20.0
+        pullPolicy: Always
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: "{{ .Values.imageDictToUse }}"
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: imageGPU
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: nginx:1.19.0
+            imagePullPolicy: IfNotPresent
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            image: some-gpu-image:5.20.0
+            imagePullPolicy: Always
+
+  # Failures
+  - it: should fail with imageSelector trying to access non-existent image
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image-dict-that-does-not-exist
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected [.Values.image-dict-that-does-not-exist] to exist
+
+  - it: should fail with empty repository in selected image
+    set:
+      image:
+        repository: ""
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [.Values.image.repository]
+
+  - it: should fail with empty tag in selected image
+    set:
+      image:
+        repository: nginx
+        tag: ""
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty [.Values.image.tag]
+
+  - it: should fail with invalid pullPolicy selected image
+    set:
+      image:
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: invalid
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected [.Values.image.pullPolicy] to be one of [IfNotPresent, Always, Never], but got [invalid]

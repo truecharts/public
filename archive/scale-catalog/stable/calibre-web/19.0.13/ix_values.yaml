@@ -1,0 +1,40 @@
+image:
+  repository: linuxserver/calibre-web
+  pullPolicy: IfNotPresent
+  tag: version-0.6.21@sha256:fab0fda498a1354fad88ece34119f35118faf292678e0b2c18956dfa690cd2ab
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8083
+        protocol: http
+        targetPort: 8083
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

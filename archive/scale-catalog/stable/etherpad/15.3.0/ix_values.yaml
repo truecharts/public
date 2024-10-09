@@ -1,0 +1,56 @@
+image:
+  repository: ghcr.io/nicholaswilde/etherpad
+  pullPolicy: IfNotPresent
+  tag: version-1.8.14@sha256:26bbd45110d5b4d70246fafe40d4c4a7047b7b4fde409763a125324fa93b2d73
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10060
+        targetPort: 9001
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_TYPE: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            # User Defined
+
+            TITLE: "Etherpad"
+            FAVICON: "favicon.ico"
+            DEFAULT_PAD_TEXT: "Welcome to Etherpad! This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents! Get involved with Etherpad at https://etherpad.org"
+            ADMIN_PASSWORD: "adminpass"
+            USER_PASSWORD: "firstuserpass"
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/etherpad-lite/var"
+  app:
+    enabled: true
+    mountPath: "/opt/etherpad-lite/app"
+cnpg:
+  main:
+    enabled: true
+    user: etherpad
+    database: etherpad
+portal:
+  open:
+    enabled: true

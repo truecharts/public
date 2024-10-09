@@ -1,0 +1,96 @@
+suite: daemonset spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with workload enabled
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &daemonSetDoc 0
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *daemonSetDoc
+        isSubset:
+          path: spec
+          content:
+            revisionHistoryLimit: 3
+            updateStrategy:
+              type: RollingUpdate
+
+  - it: should apply spec correctly
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          revisionHistoryLimit: 4
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxSurge: 5
+            maxUnavailable: 5
+          podSpec: {}
+    asserts:
+      - documentIndex: *daemonSetDoc
+        isSubset:
+          path: spec
+          content:
+            revisionHistoryLimit: 4
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxSurge: 5
+                maxUnavailable: 5
+
+  - it: should apply maxSurge with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxSurge: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *daemonSetDoc
+        isSubset:
+          path: spec
+          content:
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxSurge: 0
+
+  - it: should apply maxUnavailable with 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          strategy: RollingUpdate
+          rollingUpdate:
+            maxUnavailable: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *daemonSetDoc
+        isSubset:
+          path: spec
+          content:
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxUnavailable: 0

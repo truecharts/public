@@ -1,0 +1,988 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/budimanjojo/talhelper/pkg/config/talhelper-config",
+    "$ref": "#/$defs/TalhelperConfig",
+    "$defs": {
+        "Bond": {
+            "properties": {
+                "interfaces": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deviceSelectors": {
+                    "items": {
+                        "$ref": "#/$defs/NetworkDeviceSelector"
+                    },
+                    "type": "array"
+                },
+                "arpIPTarget": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "xmitHashPolicy": {
+                    "type": "string"
+                },
+                "lacpRate": {
+                    "type": "string"
+                },
+                "adActorSystem": {
+                    "type": "string"
+                },
+                "arpValidate": {
+                    "type": "string"
+                },
+                "arpAllTargets": {
+                    "type": "string"
+                },
+                "primary": {
+                    "type": "string"
+                },
+                "primaryReselect": {
+                    "type": "string"
+                },
+                "failOverMac": {
+                    "type": "string"
+                },
+                "adSelect": {
+                    "type": "string"
+                },
+                "miimon": {
+                    "type": "integer"
+                },
+                "updelay": {
+                    "type": "integer"
+                },
+                "downdelay": {
+                    "type": "integer"
+                },
+                "arpInterval": {
+                    "type": "integer"
+                },
+                "resendIgmp": {
+                    "type": "integer"
+                },
+                "minLinks": {
+                    "type": "integer"
+                },
+                "lpInterval": {
+                    "type": "integer"
+                },
+                "packetsPerSlave": {
+                    "type": "integer"
+                },
+                "numPeerNotif": {
+                    "type": "integer"
+                },
+                "tlbDynamicLb": {
+                    "type": "integer"
+                },
+                "allSlavesActive": {
+                    "type": "integer"
+                },
+                "useCarrier": {
+                    "type": "boolean"
+                },
+                "adActorSysPrio": {
+                    "type": "integer"
+                },
+                "adUserPortKey": {
+                    "type": "integer"
+                },
+                "peerNotifyDelay": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Bridge": {
+            "properties": {
+                "interfaces": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "stp": {
+                    "$ref": "#/$defs/STP"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "CNIConfig": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "urls": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "flannel": {
+                    "$ref": "#/$defs/FlannelCNIConfig"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Customization": {
+            "properties": {
+                "extraKernelArgs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "meta": {
+                    "items": {
+                        "$ref": "#/$defs/MetaValue"
+                    },
+                    "type": "array"
+                },
+                "systemExtensions": {
+                    "$ref": "#/$defs/SystemExtensions"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "DHCPOptions": {
+            "properties": {
+                "routeMetric": {
+                    "type": "integer"
+                },
+                "ipv4": {
+                    "type": "boolean"
+                },
+                "ipv6": {
+                    "type": "boolean"
+                },
+                "duidv6": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Device": {
+            "properties": {
+                "interface": {
+                    "type": "string"
+                },
+                "deviceSelector": {
+                    "$ref": "#/$defs/NetworkDeviceSelector"
+                },
+                "addresses": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "cidr": {
+                    "type": "string"
+                },
+                "routes": {
+                    "items": {
+                        "$ref": "#/$defs/Route"
+                    },
+                    "type": "array"
+                },
+                "bond": {
+                    "$ref": "#/$defs/Bond"
+                },
+                "bridge": {
+                    "$ref": "#/$defs/Bridge"
+                },
+                "vlans": {
+                    "$ref": "#/$defs/VlanList"
+                },
+                "mtu": {
+                    "type": "integer"
+                },
+                "dhcp": {
+                    "type": "boolean"
+                },
+                "ignore": {
+                    "type": "boolean"
+                },
+                "dummy": {
+                    "type": "boolean"
+                },
+                "dhcpOptions": {
+                    "$ref": "#/$defs/DHCPOptions"
+                },
+                "wireguard": {
+                    "$ref": "#/$defs/DeviceWireguardConfig"
+                },
+                "vip": {
+                    "$ref": "#/$defs/DeviceVIPConfig"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "DeviceVIPConfig": {
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "equinixMetal": {
+                    "$ref": "#/$defs/VIPEquinixMetalConfig"
+                },
+                "hcloud": {
+                    "$ref": "#/$defs/VIPHCloudConfig"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "DeviceWireguardConfig": {
+            "properties": {
+                "privateKey": {
+                    "type": "string"
+                },
+                "listenPort": {
+                    "type": "integer"
+                },
+                "firewallMark": {
+                    "type": "integer"
+                },
+                "peers": {
+                    "items": {
+                        "$ref": "#/$defs/DeviceWireguardPeer"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "DeviceWireguardPeer": {
+            "properties": {
+                "publicKey": {
+                    "type": "string"
+                },
+                "endpoint": {
+                    "type": "string"
+                },
+                "persistentKeepaliveInterval": {
+                    "type": "integer"
+                },
+                "allowedIPs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "DiskPartition": {
+            "properties": {
+                "size": {
+                    "type": "integer"
+                },
+                "mountpoint": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "FlannelCNIConfig": {
+            "properties": {
+                "extraArgs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "ImageFactory": {
+            "properties": {
+                "registryURL": {
+                    "type": "string",
+                    "description": "Registry url or the image",
+                    "default": "factory.talos.dev"
+                },
+                "schematicEndpoint": {
+                    "type": "string",
+                    "default": "/schematics"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol of the registry(https or http)",
+                    "default": "https"
+                },
+                "installerURLTmpl": {
+                    "type": "string",
+                    "description": "Template for installer image URL",
+                    "default": "{{.RegistryURL}}/installer{{if .Secureboot}}-secureboot{{end}}/{{.ID}}:{{.Version}}"
+                },
+                "ISOURLTmpl": {
+                    "type": "string",
+                    "description": "Template for ISO image URL",
+                    "default": "{{.Protocol}}://{{.RegistryURL}}/image/{{.ID}}/{{.Version}}/{{.Mode}}-{{.Arch}}{{if .Secureboot}}-secureboot{{end}}{{if and .Secureboot .UseUKI}}-uki.efi{{else}}.iso{{end}}"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "IngressConfigWrapper": {
+            "properties": {
+                "subnet": {
+                    "type": "string",
+                    "description": "Source subnet"
+                },
+                "except": {
+                    "type": "string",
+                    "description": "Source subnet to exclude from the subnet"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "IngressFirewallWrapper": {
+            "properties": {
+                "defaultAction": {
+                    "type": "string",
+                    "description": "Default action for all not explicitly configured traffic",
+                    "default": "block"
+                },
+                "rules": {
+                    "items": {
+                        "$ref": "#/$defs/NetworkRuleWrapper"
+                    },
+                    "type": "array",
+                    "description": "List of matching network rules to allow or block against the defaultAction"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "InstallDiskSelectorWrapper": {
+            "properties": {
+                "size": {
+                    "type": "string",
+                    "description": "Disk size",
+                    "examples": ["4GB"]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "serial": {
+                    "type": "string"
+                },
+                "modalias": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "wwid": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "examples": ["ssd"]
+                },
+                "busPath": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "KernelModuleConfig": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "MachineDisk": {
+            "properties": {
+                "device": {
+                    "type": "string"
+                },
+                "partitions": {
+                    "items": {
+                        "$ref": "#/$defs/DiskPartition"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "MachineFile": {
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "permissions": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "op": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "MachineSpec": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "Machine mode (e.g: metal)",
+                    "default": "metal"
+                },
+                "arch": {
+                    "type": "string",
+                    "description": "Machine architecture (e.g: amd64",
+                    "default": "amd64"
+                },
+                "secureboot": {
+                    "type": "boolean",
+                    "description": "Whether to enable Secure Boot",
+                    "default": false
+                },
+                "useUKI": {
+                    "type": "boolean",
+                    "description": "Whether to use UKI if Secure Boot is enabled",
+                    "default": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "MetaValue": {
+            "properties": {
+                "key": {
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "NetworkDeviceSelector": {
+            "properties": {
+                "busPath": {
+                    "type": "string"
+                },
+                "hardwareAddr": {
+                    "type": "string"
+                },
+                "pciID": {
+                    "type": "string"
+                },
+                "driver": {
+                    "type": "string"
+                },
+                "physical": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "NetworkRuleWrapper": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rule"
+                },
+                "portSelector": {
+                    "$ref": "#/$defs/PortSelectorWrapper",
+                    "description": "Ports and protocols on the host affected by the rule"
+                },
+                "ingress": {
+                    "items": {
+                        "$ref": "#/$defs/IngressConfigWrapper"
+                    },
+                    "type": "array",
+                    "description": "List of source subnets allowed to access the host ports/protocols"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Node": {
+            "oneOf": [
+                {
+                    "required": ["installDisk"],
+                    "title": "installDiskSelector"
+                },
+                {
+                    "required": ["installDiskSelector"],
+                    "title": "installDisk"
+                }
+            ],
+            "properties": {
+                "hostname": {
+                    "type": "string",
+                    "description": "Hostname of the node"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "IP address where the node can be reached",
+                    "examples": ["192.168.200.11"]
+                },
+                "controlPlane": {
+                    "type": "boolean",
+                    "description": "Whether the node is a controlplane"
+                },
+                "installDisk": {
+                    "type": "string",
+                    "description": "The disk used for installation"
+                },
+                "installDiskSelector": {
+                    "$ref": "#/$defs/InstallDiskSelectorWrapper",
+                    "description": "Look up disk used for installation"
+                },
+                "overridePatches": {
+                    "type": "boolean",
+                    "description": "Whether \"patches\" defined here should override the one defined in node group"
+                },
+                "overrideExtraManifests": {
+                    "type": "boolean",
+                    "description": "Whether \"extraManifests\" defined here should override the one defined in node group"
+                },
+                "nodeLabels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "Labels to be added to the node"
+                },
+                "nodeTaints": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "Node taints for the node. Effect is optional"
+                },
+                "machineDisks": {
+                    "items": {
+                        "$ref": "#/$defs/MachineDisk"
+                    },
+                    "type": "array",
+                    "description": "List of additional disks to partition"
+                },
+                "machineFiles": {
+                    "items": {
+                        "$ref": "#/$defs/MachineFile"
+                    },
+                    "type": "array",
+                    "description": "List of files to create inside the node"
+                },
+                "disableSearchDomain": {
+                    "type": "boolean",
+                    "description": "Whether to disable generating default search domain"
+                },
+                "kernelModules": {
+                    "items": {
+                        "$ref": "#/$defs/KernelModuleConfig"
+                    },
+                    "type": "array",
+                    "description": "List of additional kernel modules to load inside the node"
+                },
+                "nameservers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "List of nameservers for the node"
+                },
+                "networkInterfaces": {
+                    "items": {
+                        "$ref": "#/$defs/Device"
+                    },
+                    "type": "array",
+                    "description": "List of network interface configuration for the node"
+                },
+                "extraManifests": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "List of manifest files to be added to the node"
+                },
+                "patches": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Patches to be applied to the node"
+                },
+                "talosImageURL": {
+                    "type": "string",
+                    "description": "Talos installer image url for the node",
+                    "examples": [
+                        "factory.talos.dev/installer/e9c7ef96884d4fbc8c0a1304ccca4bb0287d766a8b4125997cb9dbe84262144e"
+                    ]
+                },
+                "schematic": {
+                    "$ref": "#/$defs/Schematic",
+                    "description": "Talos image customization to be used in the installer image"
+                },
+                "machineSpec": {
+                    "$ref": "#/$defs/MachineSpec",
+                    "description": "Machine hardware specification"
+                },
+                "ingressFirewall": {
+                    "$ref": "#/$defs/IngressFirewallWrapper",
+                    "description": "Machine firewall specification"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "required": ["hostname", "ipAddress"]
+        },
+        "NodeConfigs": {
+            "properties": {
+                "nodeLabels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "Labels to be added to the node"
+                },
+                "nodeTaints": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "Node taints for the node. Effect is optional"
+                },
+                "machineDisks": {
+                    "items": {
+                        "$ref": "#/$defs/MachineDisk"
+                    },
+                    "type": "array",
+                    "description": "List of additional disks to partition"
+                },
+                "machineFiles": {
+                    "items": {
+                        "$ref": "#/$defs/MachineFile"
+                    },
+                    "type": "array",
+                    "description": "List of files to create inside the node"
+                },
+                "disableSearchDomain": {
+                    "type": "boolean",
+                    "description": "Whether to disable generating default search domain"
+                },
+                "kernelModules": {
+                    "items": {
+                        "$ref": "#/$defs/KernelModuleConfig"
+                    },
+                    "type": "array",
+                    "description": "List of additional kernel modules to load inside the node"
+                },
+                "nameservers": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "List of nameservers for the node"
+                },
+                "networkInterfaces": {
+                    "items": {
+                        "$ref": "#/$defs/Device"
+                    },
+                    "type": "array",
+                    "description": "List of network interface configuration for the node"
+                },
+                "extraManifests": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "List of manifest files to be added to the node"
+                },
+                "patches": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Patches to be applied to the node"
+                },
+                "talosImageURL": {
+                    "type": "string",
+                    "description": "Talos installer image url for the node",
+                    "examples": [
+                        "factory.talos.dev/installer/e9c7ef96884d4fbc8c0a1304ccca4bb0287d766a8b4125997cb9dbe84262144e"
+                    ]
+                },
+                "schematic": {
+                    "$ref": "#/$defs/Schematic",
+                    "description": "Talos image customization to be used in the installer image"
+                },
+                "machineSpec": {
+                    "$ref": "#/$defs/MachineSpec",
+                    "description": "Machine hardware specification"
+                },
+                "ingressFirewall": {
+                    "$ref": "#/$defs/IngressFirewallWrapper",
+                    "description": "Machine firewall specification"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "PortSelectorWrapper": {
+            "properties": {
+                "ports": {
+                    "items": true,
+                    "type": "array",
+                    "description": "List of ports or port ranges"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol (can be tcp or udp)"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Route": {
+            "properties": {
+                "network": {
+                    "type": "string"
+                },
+                "gateway": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "metric": {
+                    "type": "integer"
+                },
+                "mtu": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "STP": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Schematic": {
+            "properties": {
+                "customization": {
+                    "$ref": "#/$defs/Customization"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "SystemExtensions": {
+            "properties": {
+                "officialExtensions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "TalhelperConfig": {
+            "properties": {
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the cluster"
+                },
+                "talosVersion": {
+                    "type": "string",
+                    "description": "Talos version to perform installation",
+                    "examples": ["v1.5.4"]
+                },
+                "kubernetesVersion": {
+                    "type": "string",
+                    "description": "Kubernetes version to use",
+                    "examples": ["v1.27.0"]
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "Cluster's controlplane endpoint",
+                    "examples": ["https://192.168.200.10:6443"]
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The domain to be used by Kubernetes DNS",
+                    "examples": ["cluster.local"]
+                },
+                "allowSchedulingOnMasters": {
+                    "type": "boolean",
+                    "description": "Whether to allow running workload on controlplane nodes"
+                },
+                "allowSchedulingOnControlPlanes": {
+                    "type": "boolean",
+                    "description": "Whether to allow running workload on controlplane nodes. It is an alias to \"AllowSchedulingOnMasters\""
+                },
+                "additionalMachineCertSans": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Extra certificate SANs for the machine's certificate"
+                },
+                "additionalApiServerCertSans": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Extra certificate SANs for the API server's certificate"
+                },
+                "clusterPodNets": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "The pod subnet CIDR list"
+                },
+                "clusterSvcNets": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "The service subnet CIDR list"
+                },
+                "cniConfig": {
+                    "$ref": "#/$defs/CNIConfig",
+                    "description": "The CNI to be used for the cluster's network"
+                },
+                "patches": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Patches to be applied to all nodes"
+                },
+                "nodes": {
+                    "items": {
+                        "$ref": "#/$defs/Node"
+                    },
+                    "type": "array",
+                    "description": "List of configurations for Node"
+                },
+                "imageFactory": {
+                    "$ref": "#/$defs/ImageFactory"
+                },
+                "controlPlane": {
+                    "$ref": "#/$defs/NodeConfigs",
+                    "description": "Configurations targetted for all controlplane nodes"
+                },
+                "worker": {
+                    "$ref": "#/$defs/NodeConfigs",
+                    "description": "Configurations targetted for all worker nodes"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "required": ["clusterName", "endpoint", "nodes"]
+        },
+        "VIPEquinixMetalConfig": {
+            "properties": {
+                "apiToken": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "VIPHCloudConfig": {
+            "properties": {
+                "apiToken": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "Vlan": {
+            "properties": {
+                "addresses": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "cidr": {
+                    "type": "string"
+                },
+                "routes": {
+                    "items": {
+                        "$ref": "#/$defs/Route"
+                    },
+                    "type": "array"
+                },
+                "dhcp": {
+                    "type": "boolean"
+                },
+                "vlanId": {
+                    "type": "integer"
+                },
+                "mtu": {
+                    "type": "integer"
+                },
+                "vip": {
+                    "$ref": "#/$defs/DeviceVIPConfig"
+                },
+                "dhcpOptions": {
+                    "$ref": "#/$defs/DHCPOptions"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object"
+        },
+        "VlanList": {
+            "items": {
+                "$ref": "#/$defs/Vlan"
+            },
+            "type": "array"
+        }
+    }
+}

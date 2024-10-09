@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/k8s-at-home/haste-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:827aa2f2389d94a522e333080fa8cbc0e0a487c5681173caca785b3b6b9e5b01
+service:
+  main:
+    ports:
+      main:
+        port: 7777
+        targetPort: 7777
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            STORAGE_FILEPATH: "/config"
+            STORAGE_TYPE: "file"

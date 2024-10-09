@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 23.11.4
+dependencies:
+  - name: common
+    version: 18.1.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An open source time-tracker with an interactive user experience and powerful reporting.
+home: https://truecharts.org/charts/stable/timetagger
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/timetagger.png
+keywords:
+  - time
+  - timetagger
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: timetagger
+sources:
+  - https://timetagger.app
+  - https://github.com/almarklein/timetagger
+  - https://github.com/truecharts/charts/tree/master/charts/stable/timetagger
+  - https://ghcr.io/almarklein/timetagger
+type: application
+version: 5.2.0

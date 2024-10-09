@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/category: bookmarks
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.5.3
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A bookmarking and link shortening service that enables easy saving and sharing of links.
+home: https://truecharts.org/charts/stable/slash
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/slash.png
+keywords:
+  - slash
+  - bookmarks
+  - url-shortener
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: slash
+sources:
+  - https://github.com/boojack/slash
+  - https://github.com/truecharts/charts/tree/master/charts/stable/slash
+  - https://hub.docker.com/r/yourselfhosted/slash
+type: application
+version: 2.2.0

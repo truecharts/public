@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: sonatype/nexus3
+  tag: 3.65.0@sha256:7394c5aee1f6b085603b1082cd87909fae4c476370b497f5d5d271b8e17fe9d2
+persistence:
+  data:
+    enabled: true
+    mountPath: /nexus-data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsGroup: 200
+    runAsUser: 200
+  pod:
+    fsGroup: 200
+service:
+  main:
+    ports:
+      main:
+        port: 10288
+        targetPort: 8081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            INSTALL4J_ADD_VM_PARAMS:
+              -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m
+              -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs

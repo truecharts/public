@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: piratify/invitarr
+  tag: latest@sha256:78a82851aa167e89a5f5d6f025d81ad8b4c08856f166a92f960e4a57a9c264d9
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/app/config
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            token: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

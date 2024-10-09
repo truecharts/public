@@ -1,0 +1,22 @@
+name: File Presence QC
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+      - minor-dev
+
+jobs:
+  build:
+    name: Check Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1
+      - name: check existance
+        run: |
+          for pathname in blueprints/*; do test -e $pathname/readme.md || { echo "File missing: $pathname/readme.md"; error="true"; }; done
+          for pathname in blueprints/*; do test -e $pathname/install.sh || { echo "File missing: $pathname/install.sh"; error="true"; }; done
+          for pathname in blueprints/*; do test -e $pathname/update.sh || { echo "File missing: $pathname/update.sh"; error="true"; }; done
+          for pathname in blueprints/*; do test -e $pathname/config.yml || { echo "File missing: $pathname/config.yml"; error="true"; }; done
+          if [ "${error}" == "true" ]; then echo "Missing files detected" && exit 1; fi
+        shell: bash

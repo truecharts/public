@@ -1,0 +1,31 @@
+image:
+  repository: cloudflare/cloudflared
+  pullPolicy: IfNotPresent
+  tag: 2024.4.1@sha256:fcfafd14a658837c49a794671d5bec2c9e4227730abdc29db7c066f4381acba4
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          args:
+            - tunnel
+            - --no-autoupdate
+            - run
+          env:
+            TUNNEL_TOKEN: ""
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+portal:
+  open:
+    enabled: false

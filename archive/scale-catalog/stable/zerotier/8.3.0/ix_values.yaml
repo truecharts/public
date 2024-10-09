@@ -1,0 +1,50 @@
+image:
+  repository: docker.io/zerotier/zerotier
+  pullPolicy: IfNotPresent
+  tag: 1.12.2@sha256:4cb535806f1d1ba71a48a8f38cc0b72e1b0bc3be8474379151efc810fe2fa5e2
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        targetPort: 9993
+        port: 10190
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/zerotier-one"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - NET_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            ZEROTIER_API_SECRET: ""
+            ZEROTIER_IDENTITY_PUBLIC: ""
+            ZEROTIER_IDENTITY_SECRET: ""

@@ -1,0 +1,41 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: One-time encrypted password/secret sharing
+home: https://truecharts.org/charts/incubator/flashpaper
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flashpaper.webp
+keywords:
+  - flashpaper
+  - Cloud
+  - Productivity
+  - Security
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flashpaper
+sources:
+  - https://github.com/AndrewPaglusch/FlashPaper
+  - https://github.com/andrewpaglusch/FlashPaper/pkgs/container/flashpaper
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/flashpaper
+  - https://ghcr.io/andrewpaglusch/flashpaper
+type: application
+version: 1.1.17

@@ -1,0 +1,88 @@
+suite: pod nfs volume test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with nfs volume
+    set:
+      some_path: /some-path
+      some_server: some-server
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        nfs-vol:
+          enabled: true
+          type: nfs
+          path: "{{ .Values.some_path }}"
+          server: "{{ .Values.some_server }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: nfs-vol
+            nfs:
+              path: /some-path
+              server: some-server
+
+  # Failures
+  - it: should fail without path in nfs
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: nfs
+          path: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [path] on [nfs] type
+
+  - it: should fail with path not starting with / in nfs
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: nfs
+          path: some-relative-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [path] to start with a forward slash [/] on [nfs] type
+
+  - it: should fail without server in nfs
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: nfs
+          path: /some-path
+          server: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [server] on [nfs] type

@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A simple WebGUI Fan controller for IPMI.
+home: https://truecharts.org/charts/stable/ipmi-tools
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ipmi-tools.png
+keywords:
+  - ipmi-tools
+  - Productivity
+  - Tools-Utilities
+  - Network-Management
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ipmi-tools
+sources:
+  - https://github.com/EdwardChamberlain/IPMI-Fan-Controller
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ipmi-tools
+  - https://hub.docker.com/r/edchamberlain/ipmi-tools
+type: application
+version: 5.3.0

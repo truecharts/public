@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/linuxserver/minetest
+  pullPolicy: IfNotPresent
+  tag: 5.8.0@sha256:adb23db89d0b47811f4fe8d38f886a56a8a9edb69eac945dac311afe86c16af2
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        targetPort: 30000
+        port: 30000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config/.minetest"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

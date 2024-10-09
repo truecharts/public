@@ -1,0 +1,49 @@
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: http
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+additionalContainers:
+  some-name:
+    imageSelector: image
+    args:
+      - --port
+      - "8081"
+    probes:
+      liveness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      readiness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      startup:
+        enabled: true
+        port: 8081
+        type: http
+        path: /

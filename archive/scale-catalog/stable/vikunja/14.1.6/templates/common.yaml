@@ -1,0 +1,8 @@
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $secrets := include "vikunja.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values $secrets -}}
+{{- end -}}
+
+{{ include "tc.v1.common.loader.apply" . }}

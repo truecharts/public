@@ -1,0 +1,31 @@
+image:
+  repository: deluan/navidrome
+  pullPolicy: IfNotPresent
+  tag: 0.52.5@sha256:4d42b180d99bfe95e1c058413e504b287559afac7b496606d27e4a89c187c339
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ND_MUSICFOLDER: /music
+            ND_SCANSCHEDULE: "@every 15m"
+            ND_LOGLEVEL: info
+            ND_SESSIONTIMEOUT: 24h
+            ND_ENABLETRANSCODINGCONFIG: false
+service:
+  main:
+    ports:
+      main:
+        port: 4533
+        targetPort: 4533
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  music:
+    enabled: true
+    mountPath: /music
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,40 @@
+image:
+  repository: ghcr.io/linuxserver/beets
+  pullPolicy: IfNotPresent
+  tag: version-1.6.0@sha256:91fd669c8947069d7331cb369f1301930ed5540b5057951f7c1224e8e036d015
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8337
+        protocol: http
+        targetPort: 8337
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

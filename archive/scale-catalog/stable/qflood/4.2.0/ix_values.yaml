@@ -1,0 +1,38 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/hotio/qflood
+  tag: latest@sha256:ff86ae422aa174dd7c90bcefbe21dc4dc72b6edc81e3843446727a57cddf0dfa
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  hostportfor808:
+    enabled: true
+    ports:
+      hostportfor808:
+        enabled: true
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FLOOD_AUTH: ""

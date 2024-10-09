@@ -1,0 +1,30 @@
+image:
+  repository: guacamole/guacd
+  pullPolicy: IfNotPresent
+  tag: 1.5.5@sha256:38232cae271361ef53db46faf5c49fe64049a1320a05b82c597425b69d6ce77e
+service:
+  main:
+    ports:
+      main:
+        targetPort: 4822
+        port: 4822
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

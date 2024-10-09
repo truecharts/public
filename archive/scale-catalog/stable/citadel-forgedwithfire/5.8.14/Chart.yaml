@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: citadelfwf
+dependencies:
+  - name: common
+    version: 20.3.12
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install SteamCMD. It will also install Citadel - Forged with Fire and run it.
+home: https://truecharts.org/charts/stable/citadel-forgedwithfire
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/citadel-forgedwithfire.webp
+keywords:
+  - citadel-forgedwithfire
+  - GameServers
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: citadel-forgedwithfire
+sources:
+  - https://www.steampowered.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/citadel-forgedwithfire
+  - https://hub.docker.com/r/ich777/steamcmd
+type: application
+version: 5.8.14

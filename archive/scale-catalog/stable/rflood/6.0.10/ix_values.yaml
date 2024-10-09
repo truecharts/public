@@ -1,0 +1,30 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/hotio/rflood
+  tag: latest@sha256:e04c5639ae4d6805417a844a0139b23bc5627ec68b8333cf007b391219d7e581
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FLOOD_AUTH: "false"

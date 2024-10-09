@@ -1,0 +1,69 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/suwayomi/tachidesk
+  tag: preview@sha256:d5c11e9131c5b0114eb670f488462016f34fdf1cf3d49f0b01be4c2b4eae7ac1
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BIND_IP: "0.0.0.0"
+            BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SOCKS_PROXY_ENABLED: false
+            SOCKS_PROXY_HOST: ""
+            SOCKS_PROXY_PORT: ""
+            DOWNLOAD_AS_CBZ: true
+            BASIC_AUTH_ENABLED: false
+            BASIC_AUTH_USERNAME: ""
+            BASIC_AUTH_PASSWORD: ""
+            DEBUG: false
+            GQL_DEBUG: false
+            WEB_UI_ENABLED: true
+            WEB_UI_FLAVOR: "WebUI"
+            WEB_UI_CHANNEL: "stable"
+            WEB_UI_UPDATE_INTERVAL: 23
+            AUTO_DOWNLOAD_CHAPTERS: false
+            AUTO_DOWNLOAD_EXCLUDE_UNREAD: true
+            AUTO_DOWNLOAD_AHEAD_LIMIT: 0
+            EXTENSION_REPOS: ""
+            MAX_SOURCES_IN_PARALLEL: 6
+            UPDATE_EXCLUDE_UNREAD: true
+            UPDATE_EXCLUDE_STARTED: true
+            UPDATE_EXCLUDE_COMPLETED: true
+            UPDATE_INTERVAL: 12
+            UPDATE_MANGA_INFO: false
+            BACKUP_TIME: ""
+            BACKUP_INTERVAL: 1
+            BACKUP_TTL: 14
+            FLARESOLVERR_ENABLED: false
+            FLARESOLVERR_URL: ""
+            FLARESOLVERR_TIMEOUT: 60
+            FLARESOLVERR_SESSION_NAME: "suwayomi"
+            FLARESOLVERR_SESSION_TTL: 15
+
+service:
+  main:
+    ports:
+      main:
+        port: 4567
+
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk
+  library:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk/downloads
+  local-library:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk/local
+
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,29 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: phpmyadmin/phpmyadmin
+  tag: 5.2.1@sha256:67ba2550fd004399ab0b95b64021a88ea544011e566a9a1995180a3decb6410d
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: http
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MYSQL_PASSWORD: root
+            MYSQL_USER: root
+            PMA_HOST: 192.168.70.99
+            PMA_PORT: "3306"

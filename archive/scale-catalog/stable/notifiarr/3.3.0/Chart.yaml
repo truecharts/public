@@ -1,0 +1,38 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: MediaApp-Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.7.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features.
+home: https://truecharts.org/charts/stable/notifiarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/notifiarr.png
+keywords:
+  - plex
+  - discord
+  - MediaApp-Other
+  - notification
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: notifiarr
+sources:
+  - https://github.com/Notifiarr/notifiarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/notifiarr
+  - https://hub.docker.com/r/golift/notifiarr
+type: application
+version: 3.3.0

@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
+
+{{/* Render secrets for anonaddy */}}
+{{- $secrets := include "anonaddy.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "anonaddy-secrets" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}

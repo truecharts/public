@@ -1,0 +1,79 @@
+image:
+  repository: ghcr.io/lloesche/valheim-server
+  tag: latest@sha256:b97da1038714e5156cf28d042422a1c5af41e03189572025e615bde61395c678
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 9010
+  supervisor:
+    enabled: true
+    ports:
+      supervisor:
+        enabled: true
+        port: 9011
+  valheim:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      valheim1:
+        enabled: true
+        port: 2456
+        protocol: udp
+      valheim2:
+        enabled: true
+        port: 2457
+        protocol: udp
+ingress:
+  supervisor:
+    enabled: false
+    targetSelector:
+      supervisor: supervisor
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  backups:
+    enabled: true
+    mountPath: /backups
+  varrun:
+    enabled: false
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            STATUS_HTTP: true
+            STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SUPERVISOR_HTTP: true
+            SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
+            SERVER_NAME: My Server
+            SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
+            WORLD_NAME: Dedicated
+            SERVER_PUBLIC: true
+            UPDATE_INTERVAL: 10800
+            BACKUPS: true
+            BACKUPS_INTERVAL: 43200
+            BACKUPS_DIRECTORY: /backups
+            BACKUPS_MAX_AGE: 3
+            SUPERVISOR_HTTP_USER: admin
+            SUPERVISOR_HTTP_PASS: secret
+            SERVER_PASS: secret

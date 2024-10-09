@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/relvacode/storm
+  tag: v1.3.0@sha256:9f50d643af5a83424331a93a212e320407a1a1577f0202e6141f7f5245d2711a
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8221
+        protocol: http
+        targetPort: 8221
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DELUGE_RPC_HOSTNAME: ""
+            DELUGE_RPC_PORT: 58846
+            DELUGE_RPC_PASSWORD: ""
+            DELUGE_RPC_USERNAME: ""
+            DELUGE_RPC_VERSION: v2
+            STORM_API_KEY: ""
+
+portal:
+  open:
+    enabled: true

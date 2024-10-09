@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/nicholaswilde/fossil
+  pullPolicy: IfNotPresent
+  tag: 2.15.1-ls4@sha256:a0a819ed2707e8e829dec371de0e166fbcf0499d3d12005880f603b2b95bf64d
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+service:
+  main:
+    ports:
+      main:
+        port: 10083
+        targetPort: 8080
+persistence:
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true

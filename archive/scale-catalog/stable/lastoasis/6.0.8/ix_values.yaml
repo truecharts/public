@@ -1,0 +1,56 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: lastoasis@sha256:8a0a7398628986018857edc4e5c228d165766240714190c333e3fa849ab81c0d
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5555
+        protocol: udp
+        targetPort: 5555
+  queryport:
+    enabled: true
+    ports:
+      queryport:
+        enabled: true
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOMER_KEY: pwHB3mLCOUWscFi7
+            GAME_ID: "920720"
+            GAME_PARAMS: -port=5555 -QueryPort=27015 -NoLiveServer -EnableCheats
+            IDENTIFIER: dockeroasis
+            PASSWRD: ""
+            PROVIDER_KEY: " 8IhohaMRZIJJubv5 "
+            SLOTS: "20"
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

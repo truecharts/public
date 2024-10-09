@@ -1,0 +1,35 @@
+image:
+  repository: jgraph/drawio
+  tag: 23.1.8@sha256:35047266b9c3db6b4c544983f1fa5315e426c266596d4742dfa3d26d553b35a4
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10214
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+portal:
+  open:
+    enabled: true

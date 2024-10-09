@@ -1,0 +1,40 @@
+image:
+  repository: ghcr.io/linuxserver/audacity
+  pullPolicy: IfNotPresent
+  tag: version-3.0.2@sha256:cdf203db1e50e18349f16c5958f7061b18625501f5e2f7a15cd69262185e3e84
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10032
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

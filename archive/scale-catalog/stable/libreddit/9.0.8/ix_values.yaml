@@ -1,0 +1,53 @@
+image:
+  repository: libreddit/libreddit
+  tag: latest@sha256:a62c62cd1774c16e9457dcdf98afe2875be13ca777873975d9ce864351fba52a
+  pullPolicy: IfNotPresent
+libreddit:
+  theme: system
+  front_page: default
+  layout: card
+  post_sort: hot
+  comment_sort: confidence
+  wide: false
+  show_nsfw: false
+  use_hls: false
+  hide_hls_notification: false
+  autoplay_videos: false
+service:
+  main:
+    ports:
+      main:
+        port: 10257
+        targetPort: 8080
+configmap:
+  libreddit:
+    enabled: true
+    data:
+      LIBREDDIT_DEFAULT_THEME: "{{ .Values.libreddit.theme }}"
+      LIBREDDIT_DEFAULT_FRONT_PAGE: "{{ .Values.libreddit.front_page }}"
+      LIBREDDIT_DEFAULT_LAYOUT: "{{ .Values.libreddit.layout }}"
+      LIBREDDIT_DEFAULT_POST_SORT: "{{ .Values.libreddit.post_sort }}"
+      LIBREDDIT_DEFAULT_COMMENT_SORT: "{{ .Values.libreddit.comment_sort }}"
+      LIBREDDIT_DEFAULT_WIDE: '{{ ternary "on" "off" .Values.libreddit.wide }}'
+      LIBREDDIT_DEFAULT_SHOW_NSFW: '{{ ternary "on" "off" .Values.libreddit.show_nsfw }}'
+      LIBREDDIT_DEFAULT_USE_HLS: '{{ ternary "on" "off" .Values.libreddit.use_hls }}'
+      LIBREDDIT_DEFAULT_HIDE_HLS_NOTIFICATION: '{{ ternary "on" "off" .Values.libreddit.hide_hls_notification }}'
+      LIBREDDIT_DEFAULT_AUTOPLAY_VIDEOS: '{{ ternary "on" "off" .Values.libreddit.autoplay_videos }}'
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/settings"
+            readiness:
+              path: "/settings"
+            startup:
+              path: "/settings"
+          envFrom:
+            - configMapRef:
+                name: "libreddit"

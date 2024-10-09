@@ -1,0 +1,15 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Set it to the same port as "torrent" service/port */}}
+{{- $_ := set $.Values.service.torrent.ports.torrentudp "port" .Values.service.torrent.ports.torrent.port -}}
+
+{{- if .Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_AUTHENTICATION_REQUIRED -}}
+  {{- $headers := (dict "Authorization" (printf "Basic %s" (printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_USERNAME .Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_PASSWORD | b64enc))) -}}
+  {{- $_ := set $.Values.workload.main.podSpec.containers.main.probes.liveness "httpHeaders" $headers -}}
+  {{- $_ := set $.Values.workload.main.podSpec.containers.main.probes.readiness "httpHeaders" $headers -}}
+  {{- $_ := set $.Values.workload.main.podSpec.containers.main.probes.startup "httpHeaders" $headers -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

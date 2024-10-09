@@ -1,0 +1,108 @@
+image:
+  repository: mauricenino/dashdot
+  tag: 5.8.3@sha256:d78f64ccdd92b769794c8ff79d9e27509c4482b8e3d342aa04cd772b3dbd7b74
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    privileged: true
+    allowPrivilegeEscalation: true
+    capabilities:
+      add:
+        - SYS_ADMIN
+        - SYS_RAWIO
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10044
+        protocol: http
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            DASHDOT_PORT: "{{ .Values.service.main.ports.main.port}}"
+            # User Defined
+            # DASHDOT_WIDGET_LIST: os,cpu,storage,ram,network# DASHDOT_ACCEPT_OOKLA_EULA: true
+            # DASHDOT_USE_IMPERIAL: false
+            # DASHDOT_DISABLE_INTEGRATIONS: false
+            # DASHDOT_SHOW_HOST: true
+            # DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
+            # DASHDOT_FS_TYPE_FILTER: "cifs,9p,fuse.rclone,fuse.mergerfs"
+            # DASHDOT_FS_DEVICE_FILTER: "sda,sdb"
+            # DASHDOT_FS_VIRTUAL_MOUNTS: ""
+            # DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
+            # DASHDOT_OS_WIDGET_GROW: "1.5"
+            # DASHDOT_OS_WIDGET_MIN_WIDTH: "300"
+            # DASHDOT_ENABLE_CPU_TEMPS: false
+            # DASHDOT_CPU_LABEL_LIST: "brand,model,cores,threads,frequency"
+            # DASHDOT_CPU_WIDGET_GROW: "4"
+            # DASHDOT_CPU_WIDGET_MIN_WIDTH: "500"
+            # DASHDOT_CPU_DATAPOINTS: "20"
+            # DASHDOT_CPU_POLL_INTERVAL: "1000"
+            # DASHDOT_STORAGE_LABEL_LIST: "brand,size,type"
+            # DASHDOT_STORAGE_WIDGET_GROW: "3.5"
+            # DASHDOT_STORAGE_WIDGET_MIN_WIDTH: "500"
+            # DASHDOT_STORAGE_POLL_INTERVAL: "60000"
+            # DASHDOT_ENABLE_STORAGE_SPLIT_VIEW: false
+            # DASHDOT_RAM_LABEL_LIST: "brand,size,type,frequency"
+            # DASHDOT_RAM_WIDGET_GROW: "4"
+            # DASHDOT_RAM_WIDGET_MIN_WIDTH: "500"
+            # DASHDOT_RAM_DATAPOINTS: "20"
+            # DASHDOT_RAM_POLL_INTERVAL: "1000"
+            # DASHDOT_USE_NETWORK_INTERFACE: ""
+            # DASHDOT_SPEED_TEST_INTERVAL: "60"
+            # DASHDOT_NETWORK_LABEL_LIST: "type,speed_up,speed_down,interface_speed"
+            # DASHDOT_NETWORK_WIDGET_GROW: "6"
+            # DASHDOT_NETWORK_WIDGET_MIN_WIDTH: "500"
+            # DASHDOT_NETWORK_DATAPOINTS: "20"
+            # DASHDOT_NETWORK_POLL_INTERVAL: "1000"
+            # DASHDOT_OVERRIDE_OS: ""
+            # DASHDOT_OVERRIDE_ARCH: ""
+            # DASHDOT_OVERRIDE_CPU_BRAND: ""
+            # DASHDOT_OVERRIDE_CPU_MODEL: ""
+            # DASHDOT_OVERRIDE_CPU_CORES: ""
+            # DASHDOT_OVERRIDE_CPU_THREADS: ""
+            # DASHDOT_OVERRIDE_CPU_FREQUENCY: ""
+            # DASHDOT_OVERRIDE_RAM_BRAND: ""
+            # DASHDOT_OVERRIDE_RAM_SIZE: ""
+            # DASHDOT_OVERRIDE_RAM_TYPE: ""
+            # DASHDOT_OVERRIDE_RAM_FREQUENCY: ""
+            # DASHDOT_OVERRIDE_NETWORK_SPEED_UP: ""
+            # DASHDOT_OVERRIDE_NETWORK_SPEED_DOWN: ""
+            # DASHDOT_OVERRIDE_NETWORK_INTERFACE_SPEED: ""
+            # DASHDOT_OVERRIDE_NETWORK_PUBLIC_IP: ""
+            # DASHDOT_OVERRIDE_STORAGE_BRANDS: ""
+            # DASHDOT_OVERRIDE_STORAGE_SIZES: ""
+            # DASHDOT_OVERRIDE_STORAGE_TYPES: ""
+persistence:
+  host-mnt:
+    enabled: true
+    type: hostPath
+    hostPath: "/"
+    mountPath: /mnt/host
+    readOnly: true
+  mem:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/mem
+    mountPath: /dev/mem
+    readOnly: true
+portal:
+  open:
+    enabled: true

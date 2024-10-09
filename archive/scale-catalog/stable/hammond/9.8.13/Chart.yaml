@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.0.24
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted vehicle expense tracking system with support for multiple users.
+home: https://truecharts.org/charts/stable/hammond
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hammond.webp
+keywords:
+  - hammond
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hammond
+sources:
+  - https://github.com/AlfHou/hammond
+  - https://github.com/alfhou/hammond/pkgs/container/hammond
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hammond
+  - https://ghcr.io/alfhou/hammond
+type: application
+version: 9.8.13

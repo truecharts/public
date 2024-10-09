@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A small flask based service to sync up Emby clients
+home: https://truecharts.org/charts/stable/emby-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby-sync.webp
+keywords:
+  - emby-sync
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: emby-sync
+sources:
+  - https://github.com/cameronurnes/emby-sync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emby-sync
+  - https://hub.docker.com/r/lastelement21/emby-sync
+type: application
+version: 5.8.13

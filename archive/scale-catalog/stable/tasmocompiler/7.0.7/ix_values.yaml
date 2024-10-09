@@ -1,0 +1,23 @@
+image:
+  repository: benzino77/tasmocompiler
+  tag: latest@sha256:df411c39b0fa608e91a0ec83145749a2c26e1c192d52ac6d191d2a2f69f4a4e5
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 14003
+        protocol: http
+        targetPort: 3000
+
+portal:
+  open:
+    enabled: true

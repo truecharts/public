@@ -1,0 +1,51 @@
+image:
+  repository: kanboard/kanboard
+  tag: v1.2.35@sha256:987ab3d96258babe3c752acc480f70d6ce00a58c45bc778de18724555dffb2c9
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10015
+        targetPort: 80
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/www/app/data"
+  ssl:
+    enabled: true
+    mountPath: "/etc/nginx/ssl"
+cnpg:
+  main:
+    enabled: true
+    user: kanboard
+    database: kanboard
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MAIL_CONFIGURATION: false
+            LOG_DRIVER: stdout
+            DB_DRIVER: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

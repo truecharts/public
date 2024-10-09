@@ -1,0 +1,107 @@
+suite: priorityClass spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+    asserts:
+      - documentIndex: &priorityClassDoc 0
+        isKind:
+          of: PriorityClass
+      - documentIndex: *priorityClassDoc
+        isAPIVersion:
+          of: scheduling.k8s.io/v1
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: value
+          value: 1000000
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: preemptionPolicy
+          value: PreemptLowerPriority
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: globalDefault
+          value: false
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: description
+          value: No description given
+
+  - it: should generate correct spec with non-default value
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+          value: 1000
+    asserts:
+      - documentIndex: &priorityClassDoc 0
+        isKind:
+          of: PriorityClass
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: value
+          value: 1000
+
+  - it: should generate correct spec with non-default preemptionPolicy
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+          preemptionPolicy: Never
+    asserts:
+      - documentIndex: &priorityClassDoc 0
+        isKind:
+          of: PriorityClass
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: preemptionPolicy
+          value: Never
+
+  - it: should generate correct spec with non-default globalDefault
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+          globalDefault: true
+    asserts:
+      - documentIndex: &priorityClassDoc 0
+        isKind:
+          of: PriorityClass
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: globalDefault
+          value: true
+
+  - it: should generate correct spec with non-default description
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+          description: test description
+    asserts:
+      - documentIndex: &priorityClassDoc 0
+        isKind:
+          of: PriorityClass
+      - documentIndex: *priorityClassDoc
+        equal:
+          path: description
+          value: test description
+
+  #   - it:
+  # Failures
+  - it: should fail with invalid preemptionPolicy
+    set:
+      priorityClass:
+        example1:
+          enabled: true
+          preemptionPolicy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Priority Class - Expected [preemptionPolicy] to be one of [PreemptLowerPriority, Never], but got [invalid]

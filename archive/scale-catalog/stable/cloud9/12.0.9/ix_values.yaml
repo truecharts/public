@@ -1,0 +1,40 @@
+image:
+  repository: ghcr.io/linuxserver/cloud9
+  pullPolicy: IfNotPresent
+  tag: version-1.29.2@sha256:45c5fe102ff3390bcd4ea58db99023b7ea099a8462f5727973ec329bd4a8d6b4
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10070
+        protocol: http
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+persistence:
+  code:
+    enabled: true
+    mountPath: /code
+portal:
+  open:
+    enabled: true

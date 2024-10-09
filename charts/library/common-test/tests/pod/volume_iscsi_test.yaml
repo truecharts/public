@@ -1,0 +1,297 @@
+suite: pod iscsi volume test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with iscsi volume
+    set:
+      some_lun: 0
+      some_iqn: some-iqn
+      some_targetPortal: some-targetPortal
+      some_fsType: ext4
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        iscsi-vol:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: "{{ .Values.some_fsType }}"
+            targetPortal: "{{ .Values.some_targetPortal }}"
+            iqn: "{{ .Values.some_iqn }}"
+            lun: "{{ .Values.some_lun }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: iscsi-vol
+            iscsi:
+              targetPortal: some-targetPortal
+              iqn: some-iqn
+              lun: 0
+              fsType: ext4
+              chapAuthDiscovery: false
+              chapAuthSession: false
+
+  - it: should pass with iscsi volume with extra options
+    set:
+      some_lun: 99999999999
+      some_iqn: some-iqn
+      some_targetPortal: some-targetPortal
+      some_fsType: ext4
+      some_initiatorName: some-initiatorName
+      some_interface: some-interface
+      some_portals:
+        - some-targetPortal
+        - some-targetPortal2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        iscsi-vol:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: "{{ .Values.some_fsType }}"
+            targetPortal: "{{ .Values.some_targetPortal }}"
+            iqn: "{{ .Values.some_iqn }}"
+            lun: "{{ .Values.some_lun }}"
+            initiatorName: "{{ .Values.some_initiatorName }}"
+            iscsiInterface: "{{ .Values.some_interface }}"
+            portals:
+              - "{{ index .Values.some_portals 0 }}"
+              - "{{ index .Values.some_portals 1 }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: iscsi-vol
+            iscsi:
+              targetPortal: some-targetPortal
+              iqn: some-iqn
+              lun: 99999999999
+              fsType: ext4
+              initiatorName: some-initiatorName
+              iscsiInterface: some-interface
+              portals:
+                - some-targetPortal
+                - some-targetPortal2
+              chapAuthDiscovery: false
+              chapAuthSession: false
+
+  - it: should pass with iscsi volume with chap auth
+    set:
+      username: some-username
+      password: some-password
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        iscsi-vol:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: ext4
+            targetPortal: some-targetPortal
+            iqn: some-iqn
+            lun: 0
+            authSession:
+              username: "{{ .Values.username }}"
+              password: "{{ .Values.password }}"
+              usernameInitiator: '{{ printf "%s%s" .Values.username "Initiator" }}'
+              passwordInitiator: '{{ printf "%s%s" .Values.password "Initiator" }}'
+        iscsi-vol2:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: ext4
+            targetPortal: some-targetPortal
+            iqn: some-iqn
+            lun: 0
+            authDiscovery:
+              username: "{{ .Values.username }}"
+              password: "{{ .Values.password }}"
+              usernameInitiator: '{{ printf "%s%s" .Values.username "Initiator" }}'
+              passwordInitiator: '{{ printf "%s%s" .Values.password "Initiator" }}'
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: iscsi-vol
+            iscsi:
+              targetPortal: some-targetPortal
+              iqn: some-iqn
+              lun: 0
+              fsType: ext4
+              chapAuthDiscovery: false
+              chapAuthSession: true
+              secretRef:
+                name: test-release-name-common-test-iscsi-vol
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: iscsi-vol2
+            iscsi:
+              targetPortal: some-targetPortal
+              iqn: some-iqn
+              lun: 0
+              fsType: ext4
+              chapAuthDiscovery: true
+              chapAuthSession: false
+              secretRef:
+                name: test-release-name-common-test-iscsi-vol2
+      - documentIndex: &secretDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-iscsi-vol
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/iscsi-chap
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            node.session.auth.username: some-username
+            node.session.auth.password: some-password
+            node.session.auth.username_in: some-usernameInitiator
+            node.session.auth.password_in: some-passwordInitiator
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-iscsi-vol2
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/iscsi-chap
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            discovery.sendtargets.auth.username: some-username
+            discovery.sendtargets.auth.password: some-password
+            discovery.sendtargets.auth.username_in: some-usernameInitiator
+            discovery.sendtargets.auth.password_in: some-passwordInitiator
+
+  # Failures
+  - it: should fail without iscsi object in iscsi volume
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: iscsi
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [iscsi] object on [iscsi] type
+
+  - it: should fail with invalid fsType in iscsi
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: some-fsType
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [fsType] on [iscsi] type to be one of [ext4, xfs, ntfs], but got [some-fsType]
+
+  - it: should fail without targetPortal in iscsi
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: ext4
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [targetPortal] on [iscsi] type
+
+  - it: should fail without iqn in iscsi
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: ext4
+            targetPortal: some-targetPortal
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [iqn] on [iscsi] type
+
+  - it: should fail without lun in iscsi
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: iscsi
+          iscsi:
+            fsType: ext4
+            targetPortal: some-targetPortal
+            iqn: some-iqn
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [lun] on [iscsi] type

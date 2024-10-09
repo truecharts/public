@@ -1,0 +1,20 @@
+image:
+  repository: ghcr.io/k8s-at-home/apache-musicindex
+  tag: v1.4.1-2@sha256:c9bd82dc5fdaaad16a9a07c61672e29886d9399c7eee6e57f1d758124783c34a
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10006
+        protocol: http
+        targetPort: 80
+portal:
+  open:
+    enabled: true

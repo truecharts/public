@@ -1,0 +1,48 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: rust@sha256:09ac67262cb3d833880ca80c5936cceec44eec9723709cc7761c33b490b70532
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 28015
+        protocol: udp
+        targetPort: 28015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "258550"
+            GAME_PARAMS: +server.maxplayers 10
+            GAME_PORT: "28015"
+            OXIDE_MOD: ""
+            PASSWRD: ""
+            SERVER_DISCRIPTION: Simple Unraid Rust Docker Server
+            SERVER_NAME: RustDockerServer
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

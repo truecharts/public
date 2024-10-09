@@ -1,0 +1,37 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Simple Chart that allows MQTT to be used to view data and push settings to the Venstar Local API Thermostats.  Local API needs to be enabled on the thermostat.  No Web UI or appdata folder necessary.
+home: https://truecharts.org/charts/stable/venstar2mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/venstar2mqtt.webp
+keywords:
+  - venstar2mqtt
+  - home-automation
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: venstar2mqtt
+sources:
+  - https://github.com/terafin/mqtt-venstar-bridge
+  - https://github.com/truecharts/charts/tree/master/charts/stable/venstar2mqtt
+  - https://hub.docker.com/r/terafin/mqtt-venstar-bridge
+type: application
+version: 5.8.13

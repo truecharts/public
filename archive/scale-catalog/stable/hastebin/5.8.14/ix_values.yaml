@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: flippinturt/hastebin
+  tag: latest@sha256:2194a322905ebb1adbb16a876717d00ded2e10c18ad2491240e4adafaf37621f
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 7777
+        protocol: tcp
+        targetPort: 7777

@@ -1,0 +1,75 @@
+suite: pod priority class name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with empty priorityClassName
+    set:
+      podOptions:
+        priorityClassName: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.priorityClassName
+
+  - it: should pass with priorityClassName from "global"
+    set:
+      podOptions:
+        priorityClassName: some-priority-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.priorityClassName
+          value: some-priority-class
+
+  - it: should pass with priorityClassName from "pod"
+    set:
+      podOptions:
+        priorityClassName: some-priority-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            priorityClassName: some-other-priority-class
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.priorityClassName
+          value: some-other-priority-class
+
+  - it: should pass with priorityClassName from "pod" with tpl
+    set:
+      priorityClassTest: some-other-priority-class
+      podOptions:
+        priorityClassName: some-priority-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            priorityClassName: "{{ .Values.priorityClassTest }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.priorityClassName
+          value: some-other-priority-class

@@ -1,0 +1,78 @@
+suite: cnpg scheduled backup spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      credentials:
+        test:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            credentials: test
+            destinationPath: some-path
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: true
+              - name: weekly
+                schedule: "0 0 * * 0"
+                immediate: true
+                backupOwnerReference: cluster
+    asserts:
+      - documentIndex: &cnpgDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *cnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *cnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-sched-backup-daily
+      - documentIndex: *cnpgDoc
+        equal:
+          path: spec
+          value:
+            schedule: "0 0 * * *"
+            backupOwnerReference: none
+            suspend: true
+            immediate: false
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: &otherCnpgDoc 1
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *otherCnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-sched-backup-weekly
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: spec
+          value:
+            schedule: "0 0 * * 0"
+            backupOwnerReference: cluster
+            suspend: false
+            immediate: true
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg

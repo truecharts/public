@@ -1,0 +1,37 @@
+image:
+  repository: ghcr.io/nicholaswilde/twtxt
+  pullPolicy: IfNotPresent
+  tag: version-0.1.1@sha256:58736a73ca1000cc93258efe0cd91270c6b8480a84b98b05a056234d271f92e3
+service:
+  main:
+    ports:
+      main:
+        port: 10078
+        targetPort: 8000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            OPEN_PROFILES: "true"
+            OPEN_REGISTRATIONS: "true"
+            COOKIE_SECRET: supersecretchangeme

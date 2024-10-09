@@ -1,0 +1,271 @@
+suite: pod configmap volume test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with configmap volume
+    set:
+      some_object: some-object-name
+      some_mode: "0777"
+      configmap: &configmap
+        some-object-name:
+          enabled: true
+          data:
+            some-key: some-value
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        conf-vol:
+          enabled: true
+          type: configmap
+          objectName: "{{ .Values.some_object }}"
+          defaultMode: "{{ .Values.some_mode }}"
+    asserts:
+      - documentIndex: &deploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: conf-vol
+            configMap:
+              name: test-release-name-common-test-some-object-name
+              defaultMode: 0777
+              optional: false
+
+  - it: should pass with configmap volume with items
+    set:
+      some_object: some-object-name
+      some_mode: "0777"
+      some_key: some-key
+      some_path: some-path
+      configmap: *configmap
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        conf-vol:
+          enabled: true
+          type: configmap
+          objectName: "{{ .Values.some_object }}"
+          defaultMode: "{{ .Values.some_mode }}"
+          items:
+            - key: "{{ .Values.some_key }}"
+              path: "{{ .Values.some_path }}"
+            - key: some-other-key
+              path: some-other-path
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: conf-vol
+            configMap:
+              name: test-release-name-common-test-some-object-name
+              defaultMode: 0777
+              optional: false
+              items:
+                - key: some-key
+                  path: some-path
+                - key: some-other-key
+                  path: some-other-path
+
+  - it: should pass with configmap volume without expanding object name
+    set:
+      some_object: some-object-name
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        conf-vol:
+          enabled: true
+          type: configmap
+          objectName: "{{ .Values.some_object }}"
+          expandObjectName: false
+    asserts:
+      - documentIndex: &otherDeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: conf-vol
+            configMap:
+              name: some-object-name
+              optional: false
+
+  - it: should pass with configmap volume marked as optional
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        configmap-vol:
+          enabled: true
+          type: configmap
+          objectName: some-non-existent-object
+          optional: true
+    asserts:
+      - documentIndex: &otherDeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: configmap-vol
+            configMap:
+              name: test-release-name-common-test-some-non-existent-object
+              optional: true
+
+  # Failures
+  - it: should fail without objectName in configmap
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [objectName] on [configmap] type
+
+  - it: should fail with empty objectName in configmap
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [objectName] on [configmap] type
+
+  - it: should fail with defaultMode not a string in configmap
+    set:
+      configmap: *configmap
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          defaultMode: 1234
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [defaultMode] to be [string], but got [float64]
+
+  - it: should fail with defaultMode not in format of "0000"-"0777" in configmap
+    set:
+      configmap: *configmap
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          defaultMode: "123"
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [defaultMode] to have be in format of ["0777"], but got ["123"]
+
+  - it: should fail without key in items in configmap
+    set:
+      configmap: *configmap
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          items:
+            - key: ""
+              path: some-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [items.key]
+
+  - it: should fail without path in items in configmap
+    set:
+      configmap: *configmap
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          items:
+            - key: some-key
+              path: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty [items.path]
+
+  - it: should fail with optional not bool
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          optional: not-a-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [optional] to be [bool], but got [string]

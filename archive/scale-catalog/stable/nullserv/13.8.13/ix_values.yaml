@@ -1,0 +1,43 @@
+image:
+  repository: ghcr.io/k8s-at-home/nullserv
+  tag: v1.3.0@sha256:0792c7e6d814bf292455da3f40aa5d56c465f2b5024e786ac3bf3dc3b16cc757
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10004
+        targetPort: 80
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 10005
+        targetPort: 443
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                httpGet:
+                  path: /welcome.txt
+                  port: main
+    replicas: 2

@@ -1,0 +1,19 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: atdr.meo.ws/archiveteam/warrior-dockerfile
+  tag: latest@sha256:2d52fa56f1fa019874a16c0be3f679f26cfb99f038096757f0aa2048a10c484f
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8001
+        protocol: tcp
+        targetPort: 8001

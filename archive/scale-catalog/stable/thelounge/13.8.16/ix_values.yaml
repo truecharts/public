@@ -1,0 +1,29 @@
+image:
+  repository: thelounge/thelounge
+  pullPolicy: IfNotPresent
+  tag: 4.4.3@sha256:bd5f9752b7911d02de52ef07e2f3e8daff9fe813f6f3fbefdb65406ee6c5ca9b
+service:
+  main:
+    ports:
+      main:
+        port: 10061
+        targetPort: 9000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            THELOUNGE_HOME: "/config"

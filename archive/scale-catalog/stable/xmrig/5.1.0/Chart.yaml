@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Crypto
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 6.21.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Chartised version of XMRig for CPU Mining. Helps turn your server into a Monero / cryptocurrency mining rig. Now optionally works with GPU algorithms as well.
+home: https://truecharts.org/charts/stable/xmrig
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/xmrig.png
+keywords:
+  - xmrig
+  - Crypto
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: xmrig
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/xmrig
+  - https://hub.docker.com/r/cooleye72/xmrig
+type: application
+version: 5.1.0

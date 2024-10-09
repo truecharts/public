@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: rmoriz/openra
+  tag: latest@sha256:81a3a76c915122109c22469fbec28175c23644ca7f2879a21a82467979f95f56
+persistence: {}
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 1234
+        protocol: tcp
+        targetPort: 1234
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AdvertiseOnline: "True"
+            Ban: ""
+            EnableSingleplayer: "False"
+            ExternalPort: "1234"
+            ListenPort: "1234"
+            MAP: ""
+            MOTD: Have Fun!!
+            Mod: ra
+            Name: DEDICATED SERVER
+            Password: ""

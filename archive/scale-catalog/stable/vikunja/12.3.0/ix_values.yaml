@@ -1,0 +1,212 @@
+image:
+  repository: vikunja/api
+  tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
+  pullPolicy: IfNotPresent
+frontendImage:
+  repository: vikunja/frontend
+  tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
+  pullPolicy: IfNotPresent
+nginxImage:
+  repository: nginx
+  tag: 1.25.4@sha256:c26ae7472d624ba1fafd296e73cecc4f93f853088e6a9c13c0d52f6ca5865107
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              port: 3456
+              path: /health
+            readiness:
+              type: http
+              port: 3456
+              path: /health
+            startup:
+              type: http
+              port: 3456
+              path: /health
+        frontend:
+          enabled: true
+          imageSelector: frontendImage
+          probes:
+            liveness:
+              type: http
+              port: 80
+            readiness:
+              type: http
+              port: 80
+            startup:
+              type: http
+              port: 80
+        proxy:
+          enabled: true
+          imageSelector: nginxImage
+          probes:
+            liveness:
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+vikunja:
+  service:
+    jwtttl: 259200
+    jwtttllong: 2592000
+    motd: Welcome to your new Vikunja instance
+    frontendurl: http://localhost:10220
+    maxitemsperpage: 50
+    enablecaldav: true
+    enablelinksharing: true
+    enableregistration: true
+    enabletaskattachments: true
+    enabletaskcomments: true
+    enabletotp: true
+    enableemailreminders: true
+    enableuserdeletion: true
+    maxavatarsize: 1024
+  cors:
+    enabled: true
+    origins: []
+    maxage: 0
+  ratelimit:
+    enabled: false
+    kind: user
+    period: 60
+    limit: 100
+  files:
+    maxsize: 20MB
+  avatar:
+    gravatarexpiration: 3600
+  legal:
+    imprinturl: ""
+    privacyurl: ""
+  mailer:
+    enabled: false
+    host: ""
+    port: 587
+    authtype: plain
+    username: ""
+    password: ""
+    fromemail: ""
+    skiptlsverify: false
+    forcessl: true
+    queuelength: 100
+    queuetimeout: 30
+  log:
+    enabled: true
+    path: /app/vikunja/logs
+    standard: stdout
+    level: INFO
+    database: "off"
+    databaselevel: WARNING
+    http: stdout
+    echo: "off"
+    events: stdout
+    eventslevel: INFO
+  defaultsettings:
+    avatar_provider: initials
+    avatar_file_id: 0
+    email_reminders_enabled: false
+    discoverable_by_name: false
+    discoverable_by_email: false
+    overdue_tasks_reminders_enabled: true
+    overdue_tasks_reminders_time: "9:00"
+    default_list_id: 0
+    week_start: 0
+    language: ""
+    timezone: ""
+  backgrounds:
+    enabled: true
+    providers:
+      upload:
+        enabled: true
+      unsplash:
+        enabled: false
+        accesstoken: ""
+        applicationid: ""
+  auth:
+    local:
+      enabled: true
+    openid:
+      enabled: false
+      redirecturl: ""
+      providers: []
+      # - name: ""
+      #   authurl: ""
+      #   logouturl: ""
+      #   clientid: ""
+      #   clientsecret: ""
+  migration:
+    todoist:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
+    trello:
+      enable: false
+      key: ""
+      redirecturl: ""
+    microsofttodo:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
+service:
+  main:
+    ports:
+      main:
+        port: 10220
+persistence:
+  files:
+    enabled: true
+    mountPath: /app/vikunja/files
+  vikunja-nginx:
+    enabled: true
+    noMount: true
+    type: configmap
+    objectName: nginx-config
+    targetSelector:
+      main:
+        proxy:
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: nginx-config
+  vikunja-config:
+    enabled: true
+    type: secret
+    objectName: config
+    targetSelector:
+      main:
+        main:
+          subPath: config.yaml
+          mountPath: /etc/vikunja/config.yaml
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    prometheusRule:
+      enabled: false
+cnpg:
+  main:
+    enabled: true
+    user: vikunja
+    database: vikunja
+redis:
+  enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_BIND_SERVICE
+updated: true

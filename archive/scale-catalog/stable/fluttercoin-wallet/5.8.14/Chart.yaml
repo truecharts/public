@@ -1,0 +1,39 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: FlutterCoin may be a coin with the tried and true algorithm of scrypt, but it's definitely anything but ordinary.
+home: https://truecharts.org/charts/stable/fluttercoin-wallet
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fluttercoin-wallet.webp
+keywords:
+  - fluttercoin-wallet
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
+  - Crypto
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fluttercoin-wallet
+sources:
+  - https://fluttercoin.me/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fluttercoin-wallet
+  - https://hub.docker.com/r/ich777/fluttercoin
+type: application
+version: 5.8.14

@@ -1,0 +1,30 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: lswl/vertex
+  tag: stable@sha256:b1b95e1d571eeec7ec43a866b659d67306ac4e2bdb083597b9b63e1f556bb7e9
+persistence:
+  config:
+    enabled: true
+    mountPath: /vertex
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "3000"

@@ -1,0 +1,35 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.24.3
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An organizer for your porn, written in Go
+home: https://truecharts.org/charts/stable/stash
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/stash.png
+keywords:
+  - porn
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: stash
+sources:
+  - https://github.com/stashapp/stash
+  - https://github.com/truecharts/charts/tree/master/charts/stable/stash
+  - https://hub.docker.com/r/stashapp/stash
+type: application
+version: 14.4.0

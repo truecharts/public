@@ -1,0 +1,532 @@
+suite: ingress validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail if required is true but enabled is false
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: false
+          required: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected ingress [my-ingress] to be enabled. This chart is designed to work only with ingress enabled.
+
+  - it: should fail with name longer than 253 characters
+    set:
+      service: *service
+      ingress:
+        my-ing:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+        my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      service: *service
+      ingress:
+        my-ing:
+          enabled: true
+          primary: true
+          hosts: *hosts
+        _my-ingress:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_my-ingress] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          integrations: *integrations
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with empty enabled
+    set:
+      ingress:
+        my-ingress:
+          enabled:
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected the defined key [enabled] in [ingress.my-ingress] to not be empty
+
+  - it: should fail with targetSelector not a map
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector: "not a map"
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [targetSelector] to be a [map], but got [string]
+
+  - it: should fail with targetSelector having more than one key
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            main: main
+            other: other
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [targetSelector] to have exactly one key, but got [2]
+
+  - it: should fail with targetSelector key missing value
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            main:
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [targetSelector.main] to have a value
+
+  - it: should fail with targetSelector key having non-string value
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            main:
+              - not a string
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [targetSelector.main] to be a [string], but got [slice]
+
+  - it: should fail with no hosts
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [hosts]
+
+  - it: should fail with hosts not a slice
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: not-a-slice
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts] to be a [slice], but got [string]
+
+  - it: should fail with no hosts.host
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [hosts.host]
+
+  - it: should fail with host starting with https://
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: https://test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.host] to not start with [https://], but got [https://test-host]
+
+  - it: should fail with host starting with http://
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: http://test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.host] to not start with [http://], but got [http://test-host]
+
+  - it: should fail with host contain ":"
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host:123
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.host] to not contain [:], but got [test-host:123]
+
+  - it: should fail with paths not a slice
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths: not-a-slice
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.paths] to be a [slice], but got [string]
+
+  - it: should fail with invalid pathType
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+                  pathType: not-a-valid-path-type
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.paths.pathType] to be one of [Prefix, Exact, ImplementationSpecific], but got [not-a-valid-path-type]
+
+  - it: should fail with path not starting with / (only on pathType Exact and Prefix)
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: test-path
+                  pathType: Prefix
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [hosts.paths.path] to start with [/], but got [test-path]
+
+  - it: should fail if name in the overrideService is missing
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+                  overrideService:
+                    port: 80
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [hosts.paths.overrideService.name]
+
+  - it: should fail if port in the overrideService is missing
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+                  overrideService:
+                    name: test-service
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [hosts.paths.overrideService.port]
+
+  - it: should fail if targeted service does not exist
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            my-service: my-port
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected targeted service [my-service] to exist
+
+  - it: should fail if targeted service is not enabled
+    set:
+      service:
+        my-service:
+          enabled: false
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            my-service: my-port
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected targeted service [my-service] to be enabled
+
+  - it: should fail without primary service or a targetSelector
+    set:
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [targetSelector] or a primary service to exist
+
+  - it: should fail if the targeted service does not have the targeted port
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-other-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            my-service: my-port
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected targeted service [my-service] to have port [my-port]
+
+  - it: should fail if the targeted service port is not enabled
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: false
+              primary: true
+              port: 80
+            my-other-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          targetSelector:
+            my-service: my-port
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected targeted service port [my-port] to be enabled
+
+  - it: should fail if tls.hosts are empty
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty [tls.hosts]
+
+  - it: should fail if tls.hosts is not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts: not-a-slice
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [tls.hosts] to be a [slice], but got [string]
+
+  - it: should fail if tls.hosts.host is empty
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts:
+                - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected non-empty entry in [tls.hosts]
+
+  - it: should fail if tls.hosts.host starts with https://
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts:
+                - https://test-host
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected entry in [tls.hosts] to not start with [https://], but got [https://test-host]
+
+  - it: should fail if tls.hosts.host starts with http://
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts:
+                - http://test-host
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected entry in [tls.hosts] to not start with [http://], but got [http://test-host]
+
+  - it: should fail if tls.hosts.host contains ":"
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts:
+                - test-host:123
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected entry in [tls.hosts] to not contain [:], but got [test-host:123]
+
+  - it: should fail if more than 1 cert option is set under tls
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          tls:
+            - hosts:
+                - test-host
+              secretName: test-secret
+              clusterCertificate: some-cert
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected only one of [secretName, certificateIssuer, clusterCertificate] to be set, but got [secretName, clusterCertificate]
+
+  - it: should fail with ingressClassName set to tc-stopped
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          ingressClassName: tc-stopped
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [ingressClassName] to not be [tc-stopped], this is reserved for internal use

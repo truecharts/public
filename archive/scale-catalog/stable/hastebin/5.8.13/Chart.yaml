@@ -1,0 +1,39 @@
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 20.3.11
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "Alpine-based Chart for Hastebin, the node.js paste service  "
+home: https://truecharts.org/charts/stable/hastebin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hastebin.webp
+keywords:
+  - hastebin
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - Network-Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hastebin
+sources:
+  - https://github.com/nzzane/haste-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hastebin
+  - https://hub.docker.com/r/flippinturt/hastebin
+type: application
+version: 5.8.13

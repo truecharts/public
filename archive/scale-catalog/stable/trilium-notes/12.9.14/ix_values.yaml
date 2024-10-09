@@ -1,0 +1,24 @@
+image:
+  repository: ghcr.io/zadam/trilium
+  pullPolicy: IfNotPresent
+  tag: 0.63.5@sha256:93cb2cd4a6709858c154bab7cba0a7d397969685f507daecb6bbdc409d81304b
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10156
+persistence:
+  config:
+    enabled: true
+    mountPath: "/home/node"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 1000

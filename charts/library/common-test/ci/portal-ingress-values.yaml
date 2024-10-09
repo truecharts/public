@@ -1,0 +1,94 @@
+workload:
+  main:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: http
+  test:
+    enabled: true
+    ports:
+      test:
+        enabled: true
+        protocol: http
+        port: 8081
+
+# -- Configure the ingresses for the chart here.
+# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
+# @default -- See below
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+  test:
+    enabled: true
+    hosts:
+      - host: chart-test.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+
+portal:
+  open:
+    enabled: true
+    override:
+      protocol:
+      host:
+      port:
+    path: ""
+  path:
+    enabled: true
+    path: "somepath"
+  explicit:
+    enabled: true
+    targetSelector:
+      ingress: "test"
+      service: "test"
+      port: ""
+  override:
+    enabled: true
+    override:
+      protocol: "http"
+      host: "test.example.com"
+      port: "666"
+  override-explicit:
+    enabled: true
+    override:
+      protocol: "http"
+      host: "test.example.com"
+      port: "666"
+    targetSelector:
+      ingress: "test"
+      service: "test"
+      port: ""
