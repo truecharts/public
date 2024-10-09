@@ -37,7 +37,7 @@ repos:
       - id: check-added-large-files # prevents giant files from being committed.
         exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl)$
       - id: check-yaml # checks yaml files for parseable syntax.
-        exclude: (^archive|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|common-test\/.*\.yaml)
+        exclude: (^archive|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|test-chart\/.*\.yaml)
       - id: detect-private-key # detects the presence of private keys.
         exclude: ^archive/
 
