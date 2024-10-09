@@ -2,39 +2,10 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/debian-mirror
   tag: latest@sha256:3c78d255c729e2db8c66445261237527a1628f927c26cc40fb915f7b5e1a6d9b
-configmap:
-  mirror-list:
-    enabled: true
-    data:
-      mirror.list: |-
-        ############# config ##################
-        #
-        set base_path    /debian-mirror/data
-        #
-        # set mirror_path  $base_path/mirror
-        # set skel_path    $base_path/skel
-        # set var_path     $base_path/var
-        # set cleanscript $var_path/clean.sh
-        # set defaultarch  <running host architecture>
-        # set postmirror_script $var_path/postmirror.sh
-        # set run_postmirror 0
-        set nthreads     20
-        set _tilde 0
-        #
-        ############# end config ##############
-        deb http://ftp.us.debian.org/debian stable
-        clean http://ftp.us.debian.org/debian
 persistence:
   config:
     enabled: true
     mountPath: /debian-mirror/config
-  mirror-list:
-    enabled: true
-    type: configmap
-    objectName: mirror-list
-    mountPath: /debian-mirror/config/mirror.list
-    subPath: mirror.list
-    readOnly: false
   data:
     enabled: true
     mountPath: /debian-mirror/data
@@ -47,7 +18,6 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
 service:
