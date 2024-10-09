@@ -86,10 +86,10 @@ while true; do
         echo "Disk $disk has partitions. Skipping."
       fi
     done
-    
+
     # Check if the VG is already active
     vg_active=$(vgdisplay "$VG_NAME" | grep "VG Status" | awk '{print $3}')
-    
+
     if [ "$vg_active" == "available" ]; then
         echo "Volume group $VG_NAME is already active."
     else
