@@ -111,7 +111,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -170,7 +170,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -229,7 +229,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix3) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -288,7 +288,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix4) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -347,7 +347,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix5) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -406,7 +406,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix6) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
