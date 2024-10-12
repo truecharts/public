@@ -1,3 +1,13 @@
 {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  extends: [
+    "config:base",
+    "helm"
+  ],
+  packageRules: [
+    {
+      matchPackagePatterns: ["*"],
+      updateTypes: ["minor", "patch"],
+      enabled: true,
+    },
+  ]
 }
