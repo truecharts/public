@@ -1,10 +1,12 @@
 {
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
   "helm-values": {
     "fileMatch": [
       ".ya?ml(?:\\.j2)?$" // Matches all .yaml and .yml files, optionally with a .j2 extension
     ],
     "enabled": true, // Enable image reference updates in values.yaml
-    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
+    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
     "commitMessageSuffix": "fix: update image references" // Customize commit message suffix
   },
   "ignore": [

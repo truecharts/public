@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // Go modules Renovate configuration for managing Go module updates
+  "go": {
+    "fileMatch": [
+      "go\\.mod$", // Matches Go module files
+      "go\\.sum$"  // Matches Go sum files
+    ],
+    "enabled": true, // Enable Go module updates
+    "commitMessageSuffix": "fix: update Go modules", // Customize commit message suffix
+    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "ignore": [
+      // Specify any modules or versions to ignore
+    ]
+  },
+  "ignoreDeps": [
+    // List any dependencies to ignore globally if needed
+  ]
+}

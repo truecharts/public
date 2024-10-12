@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": ["Auto-merge container digests, patch and minor updates for trusted containers"],
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*" ]
+    },
+{
+  "description": ["Auto-merge chart updates, patch, and minor updates for OCI Helm charts from tccr.io/truecharts"],
+  "matchDatasources": ["helm"], // Use 'helm' datasource to match Helm charts
+  "automerge": true,
+  "automergeType": "branch",
+  "matchUpdateTypes": ["digest", "patch", "minor"], // Specify the types of updates to automate
+  "matchPackagePatterns": ["tccr.io/truecharts/.*"] // Matches all OCI Helm charts under tccr.io/truecharts
+},
+    {
+      "description": ["Auto-merge GitHub Actions for minor and patch"],
+      "matchManagers": ["github-actions"],
+      "matchDatasources": ["github-tags"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ]
+}

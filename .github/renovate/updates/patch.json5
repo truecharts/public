@@ -1,0 +1,11 @@
+{
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "patch": {
+    "enabled": true, // Enable patch updates
+    "automerge": true,
+    "commitMessageSuffix": "fix: update dependencies" // Customize commit message suffix for patch updates
+  },
+  "ignore": [
+    // Add any paths or patterns to ignore specific patch updates, if necessary
+  ]
+}

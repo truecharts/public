@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // Dockerfile Renovate configuration for managing image updates
+  "docker": {
+    "fileMatch": [
+      "Dockerfile$", // Matches Dockerfile files regardless of their path
+      "docker-compose\\.ya?ml$", // Matches docker-compose files
+      "docker-compose\\.ya?ml\\.j2$", // Matches Jinja2 templated docker-compose files
+      "\\.github/workflows/.*\\.ya?ml$", // Matches all workflow YAML files
+      "\\.github/workflows/.*\\.ya?ml\\.j2$" // Matches Jinja2 templated workflow files
+    ],
+    "enabled": true, // Enable Docker image updates
+    "commitMessageSuffix": "fix: update Docker image", // Customize commit message suffix
+    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "ignore": [
+      "talconfig.yaml" // Exclude any file named talconfig.yaml
+    ]
+  },
+  "ignoreDeps": [
+    // List any dependencies to ignore globally if needed
+  ]
+}
