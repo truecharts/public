@@ -3,49 +3,49 @@
   // Main Renovate configuration that lists package rules for various paths
   "packageRules": [
     {
-      "paths": ["/.github/**"],
+      "paths": [".github/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/github.json5"
       ]
     },
     {
-      "paths": ["/charts/**"],
+      "paths": ["charts/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/charts.json5"
       ]
     },
     {
-      "paths": ["/containers/**"],
+      "paths": ["containers/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/containers.json5"
       ]
     },
     {
-      "paths": ["/clusters/**"],
+      "paths": ["clusters/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/clusters.json5"
       ]
     },
     {
-      "paths": ["/repositories/**"],
+      "paths": ["repositories/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/repositories.json5"
       ]
     },
     {
-      "paths": ["/clustertool/**"],
+      "paths": ["clustertool/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/clustertool.json5"
       ]
     },
     {
-      "paths": ["/website/**"],
+      "paths": ["website/**"], // Adjusted path
       "enabled": true,
       "extends": [
         "github>truecharts/public/renovate/folders/website.json5"
