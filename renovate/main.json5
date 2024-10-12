@@ -1,10 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  // Main Renovate configuration that lists package rules for various paths
   "packageRules": [
-  
-  ],
-  "ignoreDeps": [
-    // List any dependencies to ignore globally if needed
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["kopia"],
+      "allowedVersions": "<999"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["postgresql"],
+      "allowedVersions": "<17"
+    }
   ]
 }
