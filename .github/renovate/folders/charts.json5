@@ -1,6 +1,7 @@
 {
       "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  extends: [
-
-  ]
+      "extends": [
+        "github>truecharts/public//.github/renovate/kinds/helm.json5",
+        "github>truecharts/public//.github/renovate/kinds/helm-values.json5"
+      ]
 }
