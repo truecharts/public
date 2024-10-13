@@ -2,6 +2,9 @@
 {
       "$schema": "https://docs.renovatebot.com/renovate-schema.json",
       "extends": [
-        "github>truecharts/public//.github/renovate/kinds/go.json5"
+        "github>truecharts/public//.github/renovate/kinds/go.json5",
+        "github>truecharts/public//.github/renovate/kinds/flux.json5",
+        "github>truecharts/public//.github/renovate/kinds/docker.json5",
+        "github>truecharts/public//.github/renovate/special/talconfig.json5"
       ]
 }

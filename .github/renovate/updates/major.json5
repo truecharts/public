@@ -5,5 +5,13 @@
   },
   "ignore": [
     // Add any paths or patterns to ignore specific minor updates, if necessary
+  ],
+  "packageRules": [
+    {
+      "matchVersion": "^\\d{4}\\.\\d{1,2}(\\.\\d{1,2})?$",
+      "excludePackagePatterns": ["*"],
+      "enabled": false,
+      "matchUpdateTypes": ["major"]
+    }
   ]
 }
