@@ -7,8 +7,7 @@
     ],
     "enabled": true, // Enable Helm chart updates
     "semanticCommitScope": "helm",
-    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
-    "commitMessageSuffix": "fix: update Helm chart" // Customize commit message suffix
+    "updateTypes": ["major", "minor", "patch"] // Allow updates for all version types
   },
   "ignore": [
     // Add any global ignores here if needed

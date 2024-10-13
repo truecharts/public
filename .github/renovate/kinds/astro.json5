@@ -6,7 +6,6 @@
       "(^|/)website/.+/package\\.json$" // Matches package.json files in /website and any subdirectory
     ],
     "enabled": true, // Enable updates for website dependencies
-    "commitMessageSuffix": "fix: update website dependencies", // Customize commit message suffix
     "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
     "ignore": [
       // Specify any dependencies or versions to ignore

@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
-  "commitMessageSuffix": "",
+  "commitMessageSuffix": "By Renovate",
   "packageRules": [
     {
       "matchDatasources": ["helm"],

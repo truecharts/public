@@ -7,12 +7,11 @@
       "go\\.sum$"  // Matches Go sum files
     ],
     "enabled": true, // Enable Go module updates
-    "commitMessageSuffix": "fix: update Go modules", // Customize commit message suffix
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
     "ignore": [
       // Specify any modules or versions to ignore
     ],
-    "semanticCommitScope": "go",
+    "semanticCommitScope": "go"
   },
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed
