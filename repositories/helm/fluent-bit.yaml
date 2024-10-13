@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: fluent-bit
+    name: tc-fluent-bit
     namespace: flux-system
 spec:
     interval: 10m

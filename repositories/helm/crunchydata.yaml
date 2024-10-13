@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: crunchydata
+  name: tc-crunchydata
   namespace: flux-system
 spec:
   type: oci

@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: k8s-at-home
+    name: tc-k8s-at-home
     namespace: flux-system
 spec:
     interval: 10m

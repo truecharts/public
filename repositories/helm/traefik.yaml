@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: traefik
+    name: tc-traefik
     namespace: flux-system
 spec:
     interval: 10m

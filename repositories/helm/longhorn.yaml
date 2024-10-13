@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: longhorn
+  name: tc-longhorn
   namespace: flux-system
 spec:
   interval: 2h

@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: topolvm
+  name: tc-topolvm
   namespace: flux-system
 spec:
   interval: 2h
