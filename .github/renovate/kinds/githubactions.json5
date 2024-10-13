@@ -7,7 +7,7 @@
       "\\.github/workflows/.*\\.ya?ml\\.j2$" // Matches Jinja2 templated workflow files
     ],
     "enabled": true, // Enable GitHub Actions updates
-    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "github-action",
     "ignore": [
       // Specify any actions or workflows to ignore

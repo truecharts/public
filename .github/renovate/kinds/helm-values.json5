@@ -9,7 +9,7 @@
       "(^|/)charts/.+\\.ya?ml(?:\\.j2)?$",
     ],
     "enabled": true, // Enable image reference updates in values.yaml
-    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "container"
   },
   "branchPrefix": "helm-values-",

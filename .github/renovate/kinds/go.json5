@@ -7,7 +7,7 @@
       "go\\.sum$"  // Matches Go sum files
     ],
     "enabled": true, // Enable Go module updates
-    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "updateTypes": ["major", "minor", "patch",  "digest", "pin", "lockfile"], // Allow updates for all version types
     "ignore": [
       // Specify any modules or versions to ignore
     ],

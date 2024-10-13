@@ -6,7 +6,7 @@
       "matchDatasources": ["docker"],
       "automerge": true,
       "automergeType": "pr",
-      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"],
       "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*" ],
       "branchPrefix": "docker-automerge-"
     },
@@ -15,7 +15,7 @@
       "matchDatasources": ["helm-values"],
       "automerge": true,
       "automergeType": "pr",
-      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"],
       "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*" ],
       "branchPrefix": "helm-values-automerge-"
     },
@@ -24,7 +24,7 @@
   "matchDatasources": ["helm"], // Use 'helm' datasource to match Helm charts
   "automerge": true,
   "automergeType": "pr",
-  "matchUpdateTypes": ["digest", "patch", "minor"], // Specify the types of updates to automate
+  "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"], // Specify the types of updates to automate
   "matchPackagePatterns": ["tccr.io/truecharts/.*"], // Matches all OCI Helm charts under tccr.io/truecharts
   "branchPrefix": "helm-automerge-"
 },
@@ -34,7 +34,7 @@
       "matchDatasources": ["github-tags"],
       "automerge": true,
       "automergeType": "pr",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin"],
       "branchPrefix": "github-automerge-"
     }
   ]
