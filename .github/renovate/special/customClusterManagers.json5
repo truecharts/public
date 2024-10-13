@@ -10,7 +10,8 @@
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+/(?<currentValue>(v|\\d)[^/]+)"
       ],
       "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "branchPrefix": "regex-"
+      "branchPrefix": "regex-",
+      "pinDigests": false // Set to false to not pin digest references
     },
     {
       "customType": "regex",

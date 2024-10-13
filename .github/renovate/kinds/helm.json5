@@ -7,7 +7,8 @@
     ],
     "enabled": true, // Enable Helm chart updates
     "semanticCommitScope": "helm",
-    "updateTypes": ["major", "minor", "patch"] // Allow updates for all version types
+    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
+    "pinDigests": false // Set to false to not pin digest references
   },
   "ignore": [
     // Add any global ignores here if needed
