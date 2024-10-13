@@ -62,116 +62,170 @@
       },
       "separateMinorPatch": true
     },
-    {
-      matchDatasources: ["docker"],
-      versioning: "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      matchPackagePrefixes: ["jupyter"],
-      groupName: "jupyter",
+     {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["jupyter"],
+      "groupName": "jupyter"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["altran1502/immich"],
-      groupName: "immich",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["altran1502/immich"],
+      "groupName": "immich"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["portainer"],
-      groupName: "portainer",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["portainer"],
+      "groupName": "portainer"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["m1k1o/neko"],
-      groupName: "neko",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["m1k1o/neko"],
+      "groupName": "neko"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["ghcr.io/mriedmann/humhub-"],
-      groupName: "humhub",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/mriedmann/humhub-"],
+      "groupName": "humhub"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["lscr.io/linuxserver/webtop"],
-      groupName: "webtop",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/webtop"],
+      "groupName": "webtop"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["lscr.io/linuxserver/rdesktop"],
-      groupName: "rdesktop",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/rdesktop"],
+      "groupName": "rdesktop"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["tccr.io/tccr/metallb"],
-      groupName: "metallb",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/tccr/metallb"],
+      "groupName": "metallb"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["zabbix/zabbix"],
-      groupName: "zabbix",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["zabbix/zabbix"],
+      "groupName": "zabbix"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["vikunja"],
-      groupName: "vikunja",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["vikunja"],
+      "groupName": "vikunja"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["mltooling/ml-workspace"],
-      groupName: "ml-workspace",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["mltooling/ml-workspace"],
+      "groupName": "ml-workspace"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["itzg/bungeecord"],
-      groupName: "bungeecord",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["itzg/bungeecord"],
+      "groupName": "bungeecord"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["tccr.io/tccr/nextcloud-"],
-      groupName: "nextcloud",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/tccr/nextcloud-"],
+      "groupName": "nextcloud"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["itzg/minecraft-java"],
-      groupName: "minecraft-java",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["itzg/minecraft-java"],
+      "groupName": "minecraft-java"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["reallibrephotos/librephotos"],
-      groupName: "librephotos",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["reallibrephotos/librephotos"],
+      "groupName": "librephotos"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["tombursch/kitchenowl"],
-      groupName: "kitchenowl",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tombursch/kitchenowl"],
+      "groupName": "kitchenowl"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["ghcr.io/goauthentik/"],
-      groupName: "authentik",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/goauthentik/"],
+      "groupName": "authentik"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["cwq1913/lama-cleaner"],
-      groupName: "lama-cleaner",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["cwq1913/lama-cleaner"],
+      "groupName": "lama-cleaner"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["docspell/"],
-      groupName: "docspell",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["docspell/"],
+      "groupName": "docspell"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["datarhei/restreamer"],
-      groupName: "restreamer",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["datarhei/restreamer"],
+      "groupName": "restreamer"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["penpotapp/"],
-      groupName: "penpot",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["penpotapp/"],
+      "groupName": "penpot"
     },
     {
-      matchDatasources: ["docker"],
-      matchPackagePrefixes: ["jasongdove/ersatztv"],
-      groupName: "ersatztv",
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["jasongdove/ersatztv"],
+      "groupName": "ersatztv"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^jitsi\\/.*$"],
+      "groupName": "jitsi"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["fireflyiii/core"],
+      "groupName": "fireflyiii"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["cloudflare/cloudflared"],
+      "groupName": "cloudflare"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["linuxserver/calibre-web"],
+      "groupName": "calibre-web"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/umami-software/umami"],
+      "groupName": "umami"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["storjlabs/storagenode"],
+      "groupName": "storagenode"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["jenkins/jenkins"],
+      "groupName": "jenkins"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["housewrecker/gaps"],
+      "groupName": "gaps"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"],
+      "groupName": "whisparr"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["mattermost/mattermost-premium-edition"],
+      "groupName": "mattermost"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["corentinth/it-tools"],
+      "groupName": "it-tools"
     }
   ]
 }

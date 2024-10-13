@@ -1,40 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
-    {
-      "description": ["Loose versioning for non-semver packages"],
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["cross-seed", "plex"],
-      "versioning": "loose"
-    },
-    {
-      "description": ["Custom schedule for frequently updated packages"],
-      "matchDataSources": ["docker", "helm"],
-      "matchPackagePatterns": ["minio", "postgresql", "reloader"],
-      "schedule": ["on the first day of the month"]
-    },
-    {
-      "description": ["Custom versioning for k3s"],
-      "matchDatasources": ["github-releases"],
-      "matchPackagePatterns": ["k3s"],
-      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<compatibility>\\+k3s)(?<build>\\d+)$"
-    },
-    {
-      "description": ["Custom versioning for minio"],
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["minio"],
-      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["kopia"],
-      "allowedVersions": "<999"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["postgresql"],
-      "allowedVersions": "<17"
-    }
-
   ]
 }
