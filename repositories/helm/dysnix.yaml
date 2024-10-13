@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/source.toolkit.fluxcd.io/helmrepository_v1beta2.json
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+    name: dysnix
+    namespace: flux-system
+spec:
+    interval: 1h
+    url: https://dysnix.github.io/charts
