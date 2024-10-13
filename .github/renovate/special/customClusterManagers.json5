@@ -9,7 +9,8 @@
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( repository=(?<registryUrl>\\S+))?\\n.+: (&\\S+\\s)?(?<currentValue>\\S+)",
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+/(?<currentValue>(v|\\d)[^/]+)"
       ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}"
+      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+      "branchPrefix": "regex-"
     },
     {
       "customType": "regex",
@@ -17,7 +18,8 @@
       "fileMatch": ["(^|/)clusters/.+\\.ya?ml(?:\\.j2)?$"],
       "matchStrings": ["imageName: (?<depName>\\S+):(?<currentValue>.*\\-.*)"],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "redhat"
+      "versioningTemplate": "redhat",
+      "branchPrefix": "regex-"
     }
   ]
 }

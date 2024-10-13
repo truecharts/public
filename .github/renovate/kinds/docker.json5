@@ -12,6 +12,7 @@
       "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$",
       "(^|/)clustertool/embeded/.+\\.ya?ml(?:\\.j2)?$"
     ],
+    "branchPrefix": "docker-",
     "enabled": true, // Enable Docker image updates
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
     "semanticCommitScope": "container",
