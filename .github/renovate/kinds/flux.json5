@@ -4,7 +4,8 @@
   "flux": {
     "fileMatch": [
       "(^|/)clusters/.+\\.ya?ml(?:\\.j2)?$",
-      "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$"
+      "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$",
+      "(^|/)clustertool/embeded/.+\\.ya?ml(?:\\.j2)?$"
     ],
     "enabled": true, // Enable Flux updates
     "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
