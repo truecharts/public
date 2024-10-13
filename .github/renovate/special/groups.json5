@@ -1,0 +1,177 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": ["1Password Connect Group"],
+      "groupName": "1Password Connnect",
+      "matchPackagePatterns": ["1password/connect"],
+      "matchDatasources": ["docker"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      "description": ["Actions Runner Controller Group"],
+      "groupName": "Actions Runner Controller",
+      "matchPackagePatterns": ["gha-runner-scale-set"],
+      "matchDatasources": ["docker", "helm"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      "description": ["Flux Group"],
+      "groupName": "Flux",
+      "matchPackagePatterns": ["fluxcd"],
+      "matchDatasources": ["docker", "github-tags"],
+      "versioning": "semver",
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      "description": ["Intel Device Plugins Group"],
+      "groupName": "Intel-Device-Plugins",
+      "matchPackagePatterns": ["intel-device-plugins"],
+      "matchDatasources": ["helm"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      "description": ["Rook-Ceph Group"],
+      "groupName": "Rook-Ceph",
+      "matchPackagePatterns": ["rook.ceph"],
+      "matchDatasources": ["helm"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      "description": ["Talos Group"],
+      "groupName": "Talos",
+      "matchPackagePatterns": ["siderolabs/talosctl", "siderolabs/installer"],
+      "matchDatasources": ["docker"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      "separateMinorPatch": true
+    },
+    {
+      matchDatasources: ["docker"],
+      versioning: "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
+      matchPackagePrefixes: ["jupyter"],
+      groupName: "jupyter",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["altran1502/immich"],
+      groupName: "immich",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["portainer"],
+      groupName: "portainer",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["m1k1o/neko"],
+      groupName: "neko",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["ghcr.io/mriedmann/humhub-"],
+      groupName: "humhub",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["lscr.io/linuxserver/webtop"],
+      groupName: "webtop",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["lscr.io/linuxserver/rdesktop"],
+      groupName: "rdesktop",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["tccr.io/tccr/metallb"],
+      groupName: "metallb",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["zabbix/zabbix"],
+      groupName: "zabbix",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["vikunja"],
+      groupName: "vikunja",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["mltooling/ml-workspace"],
+      groupName: "ml-workspace",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["itzg/bungeecord"],
+      groupName: "bungeecord",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["tccr.io/tccr/nextcloud-"],
+      groupName: "nextcloud",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["itzg/minecraft-java"],
+      groupName: "minecraft-java",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["reallibrephotos/librephotos"],
+      groupName: "librephotos",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["tombursch/kitchenowl"],
+      groupName: "kitchenowl",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["ghcr.io/goauthentik/"],
+      groupName: "authentik",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["cwq1913/lama-cleaner"],
+      groupName: "lama-cleaner",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["docspell/"],
+      groupName: "docspell",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["datarhei/restreamer"],
+      groupName: "restreamer",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["penpotapp/"],
+      groupName: "penpot",
+    },
+    {
+      matchDatasources: ["docker"],
+      matchPackagePrefixes: ["jasongdove/ersatztv"],
+      groupName: "ersatztv",
+    }
+  ]
+}

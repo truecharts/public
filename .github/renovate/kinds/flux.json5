@@ -1,0 +1,17 @@
+{
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "flux": {
+    "fileMatch": [
+      ".ya?ml(?:\\.j2)?$" // Matches all .yaml and .yml files, optionally with a .j2 extension
+    ],
+    "enabled": true, // Enable Flux updates
+    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
+    "commitMessageSuffix": "fix: update Flux helm-release", // Customize commit message suffix
+    "semanticCommitScope": "Flux Objects",
+  },
+  
+  "ignore": [
+    // Add any global ignores here
+  ]
+}

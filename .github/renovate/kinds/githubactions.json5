@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // GitHub Actions Renovate configuration for managing workflow updates
+  "github-actions": {
+    "fileMatch": [
+      "\\.github/workflows/.*\\.ya?ml$", // Matches all workflow YAML files
+      "\\.github/workflows/.*\\.ya?ml\\.j2$" // Matches Jinja2 templated workflow files
+    ],
+    "enabled": true, // Enable GitHub Actions updates
+    "commitMessageSuffix": "fix: update GitHub Actions", // Customize commit message suffix
+    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "semanticCommitScope": "github-action",
+    "ignore": [
+      // Specify any actions or workflows to ignore
+    ]
+  },
+  "ignoreDeps": [
+    // List any dependencies to ignore globally if needed
+  ]
+}
