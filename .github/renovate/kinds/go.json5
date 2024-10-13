@@ -16,5 +16,12 @@
   },
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["indirect"],
+      "enabled": false
+    }
   ]
 }
