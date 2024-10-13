@@ -13,6 +13,8 @@
     "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
      "extends": [
     "config:recommended",
+        "github>truecharts/public//.github/renovate/updates/lockfile.json5",
+        "github>truecharts/public//.github/renovate/updates/pin.json5",
         "github>truecharts/public//.github/renovate/updates/digest.json5",
         "github>truecharts/public//.github/renovate/updates/patch.json5",
         "github>truecharts/public//.github/renovate/updates/minor.json5",
