@@ -9,6 +9,7 @@
     "enabled": true, // Enable GitHub Actions updates
     "commitMessageSuffix": "fix: update GitHub Actions", // Customize commit message suffix
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "semanticCommitScope": "github-action",
     "ignore": [
       // Specify any actions or workflows to ignore
     ]

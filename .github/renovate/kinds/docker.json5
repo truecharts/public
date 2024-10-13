@@ -12,6 +12,7 @@
     "enabled": true, // Enable Docker image updates
     "commitMessageSuffix": "fix: update Docker image", // Customize commit message suffix
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "semanticCommitScope": "container",
     "ignore": [
       "talconfig.yaml" // Exclude any file named talconfig.yaml
     ]

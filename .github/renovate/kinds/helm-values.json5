@@ -8,6 +8,7 @@
     "enabled": true, // Enable image reference updates in values.yaml
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
     "commitMessageSuffix": "fix: update image references" // Customize commit message suffix
+    "semanticCommitScope": "container",
   },
   "ignore": [
     // Add any global ignores here if needed
