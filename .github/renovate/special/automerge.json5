@@ -21,7 +21,7 @@
     },
 {
   "description": ["Auto-merge chart updates, patch, and minor updates for OCI Helm charts from tccr.io/truecharts"],
-  "matchDatasources": ["helm"], // Use 'helm' datasource to match Helm charts
+  "matchDatasources": ["helm", "flux"], // Use 'helm' datasource to match Helm charts
   "automerge": true,
   "automergeType": "pr",
   "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"], // Specify the types of updates to automate
