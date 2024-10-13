@@ -22,6 +22,13 @@
         "github>truecharts/public//.github/renovate/updates/calver.json5",
         "github>truecharts/public//.github/renovate/basics/commitMessage.json5",
         "github>truecharts/public//.github/renovate/basics/labels.json5",
+        "github>truecharts/public//.github/renovate/kinds/astro.json5",
+        "github>truecharts/public//.github/renovate/kinds/docker.json5",
+        "github>truecharts/public//.github/renovate/kinds/flux.json5",
+        "github>truecharts/public//.github/renovate/kinds/githubactions.json5",
+        "github>truecharts/public//.github/renovate/kinds/go.json5",
+        "github>truecharts/public//.github/renovate/kinds/helm-values.json5",
+        "github>truecharts/public//.github/renovate/kinds/helm.json5",
         "github>truecharts/public//.github/renovate/special/groups.json5",
         "github>truecharts/public//.github/renovate/special/automerge.json5",
         "github>truecharts/public//.github/renovate/special/customRules.json5",
@@ -30,55 +37,6 @@
       ],
   // Main Renovate configuration that lists package rules for various paths
   "packageRules": [
-    {
-      "paths": [".github/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/github.json5"
-      ]
-    },
-    {
-      "paths": ["charts/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/charts.json5"
-      ]
-    },
-    {
-      "paths": ["containers/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/containers.json5"
-      ]
-    },
-    {
-      "paths": ["clusters/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/clusters.json5"
-      ]
-    },
-    {
-      "paths": ["repositories/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/repositories.json5"
-      ]
-    },
-    {
-      "paths": ["clustertool/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/clustertool.json5"
-      ]
-    },
-    {
-      "paths": ["website/**"], // Adjusted path
-      "enabled": true,
-      "extends": [
-        "github>truecharts/public//.github/renovate/folders/website.json5"
-      ]
-    }
   ],
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed

@@ -3,7 +3,9 @@
 
   "helm-values": {
     "fileMatch": [
-      ".ya?ml(?:\\.j2)?$" // Matches all .yaml and .yml files, optionally with a .j2 extension
+      "(^|/)clusters/.+\\.ya?ml(?:\\.j2)?$",
+      "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$",
+      "(^|/)charts/.+\\.ya?ml(?:\\.j2)?$",
     ],
     "enabled": true, // Enable image reference updates in values.yaml
     "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types

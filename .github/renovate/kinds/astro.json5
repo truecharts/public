@@ -1,21 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  // Astro project Renovate configuration for managing dependencies
-  "astro": {
+  "website": {
     "fileMatch": [
-      "astro\\.config\\.(mjs|js|ts)$", // Matches Astro configuration files
-      "package\\.json$" // Matches package.json files for dependency management
+      "(^|/)website/.+/astro\\.config\\.(mjs|js|ts)$", // Matches Astro config files in /website and any subdirectory
+      "(^|/)website/.+/package\\.json$" // Matches package.json files in /website and any subdirectory
     ],
-    "enabled": true, // Enable updates for Astro dependencies
-    "commitMessageSuffix": "fix: update Astro dependencies", // Customize commit message suffix
-    "updateTypes": ["major", "minor", "patch", "digest"], // Allow updates for all version types
+    "enabled": true, // Enable updates for website dependencies
+    "commitMessageSuffix": "fix: update website dependencies", // Customize commit message suffix
+    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
     "ignore": [
       // Specify any dependencies or versions to ignore
     ],
-    "semanticCommitScope": "astro",
+    "semanticCommitScope": "website"
   },
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed
   ],
-  "requiredStatusChecks": null,
+  "requiredStatusChecks": null
 }
