@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "labels": ["type/major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "labels": ["type/minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "labels": ["type/patch"]
+    },
+    {
+      "matchUpdateTypes": ["digest"],
+      "labels": ["type/digest"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "addLabels": ["renovate/container"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "addLabels": ["renovate/helm"]
+    },
+    {
+      "matchDatasources": ["github-releases", "github-tags"],
+      "addLabels": ["renovate/github-release"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "addLabels": ["renovate/github-action"]
+    }
+  ]
+}

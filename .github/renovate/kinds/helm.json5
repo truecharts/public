@@ -1,0 +1,16 @@
+{
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "helm": {
+    "fileMatch": [
+      "Chart\\.ya?ml(?:\\.j2)?$" // Matches Chart.yaml or Chart.yml files, optionally with a .j2 extension
+    ],
+    "enabled": true, // Enable Helm chart updates
+    "semanticCommitScope": "helm",
+    "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
+    "commitMessageSuffix": "fix: update Helm chart" // Customize commit message suffix
+  },
+  "ignore": [
+    // Add any global ignores here if needed
+  ]
+}

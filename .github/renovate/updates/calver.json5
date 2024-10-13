@@ -1,0 +1,14 @@
+{
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "calver": {
+    "enabled": true, // Enable CalVer updates
+    "versioning": ["calver"], // Specify that this uses CalVer versioning
+    "regexVersioning": {
+      "versioning": "calver", // Specify CalVer as the versioning strategy
+      "versioningRegex": "^\\d{4}\\.\\d{1,2}(\\.\\d{1,2})?$" // Example regex for CalVer: YYYY.MM or YYYY.MM.DD
+    }
+  },
+  "ignore": [
+    // Add any paths or patterns to ignore specific CalVer updates, if necessary
+  ]
+}
