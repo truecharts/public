@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: tc-weave-gitops
-    namespace: flux-system
+  name: tc-weave-gitops
+  namespace: flux-system
 spec:
-    type: oci
-    interval: 5m
-    url: oci://ghcr.io/weaveworks/charts
+  type: oci
+  interval: 5m
+  url: oci://ghcr.io/weaveworks/charts

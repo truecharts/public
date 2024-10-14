@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: tc-runix
-    namespace: flux-system
+  name: tc-runix
+  namespace: flux-system
 spec:
-    interval: 30m
-    url: https://helm.runix.net
-    timeout: 3m
+  interval: 30m
+  url: https://helm.runix.net
+  timeout: 3m

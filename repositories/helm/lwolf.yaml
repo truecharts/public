@@ -1,9 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: tc-lwolf
-    namespace: flux-system
+  name: tc-lwolf
+  namespace: flux-system
 spec:
-    interval: 1h
-    url: https://charts.lwolf.org
-    timeout: 3m
+  interval: 1h
+  url: https://charts.lwolf.org
+  timeout: 3m

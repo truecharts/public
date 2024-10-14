@@ -1,9 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: tc-democratic-csi
-    namespace: flux-system
+  name: tc-democratic-csi
+  namespace: flux-system
 spec:
-    interval: 30m
-    url: https://democratic-csi.github.io/charts/
-    timeout: 3m
+  interval: 30m
+  url: https://democratic-csi.github.io/charts/
+  timeout: 3m

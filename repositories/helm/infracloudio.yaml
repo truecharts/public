@@ -1,9 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-    name: tc-infracloudio
-    namespace: flux-system
+  name: tc-infracloudio
+  namespace: flux-system
 spec:
-    interval: 10m
-    url: https://infracloudio.github.io/charts
-    timeout: 3m
+  interval: 10m
+  url: https://infracloudio.github.io/charts
+  timeout: 3m
