@@ -21,18 +21,24 @@ workload:
       containers:
         main:
           env:
-            RIVEN_FORCE_ENV: "true" # forces the use of env vars to be always used!
-            RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__" # Set this to your rclone's mount `__all__` dir if using Zurg
-            RIVEN_SYMLINK_LIBRARY_PATH: "/mnt/library" # This is the path that symlinks will be placed in
+            # forces the use of env vars to be always used!
+            RIVEN_FORCE_ENV: "true" 
+            # Set this to your rclone's mount `__all__` dir if using Zurg
+            RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__" 
+            # This is the path that symlinks will be placed in
+            RIVEN_SYMLINK_LIBRARY_PATH: "/mnt/library" 
             RIVEN_DATABASE_HOST: '{{ printf "postgresql+psycopg2://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
             RIVEN_DOWNLOADERS_REAL_DEBRID_ENABLED: "false"
-            RIVEN_DOWNLOADERS_REAL_DEBRID_API_KEY: "xxxxx # set your real debrid api key"
+            # set your real debrid api key
+            RIVEN_DOWNLOADERS_REAL_DEBRID_API_KEY: "xxxxx"
             RIVEN_UPDATERS_PLEX_ENABLED: "false"
             RIVEN_UPDATERS_PLEX_URL: "http://plex:32400"
-            RIVEN_UPDATERS_PLEX_TOKEN: "xxxxx" # set your plex token"
+            # set your plex token"
+            RIVEN_UPDATERS_PLEX_TOKEN: "xxxxx" 
             RIVEN_CONTENT_OVERSEERR_ENABLED: "false"
             RIVEN_CONTENT_OVERSEERR_URL: "http://overseerr:5055"
-            RIVEN_CONTENT_OVERSEERR_API_KEY: "xxxxx # set your overseerr token"
+            # set your overseerr token
+            RIVEN_CONTENT_OVERSEERR_API_KEY: "xxxxx"
             RIVEN_SCRAPING_TORRENTIO_ENABLED: "false"
             RIVEN_SCRAPING_ZILEAN_ENABLED: "false"
             RIVEN_SCRAPING_ZILEAN_URL: "http://zilean:8181"
