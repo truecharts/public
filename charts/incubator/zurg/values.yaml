@@ -15,6 +15,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
           env:
             # forces the use of env vars to be always used!
             zurg_FORCE_ENV: "true" 
