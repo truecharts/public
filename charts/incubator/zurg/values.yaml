@@ -20,61 +20,6 @@ workload:
             zurg_FORCE_ENV: "true" 
             # Set this to your rclone's mount `__all__` dir if using Zurg
             LOG_LEVEL: DEBUG    
-      initContainers:
-        copy-example-config:
-          enabled: true
-          type: init
-          imageSelector: alpineImage
-          command:
-          - /bin/bash
-          - -c
-          - |
-            set -x
-            set -e
-    
-            # We need a /config/logs folder
-            mkdir -p /config/logs
-    
-            # If we don't already have an example config, create one
-            if [[ ! -f /config/config.yml ]];
-            then
-              cp /bootstrap/config.yml /config/
-            fi
-    
-            # If we don't already have an example plex_update, create one
-            if [[ ! -f /config/plex_update.sh ]];
-            then
-              cp /bootstrap/plex_update.sh /config/
-            fi
-        setup:
-          enabled: true
-          type: init
-          imageSelector: alpineImage
-          command:
-          - /bin/bash
-          - -c
-          - |
-            set -x
-            set -e
-    
-            # Disable native auth (we do it with traefik instead when necessary)
-            sed -i  "s/^username:/#username/" /config/config.yml
-            sed -i  "s/^password:/#password/" /config/config.yml
-    
-            # Ensure download cache is disabled (works better when IPs change)
-            sed -i  "s/use_download_cache: true/use_download_cache: false/" /config/config.yml
-    
-            # Don't let this instance do repairs
-            # sed -i  "s/enable_repair: true/enable_repair: false/" /config/config.yml
-    
-            # Set to 32 workers
-            sed -i  "s/concurrent_workers:.*/concurrent_workers: 32/" /config/config.yml
-    
-            # Force IPv6
-            sed -i  "s/force_ipv6:.*/force_ipv6: true/" /config/config.yml
-    
-            # Check for changes every 10 sec
-            sed -i  "s/check_for_changes_every_secs:.*/check_for_changes_every_secs: 10/" /config/config.yml
 
 zurg:
   token: YOURTOKEN
@@ -86,18 +31,18 @@ persistence:
   data:
     enabled: true
     mountPath: "/app/data"
-  example-config:
+ config-files:
     enabled: true
     type: configmap
-    objectName: example-config
+    objectName: config-files
     items:
       - key: config.yml
-        path: /bootstrap/config.yml
+        path: /config/config.yml
       - key: plex_update.sh
-        path: /bootstrap/plex_update.sh
+        path: /config/plex_update.sh
 
 configmap:
-  example-config:
+  config-files:
     enabled: true
     data:
       config.yml: |
