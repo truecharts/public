@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/elfhosted/riven
   pullPolicy: IfNotPresent
-  tag: v0.15.3@sha256:9afd9a810493df564393f674e4da10af89f124899dc9ab5ac3a93a722529d29d
+  tag: v0.15.3@sha256:2942af96b90708f24c87acdf2c1cd22e334c5cb3d5421c6d280e1ce4988df59e
 
 frontendImage:
   repository: ghcr.io/elfhosted/riven-frontend
@@ -22,7 +22,8 @@ workload:
         main:
           env:
             # forces the use of env vars to be always used!
-            RIVEN_FORCE_ENV: "true" 
+            RIVEN_FORCE_ENV: "true"
+            ZURG_URL: somezurgurl:9999
             # Set this to your rclone's mount `__all__` dir if using Zurg
             RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__" 
             # This is the path that symlinks will be placed in
