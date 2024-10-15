@@ -10,7 +10,7 @@ tests:
       imageDictToUse: image
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       imageGPU:
         repository: some-gpu-image
@@ -50,7 +50,7 @@ tests:
         isSubset:
           path: spec.template.spec.containers[0]
           content:
-            image: nginx:1.19.0
+            image: nginx:1.19.10
             imagePullPolicy: IfNotPresent
       - documentIndex: *deploymentDoc
         isSubset:
@@ -124,7 +124,7 @@ tests:
     set:
       image:
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: invalid
       workload:
         workload-name:
