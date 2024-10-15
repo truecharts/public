@@ -36,17 +36,19 @@ persistence:
     type: configmap
     objectName: config-file
     mountPath: /config/config.yml
+    subPath: config.yml
     items:
       - key: config.yml
-        path: /config/config.yml
+        path: config.yml
   plexupdate-file:
     enabled: true
     type: configmap
     objectName: plexupdate-file
     mountPath: /config/plex_update.sh
+    subPath: plex_update.sh
     items:
       - key: plex_update.sh
-        path: /config/plex_update.sh
+        path: plex_update.sh
 
 configmap:
   config-file:
