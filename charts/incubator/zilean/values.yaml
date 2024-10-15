@@ -23,7 +23,7 @@ workload:
             startup:
               path: "/healthchecks/ping"
           env:
-            Zilean__Database__ConnectionString: '{{ printf "Host=%s.%s;Port=5432;Database=%s;Username=%s;Password=%s" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database .Values.cnpg.main.user .Values.cnpg.main.creds.password }}'
+            Zilean__Database__ConnectionString: '{{ printf "Host=%s;Port=5432;Database=%s;Username=%s;Password=%s" (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database .Values.cnpg.main.user .Values.cnpg.main.creds.password }}'
 
 persistence:
   data:
