@@ -21,7 +21,7 @@ workload:
       containers:
         main:
           env:
-            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             APP_URL: ""
             DB_HOST:
@@ -29,7 +29,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASS: "{{ .Values.mariadb.password }}"
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             APP_KEY:
               secretKeyRef:
                 name: secrets
