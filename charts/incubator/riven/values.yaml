@@ -1,12 +1,12 @@
 image:
-  repository: spoked/riven
+  repository: ghcr.io/elfhosted/riven
   pullPolicy: IfNotPresent
-  tag: v0.15.0
+  tag: v0.15.3@sha256:9afd9a810493df564393f674e4da10af89f124899dc9ab5ac3a93a722529d29d
 
 frontendImage:
-  repository: spoked/riven-frontend
+  repository: ghcr.io/elfhosted/riven-frontend
   pullPolicy: IfNotPresent
-  tag: v0.13.1
+  tag: v0.13.1@sha256:92cee31094be29b9a2df7e18527dc7cfc3e82bb4acff56c7da6496576ef619ad
 
 service:
   main:
