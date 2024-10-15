@@ -31,18 +31,25 @@ persistence:
   data:
     enabled: true
     mountPath: "/app/data"
-  config-files:
+  config-file:
     enabled: true
     type: configmap
-    objectName: config-files
+    objectName: config-file
+    mountPath: /config/config.yml
     items:
       - key: config.yml
         path: /config/config.yml
+  plexupdate-file:
+    enabled: true
+    type: configmap
+    objectName: plexupdate-file
+    mountPath: /config/plex_update.sh
+    items:
       - key: plex_update.sh
         path: /config/plex_update.sh
 
 configmap:
-  config-files:
+  config-file:
     enabled: true
     data:
       config.yml: |
@@ -121,6 +128,10 @@ configmap:
             only_show_the_biggest_file: true # let's not show the other files besides the movie itself
             filters:
               - regex: /.*/ # you cannot leave a directory without filters because it will not have any torrents in it
+
+  plexupdate-file:
+    enabled: true
+    data:
       plex_update.sh: |
         #!/bin/bash
     
