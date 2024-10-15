@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/category: security
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 1.32.1
+dependencies:
+  - name: common
+    version: 25.0.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: comet self-hosted
+home: https://truecharts.org/charts/premium/comet
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/comet.webp
+keywords:
+  - comet
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: comet
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/premium/comet
+type: application
+version: 0.0.1
