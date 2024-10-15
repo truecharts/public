@@ -1,0 +1,74 @@
+image:
+  repository: ipromknight/riven
+  pullPolicy: IfNotPresent
+  tag: v0.15.0
+
+frontendImage:
+  repository: ipromknight/riven
+  pullPolicy: IfNotPresent
+  tag: v0.13.1
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RIVEN_FORCE_ENV: "true" # forces the use of env vars to be always used!
+            RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__" # Set this to your rclone's mount `__all__` dir if using Zurg
+            RIVEN_SYMLINK_LIBRARY_PATH: "/mnt/library" # This is the path that symlinks will be placed in
+            RIVEN_DATABASE_HOST: '{{ printf "postgresql+psycopg2://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
+            RIVEN_DOWNLOADERS_REAL_DEBRID_ENABLED: "false"
+            RIVEN_DOWNLOADERS_REAL_DEBRID_API_KEY: "xxxxx # set your real debrid api key"
+            RIVEN_UPDATERS_PLEX_ENABLED: "false"
+            RIVEN_UPDATERS_PLEX_URL: "http://plex:32400"
+            RIVEN_UPDATERS_PLEX_TOKEN: "xxxxx" # set your plex token"
+            RIVEN_CONTENT_OVERSEERR_ENABLED: "false"
+            RIVEN_CONTENT_OVERSEERR_URL: "http://overseerr:5055"
+            RIVEN_CONTENT_OVERSEERR_API_KEY: "xxxxx # set your overseerr token"
+            RIVEN_SCRAPING_TORRENTIO_ENABLED: "false"
+            RIVEN_SCRAPING_ZILEAN_ENABLED: "false"
+            RIVEN_SCRAPING_ZILEAN_URL: "http://zilean:8181"
+        frontend:
+          enabled: true
+          probes:
+            liveness:
+              port: 3000
+            readiness:
+              port: 3000
+            startup:
+              port: 3000
+          env:
+            ORIGIN: "http://localhost:3000"
+            BACKEND_URL: "http://localhost:8080"
+            DIALECT: "postgres"
+            DATABASE_URL: '{{ printf "postgresql://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
+
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/riven/data"
+  zurg-all: 
+    enabled: true
+    mountPath: "/mnt/zurg/__all__"
+  library:
+    enabled: true
+    mountPath: "/mnt/library"
+
+cnpg:
+  main:
+    enabled: true
+    user: riven
+    database: riven
+
+portal:
+  open:
+    enabled: true
