@@ -90,7 +90,11 @@ persistence:
     enabled: true
     type: configmap
     objectName: example-config
-    mountPath: "/bootstrap/"
+    items:
+      - key: config.yml
+        path: /bootstrap/config.yml
+      - key: plex_update.sh
+        path: /bootstrap/plex_update.sh
 
 configmap:
   example-config:
