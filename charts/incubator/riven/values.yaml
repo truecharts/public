@@ -60,6 +60,9 @@ workload:
 
 
 persistence:
+  logs:
+    enabled: true
+    mountPath: "/riven/data/logs"
   data:
     enabled: true
     mountPath: "/riven/data"
