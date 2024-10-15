@@ -16,8 +16,10 @@ service:
         targetPort: 3001
 
   frontend:
+    enabled: true
     ports:
       frontend:
+        enabled: true
         port: 3000
         targetPort: 3000
 
