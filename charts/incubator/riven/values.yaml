@@ -15,6 +15,12 @@ service:
         port: 3001
         targetPort: 3001
 
+  frontend:
+    ports:
+      frontend:
+        port: 3000
+        targetPort: 3000
+
 workload:
   main:
     podSpec:
@@ -54,7 +60,7 @@ workload:
               port: 3000
           env:
             ORIGIN: "http://localhost:3000"
-            BACKEND_URL: "http://localhost:8080"
+            BACKEND_URL: "http://localhost:3001"
             DIALECT: "postgres"
             DATABASE_URL: '{{ printf "postgresql://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
 
