@@ -31,7 +31,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -99,7 +99,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -115,7 +115,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -192,7 +192,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -208,7 +208,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -322,7 +322,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "max(prowlarr_system_health_issues{instance=~\"${prowlarr_instance}\"})",
@@ -334,7 +334,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "max(prowlarr_indexer_enabled_total{instance=~\"${prowlarr_instance}\"})",
@@ -346,7 +346,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "max(prowlarr_indexer_total{instance=~\"${prowlarr_instance}\"} - prowlarr_indexer_enabled_total{instance=~\"${prowlarr_instance}\"})",
@@ -361,7 +361,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -446,7 +446,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -460,7 +460,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -474,7 +474,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -491,7 +491,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -592,7 +592,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -606,7 +606,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "promtheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -623,7 +623,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -705,7 +705,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "min(prowlarr_indexer_vip_expires_in_seconds)",
@@ -720,7 +720,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -801,7 +801,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "max(prowlarr_indexer_average_response_time_ms{instance=~\"${prowlarr_instance}\"}) by (indexer)",
@@ -816,7 +816,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -897,7 +897,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "expr": "max(increase(prowlarr_user_agent_queries_total{instance=~\"${prowlarr_instance}\"}[$__rate_interval])) by (user_agent)",
@@ -912,7 +912,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -961,7 +961,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -978,7 +978,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1025,7 +1025,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1042,7 +1042,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1091,7 +1091,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1108,7 +1108,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1155,7 +1155,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1172,7 +1172,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1292,7 +1292,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1307,7 +1307,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1400,7 +1400,7 @@
         {
             "datasource": {
                 "type": "prometheus",
-                "uid": "prom"
+                "uid": "prometheus"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1480,7 +1480,7 @@
                 {
                     "datasource": {
                         "type": "prometheus",
-                        "uid": "prom"
+                        "uid": "prometheus"
                     },
                     "editorMode": "code",
                     "exemplar": false,
@@ -1578,7 +1578,7 @@
                 },
                 "datasource": {
                     "type": "prometheus",
-                    "uid": "prom"
+                    "uid": "prometheus"
                 },
                 "definition": "label_values({__name__=~\"prowlarr_.*\"},instance)",
                 "hide": 0,
