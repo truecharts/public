@@ -71,10 +71,13 @@ workload:
           tty: true
           probes:
             liveness:
+              type: tcp
               port: 3000
             readiness:
+              type: tcp
               port: 3000
             startup:
+              type: tcp
               port: 3000
           env:
             # ORIGIN: "http://localhost:3000"
