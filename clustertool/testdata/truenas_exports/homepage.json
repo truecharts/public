@@ -1,0 +1,524 @@
+{
+  "name": "homepage",
+  "info": {
+    "first_deployed": "2024-04-24T17:28:58.760945606+10:00",
+    "last_deployed": "2024-07-03T20:24:03.895313943+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing homepage by TrueCharts.\n\n\n## Connecting externally\nYou can use this Chart by opening one of the following links in your browser:\n- host: $node_ip\npath: /\nport: \"10352\"\nportalName: open\nprotocol: http\nurl: http://$node_ip:10352/\nuseNodeIP: true\n## Sources for homepage\n- https://ghcr.io/gethomepage/homepage\n- https://github.com/benphelps/homepage\n- https://github.com/truecharts/charts/tree/master/charts/stable/homepage\n\nSee more for **homepage** at (https://truecharts.org/charts/stable/homepage)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "configmap": {
+      "config": {
+        "data": {
+          "bookmarks.yaml": "---\n# For configuration options and examples, please see:\n# https://gethomepage.dev/latest/configs/bookmarks\n\n- Developer:\n    - Github:\n        - abbr: GH\n          href: https://github.com/\n\n- Social:\n    - Reddit:\n        - abbr: RE\n          href: https://reddit.com/\n\n- Entertainment:\n    - YouTube:\n        - abbr: YT\n          href: https://youtube.com/\n\n- TrueCharts:\n    - TrueCharts:\n      - abbr: TC\n        icon: https://truecharts.org/svg/favicon.svg\n        href: https://truecharts.org\n        description: \"TrueCharts Website\"\n    - Github:\n      - abbr: GH\n        icon: https://github.com/fluidicon.png\n        href: https://github.com/truecharts\n        description: \"TrueCharts GitHub\"\n    - Open Collective:\n      - abbr: TC\n        icon: https://opencollective.com/favicon.ico\n        href: https://opencollective.com/truecharts\n        description: \"TrueCharts Open Collective\"\n    - Discord:\n      - abbr: DC\n        icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32\n        href: https://truecharts.org/s/discord\n        description: \"TrueCharts Discord\"\n",
+          "custom.css": "",
+          "custom.js": "",
+          "kubernetes.yaml": "mode: cluster\n",
+          "services.yaml": "---\n# For configuration options and examples, please see:\n# https://gethomepage.dev/latest/configs/services\n\n- Arr:\n    - My First Service:\n        href: http://localhost/\n        description: Homepage is awesome\n\n- Media:\n    - My Second Service:\n        href: http://localhost/\n        description: Homepage is the best\n\n- Infra:\n    - My Third Service:\n        href: http://localhost/\n        description: Homepage is 😎\n",
+          "settings.yaml": "---\n# For configuration options and examples, please see:\n# https://gethomepage.dev/latest/configs/settings\n\nproviders:\n  openweathermap: openweathermapapikey\n  weatherapi: weatherapiapikey\n",
+          "widgets.yaml": "---\n# For configuration options and examples, please see:\n# https://gethomepage.dev/latest/configs/widgets\n\n- resources:\n    cpu: true\n    memory: true\n    disk: /\n\n- search:\n    provider: duckduckgo\n    target: _blank\n"
+        },
+        "enabled": true
+      }
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-homepage",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "forceConfigFromValues": false,
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-homepage",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "ghcr.io/gethomepage/homepage",
+      "tag": "v0.8.13@sha256:43a3ee88abe3b37c64bc52ea93da01c3dcb4a332a953bcd7f438c8d7328d3947"
+    },
+    "imagePullSecretList": [],
+    "ingress": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-homepage",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "networkPolicy": [],
+    "persistence": {
+      "bookmarks-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/bookmarks.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "bookmarks.yaml",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      },
+      "config": {
+        "enabled": true,
+        "mountPath": "/app/config",
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "targetSelector": {
+          "main": {
+            "init-config": {},
+            "main": {}
+          }
+        },
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      },
+      "custom-css-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/custom.css",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "custom.css",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      },
+      "custom-js-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/custom.js",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "custom.js",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      },
+      "force-bookmarks-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/bookmarks.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "bookmarks.yaml",
+        "type": "configmap"
+      },
+      "force-custom-css-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/custom.css",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "custom.css",
+        "type": "configmap"
+      },
+      "force-custom-js-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/custom.js",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "custom.js",
+        "type": "configmap"
+      },
+      "force-services-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/services.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "services.yaml",
+        "type": "configmap"
+      },
+      "force-settings-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/settings.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "settings.yaml",
+        "type": "configmap"
+      },
+      "force-widgets-config": {
+        "enabled": "{{ .Values.forceConfigFromValues }}",
+        "mountPath": "/app/config/widgets.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "widgets.yaml",
+        "type": "configmap"
+      },
+      "kubernetes-config": {
+        "enabled": true,
+        "mountPath": "/app/config/kubernetes.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "kubernetes.yaml",
+        "type": "configmap"
+      },
+      "services-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/services.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "services.yaml",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      },
+      "settings-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/settings.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "settings.yaml",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      },
+      "widgets-config": {
+        "enabled": "{{ not .Values.forceConfigFromValues }}",
+        "mountPath": "/dummy-config/widgets.yaml",
+        "objectName": "config",
+        "readOnly": true,
+        "subPath": "widgets.yaml",
+        "targetSelector": {
+          "main": {
+            "init-config": {}
+          }
+        },
+        "type": "configmap"
+      }
+    },
+    "persistenceList": [],
+    "podOptions": {
+      "dnsConfig": {
+        "options": [
+          {
+            "name": "ndots",
+            "value": "3"
+          }
+        ]
+      },
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": true
+      }
+    },
+    "rbac": {
+      "main": {
+        "clusterWide": true,
+        "enabled": true,
+        "primary": true,
+        "rules": [
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "namespaces",
+              "pods",
+              "nodes"
+            ],
+            "verbs": [
+              "get",
+              "list"
+            ]
+          },
+          {
+            "apiGroups": [
+              "extensions",
+              "networking.k8s.io"
+            ],
+            "resources": [
+              "ingresses"
+            ],
+            "verbs": [
+              "get",
+              "list"
+            ]
+          },
+          {
+            "apiGroups": [
+              "traefik.containo.us",
+              "traefik.io"
+            ],
+            "resources": [
+              "ingressroutes"
+            ],
+            "verbs": [
+              "get",
+              "list"
+            ]
+          },
+          {
+            "apiGroups": [
+              "metrics.k8s.io"
+            ],
+            "resources": [
+              "nodes",
+              "pods"
+            ],
+            "verbs": [
+              "get",
+              "list"
+            ]
+          },
+          {
+            "apiGroups": [
+              "apiextensions.k8s.io"
+            ],
+            "resources": [
+              "customresourcedefinitions/status"
+            ],
+            "verbs": [
+              "get"
+            ]
+          }
+        ]
+      }
+    },
+    "release_name": "homepage",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "UMASK": "0022",
+        "advanced": false,
+        "runAsGroup": 568,
+        "runAsUser": 568
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "main": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "main": {
+            "port": 10352,
+            "protocol": "http",
+            "targetPort": 3000
+          }
+        },
+        "type": "LoadBalancer"
+      }
+    },
+    "serviceAccount": {
+      "main": {
+        "enabled": true,
+        "primary": true
+      }
+    },
+    "serviceList": [],
+    "workload": {
+      "main": {
+        "podSpec": {
+          "automountServiceAccountToken": true,
+          "containers": {
+            "main": {
+              "advanced": false,
+              "envList": [],
+              "extraArgs": []
+            }
+          },
+          "initContainers": {
+            "init-config": {
+              "command": [
+                "/bin/sh",
+                "-c",
+                "mkdir -p /app/config\nif [ ! -f /app/config/bookmarks.yaml ]; then\n  echo \"Bookmarks file not found, copying dummy...\"\n  cp /dummy-config/bookmarks.yaml /app/config/bookmarks.yaml\n  echo \"Config file copied, you can now edit it at /app/config/bookmarks.yaml\"\nfi\nif [ ! -f /app/config/services.yaml ]; then\n  echo \"services file not found, copying dummy...\"\n  cp /dummy-config/services.yaml /app/config/services.yaml\n  echo \"Config file copied, you can now edit it at /app/config/services.yaml\"\nfi\nif [ ! -f /app/config/settings.yaml ]; then\n  echo \"settings file not found, copying dummy...\"\n  cp /dummy-config/settings.yaml /app/config/settings.yaml\n  echo \"Config file copied, you can now edit it at /app/config/settings.yaml\"\nfi\nif [ ! -f /app/config/widgets.yaml ]; then\n  echo \"widgets file not found, copying dummy...\"\n  cp /dummy-config/widgets.yaml /app/config/widgets.yaml\n  echo \"Config file copied, you can now edit it at /app/config/widgets.yaml\"\nfi\nif [ ! -f /app/config/custom.css ]; then\n  echo \"custom.css file not found, copying dummy...\"\n  cp /dummy-config/custom.css /app/config/custom.css\n  echo \"Config file copied, you can now edit it at /app/config/custom.css\"\nfi\nif [ ! -f /app/config/custom.js ]; then\n  echo \"custom.js file not found, copying dummy...\"\n  cp /dummy-config/custom.js /app/config/custom.js\n  echo \"Config file copied, you can now edit it at /app/config/custom.js\"\nfi\n"
+              ],
+              "enabled": true,
+              "imageSelector": "alpineImage",
+              "type": "init"
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 16,
+  "namespace": "ix-homepage",
+  "chart_metadata": {
+    "name": "homepage",
+    "home": "https://truecharts.org/charts/stable/homepage",
+    "sources": [
+      "https://ghcr.io/gethomepage/homepage",
+      "https://github.com/benphelps/homepage",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/homepage"
+    ],
+    "version": "8.0.9",
+    "description": "A highly customizable homepage",
+    "keywords": [
+      "homepage"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/homepage.webp",
+    "apiVersion": "v2",
+    "appVersion": "0.8.13",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "dashboard",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "8.0.9"
+  },
+  "id": "homepage",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/homepage",
+  "dataset": "Apps/ix-applications/releases/homepage",
+  "status": "ACTIVE",
+  "used_ports": [
+    {
+      "port": 10352,
+      "protocol": "TCP"
+    }
+  ],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "0.8.13_8.0.9",
+  "human_latest_version": "0.8.13_8.0.9",
+  "container_images_update_available": false,
+  "portals": {
+    "open": [
+      "http://10.0.0.20:10352/"
+    ]
+  }
+}
