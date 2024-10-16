@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: system-upgrade
+    annotations:
+        volsync.backube/privileged-movers: "true"
+    labels:
+        kustomize.toolkit.fluxcd.io/prune: disabled
+        goldilocks.fairwinds.com/enabled: "true"
+        pod-security.kubernetes.io/enforce: privileged
