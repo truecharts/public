@@ -486,7 +486,7 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:4aef9dbf99ea2a8857ed4ce9d9bf79d330b79044884c7374e392445d122ec746
+  tag: latest@sha256:35cf289028b606a0a5bfa8efcfbc5c8424a732532121cb635c014d742c0110f6
   pullPolicy: IfNotPresent
 
 kubectlImage:
@@ -695,8 +695,8 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-      - # Group of the referent resource.
-        group: gateway.networking.k8s.io
+      # Group of the referent resource.
+      - group: gateway.networking.k8s.io
         # Kind of the referent resource.
         kind: Gateway
         # Name of the referent resource
@@ -709,8 +709,8 @@ route:
     hostnames: []
     # -- Configure rules for routing. Defaults to the primary service.
     rules:
-      - # -- Configure backends where matching requests should be sent.
-        backendRefs:
+      # -- Configure backends where matching requests should be sent.
+      - backendRefs:
           - group: ""
             kind: Service
             name:
@@ -790,7 +790,7 @@ metrics:
       #     additionalrules: []
       # List to support adding groups using the SCALE GUI
       additionalgroups:
-        #-  name: "somegroup"
+        # - name: "somegroup"
         #   # list of rules
         #   rules: []
         #   # list to support adding rules via the SCALE GUI without overwrithing the rules
@@ -1075,7 +1075,8 @@ cnpg:
 
       ## Point in time recovery target. Specify one of the following:
       pitrTarget:
-        time: "" # Time in RFC3339 format
+        # Time in RFC3339 format
+        time: ""
 
       # Name of the backup to recover from. Required if method is `backup`.
       backupName: ""
@@ -1091,7 +1092,8 @@ cnpg:
 
     # Database cluster backup configuration
     backups:
-      enabled: false # You need to configure backups manually, so backups are disabled by default.
+      # You need to configure backups manually, so backups are disabled by default.
+      enabled: false
 
       encryption:
         enabled: false
@@ -1114,8 +1116,10 @@ cnpg:
       credentials: ""
 
       scheduledBackups:
-        - name: daily-backup # Daily at midnight
-          schedule: "0 0 0 * * *" # Daily at midnight
+        # Daily at midnight
+        - name: daily-backup
+          # Daily at midnight
+          schedule: "0 0 0 * * *"
           backupOwnerReference: self
           immediate: true
           suspend: false
@@ -1202,3 +1206,4 @@ solr:
 
 # -- List of extra objects to deploy with the release
 extraTpl: []
+
