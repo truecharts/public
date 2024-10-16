@@ -32,21 +32,24 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedFiles: ${{ needs.pr-changes.outputs.addedOrModifiedFiles }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
+
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
       - pr-changes
       - charts-lint
+    if: ${{ !contains(github.event.pull_request.title, 'container image common') }} # Skip if PR title contains "container image common"
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
   print_head_msg:
-    name: print commit message
+    name: Print commit message
     runs-on: ubuntu-latest
     outputs:
       head-commit-message: ${{ steps.get_head_commit_message.outputs.headCommitMsg }}
+      pr-title: ${{ github.event.pull_request.title }}
     steps:
       - name: Get repo
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -57,14 +60,19 @@ jobs:
       - name: Print head git commit message
         id: get_head_commit_message
         run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
+      - name: Print PR title
+        run: echo "PR title: ${{ github.event.pull_request.title }}"
 
   automerge-and-approve:
     needs:
       - pr-changes
-      - charts-test
       - charts-lint
       - print_head_msg
-    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) || contains( needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc' ) }}
+    if: ${{ 
+      contains(needs.print_head_msg.outputs.head-commit-message, 'By Renovate') || 
+      contains(needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc') || 
+      contains(github.event.pull_request.title, 'container image common') 
+    }} # Runs if conditions are met
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     continue-on-error: true
