@@ -1,0 +1,828 @@
+{
+  "name": "volsync",
+  "info": {
+    "first_deployed": "2024-07-03T19:59:08.745143345+10:00",
+    "last_deployed": "2024-07-08T23:47:19.42822429+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing volsync by TrueCharts.\n\n\n## Sources for volsync\n- https://github.com/truecharts/charts/tree/master/charts/system/volsync\n- https://github.com/volsync/volsync\n- https://github.com/volsync/volsync-helm-chart\n- https://quay.io/backube/volsync\n- https://quay.io/brancz/kube-rbac-proxy\n- https://volsync.readthedocs.io/\n\nSee more for **volsync** at (https://truecharts.org/charts/system/volsync)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-volsync",
+        "upgradeMetadata": {}
+      },
+      "stopAll": true
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "quay.io/backube/volsync",
+      "tag": "0.9.1"
+    },
+    "imagePullSecretList": [],
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-volsync",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "manageCRDs": true,
+    "manageVSCCRD": true,
+    "metrics": {
+      "main": {
+        "enabled": false,
+        "endpoints": [
+          {
+            "path": "/metrics",
+            "port": "metrics"
+          }
+        ],
+        "targetSelector": "metrics",
+        "type": "servicemonitor"
+      }
+    },
+    "networkPolicy": [],
+    "podOptions": {
+      "automountServiceAccountToken": true,
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": false
+      }
+    },
+    "proxyImage": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "quay.io/brancz/kube-rbac-proxy",
+      "tag": "v0.14.4@sha256:40d0d5d0032f9bd689bb6ee7d1960048c295e019b7110d5fadea5aff9599baa5"
+    },
+    "rbac": {
+      "cluster": {
+        "allServiceAccounts": true,
+        "clusterWide": true,
+        "enabled": true,
+        "primary": false,
+        "rules": [
+          {
+            "apiGroups": [
+              "authentication.k8s.io"
+            ],
+            "resources": [
+              "tokenreviews"
+            ],
+            "verbs": [
+              "create"
+            ]
+          },
+          {
+            "apiGroups": [
+              "authorization.k8s.io"
+            ],
+            "resources": [
+              "subjectaccessreviews"
+            ],
+            "verbs": [
+              "create"
+            ]
+          },
+          {
+            "apiGroups": [
+              "apps"
+            ],
+            "resources": [
+              "deployments"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "deletecollection",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "batch"
+            ],
+            "resources": [
+              "jobs"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "deletecollection",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "configmaps"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "events"
+            ],
+            "verbs": [
+              "create",
+              "patch",
+              "update"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "namespaces"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "nodes"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "persistentvolumeclaims"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "deletecollection",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "persistentvolumeclaims/finalizers"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "persistentvolumes"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "patch",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "pods"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "pods/log"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "secrets"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "serviceaccounts"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "services"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "events.k8s.io"
+            ],
+            "resources": [
+              "events"
+            ],
+            "verbs": [
+              "create",
+              "patch",
+              "update"
+            ]
+          },
+          {
+            "apiGroups": [
+              "populator.storage.k8s.io"
+            ],
+            "resources": [
+              "volumepopulators"
+            ],
+            "verbs": [
+              "create",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "rbac.authorization.k8s.io"
+            ],
+            "resources": [
+              "rolebindings"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "rbac.authorization.k8s.io"
+            ],
+            "resources": [
+              "roles"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "security.openshift.io"
+            ],
+            "resources": [
+              "securitycontextconstraints"
+            ],
+            "verbs": [
+              "create",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "security.openshift.io"
+            ],
+            "resourceNames": [
+              "volsync-privileged-mover"
+            ],
+            "resources": [
+              "securitycontextconstraints"
+            ],
+            "verbs": [
+              "use"
+            ]
+          },
+          {
+            "apiGroups": [
+              "snapshot.storage.k8s.io"
+            ],
+            "resources": [
+              "volumesnapshots"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "deletecollection",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "storage.k8s.io"
+            ],
+            "resources": [
+              "storageclasses"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationdestinations"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationdestinations/finalizers"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationdestinations/status"
+            ],
+            "verbs": [
+              "get",
+              "patch",
+              "update"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationsources"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationsources/finalizers"
+            ],
+            "verbs": [
+              "create",
+              "delete",
+              "get",
+              "list",
+              "patch",
+              "update",
+              "watch"
+            ]
+          },
+          {
+            "apiGroups": [
+              "volsync.backube"
+            ],
+            "resources": [
+              "replicationsources/status"
+            ],
+            "verbs": [
+              "get",
+              "patch",
+              "update"
+            ]
+          }
+        ]
+      },
+      "main": {
+        "clusterWide": false,
+        "enabled": true,
+        "primary": true,
+        "rules": [
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "configmaps"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch",
+              "create",
+              "update",
+              "patch",
+              "delete"
+            ]
+          },
+          {
+            "apiGroups": [
+              "coordination.k8s.io"
+            ],
+            "resources": [
+              "leases"
+            ],
+            "verbs": [
+              "get",
+              "list",
+              "watch",
+              "create",
+              "update",
+              "patch",
+              "delete"
+            ]
+          },
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "events"
+            ],
+            "verbs": [
+              "create",
+              "patch"
+            ]
+          }
+        ]
+      }
+    },
+    "release_name": "volsync",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "securityContext": {
+      "container": {
+        "UMASK": "0022",
+        "advanced": false,
+        "runAsGroup": 568,
+        "runAsUser": 568
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "OnRootMismatch",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "main": {
+        "ports": {
+          "main": {
+            "port": 8081,
+            "protocol": "http",
+            "targetPort": 8081
+          }
+        }
+      },
+      "metrics": {
+        "enabled": true,
+        "ports": {
+          "metrics": {
+            "enabled": true,
+            "port": 8443,
+            "protocol": "https",
+            "targetPort": 8443
+          }
+        },
+        "type": "ClusterIP"
+      }
+    },
+    "serviceAccount": {
+      "main": {
+        "enabled": true,
+        "primary": true
+      }
+    },
+    "workload": {
+      "main": {
+        "podSpec": {
+          "containers": {
+            "kube-rbac-proxy": {
+              "args": [
+                "--secure-listen-address=0.0.0.0:8443",
+                "--upstream=http://127.0.0.1:8080/",
+                "--logtostderr=true",
+                "--tls-min-version=VersionTLS12",
+                "--v=0"
+              ],
+              "enabled": true,
+              "imageSelector": "proxyImage",
+              "probes": {
+                "liveness": {
+                  "port": 8443,
+                  "type": "tcp"
+                },
+                "readiness": {
+                  "port": 8443,
+                  "type": "tcp"
+                },
+                "startup": {
+                  "port": 8443,
+                  "type": "tcp"
+                }
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "128Mi"
+                },
+                "requests": {
+                  "cpu": "5m",
+                  "memory": "64Mi"
+                }
+              }
+            },
+            "main": {
+              "advanced": false,
+              "args": [
+                "--health-probe-bind-address=:8081",
+                "--metrics-bind-address=127.0.0.1:8080",
+                "--leader-elect",
+                "--rclone-container-image={{ printf \"%s:%s\" .Values.image.repository .Values.image.tag }}",
+                "--restic-container-image={{ printf \"%s:%s\" .Values.image.repository .Values.image.tag }}",
+                "--rsync-container-image={{ printf \"%s:%s\" .Values.image.repository .Values.image.tag }}",
+                "--rsync-tls-container-image={{ printf \"%s:%s\" .Values.image.repository .Values.image.tag }}",
+                "--syncthing-container-image={{ printf \"%s:%s\" .Values.image.repository .Values.image.tag }}",
+                "--scc-name=volsync-privileged-mover"
+              ],
+              "command": [
+                "/manager"
+              ],
+              "envList": [],
+              "extraArgs": [],
+              "probes": {
+                "liveness": {
+                  "path": "/healthz"
+                },
+                "readiness": {
+                  "path": "/readyz"
+                },
+                "startup": {
+                  "path": "/readyz"
+                }
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "strategy": "RollingUpdate",
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 4,
+  "namespace": "ix-volsync",
+  "chart_metadata": {
+    "name": "volsync",
+    "home": "https://truecharts.org/charts/system/volsync",
+    "sources": [
+      "https://github.com/truecharts/charts/tree/master/charts/system/volsync",
+      "https://github.com/volsync/volsync",
+      "https://github.com/volsync/volsync-helm-chart",
+      "https://quay.io/backube/volsync",
+      "https://quay.io/brancz/kube-rbac-proxy",
+      "https://volsync.readthedocs.io/"
+    ],
+    "version": "1.0.8",
+    "description": "volsync is a storage backup and synchronisation tool.",
+    "keywords": [
+      "volsync",
+      "ingress"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/volsync.webp",
+    "apiVersion": "v2",
+    "appVersion": "0.9.1",
+    "annotations": {
+      "truecharts.org/category": "network",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "system"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.0",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "1.0.8"
+  },
+  "id": "volsync",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "system",
+  "path": "/mnt/Apps/ix-applications/releases/volsync",
+  "dataset": "Apps/ix-applications/releases/volsync",
+  "status": "STOPPED",
+  "used_ports": [],
+  "pod_status": {
+    "desired": 0,
+    "available": 0
+  },
+  "update_available": false,
+  "human_version": "0.9.1_1.0.8",
+  "human_latest_version": "0.9.1_1.0.8",
+  "container_images_update_available": false,
+  "portals": {}
+}
