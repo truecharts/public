@@ -2,40 +2,22 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": ["Auto-merge container digests, patch and minor updates for trusted containers"],
-      "matchDatasources": ["docker"],
+      "description": ["Auto-merge minor updates from trusted sources"],
+      "matchDatasources": ["docker", "helm", "flux"],
       "automerge": true,
-      "automergeType": "pr",
-      "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"],
-      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*" ],
-      "branchPrefix": "docker-automerge-"
+      "matchUpdateTypes": ["minor"],
+      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*", "tccr.io/truecharts/.*" ],
+      "branchPrefix": "trusted-automerge-",
+      "labels": ["type/minor", "automerge"]
     },
-    {
-      "description": ["Auto-merge helm-values digests, patch and minor updates for trusted containers"],
-      "matchDatasources": ["helm-values"],
-      "automerge": true,
-      "automergeType": "pr",
-      "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"],
-      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*" ],
-      "branchPrefix": "helm-values-automerge-"
-    },
-{
-  "description": ["Auto-merge chart updates, patch, and minor updates for OCI Helm charts from tccr.io/truecharts"],
-  "matchDatasources": ["helm", "flux"], // Use 'helm' datasource to match Helm charts
-  "automerge": true,
-  "automergeType": "pr",
-  "matchUpdateTypes": ["digest", "patch", "minor", "digest", "pin"], // Specify the types of updates to automate
-  "matchPackagePatterns": ["tccr.io/truecharts/.*"],
-  "branchPrefix": "helm-automerge-"
-},
     {
       "description": ["Auto-merge GitHub Actions for minor and patch"],
       "matchManagers": ["github-actions"],
       "matchDatasources": ["github-tags"],
       "automerge": true,
-      "automergeType": "pr",
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin"],
-      "branchPrefix": "github-automerge-"
+      "matchUpdateTypes": ["minor"],
+      "branchPrefix": "github-automerge-",
+      "labels": ["type/minor", "automerge"]
     }
   ]
 }

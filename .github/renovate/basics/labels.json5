@@ -11,11 +11,19 @@
     },
     {
       "matchUpdateTypes": ["patch"],
-      "labels": ["type/patch"]
+      "labels": ["type/patch", "automerge"]
     },
     {
-      "matchUpdateTypes": ["digest"],
-      "labels": ["type/digest"]
+      "matchUpdateTypes": ["digest", "pin"],
+      "labels": ["type/digest", "automerge"]
+    },
+    {
+      "matchUpdateTypes": ["pin"],
+      "labels": ["type/pin", "automerge"]
+    },
+    {
+      "matchUpdateTypes": ["lockfile"],
+      "labels": ["type/lockfile", "automerge"]
     },
     {
       "matchDatasources": ["docker"],
