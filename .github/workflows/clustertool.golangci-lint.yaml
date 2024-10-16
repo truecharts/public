@@ -1,0 +1,34 @@
+name: golangci-lint
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+on:
+  # push:
+  #   branches:
+  #     - main
+  #   tags:
+  #     - "*"
+  #  paths:
+  #    - 'clustertool/**'
+  #    - ".github/workflows/clsutertool.test.yaml"
+  #pull_request:
+  #  branches:
+  #    - main
+  #  paths:
+  #    - 'clustertool/**'
+  #    - ".github/workflows/clsutertool.test.yaml"
+permissions:
+  contents: read
+jobs:
+  golangci:
+    name: lint
+    runs-on: actions-runner-large
+    steps:
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5
+        with:
+          go-version: stable
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@971e284b6050e8a5849b72094c50ab08da042db8 # v6
+        with:
+          version: latest
+          args: --timeout 3m0s
