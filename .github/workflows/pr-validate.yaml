@@ -61,7 +61,8 @@ jobs:
         id: get_head_commit_message
         run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
       - name: Print PR title
-        run: echo "PR title: ${{ github.event.pull_request.title }}"
+        run: |
+          echo "PR title: ${{ github.event.pull_request.title }}"
 
   automerge-and-approve:
     needs:
@@ -71,8 +72,7 @@ jobs:
     if: ${{ 
       contains(needs.print_head_msg.outputs.head-commit-message, 'By Renovate') || 
       contains(needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc') || 
-      contains(github.event.pull_request.title, 'container image common') 
-    }} # Runs if conditions are met
+      contains(github.event.pull_request.title, 'image common') }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     continue-on-error: true
