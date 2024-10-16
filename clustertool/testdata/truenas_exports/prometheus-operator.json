@@ -1,0 +1,387 @@
+{
+  "name": "prometheus-operator",
+  "info": {
+    "first_deployed": "2024-01-03T14:45:02.101999414+11:00",
+    "last_deployed": "2024-05-03T02:01:17.788662558+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing prometheus-operator by TrueCharts.\n\n\n## Sources for prometheus-operator\n- https://github.com/prometheus-operator\n- https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator\n- https://github.com/truecharts/containers/tree/master/apps/alpine\n\nSee more for **prometheus-operator** at (https://truecharts.org/charts/system/prometheus-operator)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "credentialsList": [],
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": false,
+        "isUpgrade": true,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPGRADE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-prometheus-operator",
+        "upgradeMetadata": {
+          "newChartVersion": "7.0.4",
+          "oldChartVersion": "7.0.3",
+          "preUpgradeRevision": 43
+        }
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "tccr.io/tccr/alpine",
+      "tag": "latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558"
+    },
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": false,
+      "isUpgrade": true,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPGRADE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-prometheus-operator",
+      "upgradeMetadata": {
+        "newChartVersion": "7.0.4",
+        "oldChartVersion": "7.0.3",
+        "preUpgradeRevision": 43
+      }
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "kps": {
+      "alertmanager": {
+        "enabled": false
+      },
+      "coreDns": {
+        "enabled": false
+      },
+      "crds": {
+        "enabled": true
+      },
+      "defaultRules": {
+        "create": false
+      },
+      "global": {
+        "rbac": {
+          "create": true
+        }
+      },
+      "grafana": {
+        "defaultDashboardsEnabled": false,
+        "enabled": false,
+        "forceDeployDashboards": false
+      },
+      "kubeApiServer": {
+        "enabled": false
+      },
+      "kubeControllerManager": {
+        "enabled": false
+      },
+      "kubeDns": {
+        "enabled": false
+      },
+      "kubeEtcd": {
+        "enabled": false
+      },
+      "kubeProxy": {
+        "enabled": false
+      },
+      "kubeScheduler": {
+        "enabled": false
+      },
+      "kubeStateMetrics": {
+        "enabled": false
+      },
+      "kubelet": {
+        "enabled": false
+      },
+      "kubernetesServiceMonitors": {
+        "enabled": false
+      },
+      "nodeExporter": {
+        "enabled": false
+      },
+      "prometheus": {
+        "enabled": false
+      },
+      "prometheus-windows-exporter": {
+        "prometheus": {
+          "monitor": {
+            "enabled": false
+          }
+        }
+      },
+      "prometheusOperator": {
+        "enabled": true
+      },
+      "thanosRuler": {
+        "enabled": false
+      },
+      "windowsMonitoring": {
+        "enabled": false
+      }
+    },
+    "operator": {
+      "register": true
+    },
+    "portal": {
+      "open": {
+        "enabled": false
+      }
+    },
+    "release_name": "prometheus-operator",
+    "service": {
+      "main": {
+        "enabled": false,
+        "ports": {
+          "main": {
+            "enabled": false
+          }
+        }
+      }
+    },
+    "workload": {
+      "main": {
+        "enabled": false
+      }
+    }
+  },
+  "hooks": [
+    {
+      "name": "prometheus-operator-kps-admission",
+      "kind": "ServiceAccount",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/serviceaccount.yaml",
+      "manifest": "apiVersion: v1\nkind: ServiceAccount\nmetadata:\n  name:  prometheus-operator-kps-admission\n  namespace: ix-prometheus-operator\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade,post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook",
+      "events": [
+        "pre-install",
+        "pre-upgrade",
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.428117866+10:00",
+        "completed_at": "2024-05-03T02:01:43.441540986+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission",
+      "kind": "ClusterRole",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/clusterrole.yaml",
+      "manifest": "apiVersion: rbac.authorization.k8s.io/v1\nkind: ClusterRole\nmetadata:\n  name:  prometheus-operator-kps-admission\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade,post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nrules:\n  - apiGroups:\n      - admissionregistration.k8s.io\n    resources:\n      - validatingwebhookconfigurations\n      - mutatingwebhookconfigurations\n    verbs:\n      - get\n      - update",
+      "events": [
+        "pre-install",
+        "pre-upgrade",
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.468809289+10:00",
+        "completed_at": "2024-05-03T02:01:43.480540697+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission",
+      "kind": "ClusterRoleBinding",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/clusterrolebinding.yaml",
+      "manifest": "apiVersion: rbac.authorization.k8s.io/v1\nkind: ClusterRoleBinding\nmetadata:\n  name:  prometheus-operator-kps-admission\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade,post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nroleRef:\n  apiGroup: rbac.authorization.k8s.io\n  kind: ClusterRole\n  name: prometheus-operator-kps-admission\nsubjects:\n  - kind: ServiceAccount\n    name: prometheus-operator-kps-admission\n    namespace: ix-prometheus-operator",
+      "events": [
+        "pre-install",
+        "pre-upgrade",
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.507854125+10:00",
+        "completed_at": "2024-05-03T02:01:43.51852047+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission",
+      "kind": "Role",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/role.yaml",
+      "manifest": "apiVersion: rbac.authorization.k8s.io/v1\nkind: Role\nmetadata:\n  name:  prometheus-operator-kps-admission\n  namespace: ix-prometheus-operator\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade,post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nrules:\n  - apiGroups:\n      - \"\"\n    resources:\n      - secrets\n    verbs:\n      - get\n      - create",
+      "events": [
+        "pre-install",
+        "pre-upgrade",
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.54748275+10:00",
+        "completed_at": "2024-05-03T02:01:43.558090864+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission",
+      "kind": "RoleBinding",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/rolebinding.yaml",
+      "manifest": "apiVersion: rbac.authorization.k8s.io/v1\nkind: RoleBinding\nmetadata:\n  name:  prometheus-operator-kps-admission\n  namespace: ix-prometheus-operator\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade,post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nroleRef:\n  apiGroup: rbac.authorization.k8s.io\n  kind: Role\n  name: prometheus-operator-kps-admission\nsubjects:\n  - kind: ServiceAccount\n    name: prometheus-operator-kps-admission\n    namespace: ix-prometheus-operator",
+      "events": [
+        "pre-install",
+        "pre-upgrade",
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.586601716+10:00",
+        "completed_at": "2024-05-03T02:01:43.596184173+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission-create",
+      "kind": "Job",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/job-createSecret.yaml",
+      "manifest": "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name:  prometheus-operator-kps-admission-create\n  namespace: ix-prometheus-operator\n  annotations:\n    \"helm.sh/hook\": pre-install,pre-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission-create\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nspec:\n  template:\n    metadata:\n      name:  prometheus-operator-kps-admission-create\n      labels:\n        app: kps-admission-create\n        \n        app.kubernetes.io/managed-by: Helm\n        app.kubernetes.io/instance: prometheus-operator\n        app.kubernetes.io/version: \"56.21.0\"\n        app.kubernetes.io/part-of: kps\n        chart: kps-56.21.0\n        release: \"prometheus-operator\"\n        heritage: \"Helm\"\n        app.kubernetes.io/name: kps-prometheus-operator\n        app.kubernetes.io/component: prometheus-operator-webhook\n    spec:\n      containers:\n        - name: create\n          image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6\n          imagePullPolicy: IfNotPresent\n          args:\n            - create\n            - --host=prometheus-operator-kps-operator,prometheus-operator-kps-operator.ix-prometheus-operator.svc\n            - --namespace=ix-prometheus-operator\n            - --secret-name=prometheus-operator-kps-admission\n          securityContext:\n          \n            allowPrivilegeEscalation: false\n            capabilities:\n              drop:\n              - ALL\n            readOnlyRootFilesystem: true\n          resources:\n            {}\n      restartPolicy: OnFailure\n      serviceAccountName: prometheus-operator-kps-admission\n      securityContext:\n        runAsGroup: 2000\n        runAsNonRoot: true\n        runAsUser: 2000\n        seccompProfile:\n          type: RuntimeDefault",
+      "events": [
+        "pre-install",
+        "pre-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:18.619108089+10:00",
+        "completed_at": "2024-05-03T02:01:42.910001285+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    },
+    {
+      "name": "prometheus-operator-kps-admission-patch",
+      "kind": "Job",
+      "path": "prometheus-operator/charts/kps/templates/prometheus-operator/admission-webhooks/job-patch/job-patchWebhook.yaml",
+      "manifest": "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name:  prometheus-operator-kps-admission-patch\n  namespace: ix-prometheus-operator\n  annotations:\n    \"helm.sh/hook\": post-install,post-upgrade\n    \"helm.sh/hook-delete-policy\": before-hook-creation,hook-succeeded\n  labels:\n    app: kps-admission-patch\n    \n    app.kubernetes.io/managed-by: Helm\n    app.kubernetes.io/instance: prometheus-operator\n    app.kubernetes.io/version: \"56.21.0\"\n    app.kubernetes.io/part-of: kps\n    chart: kps-56.21.0\n    release: \"prometheus-operator\"\n    heritage: \"Helm\"\n    app.kubernetes.io/name: kps-prometheus-operator\n    app.kubernetes.io/component: prometheus-operator-webhook\nspec:\n  template:\n    metadata:\n      name:  prometheus-operator-kps-admission-patch\n      labels:\n        app: kps-admission-patch\n        \n        app.kubernetes.io/managed-by: Helm\n        app.kubernetes.io/instance: prometheus-operator\n        app.kubernetes.io/version: \"56.21.0\"\n        app.kubernetes.io/part-of: kps\n        chart: kps-56.21.0\n        release: \"prometheus-operator\"\n        heritage: \"Helm\"\n        app.kubernetes.io/name: kps-prometheus-operator\n        app.kubernetes.io/component: prometheus-operator-webhook\n    spec:\n      containers:\n        - name: patch\n          image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6\n          imagePullPolicy: IfNotPresent\n          args:\n            - patch\n            - --webhook-name=prometheus-operator-kps-admission\n            - --namespace=ix-prometheus-operator\n            - --secret-name=prometheus-operator-kps-admission\n            - --patch-failure-policy=\n          securityContext:\n          \n            allowPrivilegeEscalation: false\n            capabilities:\n              drop:\n              - ALL\n            readOnlyRootFilesystem: true\n          resources:\n            {}\n      restartPolicy: OnFailure\n      serviceAccountName: prometheus-operator-kps-admission\n      securityContext:\n        runAsGroup: 2000\n        runAsNonRoot: true\n        runAsUser: 2000\n        seccompProfile:\n          type: RuntimeDefault",
+      "events": [
+        "post-install",
+        "post-upgrade"
+      ],
+      "last_run": {
+        "started_at": "2024-05-03T02:01:43.629838703+10:00",
+        "completed_at": "2024-05-03T02:01:55.514722424+10:00",
+        "phase": "Succeeded"
+      },
+      "delete_policies": [
+        "before-hook-creation",
+        "hook-succeeded"
+      ]
+    }
+  ],
+  "version": 44,
+  "namespace": "ix-prometheus-operator",
+  "chart_metadata": {
+    "name": "prometheus-operator",
+    "home": "https://truecharts.org/charts/system/prometheus-operator",
+    "sources": [
+      "https://github.com/prometheus-operator",
+      "https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator",
+      "https://github.com/truecharts/containers/tree/master/apps/alpine"
+    ],
+    "version": "7.0.4",
+    "description": "Prometheus Operator is an operator for prometheus",
+    "keywords": [
+      "operator",
+      "prometheus",
+      "metics"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.webp",
+    "apiVersion": "v2",
+    "appVersion": "latest",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "operators",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "system"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.0",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      },
+      {
+        "name": "kps",
+        "version": "56.21.0",
+        "repository": "oci://ghcr.io/prometheus-community/charts",
+        "enabled": true,
+        "alias": "kps"
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "7.0.4"
+  },
+  "id": "prometheus-operator",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "system",
+  "path": "/mnt/Apps/ix-applications/releases/prometheus-operator",
+  "dataset": "Apps/ix-applications/releases/prometheus-operator",
+  "status": "ACTIVE",
+  "used_ports": [],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "latest_7.0.4",
+  "human_latest_version": "latest_7.0.4",
+  "container_images_update_available": false,
+  "portals": {}
+}
