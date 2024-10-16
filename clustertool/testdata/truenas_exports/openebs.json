@@ -1,0 +1,280 @@
+{
+  "name": "openebs",
+  "info": {
+    "first_deployed": "2024-04-24T14:51:21.911963321+10:00",
+    "last_deployed": "2024-07-03T20:00:43.101610328+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing openebs by TrueCharts.\n\n\n## Sources for openebs\n- https://github.com/cert-manager\n- https://cert-manager.io/\n- https://github.com/truecharts/charts/tree/master/charts/system/openebs\n- https://github.com/truecharts/containers/tree/master/apps/scratch\n\nSee more for **openebs** at (https://truecharts.org/charts/system/openebs)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-openebs",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "tccr.io/tccr/scratch",
+      "tag": "latest"
+    },
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-openebs",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "localpv-provisioner": {
+      "analytics": {
+        "enabled": true,
+        "pingInterval": "24h"
+      },
+      "enabled": false,
+      "fullnameOverride": "",
+      "helperPod": {
+        "image": {
+          "pullPolicy": "IfNotPresent",
+          "registry": "",
+          "repository": "openebs/linux-utils",
+          "tag": "4.0.0"
+        }
+      },
+      "hostpathClass": {
+        "basePath": "",
+        "enabled": false,
+        "ext4Quota": {
+          "enabled": false,
+          "hardLimitGrace": "0%",
+          "softLimitGrace": "0%"
+        },
+        "isDefaultClass": false,
+        "name": "openebs-hostpath",
+        "nodeAffinityLabels": [],
+        "reclaimPolicy": "Delete",
+        "xfsQuota": {
+          "enabled": false,
+          "hardLimitGrace": "0%",
+          "softLimitGrace": "0%"
+        }
+      },
+      "imagePullSecrets": null,
+      "localpv": {
+        "affinity": {},
+        "annotations": {},
+        "basePath": "/var/openebs/local",
+        "enableLeaderElection": true,
+        "enabled": true,
+        "healthCheck": {
+          "initialDelaySeconds": 30,
+          "periodSeconds": 60
+        },
+        "image": {
+          "pullPolicy": "IfNotPresent",
+          "registry": null,
+          "repository": "openebs/provisioner-localpv",
+          "tag": "4.0.0"
+        },
+        "name": "localpv-provisioner",
+        "nodeSelector": {},
+        "podAnnotations": {},
+        "podLabels": {
+          "name": "openebs-localpv-provisioner"
+        },
+        "privileged": true,
+        "replicas": 1,
+        "resources": null,
+        "securityContext": {},
+        "tolerations": [],
+        "updateStrategy": {
+          "type": "RollingUpdate"
+        }
+      },
+      "nameOverride": "",
+      "podSecurityContext": {},
+      "rbac": {
+        "create": true
+      },
+      "serviceAccount": {
+        "annotations": {},
+        "create": true,
+        "name": null
+      }
+    },
+    "lvm-localpv": {
+      "crd": {
+        "enableInstall": false,
+        "volumeSnapshot": false
+      },
+      "enabled": false
+    },
+    "portal": {
+      "open": {
+        "enabled": false
+      }
+    },
+    "release_name": "openebs",
+    "service": {
+      "main": {
+        "enabled": false,
+        "ports": {
+          "main": {
+            "enabled": false
+          }
+        }
+      }
+    },
+    "storageClass": {
+      "zfs-main": {
+        "allowVolumeExpansion": true,
+        "enabled": true,
+        "isDefault": true,
+        "parameters": {
+          "compression": "zstd-6",
+          "dedup": "off",
+          "encryption": "off",
+          "fstype": "zfs",
+          "poolname": "Apps/pvcApps",
+          "recordsize": "64k",
+          "shared": "yes",
+          "thinprovision": "yes"
+        },
+        "provisioner": "zfs.csi.openebs.io",
+        "reclaimPolicy": "Delete"
+      }
+    },
+    "volumeSnapshotClass": {
+      "zfspv": {
+        "deletionPolicy": "Delete",
+        "driver": "zfs.csi.openebs.io",
+        "enabled": true,
+        "isDefault": true
+      }
+    },
+    "workload": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "zfs-localpv": {
+      "crd": {
+        "enableInstall": false,
+        "enabled": false,
+        "volumeSnapshot": false
+      },
+      "crds": {
+        "enableInstall": false,
+        "enabled": false,
+        "volumeSnapshot": false
+      },
+      "enabled": true
+    }
+  },
+  "version": 19,
+  "namespace": "ix-openebs",
+  "chart_metadata": {
+    "name": "openebs",
+    "home": "https://truecharts.org/charts/system/openebs",
+    "sources": [
+      "https://github.com/cert-manager",
+      "https://cert-manager.io/",
+      "https://github.com/truecharts/charts/tree/master/charts/system/openebs",
+      "https://github.com/truecharts/containers/tree/master/apps/scratch"
+    ],
+    "version": "6.0.1",
+    "description": "OpenEBS is a umbrella chart for multiple container storage provisioners",
+    "keywords": [
+      "openebs",
+      "backup"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/openebs.webp",
+    "apiVersion": "v2",
+    "appVersion": "latest",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "CSI",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "system"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.0",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      },
+      {
+        "name": "zfs-localpv",
+        "version": "2.5.1",
+        "repository": "https://openebs.github.io/zfs-localpv",
+        "condition": "zfs-localpv.enabled",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "6.0.1"
+  },
+  "id": "openebs",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "system",
+  "path": "/mnt/Apps/ix-applications/releases/openebs",
+  "dataset": "Apps/ix-applications/releases/openebs",
+  "status": "ACTIVE",
+  "used_ports": [],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "latest_6.0.1",
+  "human_latest_version": "latest_6.0.1",
+  "container_images_update_available": false,
+  "portals": {}
+}

@@ -1,0 +1,20 @@
+# Required fields (minus the required name field, hence invalid)
+version: 11.1.6
+kubeVersion: ">=1.24.0-0"
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grafana.png
+home: https://truecharts.org/charts/enterprise/grafana
+description: Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
+apiVersion: v2
+appVersion: 10.2.3
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org

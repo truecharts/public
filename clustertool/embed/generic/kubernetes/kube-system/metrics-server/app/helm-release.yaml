@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: metrics-server
+    namespace: kube-system
+spec:
+  interval: 15m
+  chart:
+      spec:
+          chart: metrics-server
+          version: 0.1.0
+          sourceRef:
+              kind: HelmRepository
+              name: truecharts
+              namespace: flux-system
+          interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+      createNamespace: true
+      remediation:
+          retries: 3
+  upgrade:
+      remediation:
+          retries: 3
+  uninstall:
+      keepHistory: false
+  values:
