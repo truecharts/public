@@ -1,0 +1,78 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: cilium
+    namespace: kube-system
+    annotations:
+        meta.helm.sh/release-name: cilium
+        meta.helm.sh/release-namespace: kube-system
+    labels:
+        app.kubernetes.io/managed-by: Helm
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: cilium
+            version: 1.16.2
+            sourceRef:
+                kind: HelmRepository
+                name: cilium
+                namespace: flux-system
+            interval: 15m
+    timeout: 20m
+    maxHistory: 3
+    install:
+        remediation:
+            retries: 3
+    upgrade:
+        cleanupOnFail: true
+        remediation:
+            retries: 3
+            remediateLastFailure: true
+    uninstall:
+        keepHistory: false
+    values:
+      # autoDirectNodeRoutes: true
+      # routingMode: native
+      hubble:
+        enabled: false
+      cluster:
+         name: ${CLUSTERNAME}
+         id: 1
+      ipv4NativeRoutingCIDR: ${PODNET}
+      securityContext:
+        privileged: true
+        capabilities:
+          ciliumAgent:
+            - CHOWN
+            - KILL
+            - NET_ADMIN
+            - NET_RAW
+            - IPC_LOCK
+            - SYS_ADMIN
+            - SYS_RESOURCE
+            - DAC_OVERRIDE
+            - FOWNER
+            - SETGID
+            - SETUID
+          cleanCiliumState:
+            - NET_ADMIN
+            - SYS_ADMIN
+            - SYS_RESOURCE
+      cgroup:
+        automount:
+          enabled: false
+        hostRoot: /sys/fs/cgroup
+      enableRuntimeDeviceDetection: true
+      endpointRoutes:
+        enabled: true
+      ipam:
+        mode: kubernetes
+      k8sServiceHost: 127.0.0.1
+      k8sServicePort: 7445
+      kubeProxyReplacement: true
+      kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
+      localRedirectPolicy: true
+      operator:
+        rollOutPods: true
+      rollOutCiliumPods: true

@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: longhorn
+    namespace: longhorn-system
+spec:
+    interval: 5m
+    releaseName: longhorn
+    chart:
+        spec:
+
+            chart: longhorn
+            version: 1.7.1
+            sourceRef:
+                kind: HelmRepository
+                name: longhorn
+                namespace: flux-system
+    install:
+        createNamespace: true
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    upgrade:
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    values: 
+      defaultSettings:
+        # Increase to 3 for a multi-node cluster
+        defaultReplicaCount: 1
+        # Overprovisioning might be needed when using volsync
+        storageOverProvisioningPercentage: 100000
+        # v2DataEngine: true
+      persistence:
+        # Set to false to pick another CSI as default
+        defaultClass: true
+        # Increase to 3 for a multi-node cluster
+        defaultClassReplicaCount: 1
