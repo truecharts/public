@@ -74,7 +74,7 @@ tests:
     set:
       postgres15Image:
         repository: ghcr.io/cloudnative-pg/postgresql
-        tag: "15.6"
+        tag: "15.8"
       global:
         fallbackDefaults:
           pgVersion: 15
@@ -153,7 +153,7 @@ tests:
     set:
       postgres15Image:
         repository: ghcr.io/cloudnative-pg/postgresql
-        tag: "15.6"
+        tag: "15.8"
       cnpg:
         my-pg:
           enabled: true
