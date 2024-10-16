@@ -1,0 +1,27 @@
+name: goreleaser
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+on:
+  push:
+    tags:
+      - "*"
+    paths:
+      - 'clustertool/**'
+jobs:
+  goreleaser:
+    runs-on: actions-runner-large
+    steps:
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5
+        with:
+          go-version: stable
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+        with:
+          fetch-depth: 0
+      - uses: goreleaser/goreleaser-action@286f3b13b1b49da4ac219696163fb8c1c93e1200 # v6
+        with:
+          args: release --clean
+          distribution: goreleaser # or 'goreleaser-pro'
+          version: "~> v2" # or 'latest', 'nightly', semver
+        env:
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+              
