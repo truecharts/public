@@ -22,12 +22,20 @@ service:
         enabled: true
         port: 3000
         targetPort: 3000
+  backend:
+    enabled:true
+    ports:
+      backend:
+        enabled: true
+        port: 8080
+        targetPort: 8080
 
 workload:
   main:
     podSpec:
       containers:
         main:
+          tty: true
           env:
             # forces the use of env vars to be always used!
             RIVEN_FORCE_ENV: "true"
@@ -53,6 +61,7 @@ workload:
             RIVEN_SCRAPING_ZILEAN_URL: "http://zilean:8181"
         frontend:
           enabled: true
+          tty: true
           probes:
             liveness:
               port: 3000
