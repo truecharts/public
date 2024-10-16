@@ -1,0 +1,70 @@
+image:
+  repository: author/image
+  tag: 1.0.0
+
+# This should not block the go tests
+imageSelector: something
+
+dockerHub1Image:
+  repository: docker.io/author/image
+  tag: 1.0.0
+
+dockerHub2Image:
+  repository: index.docker.io/author/image
+  tag: 1.0.0
+
+dockerHub3Image:
+  repository: registry-1.docker.io/author/image
+  tag: 1.0.0
+
+dockerHub4Image:
+  repository: registry.hub.docker.com/author/image
+  tag: 1.0.0
+
+dockerHub5Image:
+  repository: image
+  tag: 1.0.0
+
+dockerHub6Image:
+  repository: library/image
+  tag: 1.0.0
+
+lscrImage:
+  repository: lscr.io/linuxserver/image
+  tag: 1.0.0
+
+tccrImage:
+  repository: tccr.io/tccr/image
+  tag: 1.0.0
+
+mcrImage:
+  repository: mcr.microsoft.com/author/image
+  tag: 1.0.0
+
+ecrImage:
+  repository: public.ecr.aws/author/image
+  tag: 1.0.0
+
+ghcrImage:
+  repository: ghcr.io/author/image
+  tag: 1.0.0
+
+quayImage:
+  repository: quay.io/author/image
+  tag: 1.0.0
+
+gcrImage:
+  repository: gcr.io/author/image
+  tag: 1.0.0
+
+azurecrImage:
+  repository: author.azurecr.io/image
+  tag: 1.0.0
+
+ocirImage:
+  repository: author.ocir.io/image
+  tag: 1.0.0
+
+unknownImage:
+  repository: unknown.io/author/image
+  tag: 1.0.0

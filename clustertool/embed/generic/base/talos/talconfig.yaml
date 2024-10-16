@@ -1,0 +1,82 @@
+clusterName: ${CLUSTERNAME}
+# renovate: datasource=docker depName=ghcr.io/siderolabs/installer
+talosVersion: v1.8.1
+# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
+kubernetesVersion: v1.31.1
+endpoint: https://${VIP}:6443
+allowSchedulingOnControlPlanes: true
+additionalMachineCertSans:
+    - ${VIP}
+additionalApiServerCertSans:
+    - ${VIP}
+# Warning: Also used in Cilium CNI values!
+clusterPodNets:
+    - ${PODNET}
+clusterSvcNets:
+    - ${SVCNET}
+cniConfig:
+    name: none
+patches:
+    - '@./patches/all.yaml'
+nodes:
+    # We would adivce to always stick to a "k8s-something-1" style naming scheme
+    - hostname: k8s-control-1
+      ipAddress: ${MASTER1IP_IP}
+      controlPlane: true
+      nameservers:
+        - 1.1.1.1
+        - 8.8.8.8
+      installDiskSelector:
+        size: <= 1600GB
+      networkInterfaces:
+        # suffix is the adapter mac adres.
+        - interface: eth0
+          addresses:
+            - ${MASTER1IP_CIDR}
+          routes:
+            - network: 0.0.0.0/0
+              gateway: ${GATEWAY}
+          vip:
+            ip: ${VIP}
+controlPlane:
+    patches:
+        - '@./patches/controlplane.yaml'
+        - '@./patches/sopssecret.yaml'
+        - '@./patches/manifests.yaml'
+        # - '@./patches/nvidia.yaml'
+    schematic:
+        customization:
+            extraKernelArgs:
+                - net.ifnames=0
+            systemExtensions:
+                officialExtensions:
+                    - siderolabs/util-linux-tools
+                    - siderolabs/iscsi-tools
+                    - siderolabs/qemu-guest-agent
+                    # Enable where needed
+                    # - siderolabs/amd-ucode
+                    # - siderolabs/bnx2-bnx2x
+                    # - siderolabs/drbd
+                    # - siderolabs/gasket-driver
+                    # - siderolabs/i915-ucode
+                    # - siderolabs/intel-ucode
+                    # - siderolabs/thunderbolt
+worker:
+    patches:
+        - '@./patches/worker.yaml'
+        # - '@./patches/nvidia.yaml'
+    schematic:
+        customization:
+            systemExtensions:
+                officialExtensions:
+                    - siderolabs/util-linux-tools
+                    - siderolabs/iscsi-tools
+                    - siderolabs/qemu-guest-agent
+                    # Enable where needed
+                    # - siderolabs/amd-ucode
+                    # - siderolabs/bnx2-bnx2x
+                    # - siderolabs/drbd
+                    # - siderolabs/gasket-driver
+                    # - siderolabs/i915-ucode
+                    # - siderolabs/intel-ucode
+                    # - siderolabs/thunderbolt
