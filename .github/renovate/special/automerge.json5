@@ -6,7 +6,7 @@
       "matchDatasources": ["docker", "helm", "flux"],
       "automerge": true,
       "matchUpdateTypes": ["minor"],
-      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*", "tccr.io/truecharts/.*" ],
+      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*", "tccr.io/truecharts/.*", "ghcr.io/elfhosted.*" ],
       "branchPrefix": "trusted-automerge-",
       "labels": ["type/minor", "automerge"]
     },
