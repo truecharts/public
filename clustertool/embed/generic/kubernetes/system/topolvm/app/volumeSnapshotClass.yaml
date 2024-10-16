@@ -1,0 +1,9 @@
+---
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: topolvm-provisioner-thin
+  # annotations:
+  #   snapshot.storage.kubernetes.io/is-default-class: "false"
+driver: topolvm.io
+deletionPolicy: Delete
