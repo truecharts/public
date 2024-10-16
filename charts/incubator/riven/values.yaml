@@ -73,10 +73,13 @@ workload:
           probes:
             liveness:
               port: 3000
+              type: tcp
             readiness:
               port: 3000
+              type: tcp
             startup:
               port: 3000
+              type: tcp
           env:
             # ORIGIN: "http://localhost:3000"
             BACKEND_URL: "http://localhost:8080"
