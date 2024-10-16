@@ -1,0 +1,395 @@
+{
+  "name": "rdtclient",
+  "info": {
+    "first_deployed": "2024-04-24T15:03:56.275955013+10:00",
+    "last_deployed": "2024-07-03T20:31:02.976237846+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing rdtclient by TrueCharts.\n\n\n## Connecting externally\nYou can use this Chart by opening one of the following links in your browser:\n- host: $node_ip\npath: /\nport: \"6500\"\nportalName: open\nprotocol: http\nurl: http://$node_ip:6500/\nuseNodeIP: true\n## Sources for rdtclient\n- https://ghcr.io/rogerfar/rdtclient\n- https://github.com/rogerfar/rdt-client\n- https://github.com/truecharts/charts/tree/master/charts/stable/rdtclient\n- https://hub.docker.com/r/p3terx/aria2-pro\n\nSee more for **rdtclient** at (https://truecharts.org/charts/stable/rdtclient)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "aria2": {
+      "custom_trackers_url": "https://trackerslist.com/all_aria2.txt",
+      "disk_cache": "64M",
+      "enabled": false,
+      "rpc_secret": "MY_SECRET",
+      "update_trackers": true
+    },
+    "aria2Image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "p3terx/aria2-pro",
+      "tag": "latest@sha256:086d1a37c586edb07ec0fb956bf9edd89d1d38d138ad5309ff96d510c8c9a011"
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-rdtclient",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-rdtclient",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "ghcr.io/rogerfar/rdtclient",
+      "tag": "2.0.78@sha256:6137ed0f2b7394d175d16c0a1c326f63b974d91e92a71ed2fa3ec4fe93b18d25"
+    },
+    "imagePullSecretList": [],
+    "ingress": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-rdtclient",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "networkPolicy": [],
+    "persistence": {
+      "config": {
+        "enabled": true,
+        "targetSelector": {
+          "aria2": {
+            "aria2": {
+              "mountPath": "/config"
+            }
+          }
+        }
+      },
+      "db": {
+        "enabled": true,
+        "mountPath": "/data/db",
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      }
+    },
+    "persistenceList": [
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Scratch/Scratch/arrTemp/Downloads",
+        "mountPath": "/data/downloads",
+        "readOnly": false,
+        "type": "hostPath"
+      }
+    ],
+    "podOptions": {
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": true
+      }
+    },
+    "release_name": "rdtclient",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "PUID": 568,
+        "UMASK": "0022",
+        "advanced": false,
+        "readOnlyRootFilesystem": false,
+        "runAsGroup": 0,
+        "runAsNonRoot": false,
+        "runAsUser": 0
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "aria2": {
+        "enabled": true,
+        "ports": {
+          "rpc": {
+            "enabled": true,
+            "port": 6800,
+            "targetSelector": "aria2"
+          }
+        },
+        "targetSelector": "aria2",
+        "type": "ClusterIP"
+      },
+      "main": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "main": {
+            "port": 6500,
+            "protocol": "http",
+            "targetPort": 6500
+          }
+        },
+        "type": "LoadBalancer"
+      },
+      "torrent": {
+        "enabled": true,
+        "ports": {
+          "torrent": {
+            "enabled": true,
+            "port": 6888,
+            "targetSelector": "aria2"
+          },
+          "torrent-udp": {
+            "enabled": true,
+            "port": 6888,
+            "protocol": "udp",
+            "targetSelector": "aria2"
+          }
+        },
+        "targetSelector": "aria2",
+        "type": "ClusterIP"
+      }
+    },
+    "serviceList": [],
+    "workload": {
+      "aria2": {
+        "enabled": true,
+        "podSpec": {
+          "containers": {
+            "aria2": {
+              "enabled": true,
+              "env": {
+                "CUSTOM_TRACKER_URL": "{{ .Values.aria2.custom_trackers_url }}",
+                "DISK_CACHE": "{{ .Values.aria2.disk_cache }}",
+                "IPV6_MODE": false,
+                "LISTEN_PORT": "{{ .Values.service.torrent.ports.torrent.port }}",
+                "RPC_PORT": "{{ .Values.service.aria2.ports.rpc.port }}",
+                "RPC_SECRET": "{{ .Values.aria2.rpc_secret }}",
+                "UPDATE_TRACKERS": "{{ .Values.aria2.update_trackers }}"
+              },
+              "imageSelector": "aria2Image",
+              "primary": true,
+              "probes": {
+                "liveness": {
+                  "enabled": true,
+                  "port": "{{ .Values.service.aria2.ports.rpc.port }}",
+                  "type": "tcp"
+                },
+                "readiness": {
+                  "enabled": true,
+                  "port": "{{ .Values.service.aria2.ports.rpc.port }}",
+                  "type": "tcp"
+                },
+                "startup": {
+                  "enabled": true,
+                  "port": "{{ .Values.service.aria2.ports.rpc.port }}",
+                  "type": "tcp"
+                }
+              },
+              "securityContext": {
+                "readOnlyRootFilesystem": false,
+                "runAsGroup": 0,
+                "runAsNonRoot": false,
+                "runAsUser": 0
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "strategy": "RollingUpdate",
+        "type": "Deployment"
+      },
+      "main": {
+        "podSpec": {
+          "containers": {
+            "main": {
+              "advanced": false,
+              "envList": [],
+              "extraArgs": [],
+              "probes": {
+                "liveness": {
+                  "path": "/"
+                },
+                "readiness": {
+                  "path": "/"
+                },
+                "startup": {
+                  "path": "/"
+                }
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 26,
+  "namespace": "ix-rdtclient",
+  "chart_metadata": {
+    "name": "rdtclient",
+    "home": "https://truecharts.org/charts/stable/rdtclient",
+    "sources": [
+      "https://ghcr.io/rogerfar/rdtclient",
+      "https://github.com/rogerfar/rdt-client",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/rdtclient",
+      "https://hub.docker.com/r/p3terx/aria2-pro"
+    ],
+    "version": "5.0.9",
+    "description": "This is a web interface to manage your torrents on Real-Debrid, AllDebrid or Premiumize.",
+    "keywords": [
+      "rdtclient",
+      "torrent"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/rdtclient.webp",
+    "apiVersion": "v2",
+    "appVersion": "2.0.78",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "media",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "5.0.9"
+  },
+  "id": "rdtclient",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/rdtclient",
+  "dataset": "Apps/ix-applications/releases/rdtclient",
+  "status": "ACTIVE",
+  "used_ports": [
+    {
+      "port": 6500,
+      "protocol": "TCP"
+    }
+  ],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "2.0.78_5.0.9",
+  "human_latest_version": "2.0.78_5.0.9",
+  "container_images_update_available": false,
+  "portals": {
+    "open": [
+      "http://10.0.0.20:6500/"
+    ]
+  }
+}
