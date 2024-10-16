@@ -1,0 +1,41 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux-entry-repos
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./repositories
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-config
+  patches:
+    - patch: |-
+        apiVersion: kustomize.toolkit.fluxcd.io/v1
+        kind: Kustomization
+        metadata:
+          name: not-used
+        spec:
+          decryption:
+            provider: sops
+            secretRef:
+              name: sops-age
+          postBuild:
+            substituteFrom:
+              - kind: ConfigMap
+                name: cluster-config
+      target:
+        group: kustomize.toolkit.fluxcd.io
+        kind: Kustomization
+        labelSelector: substitution.flux.home.arpa/disabled notin (true)

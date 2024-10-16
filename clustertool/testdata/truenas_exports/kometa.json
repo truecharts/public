@@ -1,0 +1,306 @@
+{
+  "name": "kometa",
+  "info": {
+    "first_deployed": "2024-06-11T01:43:24.095293414+10:00",
+    "last_deployed": "2024-07-03T20:25:43.695927391+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing kometa by TrueCharts.\n\n\n## Sources for kometa\n- https://github.com/kometa-team/kometa\n- https://github.com/truecharts/charts/tree/master/charts/stable/kometa\n- https://hub.docker.com/r/kometateam/kometa\n\nSee more for **kometa** at (https://truecharts.org/charts/stable/kometa)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-kometa",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-kometa",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "kometateam/kometa",
+      "tag": "v2.0.1@sha256:c1f9d1ef49f976377a4bbbe9018bfed9a7057ccf427d10759a8ad975d4505300"
+    },
+    "imagePullSecretList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-kometa",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "kometa": {
+      "no_countdown": true,
+      "plex_token": "fFXAMH1HkGYLhz9E5Xfi",
+      "plex_url": "plexmediaserver.ix-plexmediaserver.svc.cluster.local",
+      "run": false,
+      "time": [
+        "00:00"
+      ],
+      "times": [
+        "05:00"
+      ]
+    },
+    "networkPolicy": [],
+    "persistence": {
+      "config": {
+        "enabled": true,
+        "mountPath": "/config",
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "targetSelectAll": true,
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      }
+    },
+    "persistenceList": [
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Apps/vApps/PlexMetaManager/assets",
+        "mountPath": "/assets",
+        "readOnly": false,
+        "type": "hostPath"
+      }
+    ],
+    "podOptions": {
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": false
+      }
+    },
+    "release_name": "kometa",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "PUID": 568,
+        "UMASK": "0022",
+        "advanced": false,
+        "readOnlyRootFilesystem": false,
+        "runAsGroup": 0,
+        "runAsNonRoot": false,
+        "runAsUser": 0
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "main": {
+        "enabled": false,
+        "ports": {
+          "main": {
+            "enabled": false
+          }
+        }
+      }
+    },
+    "serviceList": [],
+    "workload": {
+      "main": {
+        "podSpec": {
+          "containers": {
+            "main": {
+              "advanced": false,
+              "envFrom": [
+                {
+                  "secretRef": {
+                    "name": "secret"
+                  }
+                }
+              ],
+              "envList": [],
+              "extraArgs": [],
+              "probes": {
+                "liveness": {
+                  "enabled": false
+                },
+                "readiness": {
+                  "enabled": false
+                },
+                "startup": {
+                  "enabled": false
+                }
+              }
+            }
+          },
+          "initContainers": {
+            "create-init-config-file": {
+              "args": [
+                "echo \"Creating config.yml file...\"\nif [ -f /config/config.yml ]; then\n  echo \"Config file exists! Skipping...\"\nelse\n  echo \"Config file is missing, getting a new one!\"\n  curl -fLvo /config/config.yml https://raw.githubusercontent.com/kometa-team/kometa/master/config/config.yml.template || (echo \"Downloading config file, FAILED...\" && exit 1)\nfi\n"
+              ],
+              "command": [
+                "/bin/sh",
+                "-c"
+              ],
+              "enabled": true,
+              "imageSelector": "image",
+              "type": "init"
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 9,
+  "namespace": "ix-kometa",
+  "chart_metadata": {
+    "name": "kometa",
+    "home": "https://truecharts.org/charts/stable/kometa",
+    "sources": [
+      "https://github.com/kometa-team/kometa",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/kometa",
+      "https://hub.docker.com/r/kometateam/kometa"
+    ],
+    "version": "2.0.6",
+    "description": "Python script to update metadata and automatically build collections.",
+    "keywords": [
+      "kometa"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/kometa.webp",
+    "apiVersion": "v2",
+    "appVersion": "2.0.1",
+    "annotations": {
+      "truecharts.org/category": "media",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "2.0.6"
+  },
+  "id": "kometa",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/kometa",
+  "dataset": "Apps/ix-applications/releases/kometa",
+  "status": "ACTIVE",
+  "used_ports": [],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "2.0.1_2.0.6",
+  "human_latest_version": "2.0.1_2.0.6",
+  "container_images_update_available": false,
+  "portals": {}
+}

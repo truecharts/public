@@ -1,0 +1,43 @@
+name: clustertool-test
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+    paths:
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'pkg/**'
+      - 'cmd/**'
+      - 'clustertool/**'
+      - ".github/workflows/clsutertool.test.yaml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'pkg/**'
+      - 'cmd/**'
+      - 'clustertool/**'
+      - ".github/workflows/clsutertool.test.yaml"
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: actions-runner-large
+    steps:
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5
+        with:
+          go-version: stable
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+      - run:  |
+          cd ./clustertool
+          go build -o /usr/local/bin/clustertool
+          go test -v ./... -race -covermode=atomic
+          clustertool-dev

@@ -1,0 +1,349 @@
+{
+  "name": "fileflows",
+  "info": {
+    "first_deployed": "2024-04-24T17:25:05.171195503+10:00",
+    "last_deployed": "2024-07-03T20:22:26.731724743+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing fileflows by TrueCharts.\n\n\n## Connecting externally\nYou can use this Chart by opening one of the following links in your browser:\n- host: $node_ip\npath: /\nport: \"10242\"\nportalName: open\nprotocol: http\nurl: http://$node_ip:10242/\nuseNodeIP: true\n## Sources for fileflows\n- https://github.com/revenz/FileFlows\n- https://github.com/truecharts/charts/tree/master/charts/stable/fileflows\n- https://hub.docker.com/r/revenz/fileflows\n\nSee more for **fileflows** at (https://truecharts.org/charts/stable/fileflows)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-fileflows",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-fileflows",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "revenz/fileflows",
+      "tag": "24.05@sha256:a7af698a4816833261c0f92583d4eb48efc70705b8456402364b44048d4541fb"
+    },
+    "imagePullSecretList": [],
+    "ingress": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-fileflows",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "networkPolicy": [],
+    "persistence": {
+      "data": {
+        "enabled": true,
+        "mountPath": "/app/Data",
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      },
+      "logs": {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Apps/vApps/FileFlows",
+        "mountPath": "/app/Logs",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      "media": {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Apps/vApps/FileFlows",
+        "mountPath": "/media",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      "temp": {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Apps/vApps/FileFlows",
+        "mountPath": "/temp",
+        "readOnly": false,
+        "type": "hostPath"
+      }
+    },
+    "persistenceList": [
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Main/Media/Movie",
+        "mountPath": "/Media/Movie",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Main/Media/Shows",
+        "mountPath": "/Media/Shows",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Main/Media/Test",
+        "mountPath": "/Media/Test",
+        "readOnly": false,
+        "type": "hostPath"
+      }
+    ],
+    "podOptions": {
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": true
+      }
+    },
+    "release_name": "fileflows",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 1
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "PUID": 0,
+        "UMASK": "0022",
+        "advanced": false,
+        "allowPrivilegeEscalation": true,
+        "privileged": true,
+        "readOnlyRootFilesystem": false,
+        "runAsGroup": 0,
+        "runAsNonRoot": false,
+        "runAsUser": 0
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "main": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "main": {
+            "port": 10242,
+            "targetPort": 5000
+          }
+        },
+        "type": "LoadBalancer"
+      }
+    },
+    "serviceList": [],
+    "workload": {
+      "main": {
+        "podSpec": {
+          "containers": {
+            "main": {
+              "advanced": false,
+              "env": {},
+              "envList": [],
+              "extraArgs": [],
+              "probes": {
+                "liveness": {
+                  "path": "/",
+                  "type": "http"
+                },
+                "readiness": {
+                  "path": "/",
+                  "type": "http"
+                },
+                "startup": {
+                  "path": "/",
+                  "type": "http"
+                }
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 22,
+  "namespace": "ix-fileflows",
+  "chart_metadata": {
+    "name": "fileflows",
+    "home": "https://truecharts.org/charts/stable/fileflows",
+    "sources": [
+      "https://github.com/revenz/FileFlows",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/fileflows",
+      "https://hub.docker.com/r/revenz/fileflows"
+    ],
+    "version": "11.1.7",
+    "description": "An application that lets you automatically process files through a simple rule flow.",
+    "keywords": [
+      "fileflows"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/fileflows.webp",
+    "apiVersion": "v2",
+    "appVersion": "24.05.0",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "media",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "11.1.7"
+  },
+  "id": "fileflows",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/fileflows",
+  "dataset": "Apps/ix-applications/releases/fileflows",
+  "status": "ACTIVE",
+  "used_ports": [
+    {
+      "port": 10242,
+      "protocol": "TCP"
+    }
+  ],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "24.05.0_11.1.7",
+  "human_latest_version": "24.05.0_11.1.7",
+  "container_images_update_available": false,
+  "portals": {
+    "open": [
+      "http://10.0.0.20:10242/"
+    ]
+  }
+}

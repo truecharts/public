@@ -37,7 +37,7 @@ repos:
       - id: check-added-large-files # prevents giant files from being committed.
         exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl)$
       - id: check-yaml # checks yaml files for parseable syntax.
-        exclude: (^archive|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|test-chart\/.*\.yaml)
+        exclude: (^archive|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|test-chart\/.*\.yaml|^clustertool)
       - id: detect-private-key # detects the presence of private keys.
         exclude: ^archive/
 
@@ -53,5 +53,5 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
-        exclude: (^archive|templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
+        exclude: (^archive|templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json|^clustertool)
         files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
