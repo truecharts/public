@@ -10,7 +10,7 @@ tests:
       some_port: 80
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name1:
@@ -78,7 +78,7 @@ tests:
       some_port: 53
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name1:
@@ -171,7 +171,7 @@ tests:
     set:
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name1:
@@ -218,7 +218,7 @@ tests:
       some_protocol: https
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name1:
@@ -263,7 +263,7 @@ tests:
     set:
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name1:

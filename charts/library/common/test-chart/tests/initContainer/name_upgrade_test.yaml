@@ -10,7 +10,7 @@ tests:
     set:
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.19.10
         pullPolicy: IfNotPresent
       workload:
         workload-name:
