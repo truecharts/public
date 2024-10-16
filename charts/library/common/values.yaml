@@ -695,22 +695,16 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-      - # Group of the referent resource.
-        group: gateway.networking.k8s.io
-        # Kind of the referent resource.
+      - group: gateway.networking.k8s.io
         kind: Gateway
-        # Name of the referent resource
         name:
-        # Namespace of the referent resource
         namespace:
-        # Name of the section within the target resource.
         sectionName:
     # -- Host addresses
     hostnames: []
     # -- Configure rules for routing. Defaults to the primary service.
     rules:
-      - # -- Configure backends where matching requests should be sent.
-        backendRefs:
+      - backendRefs:
           - group: ""
             kind: Service
             name:
@@ -790,7 +784,7 @@ metrics:
       #     additionalrules: []
       # List to support adding groups using the SCALE GUI
       additionalgroups:
-        #-  name: "somegroup"
+        # - name: "somegroup"
         #   # list of rules
         #   rules: []
         #   # list to support adding rules via the SCALE GUI without overwrithing the rules
@@ -1075,7 +1069,8 @@ cnpg:
 
       ## Point in time recovery target. Specify one of the following:
       pitrTarget:
-        time: "" # Time in RFC3339 format
+        # Time in RFC3339 format
+        time: ""
 
       # Name of the backup to recover from. Required if method is `backup`.
       backupName: ""
@@ -1091,7 +1086,8 @@ cnpg:
 
     # Database cluster backup configuration
     backups:
-      enabled: false # You need to configure backups manually, so backups are disabled by default.
+      # You need to configure backups manually, so backups are disabled by default.
+      enabled: false
 
       encryption:
         enabled: false
@@ -1114,8 +1110,8 @@ cnpg:
       credentials: ""
 
       scheduledBackups:
-        - name: daily-backup # Daily at midnight
-          schedule: "0 0 0 * * *" # Daily at midnight
+        - name: daily-backup
+          schedule: "0 0 0 * * *"
           backupOwnerReference: self
           immediate: true
           suspend: false
