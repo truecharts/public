@@ -1,4 +1,4 @@
-name: golangci-lint
+name: Clustertool-go-lint
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 on:
@@ -7,15 +7,25 @@ on:
   #     - main
   #   tags:
   #     - "*"
-  #  paths:
-  #    - 'clustertool/**'
-  #    - ".github/workflows/clsutertool.test.yaml"
-  #pull_request:
-  #  branches:
-  #    - main
-  #  paths:
-  #    - 'clustertool/**'
-  #    - ".github/workflows/clsutertool.test.yaml"
+  #   paths:
+  #     - 'main.go'
+  #     - 'go.mod'
+  #     - 'go.sum'
+  #     - 'pkg/**'
+  #     - 'cmd/**'
+  #     - 'clustertool/**'
+  #     - ".github/workflows/clsutertool.test.yaml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'pkg/**'
+      - 'cmd/**'
+      - 'clustertool/**'
+      - ".github/workflows/clsutertool.test.yaml"
 permissions:
   contents: read
 jobs:
