@@ -27,6 +27,8 @@ changelog:
       - '^Merge pull request #\d+ from'
       - "^docs"
       - "^test"
+    include:
+      - "clustertool"
 release:
   github:
     owner: truecharts
