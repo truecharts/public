@@ -106,3 +106,7 @@ cnpg:
 portal:
   open:
     enabled: true
+ingress:
+  main:
+    targetSelector:
+      frontend: frontend
