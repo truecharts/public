@@ -69,15 +69,13 @@ workload:
         frontend:
           enabled: true
           tty: true
+          imageSelector: frontendImage
           probes:
             liveness:
-              type: tcp
               port: 3000
             readiness:
-              type: tcp
               port: 3000
             startup:
-              type: tcp
               port: 3000
           env:
             # ORIGIN: "http://localhost:3000"
