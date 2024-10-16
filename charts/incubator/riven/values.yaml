@@ -59,6 +59,13 @@ workload:
             RIVEN_SCRAPING_TORRENTIO_ENABLED: "false"
             RIVEN_SCRAPING_ZILEAN_ENABLED: "false"
             RIVEN_SCRAPING_ZILEAN_URL: "http://zilean:8181"
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
         frontend:
           enabled: true
           tty: true
