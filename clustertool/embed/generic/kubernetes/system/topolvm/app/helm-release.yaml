@@ -1,0 +1,55 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: topolvm
+    namespace: topolvm-system
+spec:
+    interval: 5m
+    releaseName: topolvm
+    chart:
+        spec:
+
+            chart: topolvm
+            version: 15.4.0
+            sourceRef:
+                kind: HelmRepository
+                name: topolvm
+                namespace: flux-system
+    install:
+        createNamespace: true
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    upgrade:
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    values: 
+      lvmd:
+        managed: false
+        env:
+          - name: LVM_SYSTEM_DIR
+            value: /tmp
+        deviceClasses:
+          - name: thin
+            volume-group: topolvm_vg                     # Volume Group name used in LVM_Disk_Watcher
+            default: true
+            spare-gb: 10
+            type: thin
+            thin-pool:
+              name: topolvm_thin                         # Logical Volume name used in LVM_Disk_Watcher
+              overprovision-ratio: 10.0                  # Adjust to your convenience
+      storageClasses:
+        - name: topolvm-thin-provisioner
+          storageClass:
+            fsType: xfs
+            isDefaultClass: false
+            volumeBindingMode: WaitForFirstConsumer
+            allowVolumeExpansion: true
+            additionalParameters:
+              "topolvm.io/device-class": "thin"
+      node:
+        lvmdEmbedded: true
+  
+      controller:
+        replicaCount: 1
