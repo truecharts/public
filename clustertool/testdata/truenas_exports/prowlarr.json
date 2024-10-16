@@ -1,0 +1,388 @@
+{
+  "name": "prowlarr",
+  "info": {
+    "first_deployed": "2024-04-24T17:37:53.687759378+10:00",
+    "last_deployed": "2024-07-03T20:28:33.988204899+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing prowlarr by TrueCharts.\n\n\n## Connecting externally\nYou can use this Chart by opening one of the following links in your browser:\n- host: $node_ip\npath: /\nport: \"9696\"\nportalName: open\nprotocol: http\nurl: http://$node_ip:9696/\nuseNodeIP: true\n## Sources for prowlarr\n- https://ghcr.io/onedr0p/exportarr\n- https://ghcr.io/onedr0p/prowlarr-develop\n- https://github.com/Prowlarr/Prowlarr\n- https://github.com/k8s-at-home/container-images\n- https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr\n\nSee more for **prowlarr** at (https://truecharts.org/charts/stable/prowlarr)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "configmap": {
+      "dashboard": {
+        "data": {
+          "prowlarr.json": "{{ .Files.Get \"dashboard.json\" | indent 8 }}"
+        },
+        "enabled": true,
+        "labels": {
+          "grafana_dashboard": "1"
+        }
+      }
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-prowlarr",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "exportarrImage": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "ghcr.io/onedr0p/exportarr",
+      "tag": "v2.0.1@sha256:727e7bc8f2f0934a2117978c59f4476b954018b849a010ea6cfb380bd6539644"
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-prowlarr",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "ghcr.io/onedr0p/prowlarr-develop",
+      "tag": "1.17.2.4511@sha256:01dce2a9c0e29a2a5338a9457698ea3e027727bed6b9f0ab7ac4a259cafb991b"
+    },
+    "imagePullSecretList": [],
+    "ingress": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-prowlarr",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "metrics": {
+      "main": {
+        "enabled": false,
+        "endpoints": [
+          {
+            "path": "/metrics",
+            "port": "metrics"
+          }
+        ],
+        "prometheusRule": {
+          "enabled": false
+        },
+        "targetSelector": "metrics",
+        "type": "servicemonitor"
+      }
+    },
+    "networkPolicy": [],
+    "persistence": {
+      "config": {
+        "enabled": true,
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "targetSelector": {
+          "exportarr": {
+            "exportarr": {
+              "mountPath": "/config",
+              "readOnly": true
+            }
+          },
+          "main": {
+            "main": {
+              "mountPath": "/config"
+            }
+          }
+        },
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      }
+    },
+    "persistenceList": [],
+    "podOptions": {
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": true
+      }
+    },
+    "release_name": "prowlarr",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "UMASK": "0022",
+        "advanced": false,
+        "readOnlyRootFilesystem": false,
+        "runAsGroup": 568,
+        "runAsUser": 568
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "main": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "main": {
+            "port": 9696
+          }
+        },
+        "type": "LoadBalancer"
+      },
+      "metrics": {
+        "enabled": true,
+        "ports": {
+          "metrics": {
+            "enabled": true,
+            "port": 9697,
+            "targetSelector": "exportarr"
+          }
+        },
+        "targetSelector": "exportarr",
+        "type": "ClusterIP"
+      }
+    },
+    "serviceList": [],
+    "updated": true,
+    "workload": {
+      "exportarr": {
+        "enabled": true,
+        "podSpec": {
+          "containers": {
+            "exportarr": {
+              "args": [
+                "prowlarr"
+              ],
+              "enabled": true,
+              "env": {
+                "CONFIG": "/config/config.xml",
+                "INTERFACE": "0.0.0.0",
+                "PORT": "{{ .Values.service.metrics.ports.metrics.port }}",
+                "URL": "{{ printf \"http://%v:%v\" (include \"tc.v1.common.lib.chart.names.fullname\" $) .Values.service.main.ports.main.port }}"
+              },
+              "imageSelector": "exportarrImage",
+              "primary": true,
+              "probes": {
+                "liveness": {
+                  "enabled": true,
+                  "path": "/healthz",
+                  "port": "{{ .Values.service.metrics.ports.metrics.port }}",
+                  "type": "http"
+                },
+                "readiness": {
+                  "enabled": true,
+                  "path": "/healthz",
+                  "port": "{{ .Values.service.metrics.ports.metrics.port }}",
+                  "type": "http"
+                },
+                "startup": {
+                  "enabled": true,
+                  "path": "/healthz",
+                  "port": "{{ .Values.service.metrics.ports.metrics.port }}",
+                  "type": "http"
+                }
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "strategy": "RollingUpdate",
+        "type": "Deployment"
+      },
+      "main": {
+        "podSpec": {
+          "containers": {
+            "main": {
+              "advanced": false,
+              "env": {
+                "PROWLARR__AUTHENTICATION_METHOD": "",
+                "PROWLARR__PORT": "{{ .Values.service.main.ports.main.port }}"
+              },
+              "envList": [],
+              "extraArgs": [],
+              "probes": {
+                "liveness": {
+                  "path": "/ping"
+                },
+                "readiness": {
+                  "path": "/ping"
+                },
+                "startup": {
+                  "type": "tcp"
+                }
+              }
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      }
+    }
+  },
+  "version": 19,
+  "namespace": "ix-prowlarr",
+  "chart_metadata": {
+    "name": "prowlarr",
+    "home": "https://truecharts.org/charts/stable/prowlarr",
+    "sources": [
+      "https://ghcr.io/onedr0p/exportarr",
+      "https://ghcr.io/onedr0p/prowlarr-develop",
+      "https://github.com/Prowlarr/Prowlarr",
+      "https://github.com/k8s-at-home/container-images",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr"
+    ],
+    "version": "17.1.7",
+    "description": "Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.",
+    "keywords": [
+      "prowlarr",
+      "torrent",
+      "usenet"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/prowlarr.webp",
+    "apiVersion": "v2",
+    "appVersion": "1.17.2.4511",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "media",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "17.1.7"
+  },
+  "id": "prowlarr",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/prowlarr",
+  "dataset": "Apps/ix-applications/releases/prowlarr",
+  "status": "ACTIVE",
+  "used_ports": [
+    {
+      "port": 9696,
+      "protocol": "TCP"
+    }
+  ],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "1.17.2.4511_17.1.7",
+  "human_latest_version": "1.17.2.4511_17.1.7",
+  "container_images_update_available": false,
+  "portals": {
+    "open": [
+      "http://10.0.0.20:9696/"
+    ]
+  }
+}

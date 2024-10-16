@@ -1,0 +1,387 @@
+{
+  "name": "qbittorrent",
+  "info": {
+    "first_deployed": "2024-04-24T17:39:30.195157013+10:00",
+    "last_deployed": "2024-07-03T20:29:21.31130368+10:00",
+    "deleted": "",
+    "description": "Upgrade complete",
+    "status": "deployed",
+    "notes": "\n# Thank you for installing qbittorrent by TrueCharts.\n\n\n## Connecting externally\nYou can use this Chart by opening one of the following links in your browser:\n- host: $node_ip\npath: /\nport: \"10095\"\nportalName: open\nprotocol: http\nurl: http://$node_ip:10095/\nuseNodeIP: true\n## Sources for qbittorrent\n- https://ghcr.io/onedr0p/qbittorrent\n- https://github.com/qbittorrent/qBittorrent\n- https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent\n- https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server\n\nSee more for **qbittorrent** at (https://truecharts.org/charts/stable/qbittorrent)\n\n## Documentation\nPlease check out the TrueCharts documentation on:\nhttps://truecharts.org\n\nOpenSource can only exist with your help, please consider supporting TrueCharts:\nhttps://truecharts.org/sponsor\n"
+  },
+  "config": {
+    "TZ": "Australia/Victoria",
+    "addons": {
+      "codeserver": {
+        "enabled": false
+      },
+      "netshoot": {
+        "enabled": false
+      },
+      "vpn": {
+        "type": "disabled"
+      }
+    },
+    "credentialsList": [
+      {
+        "accessKey": "placeholderkey",
+        "bucket": "pvccrap-qbittorrent",
+        "encrKey": "MYSECRETPASSPHRASE",
+        "name": "backblaze",
+        "path": "",
+        "secretKey": "PLACEHOLDERSECRETKEY",
+        "type": "s3",
+        "url": "s3.us-west-004.backblazeb2.com"
+      }
+    ],
+    "deviceList": [],
+    "docs": {
+      "confirmDocs": true
+    },
+    "donateNag": {
+      "confirmDonate": true
+    },
+    "global": {
+      "ixChartContext": {
+        "addNvidiaRuntimeClass": false,
+        "hasNFSCSI": true,
+        "hasSMBCSI": true,
+        "isInstall": false,
+        "isStopped": false,
+        "isUpdate": true,
+        "isUpgrade": false,
+        "kubernetes_config": {
+          "cluster_cidr": "172.16.0.0/16",
+          "cluster_dns_ip": "172.17.0.10",
+          "service_cidr": "172.17.0.0/16"
+        },
+        "nfsProvisioner": "nfs.csi.k8s.io",
+        "nvidiaRuntimeClassName": "nvidia",
+        "operation": "UPDATE",
+        "smbProvisioner": "smb.csi.k8s.io",
+        "storageClassName": "ix-storage-class-qbittorrent",
+        "upgradeMetadata": {}
+      },
+      "stopAll": false
+    },
+    "image": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "ghcr.io/onedr0p/qbittorrent",
+      "tag": "4.6.5@sha256:c019af23966ebafcaf1713d4553bc043246858b711a7d57d8bee358a89990a3e"
+    },
+    "imagePullSecretList": [],
+    "ingress": {
+      "main": {
+        "enabled": false
+      }
+    },
+    "ingressList": [],
+    "ixCertificateAuthorities": {},
+    "ixChartContext": {
+      "addNvidiaRuntimeClass": false,
+      "hasNFSCSI": true,
+      "hasSMBCSI": true,
+      "isInstall": false,
+      "isStopped": false,
+      "isUpdate": true,
+      "isUpgrade": false,
+      "kubernetes_config": {
+        "cluster_cidr": "172.16.0.0/16",
+        "cluster_dns_ip": "172.17.0.10",
+        "service_cidr": "172.17.0.0/16"
+      },
+      "nfsProvisioner": "nfs.csi.k8s.io",
+      "nvidiaRuntimeClassName": "nvidia",
+      "operation": "UPDATE",
+      "smbProvisioner": "smb.csi.k8s.io",
+      "storageClassName": "ix-storage-class-qbittorrent",
+      "upgradeMetadata": {}
+    },
+    "ixExternalInterfacesConfiguration": [],
+    "ixExternalInterfacesConfigurationNames": [],
+    "ixVolumes": [],
+    "networkPolicy": [],
+    "persistence": {
+      "config": {
+        "enabled": true,
+        "mountPath": "/config",
+        "readOnly": false,
+        "size": "256Gi",
+        "static": {
+          "mode": "disabled"
+        },
+        "storageClass": "",
+        "type": "pvc",
+        "volsync": [
+          {
+            "credentials": "backblaze",
+            "dest": {
+              "enabled": false
+            },
+            "name": "config",
+            "src": {
+              "enabled": true
+            },
+            "type": "restic"
+          }
+        ],
+        "volumeSnapshots": []
+      }
+    },
+    "persistenceList": [
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Scratch/Scratch/arrTemp/Downloads",
+        "mountPath": "/Downloads",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Main/Media/Movie",
+        "mountPath": "/Media/Movie",
+        "readOnly": false,
+        "type": "hostPath"
+      },
+      {
+        "autoPermissions": {
+          "enabled": false
+        },
+        "enabled": true,
+        "hostPath": "/mnt/Main/Media/Shows",
+        "mountPath": "/Media/Shows",
+        "readOnly": false,
+        "type": "hostPath"
+      }
+    ],
+    "podOptions": {
+      "expertPodOpts": false
+    },
+    "portal": {
+      "open": {
+        "enabled": true
+      }
+    },
+    "qbitportforward": {
+      "QBT_PASSWORD": "adminadmin",
+      "QBT_USERNAME": "admin",
+      "enabled": false
+    },
+    "qbitportforwardImage": {
+      "pullPolicy": "IfNotPresent",
+      "repository": "mjmeli/qbittorrent-port-forward-gluetun-server",
+      "tag": "latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8"
+    },
+    "release_name": "qbittorrent",
+    "resources": {
+      "limits": {
+        "amd.com/gpu": 0,
+        "cpu": "4000m",
+        "gpu.intel.com/i915": 0,
+        "memory": "8Gi",
+        "nvidia.com/gpu": 0
+      },
+      "requests": {
+        "cpu": "10m",
+        "memory": "50Mi"
+      }
+    },
+    "scaleExternalInterface": [],
+    "securityContext": {
+      "container": {
+        "UMASK": "0022",
+        "advanced": false,
+        "readOnlyRootFilesystem": false,
+        "runAsGroup": 568,
+        "runAsUser": 568
+      },
+      "pod": {
+        "fsGroup": 568,
+        "fsGroupChangePolicy": "Always",
+        "supplementalGroups": []
+      }
+    },
+    "service": {
+      "gluetun": {
+        "enabled": true,
+        "ports": {
+          "gluetun": {
+            "enabled": true,
+            "port": 8000,
+            "protocol": "http",
+            "targetPort": 8000
+          }
+        },
+        "type": "ClusterIP"
+      },
+      "main": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "main": {
+            "port": 10095
+          }
+        },
+        "type": "LoadBalancer"
+      },
+      "torrent": {
+        "enabled": true,
+        "loadBalancerIP": "",
+        "ports": {
+          "torrent": {
+            "enabled": true,
+            "port": 6881,
+            "protocol": "tcp"
+          },
+          "torrentudp": {
+            "enabled": true,
+            "port": "{{ .Values.service.torrent.ports.torrent.port }}",
+            "protocol": "udp"
+          }
+        },
+        "type": "LoadBalancer"
+      }
+    },
+    "serviceList": [],
+    "workload": {
+      "main": {
+        "podSpec": {
+          "containers": {
+            "main": {
+              "advanced": false,
+              "env": {
+                "QBITTORRENT__PORT": "{{ .Values.service.main.ports.main.port }}",
+                "QBT_BitTorrent__Session__Port": "{{ .Values.service.torrent.ports.torrent.port }}",
+                "QBT_Preferences__Connection__PortRangeMin": "{{ .Values.service.torrent.ports.torrent.port }}",
+                "QBT_Preferences__WebUI__Address": "*"
+              },
+              "envList": [],
+              "extraArgs": []
+            }
+          }
+        },
+        "replicas": 1,
+        "type": "Deployment"
+      },
+      "qbitportforward": {
+        "enabled": true,
+        "podSpec": {
+          "containers": {
+            "qbitportforward": {
+              "command": "/usr/src/app/main.sh",
+              "enabled": true,
+              "env": {
+                "GTN_ADDR": "{{ printf \"http://%v-gluetun:8000\" (include \"tc.v1.common.lib.chart.names.fullname\" $) }}",
+                "QBT_ADDR": "{{ printf \"http://%v:%v\" (include \"tc.v1.common.lib.chart.names.fullname\" $) .Values.service.main.ports.main.port }}",
+                "QBT_PASSWORD": "{{ .Values.qbitportforward.QBT_PASSWORD }}",
+                "QBT_USERNAME": "{{ .Values.qbitportforward.QBT_USERNAME }}"
+              },
+              "imageSelector": "qbitportforwardImage",
+              "primary": true,
+              "probes": {
+                "liveness": {
+                  "enabled": false
+                },
+                "readiness": {
+                  "enabled": false
+                },
+                "startup": {
+                  "enabled": false
+                }
+              }
+            }
+          },
+          "restartPolicy": "OnFailure"
+        },
+        "schedule": "*/5 * * * *",
+        "type": "CronJob"
+      }
+    }
+  },
+  "version": 20,
+  "namespace": "ix-qbittorrent",
+  "chart_metadata": {
+    "name": "qbittorrent",
+    "home": "https://truecharts.org/charts/stable/qbittorrent",
+    "sources": [
+      "https://ghcr.io/onedr0p/qbittorrent",
+      "https://github.com/qbittorrent/qBittorrent",
+      "https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent",
+      "https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server"
+    ],
+    "version": "20.0.11",
+    "description": "qBittorrent is a cross-platform free and open-source BitTorrent client",
+    "keywords": [
+      "qbittorrent",
+      "torrrent"
+    ],
+    "maintainers": [
+      {
+        "name": "TrueCharts",
+        "email": "info@truecharts.org",
+        "url": "https://truecharts.org"
+      }
+    ],
+    "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.webp",
+    "apiVersion": "v2",
+    "appVersion": "4.6.5",
+    "annotations": {
+      "max_scale_version": "24.04.1",
+      "min_scale_version": "24.04.0",
+      "truecharts.org/SCALE-support": "true",
+      "truecharts.org/category": "media",
+      "truecharts.org/max_helm_version": "3.14",
+      "truecharts.org/min_helm_version": "3.11",
+      "truecharts.org/train": "stable"
+    },
+    "kubeVersion": ">=1.24.0-0",
+    "dependencies": [
+      {
+        "name": "common",
+        "version": "23.0.10",
+        "repository": "oci://tccr.io/truecharts",
+        "enabled": true
+      }
+    ],
+    "type": "application",
+    "latest_chart_version": "20.0.11"
+  },
+  "id": "qbittorrent",
+  "catalog": "TRUECHARTS",
+  "catalog_train": "stable",
+  "path": "/mnt/Apps/ix-applications/releases/qbittorrent",
+  "dataset": "Apps/ix-applications/releases/qbittorrent",
+  "status": "ACTIVE",
+  "used_ports": [
+    {
+      "port": 10095,
+      "protocol": "TCP"
+    },
+    {
+      "port": 6881,
+      "protocol": "TCP"
+    },
+    {
+      "port": 6881,
+      "protocol": "UDP"
+    }
+  ],
+  "pod_status": {
+    "desired": 1,
+    "available": 1
+  },
+  "update_available": false,
+  "human_version": "4.6.5_20.0.11",
+  "human_latest_version": "4.6.5_20.0.11",
+  "container_images_update_available": false,
+  "portals": {
+    "open": [
+      "http://10.0.0.20:10095/"
+    ]
+  }
+}
