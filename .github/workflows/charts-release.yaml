@@ -139,7 +139,13 @@ jobs:
           echo "Copying changelogs to docs"
           mkdir -p ./website/src/content/docs/charts/
           mkdir -p ./changelogs
-          cp -r ./changelogs/** ./website/src/content/docs/charts/
+
+          # Check if there are any directories in changelogs
+          if [ -n "$(find ./changelogs -mindepth 1 -type d)" ]; then
+              cp -r ./changelogs/** ./website/src/content/docs/charts/
+          else
+              echo "No directories in ./changelogs. Skipping copy."
+          fi
 
           export DEBUG=false
           export STRICT=true
