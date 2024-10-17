@@ -30,7 +30,7 @@ jobs:
       pull-requests: write
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
     runs-on: actions-runner-large
-    if: github.event_name != 'pull_request' || !contains(github.event.pull_request.title, 'by renovate') || ( contains(github.event.pull_request.title, 'website') )
+    
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -233,12 +233,15 @@ jobs:
         run: cd website && npm ci
 
       - name: Check
+        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
         run: cd website && npm run check
 
       - name: Build
+        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
         run: cd website && npm run build
 
       - name: Publish to Cloudflare Pages
+        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
         id: cloudflare
         continue-on-error: true
         uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
@@ -254,7 +257,7 @@ jobs:
           wranglerVersion: "3"
 
       - name: Comment deploy url
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
         continue-on-error: true
         uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2
         with:
@@ -269,3 +272,6 @@ jobs:
             |😎 Deploy Preview Url | [${{ steps.cloudflare.outputs.url }}](${{ steps.cloudflare.outputs.url }})    |
             |🌳 Environment        | ${{ steps.cloudflare.outputs.environment }}                                   |
             ---
+
+      - name: Release-and-Website Completed
+        run: echo "DONE"
