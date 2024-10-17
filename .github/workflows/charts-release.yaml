@@ -1,14 +1,19 @@
-name: "Charts: Release"
+name: "Charts/Website: Build-and-Release"
 
-concurrency: helm-release
+concurrency: charts-website-release
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "charts/**"
+      - "website/**"
   push:
     branches:
       - master
     paths:
       - "charts/**"
+      - "website/**"
 
 jobs:
   release-helm:
@@ -22,6 +27,7 @@ jobs:
 
       - name: Get Changelog Format Version
         shell: bash
+        if: github.event_name != 'push'
         run: |
           ver=$(./charttool genchangelog format-version)
           key="changelog-json-format-$ver"
@@ -30,6 +36,7 @@ jobs:
 
       - name: Cache Changelog
         id: cache-changelog
+        if: github.event_name != 'push'
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           path: changelog.json.gz
@@ -37,6 +44,7 @@ jobs:
 
       - name: Generate Changelog
         shell: bash
+        if: github.event_name != 'push'
         run: |
           export REPO_PATH="./"
           export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
@@ -75,6 +83,7 @@ jobs:
   
       # Optional step if GPG signing is used
       - name: Prepare GPG key
+        if: github.event_name != 'push'
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
@@ -89,11 +98,13 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
   
       - name: Helm | Login
+        if: github.event_name != 'push'
         shell: bash
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
   
       - name: Release Charts
         shell: bash
+        if: github.event_name != 'push'
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
@@ -106,11 +117,13 @@ jobs:
   
       - name: Helm | Logout
         shell: bash
+        if: github.event_name != 'push'
         run: helm registry logout quay.io
         
 
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+        if: github.event_name != 'push'
         with:
           fetch-depth: 1
           repository: truecharts/website
@@ -119,6 +132,7 @@ jobs:
 
       - name: Copy docs to website
         shell: bash
+        if: github.event_name != 'push'
         run: |
           #!/bin/bash
           echo "Maing sure directories exist..."
@@ -143,6 +157,7 @@ jobs:
           done
 
       - name: Commit Website Changes
+        if: github.event_name != 'push'
         run: |
           cd website
           git config user.name "TrueCharts-Bot"
