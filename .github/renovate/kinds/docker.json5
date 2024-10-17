@@ -16,6 +16,6 @@
     "enabled": true, // Enable Docker image updates
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "container",
-  },
-  "requiredStatusChecks": ["Containers: Test-and-Build / Container Build Completed (push)", "Containers: Test-and-Build / Container Build Completed (pull_request)"],
+  }
+  // "requiredStatusChecks": ["Containers: Test-and-Build / Container Build Completed (push)", "Containers: Test-and-Build / Container Build Completed (pull_request)"],
 }
