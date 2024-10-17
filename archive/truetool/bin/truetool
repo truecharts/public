@@ -1,6 +1,0 @@
-#!/bin/bash
-orig_cwd=$(pwd)
-cd "$HOME/truetool" || exit
-# pass all arguments '$@' to truetool.sh
-bash ./truetool.sh "$@"
-cd "$orig_cwd" || exit

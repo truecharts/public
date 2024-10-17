@@ -1,6 +1,0 @@
----
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-namespace: prometheus-operator
-resources:
-  - https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.60.1/bundle.yaml
