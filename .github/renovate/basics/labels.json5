@@ -2,6 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
+      "matchManagers": ["helmv3"],
+      "addLabels": ["renovate/helm"]
+    },
+    {
       "matchUpdateTypes": ["major"],
       "labels": ["type/major"]
     },
@@ -26,12 +30,8 @@
       "labels": ["type/lockfile", "automerge"]
     },
     {
-      "matchDatasources": ["docker"],
+      "matchManager": ["docker", "helm-values"],
       "addLabels": ["renovate/container"]
-    },
-    {
-      "matchDatasources": ["helmv3"],
-      "addLabels": ["renovate/helm"]
     },
     {
       "matchDatasources": ["github-releases", "github-tags"],
