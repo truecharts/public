@@ -1,0 +1,22 @@
+---
+title: Chart List
+tableOfContents: false
+template: splash
+---
+
+TrueCharts has multiple "trains", or branches of charts which you can choose to install. Below is a summary of each train and its intended use.
+
+- `stable` contains apps which have been thoroughly tested and expected to be stable and working. The `stable` version of an app is always the best available version
+- `incubator` contains apps which are still in development and/or are not considered to be stable and working well enough to be moved into the `stable` branch
+- `premium` contains apps for core TrueCharts features and, in the future, will be covered by additional support for professional use cases
+- `system` contains operators required for certain apps apps to function at all, recommended leaving this `enabled`.
+
+[See here](/charts/description-list) for a list of all apps available for each TrueCharts trains.
+
+import TrainList from "../../../components/chart-list/TrainList.astro";
+import Filter from "../../../components/chart-list/Filter.astro";
+import AllCharts from "../../../components/chart-list/AllCharts.astro";
+
+<TrainList />
+<Filter />
+<AllCharts />
