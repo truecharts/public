@@ -89,7 +89,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
       fail-fast: false
-    if: "!contains(github.event.head_commit.message, '[ci-skip]')"
+    if: ${{ needs.changes.outputs.matrix != '{}' && fromJson(needs.changes.outputs.matrix).container != [] }}
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -337,6 +337,7 @@ jobs:
 
   container-build-complete:
     needs: [build]
+    if: ${{ always() }}
     name: Container Build Completed
     runs-on: ubuntu-latest
     steps:
