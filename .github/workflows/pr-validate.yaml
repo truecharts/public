@@ -43,7 +43,7 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
-  Website-and-Docs:
+  website-and-docs:
     uses: ./.github/workflows/charts-release.yaml
     needs:
       - pr-changes
@@ -75,6 +75,7 @@ jobs:
       - pr-changes
       - charts-lint
       - charts-test
+      - website-and-docs
       - print_head_msg
     if: ${{ 
       contains(needs.print_head_msg.outputs.head-commit-message, 'by renovate') || 
