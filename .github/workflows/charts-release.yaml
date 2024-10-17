@@ -217,7 +217,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
-          node-version-file: .nvmrc
+          node-version-file: ./website/.nvmrc
 
       - name: Install Packages
         if: steps.modulescache.outputs.cache-hit != 'true'
