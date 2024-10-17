@@ -44,6 +44,12 @@ jobs:
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
+  Website-and-Docs:
+    uses: ./.github/workflows/charts-release.yaml
+    needs:
+      - pr-changes
+      - charts-lint
+
   print_head_msg:
     name: Print commit message
     runs-on: ubuntu-latest
