@@ -52,14 +52,6 @@ jobs:
           ./charttool genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
           gzip "$JSON_FILE" --best
 
-      - name: Checkout Helm-Staging
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
-        with:
-          fetch-depth: 1
-          repository: truecharts/helm-staging
-          token: ${{ secrets.BOT_TOKEN }}
-          path: helm
-
       - name: Fix Pre-Commit issues
         shell: bash
         run: |
@@ -74,17 +66,48 @@ jobs:
           mkdir helm/charts
           cp -rf charts helm
           echo "Copying changelogs to helm"
-          cp -r ./changelogs/** ./helm/charts/
-
-      - name: Commit Helm Changes
+          cp -r ./changelogs/** ./charts/
+  
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
+        with:
+          version: v3.14.0
+  
+      # Optional step if GPG signing is used
+      - name: Prepare GPG key
         run: |
-          cd helm
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit released Helm Charts for TrueCharts" || exit 0
-          git push
-          cd -
+          gpg_dir=.cr-gpg
+          mkdir "$gpg_dir"
+          keyring="$gpg_dir/secring.gpg"
+          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          passphrase_file="$gpg_dir/passphrase"
+          echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
+        env:
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
+  
+      - name: Helm | Login
+        shell: bash
+        run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
+  
+      - name: Release Charts
+        shell: bash
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"
+        run: |
+          owner=$(cut -d '/' -f 1 <<< "$GITHUB_REPOSITORY")
+          repo=$(cut -d '/' -f 2 <<< "$GITHUB_REPOSITORY")
+          install="$RUNNER_TOOL_CACHE/cr/${{ inputs.version }}/$(uname -m)"
+          echo "$install" >> "$GITHUB_PATH"
+          ./.github/scripts/cr.sh  --quay-token "${{ secrets.QUAY_TOKEN }}" --instal-dir $install
+  
+      - name: Helm | Logout
+        shell: bash
+        run: helm registry logout quay.io
+        
 
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
