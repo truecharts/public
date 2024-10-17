@@ -23,6 +23,10 @@ jobs:
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
+  containers-build:
+    uses: ./.github/workflows/containers.build.yaml
+
+
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
@@ -48,6 +52,8 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
+
+
 
   print_head_msg:
     name: Print commit message
