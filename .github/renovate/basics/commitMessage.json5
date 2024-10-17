@@ -8,28 +8,33 @@
     {
       "matchManagers": ["helm-values"],
       "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(helm)"
     },
     {
       "matchManagers": ["docker"],
       "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(container)"
     },
     {
       "matchManagers": ["flux"],
       "matchPackagePatterns": ["!(.*/.*)"],
       "commitMessageTopic": "chart {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(flux)"
     },
     {
       "matchManagers": ["flux"],
       "matchPackagePatterns": [".*/.*"],
       "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(flux)"
     },
     {
       "matchManagers": ["helmv3"],
       "commitMessageTopic": "chart {{depName}}",
+      "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(helm)"
     }
   ]
