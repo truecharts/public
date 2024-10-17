@@ -137,6 +137,7 @@ jobs:
           mv charts.json website/src/assets/charts.json
 
           echo "Copying changelogs to docs"
+          mkdir -p ./website/src/content/docs/charts/
           cp -r ./changelogs/** ./website/src/content/docs/charts/
 
           export DEBUG=false
