@@ -1,6 +1,7 @@
 name: "Containers: Test-and-Build"
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     branches:
@@ -9,11 +10,11 @@ on:
       - "containers/apps/**"
       - "containers/base/**"
       - ".github/workflows/containers.build.yaml"
-  pull_request:
-    paths:
-      - "apps/**"
-      - "base/**"
-      - ".github/workflows/containers.build.yaml"
+  # pull_request:
+  #  paths:
+  #    - "apps/**"
+  #    - "base/**"
+  #    - ".github/workflows/containers.build.yaml"
 
 env:
   # How long to sleep before running the tests (gives the application time to start)
@@ -151,15 +152,6 @@ jobs:
             echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/truecharts/${{ matrix.container }}:buildcache"
             echo ::set-output name=cache_to::"type=registry,ref=ghcr.io/truecharts/${{ matrix.container }}:buildcache,mode=max"
           fi
-
-      - name: Commit and Push Housekeeping
-        run: |
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          # add only VERSION and BASE files
-          git add ./containers/apps/${{ matrix.container }}/VERSION ./containers/apps/${{ matrix.container }}/BASE || true
-          git commit -sm "Update ${{ matrix.container }} version file" || exit 0
-          git push
 
       - name: Get Time
         id: time
@@ -336,17 +328,3 @@ jobs:
     steps:
       - name: complete message
         run: echo "Container Build and Tests Completed Successfully"
-
-  automerge:
-    needs: [container-build-complete]
-    if: github.event_name == 'pull_request'
-    name: Automerge build
-    runs-on: ubuntu-latest
-    steps:
-      - name: automerge
-        uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          UPDATE_RETRIES: 12
-          UPDATE_RETRY_SLEEP: 60000
