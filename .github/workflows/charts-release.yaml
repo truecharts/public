@@ -27,7 +27,7 @@ jobs:
   release-helm:
     permissions:
       pull-requests: write
-    name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }} Charts/Website: Build-and-Release"
+    name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
     runs-on: actions-runner-large
     if: github.event_name != 'pull_request' || !contains(github.event.pull_request.title, 'by renovate') || ( contains(github.event.pull_request.title, 'website') )
     steps:
