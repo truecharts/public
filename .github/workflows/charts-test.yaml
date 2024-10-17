@@ -67,6 +67,24 @@ jobs:
         if: inputs.chartChangesDetected == 'true'
         shell: bash
         run: |
+          # Get the PR title
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          # Check if the PR title contains "chart common"
+          if [[ "$PR_TITLE" == *"chart common"* ]]; then
+                echo "charts1=[]" >> $GITHUB_OUTPUT
+                echo "charts2=[]" >> $GITHUB_OUTPUT
+                echo "charts3=[]" >> $GITHUB_OUTPUT
+                echo "charts4=[]" >> $GITHUB_OUTPUT
+                echo "charts5=[]" >> $GITHUB_OUTPUT
+                echo "charts6=[]" >> $GITHUB_OUTPUT
+                echo "detected1=false" >> $GITHUB_OUTPUT
+                echo "detected2=false" >> $GITHUB_OUTPUT
+                echo "detected3=false" >> $GITHUB_OUTPUT
+                echo "detected4=false" >> $GITHUB_OUTPUT
+                echo "detected5=false" >> $GITHUB_OUTPUT
+                echo "detected6=false" >> $GITHUB_OUTPUT
+                exit 0  # Exit the script
+          fi
           CHARTS="${{ inputs.modifiedCharts }}"
           echo "Modified Charts: ${CHARTS}"
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
