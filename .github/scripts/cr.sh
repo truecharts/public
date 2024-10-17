@@ -16,7 +16,6 @@ main() {
 
   parse_command_line "$@"
 
-  : "${CR_TOKEN:?Environment variable CR_TOKEN must be set}"
   : "${quay_token:?Quay token must be provided}"
 
   echo "Packaging and uploading charts..."
