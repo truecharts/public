@@ -8,13 +8,7 @@
     "branchPrefix": "astro-",
     "enabled": true, // Enable updates for website dependencies
     "updateTypes": ["major", "minor", "patch", "digest", "pin", "lockfile"], // Allow updates for all version types
-    "ignore": [
-      // Specify any dependencies or versions to ignore
-    ],
     "semanticCommitScope": "website",
-  "ignoreDeps": [
-    // List any dependencies to ignore globally if needed
-  ],
   "requiredStatusChecks": null
   },
 

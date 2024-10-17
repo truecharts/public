@@ -8,14 +8,8 @@
     ],
     "enabled": true, // Enable Go module updates
     "updateTypes": ["major", "minor", "patch",  "digest", "pin", "lockfile"], // Allow updates for all version types
-    "ignore": [
-      // Specify any modules or versions to ignore
-    ],
     "semanticCommitScope": "go",
   "branchPrefix": "go-",
-  "ignoreDeps": [
-    // List any dependencies to ignore globally if needed
-  ],
   "packageRules": [
     {
       "matchManagers": ["gomod"],
