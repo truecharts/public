@@ -77,14 +77,6 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-
-      - name: Commit Helm Changes
-        run: |
-          rm -rf helm/charts
-          mkdir helm/charts
-          cp -rf charts helm
-          echo "Copying changelogs to helm"
-          cp -r ./changelogs/** ./charts/
   
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
