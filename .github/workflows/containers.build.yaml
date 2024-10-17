@@ -61,6 +61,16 @@ jobs:
           filter_mode: diff_context
           hadolint_ignore: DL3007
           fail_on_error: true
+            exclude: |
+               /website/*
+               /cluster/*
+               /archive/*
+               /clustertool/*
+               /.github/*
+               /website/*
+               /repositories/*
+               /templates/*
+
 
   build:
     permissions:
