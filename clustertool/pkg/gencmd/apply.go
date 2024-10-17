@@ -9,9 +9,9 @@ import (
 
 	talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
 	"github.com/budimanjojo/talhelper/v3/pkg/generate"
-	"github.com/truecharts/private/clustertool/embed"
-	"github.com/truecharts/private/clustertool/pkg/helper"
-	"github.com/truecharts/private/clustertool/pkg/initfiles"
+	"github.com/truecharts/public/clustertool/embed"
+	"github.com/truecharts/public/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
 func GenApply(node string, extraFlags []string) []string {

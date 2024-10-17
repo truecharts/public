@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/rs/zerolog/log"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 func LoadTalEnv() error {

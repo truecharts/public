@@ -3,8 +3,8 @@ package cmd
 import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/gencmd"
-	"github.com/truecharts/private/clustertool/pkg/initfiles"
+	"github.com/truecharts/public/clustertool/pkg/gencmd"
+	"github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
 var testcmd = &cobra.Command{

@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/initfiles"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
 var hrupgrade = &cobra.Command{

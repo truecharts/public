@@ -7,8 +7,8 @@ import (
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/truecharts/private/clustertool/pkg/helper"
-	"github.com/truecharts/private/clustertool/pkg/kubectlcmds"
+	"github.com/truecharts/public/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/kubectlcmds"
 )
 
 func init() {

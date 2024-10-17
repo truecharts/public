@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/rs/zerolog/log"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 	"gopkg.in/yaml.v3"
 )
 

@@ -12,12 +12,12 @@ import (
 
 	talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
 	"github.com/budimanjojo/talhelper/v3/pkg/generate"
-	"github.com/truecharts/private/clustertool/embed"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/helper"
-	"github.com/truecharts/private/clustertool/pkg/kubectlcmds"
-	"github.com/truecharts/private/clustertool/pkg/nodestatus"
-	"github.com/truecharts/private/clustertool/pkg/sops"
+	"github.com/truecharts/public/clustertool/embed"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/kubectlcmds"
+	"github.com/truecharts/public/clustertool/pkg/nodestatus"
+	"github.com/truecharts/public/clustertool/pkg/sops"
 )
 
 var HelmRepos map[string]*fluxhandler.HelmRepo

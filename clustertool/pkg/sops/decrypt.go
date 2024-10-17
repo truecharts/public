@@ -7,7 +7,7 @@ import (
 
 	"github.com/getsops/sops/v3/decrypt"
 	"github.com/rs/zerolog/log"
-	"github.com/truecharts/private/clustertool/pkg/initfiles"
+	"github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
 // Custom error type for MAC failures

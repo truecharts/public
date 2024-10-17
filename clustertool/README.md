@@ -2,16 +2,16 @@
   <img align="center" width="100" height="100" src="docs/docs/img/logo.svg">
   <h3 align="center">clustertool</h3>
 
-  [![GitHub release (release name instead of tag name)](https://img.shields.io/github/v/release/truecharts/clustertool?include_prereleases)](https://github.com/truecharts/private/clustertool/releases)
-  [![GitHub issues](https://img.shields.io/github/issues/truecharts/clustertool)](https://github.com/truecharts/private/clustertool/issues)
+  [![GitHub release (release name instead of tag name)](https://img.shields.io/github/v/release/truecharts/clustertool?include_prereleases)](https://github.com/truecharts/public/clustertool/releases)
+  [![GitHub issues](https://img.shields.io/github/issues/truecharts/clustertool)](https://github.com/truecharts/public/clustertool/issues)
 
   <p align="center">
     A helper tool to help building <a href="https://truecharts.org">TrueCharts</a> helm charts
     <br />
     ·
-    <a href="https://github.com/truecharts/private/clustertool/issues">Report Bug</a>
+    <a href="https://github.com/truecharts/public/clustertool/issues">Report Bug</a>
     ·
-    <a href="https://github.com/truecharts/private/clustertool/issues">Request Feature</a>
+    <a href="https://github.com/truecharts/public/clustertool/issues">Request Feature</a>
   </p>
 </div>
 

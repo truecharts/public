@@ -5,7 +5,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/sops"
+	"github.com/truecharts/public/clustertool/pkg/sops"
 )
 
 var checkcrypt = &cobra.Command{

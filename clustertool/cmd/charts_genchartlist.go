@@ -4,8 +4,8 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/charts/website"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/charts/website"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 var genChartListCmd = &cobra.Command{

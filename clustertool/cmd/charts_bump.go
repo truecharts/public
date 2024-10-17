@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/charts/version"
+	"github.com/truecharts/public/clustertool/pkg/charts/version"
 )
 
 var bumper = &cobra.Command{

@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/scale"
+	"github.com/truecharts/public/clustertool/pkg/scale"
 )
 
 var scaleexport = &cobra.Command{

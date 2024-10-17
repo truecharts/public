@@ -7,9 +7,9 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
-	"github.com/truecharts/private/clustertool/cmd"
-	"github.com/truecharts/private/clustertool/embed"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/cmd"
+	"github.com/truecharts/public/clustertool/embed"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	ctrllog "sigs.k8s.io/controller-runtime/pkg/log"

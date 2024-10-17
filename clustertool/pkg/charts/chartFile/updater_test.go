@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/truecharts/private/clustertool/pkg/charts/image"
+	"github.com/truecharts/public/clustertool/pkg/charts/image"
 )
 
 func TestSetAppVersionFromImage(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"slices"
 
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/charts/chartFile"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/charts/chartFile"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 var genMetaCmd = &cobra.Command{

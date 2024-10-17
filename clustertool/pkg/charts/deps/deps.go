@@ -11,9 +11,9 @@ import (
 
 	"github.com/rs/zerolog/log"
 
-	"github.com/truecharts/private/clustertool/pkg/charts/chartFile"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/charts/chartFile"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 func LoadGPGKey() error {

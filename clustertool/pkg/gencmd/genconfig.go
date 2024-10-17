@@ -17,9 +17,9 @@ import (
 	"github.com/fatih/color"
 	sideroConfig "github.com/siderolabs/talos/pkg/machinery/config"
 	"github.com/siderolabs/talos/pkg/machinery/config/generate/secrets"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/helper"
-	"github.com/truecharts/private/clustertool/pkg/initfiles"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/initfiles"
 	"gopkg.in/yaml.v3"
 )
 

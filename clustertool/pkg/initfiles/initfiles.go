@@ -18,8 +18,8 @@ import (
 	age "filippo.io/age"
 	talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
 	"github.com/invopop/jsonschema"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 func InitFiles() error {

@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/file"

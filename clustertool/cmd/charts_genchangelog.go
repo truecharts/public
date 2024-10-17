@@ -4,7 +4,7 @@ import (
 	"github.com/rs/zerolog/log"
 
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/charts/changelog"
+	"github.com/truecharts/public/clustertool/pkg/charts/changelog"
 )
 
 var genChangelogCmd = &cobra.Command{

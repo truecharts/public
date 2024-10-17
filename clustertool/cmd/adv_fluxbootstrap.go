@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/fluxhandler"
+	"github.com/truecharts/public/clustertool/pkg/fluxhandler"
 )
 
 var fluxbootstrap = &cobra.Command{

@@ -5,10 +5,10 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/gencmd"
-	"github.com/truecharts/private/clustertool/pkg/helper"
-	"github.com/truecharts/private/clustertool/pkg/nodestatus"
-	"github.com/truecharts/private/clustertool/pkg/sops"
+	"github.com/truecharts/public/clustertool/pkg/gencmd"
+	"github.com/truecharts/public/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/nodestatus"
+	"github.com/truecharts/public/clustertool/pkg/sops"
 )
 
 var genConfigLongHelp = strings.TrimSpace(`

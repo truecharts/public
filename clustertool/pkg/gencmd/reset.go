@@ -9,8 +9,8 @@ import (
 
 	talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
 	"github.com/budimanjojo/talhelper/v3/pkg/generate"
-	"github.com/truecharts/private/clustertool/embed"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/embed"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 func GenReset(node string, extraFlags []string) []string {

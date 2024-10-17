@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/truecharts/private/clustertool/pkg/info"
+	"github.com/truecharts/public/clustertool/pkg/info"
 )
 
 var infoCmd = &cobra.Command{
