@@ -90,6 +90,7 @@ jobs:
           github-token: "${{ secrets.OR_PAT }}"
       - name: automerge
         uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
+        continue-on-error: true
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
           UPDATE_RETRIES: 24
