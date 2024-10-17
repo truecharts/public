@@ -17,11 +17,12 @@
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "container",
     "ignore": [
-      "talconfig.yaml" // Exclude any file named talconfig.yaml
+      "talconfig.yaml",
+      "Chart.yaml"
     ]
   },
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed
   ],
-  "requiredStatusChecks": null,
+  "requiredStatusChecks": ["Containers: Test-and-Build / Container Build Completed (push)", "Containers: Test-and-Build / Container Build Completed (pull_request)"],
 }
