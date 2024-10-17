@@ -29,6 +29,7 @@ jobs:
       pull-requests: write
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }} Charts/Website: Build-and-Release"
     runs-on: actions-runner-large
+    if: github.event_name != 'pull_request' || !contains(github.event.pull_request.title, 'by renovate') || ( contains(github.event.pull_request.title, 'website') )
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
