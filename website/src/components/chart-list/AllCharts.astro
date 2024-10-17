@@ -1,0 +1,23 @@
+---
+import TrainCharts from "./TrainCharts.astro";
+import {
+  getTrains,
+  getChartCountFromTrain,
+  normalizeTrainName,
+  titleCase,
+} from "./utils";
+---
+
+{
+  getTrains().map((t: string) => (
+    <div id={`tc-content-${normalizeTrainName(t)}`} data-table-parent={t}>
+      <h2 class="!text-2xl ml-5 !mt-10">
+        <a href={`#${normalizeTrainName(t)}`}>
+          {titleCase(t)}{" "}
+          <span class="text-lg">({getChartCountFromTrain(t)} Charts)</span>
+        </a>
+      </h2>
+      <TrainCharts train={t} />
+    </div>
+  ))
+}

@@ -1,0 +1,170 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import CardGrid from "../components/CardGrid.astro";
+import MultiIcons from "../components/multi-icons/MultiIcons.astro";
+import { Card } from "@astrojs/starlight/components";
+import { Icon } from "@astrojs/starlight/components";
+import { AnimatedHeroValue } from "../components/CustomHero.astro";
+
+const listItemClass =
+  "flex flex-row items-center gap-0 space-y-0 hover:scale-110 duration-1000 group";
+const iconName = "approve-check-circle";
+const iconClass = "mr-2 group-hover:animate-ping";
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "TrueCharts",
+    description: "Your Source for Awesome Helm-Charts!",
+    template: "splash",
+    banner: {
+      content:
+        '<a class="no-underline font-bold hover:underline" target="_blank" href="https://opencollective.com/truecharts">TrueCharts and OpenSource can only exist with your continued support</a>',
+    },
+    hero: {
+      tagline: "Your Source for Awesome Helm-Charts!",
+      image: {
+        html: AnimatedHeroValue,
+      },
+      actions: [
+        {
+          text: "Read the Docs",
+          link: "/general/",
+          icon: "right-arrow",
+          variant: "primary",
+        },
+        {
+          text: "Sponsor TrueCharts",
+          link: "https://opencollective.com/truecharts",
+          variant: "minimal",
+          icon: "external",
+        },
+        {
+          text: "Join us on Discord",
+          link: "https://discord.com/invite/tVsPTHWTtr",
+          variant: "minimal",
+          icon: "external",
+        },
+      ],
+    },
+  }}
+>
+  <div class="text-center">
+    <div
+      class="text-4xl max-md:text-2xl max-sm:text-xl font-extrabold border-b-4 border-tc-primary inline-block mb-10"
+    >
+      About TrueCharts
+    </div>
+  </div>
+  <CardGrid stagger>
+    <Card title="Easy To Deploy" icon="pencil">
+      With TrueCharts, users can quickly and easily deploy a wide range of
+      applications and services on their single or multi-node kubernetes
+      cluster. Here are some potential list items to further describe the
+      features and benefits of TrueCharts
+      <ul class="mt-10">
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Neatly organized catalog</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Rapid deployment</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Customization options</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Active development</p>
+        </li>
+      </ul>
+    </Card>
+    <Card title="Consistent Ecosystem" icon="add-document">
+      All apps are built on the same foundation and share a common deployment
+      experience, which can provide several benefits, such as streamlined
+      management and easier troubleshooting. Here are some potential features
+      and benefits of the consistent ecosystem offered by TrueCharts
+      <ul class="mt-10">
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Shared base image</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Standardized deployment process</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Centralized management</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Compatibility and reliability</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Customizability</p>
+        </li>
+      </ul>
+    </Card>
+    <Card title="Stability" icon="setting">
+      TrueCharts places a high priority on stability, with the goal of ensuring
+      that deployed apps remain running reliably and consistently over time.
+      This focus on stability can be critical for enterprise and production
+      environments, where downtime can result in lost productivity, revenue, and
+      customer satisfaction. Here are some potential features and benefits of
+      the stability focus of TrueCharts
+      <ul class="mt-10">
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Thorough testing</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Version control</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Continuous monitoring</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Security updates</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Community support</p>
+        </li>
+      </ul>
+    </Card>
+    <Card title="Multi-Platform" icon="open-book">
+      TrueCharts supports many different ways of deploying our Helm Charts,
+      providing a consistent and standardized experience for all platforms.
+      <ul class="mt-10">
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Helm</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>FluxCD</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>Rancher</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>KubeApps</p>
+        </li>
+        <li class={listItemClass}>
+          <Icon name={iconName} class={iconClass} />
+          <p>ArgoCD</p>
+        </li>
+      </ul>
+    </Card>
+  </CardGrid>
+  <MultiIcons />
+</StarlightPage>

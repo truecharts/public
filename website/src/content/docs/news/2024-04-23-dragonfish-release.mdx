@@ -1,0 +1,72 @@
+---
+slug: "news/scale-dragonfish"
+title: "TrueNAS SCALE DragonFish Release and Support"
+authors: [bitpushr]
+date: 2024-04-23
+tags:
+  - "2024"
+---
+
+Ahead of [TrueNAS SCALE DragonFish](https://www.truenas.com/docs/scale/24.04/) hitting the open waters, TrueCharts is right alongside it with full support for the release. In this news post we'll go over the improvements that can be expected from the update, the steps required for TrueCharts users to migrate their apps to this latest release and some things to keep in mind going forward.
+
+This will be a relatively long but important post, so let's get started!
+
+## TrueNAS SCALE DragonFish 🐟
+
+DragonFish is the latest update to the iX-Systems TrueNAS SCALE platform, and brings a bevy of improvements and additions. These include new and reworked sections of the GUI, changes to ZFS ARC memory behavior that bring it inline with TrueNAS CORE, Linux kernel and GPU driver updates (including Intel ARC GPU support), improvements to SMB and NFS shares and more. Read more about the changes with DragonFish [here](https://www.truenas.com/docs/scale/24.04/).
+
+## TrueCharts and DragonFish: A Perfect Match 💞
+
+Going forward, TrueCharts wants to confirm that DragonFish is the **ONLY** supported SCALE version by TrueCharts from its release onwards. This allows us to focus our efforts on ensuring compatibility, stability, and optimal performance for TrueNAS SCALE DragonFish users into the future. This means that there are a couple of things to note, depending on which version of TrueNAS SCALE you're running.
+
+### TrueNAS SCALE Cobia Users
+
+For existing TrueNAS SCALE users remaining on Cobia until such time they update, we understand that migration takes time. Whilst DragonFish is the future, you can select a special branch of TrueCharts in TrueNAS SCALE's catalogue settings called `legacy_23.10` (instead of `main`). This is, however, not covered by TrueCharts support from the release of DragonFish onwards.
+
+### Users Upgrading to TrueNAS SCALE DragonFish
+
+As we have already outlined in [previous](/deprecated/scale/migrations/cobia-dragonfish) [communications](/deprecated/scale#openebs-setup), DragonFish includes an important change to how TrueCharts apps function on the SCALE platform. This means that there are two ways you can proceed with using our apps on DragonFish. These are
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Completely resetting the complete apps system by unsetting the Apps pool, removing the ix-applications dataset, and selecting the apps pool again, once your TrueNAS SCALE system is updated to DragonFish per our getting started [guide](/deprecated/scale) for new users.
+
+2. Following our [migration process](/deprecated/scale/migrations/cobia-dragonfish) for Cobia to DragonFish, developed in collaboration with and using tools/processes provided by [HeavyBullets](https://github.com/Heavybullets8/). Whilst this process is a manual one and is **REQUIRED** to be performed in one session/attempt, as noted on the page, it has been designed to be as smooth as possible after much internal testing and development from HeavyBullets. Thanks Heavy! ❤️
+
+   :::note[Upgrade Process]
+
+   Your existing apps won't immediately stop working should you upgrade to DragonFish without following the above. However, TrueCharts apps newly installed onto DragonFish post-upgrade will **NOT** work without following the above steps. Upgrading to DragonFish using methods outside our above-described guides automatically results in you being outside our [support scope](/deprecated/scale/support).
+
+   :::
+
+</Steps>
+
+### New TrueNAS SCALE DragonFish Users
+
+New users joining the TrueCharts family will default to the DragonFish-supported `main` branch per our getting started [guide](/deprecated/scale).
+
+## Updated TrueNAS SCALE Support Policy
+
+To ensure transparency, we've updated our TrueNAS SCALE support [page](/deprecated/scale/support) to highlight which SCALE features and versions are supported by TrueCharts and which ones aren't. Make sure to check it out to understand the scope of support our volunteers can provide you.
+
+## Enhanced TrueNAS SCALE GUI Options for TrueCharts Apps
+
+We've updated the TrueCharts apps/charts options in the SCALE GUI to provide additional links to supporting documentation. We've also streamlined naming across all supported TrueCharts deployment platforms for a cohesive and user-friendly experience regardless of what platform you want to run Kubernetes on. We won't judge!
+
+:::tip[Keeping Updated]
+
+Don't miss out on any updates or announcements from the TrueCharts team. We encourage all users to join our [Discord](/s/discord) community and check the #announcements channel regularly to stay informed. You can also chat with like-minded people, find answers to questions or issues, and get #support! 🎫
+
+:::
+
+## Closing Out
+
+We're committed to providing the best support and experience for our TrueCharts users on TrueNAS SCALE DragonFish. The TrueCharts team would also like to thank those who have generously donated towards our project for their continued support 💙. You keep TrueCharts thriving and allow us to continue providing resources such as our [new and improved website](https://truecharts.org/news/New-Website/) to the community.
+
+If you find our documentation/guides helpful or want to join the ranks of the over 250 people helping buy us Coffee ☕you can do this via our Open Collective page here:
+
+[One time or recurring Coffee donations 🫶](https://opencollective.com/truecharts)
+
+Thank you for choosing TrueCharts, and here's to a future filled with innovation and collaboration. Happy charting!

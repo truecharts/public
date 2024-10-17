@@ -1,0 +1,26 @@
+---
+import RoundIcon from "./RoundIcon.astro";
+
+type Icon = {
+  id: string;
+  img: string;
+  url: string;
+};
+interface Props {
+  icons: Array<Icon>;
+  // 0 Means all
+  maxIcons: number;
+}
+
+const { icons, maxIcons } = Astro.props;
+if (!icons) throw new Error("Icons array is required");
+if (maxIcons < 0) throw new Error("Max icons must be greater or equal to 0");
+---
+
+<div class="mt-20 list-none flex-row flex flex-wrap justify-center gap-2 p-0">
+  {
+    icons.map((icon, idx) =>
+      !!maxIcons && idx >= maxIcons ? null : <RoundIcon {...icon} />
+    )
+  }
+</div>

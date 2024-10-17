@@ -1,0 +1,16 @@
+---
+import { getTrains, normalizeTrainName, titleCase } from "./utils";
+---
+
+<p class="text-center text-2xl font-extrabold">Trains available</p>
+<ul
+  class="ml-5 list-none flex flex-row flex-wrap gap-5 items-center justify-center"
+>
+  {
+    getTrains().map((train) => (
+      <li>
+        <a href={`#${normalizeTrainName(train)}`}>{titleCase(train)}</a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,44 @@
+# Changes in this file should preferably be reflected in docs/s/
+# social
+/s/discord https://discord.gg/tVsPTHWTtr 308
+/s/twitter https://twitter.com/useTrueCharts 308
+/s/fb https://www.facebook.com/truecharts 308
+/s/tg https://t.me/s/truecharts 308
+
+# sponsor
+/s/oc https://opencollective.com/truecharts 308
+/s/patreon https://patreon.com/truecharts 308
+/s/ghs https://github.com/sponsors/truecharts 308
+
+# other
+/s/git https://github.com/truecharts 308
+/s/charts https://github.com/truecharts/charts 308
+/s/shop https://www.etsy.com/shop/TrueCharts 308
+
+# truecharts
+/s /general/sponsor/ 308
+/blog/* /news/:splat 308
+
+# big chart-changes
+/charts/operators/* /charts/system/:splat 308
+/charts/enterprise/* /charts/premium/:splat 308
+
+# Cover for .md linknames
+/*.md /:splat 301
+
+# Cover for intro pages now being index
+/*/intro /:splat/ 301
+
+# old->new website
+/manual/* /general/:splat 301
+/platforms/* /:splat 301
+/general/common/* /common/:splat 301
+/sponsor /general/sponsor/
+
+# SCALE guides and deprecation redirects
+/scale/guides/getting-started/ /deprecated/scale
+/scale /deprecated/scale
+/scale/* /deprecated/scale/:splat 301
+
+# HELM is now found under "Guides"
+/helm /guides

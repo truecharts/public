@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import { getChartsFromTrain, normalizeTrainName } from "./utils";
+import { getChartImageUrl } from "../multi-icons/utils";
+
+const { train } = Astro.props;
+---
+
+<table class="mt-5 ml-5 table-fixed" data-table={train}>
+  <thead>
+    <tr>
+      <th
+        class="text-lg max-md:w-[38%] w-[30%] text-wrap text-left max-md:text-base"
+        >Chart</th
+      >
+      <th
+        class="text-lg max-md:w-[26%] w-[20%] text-center text-wrap max-md:text-base"
+        >Chart Version</th
+      >
+      <th class="text-lg w-auto text-wrap text-left max-md:text-base"
+        >Description</th
+      >
+    </tr>
+  </thead>
+  <tbody>
+    {
+      getChartsFromTrain(train).map((c) => (
+        <tr data-chart={c.name} data-train={normalizeTrainName(train)}>
+          <td class="text-lg max-md:text-base font-normal text-balance max-md:text-center">
+            <div class="flex flex-row max-md:flex-col gap-2 items-center justify-start">
+              <Image
+                class="w-5 h-5"
+                src={getChartImageUrl(c.name)}
+                alt={c.name}
+                width={20}
+                height={20}
+              />
+              <a href={c.link} target="_blank">
+                {c.name}
+              </a>
+            </div>
+          </td>
+          <td class="text-lg font-normal text-wrap text-center max-md:text-base">
+            {c.version}
+          </td>
+          <td
+            data-description
+            class="text-lg font-normal text-balance text-left max-md:text-base"
+          >
+            {c.description}
+          </td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

@@ -1,0 +1,148 @@
+---
+import {
+  titleCase,
+  normalizeTrainName,
+  getTrains,
+  getChartCount,
+} from "./utils";
+---
+
+<script>
+  import { getTrains, getChartsFromTrain, normalizeTrainName } from "./utils";
+
+  // Make a set of checked boxes
+  let checkedBoxes = new Set();
+  // Fill the set
+  getTrains().forEach((train) => checkedBoxes.add(normalizeTrainName(train)));
+
+  // Make a map of train name and chart names
+  let trainCharts: Map<string, string[]> = new Map();
+  // Fill the map
+  getTrains().forEach((train) =>
+    trainCharts.set(
+      normalizeTrainName(train),
+      getChartsFromTrain(train).map((c) => c.name)
+    )
+  );
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get all checkboxes
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+    // Add event listener to each checkbox
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        // Ingore if it's not our checkbox
+        if (!checkbox.id.startsWith("tc-check-")) return;
+        // Get the train name
+        const train = checkbox.id.slice("tc-check-".length);
+        // Get the checkbox element
+        const box = document.getElementById(checkbox.id) as HTMLInputElement;
+
+        // Get the target div element
+        const targetDiv = document.getElementById(
+          `tc-content-${normalizeTrainName(train)}`
+        ) as HTMLDivElement;
+
+        // Show or hide the target div
+        if (box.checked) {
+          targetDiv.classList.remove("hidden");
+          checkedBoxes.add(train);
+        } else {
+          targetDiv.classList.add("hidden");
+          checkedBoxes.delete(train);
+        }
+      });
+    });
+  });
+
+  const tables = document.querySelectorAll(
+    "[data-table-parent]"
+  ) as NodeListOf<HTMLDivElement>;
+
+  function checkTables() {
+    trainCharts.forEach((charts, train) => {
+      let currTable: HTMLDivElement | null = null;
+      tables.forEach((table) => {
+        if (table.getAttribute("data-table-parent") === train) {
+          currTable = table;
+        }
+      });
+
+      if (charts.length === 0) {
+        currTable!.classList.add("hidden");
+      } else {
+        currTable!.classList.remove("hidden");
+      }
+    });
+  }
+  const rows = document.querySelectorAll(
+    "[data-chart]"
+  ) as NodeListOf<HTMLTableRowElement>;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const search = document.getElementById("search") as HTMLInputElement;
+
+    search.addEventListener("input", function () {
+      const query = search.value.toLowerCase();
+      const regex = new RegExp(`^.*${query.split("").join(".*")}.*$`);
+      rows.forEach((row) => {
+        const chartName = row.getAttribute("data-chart") as string;
+        const trainName = row.getAttribute("data-train") as string;
+        const description = row.querySelector(
+          "[data-description]"
+        ) as HTMLTableCellElement;
+
+        // If chart name is fuzzy matched or
+        // description contains the query, show the row
+        if (
+          regex.test(chartName.toLowerCase()) ||
+          description.innerText.includes(query)
+        ) {
+          row.classList.remove("hidden");
+          const trainData = trainCharts.get(trainName);
+          if (!trainData) return;
+          trainData.push(chartName);
+          trainCharts.set(trainName, trainData || []);
+        } else {
+          row.classList.add("hidden");
+          const trainData = trainCharts.get(trainName);
+          if (!trainData) return;
+          const newCharts = trainData.filter((c) => c !== chartName);
+          trainCharts.set(trainName, newCharts || []);
+        }
+        checkTables();
+      });
+    });
+  });
+</script>
+
+<p class="text-center text-xl font-bold">
+  Start exploring among <span class="text-tc-primary">{getChartCount()}</span> Charts
+</p>
+<ul class="ml-5 list-none flex flex-row gap-5 items-center justify-center">
+  <div class="flex flex-row flex-wrap gap-5 items-center justify-center">
+    {
+      getTrains().map((train) => (
+        <li>
+          <input
+            type="checkbox"
+            checked
+            name={normalizeTrainName(train)}
+            id={`tc-check-${normalizeTrainName(train)}`}
+          />
+          <label for={normalizeTrainName(train)}>{titleCase(train)}</label>
+        </li>
+      ))
+    }
+  </div>
+</ul>
+
+<div class="flex flex-row items-center justify-center">
+  <input
+    class="w-[65%] m-auto px-5 rounded-lg"
+    type="text"
+    placeholder="Search for charts and their description's"
+    id="search"
+  />
+</div>

@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-no-deco {
+  @apply no-underline visited:text-[var(--sl-color-gray-2)] text-[var(--sl-color-gray-2)]
+}

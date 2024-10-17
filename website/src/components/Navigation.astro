@@ -1,0 +1,43 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import type { Icons } from "../../node_modules/@astrojs/starlight/components/Icons";
+
+type Link = {
+  name: string;
+  href: `/${string}` | `https://${string}`;
+  icon?: keyof typeof Icons;
+};
+
+// https://starlight.astro.build/guides/components/#all-icons
+const links: Array<Link> = [
+  { name: "Docs", href: "/general/", icon: "document" },
+  { name: "News", href: "/news/", icon: "open-book" },
+  {
+    name: "Merch/Store",
+    href: "https://www.etsy.com/shop/TrueCharts",
+    icon: "external",
+  },
+];
+---
+
+<div class="flex flex-row gap-5 ml-8 items-center justify-center">
+  {
+    links.map((link) => (
+      <a
+        class="link-no-deco hover:scale-110 flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href={link.href}
+        data-astro-prefetch="load"
+      >
+        <p class="font-bold text-lg max-lg:text-xs max-md:text-xs">
+          {link.name}
+        </p>
+        {link.icon && (
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name={link.icon}
+          />
+        )}
+      </a>
+    ))
+  }
+</div>

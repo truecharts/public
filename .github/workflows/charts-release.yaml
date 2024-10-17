@@ -1,6 +1,7 @@
 name: "Charts/Website: Build-and-Release"
 
-concurrency: charts-website-release
+concurrency:
+  group: ${{ github.head_ref }}-charts-website-release
 
 on:
   workflow_dispatch:
@@ -15,8 +16,17 @@ on:
       - "charts/**"
       - "website/**"
 
+# Use `bash --noprofile --norc -exo pipefail` by default for all `run` steps in this workflow:
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#defaultsrun
+defaults:
+  run:
+    shell: bash
+
 jobs:
   release-helm:
+    permissions:
+      pull-requests: write
+    name: ${{ github.ref == 'refs/heads/main' && '(Production)' || '(Preview)' }} Publish to Cloudflare Pages
     runs-on: actions-runner-large
     steps:
       - name: Checkout
@@ -119,16 +129,6 @@ jobs:
         shell: bash
         if: github.event_name != 'push'
         run: helm registry logout quay.io
-        
-
-      - name: Checkout
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
-        if: github.event_name != 'push'
-        with:
-          fetch-depth: 1
-          repository: truecharts/website
-          token: ${{ secrets.BOT_TOKEN }}
-          path: website
 
       - name: Copy docs to website
         shell: bash
@@ -156,12 +156,114 @@ jobs:
             ./.github/scripts/chart-docs.sh "${chart_parts[1]}/${chart_parts[2]}"
           done
 
-      - name: Commit Website Changes
+      - name: Comment deploy start
         if: github.event_name != 'push'
+        continue-on-error: true
+        uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2
+        with:
+          message-id: cloudflare-deploy
+          message: |
+            ### 🚧 Deploy Preview building...
+
+            |  Name               | Link                                                                          |
+            |---------------------|-------------------------------------------------------------------------------|
+            |🔨 Latest commit     | ${{ github.sha }}                                                             |
+            |🔍 Latest deploy log | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            ---
+
+
+      - name: Prefetch contributor icons
+        shell: bash
         run: |
-          cd website
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit released docs for TrueCharts" || exit 0
-          git push
+          #!/bin/bash
+
+          ## Loop through each contributor
+          ## TODO: reenable later
+          #while read -r contributor; do
+          #    avatar_url=$(echo "$contributor" | grep -oP '"avatar_url": "\K[^"]+')
+          #
+          #    # Download the image
+          #    wget -q "$avatar_url" -O temp_avatar
+          #
+          #    # Generate new filename with original extension
+          #    new_filename="public/assets/contributors/$(basename "$avatar_url" | cut -d '?' -f 1)"
+          #
+          #    echo "converting file: $avatar_url"
+          #    EXT=${FILE##*.} # file extension
+          #    QUALITY=75 # quality for the image
+          #    # convert the image using cwebp and output a file with the extension replaced as .webp
+          #    cwebp -mt -m 6 -q $QUALITY -resize 32 32 "temp_avatar" -o "${new_filename}.webp" &>/dev/null
+          #    rm temp_avatar
+          #
+          #done < src/assets/contributors.json
+
+      - name: Setup astro Cache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          # Cache for build and optimized images.
+          key: astro-${{ hashFiles('package-lock.json') }}
+          path: ./.astro
+          restore-keys: astro-
+
+      - name: Setup npm Cache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          # Cache for npm
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
+      - name: Setup node_modules Cache
+        id: modulescache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          # Cache for npm and optimized images.
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup Node
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install Packages
+        if: steps.modulescache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to Cloudflare Pages
+        id: cloudflare
+        continue-on-error: true
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # By default Cloudflare marks `main` as the "production" branch.
+          # So when this workflow is pushed to refs/heads/main, we set the branch to `main`/"production".
+          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
+          # The project name in Cloudflare
+          projectName: website
+          directory: ./build
+          wranglerVersion: "3"
+
+      - name: Comment deploy url
+        if: github.event_name != 'push'
+        continue-on-error: true
+        uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2
+        with:
+          message-id: cloudflare-deploy
+          message: |
+            ### ✅ Deploy Preview ready!
+
+            |  Name                | Link                                                                          |
+            |----------------------|-------------------------------------------------------------------------------|
+            |🔨 Latest commit      | ${{ github.sha }}                                                             |
+            |🔍 Latest deploy log  | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            |😎 Deploy Preview Url | [${{ steps.cloudflare.outputs.url }}](${{ steps.cloudflare.outputs.url }})    |
+            |🌳 Environment        | ${{ steps.cloudflare.outputs.environment }}                                   |
+            ---
