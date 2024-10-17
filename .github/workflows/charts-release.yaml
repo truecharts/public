@@ -202,14 +202,14 @@ jobs:
         with:
           # Cache for build and optimized images.
           key: astro-${{ hashFiles('package-lock.json') }}
-          path: ./.astro
+          path: ./website/.astro
           restore-keys: astro-
 
       - name: Setup npm Cache
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         with:
           # Cache for npm
-          path: ~/.npm
+          path: ~/website/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
 
@@ -218,7 +218,7 @@ jobs:
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         with:
           # Cache for npm and optimized images.
-          path: ./node_modules
+          path: ./website/node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Setup Node
@@ -228,13 +228,13 @@ jobs:
 
       - name: Install Packages
         if: steps.modulescache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: cd website && npm ci
 
       - name: Check
-        run: npm run check
+        run: cd website && npm run check
 
       - name: Build
-        run: npm run build
+        run: cd website && npm run build
 
       - name: Publish to Cloudflare Pages
         id: cloudflare
@@ -248,7 +248,7 @@ jobs:
           branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
           # The project name in Cloudflare
           projectName: website
-          directory: ./build
+          directory: ./website/build
           wranglerVersion: "3"
 
       - name: Comment deploy url
