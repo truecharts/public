@@ -78,6 +78,7 @@ jobs:
   finished:
     needs:
       - pr-changes
+      - containers-build
       - charts-lint
       - charts-test
       - website-and-docs
