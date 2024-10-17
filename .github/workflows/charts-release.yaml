@@ -5,10 +5,10 @@ concurrency:
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - "charts/**"
-      - "website/**"
+  #pull_request:
+  #  paths:
+  #    - "charts/**"
+  #    - "website/**"
   push:
     branches:
       - master
