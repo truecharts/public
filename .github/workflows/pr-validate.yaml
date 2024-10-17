@@ -38,7 +38,7 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
-    if: ${{ !contains(github.event.pull_request.title, 'container image common') }} # Skip if PR title contains "container image common"
+    if: ${{ !contains(github.event.pull_request.title, 'chart common') }} # Skip if PR title contains "chart common"
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
@@ -72,18 +72,19 @@ jobs:
     if: ${{ 
       contains(needs.print_head_msg.outputs.head-commit-message, 'By Renovate') || 
       contains(needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc') || 
-      contains(github.event.pull_request.title, 'image common') }}
+      contains(github.event.pull_request.title, 'chart common') }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - uses: hmarr/auto-approve-action@v3
+        continue-on-error: true
         with:
           github-token: "${{ secrets.OR_PAT }}"
       - name: automerge
         uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          UPDATE_RETRIES: 12
+          UPDATE_RETRIES: 24
           UPDATE_RETRY_SLEEP: 60000
           MERGE_METHOD: squash
