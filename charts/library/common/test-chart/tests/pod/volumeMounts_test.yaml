@@ -10,7 +10,7 @@ tests:
       some_path: /some/path
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.27.2
         pullPolicy: IfNotPresent
       workload:
         workload-name:

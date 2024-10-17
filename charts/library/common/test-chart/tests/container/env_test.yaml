@@ -11,7 +11,7 @@ tests:
       some_other_value: 2
       image: &image
         repository: nginx
-        tag: 1.19.0
+        tag: 1.27.2
         pullPolicy: IfNotPresent
       configmap:
         configmap-name:
