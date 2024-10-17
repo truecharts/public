@@ -1,21 +1,20 @@
 {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
   "helm-values": {
     "fileMatch": [
-      "(^|/)clusters/.+\\.ya?ml(?:\\.j2)?$",
-      "(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$",
-      "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$",
-      "(^|/)charts/.+\\.ya?ml(?:\\.j2)?$",
+      "(^|/)clusters/.+\\-values\\.ya?ml(?:\\.j2)?$",      // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in clusters
+      "(^|/)kubernetes/.+\\-values\\.ya?ml(?:\\.j2)?$",    // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in kubernetes
+      "(^|/)repositories/.+\\-values\\.ya?ml(?:\\.j2)?$",  // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in repositories
+      "(^|/)charts/.+\\-values\\.ya?ml(?:\\.j2)?$"         // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in charts
     ],
     "enabled": true, // Enable image reference updates in values.yaml
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "container",
-    "bumpVersion": true
-  },
-  "branchPrefix": "helm-values-",
-  "ignore": [
-    // Add any global ignores here if needed
-  ],
-  "requiredStatusChecks": null,
+    "bumpVersion": true,
+    "branchPrefix": "helm-values-",      // Moved to helm-values scope
+    "ignore": [
+    ],
+    "requiredStatusChecks": null        // Moved to helm-values scope
+  }
 }
