@@ -48,7 +48,6 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
-      - charts-test
 
   print_head_msg:
     name: Print commit message
