@@ -6,10 +6,6 @@
   "prefix": "chore(deps)",
   "packageRules": [
     {
-      "matchDatasources": ["helm"],
-      "commitMessageTopic": "chart {{depName}}"
-    },
-    {
       "matchDatasources": ["docker", "helm-values"],
       "commitMessageTopic": "OCI-image {{depName}}"
     }

@@ -7,12 +7,16 @@
     ],
     "enabled": true, // Enable Helm chart updates
     "semanticCommitScope": "helm",
+    "versioning": "semver",
+    "bumpVersion": true,
+    "commitMessageTopic": "chart {{depName}}",
     "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
-    "pinDigests": false // Set to false to not pin digest references
+    "pinDigests": false, // Set to false to not pin digest references
+    "branchPrefix": "helm-",
+    "requiredStatusChecks": null
   },
   "ignore": [
     // Add any global ignores here if needed
   ],
-  "branchPrefix": "helm-",
-  "requiredStatusChecks": null
+
 }

@@ -10,7 +10,8 @@
     ],
     "enabled": true, // Enable image reference updates in values.yaml
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
-    "semanticCommitScope": "container"
+    "semanticCommitScope": "container",
+    "bumpVersion": true
   },
   "branchPrefix": "helm-values-",
   "ignore": [
