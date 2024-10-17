@@ -38,7 +38,6 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
-    if: ${{ !contains(github.event.pull_request.title, 'chart common') }} # Skip if PR title contains "chart common"
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
@@ -49,6 +48,7 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
+      - charts-test
 
   print_head_msg:
     name: Print commit message
@@ -74,11 +74,11 @@ jobs:
     needs:
       - pr-changes
       - charts-lint
+      - charts-test
       - print_head_msg
     if: ${{ 
-      contains(needs.print_head_msg.outputs.head-commit-message, 'By Renovate') || 
-      contains(needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc') || 
-      contains(github.event.pull_request.title, 'chart common') }}
+      contains(needs.print_head_msg.outputs.head-commit-message, 'by renovate') || 
+      contains(needs.print_head_msg.outputs.head-commit-message, '.all-contributorsrc') }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     continue-on-error: true
