@@ -29,7 +29,7 @@ jobs:
     permissions:
       pull-requests: write
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
-    runs-on: actions-runner-large
+    runs-on: actions-runners
     
     steps:
       - name: Checkout
