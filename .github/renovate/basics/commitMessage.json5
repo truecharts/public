@@ -7,7 +7,8 @@
   "packageRules": [
     {
       "matchDatasources": ["docker", "helm-values"],
-      "commitMessageTopic": "OCI-image {{depName}}"
+      "commitMessageTopic": "OCI-image {{depName}}",
+      "prefix": "chore(container)"
     }
   ]
 }
