@@ -92,10 +92,10 @@ jobs:
     needs:
       - hadolint
       - changes
+    if: ${{ needs.changes.outputs.containers_found == 'true' }}
     strategy:
       matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
       fail-fast: false
-    if: ${{ needs.changes.outputs.containers_found == 'true' }}
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
