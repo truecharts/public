@@ -6,12 +6,22 @@
   "prefix": "chore(deps)",
   "packageRules": [
     {
-      "matchManagers": ["docker", "helm-values"],
-      "commitMessageTopic": "OCI-image {{depName}}",
+      "matchManagers": ["helm-values"],
+      "commitMessageTopic": "image {{depName}}",
+      "prefix": "chore(helm)"
+    },
+    {
+      "matchManagers": ["docker"],
+      "commitMessageTopic": "image {{depName}}",
       "prefix": "chore(container)"
     },
     {
-      "matchManagers": ["helm"],
+      "matchManagers": ["flux"],
+      "commitMessageTopic": "image/chart {{depName}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["helmv3"],
       "commitMessageTopic": "chart {{depName}}",
       "prefix": "chore(helm)"
     }
