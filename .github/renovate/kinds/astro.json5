@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "website": {
+  "npm": {
     "fileMatch": [
       "(^|/)website/.+/astro\\.config\\.(mjs|js|ts)$", // Matches Astro config files in /website and any subdirectory
       "(^|/)website/.+/package\\.json$" // Matches package.json files in /website and any subdirectory
@@ -11,5 +11,4 @@
     "semanticCommitScope": "website",
   "requiredStatusChecks": null
   },
-
 }
