@@ -85,7 +85,7 @@ export default defineConfig({
         patreon: "https://patreon.com/truecharts",
       },
       editLink: {
-        baseUrl: "https://github.com/truecharts/website/tree/main/",
+        baseUrl: "https://github.com/truecharts/public/tree/master/website/",
       },
       components: {
         Header: "./src/components/CustomHeader.astro",
