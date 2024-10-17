@@ -56,6 +56,9 @@ jobs:
             echo ::set-output name=containers_found::false
           else
             echo ::set-output name=containers_found::true
+            echo "Containers Found: "
+            echo $CONTAINERS
+
           fi
 
   hadolint:
