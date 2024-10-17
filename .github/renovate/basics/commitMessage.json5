@@ -17,7 +17,14 @@
     },
     {
       "matchManagers": ["flux"],
-      "commitMessageTopic": "image/chart {{depName}}",
+      "matchPackagePatterns": ["!(.*/.*)"],
+      "commitMessageTopic": "chart {{depName}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["flux"],
+      "matchPackagePatterns": [".*/.*"],
+      "commitMessageTopic": "image {{depName}}",
       "prefix": "chore(flux)"
     },
     {
