@@ -52,6 +52,7 @@ jobs:
           
           # Check if containers were found and set the containers_found output
           if [[ -z "$CONTAINERS" ]]; then
+            echo "No Containers Found, Skipping"
             echo ::set-output name=containers_found::false
           else
             echo ::set-output name=containers_found::true
