@@ -27,7 +27,7 @@ jobs:
   release-helm:
     permissions:
       pull-requests: write
-    name: ${{ github.ref == 'refs/heads/main' && '(Production)' || '(Preview)' }} Publish to Cloudflare Pages
+    name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }} Charts/Website: Build-and-Release"
     runs-on: actions-runner-large
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
 
       - name: Get Changelog Format Version
         shell: bash
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         run: |
           ver=$(./charttool genchangelog format-version)
           key="changelog-json-format-$ver"
@@ -47,7 +47,7 @@ jobs:
 
       - name: Cache Changelog
         id: cache-changelog
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           path: changelog.json.gz
@@ -55,7 +55,7 @@ jobs:
 
       - name: Generate Changelog
         shell: bash
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         run: |
           export REPO_PATH="./"
           export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
@@ -86,7 +86,7 @@ jobs:
   
       # Optional step if GPG signing is used
       - name: Prepare GPG key
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
@@ -101,13 +101,13 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
   
       - name: Helm | Login
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         shell: bash
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
   
       - name: Release Charts
         shell: bash
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
@@ -120,12 +120,11 @@ jobs:
   
       - name: Helm | Logout
         shell: bash
-        if: github.event_name != 'push'
+        if: github.event_name == 'push'
         run: helm registry logout quay.io
 
       - name: Copy docs to website
         shell: bash
-        if: github.event_name != 'push'
         run: |
           #!/bin/bash
           echo "Maing sure directories exist..."
@@ -238,7 +237,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # By default Cloudflare marks `main` as the "production" branch.
           # So when this workflow is pushed to refs/heads/main, we set the branch to `main`/"production".
-          branch: ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
+          branch: ${{ github.ref == 'refs/heads/master' && 'master' || github.head_ref }}
           # The project name in Cloudflare
           projectName: website
           directory: ./website/build
