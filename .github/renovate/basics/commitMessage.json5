@@ -9,6 +9,11 @@
       "matchManagers": ["docker", "helm-values"],
       "commitMessageTopic": "OCI-image {{depName}}",
       "prefix": "chore(container)"
+    },
+    {
+      "matchManagers": ["helm"],
+      "commitMessageTopic": "chart {{depName}}",
+      "prefix": "chore(helm)"
     }
   ]
 }

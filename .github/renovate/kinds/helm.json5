@@ -9,8 +9,6 @@
     "semanticCommitScope": "helm",
     "versioning": "semver",
     "bumpVersion": true,
-    "commitMessageTopic": "chart {{depName}}",
-    "prefix": "chore(helm-deps)",
     "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
     "pinDigests": false, // Set to false to not pin digest references
     "branchPrefix": "helm-",
