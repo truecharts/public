@@ -14,8 +14,9 @@ jobs:
       - name: Approve PR
         uses: hmarr/auto-approve-action@v3
         if: ${{ 
-          contains(steps.check-label.outputs.head-commit-message, 'by renovate') || 
-          contains(steps.check-label.outputs.head-commit-message, '.all-contributorsrc') }}
+          contains(github.event.pull_request.title, 'by renovate') || 
+          contains(github.event.pull_request.title, '.all-contributorsrc') 
+          }}
         with:
           github-token: "${{ secrets.OR_PAT }}"
 
