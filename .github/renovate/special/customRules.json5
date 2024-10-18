@@ -1,5 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
+    {
+      "description": ["Block automerge for unstable minors"],
+      "automerge": false,
+      "matchUpdateTypes": ["minor"],
+      "matchPackagePatterns": [
+        "placeholder",
+        ],
+      "branchPrefix": "block-automerge-minor",
+      "labels": ["type/minor", "unstable"]
+    },
+    {
+      "description": ["Block automerge for unstable patches"],
+      "automerge": false,
+      "matchUpdateTypes": ["minor", "pin", "digest", "lockfile"],
+      "matchPackagePatterns": [
+        "placeholder",
+        ],
+      "branchPrefix": "block-automerge-patch",
+      "labels": ["type/minor", "unstable"]
+    },
   ]
 }

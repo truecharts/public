@@ -2,16 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "matchManagers": ["helmv3"],
-      "addLabels": ["renovate/helm"]
-    },
-    {
       "matchUpdateTypes": ["major"],
       "labels": ["type/major"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "labels": ["type/minor"]
+      "labels": ["type/minor", "automerge"]
     },
     {
       "matchUpdateTypes": ["patch"],
@@ -40,6 +36,10 @@
     {
       "matchManagers": ["github-actions"],
       "addLabels": ["renovate/github-action"]
+    },
+    {
+      "matchManagers": ["helmv3"],
+      "addLabels": ["renovate/helm"]
     }
   ]
 }
