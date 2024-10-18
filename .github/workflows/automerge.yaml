@@ -1,0 +1,46 @@
+name: Automerge and Approve
+
+on:
+  workflow_run:
+    workflows: ["Pull Request: Validate"]  # Name of the main CI workflow
+    types:
+      - completed
+
+jobs:
+  check-automerge-label:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Check for automerge label
+        id: check-label
+        run: |
+          echo "Checking for 'automerge' label..."
+          if [[ "$(jq -r '.pull_request.labels | map(.name) | join(",")' "$GITHUB_EVENT_PATH")" != *"automerge"* ]]; then
+            echo "The 'automerge' label is not present. Exiting."
+            exit 1
+          fi
+
+  approve:
+    needs: check-automerge-label
+    runs-on: ubuntu-latest
+    if: ${{ success() }}  # Only run if the previous job succeeded
+    steps:
+      - name: Approve PR
+        uses: hmarr/auto-approve-action@v3
+        if: ${{ 
+          contains(steps.check-label.outputs.head-commit-message, 'by renovate') || 
+          contains(steps.check-label.outputs.head-commit-message, '.all-contributorsrc') }}
+        with:
+          github-token: "${{ secrets.OR_PAT }}"
+
+  automerge:
+    needs: check-automerge-label
+    runs-on: ubuntu-latest
+    if: ${{ success() }}  # Only run if the previous job succeeded
+    steps:
+      - name: Automerge
+        uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
+        env:
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          UPDATE_RETRIES: 24
+          UPDATE_RETRY_SLEEP: 60000
