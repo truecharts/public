@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: stable
+appVersion: "8.07"
 dependencies:
   - name: common
     version: 25.1.0
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/convos
   - https://hub.docker.com/r/convos/convos
 type: application
-version: 7.2.0
+version: 8.0.0
