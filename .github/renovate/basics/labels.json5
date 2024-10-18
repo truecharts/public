@@ -30,6 +30,14 @@
       "addLabels": ["renovate/container"]
     },
     {
+      "matchManager": ["npm"],
+      "addLabels": ["renovate/website"]
+    },
+    {
+      "matchManager": ["flux"],
+      "addLabels": ["renovate/flux"]
+    },
+    {
       "matchDatasources": ["github-releases", "github-tags"],
       "addLabels": ["renovate/github-release"]
     },

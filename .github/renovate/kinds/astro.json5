@@ -5,7 +5,7 @@
       "(^|/)website/.+/astro\\.config\\.(mjs|js|ts)$", // Matches Astro config files in /website and any subdirectory
       "(^|/)website/.+/package\\.json$" // Matches package.json files in /website and any subdirectory
     ],
-    "branchPrefix": "astro-",
+    "branchPrefix": "renovate/astro-",
     "enabled": true, // Enable updates for website dependencies
     "updateTypes": ["major", "minor", "patch", "digest", "pin", "lockfile"], // Allow updates for all version types
     "semanticCommitScope": "website"

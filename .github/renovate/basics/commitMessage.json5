@@ -15,7 +15,7 @@
       "matchManagers": ["helm-values"],
       "updateTypes": ["digest", "pin"],
       "commitMessageTopic": "image {{depName}}",
-      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
+      "commitMessageExtra": "digest to {{toDigestShort}}",
       "prefix": "chore(helm)"
     },
     {
@@ -29,7 +29,7 @@
       "matchManagers": ["docker"],
       "updateTypes": ["digest", "pin"],
       "commitMessageTopic": "image {{depName}}",
-      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
+      "commitMessageExtra": "digest to {{toDigestShort}}",
       "prefix": "chore(container)"
     },
     {
@@ -52,7 +52,7 @@
       "updateTypes": ["digest", "pin"],
       "matchPackagePatterns": [".*/.*"],
       "commitMessageTopic": "image {{depName}}",
-      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
+      "commitMessageExtra": "digest to {{toDigestShort}}",
       "prefix": "chore(flux)"
     },
     {
