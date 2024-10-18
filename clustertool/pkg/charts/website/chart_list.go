@@ -8,8 +8,8 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/truecharts/private/clustertool/pkg/charts/chartFile"
-	"github.com/truecharts/private/clustertool/pkg/helper"
+	"github.com/truecharts/public/clustertool/pkg/charts/chartFile"
+	"github.com/truecharts/public/clustertool/pkg/helper"
 )
 
 type ChartList struct {
