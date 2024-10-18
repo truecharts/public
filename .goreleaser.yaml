@@ -1,5 +1,5 @@
 version: 2
-project_name: clustertool
+project_name: ClusterTool
 builds:
   - id: clustertool
     dir: clustertool
@@ -31,11 +31,13 @@ changelog:
     include:
       - "clustertool"
 release:
+  name_template: "{{.ProjectName}}-{{.Tag}}"
   github:
     owner: truecharts
     name: public
   draft: true
   make_latest: false
+  mode: append
 
 git:
   ignore_tags:
