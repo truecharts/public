@@ -85,10 +85,8 @@ jobs:
       - print_head_msg
     name: Finished PR Tests
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Finisher
-        continue-on-error: true
         run: |
           echo "DONE"
 
