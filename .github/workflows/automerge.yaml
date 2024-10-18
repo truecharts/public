@@ -7,39 +7,9 @@ on:
       - completed
 
 jobs:
-  check-automerge-label:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - name: Debug Event Payload
-        run: cat "$GITHUB_EVENT_PATH"
-
-      - name: Check for automerge label
-        id: check-label
-        run: |
-          echo "Checking for 'automerge' label..."
-          pull_request_labels=$(jq -r '.workflow_run.pull_requests[0].labels // empty' "$GITHUB_EVENT_PATH")
-          if [ -z "$pull_request_labels" ]; then
-            echo "No labels found in the pull request. Exiting."
-            exit 1
-          fi
-
-          if [[ "$(echo "$pull_request_labels" | jq -r 'map(.name) | join(",")')" != *"automerge"* ]]; then
-            echo "The 'automerge' label is not present. Exiting."
-            exit 1
-          fi
-
-          commit_message=$(jq -r '.workflow_run.head_commit.message // empty' "$GITHUB_EVENT_PATH")
-          if [ -z "$commit_message" ]; then
-            echo "No commit message found. Exiting."
-          fi
-
-
 
   approve:
-    needs: check-automerge-label
     runs-on: ubuntu-latest
-    if: ${{ success() }}  # Only run if the previous job succeeded
     steps:
       - name: Approve PR
         uses: hmarr/auto-approve-action@v3
@@ -50,9 +20,7 @@ jobs:
           github-token: "${{ secrets.OR_PAT }}"
 
   automerge:
-    needs: check-automerge-label
     runs-on: ubuntu-latest
-    if: ${{ success() }}  # Only run if the previous job succeeded
     steps:
       - name: Automerge
         uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
