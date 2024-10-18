@@ -10,14 +10,6 @@
     "updateTypes": ["major", "minor", "patch",  "digest", "pin", "lockfile"], // Allow updates for all version types
     "semanticCommitScope": "go",
   "branchPrefix": "go-",
-  "packageRules": [
-    {
-      "matchManagers": ["gomod"],
-      "matchDepTypes": ["indirect"],
-      "enabled": false
-    }
-  ],
-  "requiredStatusChecks": null,
   },
 
 }
