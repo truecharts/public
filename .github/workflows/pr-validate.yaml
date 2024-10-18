@@ -76,6 +76,9 @@ jobs:
           echo "PR title: ${{ github.event.pull_request.title }}"
 
   finished:
+    name: Finished PR Tests
+    runs-on: ubuntu-latest
+    if: always()
     needs:
       - pr-changes
       - containers-build
@@ -83,12 +86,20 @@ jobs:
       - charts-test
       - website-and-docs
       - print_head_msg
-    name: Finished PR Tests
-    runs-on: ubuntu-latest
     steps:
-      - name: Finisher
+      - name: Check Results
         run: |
-          echo "DONE"
+          if [[ "${{ needs.pr-changes.result }}" != "success" || \
+                "${{ needs.containers-build.result }}" != "success" || \
+                "${{ needs.charts-lint.result }}" != "success" || \
+                "${{ needs.charts-test.result }}" != "success" || \
+                "${{ needs.website-and-docs.result }}" != "success" || \
+                "${{ needs.print_head_msg.result }}" != "success" ]]; then
+            echo "One or more jobs failed!"
+            exit 1
+          else
+            echo "All jobs succeeded!"
+          fi
 
   automerge-and-approve:
     needs:
