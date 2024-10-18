@@ -5,7 +5,6 @@
   "automergeType": "pr",
   "pinDigests": true,
     "semanticCommits": "enabled",
-    "bumpVersion": true,
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   gitAuthor: "TrueCharts-Admin <bot@truecharts.org>",
@@ -14,7 +13,7 @@
     semanticCommits: 'enabled',
     "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
      "extends": [
-    "config:recommended",
+        "config:recommended",
         "github>truecharts/public//.github/renovate/updates/lockfile.json5",
         "github>truecharts/public//.github/renovate/updates/pin.json5",
         "github>truecharts/public//.github/renovate/updates/digest.json5",
