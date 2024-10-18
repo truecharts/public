@@ -228,7 +228,12 @@
   matchDatasources: ["docker"],
   versioning: "regex:^latest-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
   matchPackageNames: ["registry.gitlab.com/gitlab-org/gitlab-runner"],
-}
+},
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["alicevision/meshroom"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    }
 
 
   ]
