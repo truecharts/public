@@ -198,7 +198,7 @@ jobs:
           #done < src/assets/contributors.json
 
       - name: Setup astro Cache
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for build and optimized images.
           key: astro-${{ hashFiles('package-lock.json') }}
@@ -206,7 +206,7 @@ jobs:
           restore-keys: astro-
 
       - name: Setup npm Cache
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for npm
           path: ~/website/.npm
@@ -215,7 +215,7 @@ jobs:
 
       - name: Setup node_modules Cache
         id: modulescache
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for npm and optimized images.
           path: ./website/node_modules
