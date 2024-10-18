@@ -19,9 +19,6 @@ jobs:
           review-message: "Auto approved automated PR"
           pull-request-number: ${{ github.event.workflow_run.pull_requests[0].number }}
 
-  automerge:
-    runs-on: ubuntu-latest
-    steps:
       - name: Automerge
         if: github.actor == 'truecharts-admin'
         uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67 # v0.16.4
