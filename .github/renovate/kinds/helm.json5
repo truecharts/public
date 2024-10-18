@@ -3,7 +3,7 @@
 
   "helmv3": {
     "fileMatch": [
-      ".+/Chart\\.ya?ml(?:\\.j2)?$" // Matches Chart.yaml or Chart.yml files, optionally with a .j2 extension
+      ".+/Chart\\.ya?ml$" // Matches Chart.yaml or Chart.yml files, optionally with a .j2 extension
     ],
     "enabled": true, // Enable Helm chart updates
     "semanticCommitScope": "helm",

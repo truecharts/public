@@ -8,9 +8,9 @@
       "docker-compose\\.ya?ml\\.j2$", // Matches Jinja2 templated docker-compose files
       "\\.github/workflows/.*\\.ya?ml$", // Matches all workflow YAML files
       "\\.github/workflows/.*\\.ya?ml\\.j2$", // Matches Jinja2 templated workflow files
-      // "(^|/)clusters/.+\\.ya?ml(?:\\.j2)?$",
-      // "(^|/)repositories/.+\\.ya?ml(?:\\.j2)?$",
-      // "(^|/)clustertool/embeded/.+\\.ya?ml(?:\\.j2)?$"
+      // "(^|/)clusters/.+\\.ya?ml$",
+      // "(^|/)repositories/.+\\.ya?ml$",
+      // "(^|/)clustertool/embeded/.+\\.ya?ml$"
     ],
     "branchPrefix": "docker-",
     "enabled": true, // Enable Docker image updates

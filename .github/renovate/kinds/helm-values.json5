@@ -3,10 +3,10 @@
 
   "helm-values": {
     "fileMatch": [
-      "(^|/)clusters/.+\\-values\\.ya?ml(?:\\.j2)?$",      // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in clusters
-      "(^|/)kubernetes/.+\\-values\\.ya?ml(?:\\.j2)?$",    // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in kubernetes
-      "(^|/)repositories/.+\\-values\\.ya?ml(?:\\.j2)?$",  // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in repositories
-      "(^|/)charts/.+\\-values\\.ya?ml(?:\\.j2)?$"         // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in charts
+      "(^|/)clusters/.+\\-values\\.ya?ml$",      // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in clusters
+      "(^|/)kubernetes/.+\\-values\\.ya?ml$",    // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in kubernetes
+      "(^|/)repositories/.+\\-values\\.ya?ml$",  // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in repositories
+      "(^|/)charts/.+\\-values\\.ya?ml$"         // Match *-values.yaml, *-values.yml, or *-values.yaml.j2 in charts
     ],
     "enabled": true, // Enable image reference updates in values.yaml
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
