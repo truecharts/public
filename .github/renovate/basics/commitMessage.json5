@@ -7,14 +7,30 @@
   "packageRules": [
     {
       "matchManagers": ["helm-values"],
+      "updateTypes": ["major", "minor", "patch"],
       "commitMessageTopic": "image {{depName}}",
       "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(helm)"
     },
     {
+      "matchManagers": ["helm-values"],
+      "updateTypes": ["digest", "pin"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
+      "prefix": "chore(helm)"
+    },
+    {
       "matchManagers": ["docker"],
+      "updateTypes": ["major", "minor", "patch"],
       "commitMessageTopic": "image {{depName}}",
       "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(container)"
+    },
+    {
+      "matchManagers": ["docker"],
+      "updateTypes": ["digest", "pin"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
       "prefix": "chore(container)"
     },
     {
@@ -26,9 +42,18 @@
     },
     {
       "matchManagers": ["flux"],
+      "updateTypes": ["major", "minor", "patch"],
       "matchPackagePatterns": [".*/.*"],
       "commitMessageTopic": "image {{depName}}",
       "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
+      "prefix": "chore(flux)"
+    },
+    {
+      "matchManagers": ["flux"],
+      "updateTypes": ["digest", "pin"],
+      "matchPackagePatterns": [".*/.*"],
+      "commitMessageTopic": "image {{depName}}",
+      "commitMessageExtra": "{{fromDigestShort}} → {{toDigestShort}}",
       "prefix": "chore(flux)"
     },
     {
