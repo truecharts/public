@@ -16,6 +16,8 @@ jobs:
         if: github.actor == 'truecharts-admin'
         with:
           github-token: "${{ secrets.OR_PAT }}"
+          review-message: "Auto approved automated PR"
+          pull-request-number: ${{ github.event.inputs.pullRequestNumber }}
 
   automerge:
     runs-on: ubuntu-latest
