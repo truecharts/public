@@ -5,6 +5,7 @@
       "description": ["Auto-merge minor updates from trusted sources"],
       "matchDatasources": ["docker", "helm", "flux"],
       "automerge": true,
+      "bumpVersion": true,
       "matchUpdateTypes": ["minor"],
       "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "tccr.io/tccr/.*", "tccr.io/tccrbase/.*", "tccr.io/truecharts/.*", "ghcr.io/elfhosted.*", "common" ],
       "branchPrefix": "trusted-automerge-",
@@ -15,6 +16,7 @@
       "matchManagers": ["github-actions"],
       "matchDatasources": ["github-tags"],
       "automerge": true,
+      "bumpVersion": true,
       "matchUpdateTypes": ["minor"],
       "branchPrefix": "github-automerge-",
       "labels": ["type/minor", "automerge"]
