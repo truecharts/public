@@ -1,4 +1,4 @@
-version: v2
+version: 2
 project_name: clustertool
 builds:
   - id: clustertool
@@ -38,8 +38,9 @@ release:
   make_latest: false
 
 git:
-  tag_filter: '^Clustertool-v'
-  strip_tag_prefix: 'Clustertool-'
+  ignore_tags:
+    - nightly
+    - common
 
 universal_binaries:
   - replace: true
