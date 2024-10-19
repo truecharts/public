@@ -12,21 +12,13 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-# Enabled mariadb
-# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb
-mariadb:
-  enabled: false
-  architecture: standalone
-  auth:
-    database: ombi
-    username: ombi
-    password: ombi
-  primary:
-    persistence:
-      enabled: false
 portal:
   open:
     enabled: true
 securityContext:
   container:
+    runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    allowPrivilegeEscalation: true
