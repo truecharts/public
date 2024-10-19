@@ -15,6 +15,7 @@ on:
 
 jobs:
   generate-install-matrix:
+    if: inputs.chartChangesDetected == 'true'
     name: Generate matrix for install
     runs-on: ubuntu-latest
     outputs:
