@@ -53,16 +53,16 @@ RUN set -ex; \
     rm -rf /var/lib/apt/lists/*
 
 # Copy occ script to /usr/bin/occ
-COPY --chmod=755 ./apps/nextcloud-fpm/scripts/occ /usr/bin/occ
+COPY --chmod=755 ./containers/apps/nextcloud-fpm/scripts/occ /usr/bin/occ
 
 # Copy post-install script to a temp location so we can append it to the entrypoint.sh
-COPY --chmod=755 ./apps/nextcloud-fpm/scripts/post-install.sh /tmp/post-install.sh
+COPY --chmod=755 ./containers/apps/nextcloud-fpm/scripts/post-install.sh /tmp/post-install.sh
 
 # Copy the healthcheck
-COPY --chmod=755 ./apps/nextcloud-fpm/scripts/healthcheck.sh /healthcheck.sh
+COPY --chmod=755 ./containers/apps/nextcloud-fpm/scripts/healthcheck.sh /healthcheck.sh
 
 # Copy the configure-scripts that will be sourced by the post-install
-COPY --chmod=755 ./apps/nextcloud-fpm/configure-scripts /configure-scripts
+COPY --chmod=755 ./containers/apps/nextcloud-fpm/configure-scripts /configure-scripts
 
 RUN set -ex; \
     sed -i 's/exec "$@"//g' /entrypoint.sh; \

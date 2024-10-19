@@ -11,7 +11,7 @@ RUN \
   rm -Rf /etc/raddb
 
 VOLUME /etc/raddb
-COPY ./apps/freeradius/entrypoint.sh /docker-entrypoint.sh
+COPY ./containers/apps/freeradius/entrypoint.sh /docker-entrypoint.sh
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"

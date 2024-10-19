@@ -1,9 +1,9 @@
 image:
-  repository: browserless/chrome
+  repository: docker.io/browserless/chrome
   tag: 1.61.1-chrome-stable@sha256:efac47cfff3830d9a50b27d29f8bbb61949058ae336c823fbe9bd3c0d1debcc8
   pullPolicy: IfNotPresent
 puppeteerImage:
-  repository: browserless/chrome
+  repository: docker.io/browserless/chrome
   pullPolicy: IfNotPresent
   tag: 1.61.1-puppeteer-13.1.3@sha256:1562864d80cc4ed4436af2ba206edf7cafcecd560430658213b5d10d2dc7c999
 service:

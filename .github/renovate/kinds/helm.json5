@@ -8,7 +8,6 @@
     "enabled": true, // Enable Helm chart updates
     "semanticCommitScope": "helm",
     "versioning": "semver",
-    "bumpVersion": true,
     "updateTypes": ["major", "minor", "patch"], // Allow updates for all version types
     "pinDigests": false, // Set to false to not pin digest references
     "branchPrefix": "renovate/helm-",

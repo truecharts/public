@@ -11,16 +11,16 @@ RUN mkdir -p /build /output
 WORKDIR /build
 
 # Copy go mod and sum files
-COPY apps/kube-sa-proxy/go.mod apps/kube-sa-proxy/go.sum ./
+COPY ./containers/apps/kube-sa-proxy/go.mod apps/kube-sa-proxy/go.sum ./
 
 # Download dependencies
 RUN go mod download
 
 # Copy the rest of the Go application source code
-COPY apps/kube-sa-proxy/cmd/main.go .
-COPY apps/kube-sa-proxy/internal/config ./internal/config
-COPY apps/kube-sa-proxy/internal/proxy ./internal/proxy
-COPY apps/kube-sa-proxy/internal/utils ./internal/utils
+COPY ./containers/apps/kube-sa-proxy/cmd/main.go .
+COPY ./containers/apps/kube-sa-proxy/internal/config ./internal/config
+COPY ./containers/apps/kube-sa-proxy/internal/proxy ./internal/proxy
+COPY ./containers/apps/kube-sa-proxy/internal/utils ./internal/utils
 
 # Build the Go application
 RUN go build -ldflags "-w -s" -o /output/my-proxy-service .

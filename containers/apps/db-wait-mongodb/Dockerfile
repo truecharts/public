@@ -42,7 +42,7 @@ RUN \
 
 USER apps
 
-COPY ./apps/db-wait-mongodb/entrypoint.sh /entrypoint.sh
+COPY ./containers/apps/db-wait-mongodb/entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"

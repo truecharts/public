@@ -351,7 +351,7 @@ tests:
   - it: should pass with timescaledb
     set:
       postgresTimescaledb16Image:
-        repository: timescale/timescaledb
+        repository: docker.io/timescale/timescaledb
         tag: "some-tag"
       cnpg:
         my-pg:
@@ -400,7 +400,7 @@ tests:
   - it: should pass with postgis
     set:
       postgresPostgis16Image:
-        repository: postgis/postgisdb
+        repository: docker.io/postgis/postgisdb
         tag: "some-tag"
       cnpg:
         my-pg:
@@ -451,7 +451,7 @@ tests:
   - it: should pass with vectors
     set:
       postgresVectors16Image:
-        repository: vectors/vectors
+        repository: docker.io/vectors/vectors
         tag: "some-tag"
       cnpg:
         my-pg:
@@ -500,7 +500,7 @@ tests:
   - it: should pass with enabled monitoring
     set:
       postgresTimescaledb16Image:
-        repository: timescale/timescaledb
+        repository: docker.io/timescale/timescaledb
         tag: "some-tag"
       cnpg:
         my-pg:
@@ -525,7 +525,7 @@ tests:
   - it: should pass with override monitoring
     set:
       postgresTimescaledb16Image:
-        repository: timescale/timescaledb
+        repository: docker.io/timescale/timescaledb
         tag: "some-tag"
       cnpg:
         my-pg:

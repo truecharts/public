@@ -28,8 +28,8 @@ VOLUME [ "/config" ]
 
 USER apps
 
-COPY ./base/ubuntu/entrypoint.sh /entrypoint.sh
-COPY ./base/ubuntu/shim /etc/profile.d
+COPY ./containers/base/ubuntu/entrypoint.sh /entrypoint.sh
+COPY ./containers/base/ubuntu/shim /etc/profile.d
 
 ENTRYPOINT ["/bin/ash", "--"]
 

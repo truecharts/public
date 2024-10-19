@@ -112,8 +112,8 @@ ENV LANG en_US.UTF-8
 
 VOLUME ["/config"]
 
-COPY ./base/ubuntu/entrypoint.sh /entrypoint.sh
-COPY ./base/ubuntu/shim /shim
+COPY ./containers/base/ubuntu/entrypoint.sh /entrypoint.sh
+COPY ./containers/base/ubuntu/shim /shim
 
 USER apps
 
