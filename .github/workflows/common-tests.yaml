@@ -50,7 +50,7 @@ jobs:
         run: |
           ct lint --config .github/ct-lint.yaml \
                   --lint-conf .github/lint-conf.yaml \
-                  --charts charts/library/common/common-test \
+                  --charts charts/library/common/test-chart \
                   --debug
 
   unittest:
@@ -92,7 +92,7 @@ jobs:
           (helm unittest -h > /dev/null) || helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion}) || echo "finished unittest reinstall tries"
 
           # Run tests
-          cd charts/library/common/common-test/
+          cd charts/library/common/test-chart/
           helm dependency update
           helm unittest -f "tests/**/*.yaml" . -v ./unit-values.yaml
 
@@ -225,17 +225,17 @@ jobs:
       - name: Run chart-testing (install)
         run: |
           # Move all ci values on a temp location (or skip if already moved from another matrix job)
-          mv charts/library/common/common-test/ci charts/library/common/common-test/runtests || echo "Nothing to move"
+          mv charts/library/common/test-chart/ci charts/library/common/test-chart/runtests || echo "Nothing to move"
 
           # Move one values.yaml to the correct location to run the test
-          mv -f charts/library/common/common-test/runtests/${{ matrix.values }} charts/library/common/common-test/values.yaml
+          mv -f charts/library/common/test-chart/runtests/${{ matrix.values }} charts/library/common/test-chart/values.yaml
 
           # Stat kail on the background to grab logs from tests
           ./kail --ignore-ns kube-system --ignore-ns cert-manager --ignore-ns metallb-system --ignore-ns prometheus-operator >> /tmp/output.log &
 
           # Actually run the test
           ct install  --config .github/ct-install.yaml \
-                      --charts charts/library/common/common-test \
+                      --charts charts/library/common/test-chart \
                       --debug || (echo -e "\n\n--===PODLOGS===--\n\n" && \
                                   cat /tmp/output.log && \
                                   rm -f /tmp/output.log && exit 1)
