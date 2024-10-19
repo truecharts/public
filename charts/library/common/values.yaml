@@ -93,7 +93,7 @@ includeCommon: true
 namespace: ""
 
 image:
-  repository: traefik/whoami
+  repository: docker.io/traefik/whoami
   pullPolicy: IfNotPresent
   tag: v1.10.3@sha256:43a68d10b9dfcfc3ffbfe4dd42100dc9aeaf29b3a5636c856337a5940f1b4f1c
 
@@ -501,7 +501,7 @@ wgetImage:
 
 yqImage:
   pullPolicy: IfNotPresent
-  repository: mikefarah/yq
+  repository: docker.io/mikefarah/yq
   tag: 4.44.3@sha256:5b3d851bf28b04ef902fee86305f4dd7e063919c1cafedab2042adb16221c025
 
 postgresClientImage:
