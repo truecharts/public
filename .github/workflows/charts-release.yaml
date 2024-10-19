@@ -25,12 +25,31 @@ defaults:
     shell: bash
 
 jobs:
+  check_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check for changes in specific folders
+        id: check_changes
+        run: |
+          if git diff --exit-code HEAD^ HEAD -- website/ **/docs; then
+            echo "No changes detected in the specified folders."
+            echo "::set-output name=changes_detected::false"
+          else
+            echo "Changes detected in the specified folders."
+            echo "::set-output name=changes_detected::true"
+          fi
+
   release-helm:
     permissions:
       pull-requests: write
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
     runs-on: actions-runners
-
+    needs: check_changes
+    if: needs.check_changes.outputs.changes_detected == 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
