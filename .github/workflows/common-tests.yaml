@@ -244,3 +244,21 @@ jobs:
           echo -e "\n\n--===PODLOGS===--\n\n"
           cat  /tmp/output.log
           rm -f /tmp/output.log
+
+  # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
+  common-tests-complete:
+    needs: [lint, unittest, install]
+    if: ${{ always() }}
+    name: Common Tets Completed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Results
+        run: |
+          if [[ "${{ needs.lint.result }}" != "success" || \
+                "${{ needs.unittest.result }}" != "success" || \
+                "${{ needs.install.result }}" != "success" ]]; then
+            echo "One or more jobs failed!"
+            exit 1
+          else
+            echo "Common Lint, Tests and unittests Completed Successfully"
+          fi
