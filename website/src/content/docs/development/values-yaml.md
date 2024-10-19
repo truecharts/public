@@ -21,7 +21,7 @@ A minimal example values.yaml would be:
 ##
 
 image:
-  repository: jacobalberty/unifi
+  repository: docker.io/jacobalberty/unifi
   tag: 6.0.45
   pullPolicy: IfNotPresent
 
