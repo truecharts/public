@@ -29,6 +29,9 @@ jobs:
   common-tests:
     uses: ./.github/workflows/common-tests.yaml
 
+  clustertool-tests:
+    uses: ./.github/workflows/clustertool.tests.yaml
+
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
@@ -86,6 +89,7 @@ jobs:
       - containers-build
       - charts-lint
       - charts-test
+      - clustertool-tests
       - website-and-docs
       - print_head_msg
       - common-tests
@@ -95,6 +99,7 @@ jobs:
           if [[ "${{ needs.pr-changes.result }}" != "success" || \
                 "${{ needs.containers-build.result }}" != "success" || \
                 "${{ needs.charts-lint.result }}" != "success" || \
+                "${{ needs.clustertool-tests.result }}" != "success" || \
                 "${{ needs.charts-test.result }}" != "success" || \
                 "${{ needs.website-and-docs.result }}" != "success" || \
                 "${{ needs.common-tests.result }}" != "success" || \
