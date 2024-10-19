@@ -10,31 +10,26 @@ SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL4001
 RUN \
-apk update && \
+  apk update && \
   apk add --no-cache \
     curl \
     ca-certificates \
     gnupg \
-    bash \
-    && \
-  curl -fsSLo /etc/apk/keys/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg \
-  && \
-  echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community" >> /etc/apk/repositories \
-  && \
-  apk add --no-cache \
-    mongodb-mongosh \
-    && apk del \
-    gnupg \
-  && case "${TARGETPLATFORM}" in \
+    bash && \
+  curl -fsSLo /etc/apk/keys/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
+  echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community" >> /etc/apk/repositories && \
+  curl -fsSL https://downloads.mongodb.com/compass/mongosh-1.8.0-linux-x64.tgz -o /tmp/mongosh.tgz && \
+  tar -xvzf /tmp/mongosh.tgz -C /tmp && \
+  mv /tmp/mongosh*/bin/mongosh /usr/local/bin/ && \
+  chmod +x /usr/local/bin/mongosh && \
+  apk del gnupg && \
+  case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
-  esac \
-  && \
-  rm -rf \
-    /tmp/* \
-    /var/cache/apk/* \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/profile \
-  && update-ca-certificates
+  esac && \
+  rm -rf /tmp/* /var/cache/apk/* && \
+  chmod -R u=rwX,go=rX /app && \
+  printf "umask %d" "${UMASK}" >> /etc/profile && \
+  update-ca-certificates
 
 USER apps
 
