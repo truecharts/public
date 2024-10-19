@@ -20,9 +20,29 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  check_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check for changes in specific folder
+        id: check_changes
+        run: |
+          if git diff --exit-code HEAD^ HEAD -- path/to/your/folder; then
+            echo "No changes detected in the folder."
+            echo "::set-output name=changes_detected::false"
+          else
+            echo "Changes detected in the folder."
+            echo "::set-output name=changes_detected::true"
+          fi
+
   lint:
     name: Lint Common
     runs-on: ubuntu-24.04
+    if: needs.check_changes.outputs.changes_detected == 'true'
     strategy:
       fail-fast: false
       matrix:
@@ -255,9 +275,9 @@ jobs:
     steps:
       - name: Check Results
         run: |
-          if [[ "${{ needs.lint.result }}" != "success" || \
+          if [[ "${{ needs.check_changes.outputs.changes_detected }}" == 'true' && ( "${{ needs.lint.result }}" != "success" || \
                 "${{ needs.unittest.result }}" != "success" || \
-                "${{ needs.install.result }}" != "success" ]]; then
+                "${{ needs.install.result }}" != "success") ]]; then
             echo "One or more jobs failed!"
             exit 1
           else
