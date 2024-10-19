@@ -1,6 +1,4 @@
 name: clustertool-go-tests
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
 on:
   workflow_dispatch:
   workflow_call:
