@@ -190,7 +190,7 @@ RUN \
 
 # Install golang
  
-COPY --from=golang:1.23.2@sha256:d7b4cfdee0b5e884694c08fbb61e0a1c3788559977dadb6051f45aac75d4bbdb /usr/local/go/ /usr/local/go/
+COPY --from=golang:1.23.2@sha256:858ab89651d8a3d637da5580e71fdec40b5aefbb148ba50b9a629bd079a14bcd /usr/local/go/ /usr/local/go/
  
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:$PATH 
