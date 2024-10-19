@@ -42,6 +42,7 @@ jobs:
   lint:
     name: Lint Common
     runs-on: ubuntu-24.04
+    needs: check_changes
     if: needs.check_changes.outputs.changes_detected == 'true'
     strategy:
       fail-fast: false
