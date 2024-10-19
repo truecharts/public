@@ -9,6 +9,7 @@ on:
       - master
     paths:
       - "charts/library/common/**"
+      - "charts/library/common-test/**"
       - ".github/workflows/common-tests.yaml"
   #pull_request:
   #  branches:
@@ -92,7 +93,7 @@ jobs:
           (helm unittest -h > /dev/null) || helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion}) || echo "finished unittest reinstall tries"
 
           # Run tests
-          cd charts/library/common/test-chart/
+          cd charts/library/common-test/
           helm dependency update
           helm unittest -f "tests/**/*.yaml" . -v ./unit-values.yaml
 
@@ -225,10 +226,10 @@ jobs:
       - name: Run chart-testing (install)
         run: |
           # Move all ci values on a temp location (or skip if already moved from another matrix job)
-          mv charts/library/common/test-chart/ci charts/library/common/test-chart/runtests || echo "Nothing to move"
+          mv charts/library/common-test/ci charts/library/common-test/runtests || echo "Nothing to move"
 
           # Move one values.yaml to the correct location to run the test
-          mv -f charts/library/common/test-chart/runtests/${{ matrix.values }} charts/library/common/test-chart/values.yaml
+          mv -f charts/library/common-test/runtests/${{ matrix.values }} charts/library/common-test/values.yaml
 
           # Stat kail on the background to grab logs from tests
           ./kail --ignore-ns kube-system --ignore-ns cert-manager --ignore-ns metallb-system --ignore-ns prometheus-operator >> /tmp/output.log &
