@@ -69,10 +69,10 @@ if [[ "$curr_chart" != "charts/system/traefik-crds" ]]; then
    echo "Installing traefik-crds chart"
    helm install traefik oci://tccr.io/truecharts/traefik-crds --namespace traefik --create-namespace --wait
    if [[ "$?" != "0" ]]; then
-       echo "Failed to install traefik chart"
+       echo "Failed to install traefik-crds chart"
        exit 1
    fi
-   echo "Done installing traefik chart"
+   echo "Done installing traefik-crds chart"
 fi
 
 if [[ "$curr_chart" == "charts/system/intel-device-plugins-operator" ]]; then
