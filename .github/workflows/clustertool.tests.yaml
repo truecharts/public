@@ -15,22 +15,42 @@ on:
   #     - 'cmd/**'
   #     - 'clustertool/**'
   #     - ".github/workflows/clsutertool.test.yaml"
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'main.go'
-      - 'go.mod'
-      - 'go.sum'
-      - 'pkg/**'
-      - 'cmd/**'
-      - 'clustertool/**'
-      - ".github/workflows/clsutertool.test.yaml"
+  #pull_request:
+  #  branches:
+  #    - main
+  #  paths:
+  #    - 'main.go'
+  #    - 'go.mod'
+  #    - 'go.sum'
+  #    - 'pkg/**'
+  #    - 'cmd/**'
+  #    - 'clustertool/**'
+  #    - ".github/workflows/clsutertool.test.yaml"
 permissions:
   contents: read
 jobs:
+
+  check_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check for changes in specific folder
+        id: check_changes
+        run: |
+          if git diff --exit-code HEAD^ HEAD -- clustertool; then
+            echo "No changes detected in the folder."
+            echo "::set-output name=changes_detected::false"
+          else
+            echo "Changes detected in the folder."
+            echo "::set-output name=changes_detected::true"
+          fi
+
   build:
     runs-on: actions-runners
+    if: needs.check_changes.outputs.changes_detected == 'true'
     steps:
       - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5
         with:
