@@ -54,11 +54,6 @@ jobs:
 
   website-and-docs:
     uses: ./.github/workflows/charts-release.yaml
-    needs:
-      - pr-changes
-      - charts-lint
-
-
 
   print_head_msg:
     name: Print commit message
