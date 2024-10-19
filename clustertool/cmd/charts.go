@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"strings"
+    "strings"
 
-	"github.com/spf13/cobra"
+    "github.com/spf13/cobra"
 )
 
 var chartsLongHelp = strings.TrimSpace(`
@@ -19,13 +19,13 @@ Workflow:
 `)
 
 var charts = &cobra.Command{
-	Use:           "charts",
-	Short:         "A tool to help with creating Talos cluster",
-	Long:          chartsLongHelp,
-	SilenceUsage:  true,
-	SilenceErrors: true,
+    Use:           "charts",
+    Short:         "A tool to help with creating Talos cluster",
+    Long:          chartsLongHelp,
+    SilenceUsage:  true,
+    SilenceErrors: true,
 }
 
 func init() {
-	RootCmd.AddCommand(charts)
+    RootCmd.AddCommand(charts)
 }

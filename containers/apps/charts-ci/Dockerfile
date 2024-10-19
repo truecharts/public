@@ -43,7 +43,7 @@ RUN \
         curl \
         gcc \
         git \
-	gnupg \
+    gnupg \
         gzip \
         jo \
         jq \
@@ -67,7 +67,7 @@ RUN \
     apt-get update \
     && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-	python3 \
+    python3 \
         python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -77,7 +77,7 @@ RUN \
     apt-get update \
     && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-	webp \
+    webp \
     && rm -rf /var/lib/apt/lists/*
 
 ### Kubernetes-Tools Installer
@@ -105,7 +105,7 @@ RUN set -eux; \
         url=""; \
         command_path_in_package="$(basename $tool)"; \
         if [ "$arch" = "amd64" ]; then arch_path="amd64"; elif [ "$arch" = "arm64" ]; then arch_path="arm64"; else arch_path="arm"; fi; \
-	if [ "$arch" = "amd64" ]; then xarch="x86_64"; elif [ "$arch" = "arm64" ]; then xarch="arm64"; else xarch="arm"; fi; \
+    if [ "$arch" = "amd64" ]; then xarch="x86_64"; elif [ "$arch" = "arm64" ]; then xarch="arm64"; else xarch="arm"; fi; \
         case "$tool" in \
             kubectl) \
                 url="https://dl.k8s.io/release/v${version}/bin/linux/${arch}/kubectl"; \
@@ -146,12 +146,12 @@ RUN set -eux; \
                 ;; \
             chart-releaser) \
                 url="https://github.com/helm/chart-releaser/releases/download/v${version}/chart-releaser_${version}_linux_${arch}.tar.gz"; \
-		command_path_in_package="cr"; \
+        command_path_in_package="cr"; \
                 rename="cr"; \
                 ;; \
             chart-testing) \
                 url="https://github.com/helm/chart-testing/releases/download/v${version}/chart-testing_${version}_linux_${arch}.tar.gz"; \
-		command_path_in_package="ct"; \
+        command_path_in_package="ct"; \
                 rename="ct"; \
                 ;; \
             *) echo "Unknown tool: $tool"; exit 1 ;; \
@@ -159,9 +159,9 @@ RUN set -eux; \
         mkdir -p /tools/${tool}; \
         download_and_extract "$url" "/tools/${tool}" "$command_path_in_package"; \
         cp "/tools/${tool}/$command_path_in_package" "/tools/bin/$rename"; \
-	rm -rf "/tools/${tool}"; \
- 	chmod 666 "/tools/bin/$rename"; \
-	chmod +x "/tools/bin/$rename"; \
+    rm -rf "/tools/${tool}"; \
+    chmod 666 "/tools/bin/$rename"; \
+    chmod +x "/tools/bin/$rename"; \
     }; \
     # Download and copy each tool
     download_and_copy "kubectl" "$kubectlVersion"; \
@@ -185,15 +185,15 @@ RUN \
     apt-get update \
     && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-	pre-commit \
+    pre-commit \
     && rm -rf /var/lib/apt/lists/*
 
 # Install golang
- 
+
 COPY --from=golang:1.23.2@sha256:ad5c126b5cf501a8caef751a243bb717ec204ab1aa56dc41dc11be089fafcb4f /usr/local/go/ /usr/local/go/
- 
+
 ENV GOPATH /go
-ENV PATH $GOPATH/bin:$PATH 
+ENV PATH $GOPATH/bin:$PATH
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"

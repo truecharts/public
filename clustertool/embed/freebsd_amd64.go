@@ -4,7 +4,7 @@
 package embed
 
 import (
-	"embed"
+    "embed"
 )
 
 //go:embed darwin_amd64

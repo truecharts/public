@@ -82,9 +82,9 @@ parse_command_line() {
 check_existing_tag() {
     local chart_name="$1"
     local tag="$2"
-    
+
     echo "Checking if tag '$tag' exists for chart '$chart_name' on OCI..."
-    
+
     # Query the OCI registry for existing tags
     local response
     response=$(curl -s -H "Authorization: Bearer ${quay_token}" \
@@ -97,7 +97,7 @@ check_existing_tag() {
 
     local tag_exists
     tag_exists=$(echo "$response" | jq -r --arg tag "$tag" '.tags[]? | select(.name == $tag) | .name')
-    
+
     if [[ "$tag_exists" == "$tag" ]]; then
         echo "Tag '$tag' already exists for chart '$chart_name'."
         return 0

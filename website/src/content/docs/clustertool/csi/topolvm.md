@@ -40,7 +40,7 @@ Chart information at: https://truecharts.org/charts/system/lvm-disk-watcher/
 
 Find the name of the disk you want to use for TopoLVM. With Talos OS, use `talosctl disks` to list the names of the available disks. You may need to install another disk to your VM or your bare-metal server.
 
-## Install Lvm_Disk 
+## Install Lvm_Disk
 Create the namespace with these labels:
 ```yaml
 apiVersion: v1
@@ -65,7 +65,7 @@ spec:
     chart:
         spec:
             chart: lvm-disk-watcher
-            version: 1.1.0                  # Update this with the latest version mentioned in https://github.com/truecharts/charts/blob/master/charts/system/lvm-disk-watcher/Chart.yaml 
+            version: 1.1.0                  # Update this with the latest version mentioned in https://github.com/truecharts/charts/blob/master/charts/system/lvm-disk-watcher/Chart.yaml
             sourceRef:
                 kind: HelmRepository
                 name: truecharts
@@ -102,7 +102,7 @@ The following example can be used and adjust where necesarry.
       deviceClasses:
         - name: thin
           volume-group: topolvm_vg                     # Volume Group name used in LVM_Disk_Watcher
-          default: true                                
+          default: true
           spare-gb: 10
           type: thin
           thin-pool:

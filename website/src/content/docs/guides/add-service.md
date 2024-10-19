@@ -24,7 +24,7 @@ service:
         enabled: true
         port: 8080
         targetPort: 80
-        # http is set by default so can be skipped 
+        # http is set by default so can be skipped
         # protocol: http
       api:
         enabled: true

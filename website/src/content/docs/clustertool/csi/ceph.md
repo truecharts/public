@@ -29,6 +29,3 @@ TODO: Add description of what a CEPH-FS is and a basic overview on how to set it
 ## Ceph-ObjectStorage
 
 TODO: Add description of what a CEPH S3 ObjectStorage is and a basic overview on how to set it up
-
-
-

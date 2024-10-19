@@ -24,7 +24,7 @@ spec:
         crds: CreateReplace
         remediation:
             retries: 3
-    values: 
+    values:
       lvmd:
         managed: false
         env:
@@ -50,6 +50,6 @@ spec:
               "topolvm.io/device-class": "thin"
       node:
         lvmdEmbedded: true
-  
+
       controller:
         replicaCount: 1

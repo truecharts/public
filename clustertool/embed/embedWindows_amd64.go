@@ -4,7 +4,7 @@
 package embed
 
 import (
-	"embed"
+    "embed"
 )
 
 //go:embed windows_amd64/*

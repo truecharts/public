@@ -24,7 +24,7 @@ spec:
         crds: CreateReplace
         remediation:
             retries: 3
-    values: 
+    values:
       defaultSettings:
         # Increase to 3 for a multi-node cluster
         defaultReplicaCount: 1

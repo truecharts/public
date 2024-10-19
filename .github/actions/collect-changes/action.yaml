@@ -44,4 +44,3 @@ runs:
         # Set output to changed charts
         echo "Changed charts: ${CHARTS[*]}"
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
-

@@ -40,7 +40,7 @@ Obtain the Talos ISO [here](https://github.com/siderolabs/talos/releases/downloa
 
 ![storage](./img/vb-storage.png)
 
-## ClusterTool 
+## ClusterTool
 
 By default ClusterTool installs the `qemu-guest-agent` extension. This is not compatible with VirtualBox and should be commented out as shown below in the `talconfig.yaml` file:
 

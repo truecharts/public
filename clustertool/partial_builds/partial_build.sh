@@ -23,7 +23,7 @@ done
 for os in "${!os_targets[@]}"; do
     for arch in "${architectures[@]}"; do
         echo "Building precommit for $os/$arch"
-        
+
         # Determine output file name and extension
         output="./embed/${os}_${arch}/precommit"
         mkdir "./clustertool/embed/${os}_${arch}/" || echo "mkdir failed or not needed"

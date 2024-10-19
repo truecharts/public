@@ -24,9 +24,9 @@ workload:
               type: tcp
           env:
             # forces the use of env vars to be always used!
-            zurg_FORCE_ENV: "true" 
+            zurg_FORCE_ENV: "true"
             # Set this to your rclone's mount `__all__` dir if using Zurg
-            LOG_LEVEL: DEBUG    
+            LOG_LEVEL: DEBUG
 
 zurg:
   token: YOURTOKEN
@@ -65,13 +65,13 @@ configmap:
         # Zurg configuration version
         zurg: v1
         token: {{ .Values.zurg.token }} # https://real-debrid.com/apitoken
-    
+
         # basic functionality
         host: "[::]" # do not change this if you are running it inside a docker container
         port: 9999 # do not change this if you are running it inside a docker container
         concurrent_workers: 32
         check_for_changes_every_secs: 10
-    
+
         # misc configs
         retain_folder_name_extension: false # if true, zurg won't modify the filenames from real-debrid
         retain_rd_torrent_name: true # if true, it will strictly follow RD API torrent name property w/c should make this more compatible with rdt-client
@@ -81,7 +81,7 @@ configmap:
         enable_repair: false # Don't change this, we run a separate zurg for doing repairs without blocking i/o
         on_library_update: sh plex_update.sh "$@"
         ignore_renames: true
-        
+
         # advanced alternative for Jellyfin/Emby support
         # on_library_update: |-
         #   # Log the updated directories and send refresh request to autoscan
@@ -90,10 +90,10 @@ configmap:
         #       echo "Detected update on: $arg"
         #       # URL encode the directory path
         #       encoded_arg=$(python -c "import urllib.parse; print(urllib.parse.quote_plus('$arg'))")
-        #       curl -s -X GET "http://autoscan:3030/triggers/manual?dir=/storage/realdebrid-zurg/$encoded_arg" 
+        #       curl -s -X GET "http://autoscan:3030/triggers/manual?dir=/storage/realdebrid-zurg/$encoded_arg"
         #   done
         #   echo "All updated sections refreshed."
-    
+
         # network configs
         network_buffer_size: 1048576 # 1 MiB
         serve_from_rclone: false # serve file data from rclone, not from zurg (zurg will only provide rclone the link to download)
@@ -112,7 +112,7 @@ configmap:
         #   - 32.download.real-debrid.com
         #   - 34.download.real-debrid.com
         #   - 40.download.real-debrid.com
-    
+
         # List of directory definitions and their filtering rules
         directories:
           # Configuration for anime shows
@@ -124,13 +124,13 @@ configmap:
                 - has_episodes: true # intelligent detection of episode files inside a torrent
                 - any_file_inside_regex: /^\[/ # usually anime starts with [ e.g. [SubsPlease]
                 - any_file_inside_not_regex: /s\d\de\d\d/i # and usually anime doesn't use SxxExx
-    
+
           shows:
             group: media
             group_order: 20
             filters:
               - has_episodes: true  # intelligent detection of episode files inside a torrent
-    
+
           movies:
             group: media  # because anime, shows and movies are in the same group,
             group_order: 30 # and anime and shows has a lower group_order number than movies, all torrents that doesn't fall into the previous 2 will fall into movies
@@ -143,56 +143,56 @@ configmap:
     data:
       plex_update.sh: |
         #!/bin/bash
-    
+
         # PLEX PARTIAL SCAN script or PLEX UPDATE script
         # When zurg detects changes, it can trigger this script IF your config.yml contains
         # on_library_update: sh plex_update.sh "$@"
         # Modified from https://github.com/debridmediamanager/zurg-testing/blob/main/plex_update.sh
-    
+
         plex_url="http://plex:32400" # If you're using zurg inside a Docker container, by default it is 172.17.0.1:32400
         token="yourplextoken" # open Plex in a browser, open dev console and copy-paste this: window.localStorage.getItem("myPlexAccessToken")
         zurg_mount="/storage/realdebrid-zurg" # replace with your zurg mount path, ensure this is what Plex sees
-    
+
         # Get the list of section IDs
         section_ids=$(curl -sLX GET "$plex_url/library/sections" -H "X-Plex-Token: $token" | xmllint --xpath "//Directory/@key" - | sed 's/key="//g' | tr '"' '\n')
-    
+
         for arg in "$@"
         do
             modified_arg="$zurg_mount/$arg"
             echo "Detected update on: $arg"
             echo "Absolute path: $modified_arg"
-    
+
             ##### START Added by ElfHosted for auto DMM symlinking ###
             echo "Symlinking $modified_arg to /storage/symlinks/real-debrid-blackhole/$arg"
-    
+
             # Ensure blackhole exists
             mkdir -p /storage/symlinks/real-debrid-blackhole/movies
             mkdir -p /storage/symlinks/real-debrid-blackhole/shows
-    
+
             # Copy to the RD blackhole, preserving the directory structure
             cp -rs "$modified_arg/"* "/storage/symlinks/real-debrid-blackhole/$(echo $arg | cut -f1 -d/)/"
             ##### END Added by ElfHosted for auto DMM symlinking ###
-    
+
             encoded_arg=$(echo -n "$modified_arg" | python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.stdin.read()))")
-    
+
             if [ -z "$encoded_arg" ]; then
                 echo "Error: Encoded argument is empty. Check the input or encoding process."
                 continue
             fi
-    
+
             for section_id in $section_ids
             do
                 final_url="${plex_url}/library/sections/${section_id}/refresh?path=${encoded_arg}&X-Plex-Token=${token}"
-    
+
                 echo "Encoded argument: $encoded_arg"
                 echo "Section ID: $section_id"
                 echo "Final URL: $final_url"
-    
+
                 curl -s "$final_url"
             done
-    
+
         done
-    
+
         echo "All updated sections refreshed"
-    
-        # credits to godver3  
+
+        # credits to godver3

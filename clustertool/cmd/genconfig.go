@@ -1,14 +1,14 @@
 package cmd
 
 import (
-	"strings"
+    "strings"
 
-	"github.com/rs/zerolog/log"
-	"github.com/spf13/cobra"
-	"github.com/truecharts/public/clustertool/pkg/gencmd"
-	"github.com/truecharts/public/clustertool/pkg/helper"
-	"github.com/truecharts/public/clustertool/pkg/nodestatus"
-	"github.com/truecharts/public/clustertool/pkg/sops"
+    "github.com/rs/zerolog/log"
+    "github.com/spf13/cobra"
+    "github.com/truecharts/public/clustertool/pkg/gencmd"
+    "github.com/truecharts/public/clustertool/pkg/helper"
+    "github.com/truecharts/public/clustertool/pkg/nodestatus"
+    "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
 var genConfigLongHelp = strings.TrimSpace(`
@@ -21,27 +21,27 @@ Powered by TalHelper (https://budimanjojo.github.io/talhelper/)
 `)
 
 var genConfig = &cobra.Command{
-	Use:     "genconfig",
-	Short:   "generate Configuration files",
-	Long:    genConfigLongHelp,
-	Example: "clustertool genconfig",
-	Run: func(cmd *cobra.Command, args []string) {
-		if err := sops.DecryptFiles(); err != nil {
-			log.Info().Msgf("Error decrypting files: %v\n", err)
-		}
+    Use:     "genconfig",
+    Short:   "generate Configuration files",
+    Long:    genConfigLongHelp,
+    Example: "clustertool genconfig",
+    Run: func(cmd *cobra.Command, args []string) {
+        if err := sops.DecryptFiles(); err != nil {
+            log.Info().Msgf("Error decrypting files: %v\n", err)
+        }
 
-		gencmd.GenConfig(args)
-		err := nodestatus.CheckHealth(helper.TalEnv["VIP_IP"], "", true)
-		if err == nil {
-			log.Info().Msg("Running Cluster Detected, setting KubeConfig...")
-			kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
-			gencmd.ExecCmd(kubeconfigcmds)
-		} else {
-			log.Info().Msg("No Running Cluster Detected, Skipping KubeConfig...")
-		}
-	},
+        gencmd.GenConfig(args)
+        err := nodestatus.CheckHealth(helper.TalEnv["VIP_IP"], "", true)
+        if err == nil {
+            log.Info().Msg("Running Cluster Detected, setting KubeConfig...")
+            kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
+            gencmd.ExecCmd(kubeconfigcmds)
+        } else {
+            log.Info().Msg("No Running Cluster Detected, Skipping KubeConfig...")
+        }
+    },
 }
 
 func init() {
-	RootCmd.AddCommand(genConfig)
+    RootCmd.AddCommand(genConfig)
 }

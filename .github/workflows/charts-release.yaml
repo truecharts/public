@@ -30,7 +30,7 @@ jobs:
       pull-requests: write
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
     runs-on: actions-runners
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -79,12 +79,12 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-  
+
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
           version: v3.14.0
-  
+
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         if: github.event_name == 'push'
@@ -100,12 +100,12 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-  
+
       - name: Helm | Login
         if: github.event_name == 'push'
         shell: bash
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
-  
+
       - name: Release Charts
         shell: bash
         if: github.event_name == 'push'
@@ -117,7 +117,7 @@ jobs:
           install="$RUNNER_TOOL_CACHE/cr/${{ inputs.version }}/$(uname -m)"
           echo "$install" >> "$GITHUB_PATH"
           ./.github/scripts/cr.sh  --quay-token "${{ secrets.QUAY_TOKEN }}" --instal-dir $install
-  
+
       - name: Helm | Logout
         shell: bash
         if: github.event_name == 'push'

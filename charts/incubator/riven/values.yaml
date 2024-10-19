@@ -41,9 +41,9 @@ workload:
             RIVEN_FORCE_ENV: "true"
             ZURG_URL: somezurgurl:9999
             # Set this to your rclone's mount `__all__` dir if using Zurg
-            RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__" 
+            RIVEN_SYMLINK_RCLONE_PATH: "/mnt/zurg/__all__"
             # This is the path that symlinks will be placed in
-            RIVEN_SYMLINK_LIBRARY_PATH: "/mnt/library" 
+            RIVEN_SYMLINK_LIBRARY_PATH: "/mnt/library"
             RIVEN_DATABASE_HOST: '{{ printf "postgresql+psycopg2://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
             RIVEN_DOWNLOADERS_REAL_DEBRID_ENABLED: "false"
             # set your real debrid api key
@@ -51,7 +51,7 @@ workload:
             RIVEN_UPDATERS_PLEX_ENABLED: "false"
             RIVEN_UPDATERS_PLEX_URL: "http://plex:32400"
             # set your plex token"
-            RIVEN_UPDATERS_PLEX_TOKEN: "xxxxx" 
+            RIVEN_UPDATERS_PLEX_TOKEN: "xxxxx"
             RIVEN_CONTENT_OVERSEERR_ENABLED: "false"
             RIVEN_CONTENT_OVERSEERR_URL: "http://overseerr:5055"
             # set your overseerr token
@@ -94,7 +94,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/riven/data"
-  zurg-all: 
+  zurg-all:
     enabled: true
     mountPath: "/mnt/zurg/__all__"
   library:

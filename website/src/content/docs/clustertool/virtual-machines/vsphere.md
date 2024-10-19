@@ -39,7 +39,7 @@ Retain the `URL` for use in the next step.
 
 4. Provide an Item Name (e.g. `talos-metal-1.8.0`)
 
-5. Select Actions > Continue on the SSL Certificate prompt for factory.talos.dev 
+5. Select Actions > Continue on the SSL Certificate prompt for factory.talos.dev
 
 ![importISO](./img/vs-iso-dl.png)
 

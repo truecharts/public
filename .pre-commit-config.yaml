@@ -6,7 +6,7 @@ repos:
       - id: remove-tabs
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace # trims trailing whitespace.
         exclude: ^archive/
@@ -48,10 +48,3 @@ repos:
         exclude: ^archive/
       - id: rst-backticks
         exclude: ^archive/
-
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
-    hooks:
-      - id: prettier
-        exclude: (^archive|^website\/public|templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json|^clustertool)
-        files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$

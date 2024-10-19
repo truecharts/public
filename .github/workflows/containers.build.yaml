@@ -46,10 +46,10 @@ jobs:
       - id: reduce
         run: |
           CONTAINERS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>/?containers/(?<first_directory>(?<root1>[/]?)[^/]+/)(?<second_directory>(?<root2>[/]?)[^/]+)(?<extra_paths>/[^/]+)*)"; "\(.second_directory)") | unique' changes.json)
-          
+
           # Set the containers output
           echo ::set-output name=containers::${CONTAINERS}
-          
+
           # Check if containers were found and set the containers_found output
           if [[ "$CONTAINERS" == "[]" || -z "$CONTAINERS" ]]; then
             echo "No Containers Found, Skipping"

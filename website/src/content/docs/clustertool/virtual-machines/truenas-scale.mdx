@@ -21,7 +21,7 @@ We will be modifying the main network interface for your TrueNAS server. Do not 
 ### Preparation
 
 #### Acquire Interface Settings
-Note down the interface IP Address and the Subnet mask of your currently used interface. 
+Note down the interface IP Address and the Subnet mask of your currently used interface.
 
 This can be found through the WebUI:
 
@@ -118,14 +118,14 @@ Go back to the "preparation" section and make sure the IP you are trying to move
 <Steps>
 
   1. Start by going to the `Datasets` section of your TrueNAS Scale WebUI
-  
+
   2. Select the dataset you want the files for the VM to be stored on, as below
     ![VM Datasets](./img/vm_datasets.png)
 
   3. Click the `Add Zvol` button on the top-right
-  
+
   4. You will be presented with a pane of potential options. Leave all of these as default except for `Zvol name` (call it something recognizable like `Talos Zvol 1`), `Size for this zvol` (set to between `256GiB` and `512GiB`), `Force size` (check this option), `Sparse` (check this option) and `Block size` (change to `128 KiB`)
-  
+
   5. We do **not** recommend to encrypt the dataset
 
   6. After you are done it should look similar to this:
