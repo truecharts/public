@@ -19,17 +19,7 @@ ENV \
     UMASK="0002" \
     TZ="Etc/UTC"
 
-RUN \
-    adduser apps \
-        --uid 568 \
-        --group \
-        --system \
-        --disabled-password \
-        --no-create-home \
-    && \
-    mkdir -p /config \
-    && chown -R apps:apps /config \
-    && chmod -R 775 /config
+
 
 WORKDIR /app
 
@@ -45,6 +35,7 @@ RUN \
     && \
     apt-get install -y \
         bash \
+        adduser \
         ca-certificates \
         curl \
         dnsutils \
@@ -107,6 +98,20 @@ RUN \
     && chmod -R u=rwX,go=rX /app \
     && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
     && update-ca-certificates
+
+RUN \
+    adduser apps \
+        --uid 568 \
+        --group \
+        --system \
+        --disabled-password \
+        --no-create-home \
+    && \
+    mkdir -p /config \
+    && chown -R apps:apps /config \
+    && chmod -R 775 /config
+
+
 
 ENV LANG en_US.UTF-8
 
