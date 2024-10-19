@@ -26,6 +26,8 @@ jobs:
   containers-build:
     uses: ./.github/workflows/containers.build.yaml
 
+  common-tests:
+    uses: ./.github/workflows/common-tests.yaml
 
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
