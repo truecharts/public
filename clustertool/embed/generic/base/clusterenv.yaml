@@ -12,6 +12,10 @@ DASHBOARD_IP: 192.168.20.211
 # Used to automatically generate a sshkey-pair for FluxCD
 # Has to start with ssh://
 GITHUB_REPOSITORY: ""
-# DO NOT ALTER
+## Uncomment and adapt to automatically setup your dockerhub credentials
+## This should prevent much of the potential ratelimits
+# DOCKERHUB_USER: dockerhub-username
+# DOCKERHUB_PASSWORD: dockerhub-password
+## DO NOT ALTER
 PODNET: 172.16.0.0/16
 SVCNET: 172.17.0.0/16
