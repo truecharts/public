@@ -32,15 +32,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Check for changes in specific folders
+      - name: Check for changes in specific folders and README.md files
         id: check_changes
         run: |
-         if git diff --exit-code HEAD^ HEAD -- website/ **/docs **/README.md; then
-            echo "No changes detected in the specified folders."
-            echo "::set-output name=changes_detected::false"
+          # If this is a pull request, fetch the base branch
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            git fetch origin ${{ github.event.pull_request.base.ref }}
+            BASE_COMMIT="origin/${{ github.event.pull_request.base.ref }}"
           else
-            echo "Changes detected in the specified folders."
-            echo "::set-output name=changes_detected::true"
+            # For workflow_call, use the default behavior (current commit)
+            BASE_COMMIT="${{ github.sha }}^" # Compare against the previous commit
+          fi
+
+          # Compare changes
+          if git diff --exit-code $BASE_COMMIT...${{ github.sha }} -- website/ **/docs **/README.md; then
+              echo "No changes detected in the specified folders or README.md files."
+              echo "::set-output name=changes_detected::false"
+          else
+              echo "Changes detected in the specified folders or README.md files."
+              echo "::set-output name=changes_detected::true"
           fi
 
   release-helm:
