@@ -15,7 +15,6 @@ on:
 
 jobs:
   generate-install-matrix:
-    if: inputs.chartChangesDetected == 'true'
     name: Generate matrix for install
     runs-on: ubuntu-latest
     outputs:
@@ -51,12 +50,14 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
+        if: inputs.chartChangesDetected == 'true'
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install go-yq
+        if: inputs.chartChangesDetected == 'true'
         run: |
           mkdir -p $HOME/.local/bin
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
