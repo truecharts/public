@@ -230,6 +230,7 @@ jobs:
           restore-keys: astro-
 
       - name: Setup npm Cache
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for npm
@@ -247,13 +248,13 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Setup Node
-        if: needs.check_changes.outputs.changes_detected == 'true' 
+        if: needs.check_changes.outputs.changes_detected == 'true' && needs.check_changes.outputs.changes_detected == 'true'
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
         with:
           node-version-file: ./website/.nvmrc
 
       - name: Install Packages
-        if: steps.modulescache.outputs.cache-hit != 'true'
+        if: steps.modulescache.outputs.cache-hit != 'true' && needs.check_changes.outputs.changes_detected == 'true' 
         run: cd website && npm ci
 
       - name: Check
