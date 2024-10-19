@@ -35,7 +35,7 @@ jobs:
       - name: Check for changes in specific folders
         id: check_changes
         run: |
-          if git diff --exit-code HEAD^ HEAD -- website/ **/docs; then
+         if git diff --exit-code HEAD^ HEAD -- website/ **/docs **/README.md; then
             echo "No changes detected in the specified folders."
             echo "::set-output name=changes_detected::false"
           else
