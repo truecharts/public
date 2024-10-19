@@ -50,7 +50,6 @@ jobs:
     name: "${{ github.ref == 'refs/heads/master' && '(Production)' || '(Preview)' }}"
     runs-on: actions-runners
     needs: check_changes
-    if: needs.check_changes.outputs.changes_detected == 'true' 
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -59,7 +58,7 @@ jobs:
 
       - name: Get Changelog Format Version
         shell: bash
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         run: |
           ver=$(./charttool genchangelog format-version)
           key="changelog-json-format-$ver"
@@ -68,7 +67,7 @@ jobs:
 
       - name: Cache Changelog
         id: cache-changelog
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           path: changelog.json.gz
@@ -76,7 +75,7 @@ jobs:
 
       - name: Generate Changelog
         shell: bash
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         run: |
           export REPO_PATH="./"
           export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
@@ -94,6 +93,7 @@ jobs:
 
       - name: Fix Pre-Commit issues
         shell: bash
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         run: |
           echo "Running pre-commit test-and-cleanup..."
           pre-commit run --all ||:
@@ -101,13 +101,14 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Install Helm
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
           version: v3.14.0
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
@@ -122,13 +123,13 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Helm | Login
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         shell: bash
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
 
       - name: Release Charts
         shell: bash
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         env:
           CR_SKIP_EXISTING: "true"
         run: |
@@ -140,10 +141,11 @@ jobs:
 
       - name: Helm | Logout
         shell: bash
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         run: helm registry logout quay.io
 
       - name: Copy docs to website
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         shell: bash
         run: |
           #!/bin/bash
@@ -177,7 +179,7 @@ jobs:
           done
 
       - name: Comment deploy start
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && needs.check_changes.outputs.changes_detected == 'true'
         continue-on-error: true
         uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2
         with:
@@ -194,6 +196,7 @@ jobs:
 
       - name: Prefetch contributor icons
         shell: bash
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         run: |
           #!/bin/bash
 
@@ -218,6 +221,7 @@ jobs:
           #done < src/assets/contributors.json
 
       - name: Setup astro Cache
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for build and optimized images.
@@ -235,6 +239,7 @@ jobs:
 
       - name: Setup node_modules Cache
         id: modulescache
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         uses: actions/cache@3624ceb22c1c5a301c8db4169662070a689d9ea8 # v4
         with:
           # Cache for npm and optimized images.
@@ -242,6 +247,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
 
       - name: Setup Node
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
         with:
           node-version-file: ./website/.nvmrc
@@ -251,15 +257,15 @@ jobs:
         run: cd website && npm ci
 
       - name: Check
-        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         run: cd website && npm run check
 
       - name: Build
-        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         run: cd website && npm run build
 
       - name: Publish to Cloudflare Pages
-        if: (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         id: cloudflare
         continue-on-error: true
         uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
@@ -275,7 +281,7 @@ jobs:
           wranglerVersion: "3"
 
       - name: Comment deploy url
-        if: github.event_name != 'push' && (!contains(github.event.pull_request.title, 'by renovate') || contains(github.event.pull_request.title, 'website'))
+        if: github.event_name != 'push' && needs.check_changes.outputs.changes_detected == 'true'
         continue-on-error: true
         uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2
         with:
@@ -292,4 +298,5 @@ jobs:
             ---
 
       - name: Release-and-Website Completed
+        if: needs.check_changes.outputs.changes_detected == 'true' 
         run: echo "DONE"
