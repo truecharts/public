@@ -65,7 +65,7 @@ else
     echo "cnpg: not found in $curr_chart/values.yaml, skipping installation."
 fi
 
-if [[ "$curr_chart" != "charts/premium/traefik" ]]; then
+if [[ "$curr_chart" == "charts/premium/traefik" ]]; then
    echo "Installing traefik-crds chart"
    helm install traefik oci://tccr.io/truecharts/traefik-crds --wait
    if [[ "$?" != "0" ]]; then
