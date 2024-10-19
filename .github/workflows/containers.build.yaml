@@ -355,9 +355,8 @@ jobs:
     steps:
       - name: Check Results
         run: |
-          if [[ "${{ needs.changes.result }}" != "success" || \
-                "${{ needs.hadolint.result }}" != "success" || \
-                "${{ needs.build.result }}" != "success" ]]; then
+          if [[ "${{ needs.changes.outputs.containers_found }}" == 'true' && ( "${{ needs.hadolint.result }}" != "success" || \
+                "${{ needs.build.result }}" != "success") ]]; then
             echo "One or more jobs failed!"
             exit 1
           else
