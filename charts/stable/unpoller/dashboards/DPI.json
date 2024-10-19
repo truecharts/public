@@ -30382,6 +30382,13 @@
     "templating": {
         "list": [
             {
+                "hide": 2,
+                "name": "DS_PROMETHEUS",
+                "query": "Prometheus",
+                "skipUrlSync": false,
+                "type": "constant"
+            },
+            {
                 "allValue": ".*",
                 "current": {},
                 "datasource": "${DS_PROMETHEUS}",
