@@ -72,7 +72,7 @@ jobs:
         run: |
           ct lint --config .github/ct-lint.yaml \
                   --lint-conf .github/lint-conf.yaml \
-                  --charts charts/library/common/test-chart \
+                  --charts charts/library/common-test \
                   --debug
 
   unittest:
@@ -257,7 +257,7 @@ jobs:
 
           # Actually run the test
           ct install  --config .github/ct-install.yaml \
-                      --charts charts/library/common/test-chart \
+                      --charts charts/library/common-test \
                       --debug || (echo -e "\n\n--===PODLOGS===--\n\n" && \
                                   cat /tmp/output.log && \
                                   rm -f /tmp/output.log && exit 1)
