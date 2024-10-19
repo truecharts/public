@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM alpine:latest
+FROM tccr.io/tccr/alpine:latest
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -10,6 +10,7 @@ SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL4001
 RUN \
+apk update \
   apk add --no-cache \
     curl \
     ca-certificates \
