@@ -348,14 +348,16 @@ jobs:
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   container-build-complete:
-    needs: [build]
+    needs: [changes, hadolint, build]
     if: ${{ always() }}
     name: Container Build Completed
     runs-on: ubuntu-latest
     steps:
       - name: Check Results
         run: |
-          if [[ "${{ needs.build.result }}" != "success" ]]; then
+          if [[ "${{ needs.changes.result }}" != "success" || \
+                "${{ needs.hadolint.result }}" != "success" || \
+                "${{ needs.build.result }}" != "success" ]]; then
             echo "One or more jobs failed!"
             exit 1
           else
