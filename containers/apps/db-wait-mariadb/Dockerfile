@@ -1,35 +1,30 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/truecharts/ubuntu:latest@sha256:cbe66cbca1ddd2a82093675067c363af8bbc6713b645bc77cb1706578a01facd
+FROM tccr.io/tccr/alpine:latest
 
 ARG TARGETPLATFORM
 ARG VERSION
 
 USER root
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN \
-  apt-get -qq update \
-  && \
-  apt-get -qq install -y \
+  apk update && \
+  apk --no-cache add \
     mariadb-client \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
   esac \
-  && apt-get remove -y \
+  && apk del \
     jq \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && apt-get autoremove -y \
-  && apt-get clean \
   && \
   rm -rf \
     /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/ \
+    /var/cache/apk/* \
   && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
+  && printf "umask %d" "${UMASK}" >> /etc/profile \
   && update-ca-certificates
 
 USER apps

@@ -14,7 +14,7 @@ WORKDIR /app
 
 # hadolint ignore=DL3018
 RUN \
-  apk update && apk add --no-cache ca-certificates bash util-linux coreutils grep procps \
+  apk update && apk add --no-cache jq nano ca-certificates bash util-linux coreutils grep procps \
   && addgroup apps -g 568 \
   && adduser apps -u 568 -g 568 -D -S -H \
   && mkdir -p /config \
@@ -28,8 +28,8 @@ VOLUME [ "/config" ]
 
 USER apps
 
-COPY ./containers/base/ubuntu/entrypoint.sh /entrypoint.sh
-COPY ./containers/base/ubuntu/shim /etc/profile.d
+COPY ./containers/base/alpine/entrypoint.sh /entrypoint.sh
+COPY ./containers/base/alpine/shim /etc/profile.d
 
 ENTRYPOINT ["/bin/ash", "--"]
 

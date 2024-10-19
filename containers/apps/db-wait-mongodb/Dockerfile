@@ -1,44 +1,35 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/truecharts/ubuntu:latest@sha256:cbe66cbca1ddd2a82093675067c363af8bbc6713b645bc77cb1706578a01facd
+FROM tccr.io/tccr/alpine:latest
 
 ARG TARGETPLATFORM
 ARG VERSION
 
 USER root
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL4001
 RUN \
-  curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg \
-  && \
-  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list \
-  && \
-  wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | apt-key add - \
-  && \
-  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list \
-  && \
+  apk update && \
+  apk add --no-cache \
+    curl \
+    ca-certificates \
+    gnupg \
+    bash && \
+  curl -fsSLo /etc/apk/keys/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
+  echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community" >> /etc/apk/repositories && \
+  curl -fsSL https://downloads.mongodb.com/compass/mongosh-1.8.0-linux-x64.tgz -o /tmp/mongosh.tgz && \
+  tar -xvzf /tmp/mongosh.tgz -C /tmp && \
+  mv /tmp/mongosh*/bin/mongosh /usr/local/bin/ && \
+  chmod +x /usr/local/bin/mongosh && \
+  apk del gnupg && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
-  esac \
-  && \
-  apt-get -qq update \
-  && \
-  apt-get -qq install -y \
-    mongodb-mongosh \
-  && apt-get remove -y \
-    jq \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && apt-get autoremove -y \
-  && apt-get clean \
-  && \
-  rm -rf \
-    /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  esac && \
+  rm -rf /tmp/* /var/cache/apk/* && \
+  chmod -R u=rwX,go=rX /app && \
+  printf "umask %d" "${UMASK}" >> /etc/profile && \
+  update-ca-certificates
 
 USER apps
 
