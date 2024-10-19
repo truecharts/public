@@ -23,7 +23,7 @@ runs:
         filters: |
           addedOrModified:
             - added|modified: 'charts/*/**'
-            - added|modified: '!charts/library/**'
+            - added|modified: '!charts/library/*/**'
 
     - name: Collect changed charts
       if: |
