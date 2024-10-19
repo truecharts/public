@@ -1,11 +1,12 @@
 image:
   repository: docker.io/onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: "v1.4.1@sha256:0105a8e87df7420989f1aa23970e0dee5a0d1557d03ea79d15297c36b2601464\r"
+  tag: "v1.6.0"
 gpuImage:
   repository: docker.io/onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: "v1.4.1-gpu@sha256:7cb13a796fbca157e3508c14c3f78234aa3bcb9a08d86e7ceb2c912ca911a130\r"
+  tag: "v1.6.0-gpu"
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
