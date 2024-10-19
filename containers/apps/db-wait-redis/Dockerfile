@@ -10,7 +10,7 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN \
-apk update \
+apk update && \
   apk update && \
   apk add --no-cache \
     redis \
