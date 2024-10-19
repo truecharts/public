@@ -31,7 +31,7 @@ jobs:
       - name: Check for changes in specific folder
         id: check_changes
         run: |
-          if git diff --exit-code HEAD^ HEAD -- path/to/your/folder; then
+          if git diff --exit-code HEAD^ HEAD -- charts/library/common; then
             echo "No changes detected in the folder."
             echo "::set-output name=changes_detected::false"
           else
