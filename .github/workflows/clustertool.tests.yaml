@@ -3,19 +3,19 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
-  #   tags:
-  #     - "*"
-  #   paths:
-  #     - 'main.go'
-  #     - 'go.mod'
-  #     - 'go.sum'
-  #     - 'pkg/**'
-  #     - 'cmd/**'
-  #     - 'clustertool/**'
-  #     - ".github/workflows/clsutertool.test.yaml"
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+    paths:
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'pkg/**'
+      - 'cmd/**'
+      - 'clustertool/**'
+      - ".github/workflows/clustertool.test.yaml"
   #pull_request:
   #  branches:
   #    - main
