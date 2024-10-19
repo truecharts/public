@@ -22,8 +22,12 @@ runs:
         list-files: shell
         filters: |
           addedOrModified:
-            - added|modified: 'charts/*/**'
-            - added|modified: '!charts/library/*/**'
+            - added|modified: 'charts/stable/*/**'
+            - added|modified: 'charts/incubator/*/**'
+            - added|modified: 'charts/dev/*/**'
+            - added|modified: 'charts/test/*/**'
+            - added|modified: 'charts/premium/*/**'
+            - added|modified: 'charts/system/*/**'
 
     - name: Collect changed charts
       if: |
