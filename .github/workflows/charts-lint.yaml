@@ -20,8 +20,10 @@ jobs:
   lint-and-verify:
     name: Lint Charts and Verify Dependencies
     runs-on: ubuntu-latest
+    if: inputs.chartChangesDetected == 'true'
     steps:
       - name: Checkout [master]
+        if: inputs.chartChangesDetected == 'true'
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
           fetch-depth: 1
@@ -34,9 +36,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Setting repo parent dir as safe safe.directory
+        if: inputs.chartChangesDetected == 'true'
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Install go-yq
+        if: inputs.chartChangesDetected == 'true'
         run: |
           mkdir -p $HOME/.local/bin
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
@@ -44,15 +48,18 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install pre-commit, yamale and yamllint
+        if: inputs.chartChangesDetected == 'true'
         run: |
           pip3 install --no-cache-dir pre-commit yamale yamllint
 
       - name: Install Helm
+        if: inputs.chartChangesDetected == 'true'
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
           version: v3.14.2
 
       - name: Prep Helm
+        if: inputs.chartChangesDetected == 'true'
         run: |
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
@@ -133,10 +140,3 @@ jobs:
             echo '###############################################################'
             exit 1
           fi
-
-      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
-        if: failure()
-        with:
-          repo: truecharts/chart
-          workflow_id: ${{ github.run_id }}
-          access_token: ${{ github.token }}
