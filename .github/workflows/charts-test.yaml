@@ -510,7 +510,7 @@ jobs:
         if: contains(matrix.chart, 'Spegel')
         run: |
           sudo mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
-          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          sudo tee /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
           [plugins."io.containerd.grpc.v1.cri".registry]
              config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
           [plugins."io.containerd.grpc.v1.cri".containerd]
