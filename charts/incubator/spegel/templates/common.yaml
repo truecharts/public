@@ -1,0 +1,13 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+{{- $newArgsInit :=  (include "spegel.args.init" . | fromYaml) }}
+{{- $_ := set .Values "newArgsInit" $newArgsInit -}}
+{{- $mergedargsInit := concat $.Values.workload.main.podSpec.initContainers.configuration.args .Values.newArgsInit.args }}
+{{- $_ := set $.Values.workload.main.podSpec.initContainers.configuration "args" $mergedargsInit -}}
+
+{{- $newArgs :=  (include "spegel.args.main" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs -}}
+{{- $mergedargs := concat $.Values.workload.main.podSpec.containers.main.args .Values.newArgs.args }}
+{{- $_ := set $.Values.workload.main.podSpec.containers.main "args" $mergedargs -}}
+
+{{- include "tc.v1.common.loader.apply" . }}

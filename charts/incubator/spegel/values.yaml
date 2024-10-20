@@ -1,0 +1,158 @@
+image:
+  repository: ghcr.io/spegel-org/spegel
+  pullPolicy: IfNotPresent
+  tag: v0.0.27
+
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        targetPort: 5000
+        hostPort: 30020
+        nodePort: 30021
+  router:
+    enabled: true
+    ports:
+      router:
+        enabled: true
+        port: 5001
+        targetPort: 5001
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        port: 9090
+        targetPort: 9090
+
+workload:
+  main:
+    podSpec:
+      type: DaemonSet
+      initContainers:
+        configuration:
+          enabled: true
+          type: init
+          args:  []
+          env:
+            NODE_IP:
+                fieldRef:
+                  fieldPath: status.hostIP
+      containers:
+        main:
+          args: []
+          env:
+            NODE_IP:
+                fieldRef:
+                  fieldPath: status.hostIP
+          probes:
+            liveness:
+              path: /healthz
+            readiness:
+              path: /healthz
+            startup:
+              path: /healthz
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      traefik.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+
+podOptions:
+  automountServiceAccountToken: true
+
+metrics:
+  main:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: metrics
+    targetSelector: metrics
+
+portal:
+  open:
+    enabled: false
+
+persistence:
+  containerd-sock:
+    enabled: true
+    type: hostPath
+    mountPath: "{{ .Values.spegel.containerdSock }}"
+    hostPath: "{{ .Values.spegel.containerdSock }}"
+    hostPathType: Socket
+  containerd-content:
+    enabled: "{{ if .Values.spegel.containerdContentPath }}true{{else}}false{{end}}}}"
+    type: hostPath
+    mountPath: "{{ .Values.spegel.containerdContentPath }}"
+    hostPath: "{{ .Values.spegel.containerdContentPath }}"
+    hostPathType: Directory
+    readOnly: true
+  containerd-config:
+    enabled: "{{ if .Values.spegel.containerdMirrorAdd }}true{{else}}false{{end}}}}"
+    type: device
+    mountPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
+    hostPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
+    hostPathType: DirectoryOrCreate
+
+spegel:
+  # -- Minimum log level to output. Value should be DEBUG, INFO, WARN, or ERROR.
+  logLevel: "INFO"
+  # -- Registries for which mirror configuration will be created.
+  registries:
+    - https://cgr.dev
+    - https://docker.io
+    - https://ghcr.io
+    - https://quay.io
+    - https://mcr.microsoft.com
+    - https://public.ecr.aws
+    - https://gcr.io
+    - https://registry.k8s.io
+    - https://k8s.gcr.io
+    - https://tccr.io
+    - https://factory.talos.dev
+  # -- Additional target mirror registries other than Spegel.
+  additionalMirrorRegistries: []
+  # -- Max ammount of mirrors to attempt.
+  mirrorResolveRetries: 3
+  # -- Max duration spent finding a mirror.
+  mirrorResolveTimeout: "20ms"
+  # -- Path to Containerd socket.
+  containerdSock: "/run/containerd/containerd.sock"
+  # -- Containerd namespace where images are stored.
+  containerdNamespace: "k8s.io"
+  # -- Path to Containerd mirror configuration.
+  containerdRegistryConfigPath: "/etc/containerd/certs.d"
+  # -- Path to Containerd content store..
+  containerdContentPath: "/var/lib/containerd/io.containerd.content.v1.content"
+  # -- If true Spegel will add mirror configuration to the node.
+  containerdMirrorAdd: true
+  # -- Path to Kubeconfig credentials, should only be set if Spegel is run in an environment without RBAC.
+  kubeconfigPath: ""
+  # -- When true Spegel will resolve tags to digests.
+  resolveTags: true
+  # -- When true latest tags will be resolved to digests.
+  resolveLatestTag: true
+  # -- When true existing mirror configuration will be appended to instead of replaced.
+  appendMirrors: false
+
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: ["coordination.k8s.io"]
+        resources: ["leases"]
+        verbs: ["get", "list", "watch", "create", "update"]
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
