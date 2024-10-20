@@ -6,6 +6,8 @@ title: Frequently Asked Questions (FAQ)
 
 TrueCharts Frequently Asked Questions
 
+*For the ClusterTool FAQ, see the ClusterTool section*
+
 ## Why PVC is recommended over HostPath?
 
 We recommend using PVC for app "config" storage, as it provides an easy way to roll back your application in case of a failed update. Furthermore, we currently only offer active support for this storage option. You can still use HostPath for your media and other files.

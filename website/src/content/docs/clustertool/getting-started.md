@@ -1,6 +1,6 @@
 ---
 sidebar:
-  order: 2
+  order: 3
 title: Getting Started
 ---
 
@@ -85,7 +85,7 @@ It should start with `ssh://`, so be sure to pick the SSH repository url option 
 
 ### TalConfig
 
-This file contains purely the structure of the Talos Cluster and its nodes themselves. As such, it also contains a number of `${VARIABLE}` references to `talenv.yaml`. These should **not** be removed.
+This file contains purely the structure of the Talos Cluster and its nodes themselves. As such, it also contains a number of `${VARIABLE}` references to `clusterenv.yaml`. These should **not** be removed.
 
 We generate an opinionated variant of this file, that is optimised to run with our default setup. *Making any changes outside of the nodes section, might completely break ClusterTool*
 

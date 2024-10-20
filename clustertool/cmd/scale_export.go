@@ -6,7 +6,7 @@ import (
 )
 
 var scaleexport = &cobra.Command{
-    Use:   "scaleexport",
+    Use:   "export",
     Short: "Export SCALE Apps to file",
     Run: func(cmd *cobra.Command, args []string) {
         scale.ExportApps()
@@ -14,5 +14,5 @@ var scaleexport = &cobra.Command{
 }
 
 func init() {
-    adv.AddCommand(scaleexport)
+    scaleCmd.AddCommand(scaleexport)
 }

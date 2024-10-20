@@ -24,9 +24,9 @@ As security is important, it features integrated encryption and decryption. Base
 We do expect users to understand what Talos OS is and isn't.
 As well as understand the basics of what "Apply", "Bootstrap" and/or "Upgrade" means for Talos OS.
 
-## What isn't ClusterTool
+## What ClusterTool is not
 
-Besides bootstrapping, clustertool will NOT help you update, maintain or alter helm-charts in *any* way.
+Besides bootstrapping included helm charts, clustertool will NOT help you update, maintain or alter helm-charts in *any* way.
 How users run their cluster post-bootstrap, is on to the user to decide.
 
 This means that users are expected to have basic shell/console/terminal skills and understand the basics on how to edit, update, upgrade and install Helm charts.

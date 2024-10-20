@@ -7,7 +7,7 @@ import (
 )
 
 var scalemigrate = &cobra.Command{
-    Use:   "scalemigrate",
+    Use:   "migrate",
     Short: "Migrate exported SCALE Apps to the Talos Cluster",
     Run: func(cmd *cobra.Command, args []string) {
         err := scale.ProcessJSONFiles("./truenas_exports")
@@ -18,5 +18,5 @@ var scalemigrate = &cobra.Command{
 }
 
 func init() {
-    adv.AddCommand(scalemigrate)
+    scaleCmd.AddCommand(scalemigrate)
 }

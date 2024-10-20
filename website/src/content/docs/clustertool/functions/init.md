@@ -15,7 +15,7 @@ All code and docs are considered Pre-Beta drafts
 ClusterTool requires a specific directory layout to ensure smooth operators and standardised environments.
 
 To ensure smooth deployment, the init function can pre-generate all required files in the right places.
-Afterwards, you can edit talconfig.yaml and talenv.yaml to reflect your personal settings.
+Afterwards, you can edit talconfig.yaml and clusterenv.yaml to reflect your personal settings.
 
 When done, please run clustertool genconfig to generate all configurations based on your personal settings.
 
@@ -23,7 +23,7 @@ When done, please run clustertool genconfig to generate all configurations based
 ## Created Files and Folders
 
 - talconfig.yaml -> Contains your Talos Cluster layout
-- talenv.yaml -> Contains configuration options for both your Charts and Talos Cluster
+- clusterenv.yaml -> Contains configuration options for both your Charts and Talos Cluster
 - talsecret.yaml -> Contains Talos Cluster encryption keys
 - age.agekey -> Contains SOPS encryption keys which can be used to encrypt data. It's **IMPERATIVE** you save this specific file elsewhere as a backup, not doing so *will* result in future data loss
 - .sops.yaml -> Contains specifications on how to decrypt any encrypted files found
