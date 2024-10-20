@@ -28,7 +28,7 @@ func LoadTalEnv() error {
     clusterName()
     PostProcessTalEnv()
     clusterEnvtoEnv()
-    log.Info().Msgf("ClusterEnv loaded successfully\n", )
+    log.Info().Msgf("ClusterEnv loaded successfully\n")
     return nil
 }
 

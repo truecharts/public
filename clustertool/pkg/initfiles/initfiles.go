@@ -274,49 +274,9 @@ func GenPatches() error {
         log.Fatal().Err(err).Msg("Error: %s")
     }
 
-    // Assuming this is part of your function
-    if helper.TalEnv["DOCKERHUB_USER"] != "" && helper.TalEnv["DOCKERHUB_PASSWORD"] != "" {
-        // Prepare the content to append
-        configContent := fmt.Sprintf(`# Add Dockerhub Login
-- operation: replace
-  path: /machine/registries/config/registry-1.docker.io
-  value:
-    auth:
-      username: %s
-      password: %s
-- operation: replace
-  path: /machine/registries/config/docker.io
-  value:
-    auth:
-      username: %s
-      password: %s
-`, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
+    setDocker()
 
-        // Open the file in append mode or create it if it doesn't exist
-        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-        if err != nil {
-            log.Fatal().Err(err).Msg("Error opening file: %s")
-        }
-        defer file.Close()
-
-        // Write the content to the file
-        if _, err := file.Write([]byte(configContent)); err != nil {
-            log.Fatal().Err(err).Msg("Error writing to file: %s")
-        }
-    } else {
-        // Optional: Append a note if the environment variables are not set
-        emptyContent := `# No DockerHub credentials provided
-`
-        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-        if err != nil {
-            log.Fatal().Err(err).Msg("Error opening file: %s")
-        }
-        defer file.Close()
-
-        if _, err := file.Write([]byte(emptyContent)); err != nil {
-            log.Fatal().Err(err).Msg("Error writing to file: %s")
-        }
-    }
+    setSpegel()
 
     // Read the content of the talenv.yaml file
     talenvContent, err := os.ReadFile(helper.ClusterPath + "/clusterenv.yaml")
@@ -342,6 +302,123 @@ func GenPatches() error {
     }
 
     return nil
+}
+
+func setDocker() {
+    // Assuming this is part of your function
+    if helper.TalEnv["DOCKERHUB_USER"] != "" && helper.TalEnv["DOCKERHUB_PASSWORD"] != "" {
+        // Prepare the content to append
+        configContent := fmt.Sprintf(`# Add Dockerhub Login
+    - operation: replace
+      path: /machine/registries/config/registry-1.docker.io
+      value:
+        auth:
+          username: %s
+          password: %s
+    - operation: replace
+      path: /machine/registries/config/docker.io
+      value:
+        auth:
+          username: %s
+          password: %s
+    `, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
+
+        // Open the file in append mode or create it if it doesn't exist
+        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+        if err != nil {
+            log.Fatal().Err(err).Msg("Error opening file: %s")
+        }
+        defer file.Close()
+
+        // Write the content to the file
+        if _, err := file.Write([]byte(configContent)); err != nil {
+            log.Fatal().Err(err).Msg("Error writing to file: %s")
+        }
+    } else {
+        // Optional: Append a note if the environment variables are not set
+        emptyContent := `# No DockerHub credentials provided
+    `
+        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+        if err != nil {
+            log.Fatal().Err(err).Msg("Error opening file: %s")
+        }
+        defer file.Close()
+
+        if _, err := file.Write([]byte(emptyContent)); err != nil {
+            log.Fatal().Err(err).Msg("Error writing to file: %s")
+        }
+    }
+}
+
+func setSpegel() {
+    // Assuming this is part of your function
+    if helper.TalEnv["SPEGEL_IP"] != "" && helper.TalEnv["SPEGEL_IP"] != "" {
+        // Prepare the content to append
+        configContent := fmt.Sprintf(`# Add Dockerhub Login
+- operation: replace
+  path: /machine/registries/mirrors/
+  value:
+    cgr.dev:
+      endpoints:
+        - http://%s:5000
+    docker.io:
+      endpoints:
+        - http://%s:5000
+    ghcr.io:
+      endpoints:
+        - http://%s:5000
+    quay.io:
+      endpoints:
+        - http://%s:5000
+    mcr.microsoft.com:
+      endpoints:
+        - http://%s:5000
+    public.ecr.aws:
+      endpoints:
+        - http://%s:5000
+    gcr.io:
+      endpoints:
+        - http://%s:5000
+    registry.k8s.io:
+      endpoints:
+        - http://%s:5000
+    k8s.gcr.io:
+      endpoints:
+        - http://%s:5000
+    tccr.io:
+      endpoints:
+        - http://%s:5000
+    factory.talos.dev:
+      endpoints:
+        - http://%s:5000
+
+`, helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"])
+
+        // Open the file in append mode or create it if it doesn't exist
+        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+        if err != nil {
+            log.Fatal().Err(err).Msg("Error opening file: %s")
+        }
+        defer file.Close()
+
+        // Write the content to the file
+        if _, err := file.Write([]byte(configContent)); err != nil {
+            log.Fatal().Err(err).Msg("Error writing to file: %s")
+        }
+    } else {
+        // Optional: Append a note if the environment variables are not set
+        emptyContent := `# No Spegel_IP provided
+`
+        file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+        if err != nil {
+            log.Fatal().Err(err).Msg("Error opening file: %s")
+        }
+        defer file.Close()
+
+        if _, err := file.Write([]byte(emptyContent)); err != nil {
+            log.Fatal().Err(err).Msg("Error writing to file: %s")
+        }
+    }
 }
 
 func ageGen() error {

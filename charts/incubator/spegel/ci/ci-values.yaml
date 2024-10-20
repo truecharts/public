@@ -1,0 +1,9 @@
+spegel:
+  # -- Minimum log level to output. Value should be DEBUG, INFO, WARN, or ERROR.
+  logLevel: "INFO"
+  # -- Path to Containerd socket.
+  containerdSock: "/run/k3s/containerd/containerd.sock"
+  # -- Path to Containerd mirror configuration.
+  containerdRegistryConfigPath: "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+  # -- Path to Containerd content store..
+  containerdContentPath: "/var/lib/containerd/io.containerd.content.v1.content"

@@ -10,10 +10,10 @@ spec:
   chart:
     spec:
       chart: spegel
-      version: v0.0.27
+      version: 2.0.0
       sourceRef:
         kind: HelmRepository
-        name: spegel
+        name: truecharts
         namespace: flux-system
   install:
     remediation:
@@ -24,26 +24,7 @@ spec:
       strategy: rollback
       retries: 3
   values:
-      grafanaDashboard:
-        enabled: true
-      serviceMonitor:
-        enabled: false
-      spegel:
-        containerdSock: /run/containerd/containerd.sock
-        containerdRegistryConfigPath: /etc/cri/conf.d/hosts
-        appendMirrors: true
-        registries:
-          - https://tccr.io
-          - https://cgr.dev
-          - https://docker.io
-          - https://ghcr.io
-          - https://quay.io
-          - https://mcr.microsoft.com
-          - https://public.ecr.aws
-          - https://gcr.io
-          - https://registry.k8s.io
-          - https://k8s.gcr.io
-          - https://lscr.io
       service:
-        registry:
-          hostPort: 29999
+        main:
+          type: LoadBalancer
+          loadBalancerIP: ${SPEGEL_IP}
