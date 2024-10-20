@@ -7,8 +7,10 @@ securityContext:
   container:
     runAsUser: 0
     runAsGroup: 0
+    readOnlyRootFilesystem: false
   pod:
     fsGroup: 0
+
 service:
   main:
     ports:
@@ -110,7 +112,7 @@ persistence:
     readOnly: true
   containerd-config:
     enabled: "{{ if .Values.spegel.containerdMirrorAdd }}true{{else}}false{{end}}}}"
-    type: device
+    type: hostPath
     mountPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
     hostPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
     hostPathType: DirectoryOrCreate
