@@ -8,6 +8,6 @@ spegel:
   # -- Containerd namespace where images are stored.
   containerdNamespace: "k8s.io"
   # -- Path to Containerd mirror configuration.
-  containerdRegistryConfigPath: "/tmp/placeholder/hosts/"
+  containerdRegistryConfigPath: "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
   # -- Path to Containerd content store..
   containerdContentPath: "/var/lib/containerd/io.containerd.content.v1.content"
