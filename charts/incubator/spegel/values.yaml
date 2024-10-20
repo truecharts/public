@@ -72,6 +72,15 @@ configmap:
 podOptions:
   automountServiceAccountToken: true
   priorityClassName: "system-node-critical"
+  nodeSelector:
+    kubernetes.io/arch: ""
+  tolerations:
+    - key: CriticalAddonsOnly
+      operator: Exists
+    - effect: NoExecute
+      operator: Exists
+    - effect: NoSchedule
+      operator: Exists
 
 metrics:
   main:
