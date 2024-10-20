@@ -151,6 +151,18 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -209,6 +221,18 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -269,6 +293,18 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -327,6 +363,18 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -387,6 +435,18 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -445,6 +505,18 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
+
+      - name: Update containerd config
+        if: contains(matrix.chart, 'Spegel')
+        run: |
+          sudo tee -a /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl > /dev/null <<EOL
+          [plugins."io.containerd.grpc.v1.cri".registry]
+             config_path = "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
+          [plugins."io.containerd.grpc.v1.cri".containerd]
+            snapshotter = "overlayfs"
+            disable_snapshot_annotations = true
+            discard_unpacked_layers = false
+          EOL
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
