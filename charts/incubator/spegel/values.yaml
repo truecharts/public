@@ -34,18 +34,18 @@ workload:
         configuration:
           enabled: true
           type: init
-          args:  []
+          args: []
           env:
             NODE_IP:
-                fieldRef:
-                  fieldPath: status.hostIP
+              fieldRef:
+                fieldPath: status.hostIP
       containers:
         main:
           args: []
           env:
             NODE_IP:
-                fieldRef:
-                  fieldPath: status.hostIP
+              fieldRef:
+                fieldPath: status.hostIP
           probes:
             liveness:
               path: /healthz
@@ -139,7 +139,6 @@ spegel:
   resolveLatestTag: true
   # -- When true existing mirror configuration will be appended to instead of replaced.
   appendMirrors: false
-
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
