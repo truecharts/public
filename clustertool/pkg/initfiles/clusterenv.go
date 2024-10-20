@@ -162,7 +162,6 @@ func CheckEnvVariables() {
         "MASTER1IP_NETMASK",
         "GATEWAY",
         "METALLB_RANGE",
-        "SPEGEL_IP_IP",
         "DASHBOARD_IP_IP",
         "PODNET",
         "SVCNET",
@@ -231,17 +230,6 @@ func CheckEnvVariables() {
     }
     if !inRange {
         log.Info().Msg("Cannot proceed, DASHBOARD_IP must be in the METALLB_RANGE")
-        os.Exit(1)
-    }
-
-    // Check DASHBOARD_IP against METALLB_RANGE
-    inRange, err = helper.IPInRange(helper.TalEnv["SPEGEL_IP"], helper.TalEnv["METALLB_RANGE"])
-    if err != nil {
-        log.Info().Msgf("Error checking SPEGEL_IP against METALLB_RANGE: %v\n", err)
-        os.Exit(1)
-    }
-    if !inRange {
-        log.Info().Msg("Cannot proceed, SPEGEL_IP must be in the METALLB_RANGE")
         os.Exit(1)
     }
 
