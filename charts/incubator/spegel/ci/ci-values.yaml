@@ -1,12 +1,8 @@
 spegel:
   # -- Minimum log level to output. Value should be DEBUG, INFO, WARN, or ERROR.
   logLevel: "INFO"
-  # -- Max duration spent finding a mirror.
-  mirrorResolveTimeout: "20ms"
   # -- Path to Containerd socket.
   containerdSock: "/run/k3s/containerd/containerd.sock"
-  # -- Containerd namespace where images are stored.
-  containerdNamespace: "k8s.io"
   # -- Path to Containerd mirror configuration.
   containerdRegistryConfigPath: "/var/lib/rancher/k3s/agent/etc/containerd/certs.d"
   # -- Path to Containerd content store..
