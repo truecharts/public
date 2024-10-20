@@ -3,6 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.0.27
 
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+  pod:
+    fsGroup: 0
 service:
   main:
     ports:
