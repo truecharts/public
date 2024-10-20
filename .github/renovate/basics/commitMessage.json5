@@ -60,6 +60,10 @@
       "commitMessageTopic": "chart {{depName}}",
       "commitMessageExtra": "{{currentVersion}} → {{newVersion}}",
       "prefix": "chore(helm)"
+    },
+    {
+      "matchPaths": ["clustertool/**"],
+      "commitMessageSuffix": "(clustertool)"
     }
   ]
 }
