@@ -6,7 +6,7 @@ image:
 frontendImage:
   repository: ghcr.io/elfhosted/riven-frontend
   pullPolicy: IfNotPresent
-  tag: v0.16.2@sha256:92c14b2f78674ff7e4aa58d4a6b9cf6bc4be4f105000504c4578eaeb53b18570
+  tag: v0.16.3@sha256:eb44190dd10920b8eeb0068f3a5fbcae5128d203eec242675dd838acb000d11f
 
 service:
   main:
@@ -85,7 +85,6 @@ workload:
             BACKEND_URL: "http://localhost:8080"
             DIALECT: "postgres"
             DATABASE_URL: '{{ printf "postgresql://%s:%s@%s.%s/%s" .Values.cnpg.main.user .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace .Values.cnpg.main.database }}'
-
 
 persistence:
   logs:
