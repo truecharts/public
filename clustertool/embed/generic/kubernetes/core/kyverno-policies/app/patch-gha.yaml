@@ -25,5 +25,5 @@ spec:
                   - dockerd
                   - --host=unix:///var/run/docker.sock
                   - --group=123
-                  - --registry-mirror=http://spegel-registry.kube-system.svc.cluster.local:5000
-                  - --insecure-registry=http://spegel-registry.kube-system.svc.cluster.local:5000
+                  - --registry-mirror=http://spegel-registry.spegel.svc.cluster.local:5000
+                  - --insecure-registry=http://spegel-registry.spegel.svc.cluster.local:5000
