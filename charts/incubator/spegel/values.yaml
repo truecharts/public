@@ -126,7 +126,7 @@ spegel:
   # -- Containerd namespace where images are stored.
   containerdNamespace: "k8s.io"
   # -- Path to Containerd mirror configuration.
-  containerdRegistryConfigPath: "/etc/containerd/certs.d"
+  containerdRegistryConfigPath: "/etc/cri/conf.d/hosts"
   # -- Path to Containerd content store..
   containerdContentPath: "/var/lib/containerd/io.containerd.content.v1.content"
   # -- If true Spegel will add mirror configuration to the node.
