@@ -71,6 +71,7 @@ configmap:
 
 podOptions:
   automountServiceAccountToken: true
+  priorityClassName: "system-node-critical"
 
 metrics:
   main:
