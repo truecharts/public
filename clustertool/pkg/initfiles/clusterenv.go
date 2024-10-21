@@ -1,10 +1,13 @@
 package initfiles
 
 import (
+    "bufio"
     "fmt"
     "net"
     "os"
+    "regexp"
     "strings"
+    "unicode"
 
     "github.com/rs/zerolog/log"
     "github.com/truecharts/public/clustertool/pkg/helper"
@@ -26,10 +29,66 @@ func LoadTalEnv() error {
         os.Exit(1)
     }
     clusterName()
+    checkQuotedNumbersInFile()
     PostProcessTalEnv()
     clusterEnvtoEnv()
     log.Info().Msgf("ClusterEnv loaded successfully\n")
     return nil
+}
+
+// Function to check if all numbers after ':' in a file are unquoted integers or floats
+func checkQuotedNumbersInFile() (bool, error) {
+
+    filePath := helper.ClusterPath + "/clusterenv.yaml"
+    // Regular expression to find patterns like ': number' where number can be an int or float
+    re := regexp.MustCompile(`:\s*(.+)`) // Matches anything after ': '
+
+    // Open the file
+    file, err := os.Open(filePath)
+    if err != nil {
+        log.Error().Msgf("Failed to open file: %s \nError: %s", filePath, err)
+        os.Exit(1)
+        return false, err
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        line := scanner.Text()
+
+        // Skip lines that start with a number
+        trimmedLine := strings.TrimSpace(line)
+        if len(trimmedLine) > 0 && unicode.IsDigit(rune(trimmedLine[0])) {
+            continue
+        }
+
+        // Find matches for entries in each line
+        matches := re.FindStringSubmatch(line)
+        if len(matches) < 2 {
+            continue // Skip lines without a colon and value
+        }
+
+        // Get the value after the colon
+        value := strings.TrimSpace(matches[1])
+
+        // Check if the value is a valid number (int or float with a single dot)
+        isValidNumber := regexp.MustCompile(`^[0-9]+(\.[0-9]+)?$`).MatchString(value)
+
+        // If it's a valid number, log an error
+        if isValidNumber {
+            log.Error().Msgf("Unquoted number found %s line: %s", filePath, line)
+            os.Exit(1)
+            return false, nil
+        }
+    }
+
+    if err := scanner.Err(); err != nil {
+        log.Error().Msgf("Error scanning the file: %s", err)
+        os.Exit(1)
+        return false, err
+    }
+
+    return true, nil
 }
 
 func clusterName() {
