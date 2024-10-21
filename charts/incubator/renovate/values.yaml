@@ -1,0 +1,49 @@
+image:
+  repository: renovate/renovate
+  pullPolicy: IfNotPresent
+  tag: 38.128.6
+
+
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GITHUB_COM_TOKEN: '${GITHUB_PAT}'
+            # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
+            RENOVATE_AUTODISCOVER: 'false'
+            RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
+            RENOVATE_PLATFORM: 'github'
+            RENOVATE_TOKEN: '${GITHUB_PAT}'
+            RENOVATE_CONFIG_FILE: /tmp/renovate/config.json
+            RENOVATE_BASE_DIR: $GITHUB_WORKSPACE
+            LOGLEVEL: debug
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+        targetPort: 8000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  cache:
+    enabled: true
+    type: emptyDir
+    mountPath: "/.cache"
+
+cnpg:
+  main:
+    enabled: true
+    user: renovate
+    database: renovate
+
+portal:
+  open:
+    enabled: true
