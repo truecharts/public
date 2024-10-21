@@ -3,10 +3,15 @@ image:
   pullPolicy: IfNotPresent
   tag: 38.128.6
 
-
-
 workload:
   main:
+    enabled: true
+    primary: true
+    type: CronJob
+    schedule: "@hourly"
+    concurrencyPolicy: Allow
+    failedJobsHistoryLimit: 2
+    parallelism: 1
     podSpec:
       containers:
         main:
@@ -18,32 +23,37 @@ workload:
             RENOVATE_PLATFORM: 'github'
             RENOVATE_TOKEN: '${GITHUB_PAT}'
             RENOVATE_CONFIG_FILE: /tmp/renovate/config.json
-            RENOVATE_BASE_DIR: $GITHUB_WORKSPACE
+            RENOVATE_BASE_DIR: ${GITHUB_WORKSPACE}
             LOGLEVEL: debug
 
-
+configmap:
+  config:
+    enabled:
+      data:
+        config.json: |-
+          {
+            "repositories": ["truecharts/public"],
+            "dryRun" : "full"
+          }
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 8000
-        targetPort: 8000
+        enabled: false
 
 persistence:
-  data:
+  configmap-vol:
     enabled: true
-    mountPath: "/data"
-  cache:
-    enabled: true
-    type: emptyDir
-    mountPath: "/.cache"
-
-cnpg:
-  main:
-    enabled: true
-    user: renovate
-    database: renovate
+    type: configmap
+    objectName: config
+    defaultMode: "0777"
+    mountPath: /tmp/renovate/config.json
+    subPath: config.json
+    items:
+      - key: config.json
+        path: config.json
 
 portal:
   open:
-    enabled: true
+    enabled: false
