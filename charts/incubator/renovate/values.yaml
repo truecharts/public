@@ -15,6 +15,14 @@ workload:
     podSpec:
       containers:
         main:
+          restartPolicy: OnFailure
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
           env:
             GITHUB_COM_TOKEN: '${GITHUB_PAT}'
             # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
