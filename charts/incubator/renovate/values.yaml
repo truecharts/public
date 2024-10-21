@@ -13,9 +13,9 @@ workload:
     failedJobsHistoryLimit: 2
     parallelism: 1
     podSpec:
+      restartPolicy: OnFailure
       containers:
         main:
-          restartPolicy: OnFailure
           probes:
             liveness:
               enabled: false
