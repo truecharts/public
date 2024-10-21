@@ -18,9 +18,10 @@ func init() {
 
 // FluxBootstrap initializes the FluxCD bootstrapping process if GITHUB_REPOSITORY is set in TalEnv.
 func FluxBootstrap(ctx context.Context) {
+
     if helper.TalEnv["GITHUB_REPOSITORY"] != "" {
         log.Info().Msg("GITHUB_Repository for Flux configured.")
-        if helper.GetYesOrNo("Do you want to bootstrap FluxCD as well? (yes/no) [y/n]: ") {
+        if helper.GetYesOrNo("Do you want to (re)bootstrap FluxCD as well? (yes/no) [y/n]: ") {
             if err := bootstrapFluxCD(ctx); err != nil {
                 log.Fatal().Err(err).Msg("Error during FluxCD bootstrap")
                 if helper.GetYesOrNo("Do you want to retry? (yes/no) [y/n]: ") {
