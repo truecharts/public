@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/category: security
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 1.32.1
+dependencies:
+  - name: common
+    version: 25.1.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: renovate self-hosted
+home: https://truecharts.org/charts/premium/renovate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/renovate.webp
+keywords:
+  - renovate
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: renovate
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/premium/renovate
+type: application
+version: 0.0.1
