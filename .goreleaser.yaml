@@ -60,40 +60,19 @@ before:
 
 sboms:
   - artifacts: archive
-  -  id: source
-     artifacts: source
+  - id: source
+    artifacts: source
 
 nfpms:
-  - id: clustertool-amd64
-    package_name: clustertool
-    builds:
-      - amd64  # Reference to the amd64 build
+  - package_name: clustertool
     vendor: TrueCharts
     homepage: https://truecharts.org
     maintainer: "TrueCharts <info@truecharts.org>"
     description: "ClusterTool CLI for AMD64 architecture."
     license: BSL
     formats:
+      - apk
       - deb
       - rpm
-    bindir: /usr/local/bin
-    contents:
-      - src: ./dist/clustertool_linux_amd64_v1/clustertool
-        dst: /usr/local/bin/clustertool
-
-  - id: clustertool-arm64
-    package_name: clustertool
-    builds:
-      - arm64  # Reference to the arm64 build
-    vendor: TrueCharts
-    homepage: https://truecharts.org
-    maintainer: "TrueCharts <info@truecharts.org>"
-    description: "ClusterTool CLI for ARM64 architecture."
-    license: BSL
-    formats:
-      - deb
-      - rpm
-    bindir: /usr/local/bin
-    contents:
-      - src: ./dist/clustertool_linux_arm64/clustertool
-        dst: /usr/local/bin/clustertool
+      - termux.deb
+      - archlinux
