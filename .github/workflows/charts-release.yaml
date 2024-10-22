@@ -67,7 +67,7 @@ jobs:
 
       - name: Cache Changelog
         id: cache-changelog
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true' && 'true' != 'true'
         uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
         with:
           path: changelog.json.gz
