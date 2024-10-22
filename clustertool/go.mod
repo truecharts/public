@@ -9,7 +9,7 @@ require (
     github.com/Masterminds/semver/v3 v3.3.0
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.7
-    github.com/fatih/color v1.17.0
+    github.com/fatih/color v1.18.0
     github.com/getsops/sops/v3 v3.9.1
     github.com/go-git/go-git/v5 v5.12.0
     github.com/go-logr/logr v1.4.2
