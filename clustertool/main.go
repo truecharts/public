@@ -55,8 +55,14 @@ func main() {
     zerolog.SetGlobalLevel(zerologLevel)
     log.Logger = log.Output(zerolog.ConsoleWriter{
         Out:        os.Stdout,
-        TimeFormat: time.RFC3339,
-        NoColor:    true,
+        TimeFormat: time.RFC3339, // Keep this for the timestamp format
+        NoColor:    false,        // Set to true if you prefer no color
+        FormatLevel: func(i interface{}) string {
+            return fmt.Sprintf("\033[1;34m[%s]\033[0m", i) // Blue color for level
+        },
+        FormatMessage: func(i interface{}) string {
+            return fmt.Sprintf("\033[1;32m%s\033[0m", i) // Green color for message
+        },
     })
 
     // Configure zap logger
