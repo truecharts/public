@@ -49,29 +49,5 @@ machine:
     net.core.wmem_max: "2500000"
     vm.nr_hugepages: "2048"
 
-  files:
-    - path: "/etc/cri/conf.d/20-customization.part"
-      permissions: 0
-      content: |
-        [plugins."io.containerd.grpc.v1.cri"]
-          enable_unprivileged_ports = true
-          enable_unprivileged_icmp = true
-        [plugins."io.containerd.grpc.v1.cri".containerd]
-          discard_unpacked_layers = false
-        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
-          discard_unpacked_layers = false
-
-    - path: "/etc/nfsmount.conf"
-      permissions: 420
-      content: |
-        [ NFSMount_Global_Options ]
-        nfsvers=4.2
-        hard=True
-        noatime=True
-        nodiratime=True
-        rsize=131072
-        wsize=131072
-        nconnect=8
-
   registries:
     config:
