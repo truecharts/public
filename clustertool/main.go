@@ -18,6 +18,7 @@ import (
 )
 
 var version = "dev"
+var noColor = false
 
 func main() {
     // Configure zerolog
@@ -51,18 +52,16 @@ func main() {
         zapLevel = zapcore.InfoLevel
     }
 
+    if os.Getenv("DEBUG") != "" {
+        noColor = true
+    }
+
     // Set zerolog level
     zerolog.SetGlobalLevel(zerologLevel)
     log.Logger = log.Output(zerolog.ConsoleWriter{
         Out:        os.Stdout,
         TimeFormat: time.RFC3339, // Keep this for the timestamp format
-        NoColor:    false,        // Set to true if you prefer no color
-        FormatLevel: func(i interface{}) string {
-            return fmt.Sprintf("\033[1;34m[%s]\033[0m", i) // Blue color for level
-        },
-        FormatMessage: func(i interface{}) string {
-            return fmt.Sprintf("\033[1;32m%s\033[0m", i) // Green color for message
-        },
+        NoColor:    noColor,      // Set to true if you prefer no color
     })
 
     // Configure zap logger
