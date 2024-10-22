@@ -30,7 +30,7 @@ spec:
   values:
     service:
       main:
-        type: LoadBalancer
+        type: '{{ if ne "${DASHBOARD_IP}" "" }}LoadBalancer{{ else }}ClusterIP{{ end }}'
         loadBalancerIP: ${DASHBOARD_IP}
         ports:
           main:

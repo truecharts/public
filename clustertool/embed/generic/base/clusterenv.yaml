@@ -7,10 +7,12 @@ MASTER1IP: 192.168.20.210
 GATEWAY: 192.168.20.1
 # Defines the ip range metallb is allowed to use
 METALLB_RANGE: 192.168.20.211-192.168.20.219
-# Sets the IP on which Spegel using loadbalancer is made available
-SPEGEL_IP: 192.168.20.211
-# Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use
-DASHBOARD_IP: 192.168.20.212
+# (Optional) Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use
+# Comment out or set to "" to disable explosing KubernetesDashboard
+# DASHBOARD_IP: 192.168.20.211
+# (Optional) Sets the IP on which a Spegel using loadbalancer service is made available
+# Comment out or set to "" to disable explosing Spegel via Loadbalancer (still available using nodePort by default)
+#SPEGEL_IP: 192.168.20.212
 # Used to automatically generate a sshkey-pair for FluxCD
 # Has to start with ssh://
 GITHUB_REPOSITORY: ""

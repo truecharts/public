@@ -13,7 +13,6 @@
     - --mirror-registries
     - http://$(NODE_IP):{{ .Values.service.main.ports.main.hostPort }}
     - http://$(NODE_IP):{{ .Values.service.main.ports.main.nodePort }}
-    - http://$(NODE_IP):{{ .Values.service.main.ports.main.port }}
     {{- with .Values.spegel.additionalMirrorRegistries }}
     {{- range . }}
     - {{ . | quote }}

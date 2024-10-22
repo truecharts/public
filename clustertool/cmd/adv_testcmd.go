@@ -11,7 +11,7 @@ var testcmd = &cobra.Command{
     Use:   "test",
     Short: "test run",
     Run: func(cmd *cobra.Command, args []string) {
-        initfiles.LoadTalEnv()
+        initfiles.LoadTalEnv(false)
         // err := fluxhandler.ProcessJSONFiles("./testdata/truenas_exports")
         // if err != nil {
         //  log.Info().Msg("Error:", err)

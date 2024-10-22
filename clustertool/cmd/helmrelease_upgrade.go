@@ -12,7 +12,7 @@ var hrupgrade = &cobra.Command{
     Use:   "upgrade",
     Short: "run helm-upgrade using a helm-release file without flux",
     Run: func(cmd *cobra.Command, args []string) {
-        initfiles.LoadTalEnv()
+        initfiles.LoadTalEnv(false)
 
         var dir string
 

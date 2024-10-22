@@ -21,7 +21,7 @@ var fluxbootstrap = &cobra.Command{
         if err := sops.DecryptFiles(); err != nil {
             log.Info().Msgf("Error decrypting files: %v\n", err)
         }
-        initfiles.LoadTalEnv()
+        initfiles.LoadTalEnv(false)
         _, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
         if err != nil {
             log.Fatal().Err(err).Msg("failed to parse talconfig or talenv file: %s")

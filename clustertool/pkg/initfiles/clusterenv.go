@@ -13,8 +13,8 @@ import (
     "github.com/truecharts/public/clustertool/pkg/helper"
 )
 
-func LoadTalEnv() error {
-    // Check if talenv.yaml file exists
+func LoadTalEnv(noFail bool) error {
+    // Check if clusterenv.yaml file exists
     if _, err := os.Stat(helper.ClusterPath + "/clusterenv.yaml"); err == nil {
         // Load environment variables from clusterenv.yaml
         err := helper.LoadEnvFromFile(helper.ClusterPath+"/clusterenv.yaml", helper.TalEnv)
@@ -23,11 +23,20 @@ func LoadTalEnv() error {
             os.Exit(1)
         }
     } else if os.IsNotExist(err) {
-        log.Info().Msg("clusterenv.yaml file not found, skipping environment variable loading.")
+        // If the file doesn't exist, check noFail to determine next steps
+        if noFail {
+            log.Info().Msg("clusterenv.yaml file not found, but skipping due to noFail being true.")
+            return nil // Skip execution without error
+        } else {
+            log.Info().Msg("clusterenv.yaml file not found, exiting as noFail is false.")
+            os.Exit(1) // Exit with error code 1
+        }
     } else {
         log.Info().Msgf("Error checking clusterenv.yaml file: %v\n", err)
         os.Exit(1)
     }
+
+    // If file exists, continue with processing
     clusterName()
     checkQuotedNumbersInFile()
     PostProcessTalEnv()
@@ -214,14 +223,13 @@ func normalizeIPNetmask(ipNetmask string) (string, error) {
 }
 
 func CheckEnvVariables() {
-    LoadTalEnv()
+    LoadTalEnv(false)
     requiredKeys := []string{
         "VIP",
         "MASTER1IP_IP",
         "MASTER1IP_NETMASK",
         "GATEWAY",
         "METALLB_RANGE",
-        "DASHBOARD_IP_IP",
         "PODNET",
         "SVCNET",
     }
@@ -282,14 +290,16 @@ func CheckEnvVariables() {
     }
 
     // Check DASHBOARD_IP against METALLB_RANGE
-    inRange, err = helper.IPInRange(helper.TalEnv["DASHBOARD_IP"], helper.TalEnv["METALLB_RANGE"])
-    if err != nil {
-        log.Info().Msgf("Error checking DASHBOARD_IP against METALLB_RANGE: %v\n", err)
-        os.Exit(1)
-    }
-    if !inRange {
-        log.Info().Msg("Cannot proceed, DASHBOARD_IP must be in the METALLB_RANGE")
-        os.Exit(1)
+    if helper.TalEnv["DASHBOARD_IP"] != "" {
+        inRange, err = helper.IPInRange(helper.TalEnv["DASHBOARD_IP"], helper.TalEnv["METALLB_RANGE"])
+        if err != nil {
+            log.Info().Msgf("Error checking DASHBOARD_IP against METALLB_RANGE: %v\n", err)
+            os.Exit(1)
+        }
+        if !inRange {
+            log.Info().Msg("Cannot proceed, DASHBOARD_IP must be in the METALLB_RANGE")
+            os.Exit(1)
+        }
     }
 
     // Validate other CIDR/IP checks with new netmask support

@@ -26,5 +26,5 @@ spec:
   values:
       service:
         main:
-          type: LoadBalancer
+          type: '{{ if ne "${SPEGEL_IP}" "" }}LoadBalancer{{ else }}ClusterIP{{ end }}'
           loadBalancerIP: ${SPEGEL_IP}

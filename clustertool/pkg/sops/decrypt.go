@@ -55,7 +55,7 @@ func DecryptFiles() error {
     if !encryptedFound {
         log.Info().Msg("Nothing to decrypt")
     }
-    initfiles.LoadTalEnv()
+    initfiles.LoadTalEnv(true)
     return nil
 }
 

@@ -15,7 +15,7 @@ import (
 )
 
 func GenApply(node string, extraFlags []string) []string {
-    initfiles.LoadTalEnv()
+    initfiles.LoadTalEnv(false)
     cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
     if err != nil {
         log.Fatal().Err(err).Msg("failed to parse talconfig or talenv file: %s")

@@ -1,58 +1,47 @@
-- op: replace
-  path: /machine/time
-  value:
-    "disabled": false
-    "servers":
+machine:
+  time:
+    disabled: false
+    servers:
       - "time.cloudflare.com"
-- op: add
-  path: /machine/kernel
-  value:
+
+  kernel:
     modules:
-     - "name": "dm_thin_pool"
-     - "name": "dm_mod"
-     - "name": nvme_tcp
-     - "name": vfio_pci
-     - "name": uio_pci_generic
-- op: replace
-  path: /cluster/proxy
-  value:
-    "disabled": true
-- op: add
-  path: /machine/kubelet/extraArgs
-  value:
-    "rotate-server-certificates": true
-- op: add
-  path: /machine/kubelet/extraConfig
-  value:
-    "maxPods": 250
-    "shutdownGracePeriod": "15s"
-    "shutdownGracePeriodCriticalPods": "10s"
-- op: add
-  path: /machine/kubelet/extraMounts
-  value:
-    - "destination": "/var/openebs/local"
-      "type": "bind"
-      "source": "/var/openebs/local"
-      "options":
-        - "bind"
-        - "rshared"
-        - "rw"
-    - destination: /var/lib/longhorn
-      type: bind
-      source: /var/lib/longhorn
-      options:
-        - bind
-        - rshared
-        - rw
-- op: replace
-  path: /machine/features/hostDNS
-  value:
-    enabled: true
-    resolveMemberNames: true
-    forwardKubeDNSToHost: false
-- op: add
-  path: /machine/sysctls
-  value:
+      - name: "dm_thin_pool"
+      - name: "dm_mod"
+      - name: "nvme_tcp"
+      - name: "vfio_pci"
+      - name: "uio_pci_generic"
+
+  kubelet:
+    extraArgs:
+      rotate-server-certificates: true
+    extraConfig:
+      maxPods: 250
+      shutdownGracePeriod: "15s"
+      shutdownGracePeriodCriticalPods: "10s"
+    extraMounts:
+      - destination: "/var/openebs/local"
+        type: "bind"
+        source: "/var/openebs/local"
+        options:
+          - "bind"
+          - "rshared"
+          - "rw"
+      - destination: "/var/lib/longhorn"
+        type: "bind"
+        source: "/var/lib/longhorn"
+        options:
+          - "bind"
+          - "rshared"
+          - "rw"
+
+  features:
+    hostDNS:
+      enabled: true
+      resolveMemberNames: true
+      forwardKubeDNSToHost: false
+
+  sysctls:
     fs.inotify.max_queued_events: "65536"
     fs.inotify.max_user_instances: "8192"
     fs.inotify.max_user_watches: "524288"
@@ -60,22 +49,10 @@
     net.core.wmem_max: "2500000"
     vm.nr_hugepages: "2048"
 
-## TODO: Check how we can have this pass checks
-# - op: add
-#   path: /machine/udev
-#   value:
-#     # Thunderbolt
-#     - ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{authorized}=="0", ATTR{authorized}="1"
-#     # Intel GPU
-#     - SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="44", MODE="0660"
-#     # Google Coral USB Accelerator
-#     - SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a6e", ATTRS{idProduct}=="089a", GROUP="20", MODE="0660"
-#     - SUBSYSTEMS=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="9302", GROUP="20", MODE="0660"
-
-- op: add
-  path: /machine/files
-  value:
-    - content: |
+  files:
+    - path: "/etc/cri/conf.d/20-customization.part"
+      permissions: 0
+      content: |
         [plugins."io.containerd.grpc.v1.cri"]
           enable_unprivileged_ports = true
           enable_unprivileged_icmp = true
@@ -83,10 +60,10 @@
           discard_unpacked_layers = false
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
           discard_unpacked_layers = false
-      permissions: 0
-      path: /etc/cri/conf.d/20-customization.part
-      op: create
-    - content: |
+
+    - path: "/etc/nfsmount.conf"
+      permissions: 420
+      content: |
         [ NFSMount_Global_Options ]
         nfsvers=4.2
         hard=True
@@ -95,6 +72,6 @@
         rsize=131072
         wsize=131072
         nconnect=8
-      permissions: 420
-      path: /etc/nfsmount.conf
-      op: overwrite
+
+  registries:
+    config:

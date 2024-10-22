@@ -151,6 +151,7 @@ func genBaseFiles() error {
 }
 
 func UpdateBaseFiles() error {
+    log.Info().Msg("Updating Base files for cluster: helper.ClusterPath")
     // Read filenames in source directory
     sourceFiles, err := readFilenamesInDir(helper.BaseCache)
     if err != nil {
@@ -244,7 +245,7 @@ func readFilenamesInDir(dir string) ([]string, error) {
 }
 
 func ResetBootstrapValues() error {
-    LoadTalEnv()
+    LoadTalEnv(false)
     err := helper.CopyDirFiltered(helper.KubeCache, helper.ClusterPath+"/kubernetes", true, `^bootstrap-values\.yaml.ct$`)
     if err != nil {
         log.Info().Msg("Error:")
@@ -309,18 +310,15 @@ func setDocker() {
     if helper.TalEnv["DOCKERHUB_USER"] != "" && helper.TalEnv["DOCKERHUB_PASSWORD"] != "" {
         // Prepare the content to append
         configContent := fmt.Sprintf(`# Add Dockerhub Login
-    - operation: replace
-      path: /machine/registries/config/registry-1.docker.io
-      value:
+      registry-1.docker.io:
         auth:
           username: %s
           password: %s
-    - operation: replace
-      path: /machine/registries/config/docker.io
-      value:
+      docker.io:
         auth:
           username: %s
           password: %s
+
     `, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
 
         // Open the file in append mode or create it if it doesn't exist
@@ -355,42 +353,62 @@ func setSpegel() {
     if helper.TalEnv["SPEGEL_IP"] != "" && helper.TalEnv["SPEGEL_IP"] != "" {
         // Prepare the content to append
         configContent := fmt.Sprintf(`# Add Dockerhub Login
-- operation: replace
-  path: /machine/registries/mirrors/
-  value:
-    cgr.dev:
-      endpoints:
-        - http://%s:5000
-    docker.io:
-      endpoints:
-        - http://%s:5000
-    ghcr.io:
-      endpoints:
-        - http://%s:5000
-    quay.io:
-      endpoints:
-        - http://%s:5000
-    mcr.microsoft.com:
-      endpoints:
-        - http://%s:5000
-    public.ecr.aws:
-      endpoints:
-        - http://%s:5000
-    gcr.io:
-      endpoints:
-        - http://%s:5000
-    registry.k8s.io:
-      endpoints:
-        - http://%s:5000
-    k8s.gcr.io:
-      endpoints:
-        - http://%s:5000
-    tccr.io:
-      endpoints:
-        - http://%s:5000
-    factory.talos.dev:
-      endpoints:
-        - http://%s:5000
+    mirrors:
+      cgr.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      docker.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      ghcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      quay.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      mcr.microsoft.com:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      public.ecr.aws:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      registry.k8s.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      k8s.gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      tccr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+      factory.talos.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
 
 `, helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"])
 
@@ -407,15 +425,62 @@ func setSpegel() {
         }
     } else {
         // Optional: Append a note if the environment variables are not set
-        emptyContent := `# No Spegel_IP provided
-`
+        configContent := fmt.Sprintf(`# No Spegel_IP provide
+    mirrors:
+      cgr.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      docker.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      ghcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      quay.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      mcr.microsoft.com:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      public.ecr.aws:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      registry.k8s.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      k8s.gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      tccr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+      factory.talos.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+
+`)
+
         file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
         if err != nil {
             log.Fatal().Err(err).Msg("Error opening file: %s")
         }
         defer file.Close()
 
-        if _, err := file.Write([]byte(emptyContent)); err != nil {
+        if _, err := file.Write([]byte(configContent)); err != nil {
             log.Fatal().Err(err).Msg("Error writing to file: %s")
         }
     }
