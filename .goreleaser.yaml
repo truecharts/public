@@ -58,10 +58,10 @@ before:
     - chmod +x ./clustertool/embed/download_talosctl.sh
     - bash ./clustertool/embed/download_talosctl.sh
 
-sboms:
-  - artifacts: archive
-  - id: source
-    artifacts: source
+# sboms:
+#   - artifacts: archive
+#   - id: source
+#     artifacts: source
 
 nfpms:
   - package_name: clustertool
