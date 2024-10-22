@@ -8,6 +8,8 @@ import (
     "os"
     "os/exec"
     "path/filepath"
+
+    "github.com/rs/zerolog/log"
 )
 
 func ExportApps() {
@@ -16,21 +18,24 @@ func ExportApps() {
     var out bytes.Buffer
     cmd.Stdout = &out
     if err := cmd.Run(); err != nil {
-        fmt.Fprintf(os.Stderr, "Error executing command: %v\n", err)
+        log.Error().Err(err).Msgf("Error executing command: %v\n", err)
+
         os.Exit(1)
     }
 
     // Parse the JSON output
     var releases []map[string]interface{}
     if err := json.Unmarshal(out.Bytes(), &releases); err != nil {
-        fmt.Fprintf(os.Stderr, "Error parsing JSON: %v\n", err)
+        log.Error().Err(err).Msgf("Error parsing JSON: %v\n", err)
+
         os.Exit(1)
     }
 
     // Ensure the directory exists
     outputDir := "./truenas_exports"
     if err := os.MkdirAll(outputDir, 0755); err != nil {
-        fmt.Fprintf(os.Stderr, "Error creating directory: %v\n", err)
+        log.Error().Err(err).Msgf("Error creating directory: %v\n", err)
+
         os.Exit(1)
     }
 
@@ -46,14 +51,16 @@ func ExportApps() {
         // Marshal the release data to JSON
         data, err := json.MarshalIndent(release, "", "  ")
         if err != nil {
-            fmt.Fprintf(os.Stderr, "Error marshaling JSON: %v\n", err)
+            log.Error().Err(err).Msgf("Error marshaling JSON: %v\n", err)
+
             continue
         }
 
         // Create the filename using the release name
         filename := filepath.Join(outputDir, fmt.Sprintf("%s.json", name))
         if err := ioutil.WriteFile(filename, data, 0644); err != nil {
-            fmt.Fprintf(os.Stderr, "Error writing file: %v\n", err)
+            log.Error().Err(err).Msgf("Error writing file: %v\n", err)
+
         }
     }
 }

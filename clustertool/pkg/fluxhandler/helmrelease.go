@@ -112,7 +112,8 @@ func InstallCharts(charts []HelmChart, HelmRepos map[string]*HelmRepo, async boo
             if err := HelmInstall(HelmRepos[helmRelease.Spec.Chart.Spec.SourceRef.Name].Spec.URL, helmRelease.Spec.Chart.Spec.Chart, releaseName, helmRelease.Metadata.Namespace, valuesFile, helmRelease.Spec.Chart.Spec.Version, chart.Retry, chart.Wait, true); err != nil {
                 if strings.Contains(err.Error(), "webhook") {
                 } else {
-                    fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+                    log.Error().Err(err).Msgf("Error: %v\n", err)
+
                     if !async {
                         os.Exit(1)
                     }
@@ -143,14 +144,16 @@ func UpgradeCharts(charts []HelmChart, HelmRepos map[string]*HelmRepo, async boo
             // Load Helm release
             helmRelease, err := LoadHelmRelease(helmreleaseFile)
             if err != nil {
-                fmt.Fprintf(os.Stderr, "Error loading Helm release for chart at %s: %v\n", chart.ChartPath, err)
+                log.Error().Err(err).Msgf("Error loading Helm release for chart at %s: %v\n", chart.ChartPath)
+
                 if !async {
                     os.Exit(1)
                 }
                 return
             }
             if helmRelease == nil {
-                fmt.Fprintf(os.Stderr, "Empty Helm release for chart at %s\n", chart.ChartPath)
+                log.Error().Msgf("Empty Helm release for chart at %s\n", chart.ChartPath)
+
                 if !async {
                     os.Exit(1)
                 }
@@ -170,7 +173,8 @@ func UpgradeCharts(charts []HelmChart, HelmRepos map[string]*HelmRepo, async boo
             repoName := helmRelease.Spec.Chart.Spec.SourceRef.Name
             repo, ok := HelmRepos[repoName]
             if !ok || repo.Spec.URL == "" {
-                fmt.Fprintf(os.Stderr, "Empty or invalid Helm repository for %s\n", repoName)
+                log.Error().Msgf("Empty or invalid Helm repository for %s\n", repoName)
+
                 if !async {
                     os.Exit(1)
                 }
@@ -181,7 +185,8 @@ func UpgradeCharts(charts []HelmChart, HelmRepos map[string]*HelmRepo, async boo
             log.Info().Msgf("Upgrading %s\n", helmRelease.Metadata.Name)
             err = HelmUpgrade(repo.Spec.URL, chartName, releaseName, helmRelease.Metadata.Namespace, valuesFile, helmRelease.Spec.Chart.Spec.Version, chart.Wait, true)
             if err != nil {
-                fmt.Fprintf(os.Stderr, "Error upgrading %s: %v\n", helmRelease.Metadata.Name, err)
+                log.Error().Err(err).Msgf("Error upgrading %s\n", helmRelease.Metadata.Name)
+
                 if !async {
                     os.Exit(1)
                 }

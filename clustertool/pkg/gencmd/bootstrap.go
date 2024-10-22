@@ -2,7 +2,6 @@ package gencmd
 
 import (
     "context"
-    "fmt"
     "io"
     "os"
     "path/filepath"
@@ -90,7 +89,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msgf("Bootstrap: Waiting for system Pods to be running for: %v", helper.TalEnv["VIP_IP"])
     if err := kubectlcmds.CheckStatus(requiredPods, []string{}, 600); err != nil {
-        fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+        log.Error().Err(err).Msgf("Error: %v\n", err)
+
         os.Exit(1)
     }
 
@@ -146,7 +146,7 @@ func RunBootstrap(args []string) {
     })
 
     if err != nil {
-        fmt.Printf("Error walking the path: %v\n", err)
+        log.Info().Msgf("Error walking the path: %v\n", err)
         return
     }
 
@@ -196,7 +196,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msgf("Bootstrap: Waiting for MetalLB Pods to be running for: %v", helper.TalEnv["VIP_IP"])
     if err := kubectlcmds.CheckStatus(requiredMLBPods, []string{}, 600); err != nil {
-        fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+        log.Error().Err(err).Msgf("Error: %v\n", err)
+
         os.Exit(1)
     }
 
