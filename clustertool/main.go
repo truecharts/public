@@ -1,6 +1,7 @@
 package main
 
 import (
+    "fmt"
     "os"
     "time"
 
@@ -15,6 +16,8 @@ import (
     ctrllog "sigs.k8s.io/controller-runtime/pkg/log"
     ctrllogzap "sigs.k8s.io/controller-runtime/pkg/log/zap"
 )
+
+var version = "dev"
 
 func main() {
     // Configure zerolog
@@ -68,6 +71,8 @@ func main() {
     // Set controller-runtime logger to use zap
     ctrlLogger := ctrllogzap.New(ctrllogzap.UseDevMode(true), ctrllogzap.Level(zapLevel))
     ctrllog.SetLogger(ctrlLogger)
+    fmt.Printf("\n%s\n", helper.Logo)
+    fmt.Printf("---\nClustertool Version: %s\n---\n", version)
 
     embed.AllToCache()
 
