@@ -15,6 +15,8 @@ builds:
       - arm64
     ldflags:
       - -s -w -X github.com/truecharts/public/clustertool/main.version={{.Version}}  # Adjust path if necessary
+gomod:
+  dir: ./clustertool
 archives:
   - name_template: "{{.ProjectName}}_{{ .Version }}_{{.Os}}_{{.Arch}}"
 checksum:
