@@ -54,7 +54,46 @@ report_sizes: true
 before:
   hooks:
     - chmod +x ./clustertool/partial_builds/partial_build.sh
-    - ./clustertool/partial_builds/partial_build.sh
+    - bash ./clustertool/partial_builds/partial_build.sh
     - chmod +x ./clustertool/embed/download_talosctl.sh
-    - ./clustertool/embed/download_talosctl.sh
-    - find
+    - bash ./clustertool/embed/download_talosctl.sh
+
+sboms:
+  - artifacts: archive
+  -  id: source
+     artifacts: source
+
+nfpms:
+  - id: clustertool-amd64
+    package_name: clustertool
+    builds:
+      - amd64  # Reference to the amd64 build
+    vendor: TrueCharts
+    homepage: https://truecharts.org
+    maintainer: "TrueCharts <info@truecharts.org>"
+    description: "ClusterTool CLI for AMD64 architecture."
+    license: BSL
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/local/bin
+    contents:
+      - src: ./dist/clustertool_linux_amd64_v1/clustertool
+        dst: /usr/local/bin/clustertool
+
+  - id: clustertool-arm64
+    package_name: clustertool
+    builds:
+      - arm64  # Reference to the arm64 build
+    vendor: TrueCharts
+    homepage: https://truecharts.org
+    maintainer: "TrueCharts <info@truecharts.org>"
+    description: "ClusterTool CLI for ARM64 architecture."
+    license: BSL
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/local/bin
+    contents:
+      - src: ./dist/clustertool_linux_arm64/clustertool
+        dst: /usr/local/bin/clustertool

@@ -2,25 +2,25 @@
 
 set -e
 
-# Define target OS and architectures
-declare -A os_targets
-os_targets[linux]=linux
-os_targets[windows]=windows
-os_targets[darwin]=darwin
-os_targets[freebsd]=freebsd
+# Define target OS names
+os_names=("linux" "windows" "darwin" "freebsd")
+# Define corresponding GOOS values
+os_targets=("linux" "windows" "darwin" "freebsd")
 
 # Define target architectures
 architectures=("amd64" "arm64")
 
 # Ensure embed directories exist
-for os in "${!os_targets[@]}"; do
+for i in "${!os_names[@]}"; do
+    os=${os_names[i]}
     for arch in "${architectures[@]}"; do
         mkdir -p "./clustertool/embed/${os}_${arch}"
     done
 done
 
 # Build the precommit binary for each OS and architecture
-for os in "${!os_targets[@]}"; do
+for i in "${!os_names[@]}"; do
+    os=${os_names[i]}
     for arch in "${architectures[@]}"; do
         echo "Building precommit for $os/$arch"
 
