@@ -18,6 +18,12 @@ To install TrueCharts Helm charts using Helm, you can use our OCI Repository.
 
 For more information on how to install TrueCharts Helm charts, checkout the [instructions on the website](/guides)
 
+## Chart Specific Guides and information
+
+All our charts have dedicated documentation pages.
+The documentation for this chart can be found here:
+https://truecharts.org/charts/TRAINPLACEHOLDER/CHARTPLACEHOLDER
+
 ## Configuration Options
 
 To view the chart specific options, please view Values.yaml included in the chart.
