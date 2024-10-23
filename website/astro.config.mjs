@@ -38,8 +38,8 @@ export default defineConfig({
     output: "directory",
   },
   experimental: {
-    directRenderScript: true,
-    clientPrerender: true
+    directRenderScript: false,
+    clientPrerender: false
   },
   integrations: [
     starlight({
