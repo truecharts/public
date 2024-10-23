@@ -38,7 +38,8 @@ export default defineConfig({
     output: "directory",
   },
   experimental: {
-    contentCollectionCache: false,
+    directRenderScript: true,
+    clientPrerender: true
   },
   integrations: [
     starlight({
