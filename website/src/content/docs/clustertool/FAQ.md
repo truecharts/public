@@ -62,3 +62,11 @@ In some cases, like kubernetes, you can disable the workloads or services in the
 Yes you can!
 While we advice sticking with the defaults where possible, we fully support altering the included helm-charts to fit your usecase.
 However, any issues after alterations are not within our scope for support.
+
+## I get this error:  failed to pull chart cilium: no cached repo found.
+
+You need to remove all http helm repositories from the system you're using clustertool on.
+Please check the Helm docs on how to do this.
+
+
+
