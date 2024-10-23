@@ -414,12 +414,12 @@ func setSpegel() {
           - http://127.0.0.1:30021
           - http://%s:5000
           - https://tccr.io
-      factory.talos.dev:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-          - https://factory.talos.dev
+      # factory.talos.dev:
+      #   endpoints:
+      #     - http://127.0.0.1:30020
+      #     - http://127.0.0.1:30021
+      #     - http://%s:5000
+      #     - https://factory.talos.dev
 
 
 `, helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"])
@@ -489,11 +489,11 @@ func setSpegel() {
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
           - https://tccr.io
-      factory.talos.dev:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - https://factory.talos.dev
+      # factory.talos.dev:
+      #   endpoints:
+      #     - http://127.0.0.1:30020
+      #     - http://127.0.0.1:30021
+      #     - https://factory.talos.dev
 
 `)
 
