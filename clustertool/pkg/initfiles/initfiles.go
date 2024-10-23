@@ -414,72 +414,13 @@ func setSpegel() {
           - http://127.0.0.1:30021
           - http://%s:5000
           - https://tccr.io
-      # factory.talos.dev:
-      #   endpoints:
-      #     - http://127.0.0.1:30020
-      #     - http://127.0.0.1:30021
-      #    - http://%s:5000
-      #     - https://factory.talos.dev
+      factory.talos.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://factory.talos.dev
 
-
-
-
-      cgr.dev:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      docker.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      ghcr.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      quay.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      mcr.microsoft.com:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      public.ecr.aws:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      gcr.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      registry.k8s.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      k8s.gcr.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      tccr.io:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
-      ## TODO: Enable once Talos Installer correctly tries all mirrors
-      # factory.talos.dev:
-      #   endpoints:
-      #     - http://127.0.0.1:30020
-      #     - http://127.0.0.1:30021
-      #     - http://%s:5000
 
 `, helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"])
 
@@ -548,11 +489,11 @@ func setSpegel() {
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
           - https://tccr.io
-      # factory.talos.dev:
-      #   endpoints:
-      #     - http://127.0.0.1:30020
-      #     - http://127.0.0.1:30021
-      #     - https://factory.talos.dev
+      factory.talos.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - https://factory.talos.dev
 
 `)
 
