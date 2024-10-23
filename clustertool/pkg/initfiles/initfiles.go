@@ -404,11 +404,12 @@ func setSpegel() {
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
           - http://%s:5000
-      factory.talos.dev:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
-          - http://%s:5000
+      ## TODO: Enable once Talos Installer correctly tries all mirrors
+      # factory.talos.dev:
+      #   endpoints:
+      #     - http://127.0.0.1:30020
+      #     - http://127.0.0.1:30021
+      #     - http://%s:5000
 
 `, helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"], helper.TalEnv["SPEGEL_IP"])
 
