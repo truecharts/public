@@ -61,20 +61,37 @@ jobs:
         if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         run: |
           ver=$(./charttool genchangelog format-version)
-          key="changelog-json-format-$ver"
+          rev="1"
+          datetime=$(date +"%Y-%m-%d-%H-%M-%S")
+          prefix="changelog-format-$ver-rev-$rev"
+          key="$prefix-%datetime"
           echo "Cache Key is: $key"
           echo "CHANGELOG_CACHE_KEY=$key" >> $GITHUB_ENV
+          echo "CHANGELOG_CACHE_PREFIX=$prefix" >> $GITHUB_ENV
+          echo "DAYTIME=${datetime}" >> $GITHUB_ENV
+          echo “YEAR=$(date +%Y)" >> $GITHUB_ENV
+          echo “MONTH=$(date +%m) >> $GITHUB_ENV
+          echo “DAY=$(date +%d) >> $GITHUB_ENV
+          echo "HOUR=$(date +%H) >> $GITHUB_ENV
+          echo “MINUTE=$(date +%M) >> $GITHUB_ENV
+          echo “SECOND=$(date +%S”) >> $GITHUB_ENV
 
       - name: Cache Changelog
         id: cache-changelog
         if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
         uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
         with:
-          key: ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('changelog.json.gz') }}
+          key: ${{ env.CHANGELOG_CACHE_KEY }}
           path: changelog.json.gz
           restore-keys: |
-            ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('changelog.json.gz') }}
             ${{ env.CHANGELOG_CACHE_KEY }}
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-${YEAR}-${MONTH}-${DAY}-${HOUR}-${MINUTE}
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-${YEAR}-${MONTH}-${DAY}-${HOUR}-
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-${YEAR}-${MONTH}-${DAY}-
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-${YEAR}-${MONTH}-
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-${YEAR}-
+            ${{ env.CHANGELOG_CACHE_PREFIX }}-
+
 
 
       - name: Generate Changelog
