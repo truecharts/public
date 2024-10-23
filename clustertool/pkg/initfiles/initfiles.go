@@ -359,6 +359,76 @@ func setSpegel() {
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
           - http://%s:5000
+          - https://cgr.dev
+      docker.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://registry-1.docker.io
+      ghcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://ghcr.io
+      quay.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://quay.io
+      mcr.microsoft.com:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://mcr.microsoft.com
+      public.ecr.aws:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://public.ecr.aws
+      gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://gcr.io
+      registry.k8s.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://registry.k8s.io
+      k8s.gcr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://k8s.gcr.io
+      tccr.io:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
+          - https://tccr.io
+      # factory.talos.dev:
+      #   endpoints:
+      #     - http://127.0.0.1:30020
+      #     - http://127.0.0.1:30021
+      #    - http://%s:5000
+      #     - https://factory.talos.dev
+
+
+
+
+      cgr.dev:
+        endpoints:
+          - http://127.0.0.1:30020
+          - http://127.0.0.1:30021
+          - http://%s:5000
       docker.io:
         endpoints:
           - http://127.0.0.1:30020
@@ -432,46 +502,57 @@ func setSpegel() {
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://cgr.dev
       docker.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://registry-1.docker.io
       ghcr.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://ghcr.io
       quay.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://quay.io
       mcr.microsoft.com:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://mcr.microsoft.com
       public.ecr.aws:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://public.ecr.aws
       gcr.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://gcr.io
       registry.k8s.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://registry.k8s.io
       k8s.gcr.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://k8s.gcr.io
       tccr.io:
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
+          - https://tccr.io
       # factory.talos.dev:
       #   endpoints:
       #     - http://127.0.0.1:30020
       #     - http://127.0.0.1:30021
+      #     - https://factory.talos.dev
 
 `)
 
