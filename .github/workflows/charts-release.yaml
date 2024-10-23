@@ -281,7 +281,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # By default Cloudflare marks `main` as the "production" branch.
           # So when this workflow is pushed to refs/heads/main, we set the branch to `main`/"production".
-          branch: ${{ github.ref == 'refs/heads/master' && 'master' || github.head_ref }}
+          branch: ${{ github.ref == 'refs/heads/master' && 'main' || github.head_ref }}
           # The project name in Cloudflare
           projectName: website
           directory: ./website/build
