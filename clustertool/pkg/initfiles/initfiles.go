@@ -468,10 +468,10 @@ func setSpegel() {
         endpoints:
           - http://127.0.0.1:30020
           - http://127.0.0.1:30021
-      factory.talos.dev:
-        endpoints:
-          - http://127.0.0.1:30020
-          - http://127.0.0.1:30021
+      # factory.talos.dev:
+      #   endpoints:
+      #     - http://127.0.0.1:30020
+      #     - http://127.0.0.1:30021
 
 `)
 
