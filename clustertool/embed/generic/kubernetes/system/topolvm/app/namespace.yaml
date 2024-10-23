@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: topolvm-system
-    labels:
-        pod-security.kubernetes.io/enforce: privileged
-        topolvm.io/webhook: ignore
