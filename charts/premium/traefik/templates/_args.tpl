@@ -46,6 +46,9 @@ args:
   {{- if or .Values.metrics.main.enabled }}
   - "--metrics.prometheus=true"
   - "--metrics.prometheus.entrypoint=metrics"
+  {{- if .Values.metrics.main.addInternals }}
+  - "--metrics.addinternals"
+  {{- end }}
   {{- end }}
   {{- if .Values.providers.kubernetesCRD.enabled }}
   - "--providers.kubernetescrd"

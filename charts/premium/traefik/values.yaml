@@ -120,6 +120,7 @@ metrics:
   main:
     enabled: true
     type: servicemonitor
+    addInternals: true
     endpoints:
       - port: metrics
         path: /metrics
