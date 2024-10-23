@@ -11,7 +11,6 @@
   path: /cluster/scheduler/extraArgs
   value:
     "bind-address": "0.0.0.0"
-    "disable-plugins": "ImageLocality"
 - op: replace
   path: /cluster/apiServer/admissionControl
   value:
