@@ -288,17 +288,16 @@ func setDocker() {
         // Prepare the content to append
         configContent := fmt.Sprintf(`# Add Dockerhub Login
 - op: add
-  path: /machine/registries/config/registry-1.docker.io/auth/username
-  value: "%s"
-- op: add
-  path: /machine/registries/config/registry-1.docker.io/auth/password
-  value: "%s"
-- op: add
-  path: /machine/registries/config/docker.io/auth/username
-  value: "%s"
-- op: add
-  path: /machine/registries/config/docker.io/auth/password
-  value: "%s"
+  path: /machine/registries/config
+  value:
+    registry-1.docker.io:
+      auth:
+        username: "%s"
+        password: "%s"
+    docker.io:
+      auth:
+        username: "%s"
+        password: "%s"
     `, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
 
         // Open the file in append mode or create it if it doesn't exist
