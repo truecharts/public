@@ -17,7 +17,7 @@ import (
     ctrllogzap "sigs.k8s.io/controller-runtime/pkg/log/zap"
 )
 
-var version = "dev"
+var Version = "dev"
 var noColor = false
 
 func main() {
@@ -77,7 +77,7 @@ func main() {
     ctrlLogger := ctrllogzap.New(ctrllogzap.UseDevMode(true), ctrllogzap.Level(zapLevel))
     ctrllog.SetLogger(ctrlLogger)
     fmt.Printf("\n%s\n", helper.Logo)
-    fmt.Printf("---\nClustertool Version: %s\n---\n", version)
+    fmt.Printf("---\nClustertool Version: %s\n---\n", Version)
 
     embed.AllToCache()
 
