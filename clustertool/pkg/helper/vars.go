@@ -26,9 +26,9 @@ var (
     ControlPlaneIPs = []string{}
     WorkerIPs       = []string{}
     ManifestPaths   = []string{
-        filepath.Join("flux-system", "flux", "sopssecret.secret.yaml"),
-        filepath.Join("flux-system", "flux", "deploykey.secret.yaml"),
-        filepath.Join("flux-system", "flux", "clustersettings.secret.yaml"),
+        filepath.Join(ClusterPath, "flux-system", "flux", "sopssecret.secret.yaml"),
+        filepath.Join(ClusterPath, "flux-system", "flux", "deploykey.secret.yaml"),
+        filepath.Join(ClusterPath, "flux-system", "flux", "clustersettings.secret.yaml"),
     }
 
     KubeFilterStr = []string{
