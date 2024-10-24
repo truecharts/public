@@ -127,41 +127,6 @@ func CreateGitSecret(gitURL string) error {
     return nil
 }
 
-func CreateSshPatch() {
-    log.Info().Msg("generating talospatch for flux ssh key...")
-    // Paths to the YAML files
-    secretPath := filepath.Join(helper.ClusterPath, "kubernetes", "flux-system", "flux", "deploykey.secret.yaml")
-    sopsPatchPath := filepath.Join(helper.ClusterPath, "talos", "patches", "sopssecret.yaml")
-
-    // Read the YAML file
-    yamlFile, err := ioutil.ReadFile(secretPath)
-    if err != nil {
-        log.Fatal().Err(err).Msg("error: %v")
-    }
-
-    // Unmarshal the YAML content into a Config struct
-    var config Config
-    err = yaml.Unmarshal(yamlFile, &config)
-    if err != nil {
-        log.Fatal().Err(err).Msg("error: %v")
-    }
-
-    // Extract the stringData content and convert it to a multi-line string
-    stringData, err := yaml.Marshal(config.StringData)
-    if err != nil {
-        log.Fatal().Err(err).Msg("error: %v")
-    }
-
-    // Convert byte array to string
-    deployKeyData := string(stringData)
-
-    // Replace the placeholder in sopspath.yaml
-    err = ReplacePlaceholder(sopsPatchPath, "REPLACEWITHDEPLOYKEY", indentYaml(deployKeyData, "        "))
-    if err != nil {
-        log.Fatal().Err(err).Msg("Failed to replace placeholder: %v")
-    }
-}
-
 // indentYaml indents each line of the YAML string with the specified indentation.
 func indentYaml(yamlStr, indent string) string {
     lines := strings.Split(yamlStr, "\n")

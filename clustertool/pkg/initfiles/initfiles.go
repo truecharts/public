@@ -14,12 +14,14 @@ import (
     "time"
 
     "github.com/rs/zerolog/log"
+    "gopkg.in/yaml.v2"
 
     age "filippo.io/age"
     talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
     "github.com/invopop/jsonschema"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    corev1 "k8s.io/api/core/v1"
 )
 
 func InitFiles() error {
@@ -34,7 +36,7 @@ func InitFiles() error {
     GenTalEnvConfigMap()
     UpdateGitRepo()
     fluxhandler.CreateGitSecret(helper.TalEnv["GITHUB_REPOSITORY"])
-    fluxhandler.CreateSshPatch()
+    GenSopsSecret()
     if err := fluxhandler.ProcessDirectory(path.Join(helper.ClusterPath, "kubernetes")); err != nil {
         log.Error().Msgf("Error: %v", err)
     }
@@ -277,29 +279,6 @@ func GenPatches() error {
 
     setDocker()
 
-    // Read the content of the talenv.yaml file
-    talenvContent, err := os.ReadFile(helper.ClusterPath + "/clusterenv.yaml")
-    if err != nil {
-        return err
-    }
-
-    // Convert the file content to a string and split it into lines
-    talenvLines := strings.Split(string(talenvContent), "\n")
-
-    // Add indentation to each line
-    for i, line := range talenvLines {
-        talenvLines[i] = "          " + line
-    }
-
-    // Join the indented lines back into a single string
-    indentedTalenvContent := strings.Join(talenvLines, "\n")
-
-    helper.ReplaceInFile(filepath.Join(helper.ClusterPath, "/talos/patches", "sopssecret.yaml"), "REPLACEWITHTALENV", indentedTalenvContent)
-    // log.Info().Msg("test", filepath.Join(helper.ClusterPath, "/talos/patches", "sopssecret.yaml"))
-    if err != nil {
-        log.Fatal().Err(err).Msg("Error: %s")
-    }
-
     return nil
 }
 
@@ -308,17 +287,18 @@ func setDocker() {
     if helper.TalEnv["DOCKERHUB_USER"] != "" && helper.TalEnv["DOCKERHUB_PASSWORD"] != "" {
         // Prepare the content to append
         configContent := fmt.Sprintf(`# Add Dockerhub Login
-  registries:
-    config:
-      registry-1.docker.io:
-        auth:
-          username: %s
-          password: %s
-      docker.io:
-        auth:
-          username: %s
-          password: %s
-
+- op: add
+  path: /machine/registries/config/registry-1.docker.io/auth/username
+  value: "%s"
+- op: add
+  path: /machine/registries/config/registry-1.docker.io/auth/password
+  value: "%s"
+- op: add
+  path: /machine/registries/config/docker.io/auth/username
+  value: "%s"
+- op: add
+  path: /machine/registries/config/docker.io/auth/password
+  value: "%s"
     `, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
 
         // Open the file in append mode or create it if it doesn't exist
@@ -453,6 +433,41 @@ func GetSecKey() (string, error) {
     }
 
     return secretKey, nil
+}
+
+func GenSopsSecret() error {
+    secretPath := filepath.Join(helper.ClusterPath, "kubernetes", "flux-system", "flux", "sopsscret.secret.yaml")
+    ageSecKey, err := GetSecKey()
+    // Generate Kubernetes secret YAML content
+    secret := map[string]interface{}{
+        "apiVersion": "v1",
+        "kind":       "Secret",
+        "metadata": map[string]interface{}{
+            "name":      "sops-age",
+            "namespace": "flux-system",
+        },
+        "stringData": map[string]interface{}{
+            "age.agekey": ageSecKey,
+        },
+        "type": string(corev1.SecretTypeOpaque),
+    }
+
+    secretYAML, err := yaml.Marshal(secret)
+    if err != nil {
+        return fmt.Errorf("failed to marshal secret to YAML: %w", err)
+    }
+
+    // Write Kubernetes secret YAML to file
+    err = os.MkdirAll(filepath.Dir(secretPath), 0755)
+    if err != nil {
+        return fmt.Errorf("failed to create directories: %w", err)
+    }
+    err = os.WriteFile(secretPath, secretYAML, 0644)
+    if err != nil {
+        return fmt.Errorf("failed to write secret YAML to file: %w", err)
+    }
+    log.Info().Msgf("Kubernetes secret YAML saved to: %s\n", secretPath)
+    return nil
 }
 
 func GenSchema() error {

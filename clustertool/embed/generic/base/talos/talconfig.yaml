@@ -41,9 +41,6 @@ nodes:
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
-        - '@./patches/sopssecret.yaml'
-        - '@./patches/manifests.yaml'
-        # - '@./patches/nvidia.yaml'
     schematic:
         customization:
             extraKernelArgs:
@@ -64,7 +61,6 @@ controlPlane:
 worker:
     patches:
         - '@./patches/worker.yaml'
-        # - '@./patches/nvidia.yaml'
     schematic:
         customization:
             systemExtensions:

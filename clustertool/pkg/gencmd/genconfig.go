@@ -27,8 +27,6 @@ func GenConfig(args []string) error {
     initfiles.GenSchema()
     initfiles.GenTalEnvConfigMap()
     initfiles.CheckEnvVariables()
-    initfiles.GenPatches()
-    fluxhandler.CreateSshPatch()
     genTalSecret()
     validateTalConfig(args)
     talhelperGenConfig()

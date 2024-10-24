@@ -25,7 +25,13 @@ var (
     AllIPs          = []string{}
     ControlPlaneIPs = []string{}
     WorkerIPs       = []string{}
-    KubeFilterStr   = []string{
+    ManifestPaths   = []string{
+        filepath.Join("flux-system", "flux", "sopskey.secret.yaml"),
+        filepath.Join("flux-system", "flux", "deploykey.secret.yaml"),
+        filepath.Join("flux-system", "flux", "clustersettings.secret.yaml"),
+    }
+
+    KubeFilterStr = []string{
         ".*would violate PodSecurity.*",
     }
 

@@ -1,9 +1,15 @@
 talconfig.json
 clusterconfig
-patches/sopssecret.yaml
 patches/all.yaml
 patches/controlplane.yaml
-patches/manifests.yaml
 patches/worker.yaml
+*patches/all.yaml
+*patches/controlplane.yaml
+*patches/worker.yaml
+all.yaml
+controlplane.yaml
+worker.yaml
+*sopssecret.secret.yaml
+sopssecret.secret.yaml
 cluster/main/kubernetes/**/bootstrap-values.yaml.ct
 *kubeconfig

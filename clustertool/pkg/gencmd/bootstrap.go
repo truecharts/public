@@ -158,6 +158,14 @@ func RunBootstrap(args []string) {
         }
     }
 
+    for _, filePath := range helper.ManifestPaths {
+        log.Info().Msgf("Bootstrap: Loading Manifest: %v", filePath)
+        if err := kubectlcmds.KubectlApply(ctx, filePath); err != nil {
+            log.Info().Msgf("Error applying manifest for %s: %v\n", filepath.Base(filePath), err)
+            os.Exit(1)
+        }
+    }
+
     log.Info().Msg("Bootstrap: Base Cluster Configuration Completed, continuing setup...")
     log.Info().Msg("Bootstrap: Confirming cluster health...")
     healthcmd := GenHealth(helper.TalEnv["VIP_IP"])

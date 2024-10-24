@@ -71,6 +71,10 @@ func RunApply(node string, extraArgs []string) {
 
     kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
     gencmd.ExecCmd(kubeconfigcmds)
+
+    if helper.GetYesOrNo("Do you want to (re)load ssh, Sops and ClusterEnv onto the cluster? (yes/no) [y/n]: ") {
+
+    }
 }
 
 func init() {

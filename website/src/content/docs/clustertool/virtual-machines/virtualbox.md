@@ -49,7 +49,6 @@ By default ClusterTool installs the `qemu-guest-agent` extension. This is not co
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
-        - '@./patches/sopssecret.yaml'
         - '@./patches/manifests.yaml'
         # - '@./patches/nvidia.yaml'
     schematic:
