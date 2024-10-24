@@ -308,6 +308,8 @@ func GenerateHelmValuesFromJSON(inputFile string, outputFile string) error {
 
     // Populate HelmRelease structure
     helmRelease := fluxhandler.HelmRelease{
+        APIVersion: "helm.toolkit.fluxcd.io/v2", // default value
+        Kind:       "HelmRelease",               // default value
         Metadata: fluxhandler.Metadata{
             Name:      radarrConfig.Name,
             Namespace: radarrConfig.Namespace,

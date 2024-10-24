@@ -47,8 +47,10 @@ type Metadata struct {
 }
 
 type HelmRelease struct {
-    Metadata Metadata `yaml:"metadata,omitempty"`
-    Spec     Spec     `yaml:"spec,omitempty"`
+    APIVersion string   `yaml:"apiVersion"`
+    Kind       string   `yaml:"kind"`
+    Metadata   Metadata `yaml:"metadata,omitempty"`
+    Spec       Spec     `yaml:"spec,omitempty"`
 }
 
 func LoadHelmRelease(filename string) (*HelmRelease, error) {
