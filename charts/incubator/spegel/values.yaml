@@ -113,9 +113,12 @@ persistence:
   containerd-config:
     enabled: true
     type: hostPath
-    mountPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
     hostPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
     hostPathType: DirectoryOrCreate
+    targetSelector:
+      main:
+        configuration:
+          mountPath: "{{ .Values.spegel.containerdRegistryConfigPath }}"
 
 spegel:
   # -- Minimum log level to output. Value should be DEBUG, INFO, WARN, or ERROR.
