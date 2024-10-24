@@ -4,15 +4,6 @@
     "disabled": false
     "servers":
       - "time.cloudflare.com"
-- op: add
-  path: /machine/kernel
-  value:
-    modules:
-     - "name": "dm_thin_pool"
-     - "name": "dm_mod"
-     - "name": nvme_tcp
-     - "name": vfio_pci
-     - "name": uio_pci_generic
 - op: replace
   path: /cluster/proxy
   value:

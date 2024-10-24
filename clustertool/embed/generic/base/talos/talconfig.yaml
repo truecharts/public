@@ -41,6 +41,10 @@ nodes:
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
+    kernelModules:
+     - name: nvme_tcp
+     - name: vfio_pci
+     - name: uio_pci_generic
     schematic:
         customization:
             extraKernelArgs:
@@ -50,17 +54,13 @@ controlPlane:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
-                    # Enable where needed
-                    # - siderolabs/amd-ucode
-                    # - siderolabs/bnx2-bnx2x
-                    # - siderolabs/drbd
-                    # - siderolabs/gasket-driver
-                    # - siderolabs/i915-ucode
-                    # - siderolabs/intel-ucode
-                    # - siderolabs/thunderbolt
 worker:
     patches:
         - '@./patches/worker.yaml'
+    kernelModules:
+     - name: nvme_tcp
+     - name: vfio_pci
+     - name: uio_pci_generic
     schematic:
         customization:
             systemExtensions:
@@ -68,11 +68,3 @@ worker:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
-                    # Enable where needed
-                    # - siderolabs/amd-ucode
-                    # - siderolabs/bnx2-bnx2x
-                    # - siderolabs/drbd
-                    # - siderolabs/gasket-driver
-                    # - siderolabs/i915-ucode
-                    # - siderolabs/intel-ucode
-                    # - siderolabs/thunderbolt
