@@ -73,7 +73,7 @@ func ApprovePendingCertificates(clientset *kubernetes.Clientset, stopCh <-chan s
                     if err != nil {
                         log.Info().Msgf("Error approving CSR %s: %v\n", csr.Name, err)
                     } else {
-                        log.Info().Msgf("Approved CSR", csr.Name)
+                        log.Info().Msgf("Approved CSR: %s", csr.Name)
                     }
                 }
             }
