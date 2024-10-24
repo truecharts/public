@@ -435,7 +435,7 @@ func GetSecKey() (string, error) {
 }
 
 func GenSopsSecret() error {
-    secretPath := filepath.Join(helper.ClusterPath, "kubernetes", "flux-system", "flux", "sopsscret.secret.yaml")
+    secretPath := filepath.Join(helper.ClusterPath, "kubernetes", "flux-system", "flux", "sopssecret.secret.yaml")
     ageSecKey, err := GetSecKey()
     // Generate Kubernetes secret YAML content
     secret := map[string]interface{}{
