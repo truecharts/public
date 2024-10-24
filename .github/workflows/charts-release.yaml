@@ -43,6 +43,8 @@ jobs:
             changed:
             - 'website/**'
             - '**/docs/**'
+            - '**/Chart.yaml'
+
 
   release-helm:
     permissions:
@@ -58,7 +60,7 @@ jobs:
 
       - name: Get Changelog Format Version
         shell: bash
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         run: |
           ver=$(./charttool genchangelog format-version)
           rev="1"
@@ -68,7 +70,7 @@ jobs:
 
       - name: Cache Changelog
         id: cache-changelog
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
         with:
           key: ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
@@ -81,7 +83,7 @@ jobs:
 
       - name: Generate Changelog
         shell: bash
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         run: |
           export REPO_PATH="./"
           export TEMPLATE_PATH="./templates/CHANGELOG.md.tmpl"
@@ -99,7 +101,6 @@ jobs:
 
       - name: Fix Pre-Commit issues
         shell: bash
-        if: needs.check_changes.outputs.changes_detected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
           pre-commit run --all ||:
@@ -107,14 +108,13 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Install Helm
-        if: needs.check_changes.outputs.changes_detected == 'true'
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
           version: v3.14.0
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
@@ -129,13 +129,13 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Helm | Login
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         shell: bash
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
 
       - name: Release Charts
         shell: bash
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         env:
           CR_SKIP_EXISTING: "true"
         run: |
@@ -147,7 +147,7 @@ jobs:
 
       - name: Helm | Logout
         shell: bash
-        if: github.event_name == 'push' && needs.check_changes.outputs.changes_detected == 'true'
+        if: github.event_name == 'push'
         run: helm registry logout quay.io
 
       - name: Copy docs to website
