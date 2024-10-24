@@ -19,6 +19,7 @@ var (
     ClusterEnvFile  = filepath.Join(ClusterPath, "/clusterenv.yaml")
     TalConfigFile   = filepath.Join(ClusterPath, "/talos", "talconfig.yaml")
     TalosPath       = filepath.Join(ClusterPath, "/talos")
+    KubernetesPath  = filepath.Join(ClusterPath, "/kubernetes")
     TalosGenerated  = filepath.Join(TalosPath, "/generated")
     TalosConfigFile = filepath.Join(TalosGenerated, "talosconfig")
     TalSecretFile   = filepath.Join(TalosGenerated, "talsecret.yaml")
@@ -26,9 +27,9 @@ var (
     ControlPlaneIPs = []string{}
     WorkerIPs       = []string{}
     ManifestPaths   = []string{
-        filepath.Join(ClusterPath, "flux-system", "flux", "sopssecret.secret.yaml"),
-        filepath.Join(ClusterPath, "flux-system", "flux", "deploykey.secret.yaml"),
-        filepath.Join(ClusterPath, "flux-system", "flux", "clustersettings.secret.yaml"),
+        filepath.Join(KubernetesPath, "flux-system", "flux", "sopssecret.secret.yaml"),
+        filepath.Join(KubernetesPath, "flux-system", "flux", "deploykey.secret.yaml"),
+        filepath.Join(KubernetesPath, "flux-system", "flux", "clustersettings.secret.yaml"),
     }
 
     KubeFilterStr = []string{
