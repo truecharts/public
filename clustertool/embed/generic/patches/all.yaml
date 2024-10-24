@@ -57,3 +57,49 @@
   path: /cluster/discovery/registries/service
   value:
     disabled: false
+
+- op: add
+  path: /machine/registries/mirrors
+  value:
+    cgr.dev:
+      endpoints:
+        - https://cgr.dev
+    cgr.io:
+      endpoints:
+        - https://cgr.io
+    docker.io:
+      endpoints:
+        - https://mirror.gcr.io
+        - https://registry-1.docker.io
+        - https://docker.io
+    registry-1.docker.io:
+      endpoints:
+        - https://mirror.gcr.io
+        - https://registry-1.docker.io
+    ghcr.io:
+      endpoints:
+        - https://ghcr.io
+    quay.io:
+      endpoints:
+        - https://quay.io
+    mcr.microsoft.com:
+      endpoints:
+        - https://mcr.microsoft.com
+    public.ecr.aws:
+      endpoints:
+        - https://public.ecr.aws
+    gcr.io:
+      endpoints:
+        - https://gcr.io
+    registry.k8s.io:
+      endpoints:
+        - https://registry.k8s.io
+    k8s.gcr.io:
+      endpoints:
+        - https://k8s.gcr.io
+    tccr.io:
+      endpoints:
+        - https://tccr.io
+    factory.talos.dev:
+      endpoints:
+        - https://factory.talos.dev
