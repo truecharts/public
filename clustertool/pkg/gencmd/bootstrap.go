@@ -199,8 +199,6 @@ func RunBootstrap(args []string) {
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/snapshot-controller/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/openebs/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/longhorn/app"), false, true},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/csi-driver-smb/app"), false, true},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/csi-driver-nfs/app"), false, false},
     }
 
     fluxhandler.InstallCharts(intermediateCharts, HelmRepos, true)
