@@ -124,6 +124,8 @@ spegel:
   # -- Minimum log level to output. Value should be DEBUG, INFO, WARN, or ERROR.
   logLevel: "INFO"
   # -- Registries for which mirror configuration will be created.
+  ## NOTE: If using Talos, Talos does NOT fall-back to the main url for talos containers
+  ## Include main url in mirror list in that case!
   registries:
     - https://cgr.dev
     - https://docker.io
@@ -135,7 +137,7 @@ spegel:
     - https://registry.k8s.io
     - https://k8s.gcr.io
     - https://tccr.io
-    # - https://factory.talos.dev
+    - https://factory.talos.dev
   # -- Additional target mirror registries other than Spegel.
   additionalMirrorRegistries: []
   # -- Max ammount of mirrors to attempt.
@@ -159,7 +161,7 @@ spegel:
   # -- When true latest tags will be resolved to digests.
   resolveLatestTag: true
   # -- When true existing mirror configuration will be appended to instead of replaced.
-  appendMirrors: false
+  appendMirrors: true
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
