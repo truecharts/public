@@ -14,7 +14,7 @@ builds:
       - amd64
       - arm64
     ldflags:
-      - -s -w -X github.com/truecharts/public/clustertool/main.version={{.Version}}  # Adjust path if necessary
+      - -s -w -X github.com/truecharts/public/clustertool/main.Version={{.Version}}  # Adjust path if necessary
 gomod:
   dir: ./clustertool
 archives:
