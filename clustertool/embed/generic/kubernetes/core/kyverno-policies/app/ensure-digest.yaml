@@ -23,6 +23,12 @@ spec:
       - resources:
           kinds:
           - Pod
+    exclude:
+        any:
+          - resources:
+              kinds:
+                - Pod
+              name: '*cnpg*'
     preconditions:
       all:
       - key: "{{request.operation || 'BACKGROUND'}}"
@@ -31,6 +37,8 @@ spec:
     mutate:
       foreach:
       - list: "request.object.spec.containers"
+        # Exclude containers with 'cloudnative-pg' in the name
+        filter: "element.name != 'cloudnative-pg'"
         context:
           - name: resolvedRef
             imageRegistry:
