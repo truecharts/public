@@ -175,8 +175,18 @@ func RunBootstrap(args []string) {
     prioCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/spegel/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/cert-manager/app"), false, false},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/system/kyverno/app"), false, false},
     }
     fluxhandler.InstallCharts(prioCharts, HelmRepos, false)
+
+    kyvernoPolicies := []string{filepath.Join(helper.ClusterPath, "/kubernetes/core/kyverno-policies/app/ensure-digest.yaml"), filepath.Join(helper.ClusterPath, "/kubernetes/core/kyverno-policies/app/schematic-to-pod.yaml")}
+
+    for _, filePath := range kyvernoPolicies {
+        log.Info().Msgf("Bootstrap: Loading KyvernoPolicies: %v", filePath)
+        if err := kubectlcmds.KubectlApply(ctx, filePath); err != nil {
+            log.Info().Msgf("Error applying manifest for %s: %v\n", filepath.Base(filePath), err)
+        }
+    }
 
     intermediateCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/metallb/app"), false, false},
@@ -191,7 +201,6 @@ func RunBootstrap(args []string) {
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/longhorn/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/csi-driver-smb/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/csi-driver-nfs/app"), false, false},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/topolvm/app"), false, true},
     }
 
     fluxhandler.InstallCharts(intermediateCharts, HelmRepos, true)
@@ -228,7 +237,6 @@ func RunBootstrap(args []string) {
     log.Info().Msg("Bootstrap: Installing included applications")
     postCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/apps/kubernetes-dashboard/app"), false, true},
-        // TODO: Add Intel GPU CRD to truecharts and reference here
     }
 
     fluxhandler.InstallCharts(postCharts, HelmRepos, true)
