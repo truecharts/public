@@ -134,8 +134,6 @@ Go back to the "preparation" section and make sure the IP you are trying to move
   7. Hit `save` and wait for the system to create the Zvol. The GUI should refresh and then show your Zvol in the list of datasets like so
       ![ZVOL Creation 2](./img/vm_zvol2.png)
 
-  8. As you can see, I have 2 Zvols in my dataset. Multiple storage devices/drives aren't required for Talos, but if you would like them then you can repeat the above steps, however this time set `Size for this zvol` to between `768GiB` and `2TiB` or however large you desire it to be. The first Zvol you created will be the "system" disk for Talos, and the second Zvol will be the "data" disk for Talos. Instructions on how to attach the second Zvol to the Talos VM will follow below.
-
 </Steps>
 
 ## GPU Isolation
@@ -189,9 +187,9 @@ Minimum recommended amount of RAM: `32GB`
 
 ![VM CPU And Memory](./img/vm_cpu_memory.png)
 
-### Disks
+### Disk
 
-Select the **first** previously created Zvol for your VM as shown below:
+Select the previously created Zvol for your VM as shown below:
 
 ![VM Disks](./img/vm_disks.png)
 
@@ -228,6 +226,8 @@ If you followed this guide correctly, the options shown should look similar to t
 :::note
 
 You can skip this step if you don't have multiple disks configured for usage with Talos
+
+Please be warned, we do NOT actively provide support for multi-disk setups and this *will* require modifications to the default CSI setup
 
 :::
 
@@ -326,3 +326,22 @@ Workernodes can be pretty basic and should "just work".
       installDiskSelector:
         size: <= 600GB
 ```
+
+
+### GPU pass-through Caveats
+
+Users running the Talos VM atop a TrueNAS SCALE host system that want to also take advantage of GPU passthrough to the VM will require a **minimum** of 2 *different* GPUs to be present in the system.
+
+The GPU desired to be passed through to the Talos VM will need to be [isolated](/clustertool/virtual-machines/truenas-scale/#gpu-isolation) within SCALE.
+
+This could include any of the following combinations:
+
+**GPU1:** Dedicated Nvidia GPU isolated within SCALE for VM passthrough
+
+**GPU2:** Intel/AMD iGPU
+
+or
+
+**GPU1:** Motherboard IPMI GPU
+
+**GPU2:** Intel iGPU or dedicated Nvidia GPU isolated within SCALE for VM passthrough

@@ -111,10 +111,9 @@ These include, but are not limited to
 
 ### Storage Recommendations
 
-The file created on your host's storage device to be used by the VM is almost always a single continuous file. So whilst an SSD will obviously greatly improve the speed at which this file can be accessed by the VM, a HDD is adequate.
+An an SSD, HDD+METADATA zfs pool and/or having sync-writes disabled, will greatly improve performance and is assumed to be required.
 
-Additionally, the storage backend we are using on Talos **requires** the presence of two separate "disks" to be presented to the Talos VM. As noted above however, these are [sparsely allocated](https://en.wikipedia.org/wiki/Sparse_file). This means that whilst you'd want to have the entirety of the space able to be occupied available, it will not all be used immediately.
-
+Sparse allocation is adviced:
 For example: A 512GB "sparsely allocated" disk for the Talos VM, housed on a 1TB disk in the host system, will not immediately/always take up 512GB of space. 512GB is the maximum amount of space the file *could* occupy if needed.
 
 ### GPU Recommendations
@@ -122,21 +121,3 @@ For example: A 512GB "sparsely allocated" disk for the Talos VM, housed on a 1TB
 Unfortunately, AMD (i)GPUs continue to be rather lacklustre in the Kubernetes world. AMD GPUs are *supposed* to work under Kubernetes, but suffer limitations such as only being able to be used by 1 app/chart at a time, which makes them hard to recommend.
 
 Nvidia, and to some extent Intel, GPUs by comparison will almost always work "out of the box".
-
-### SCALE VM Host Caveats
-
-Users running the Talos VM atop a TrueNAS SCALE host system that want to also take advantage of GPU passthrough to the VM will require a **minimum** of 2 *different* GPUs to be present in the system.
-
-The GPU desired to be passed through to the Talos VM will need to be [isolated](/clustertool/virtual-machines/truenas-scale/#gpu-isolation) within SCALE.
-
-This could include any of the following combinations:
-
-**GPU1:** Dedicated Nvidia GPU isolated within SCALE for VM passthrough
-
-**GPU2:** Intel/AMD iGPU
-
-or
-
-**GPU1:** Motherboard IPMI GPU
-
-**GPU2:** Intel iGPU or dedicated Nvidia GPU isolated within SCALE for VM passthrough

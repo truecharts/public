@@ -128,12 +128,9 @@ The following example can be used and adjust where necesarry.
 ## Snapshots
 TBD
 
-## Optional: Non-ClusterTool only
-
-The following steps are already included in clustertool by default.
 
 
-### Kernel Modules
+## Kernel Modules
 
 Add these two kernel modules. Use modprobe for typical linux installs or add them to your talconfig.yaml if using TalHelper or ClusterTool as shown below:
 ```yaml
@@ -168,7 +165,7 @@ Create a Thin Pool
 lvcreate -l 100%FREE --chunksize 256 -T -A n -n topolvm_thin topolvm_vg
 ```
 
-### Create Privilaged Namespace
+## Create Privilaged Namespace
 
 Create the namespace with these labels:
 ```yaml
