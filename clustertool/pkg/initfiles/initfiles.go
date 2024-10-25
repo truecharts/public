@@ -124,8 +124,10 @@ func FormatGitURL(input string) string {
         input = "ssh://" + input
     }
 
-    // Replace "github.com/" with "git@github.com:" if present
-    input = strings.Replace(input, "github.com/", "git@github.com:", 1)
+    // If the input does not start with "ssh://", add "ssh://"
+    if !strings.HasPrefix(input, "ssh://git@") {
+        input = "ssh://git@" + input
+    }
 
     // Compile a regex to match and replace the URL pattern
     re := regexp.MustCompile(`^ssh://git@github.com:(\w+)/(\w+).git$`)
