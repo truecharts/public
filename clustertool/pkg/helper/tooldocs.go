@@ -123,7 +123,7 @@ func writeToFile(path string, content []byte, file os.DirEntry) error {
     }
 
     // Set file permissions to 777
-    if err := os.Chmod(path, 0777); err != nil {
+    if err := os.Chmod(path, 0666); err != nil {
         return fmt.Errorf("setting permissions for path %s: %w", path, err)
     }
 
