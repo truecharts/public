@@ -179,15 +179,6 @@ func RunBootstrap(args []string) {
     }
     fluxhandler.InstallCharts(prioCharts, HelmRepos, false)
 
-    kyvernoPolicies := []string{filepath.Join(helper.ClusterPath, "/kubernetes/core/kyverno-policies/app/ensure-digest.yaml"), filepath.Join(helper.ClusterPath, "/kubernetes/core/kyverno-policies/app/schematic-to-pod.yaml")}
-
-    for _, filePath := range kyvernoPolicies {
-        log.Info().Msgf("Bootstrap: Loading KyvernoPolicies: %v", filePath)
-        if err := kubectlcmds.KubectlApply(ctx, filePath); err != nil {
-            log.Info().Msgf("Error applying manifest for %s: %v\n", filepath.Base(filePath), err)
-        }
-    }
-
     intermediateCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/metallb/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/cloudnative-pg/app"), false, false},
