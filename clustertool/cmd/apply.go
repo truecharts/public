@@ -1,6 +1,8 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
@@ -9,9 +11,14 @@ import (
     "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
+var applyLongHelp = strings.TrimSpace(`
+
+`)
+
 var apply = &cobra.Command{
     Use:   "apply",
     Short: "apply TalosConfig",
+    Long:  applyLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
         node := ""

@@ -1,14 +1,21 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
+var encryptLongHelp = strings.TrimSpace(`
+
+`)
+
 var encrypt = &cobra.Command{
     Use:   "encrypt",
     Short: "Encrypt all high-risk data using sops",
+    Long:  encryptLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         if err := sops.EncryptAllFiles(); err != nil {
             log.Info().Msgf("Error encrypting files: %v\n", err)

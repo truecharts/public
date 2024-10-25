@@ -1,15 +1,22 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
 
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/charts/image"
 )
 
+var chartsTagCleanLongHelp = strings.TrimSpace(`
+
+`)
+
 var tagCleaner = &cobra.Command{
     Use:     "tagcleaner",
     Short:   "Creates a clean version tag from a container digest",
+    Long:    chartsTagCleanLongHelp,
     Example: "charttool tagcleaner <tag>",
     Args:    cobra.ExactArgs(1),
     Run: func(cmd *cobra.Command, args []string) {

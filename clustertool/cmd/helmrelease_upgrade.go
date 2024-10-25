@@ -2,15 +2,21 @@ package cmd
 
 import (
     "path/filepath"
+    "strings"
 
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
+var hrUpgradeLongHelp = strings.TrimSpace(`
+
+`)
+
 var hrupgrade = &cobra.Command{
     Use:   "upgrade",
     Short: "run helm-upgrade using a helm-release file without flux",
+    Long:  hrUpgradeLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         initfiles.LoadTalEnv(false)
 

@@ -1,15 +1,22 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
 
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/charts/changelog"
 )
 
+var chartsGenChangelogLongHelp = strings.TrimSpace(`
+
+`)
+
 var genChangelogCmd = &cobra.Command{
     Use:     "genchangelog",
     Short:   "Generate changelog for charts",
+    Long:    chartsGenChangelogLongHelp,
     Example: "charttool genchangelog <repo path> <template path> <charts dir>",
     Run: func(cmd *cobra.Command, args []string) {
         if len(args) < 3 {

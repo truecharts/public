@@ -1,15 +1,22 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
     "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
+var advResetLongHelp = strings.TrimSpace(`
+
+`)
+
 var reset = &cobra.Command{
     Use:   "reset",
     Short: "Reset Talos Nodes and Kubernetes",
+    Long:  advResetLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
         node := ""

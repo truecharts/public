@@ -1,13 +1,20 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
 )
 
+var advBootstrapLongHelp = strings.TrimSpace(`
+
+`)
+
 var bootstrap = &cobra.Command{
     Use:   "bootstrap",
     Short: "bootstrap first Talos Node",
+    Long:  advBootstrapLongHelp,
     Run:   bootstrapfunc,
 }
 

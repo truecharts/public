@@ -1,6 +1,8 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
 
     "slices"
@@ -10,9 +12,14 @@ import (
     "github.com/truecharts/public/clustertool/pkg/helper"
 )
 
+var chartsGenMetaLongHelp = strings.TrimSpace(`
+
+`)
+
 var genMetaCmd = &cobra.Command{
     Use:   "genmeta",
     Short: "Generate and update Chart.yaml metadata",
+    Long:  chartsGenMetaLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         bump := ""
         if len(args) > 0 && slices.Contains([]string{"patch", "minor", "major"}, args[0]) {

@@ -1,6 +1,8 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
 
     "github.com/spf13/cobra"
@@ -8,9 +10,14 @@ import (
     "github.com/truecharts/public/clustertool/pkg/helper"
 )
 
+var chartsGenChartsListLongHelp = strings.TrimSpace(`
+
+`)
+
 var genChartListCmd = &cobra.Command{
     Use:     "genchartlist",
     Short:   "Generate chart list json file",
+    Long:    chartsGenChartsListLongHelp,
     Example: "charttool genchartlist <path to charts folder>",
     Run: func(cmd *cobra.Command, args []string) {
         opts := &website.ChartListOptions{

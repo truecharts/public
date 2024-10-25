@@ -1,6 +1,8 @@
 package cmd
 
 import (
+    "strings"
+
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
@@ -8,9 +10,14 @@ import (
     "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
+var upgradeLongHelp = strings.TrimSpace(`
+
+`)
+
 var upgrade = &cobra.Command{
     Use:   "upgrade",
     Short: "Upgrade Talos Nodes and Kubernetes",
+    Long:  upgradeLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
         node := ""
