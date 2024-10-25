@@ -127,12 +127,14 @@ func FormatGitURL(input string) string {
     }
 
     // Compile a regex to match and replace the URL pattern
-    re := regexp.MustCompile(`^ssh://git@([^:/]+):(\w+)/(\w+)\.git$`)
+    re := regexp.MustCompile(`^ssh://git@([^:/]+)([:/])(\w+)/(\w+)\.git$`)
     matches := re.FindStringSubmatch(input)
 
-    if len(matches) == 4 {
-        // Reformat the URL to a generic SSH format
-        return fmt.Sprintf("ssh://git@%s/%s/%s.git", matches[1], matches[2], matches[3])
+    if len(matches) == 5 {
+        // Determine the user and repo based on the separator used
+        user := matches[3] // Always captured as part of the matched group
+        repo := matches[4] // Always captured as part of the matched group
+        return fmt.Sprintf("ssh://git@%s/%s/%s.git", matches[1], user, repo)
     }
 
     return input // Return the input as is if it doesn't match
