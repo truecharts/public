@@ -1,3 +1,7 @@
+## This Can be enabled in the kustomization.yaml file.
+## Please note not every chart or application is compatible with this behavior
+## Primarily operators spinning their own pods, might include conflicting validation
+## Add manual exclusions where needed
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
