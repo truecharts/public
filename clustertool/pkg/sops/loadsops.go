@@ -4,6 +4,7 @@ import (
     "fmt"
     "io/ioutil"
 
+    "github.com/rs/zerolog/log"
     "gopkg.in/yaml.v3"
 )
 
@@ -16,20 +17,27 @@ type SopsConfig struct {
 }
 
 func LoadSopsConfig() (SopsConfig, error) {
+    log.Trace().Msg("Starting LoadSopsConfig function")
+
     // Read .sops.yaml file
     data, err := ioutil.ReadFile(".sops.yaml")
     if err != nil {
+        log.Error().Err(err).Msg("Error reading .sops.yaml file")
         return SopsConfig{}, fmt.Errorf("error reading file: %v", err)
     }
+    log.Debug().Msg("Successfully read .sops.yaml file")
 
     // Unmarshal YAML data into struct
     var config SopsConfig
     err = yaml.Unmarshal(data, &config)
     if err != nil {
+        log.Error().Err(err).Msg("Error unmarshaling YAML data")
         return SopsConfig{}, fmt.Errorf("error unmarshaling YAML: %v", err)
     }
+    log.Debug().Msg("Successfully unmarshaled YAML data into struct")
 
-    // Print the loaded struct
-    // log.Info().Msgf("Loaded Config:\n%+v\n %v", config)
+    // Log the loaded struct
+    log.Info().Interface("loadedConfig", config).Msg("Loaded SopsConfig successfully")
+
     return config, nil
 }
