@@ -9,6 +9,8 @@ import (
 )
 
 var decryptLongHelp = strings.TrimSpace(`
+The decryption feature of ClusterTool goes over all config files and, if encrypted, checks if ".sops.yaml" specifies that they should be decrypted.
+If so, they are decrypted using your "age.agekey" file as specified in ".sops.yaml".
 
 `)
 

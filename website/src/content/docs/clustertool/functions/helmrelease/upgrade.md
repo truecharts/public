@@ -1,4 +1,0 @@
----
-title: HELM Upgrade
----
-# Upgrade

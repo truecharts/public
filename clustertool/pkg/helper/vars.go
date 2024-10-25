@@ -14,6 +14,7 @@ var (
     BaseCache       = filepath.Join(CacheDir, "base")
     RootCache       = filepath.Join(CacheDir, "root")
     PatchCache      = filepath.Join(CacheDir, "patches")
+    DocsCache       = filepath.Join(CacheDir, "docs")
     CacheDir        = filepath.Join(UserCacheDir, "clustertool")
     ClusterPath     = filepath.Join("./clusters", ClusterName)
     ClusterEnvFile  = filepath.Join(ClusterPath, "/clusterenv.yaml")

@@ -1,5 +1,0 @@
----
-title: HELM Release
----
-
-# HelmRelease
