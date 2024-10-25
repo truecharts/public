@@ -16,7 +16,6 @@ Afterwards you can edit talconfig.yaml and clusterenv.yaml to reflect your perso
 
 When done, please run clustertool genconfig to generate all configarion based on your personal settings
 
-Powered by TalHelper (https://budimanjojo.github.io/talhelper/)
 
 `)
 

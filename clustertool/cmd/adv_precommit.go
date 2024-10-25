@@ -14,9 +14,10 @@ var advPrecommitLongHelp = strings.TrimSpace(`
 `)
 
 var precommit = &cobra.Command{
-    Use:   "precommit",
-    Short: "Runs the PreCommit encryption check",
-    Long:  advPrecommitLongHelp,
+    Use:     "precommit",
+    Short:   "Runs the PreCommit encryption check",
+    Example: "clustertool adv precommit",
+    Long:    advPrecommitLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         if err := sops.CheckFilesAndReportEncryption(true, true); err != nil {
             log.Info().Msgf("Error checking files: %v\n", err)

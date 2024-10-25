@@ -10,12 +10,12 @@ import (
 )
 
 var advTestCmdlongHelp = strings.TrimSpace(`
-
+This command is mostly just for development usage and should NEVER be used by end-users.
 `)
 
 var testcmd = &cobra.Command{
     Use:   "test",
-    Short: "test run",
+    Short: "tests specific code for developer usages",
     Long:  advTestCmdlongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         initfiles.LoadTalEnv(false)

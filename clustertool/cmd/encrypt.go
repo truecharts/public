@@ -13,9 +13,10 @@ var encryptLongHelp = strings.TrimSpace(`
 `)
 
 var encrypt = &cobra.Command{
-    Use:   "encrypt",
-    Short: "Encrypt all high-risk data using sops",
-    Long:  encryptLongHelp,
+    Use:     "encrypt",
+    Short:   "Encrypt all high-risk data using sops",
+    Example: "clustertool encrypt",
+    Long:    encryptLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         if err := sops.EncryptAllFiles(); err != nil {
             log.Info().Msgf("Error encrypting files: %v\n", err)

@@ -18,7 +18,7 @@ var genChartListCmd = &cobra.Command{
     Use:     "genchartlist",
     Short:   "Generate chart list json file",
     Long:    chartsGenChartsListLongHelp,
-    Example: "charttool genchartlist <path to charts folder>",
+    Example: "clustertool charts genchartlist <path to charts folder>",
     Run: func(cmd *cobra.Command, args []string) {
         opts := &website.ChartListOptions{
             OutputPath:  "./charts.json",

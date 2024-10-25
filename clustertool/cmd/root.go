@@ -3,7 +3,6 @@ package cmd
 import (
     "os"
     "path/filepath"
-    "strings"
 
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
@@ -12,25 +11,10 @@ import (
 
 var thisversion string
 
-var rootLongHelp = strings.TrimSpace(`
-clustertool is a tool to help you easily deploy and maintain a Talos Kubernetes Cluster.
-
-
-Workflow:
-  Create talconfig.yaml file defining your nodes information like so:
-
- Available commands
-  > clustertool init
-  > clustertool genconfig
-
-  Powered by TalHelper (https://budimanjojo.github.io/talhelper/)
-
-`)
-
 var RootCmd = &cobra.Command{
     Use:           "clustertool",
     Short:         "A tool to help with creating Talos cluster",
-    Long:          rootLongHelp,
+    Long:          infoLongHelp,
     SilenceUsage:  true,
     SilenceErrors: true,
     Version:       thisversion,

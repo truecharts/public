@@ -16,7 +16,7 @@ var bumper = &cobra.Command{
     Use:     "bump",
     Short:   "generate a bumped image version",
     Long:    chartsBumpLongHelp,
-    Example: "charttool bump <version> <kind>",
+    Example: "clustertool charts bump <version> <kind>",
     Args:    cobra.ExactArgs(2),
     Run: func(cmd *cobra.Command, args []string) {
         if err := version.Bump(args[0], args[1]); err != nil {

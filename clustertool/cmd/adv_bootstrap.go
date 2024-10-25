@@ -12,10 +12,11 @@ var advBootstrapLongHelp = strings.TrimSpace(`
 `)
 
 var bootstrap = &cobra.Command{
-    Use:   "bootstrap",
-    Short: "bootstrap first Talos Node",
-    Long:  advBootstrapLongHelp,
-    Run:   bootstrapfunc,
+    Use:     "bootstrap",
+    Short:   "bootstrap first Talos Node",
+    Example: "clustertool adv bootstrap",
+    Long:    advBootstrapLongHelp,
+    Run:     bootstrapfunc,
 }
 
 func bootstrapfunc(cmd *cobra.Command, args []string) {

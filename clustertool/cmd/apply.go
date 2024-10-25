@@ -16,9 +16,10 @@ var applyLongHelp = strings.TrimSpace(`
 `)
 
 var apply = &cobra.Command{
-    Use:   "apply",
-    Short: "apply TalosConfig",
-    Long:  applyLongHelp,
+    Use:     "apply",
+    Short:   "apply TalosConfig",
+    Example: "clustertool apply <NodeIP>",
+    Long:    applyLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
         node := ""

@@ -8,6 +8,15 @@ import (
 )
 
 var infoLongHelp = strings.TrimSpace(`
+clustertool is a tool to help you easily deploy and maintain a Talos Kubernetes Cluster.
+
+
+Workflow:
+  Create talconfig.yaml file defining your nodes information like so:
+
+ Available commands
+  > clustertool init
+  > clustertool genconfig
 
 `)
 

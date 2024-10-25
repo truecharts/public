@@ -17,7 +17,7 @@ var genChangelogCmd = &cobra.Command{
     Use:     "genchangelog",
     Short:   "Generate changelog for charts",
     Long:    chartsGenChangelogLongHelp,
-    Example: "charttool genchangelog <repo path> <template path> <charts dir>",
+    Example: "clustertool charts genchangelog <repo path> <template path> <charts dir>",
     Run: func(cmd *cobra.Command, args []string) {
         if len(args) < 3 {
             log.Fatal().Msg("Missing required arguments. Please provide the repo path, template path and charts directory.")

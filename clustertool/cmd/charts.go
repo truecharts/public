@@ -7,12 +7,10 @@ import (
 )
 
 var chartsLongHelp = strings.TrimSpace(`
-charttool is a tool to help you build TrueCharts Charts
+charttool was a tool to help you build TrueCharts Charts.
+It has since been merged into Clustertool as "clustertool charts"
 
-Workflow:
-  Create talconfig.yaml file defining your nodes information like so:
-
- Available commands
+ Example commands
   > charttool bump 1.2.3 patch
   > charttool tagclean soemtag@somedigest
 
@@ -21,6 +19,7 @@ Workflow:
 var charts = &cobra.Command{
     Use:           "charts",
     Short:         "A tool to help with creating Talos cluster",
+    Example:       "charttool bump 1.2.3 patch",
     Long:          chartsLongHelp,
     SilenceUsage:  true,
     SilenceErrors: true,

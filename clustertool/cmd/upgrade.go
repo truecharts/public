@@ -15,9 +15,10 @@ var upgradeLongHelp = strings.TrimSpace(`
 `)
 
 var upgrade = &cobra.Command{
-    Use:   "upgrade",
-    Short: "Upgrade Talos Nodes and Kubernetes",
-    Long:  upgradeLongHelp,
+    Use:     "upgrade",
+    Short:   "Upgrade Talos Nodes and Kubernetes",
+    Example: "clustertool upgrade <NodeIP>",
+    Long:    upgradeLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
         node := ""

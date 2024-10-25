@@ -14,9 +14,10 @@ var hrUpgradeLongHelp = strings.TrimSpace(`
 `)
 
 var hrupgrade = &cobra.Command{
-    Use:   "upgrade",
-    Short: "run helm-upgrade using a helm-release file without flux",
-    Long:  hrUpgradeLongHelp,
+    Use:     "upgrade",
+    Short:   "run helm-upgrade using a helm-release file without flux",
+    Example: "clustertool helmrelease upgrade",
+    Long:    hrUpgradeLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         initfiles.LoadTalEnv(false)
 

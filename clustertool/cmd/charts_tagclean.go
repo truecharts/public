@@ -17,7 +17,7 @@ var tagCleaner = &cobra.Command{
     Use:     "tagcleaner",
     Short:   "Creates a clean version tag from a container digest",
     Long:    chartsTagCleanLongHelp,
-    Example: "charttool tagcleaner <tag>",
+    Example: "clustertool charts tagclean <tag>",
     Args:    cobra.ExactArgs(1),
     Run: func(cmd *cobra.Command, args []string) {
         err := image.Clean(args[0])

@@ -13,9 +13,10 @@ var decryptLongHelp = strings.TrimSpace(`
 `)
 
 var decrypt = &cobra.Command{
-    Use:   "decrypt",
-    Short: "Decrypt all high-risk data using sops",
-    Long:  decryptLongHelp,
+    Use:     "decrypt",
+    Short:   "Decrypt all high-risk data using sops",
+    Example: "clustertool decrypt",
+    Long:    decryptLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         if err := sops.DecryptFiles(); err != nil {
             log.Info().Msgf("Error decrypting files: %v\n", err)
