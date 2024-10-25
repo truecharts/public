@@ -1,7 +1,5 @@
 ---
-sidebar:
-  order: 4
-title: Init
+title: Files and Folders
 ---
 
 :::caution[Work In Progress]
@@ -12,12 +10,7 @@ All code and docs are considered Pre-Beta drafts
 
 :::
 
-ClusterTool requires a specific directory layout to ensure smooth operators and standardised environments.
-
-To ensure smooth deployment, the init function can pre-generate all required files in the right places.
-Afterwards, you can edit talconfig.yaml and clusterenv.yaml to reflect your personal settings.
-
-When done, please run clustertool genconfig to generate all configurations based on your personal settings.
+File and Folder structure on init, is as follows
 
 
 ## Created Files and Folders

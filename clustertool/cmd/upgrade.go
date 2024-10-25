@@ -11,6 +11,10 @@ import (
 )
 
 var upgradeLongHelp = strings.TrimSpace(`
+The "upgrade" command updates Talos to the latest version specified in talconfig.yaml for all nodes.
+It also applies any changed "extentions" and/or "overlays" specified there.
+
+On top of this, after upgrading Talos on all nodes, it also executes kubernetes-upgrades for the whole cluster as well.
 
 `)
 

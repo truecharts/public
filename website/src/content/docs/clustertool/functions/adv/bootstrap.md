@@ -1,5 +1,0 @@
----
-title: Bootstrap
----
-
-# Bootstrap-Only
