@@ -92,9 +92,13 @@ func addYamlTitle(content []byte, isPrimaryIndex bool) []byte {
 
     if isPrimaryIndex {
         builder.WriteString("commands\n---\n")
-        log.Debug().Msg("Set primary index title to 'clustertool'")
+        log.Debug().Msg("Set primary index title to 'commands'")
     } else if scanner.Scan() && strings.HasPrefix(scanner.Text(), "## ") {
         title := strings.TrimPrefix(scanner.Text(), "## ")
+        if title == "clustertool" {
+            title = "command"
+        }
+        title = strings.TrimPrefix(title, "clustertool ")
         builder.WriteString(title + "\n---\n")
         builder.WriteString(scanner.Text() + "\n")
         log.Debug().Str("title", title).Msg("Set title from first line")
