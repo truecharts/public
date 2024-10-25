@@ -228,6 +228,7 @@ func CheckEnvVariables() {
         "VIP",
         "MASTER1IP_IP",
         "MASTER1IP_NETMASK",
+        "DASHBOARD_IP",
         "GATEWAY",
         "METALLB_RANGE",
         "PODNET",
