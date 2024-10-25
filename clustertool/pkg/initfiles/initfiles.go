@@ -114,32 +114,28 @@ func UpdateGitRepo() {
 
 // FormatGitURL formats the input Git URL according to the specified rules.
 func FormatGitURL(input string) string {
-    // If the input starts with "https://", remove it
-    if strings.HasPrefix(input, "https://") {
-        input = strings.TrimPrefix(input, "https://")
-    }
+    // Remove "https://" prefix if present
+    input = strings.TrimPrefix(input, "https://")
 
-    // If the input does not start with "ssh://", add "ssh://"
-    if !strings.HasPrefix(input, "ssh://") {
-        input = "ssh://" + input
-    }
-
-    // If the input does not start with "ssh://", add "ssh://"
+    // Ensure input starts with "ssh://git@"
     if !strings.HasPrefix(input, "ssh://git@") {
-        input = "ssh://git@" + input
+        // Prepend "ssh://git@" if neither "ssh://" nor "git@" is present
+        if !strings.HasPrefix(input, "ssh://") {
+            input = "ssh://" + input
+        }
+        input = strings.Replace(input, "ssh://", "ssh://git@", 1)
     }
 
     // Compile a regex to match and replace the URL pattern
-    re := regexp.MustCompile(`^ssh://git@github.com:(\w+)/(\w+).git$`)
+    re := regexp.MustCompile(`^ssh://git@([^:/]+):(\w+)/(\w+)\.git$`)
     matches := re.FindStringSubmatch(input)
 
-    if len(matches) == 3 {
-        // Reformat the URL
-        return fmt.Sprintf("ssh://git@github.com/%s/%s.git", matches[1], matches[2])
+    if len(matches) == 4 {
+        // Reformat the URL to a generic SSH format
+        return fmt.Sprintf("ssh://git@%s/%s/%s.git", matches[1], matches[2], matches[3])
     }
 
-    // Return the input if it doesn't match the expected pattern
-    return input
+    return input // Return the input as is if it doesn't match
 }
 
 func genBaseFiles() error {
