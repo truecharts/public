@@ -16,7 +16,7 @@ var gendocsCmd = &cobra.Command{
     Hidden: true,
     Run: func(cmd *cobra.Command, args []string) {
         outdir := args[0]
-        tmpdir := "./tmp/docs"
+        tmpdir := helper.DocsCache
 
         if err := os.MkdirAll(tmpdir, 0o777); err != nil {
             log.Fatal(err)

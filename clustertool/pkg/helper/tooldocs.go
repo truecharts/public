@@ -11,7 +11,6 @@ import (
 )
 
 func ToolDocs(tmpDir string, outputDir string) {
-
     log.Info().Msg("Starting file processing")
 
     if err := processFiles(tmpDir, outputDir); err != nil {
@@ -23,12 +22,14 @@ func ToolDocs(tmpDir string, outputDir string) {
         return
     }
 
+    renameClustertoolToIndex(outputDir)
+
     log.Info().Msg("File processing completed successfully")
 }
 
 // processFiles reads and processes each file, writing modified content to output directories.
-func processFiles(tmpdir string, outputDir string) error {
-    files, err := os.ReadDir(tmpdir)
+func processFiles(tmpDir string, outputDir string) error {
+    files, err := os.ReadDir(tmpDir)
     if err != nil {
         return fmt.Errorf("reading input directory: %w", err)
     }
@@ -45,7 +46,7 @@ func processFiles(tmpdir string, outputDir string) error {
 
         log.Info().Str("file", file.Name()).Str("new_path", newPath).Msg("Processing file")
 
-        content, err := os.ReadFile(filepath.Join(tmpdir, file.Name()))
+        content, err := os.ReadFile(filepath.Join(tmpDir, file.Name()))
         if err != nil {
             log.Error().Err(err).Str("file", file.Name()).Msg("Error reading file")
             continue
@@ -57,7 +58,7 @@ func processFiles(tmpdir string, outputDir string) error {
             continue
         }
 
-        if err := os.Remove(filepath.Join(tmpdir, file.Name())); err != nil {
+        if err := os.Remove(filepath.Join(tmpDir, file.Name())); err != nil {
             log.Error().Err(err).Str("file", file.Name()).Msg("Error deleting original file")
         } else {
             log.Debug().Str("file", file.Name()).Msg("Original file deleted")
@@ -83,7 +84,7 @@ func determinePaths(filename string) (subDir, newFileName string) {
     return
 }
 
-// addYamlTitle adds the YAML front matter with title.
+// addYamlTitle adds the YAML front matter with title and removes the "### SEE ALSO" section.
 func addYamlTitle(content []byte, isPrimaryIndex bool) []byte {
     scanner := bufio.NewScanner(strings.NewReader(string(content)))
     var builder strings.Builder
@@ -98,9 +99,17 @@ func addYamlTitle(content []byte, isPrimaryIndex bool) []byte {
         builder.WriteString(scanner.Text() + "\n")
         log.Debug().Str("title", title).Msg("Set title from first line")
     }
+
+    // Add remaining lines until "### SEE ALSO" is found
     for scanner.Scan() {
-        builder.WriteString(scanner.Text() + "\n")
+        line := scanner.Text()
+        if strings.HasPrefix(line, "### SEE ALSO") {
+            log.Debug().Msg("Skipping 'SEE ALSO' section")
+            break
+        }
+        builder.WriteString(line + "\n")
     }
+
     return []byte(builder.String())
 }
 
@@ -112,6 +121,12 @@ func writeToFile(path string, content []byte, file os.DirEntry) error {
     if err := os.WriteFile(path, content, file.Type()); err != nil {
         return fmt.Errorf("writing file to path %s: %w", path, err)
     }
+
+    // Set file permissions to 777
+    if err := os.Chmod(path, 0777); err != nil {
+        return fmt.Errorf("setting permissions for path %s: %w", path, err)
+    }
+
     log.Info().Str("path", path).Msg("File written successfully")
     return nil
 }
@@ -139,5 +154,25 @@ func moveMatchingFilesToSubdirs(outputDir string) error {
             log.Info().Str("file", file.Name()).Str("subdirectory", subDir).Msg("Moved file to subdirectory as index.md")
         }
     }
+    return nil
+}
+
+// renameClustertoolToIndex renames clustertool.md to index.md in the given directory.
+func renameClustertoolToIndex(dir string) error {
+    oldPath := filepath.Join(dir, "clustertool.md")
+    newPath := filepath.Join(dir, "index.md")
+
+    // Check if clustertool.md exists
+    if _, err := os.Stat(oldPath); os.IsNotExist(err) {
+        log.Warn().Str("file", oldPath).Msg("clustertool.md does not exist")
+        return nil // No error, just return since file doesn't exist
+    }
+
+    // Rename clustertool.md to index.md
+    if err := os.Rename(oldPath, newPath); err != nil {
+        return fmt.Errorf("renaming %s to %s: %w", oldPath, newPath, err)
+    }
+
+    log.Info().Str("old_path", oldPath).Str("new_path", newPath).Msg("File renamed successfully")
     return nil
 }
