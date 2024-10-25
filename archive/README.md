@@ -1,3 +1,3 @@
 # archive
 
-This repo contains old TrueCharts project code
+This folder contains old TrueCharts project code
