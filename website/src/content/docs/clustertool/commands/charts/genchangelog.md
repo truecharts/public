@@ -1,5 +1,5 @@
 ---
-title: clustertool charts genchangelog
+title: charts genchangelog
 ---
 ## clustertool charts genchangelog
 

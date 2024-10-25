@@ -1,5 +1,5 @@
 ---
-title: clustertool charts genmeta
+title: charts genmeta
 ---
 ## clustertool charts genmeta
 

@@ -1,5 +1,5 @@
 ---
-title: clustertool fluxbootstrap
+title: fluxbootstrap
 ---
 ## clustertool fluxbootstrap
 

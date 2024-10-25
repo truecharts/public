@@ -1,5 +1,5 @@
 ---
-title: clustertool adv bootstrap
+title: adv bootstrap
 ---
 ## clustertool adv bootstrap
 

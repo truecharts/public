@@ -1,5 +1,5 @@
 ---
-title: clustertool completion zsh
+title: completion zsh
 ---
 ## clustertool completion zsh
 

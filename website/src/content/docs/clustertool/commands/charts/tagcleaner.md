@@ -1,5 +1,5 @@
 ---
-title: clustertool charts tagcleaner
+title: charts tagcleaner
 ---
 ## clustertool charts tagcleaner
 

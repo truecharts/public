@@ -1,5 +1,5 @@
 ---
-title: clustertool charts bump
+title: charts bump
 ---
 ## clustertool charts bump
 

@@ -1,5 +1,5 @@
 ---
-title: clustertool helmrelease upgrade
+title: helmrelease upgrade
 ---
 ## clustertool helmrelease upgrade
 

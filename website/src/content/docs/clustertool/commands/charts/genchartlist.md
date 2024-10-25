@@ -1,5 +1,5 @@
 ---
-title: clustertool charts genchartlist
+title: charts genchartlist
 ---
 ## clustertool charts genchartlist
 

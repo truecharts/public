@@ -1,5 +1,5 @@
 ---
-title: clustertool adv reset
+title: adv reset
 ---
 ## clustertool adv reset
 

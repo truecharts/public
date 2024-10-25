@@ -1,5 +1,5 @@
 ---
-title: clustertool completion fish
+title: completion fish
 ---
 ## clustertool completion fish
 

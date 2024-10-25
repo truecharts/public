@@ -1,5 +1,5 @@
 ---
-title: clustertool completion powershell
+title: completion powershell
 ---
 ## clustertool completion powershell
 

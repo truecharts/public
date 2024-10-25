@@ -1,5 +1,5 @@
 ---
-title: clustertool decrypt
+title: decrypt
 ---
 ## clustertool decrypt
 

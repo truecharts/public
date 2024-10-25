@@ -1,5 +1,5 @@
 ---
-title: clustertool info
+title: info
 ---
 ## clustertool info
 

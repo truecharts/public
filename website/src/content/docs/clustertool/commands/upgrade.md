@@ -1,5 +1,5 @@
 ---
-title: clustertool upgrade
+title: upgrade
 ---
 ## clustertool upgrade
 

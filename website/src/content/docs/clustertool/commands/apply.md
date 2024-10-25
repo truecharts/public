@@ -1,5 +1,5 @@
 ---
-title: clustertool apply
+title: apply
 ---
 ## clustertool apply
 

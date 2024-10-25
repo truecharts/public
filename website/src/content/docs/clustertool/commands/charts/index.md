@@ -1,5 +1,5 @@
 ---
-title: clustertool charts
+title: charts
 ---
 ## clustertool charts
 

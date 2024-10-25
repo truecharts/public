@@ -1,5 +1,5 @@
 ---
-title: clustertool encrypt
+title: encrypt
 ---
 ## clustertool encrypt
 

@@ -1,5 +1,5 @@
 ---
-title: clustertool adv precommit
+title: adv precommit
 ---
 ## clustertool adv precommit
 

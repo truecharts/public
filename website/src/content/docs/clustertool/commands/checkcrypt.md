@@ -1,5 +1,5 @@
 ---
-title: clustertool checkcrypt
+title: checkcrypt
 ---
 ## clustertool checkcrypt
 

@@ -1,5 +1,5 @@
 ---
-title: clustertool scale
+title: scale
 ---
 ## clustertool scale
 

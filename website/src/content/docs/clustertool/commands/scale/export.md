@@ -1,5 +1,5 @@
 ---
-title: clustertool scale export
+title: scale export
 ---
 ## clustertool scale export
 

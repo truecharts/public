@@ -1,5 +1,5 @@
 ---
-title: clustertool init
+title: init
 ---
 ## clustertool init
 

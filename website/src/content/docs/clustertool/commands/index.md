@@ -1,5 +1,5 @@
 ---
-title: clustertool
+title: command
 ---
 ## clustertool
 

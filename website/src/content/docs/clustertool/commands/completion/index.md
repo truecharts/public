@@ -1,5 +1,5 @@
 ---
-title: clustertool completion
+title: completion
 ---
 ## clustertool completion
 

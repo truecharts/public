@@ -1,5 +1,5 @@
 ---
-title: clustertool helmrelease
+title: helmrelease
 ---
 ## clustertool helmrelease
 

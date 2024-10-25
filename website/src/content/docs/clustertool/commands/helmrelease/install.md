@@ -1,5 +1,5 @@
 ---
-title: clustertool helmrelease install
+title: helmrelease install
 ---
 ## clustertool helmrelease install
 

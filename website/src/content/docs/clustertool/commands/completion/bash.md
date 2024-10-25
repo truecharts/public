@@ -1,5 +1,5 @@
 ---
-title: clustertool completion bash
+title: completion bash
 ---
 ## clustertool completion bash
 

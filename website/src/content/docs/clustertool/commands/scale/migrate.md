@@ -1,5 +1,5 @@
 ---
-title: clustertool scale migrate
+title: scale migrate
 ---
 ## clustertool scale migrate
 

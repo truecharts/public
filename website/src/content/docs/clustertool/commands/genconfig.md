@@ -1,5 +1,5 @@
 ---
-title: clustertool genconfig
+title: genconfig
 ---
 ## clustertool genconfig
 
