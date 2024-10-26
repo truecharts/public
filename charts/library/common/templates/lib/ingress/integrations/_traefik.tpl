@@ -61,18 +61,16 @@
       {{/* If there are items, re-assign the variable */}}
       {{- if and $lookupMiddlewares $lookupMiddlewares.items -}}
         {{- $lookupMiddlewares = $lookupMiddlewares.items -}}
+      {{- else -}} {{/* If there are no items, assign an empty list */}}
+        {{- $lookupMiddlewares = list -}}
       {{- end -}}
 
       {{/* Parse look-ed up middlewares */}}
       {{- range $m := $lookupMiddlewares -}}
-        {{- if and $m $m.metadata $m.metadata.name $m.metadata.namespace -}}
-          {{- $name := $m.metadata.name -}}
-          {{- $namespace := $m.metadata.namespace -}}
-          {{/* Create a smaller list with only the data we want */}}
-          {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
-        {{- else -}}
-          {{- include "add.warning" (dict "rootCtx" $rootCtx "warn" (printf "WARNING: Found a 'nil' middleware, something is wrong with the lookup, dumping middleware: %s" (toYaml $m))) -}}
-        {{- end -}}
+        {{- $name := $m.metadata.name -}}
+        {{- $namespace := $m.metadata.namespace -}}
+        {{/* Create a smaller list with only the data we want */}}
+        {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
       {{- end -}}
     {{- end -}}
 
