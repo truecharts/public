@@ -71,4 +71,4 @@ tests:
             restartPolicy: Always
     asserts:
       - failedTemplate:
-          errorMessage: Expected [restartPolicy] to be one of [Never, OnFailure], but got [Always]
+          errorMessage: Expected [restartPolicy] to be one of [Never, OnFailure] for [CronJob] but got [Always]
