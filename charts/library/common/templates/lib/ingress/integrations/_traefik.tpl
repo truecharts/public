@@ -65,10 +65,12 @@
 
       {{/* Parse look-ed up middlewares */}}
       {{- range $m := $lookupMiddlewares -}}
-        {{- $name := $m.metadata.name -}}
-        {{- $namespace := $m.metadata.namespace -}}
-        {{/* Create a smaller list with only the data we want */}}
-        {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
+        {{ if and $m.metadata.name $m.metadata.namespace -}}
+          {{- $name := $m.metadata.name -}}
+          {{- $namespace := $m.metadata.namespace -}}
+          {{/* Create a smaller list with only the data we want */}}
+          {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
 
