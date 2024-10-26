@@ -2,7 +2,8 @@ name: Automerge and Approve
 
 on:
   workflow_run:
-    workflows: ["Pull Request: Validate"]  # Name of the main CI workflow
+    # If you want to filter based on a specific finisher workflow, add here
+    # workflows: ["Pull Request: Validate"]  # Name of the main CI workflow
     types:
       - completed
 
