@@ -203,3 +203,35 @@ In Prowlarr, under `Settings -> Indexers -> Add [Indexer Proxies]`, select `Http
 If you added a `proxy` tag, make sure to also add that to the desired Indexers, under `Indexers -> Edit Indexer -> Tags`.
 
 Your indexer traffic will now be routed through the Gluetun HTTP proxy. Check the `qbittorrent-vpn` container logs to confirm.
+
+## Talos specific config
+
+In talos in order to use the tun interface for Gluetun a workaround is needed otherwise you will get an error with permissions creating the tun interface.
+
+### Step 1: Add the generic-device-plugin
+
+you can find the steps [here](https://www.talos.dev/v1.8/kubernetes-guides/configuration/device-plugins/#deploying-the-device-plugin)
+
+### Step 2: Add this into your helm-release.yaml for your app
+
+Here is an example snippet for qbittorrent
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: qbittorrent
+  namespace: qbittorrent
+spec:
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              version: v1
+              kind: Deployment
+              name: qbittorrent
+            patch: |
+              - op: add
+                path: /spec/template/spec/containers/1/resources/limits/squat.ai~1tun
+                value: 1
+```
