@@ -45,7 +45,6 @@ func CheckStatus(requiredPods []string, excludePod []string, timeout time.Durati
         pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
         if err != nil {
             log.Error().Err(err).Msg("Error listing pods")
-            return fmt.Errorf("error listing pods: %w", err)
         }
 
         // Check if the required pods are both present and running
