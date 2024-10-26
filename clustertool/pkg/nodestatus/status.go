@@ -53,7 +53,7 @@ func CheckStatus(node string) (string, error) {
     argsslice := append(baseStatusCMD(node), "-o", "jsonpath={.spec.stage}")
     out, err := helper.RunCommand(argsslice, true)
     if err != nil {
-        log.Warn().Err(err).Str("output", string(out)).Msg("Error running command, checking for certificate issue")
+        log.Debug().Err(err).Str("output", string(out)).Msg("Error running command, checking for certificate issue")
         if strings.Contains(string(out), "certificate signed by unknown authority") {
             log.Debug().Msg("Certificate signed by unknown authority; retrying with insecure flag")
             argsslice = append(baseStatusCMD(node), "-o", "jsonpath={.spec.stage}", "--insecure")

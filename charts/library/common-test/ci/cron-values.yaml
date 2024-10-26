@@ -16,7 +16,6 @@ workload:
     type: CronJob
     schedule: "*/1 * * * *"
     podSpec:
-      restartPolicy: OnFailure
       containers:
         main:
           enabled: true

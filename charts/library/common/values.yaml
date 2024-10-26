@@ -160,7 +160,6 @@ podOptions:
   # If this key exists, takes precedence over the automated calculation
   # hostUsers: false
   shareProcessNamespace: false
-  restartPolicy: Always
   dnsPolicy: ClusterFirst
   dnsConfig:
     options:
@@ -481,7 +480,7 @@ codeserverImage:
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.20.3@sha256:b2b2350a8a843b7f8a0afef968e525900b5c2ae410a8ef0c6461005a06b64ffe
+  tag: v3.20.3@sha256:0f0162635afb50d4794d7fd92b74c635ae3422cc426284da88e5e8754d1cfdcd
   pullPolicy: IfNotPresent
 
 scratchImage:
@@ -506,22 +505,22 @@ yqImage:
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:4e4e5b9f37a5d0c8d90d744de23d1857079095fbb55d2944ec91d83241f60376
+  tag: v1.1.0@sha256:eb330c9d63de46eac5c0acf58fd1fd79190d92505f8957b66ba150b24244774e
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:62858b8191b662716d84840f8d9b3c86654f175686159c5267a1c860d75f398d
+  tag: v1.1.0@sha256:e5022ada570152f7d4a051fe61745cf39f68cc4faf195d9d3654aeccbd60ce41
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:e9412891c9b6c96f11143cd88f5d19df352bf7b5570f1825f67b5e1a2ddec176
+  tag: v1.1.0@sha256:8fe7439963ea5fece9bac13c18eb196ca70434a1d87630f5e04360ffa21e2851
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: v1.1.0@sha256:9268e23927c4abd9bd031ef62a8a36c58e15361cf3f617906029fa4b6f25c71c
+  tag: v1.1.0@sha256:ee44fbd32673ba711aa72c95e604d51f845038366916559cec52ecfb8148073c
   pullPolicy: IfNotPresent
 
 postgres15Image:

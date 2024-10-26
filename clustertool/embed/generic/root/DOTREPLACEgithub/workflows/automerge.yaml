@@ -1,0 +1,22 @@
+name: Automerge and Approve
+
+on:
+  workflow_run:
+    workflows: ["Pull Request: Validate"]  # Name of the main CI workflow
+    types:
+      - completed
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.4"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          UPDATE_RETRIES: 24
+          UPDATE_RETRY_SLEEP: 60000

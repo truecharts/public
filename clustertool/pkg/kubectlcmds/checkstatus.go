@@ -36,7 +36,8 @@ func CheckStatus(requiredPods []string, excludePod []string, timeout time.Durati
     maxDuration := timeout * time.Minute
     endTime := time.Now().Add(maxDuration)
 
-    log.Info().Msgf("Checking status of required pods: %v, excluding pods: %v", requiredPods, excludePod)
+    log.Info().Msg("Checking status of required pods")
+    log.Debug().Msgf("required pods: %v, excluding pods: %v", requiredPods, excludePod)
 
     for time.Now().Before(endTime) {
         log.Debug().Msg("Retrieving list of pods")
@@ -44,8 +45,10 @@ func CheckStatus(requiredPods []string, excludePod []string, timeout time.Durati
         // Get pods in all namespaces
         pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
         if err != nil {
-            log.Error().Err(err).Msg("Error listing pods")
-            return fmt.Errorf("error listing pods: %w", err)
+            log.Debug().Err(err).Msg("Error listing pods")
+            log.Warn().Msg("Cannot recieve pods (yet), waiting before checking again")
+            time.Sleep(5 * time.Second)
+            continue
         }
 
         // Check if the required pods are both present and running

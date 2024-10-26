@@ -28,7 +28,7 @@ func EncryptAllFiles() error {
         }
     }
 
-    log.Info().Msg("Encryption pipeline placeholders added to all eligible files")
+    log.Info().Msg("All Files encrypted successfully")
     return nil
 }
 
@@ -65,7 +65,7 @@ func processFileEncryption(file EncrFileData) error {
         return fmt.Errorf("error encrypting file %s: %v", file.Path, err)
     }
 
-    log.Info().Msgf("File %s encrypted successfully.\n", file.Path)
+    log.Debug().Msgf("File %s encrypted successfully.\n", file.Path)
     return nil
 }
 
@@ -103,7 +103,7 @@ func encryptFile(filePath string) error {
         return fmt.Errorf("error writing encrypted data to file: %v", err)
     }
 
-    log.Info().Msgf("Successfully encrypted file: %s", filePath)
+    log.Debug().Msgf("Successfully encrypted file: %s", filePath)
     return nil
 }
 

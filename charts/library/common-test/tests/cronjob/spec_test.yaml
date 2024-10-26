@@ -84,6 +84,11 @@ tests:
             parallelism: 5
             ttlSecondsAfterFinished: 100
             activeDeadlineSeconds: 100
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec.jobTemplate.spec.template.spec
+          content:
+            restartPolicy: OnFailure
 
   - it: should set suspend to true
     set:

@@ -81,7 +81,7 @@ var apply = &cobra.Command{
                 if helper.GetYesOrNo("Do you want to bootstrap now? (yes/no) [y/n]: ") {
                     gencmd.RunBootstrap(extraArgs)
                     if helper.GetYesOrNo("Do you want to apply config to all remaining clusternodes as well? (yes/no) [y/n]: ") {
-                        RunApply("", extraArgs)
+                        RunApply(false, "", extraArgs)
                     }
                 } else {
                     log.Info().Msg("Exiting bootstrap, as apply is not possible...")
@@ -90,26 +90,28 @@ var apply = &cobra.Command{
             } else {
                 log.Info().Msg("Detected maintenance mode, but first node does not require to be bootrapped.")
                 log.Info().Msg("Assuming apply is requested... continuing with Apply...")
-                RunApply(node, extraArgs)
+                RunApply(true, node, extraArgs)
             }
 
         } else if status == "running" {
             log.Info().Msg("Apply: running first controlnode detected, continuing...")
-            RunApply(node, extraArgs)
+            RunApply(true, node, extraArgs)
         }
     },
 }
 
-func RunApply(node string, extraArgs []string) {
+func RunApply(kubeconfig bool, node string, extraArgs []string) {
     taloscmds := gencmd.GenApply(node, extraArgs)
     gencmd.ExecCmds(taloscmds, true)
 
-    kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
-    gencmd.ExecCmd(kubeconfigcmds)
-
-    if helper.GetYesOrNo("Do you want to (re)load ssh, Sops and ClusterEnv onto the cluster? (yes/no) [y/n]: ") {
-
+    if kubeconfig {
+        kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
+        gencmd.ExecCmd(kubeconfigcmds)
     }
+
+    //if helper.GetYesOrNo("Do you want to (re)load ssh, Sops and ClusterEnv onto the cluster? (yes/no) [y/n]: ") {
+    //
+    //}
 }
 
 func init() {

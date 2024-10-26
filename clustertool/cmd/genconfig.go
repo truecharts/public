@@ -6,8 +6,6 @@ import (
     "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
-    "github.com/truecharts/public/clustertool/pkg/helper"
-    "github.com/truecharts/public/clustertool/pkg/nodestatus"
     "github.com/truecharts/public/clustertool/pkg/sops"
 )
 
@@ -31,14 +29,6 @@ var genConfig = &cobra.Command{
         }
 
         gencmd.GenConfig(args)
-        err := nodestatus.CheckHealth(helper.TalEnv["VIP_IP"], "", true)
-        if err == nil {
-            log.Info().Msg("Running Cluster Detected, setting KubeConfig...")
-            kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"])
-            gencmd.ExecCmd(kubeconfigcmds)
-        } else {
-            log.Info().Msg("No Running Cluster Detected, Skipping KubeConfig...")
-        }
     },
 }
 

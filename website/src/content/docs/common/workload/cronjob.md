@@ -20,6 +20,10 @@ Replace references to `$name` with the actual name you want to use.
 
 - `.Values.workload.$name`
 
+## Notes
+
+Value of `workload.$name.podSpec.restartPolicy` can **not** be `Always` for this type of workload
+
 ## `schedule`
 
 Define the schedule

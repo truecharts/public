@@ -59,3 +59,16 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Job - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with restartPolicy "Always" for Job
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec:
+            restartPolicy: Always
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [restartPolicy] to be one of [Never, OnFailure] for [Job] but got [Always]
