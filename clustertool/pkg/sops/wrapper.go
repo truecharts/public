@@ -73,7 +73,7 @@ func EncryptWithAgeKey(body []byte, regex string, format string) ([]byte, error)
         return nil, fmt.Errorf("error encrypting data: %v", err)
     }
 
-    log.Info().Msg("Data encrypted successfully")
+    log.Debug().Msg("Data encrypted successfully")
     return encryptedData, nil
 }
 
@@ -186,6 +186,6 @@ func (m *cypher) Encrypt(content []byte, encrConfig EncryptionConfig) (result []
         return nil, err
     }
 
-    log.Info().Msg("Tree encrypted successfully")
+    log.Debug().Msg("Tree encrypted successfully")
     return store.EmitEncryptedFile(tree)
 }

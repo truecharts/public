@@ -37,7 +37,7 @@ func LoadSopsConfig() (SopsConfig, error) {
     log.Debug().Msg("Successfully unmarshaled YAML data into struct")
 
     // Log the loaded struct
-    log.Info().Msg("Loaded SopsConfig successfully")
+    log.Debug().Msg("Loaded SopsConfig successfully")
     log.Debug().Interface("loaded SOPS Config", config)
 
     return config, nil

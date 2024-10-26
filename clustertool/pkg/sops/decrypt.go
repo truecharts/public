@@ -56,7 +56,7 @@ func DecryptFiles() error {
                 log.Error().Err(err).Msgf("Error writing decrypted data to file %s", file.Path)
                 return fmt.Errorf("error writing decrypted data to file %s: %v", file.Path, err)
             }
-            log.Info().Msgf("Successfully decrypted file: %s", file.Path)
+            log.Debug().Msgf("Successfully decrypted file: %s", file.Path)
         }
     }
 
@@ -66,7 +66,7 @@ func DecryptFiles() error {
     }
 
     initfiles.LoadTalEnv(true)
-    log.Trace().Msg("Finished DecryptFiles function")
+    log.Info().Msg("All files decrypted successfully")
     return nil
 }
 
