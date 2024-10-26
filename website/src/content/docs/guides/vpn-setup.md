@@ -206,7 +206,7 @@ Your indexer traffic will now be routed through the Gluetun HTTP proxy. Check th
 
 ## Talos specific config
 
-In talos in order to use the tun interface for Glutun a workaround is needed otherwise you will get an error with permissions creating the tun interface.
+In talos in order to use the tun interface for Gluetun a workaround is needed otherwise you will get an error with permissions creating the tun interface.
 
 ### Step 1: Add the generic-device-plugin
 
