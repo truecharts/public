@@ -36,7 +36,8 @@ func CheckStatus(requiredPods []string, excludePod []string, timeout time.Durati
     maxDuration := timeout * time.Minute
     endTime := time.Now().Add(maxDuration)
 
-    log.Info().Msgf("Checking status of required pods: %v, excluding pods: %v", requiredPods, excludePod)
+    log.Info().Msg("Checking status of required pods")
+    log.Debug().Msgf("required pods: %v, excluding pods: %v", requiredPods, excludePod)
 
     for time.Now().Before(endTime) {
         log.Debug().Msg("Retrieving list of pods")
