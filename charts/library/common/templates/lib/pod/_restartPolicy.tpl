@@ -37,7 +37,7 @@ objectData: The object data to be used to render the Pod.
 
   {{- if and (eq "Always" $policy) (mustHas $objectData.type $jobTypes) -}}
     {{- $cronPolicies := mustWithout $policies "Always" -}}
-    {{- fail (printf "Expected [restartPolicy] to be one of [%s] for [%s] but got [%s]" (join ", " $cronPolicies) (join ", " $jobTypes) $policy) -}}
+    {{- fail (printf "Expected [restartPolicy] to be one of [%s] for [%s] but got [%s]" (join ", " $cronPolicies) $objectData.type $policy) -}}
   {{- end -}}
 
   {{- $policy -}}
