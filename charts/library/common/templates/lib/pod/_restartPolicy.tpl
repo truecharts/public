@@ -9,6 +9,9 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- $policy := "Always" -}}
+  {{- if eq $objectData.type "CronJob" -}}
+    {{- $policy = "OnFailure" -}}
+  {{- end -}}
 
   {{/* Initialize from the "defaults" */}}
   {{- with $rootCtx.Values.podOptions.restartPolicy -}}
@@ -28,6 +31,11 @@ objectData: The object data to be used to render the Pod.
   {{- $types := (list "Deployment" "DaemonSet" "StatefulSet") -}}
   {{- if and (ne "Always" $policy) (mustHas $objectData.type $types) -}}
     {{- fail (printf "Expected [restartPolicy] to be [Always] for [%s] but got [%s]" $objectData.type $policy) -}}
+  {{- end -}}
+
+  {{- if and (eq "Always" $policy) (eq "CronJob" $objectData.type) -}}
+    {{- $cronPolicies := mustWithout $policies "Always" -}}
+    {{- fail (printf "Expected [restartPolicy] to be one of [%s] for [%s] but got [%s]" (join ", " $cronPolicies) $objectData.type $policy) -}}
   {{- end -}}
 
   {{- $policy -}}
