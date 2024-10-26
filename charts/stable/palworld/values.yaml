@@ -33,6 +33,7 @@ palworld:
     username: ""
     password: ""
     validate: false
+  update_public_ip: ""
   game:
     PublicPort: "{{ .Values.service.main.ports.main.port }}"
     RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
@@ -42,7 +43,6 @@ palworld:
     AdminPassword: "TrueChartsIsAHelmProject"
     RCONEnabled: "True"
     bUseAuth: true
-    # PublicIP: ""
   params:
     - -publiclobby
   params_extra:
@@ -70,7 +70,7 @@ workload:
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
               dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
-              update_public_ip="{{ .Values.palworld.game.update_public_ip }}"
+              game_values="{{ .Values.palworld.game }}"
 
               mkdir -p ${config}
               if [ ! -f "${cfgFile}" ]; then
@@ -79,81 +79,70 @@ workload:
                       cp "${dfCfgFile}" "${cfgFile}"
                   else
                       echo "Config file not found, fetching..."
-                      # Fetch the config file if it doesn't exist, just like the container does
                       wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
                   fi
               fi
 
               set_ini() {
-                local key="${1}"
-                local value="${2}"
-                local flags=""  # Initialize an empty string for flags
+                  local key="${1}"
+                  local value="${2}"
+                  local flags=""
 
-                # Loop through arguments starting from the third one
-                for arg in "$@"; do
-                    if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
-                        flags="$flags $arg"  # Append each flag to the flags string
-                    fi
-                done
+                  for arg in "$@"; do
+                      if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
+                          flags="$flags $arg"
+                      fi
+                  done
 
-                # Check if the key exists in the OptionSettings section
-                if ! grep -q 'OptionSettings=(' "$cfgFile"; then
-                    echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
-                    return
-                fi
+                  if ! grep -q 'OptionSettings=(' "$cfgFile"; then
+                      echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
+                      return
+                  fi
 
-                # Check if the key exists within the OptionSettings section
-                if ! grep -q "${key}=" "$cfgFile"; then
-                    echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
-                    return
-                fi
+                  if ! grep -q "${key}=" "$cfgFile"; then
+                      echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
+                      return
+                  fi
 
-                # Iterate over flags
-                for flag in $flags; do
-                    case $flag in
-                        -q)
-                            # Add quotes around the value
-                            value="\"$value\""
-                            ;;
-                        -b)
-                            # Handle boolean flag
-                            if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
-                                value="True"
-                            else
-                                value="False"
-                            fi
-                            ;;
-                        *)
-                            echo "Unknown flag: $flag. Skipping..."
-                            ;;
-                    esac
-                done
+                  for flag in $flags; do
+                      case $flag in
+                          -q)
+                              value="\"$value\""
+                              ;;
+                          -b)
+                              if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
+                                  value="True"
+                              else
+                                  value="False"
+                              fi
+                              ;;
+                          *)
+                              echo "Unknown flag: $flag. Skipping..."
+                              ;;
+                      esac
+                  done
 
-                # Update the value within the OptionSettings section
-                sed -i "/OptionSettings=(/ {
-                    :loop
-                    /)$/! {
-                        N
-                        b loop
-                    }
-                    s|\(${key}=\)[^,]*|\1${value}|
-                }" "${cfgFile}"
+                  sed -i "/OptionSettings=(/ {
+                      :loop
+                      /)$/! {
+                          N
+                          b loop
+                      }
+                      s|\(${key}=\)[^,]*|\1${value}|
+                  }" "${cfgFile}"
 
-                # Check if the closing parenthesis is missing, and if so, add it
-                if ! grep -q ')$' "${cfgFile}"; then
-                    sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
-                fi
+                  if ! grep -q ')$' "${cfgFile}"; then
+                      sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
+                  fi
 
-                echo "Set ${key} to ${value}"
+                  echo "Set ${key} to ${value}"
               }
 
-              echo "the following options are updating...."
+              # Loop over .Values.palworld.game and set each key-value pair
+              {{- range $key, $value := ${game_values} }}
+              set_ini "{{ $key }}" "{{ $value }}" {{ if eq (typeOf $value) "bool" }}-b{{ else }}-q{{ end }}
+              {{- end }}
 
-              set_ini "RCONEnabled" "True" -b
-              .Values.palworld.game
-
-              
-              
               echo "Done!"
 
       containers:
@@ -178,34 +167,14 @@ workload:
             PASSWRD: "{{ .Values.palworld.steam.password }}"
             VALIDATE: "{{ .Values.palworld.steam.validate }}"
             # game
-            SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
-            UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
-            GAME_PARAMS: '{{ printf "-port=%v -publicport=%v -rconport=%v %s" .Values.service.main.ports.main.port .Values.service.main.ports.main.port .Values.service.rcon.ports.rcon.port (join " " .Values.palworld.game.params) }}'
-            GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
+            SRV_ADMIN_PWD: "{{ .Values.palworld.game.AdminPassword }}"
+            UPDATE_PUBLIC_IP: "{{ .Values.palworld.update_public_ip }}"
+            GAME_PARAMS: '{{ printf "-port=%v -publicport=%v -rconport=%v %s" .Values.service.main.ports.main.port .Values.service.main.ports.main.port .Values.service.rcon.ports.rcon.port (join " " .Values.palworld.params) }}'
+            GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.params_extra }}'
             # backup
             BACKUP: "{{ .Values.palworld.backup.enabled }}"
             BACKUP_INTERVAL: "{{ .Values.palworld.backup.interval }}"
             BACKUP_TO_KEEP: "{{ .Values.palworld.backup.to_keep }}"
-  rcon:
-    enabled: true
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
-    podSpec:
-      containers:
-        rcon:
-          primary: true
-          enabled: true
-          imageSelector: rconImage
-          tty: true
-          stdin: true
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
 
 persistence:
   steamcmd:
@@ -219,16 +188,6 @@ persistence:
           mountPath: /serverdata/serverfiles
         update-config-ini:
           mountPath: /serverdata/serverfiles
-  palworld-rcon:
-    enabled: true
-    type: configmap
-    objectName: palworld-rcon
-    targetSelector:
-      rcon:
-        rcon:
-          mountPath: /rcon.yaml
-          subPath: rcon.yaml
-          readOnly: true
 
 portal:
   open:
