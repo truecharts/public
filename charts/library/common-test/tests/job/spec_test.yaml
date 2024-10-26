@@ -55,6 +55,11 @@ tests:
             parallelism: 5
             ttlSecondsAfterFinished: 100
             activeDeadlineSeconds: 100
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec.template.spec
+          content:
+            restartPolicy: OnFailure
 
   - it: should set parallelism to 0
     set:
