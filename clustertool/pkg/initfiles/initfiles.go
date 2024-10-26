@@ -95,7 +95,7 @@ func GenTalEnvConfigMap() error {
     clusterSettingsSrc := filepath.Join(helper.KubeCache, clusterSettings)
     os.MkdirAll(filepath.Join(helper.ClusterPath, "/kubernetes", "flux-system", "flux"), os.ModePerm)
     err = helper.CopyFile(clusterSettingsSrc, clusterSettingsDest, true)
-    log.Info().Msgf("test %v", clusterSettingsDest)
+    log.Debug().Msgf("clusterSettingsDest %v", clusterSettingsDest)
     helper.ReplaceInFile(clusterSettingsDest, "REPLACEWITHENV", indentedTalenvContent)
     if err != nil {
         log.Fatal().Err(err).Msg("Error: %s")
