@@ -274,44 +274,7 @@ rbac:
       - apiGroups:
           - ""
         resources:
-          - services
-          - endpoints
-          - secrets
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses
-          - ingressclasses
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses/status
-        verbs:
-          - update
-      - apiGroups:
-          - traefik.containo.us
-          - traefik.io
-        resources:
-          - middlewares
-          - middlewaretcps
-          - ingressroutes
-          - traefikservices
-          - ingressroutetcps
-          - ingressrouteudps
-          - tlsoptions
-          - tlsstores
-          - serverstransports
-          - serverstransporttcps
+          - nodes
         verbs:
           - get
           - list
@@ -319,7 +282,8 @@ rbac:
       - apiGroups:
           - ""
         resources:
-          - nodes
+          - endpoints
+          - services
         verbs:
           - get
           - list
@@ -332,6 +296,297 @@ rbac:
           - get
           - list
           - watch
+      - apiGroups:
+          - ""
+        resources:
+          - services
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - discovery.k8s.io
+        resources:
+          - endpointslices
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - get
+          - list
+          - watch
+          - update
+          - create
+          - delete
+          - deletecollection
+      - apiGroups:
+          - policy
+        resources:
+          - podsecuritypolicies
+        verbs:
+          - use
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingressclasses
+          - ingresses
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses/status
+        verbs:
+          - update
+      - apiGroups:
+          - traefik.io
+        resources:
+          - ingressroutes
+          - ingressroutetcps
+          - ingressrouteudps
+          - middlewares
+          - middlewaretcps
+          - serverstransports
+          - serverstransporttcps
+          - tlsoptions
+          - tlsstores
+          - traefikservices
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - namespaces
+          - endpoints
+          - secrets
+          - services
+          - configmaps
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - discovery.k8s.io
+        resources:
+          - endpointslices
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - gateway.networking.k8s.io
+        resources:
+          - backendtlspolicies
+          - gatewayclasses
+          - gateways
+          - grpcroutes
+          - httproutes
+          - referencegrants
+          - tcproutes
+          - tlsroutes
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - gateway.networking.k8s.io
+        resources:
+          - backendtlspolicies/status
+          - gatewayclasses/status
+          - gateways/status
+          - grpcroutes/status
+          - httproutes/status
+          - tcproutes/status
+          - tlsroutes/status
+        verbs:
+          - update
+      - apiGroups:
+          - coordination.k8s.io
+        resources:
+          - leases
+        verbs:
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - endpoints
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - namespaces
+          - pods
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - hub.traefik.io
+        resources:
+          - accesscontrolpolicies
+          - apiaccesses
+          - apiportals
+          - apiratelimits
+          - apis
+          - apiversions
+          - apibundles
+          - apiplans
+        verbs:
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
+          - get
+      - apiGroups:
+          - ""
+        resources:
+          - events
+        verbs:
+          - create
+          - patch
+      - apiGroups:
+          - apps
+        resources:
+          - replicasets
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - nodes
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - endpoints
+          - services
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - services
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - discovery.k8s.io
+        resources:
+          - endpointslices
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - list
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses/status
+        verbs:
+          - update
+      - apiGroups:
+          - traefik.io
+        resources:
+          - ingressroutes
+          - ingressroutetcps
+          - ingressrouteudps
+          - middlewares
+          - middlewaretcps
+          - tlsoptions
+          - tlsstores
+          - traefikservices
+          - serverstransports
+          - serverstransporttcps
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+        resources:
+          - podsecuritypolicies
+        verbs:
+          - use
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - endpoints
+          - namespaces
+          - pods
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - discovery.k8s.io
+        resources:
+          - endpointslices
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - coordination.k8s.io
+        resources:
+          - leases
+        verbs:
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
+
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
