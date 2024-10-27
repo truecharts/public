@@ -29,16 +29,14 @@ palworld:
     username: ""
     password: ""
     validate: false
-  update_public_ip: ""
   game:
-    PublicPort: "{{ .Values.service.main.ports.main.port }}"
-    RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
     ServerName: "TrueCharts Palworld Server"
     ServerDescription: "A Palworld Server running in Kubernetes"
     ServerPassword: ""
     AdminPassword: "TrueChartsIsAHelmProject"
-    RCONEnabled: "True"
     bUseAuth: true
+    # PublicIP: "my public IP"
+  update_public_ip: false
   params:
     - -publiclobby
   params_extra:
@@ -63,87 +61,107 @@ workload:
             - -c
           args:
             - |
-                echo updating ini values....
                 serverfiles={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
-                echo ${serverfiles}
-                game_values={{ .Values.palworld.game }}
-                echo ${game_values}
+                config=${serverfiles}/Pal/Saved/Config/LinuxServer
+                cfgFile=${config}/PalWorldSettings.ini
+                dfCfgFile=${serverfiles}/DefaultPalWorldSettings.ini
+                update_public_ip="{{ .Values.palworld.game.update_public_ip }}"
 
-                config="${serverfiles}/Pal/Saved/Config/LinuxServer"
-                cfgFile="${config}/PalWorldSettings.ini"
-                dfCfgFile="${serverfiles}/DefaultPalWorldSettings.ini"
-
-                mkdir -p "${config}"
+                mkdir -p ${config}
                 if [ ! -f "${cfgFile}" ]; then
                     if [ -f "${dfCfgFile}" ]; then
                         echo "Default config file found, copying as cfgFile..."
                         cp "${dfCfgFile}" "${cfgFile}"
                     else
                         echo "Config file not found, fetching..."
+                        # Fetch the config file if it doesn't exist, just like the container does
                         wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
                     fi
                 fi
 
                 set_ini() {
-                    local key="$1"
-                    local value="$2"
-                    local flags=""
+                  local key="${1}"
+                  local value="${2}"
+                  local flags=""  # Initialize an empty string for flags
 
-                    shift 2
-                    for arg in "$@"; do
-                        flags="$flags $arg"
-                    done
+                  # Loop through arguments starting from the third one
+                  for arg in "$@"; do
+                      if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
+                          flags="$flags $arg"  # Append each flag to the flags string
+                      fi
+                  done
 
-                    if ! grep -q 'OptionSettings=(' "$cfgFile"; then
-                        echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
-                        return
-                    fi
+                  # Check if the key exists in the OptionSettings section
+                  if ! grep -q 'OptionSettings=(' "$cfgFile"; then
+                      echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
+                      return
+                  fi
 
-                    if ! grep -q "${key}=" "$cfgFile"; then
-                        echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
-                        return
-                    fi
+                  # Check if the key exists within the OptionSettings section
+                  if ! grep -q "${key}=" "$cfgFile"; then
+                      echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
+                      return
+                  fi
 
-                    for flag in $flags; do
-                        case $flag in
-                            -q) value="\"$value\"" ;;
-                            -b) value="$(echo "$value" | tr '[:upper:]' '[:lower:]' | sed 's/true/True/; s/false/False/')" ;;
-                            *) echo "Unknown flag: $flag. Skipping..." ;;
-                        esac
-                    done
+                  # Iterate over flags
+                  for flag in $flags; do
+                      case $flag in
+                          -q)
+                              # Add quotes around the value
+                              value="\"$value\""
+                              ;;
+                          -b)
+                              # Handle boolean flag
+                              if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
+                                  value="True"
+                              else
+                                  value="False"
+                              fi
+                              ;;
+                          *)
+                              echo "Unknown flag: $flag. Skipping..."
+                              ;;
+                      esac
+                  done
 
-                    sed -i "/OptionSettings=(/ {
-                        :loop
-                        /)$/! {
-                            N
-                            b loop
-                        }
-                        s|\(${key}=\)[^,]*|\1${value}|
-                    }" "${cfgFile}"
+                  # Update the value within the OptionSettings section
+                  sed -i "/OptionSettings=(/ {
+                      :loop
+                      /)$/! {
+                          N
+                          b loop
+                      }
+                      s|\(${key}=\)[^,]*|\1${value}|
+                  }" "${cfgFile}"
 
-                    if ! grep -q ')$' "${cfgFile}"; then
-                        sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
-                    fi
+                  # Check if the closing parenthesis is missing, and if so, add it
+                  if ! grep -q ')$' "${cfgFile}"; then
+                      sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
+                  fi
 
-                    echo "Set ${key} to ${value}"
+                  echo "Set ${key} to ${value}"
                 }
 
-                # Convert YAML to key-value pairs using yq
-                if [[ -n "$game_values" ]]; then
-                    eval "game_values=$(yq eval -o=json "${game_values}" | jq -r 'to_entries | .[] | "\(.key)=\(.value)"')"
-                fi
+                echo "the following options are updating...."
 
-                # Loop over game_values and set each key-value pair
-                IFS=$'\n' # Use newline as delimiter
-                for pair in $game_values; do
-                    IFS='=' read -r key value <<< "$pair"
+                set_ini "RCONEnabled" "True" -b
+
+                set_ini "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
+                set_ini "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+
+                for key in $(echo "{{ .Values.palworld.game }}" | yq e 'keys | .[]' -); do
+                    # Extract the value for each key in the game section
+                    value=$(echo "{{ .Values.palworld.game }}" | yq e ".${key}" -)
+                    
+                    # Determine the flag based on the value type
                     if [[ "$value" == "true" || "$value" == "false" ]]; then
-                        set_ini "$key" "$value" -b
+                        set_ini "$key" "$value" -b  # Boolean flag
+                    elif [[ "$value" =~ ^-?[0-9]+([.][0-9]+)?$ ]]; then
+                        set_ini "$key" "$value"      # Number, no flag
                     else
-                        set_ini "$key" "$value" -q
+                        set_ini "$key" "$value" -q  # String flag
                     fi
                 done
-
                 echo "Done!"
       containers:
         main:
