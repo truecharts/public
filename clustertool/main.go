@@ -47,6 +47,9 @@ func main() {
     case "panic":
         zerologLevel = zerolog.PanicLevel
         zapLevel = zapcore.PanicLevel
+    case "info":
+        zerologLevel = zerolog.InfoLevel
+        zapLevel = zapcore.InfoLevel
     default:
         zerologLevel = zerolog.InfoLevel
         zapLevel = zapcore.InfoLevel
