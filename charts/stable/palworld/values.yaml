@@ -148,19 +148,19 @@ workload:
                 set_ini "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
                 set_ini "PublicPort" "{{ .Values.service.main.ports.main.port }}"
 
-                for key in $(echo "{{ .Values.palworld.game }}" | yq e 'keys | .[]' -); do
-                    # Extract the value for each key in the game section
-                    value=$(echo "{{ .Values.palworld.game }}" | yq e ".${key}" -)
-                    
-                    # Determine the flag based on the value type
-                    if [ "$value" = "true" ] || [ "$value" = "false" ]; then
-                        set_ini "$key" "$value" -b  # Boolean flag
-                    elif echo "$value" | grep -Eq '^-?[0-9]+(\.[0-9]+)?$'; then
-                        set_ini "$key" "$value"      # Number, no flag
-                    else
-                        set_ini "$key" "$value" -q  # String flag
-                    fi
-                done
+                {{- range $key, $value := .Values.palworld.game }}
+                  {{- $numRegex := "^[0-9]+([.][0-9]+)?$" -}}
+                  {{- $boolRegex := "^(true|false)$" -}}
+                  {{- $valueStr := toString $value -}}
+                  
+                  {{- if (mustRegexMatch $numRegex $valueStr) }}
+                    set_ini "{{ $key }}" {{ $value }}
+                  {{- else if (mustRegexMatch $boolRegex (lower $valueStr)) }}
+                    set_ini "{{ $key }}" {{ $valueStr | title }} -b
+                  {{- else }}
+                    set_ini "{{ $key }}" {{ quote $valueStr }} -q
+                  {{- end }}
+                {{- end }}
                 echo "Done!"
       containers:
         main:
