@@ -15,6 +15,13 @@ service:
       main:
         protocol: udp
         port: 8211
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        protocol: tcp
+        port: 8212
   rcon:
     enabled: true
     ports:
@@ -22,7 +29,6 @@ service:
         enabled: true
         protocol: tcp
         port: 25575
-
 palworld:
   steam:
     id: "2394010"
@@ -36,6 +42,7 @@ palworld:
     AdminPassword: "TrueChartsIsAHelmProject"
     bUseAuth: true
     # PublicIP: "my public IP"
+    # AllowConnectPlatform: "Steam|Xbox"
   update_public_ip: false
   params:
     - -publiclobby
@@ -147,6 +154,8 @@ workload:
 
                 set_ini "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
                 set_ini "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+                set_ini "RESTAPIEnabled" "True" -b
+                set_ini "RESTAPIPort" "{{ .Values.service.api.ports.api.port }}"
 
                 {{- range $key, $value := .Values.palworld.game }}
                   {{- $numRegex := "^[0-9]+([.][0-9]+)?$" -}}
