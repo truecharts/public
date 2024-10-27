@@ -154,9 +154,9 @@ workload:
                     value=$(echo "{{ .Values.palworld.game }}" | yq e ".${key}" -)
                     
                     # Determine the flag based on the value type
-                    if [[ "$value" == "true" || "$value" == "false" ]]; then
+                    if [ "$value" = "true" ] || [ "$value" = "false" ]; then
                         set_ini "$key" "$value" -b  # Boolean flag
-                    elif [[ "$value" =~ ^-?[0-9]+([.][0-9]+)?$ ]]; then
+                    elif echo "$value" | grep -Eq '^-?[0-9]+(\.[0-9]+)?$'; then
                         set_ini "$key" "$value"      # Number, no flag
                     else
                         set_ini "$key" "$value" -q  # String flag
