@@ -63,85 +63,85 @@ workload:
             - -c
           args:
             - |
-              export serverfiles={{ printf "%s" .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
-              
-              config=$serverfiles/Pal/Saved/Config/LinuxServer
-              cfgFile=${config}/PalWorldSettings.ini
-              dfCfgFile=$serverfiles/DefaultPalWorldSettings.ini
-              game_values={{ .Values.palworld.game }}
+                export serverfiles={{ printf "%s" .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
+                
+                config=$serverfiles/Pal/Saved/Config/LinuxServer
+                cfgFile=${config}/PalWorldSettings.ini
+                dfCfgFile=$serverfiles/DefaultPalWorldSettings.ini
+                game_values={{ .Values.palworld.game }}
 
-              mkdir -p ${config}
-              if [ ! -f "${cfgFile}" ]; then
-                  if [ -f "${dfCfgFile}" ]; then
-                      echo "Default config file found, copying as cfgFile..."
-                      cp "${dfCfgFile}" "${cfgFile}"
-                  else
-                      echo "Config file not found, fetching..."
-                      wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
-                  fi
-              fi
+                mkdir -p ${config}
+                if [ ! -f "${cfgFile}" ]; then
+                    if [ -f "${dfCfgFile}" ]; then
+                        echo "Default config file found, copying as cfgFile..."
+                        cp "${dfCfgFile}" "${cfgFile}"
+                    else
+                        echo "Config file not found, fetching..."
+                        wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+                    fi
+                fi
 
-              set_ini() {
-                  local key="${1}"
-                  local value="${2}"
-                  local flags=""
+                set_ini() {
+                    local key="${1}"
+                    local value="${2}"
+                    local flags=""
 
-                  for arg in "$@"; do
-                      if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
-                          flags="$flags $arg"
-                      fi
-                  done
+                    for arg in "$@"; do
+                        if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
+                            flags="$flags $arg"
+                        fi
+                    done
 
-                  if ! grep -q 'OptionSettings=(' "$cfgFile"; then
-                      echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                    if ! grep -q 'OptionSettings=(' "$cfgFile"; then
+                        echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
+                        return
+                    fi
 
-                  if ! grep -q "${key}=" "$cfgFile"; then
-                      echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                    if ! grep -q "${key}=" "$cfgFile"; then
+                        echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
+                        return
+                    fi
 
-                  for flag in $flags; do
-                      case $flag in
-                          -q)
-                              value="\"$value\""
-                              ;;
-                          -b)
-                              if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
-                                  value="True"
-                              else
-                                  value="False"
-                              fi
-                              ;;
-                          *)
-                              echo "Unknown flag: $flag. Skipping..."
-                              ;;
-                      esac
-                  done
+                    for flag in $flags; do
+                        case $flag in
+                            -q)
+                                value="\"$value\""
+                                ;;
+                            -b)
+                                if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
+                                    value="True"
+                                else
+                                    value="False"
+                                fi
+                                ;;
+                            *)
+                                echo "Unknown flag: $flag. Skipping..."
+                                ;;
+                        esac
+                    done
 
-                  sed -i "/OptionSettings=(/ {
-                      :loop
-                      /)$/! {
-                          N
-                          b loop
-                      }
-                      s|\(${key}=\)[^,]*|\1${value}|
-                  }" "${cfgFile}"
+                    sed -i "/OptionSettings=(/ {
+                        :loop
+                        /)$/! {
+                            N
+                            b loop
+                        }
+                        s|\(${key}=\)[^,]*|\1${value}|
+                    }" "${cfgFile}"
 
-                  if ! grep -q ')$' "${cfgFile}"; then
-                      sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
-                  fi
+                    if ! grep -q ')$' "${cfgFile}"; then
+                        sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
+                    fi
 
-                  echo "Set ${key} to ${value}"
-              }
+                    echo "Set ${key} to ${value}"
+                }
 
-              # Loop over .Values.palworld.game and set each key-value pair
-              {{- range $key, $value := ${game_values} }}
-              set_ini "{{ $key }}" "{{ $value }}" {{ if eq (typeOf $value) "bool" }}-b{{ else }}-q{{ end }}
-              {{- end }}
+                # Loop over .Values.palworld.game and set each key-value pair
+                {{- range $key, $value := ${game_values} }}
+                set_ini "{{ $key }}" "{{ $value }}" {{ if eq (typeOf $value) "bool" }}-b{{ else }}-q{{ end }}
+                {{- end }}
 
-              echo "Done!"
+                echo "Done!"
 
       containers:
         main:
