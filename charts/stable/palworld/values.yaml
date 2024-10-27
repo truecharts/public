@@ -63,12 +63,17 @@ workload:
             - -c
           args:
             - |
-                config=/serverdata/serverfiles/Pal/Saved/Config/LinuxServer
-                cfgFile=${config}/PalWorldSettings.ini
-                dfCfgFile=/serverdata/serverfiles/DefaultPalWorldSettings.ini
+                echo updating ini values....
+                serverfiles={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
+                echo ${serverfiles}
                 game_values={{ .Values.palworld.game }}
+                echo ${game_values}
 
-                mkdir -p ${config}
+                config="${serverfiles}/Pal/Saved/Config/LinuxServer"
+                cfgFile="${config}/PalWorldSettings.ini"
+                dfCfgFile="${serverfiles}/DefaultPalWorldSettings.ini"
+
+                mkdir -p "${config}"
                 if [ ! -f "${cfgFile}" ]; then
                     if [ -f "${dfCfgFile}" ]; then
                         echo "Default config file found, copying as cfgFile..."
@@ -80,14 +85,13 @@ workload:
                 fi
 
                 set_ini() {
-                    local key="${1}"
-                    local value="${2}"
+                    local key="$1"
+                    local value="$2"
                     local flags=""
 
+                    shift 2
                     for arg in "$@"; do
-                        if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
-                            flags="$flags $arg"
-                        fi
+                        flags="$flags $arg"
                     done
 
                     if ! grep -q 'OptionSettings=(' "$cfgFile"; then
@@ -102,19 +106,9 @@ workload:
 
                     for flag in $flags; do
                         case $flag in
-                            -q)
-                                value="\"$value\""
-                                ;;
-                            -b)
-                                if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
-                                    value="True"
-                                else
-                                    value="False"
-                                fi
-                                ;;
-                            *)
-                                echo "Unknown flag: $flag. Skipping..."
-                                ;;
+                            -q) value="\"$value\"" ;;
+                            -b) value="$(echo "$value" | tr '[:upper:]' '[:lower:]' | sed 's/true/True/; s/false/False/')" ;;
+                            *) echo "Unknown flag: $flag. Skipping..." ;;
                         esac
                     done
 
@@ -134,12 +128,24 @@ workload:
                     echo "Set ${key} to ${value}"
                 }
 
-                # Loop over .Values.palworld.game and set each key-value pair
-                {{- range $key, $value := ${game_values} }}
-                set_ini "{{ $key }}" "{{ $value }}" {{ if eq (typeOf $value) "bool" }}-b{{ else }}-q{{ end }}
-                {{- end }}
+                # Convert YAML to key-value pairs using yq
+                if [[ -n "$game_values" ]]; then
+                    eval "game_values=$(yq eval -o=json "${game_values}" | jq -r 'to_entries | .[] | "\(.key)=\(.value)"')"
+                fi
+
+                # Loop over game_values and set each key-value pair
+                IFS=$'\n' # Use newline as delimiter
+                for pair in $game_values; do
+                    IFS='=' read -r key value <<< "$pair"
+                    if [[ "$value" == "true" || "$value" == "false" ]]; then
+                        set_ini "$key" "$value" -b
+                    else
+                        set_ini "$key" "$value" -q
+                    fi
+                done
 
                 echo "Done!"
+
 
       containers:
         main:
