@@ -28,10 +28,6 @@ var (
     ControlPlaneIPs = []string{}
     WorkerIPs       = []string{}
 
-    KubeFilterStr = []string{
-        ".*would violate PodSecurity.*",
-    }
-
     IndexCache = "./index_cache"
     GpgDir     = ".cr-gpg" // Adjust the path based on your project structure
     Logo       = `

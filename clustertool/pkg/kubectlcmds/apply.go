@@ -7,14 +7,8 @@ import (
     "io/ioutil"
     "os"
     "path/filepath"
-    "regexp"
 
-    "github.com/go-logr/logr"
-    "github.com/go-logr/zapr"
     "github.com/rs/zerolog/log"
-    "github.com/truecharts/public/clustertool/pkg/helper"
-    "go.uber.org/zap"
-    "go.uber.org/zap/zapcore"
     "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
     "k8s.io/client-go/tools/clientcmd"
     "k8s.io/client-go/util/homedir"
@@ -48,39 +42,8 @@ func getKubeClient() (client.Client, error) {
     return c, nil
 }
 
-// setupLogger initializes a logger that writes to a buffer and returns both
-func setupLogger() (logr.Logger, *bytes.Buffer, error) {
-    log.Debug().Msg("Setting up logger")
-
-    // Create a buffer to capture logs
-    var buf bytes.Buffer
-
-    // Create a WriteSyncer to write to the buffer
-    writeSyncer := zapcore.AddSync(&buf)
-
-    // Configure zap to use console encoder for readability
-    encoderCfg := zap.NewProductionEncoderConfig()
-    encoderCfg.EncodeTime = zapcore.ISO8601TimeEncoder
-    encoder := zapcore.NewConsoleEncoder(encoderCfg)
-
-    // Set log level to Info
-    level := zapcore.InfoLevel
-
-    // Create zap core
-    core := zapcore.NewCore(encoder, writeSyncer, level)
-
-    // Create zap logger
-    zapLogger := zap.New(core)
-
-    // Wrap zap logger with zapr to get a logr.Logger interface
-    logr := zapr.NewLogger(zapLogger)
-
-    log.Debug().Msg("Logger setup completed")
-    return logr, &buf, nil
-}
-
-// applyYAML applies the given YAML data to the Kubernetes cluster using the provided client and logger
-func applyYAML(k8sClient client.Client, yamlData []byte, logr logr.Logger) error {
+// applyYAML applies the given YAML data to the Kubernetes cluster using the provided client
+func applyYAML(k8sClient client.Client, yamlData []byte) error {
     log.Trace().Msg("Applying YAML data to the Kubernetes cluster")
 
     // Parse the YAML into KIO nodes
@@ -111,24 +74,6 @@ func applyYAML(k8sClient client.Client, yamlData []byte, logr logr.Logger) error
     return nil
 }
 
-// filterLogOutput filters the log data by removing strings that match any of the provided regex patterns
-func filterLogOutput(logData string) (string, error) {
-    log.Trace().Msg("Filtering log output")
-
-    filteredLog := logData
-    for _, pattern := range helper.KubeFilterStr {
-        re, err := regexp.Compile(pattern)
-        if err != nil {
-            log.Error().Err(err).Msgf("Invalid regex pattern '%s'", pattern)
-            return "", fmt.Errorf("invalid regex pattern '%s': %v", pattern, err)
-        }
-        filteredLog = re.ReplaceAllString(filteredLog, "")
-    }
-
-    log.Debug().Msg("Log output filtering completed")
-    return filteredLog, nil
-}
-
 // KubectlApply applies a YAML file to the Kubernetes cluster and filters the logs
 func KubectlApply(ctx context.Context, filePath string) error {
     log.Trace().Msgf("Applying YAML file at path: %s", filePath)
@@ -146,13 +91,6 @@ func KubectlApply(ctx context.Context, filePath string) error {
         return fmt.Errorf("failed to read YAML file: %v", err)
     }
 
-    // Initialize logger and buffer
-    logr, buf, err := setupLogger()
-    if err != nil {
-        log.Error().Err(err).Msg("Failed to set up logger")
-        return fmt.Errorf("failed to set up logger: %v", err)
-    }
-
     // Initialize Kubernetes client
     k8sClient, err := getKubeClient()
     if err != nil {
@@ -161,23 +99,12 @@ func KubectlApply(ctx context.Context, filePath string) error {
     }
 
     // Apply the YAML to the cluster
-    if err := applyYAML(k8sClient, yamlData, logr); err != nil {
+    if err := applyYAML(k8sClient, yamlData); err != nil {
         log.Error().Err(err).Msg("Failed to apply YAML")
         return fmt.Errorf("failed to apply YAML: %v", err)
     }
 
-    // Get log output from buffer
-    logOutput := buf.String()
-
     // Filter the logs
-    filteredLog, err := filterLogOutput(logOutput)
-    if err != nil {
-        log.Error().Err(err).Msg("Failed to filter logs")
-        return fmt.Errorf("failed to filter logs: %v", err)
-    }
-
-    // Output filtered logs
-    fmt.Println(filteredLog)
     log.Info().Msg("KubectlApply operation completed")
 
     return nil
@@ -227,13 +154,6 @@ func KubectlApplyKustomize(ctx context.Context, filePath string) error {
         return fmt.Errorf("failed to convert kustomize output to YAML: %v", err)
     }
 
-    // Initialize logger and buffer
-    logr, buf, err := setupLogger()
-    if err != nil {
-        log.Error().Err(err).Msg("Failed to set up logger")
-        return fmt.Errorf("failed to set up logger: %v", err)
-    }
-
     // Initialize Kubernetes client
     k8sClient, err := getKubeClient()
     if err != nil {
@@ -242,23 +162,11 @@ func KubectlApplyKustomize(ctx context.Context, filePath string) error {
     }
 
     // Apply the YAML to the cluster
-    if err := applyYAML(k8sClient, yamlData, logr); err != nil {
+    if err := applyYAML(k8sClient, yamlData); err != nil {
         log.Error().Err(err).Msg("Failed to apply YAML from kustomize")
         return fmt.Errorf("failed to apply YAML from kustomize: %v", err)
     }
 
-    // Get log output from buffer
-    logOutput := buf.String()
-
-    // Filter the logs
-    filteredLog, err := filterLogOutput(logOutput)
-    if err != nil {
-        log.Error().Err(err).Msg("Failed to filter logs")
-        return fmt.Errorf("failed to filter logs: %v", err)
-    }
-
-    // Output filtered logs
-    fmt.Println(filteredLog)
     log.Info().Msg("KubectlApplyKustomize operation completed")
 
     return nil
