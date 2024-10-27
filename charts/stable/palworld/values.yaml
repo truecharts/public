@@ -63,10 +63,11 @@ workload:
             - -c
           args:
             - |
-              serverfiles={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
-              config=${serverfiles}/Pal/Saved/Config/LinuxServer
+              export serverfiles={{ printf "%s" .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}
+              
+              config=$serverfiles/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
-              dfCfgFile=${serverfiles}/DefaultPalWorldSettings.ini
+              dfCfgFile=$serverfiles/DefaultPalWorldSettings.ini
               game_values={{ .Values.palworld.game }}
 
               mkdir -p ${config}
