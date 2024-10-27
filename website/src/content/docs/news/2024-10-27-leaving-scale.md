@@ -2,7 +2,7 @@
 slug: "news/leaving-scale"
 title: "Exporting TrueCharts SCALE Apps and leaving TrueCharts"
 authors: [ornias]
-date: 2024-10-28
+date: 2024-10-27
 tags:
   - "2024"
 ---
