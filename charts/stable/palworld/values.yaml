@@ -65,7 +65,6 @@ workload:
                 config=${serverfiles}/Pal/Saved/Config/LinuxServer
                 cfgFile=${config}/PalWorldSettings.ini
                 dfCfgFile=${serverfiles}/DefaultPalWorldSettings.ini
-                update_public_ip="{{ .Values.palworld.game.update_public_ip }}"
 
                 mkdir -p ${config}
                 if [ ! -f "${cfgFile}" ]; then
