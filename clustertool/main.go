@@ -28,7 +28,7 @@ func main() {
     var zapLevel zapcore.Level
 
     // Switch-case for setting the global log level
-    switch os.Getenv("DEBUG") {
+    switch os.Getenv("LOGLEVEL") {
     case "trace":
         zerologLevel = zerolog.TraceLevel
         zapLevel = zapcore.DebugLevel // zap does not have a Trace level, use Debug as equivalent
