@@ -22,7 +22,7 @@ require (
 	github.com/knadh/koanf/v2 v2.1.1
 	github.com/leaanthony/debme v1.2.1
 	github.com/rs/zerolog v1.33.0
-	github.com/siderolabs/talos/pkg/machinery v1.8.1
+	github.com/siderolabs/talos/pkg/machinery v1.8.2
 	github.com/spf13/cobra v1.8.1
 	go.uber.org/zap v1.27.0
 	golang.org/x/crypto v0.28.0
@@ -233,7 +233,7 @@ require (
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
-	github.com/siderolabs/crypto v0.4.4 // indirect
+	github.com/siderolabs/crypto v0.5.0 // indirect
 	github.com/siderolabs/gen v0.5.0 // indirect
 	github.com/siderolabs/go-blockdevice v0.4.7 // indirect
 	github.com/siderolabs/go-blockdevice/v2 v2.0.2 // indirect
