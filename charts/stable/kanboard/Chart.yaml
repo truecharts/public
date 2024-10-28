@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.40
+appVersion: 1.2.41
 dependencies:
   - name: common
-    version: 25.1.0
+    version: 25.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kanboard
   - https://hub.docker.com/r/kanboard/kanboard
 type: application
-version: 18.2.0
+version: 18.2.2

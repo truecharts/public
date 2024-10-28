@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "8.07"
+appVersion: 8.07.0
 dependencies:
   - name: common
-    version: 25.1.0
+    version: 25.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,7 @@ maintainers:
 name: convos
 sources:
   - https://convos.chat/
+  - https://ghcr.io/convos-chat/convos
   - https://github.com/truecharts/charts/tree/master/charts/stable/convos
-  - https://hub.docker.com/r/convos/convos
 type: application
-version: 8.0.0
+version: 8.0.1

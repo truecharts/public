@@ -61,6 +61,8 @@
       {{/* If there are items, re-assign the variable */}}
       {{- if and $lookupMiddlewares $lookupMiddlewares.items -}}
         {{- $lookupMiddlewares = $lookupMiddlewares.items -}}
+      {{- else -}} {{/* If there are no items, assign an empty list */}}
+        {{- $lookupMiddlewares = list -}}
       {{- end -}}
 
       {{/* Parse look-ed up middlewares */}}

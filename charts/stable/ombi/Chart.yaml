@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: 4.44.1
 dependencies:
   - name: common
-    version: 25.1.0
+    version: 25.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,8 +33,7 @@ maintainers:
     url: https://truecharts.org
 name: ombi
 sources:
-  - https://hub.docker.com/r/linuxserver/ombi
   - https://github.com/truecharts/charts/tree/master/charts/stable/ombi
-  - https://github.com/truecharts/containers/tree/master/apps/ombi
+  - https://hub.docker.com/r/linuxserver/ombi
 type: application
-version: 21.0.0
+version: 21.0.2

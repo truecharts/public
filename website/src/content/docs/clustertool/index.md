@@ -31,3 +31,24 @@ How users run their cluster post-bootstrap, is on to the user to decide.
 
 This means that users are expected to have basic shell/console/terminal skills and understand the basics on how to edit, update, upgrade and install Helm charts.
 Our support is explicitly limited to ClusterTool *itself* and the values.yaml of our Helm charts.
+
+## Noteworthy settings
+
+### Log-Level
+
+Loglevel can be set by settings the `LOGLEVEL` environment variable.
+It has the following options:
+- "trace"
+- "debug"
+- "warn"
+- "error"
+- "fatal"
+- "panic"
+- "info" (Default)
+
+### Multi-Clustering
+
+We offer a experimental Multi-clustering option, which creates multiple seperate clusters under `clusters`.
+It can be set using the flag: `--cluster`
+
+*Please note that this feature is **experimental**, not covered by our support and might be unstable*

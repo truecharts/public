@@ -21,6 +21,12 @@ import (
 
 var HelmRepos map[string]*fluxhandler.HelmRepo
 
+var manifestPaths = []string{
+    filepath.Join(helper.KubernetesPath, "flux-system", "flux", "sopssecret.secret.yaml"),
+    filepath.Join(helper.KubernetesPath, "flux-system", "flux", "deploykey.secret.yaml"),
+    filepath.Join(helper.KubernetesPath, "flux-system", "flux", "clustersettings.secret.yaml"),
+}
+
 func GenBootstrap(node string, extraFlags []string) string {
     cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
     if err != nil {
@@ -158,7 +164,7 @@ func RunBootstrap(args []string) {
         }
     }
 
-    for _, filePath := range helper.ManifestPaths {
+    for _, filePath := range manifestPaths {
         log.Info().Msgf("Bootstrap: Loading Manifest: %v", filePath)
         if err := kubectlcmds.KubectlApply(ctx, filePath); err != nil {
             log.Info().Msgf("Error applying manifest for %s: %v\n", filepath.Base(filePath), err)
