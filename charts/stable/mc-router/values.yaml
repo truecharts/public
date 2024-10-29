@@ -6,16 +6,27 @@ service:
   main:
     ports:
       main:
-        port: 25564
-  minecraft:
+        port: 25565
+  api:
     enabled: true
     ports:
-      minecraft:
+      api:
         enabled: true
-        port: 25565
+        port: 25564
+
 mcrouter:
-  host_minecraft: []
-  #  - "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
+  default-server: vanilla:25565
+  mappings:
+    vanilla.example.com: vanilla:25565
+    forge.example.com: forge:25565
+
+configmap:
+  config:
+    enabled: true
+    data:
+      config.json:
+        {{ toJson .Values.mcrouter }}
+
 workload:
   main:
     podSpec:
@@ -23,17 +34,24 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
             readiness:
-              enabled: false
+              enabled: true
             startup:
-              enabled: false
-          envFrom:
-            - secretRef:
-                name: "secrets"
+              enabled: true
           env:
             API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
             PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
+            ROUTES_CONFIG: "{{ .Values.persistence.config.mountPath }}"
+
+persistence:
+  config:
+    enabled: true
+    type: configmap
+    objectName: config
+    mountPath: /config/config.json
+    subPath: config.json
+
 portal:
   open:
     enabled: false
