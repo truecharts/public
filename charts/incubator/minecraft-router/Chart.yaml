@@ -15,11 +15,12 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-deprecated: true
+deprecated: false
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
-home: https://truecharts.org/charts/stable/mc-router
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mc-router.webp
+home: https://truecharts.org/charts/stable/minecraft-router
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-router.webp
 keywords:
+  - minecraft-router
   - mc-router
   - minecraft
 kubeVersion: '>=1.24.0-0'
@@ -27,10 +28,10 @@ maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: mc-router
+name: minecraft-router
 sources:
   - https://github.com/itzg/mc-router
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mc-router
+  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-router
   - https://hub.docker.com/r/itzg/mc-router
 type: application
-version: 6.5.3
+version: 0.0.1
