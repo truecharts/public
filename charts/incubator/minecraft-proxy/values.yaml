@@ -1,0 +1,69 @@
+image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java21-2024.6.0@sha256:26dbf2405bc75d9cc21e8c52ee767c9c72b50e2f409cbd8e39221fa410e26150
+  pullPolicy: Always
+j11Image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java11-2024.6.0@sha256:185b4ef86234965aa95902e89f398015044fbb3b1084606b7f2eb772d87bee25
+  pullPolicy: Always
+j8Image:
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java8-2022.4.1@sha256:e72d8dae94476695b8d7b7d0d4093d57ce4dc4d7dc54fd08e8d386ad75c62a05
+  pullPolicy: Always
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "secretrconpass"
+            TYPE: "BUNGEECORD"
+            ONLINE_MODE: false
+            MEMORY: 512M
+            INIT_MEMORY: 512M
+            MAX_MEMORY: 512M
+            NETWORKADDRESS_CACHE_TTL: 60
+            REPLACE_ENV_VARIABLES: false
+            ENV_VARIABLE_PREFIX: "CFG_"
+            # GENERIC_PACKS: "configs-v9.0.1,mods-v4.3.6"
+            # GENERIC_PACKS_PREFIX: "https://cdn.example.org/"
+            # GENERIC_PACKS_SUFFIX="".zip"
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+            # PLUGINS: ""
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  server:
+    enabled: true
+    mountPath: "/server"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
+portal:
+  open:
+    enabled: false
