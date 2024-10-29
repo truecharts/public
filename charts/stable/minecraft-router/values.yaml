@@ -39,7 +39,7 @@ workload:
             API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"
             DEFAULT: "{{ .Values.mcrouter.default-server }}"
-            MAPPING: "{{ join "," .Values.mcrouter.mappings }}"
+            MAPPING: '{{ join "," .Values.mcrouter.mappings }}'
 
 portal:
   open:
