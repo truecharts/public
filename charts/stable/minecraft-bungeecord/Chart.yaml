@@ -17,9 +17,10 @@ dependencies:
     import-values: []
 deprecated: false
 description: the front-end of a cluster of minecraft-java containers.
-home: https://truecharts.org/charts/stable/minecraft-bungeecord
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-bungeecord.webp
+home: https://truecharts.org/charts/stable/minecraft-proxy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-proxy.webp
 keywords:
+  - minecraft-proxy
   - minecraft-bungeecord
   - gameserver
   - minecraft
@@ -28,10 +29,10 @@ maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: minecraft-bungeecord
+name: minecraft-proxy
 sources:
-  - https://github.com/itzg/docker-bungeecord
-  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord
-  - https://hub.docker.com/r/itzg/bungeecord
+  - https://github.com/itzg/docker-proxy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-proxy
+  - https://hub.docker.com/r/itzg/proxy
 type: application
-version: 10.2.1
+version: 11.0.0

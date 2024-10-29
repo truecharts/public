@@ -1,14 +1,14 @@
 image:
-  repository: docker.io/itzg/bungeecord
-  tag: 2022.4.1@sha256:254fd22429257cd003aec6deb3713ce2bd647e62cf6c2ea0d08a8d58165b8d3f
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java21-2024.6.0@sha256:26dbf2405bc75d9cc21e8c52ee767c9c72b50e2f409cbd8e39221fa410e26150
   pullPolicy: Always
 j11Image:
-  repository: docker.io/itzg/bungeecord
-  tag: java11-2022.4.1@sha256:33c5185872d54533e996490523c61c01d24d38c412c7021ff1f5e8bc4f9f7e45
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java11-2024.6.0@sha256:185b4ef86234965aa95902e89f398015044fbb3b1084606b7f2eb772d87bee25
   pullPolicy: Always
 j8Image:
-  repository: docker.io/itzg/bungeecord
-  tag: java8-2022.4.1@sha256:112285cf835ce5777f7222238963bbbd4e49ef1150900b92d561d68c0807d14a
+  repository: ghcr.io/itzg/mc-proxy
+  tag: java8-2022.4.1@sha256:e72d8dae94476695b8d7b7d0d4093d57ce4dc4d7dc54fd08e8d386ad75c62a05
   pullPolicy: Always
 service:
   main:
@@ -67,4 +67,3 @@ persistence:
 portal:
   open:
     enabled: false
-updated: true
