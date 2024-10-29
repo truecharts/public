@@ -15,7 +15,7 @@ service:
         port: 25564
 
 mcrouter:
-  default-server: vanilla:25565
+  default: vanilla:25565
   mappings:
     - vanilla:25565
     - forge:25565
@@ -38,7 +38,7 @@ workload:
           env:
             API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"
-            DEFAULT: "{{ .Values.mcrouter.default-server }}"
+            DEFAULT: "{{ .Values.mcrouter.default }}"
             MAPPING: '{{ join "," .Values.mcrouter.mappings }}'
 
 portal:
