@@ -70,6 +70,12 @@ Please check the Helm docs on how to do this.
 
 ## I added Volsync to all charts on TrueNAS SCALE, but no data is in the bucket.
 
+Do you get this error:
+```yaml
+waiting for PersistentVolumeClaim/... to bind; check StorageClass name and CSI driver capabilities
+```
+If not make sure your credentials are correct. If you do get the error try the following:
+
 - Make sure you added Volsync to all SCALE apps you want to backup
 - Wait atleast 30 minutes
 - If still no data is propagated run the following script on your TrueNAS SCALE system:
