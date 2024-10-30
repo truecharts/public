@@ -3,6 +3,7 @@ apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: talos
+  namespace: system-upgrade
 spec:
   version: ${TALOS_VERSION}
   serviceAccountName: system-upgrade
