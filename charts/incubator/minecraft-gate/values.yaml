@@ -14,11 +14,12 @@ service:
         enabled: true
         protocol: udp
         port: 25565
+
 configmap:
   config:
     enabled: true
     data:
-      config.yml: |
+      config.yml: |-
         config:
           bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
           servers:
@@ -29,6 +30,7 @@ configmap:
             enabled: true
             port: "{{ .Values.service.main.ports.query.port }}"
             showPlugins: false
+
 workload:
   main:
     podSpec:
@@ -43,12 +45,14 @@ workload:
               type: tcp
             startup:
               type: tcp
+
 persistence:
   config-file:
     enabled: true
     type: configmap
     objectName: config
     mountPath: "/config.yml"
+
 portal:
   open:
     enabled: false

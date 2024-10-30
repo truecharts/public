@@ -1,4 +1,6 @@
 annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/category: games
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
@@ -14,13 +16,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: An extensible, high performant & paralleled Minecraft proxy server
-home: https://truecharts.org/charts/incubator/minecraft-gate
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-gate.webp
+description: An extensible, high performant & paralleled Minecraft proxy server.
+home: https://truecharts.org/charts/stable/minecraft-gate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-router.webp
 keywords:
   - minecraft-gate
-  - minecraft
   - proxy
+  - minecraft
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
