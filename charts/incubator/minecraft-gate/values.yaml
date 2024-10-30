@@ -16,7 +16,6 @@ service:
         protocol: udp
         port: 25565
 
-# more config options -> https://gate.minekube.com/guide/config/
 gate:
   config:
     bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
