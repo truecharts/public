@@ -34,7 +34,7 @@ configmap:
     enabled: true
     data:
       config.yml: |-
-        {{ toYaml .Values.gate | nindent 4 }}
+        {{ .Values.gate }}
 
 workload:
   main:
