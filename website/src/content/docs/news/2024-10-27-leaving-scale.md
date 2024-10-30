@@ -16,6 +16,8 @@ Even for users who aren't looking to establish their own Kubernetes cluster, **C
 
 To help users get started, we've created a detailed guide outlining how to use ClusterTool for this purpose. Access the guide and learn how to seamlessly migrate or export your SCALE configurations here: [TrueCharts Guide on Exporting SCALE Configurations](https://truecharts.org/clustertool/migrations/scale-config-only/).
 
+Here you can Download the RC-Release of ClusterTool here: [Download Link](https://github.com/truecharts/public/releases).
+
 We remain committed to supporting our community, whether users are transitioning to different solutions or adapting their setups within the evolving TrueNAS SCALE environment.
 
 ## Effortless Hosting with ElfHosted
