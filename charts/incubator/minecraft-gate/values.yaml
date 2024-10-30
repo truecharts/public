@@ -33,7 +33,7 @@ configmap:
   config:
     enabled: true
     data:
-      config.yml: |-
+      config.yml: |
         {{ .Values.gate }}
 
 workload:
@@ -52,7 +52,7 @@ workload:
               type: tcp
 
 persistence:
-  config:
+  config-file:
     enabled: true
     type: configmap
     objectName: config
