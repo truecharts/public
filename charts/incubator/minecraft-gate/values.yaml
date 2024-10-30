@@ -16,24 +16,21 @@ service:
         protocol: udp
         port: 25565
 
-gate:
-  config:
-    bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-    servers:
-      server1: localhost:25566
-    try:
-      - server1
-    query:
-      enabled: true
-      port: "{{ .Values.service.main.ports.query.port }}"
-      showPlugins: false
-
 configmap:
   config:
     enabled: true
     data:
       config.yml: |
-        {{ .Values.gate }}
+        config:
+          bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+          servers:
+            server1: localhost:25566
+          try:
+            - server1
+          query:
+            enabled: true
+            port: "{{ .Values.service.main.ports.query.port }}"
+            showPlugins: false
 
 workload:
   main:
