@@ -16,96 +16,18 @@ service:
         protocol: udp
         port: 25565
 
+# more config options -> https://gate.minekube.com/guide/config/
 gate:
   config:
     bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-    onlineMode: true
     servers:
       server1: localhost:25566
     try:
       - server1
-    status:
-      motd: |
-        §bA Gate Proxy
-        §bVisit ➞ §fgithub.com/minekube/gate
-      showMaxPlayers: 1000
-      # favicon: server-icon.png
-      logPingRequests: false
-      announceForge: false
-    acceptTransfers: false
-    bungeePluginChannelEnabled: true
-    builtinCommands: true
-    requireBuiltinCommandPermissions: false
-    announceProxyCommands: true
-    forceKeyAuthentication: true
-    shutdownReason: |
-      §cGate proxy is shutting down...
-      Please reconnect in a moment!
-    compression:
-      threshold: 256
-      level: -1
-    connectionTimeout: 5s
-    readTimeout: 30s
-    failoverOnUnexpectedServerDisconnect: true
-    onlineModeKickExistingPlayers: false
-    debug: false
-    forwarding:
-      # Options: legacy, none, bungeeguard, velocity
-      mode: legacy
-      #velocitySecret: secret_here
-      #bungeeGuardSecret: secret_here
-    proxyProtocol: false
-    quota:
-      connections:
-        enabled: true
-        ops: 5
-        burst: 10
-        maxEntries: 1000
-      logins:
-        enabled: true
-        burst: 3
-        ops: 0.4
-        maxEntries: 1000
     query:
-      enabled: false
+      enabled: true
       port: "{{ .Values.service.main.ports.query.port }}"
       showPlugins: false
-    auth:
-      # Customize the base URL for the Mojang session server to authenticate online mode players using different authentication servers.
-      # Defaults to https://sessionserver.mojang.com/session/minecraft/hasJoined
-      #sessionServerUrl: https://example.com/mitm/session/minecraft/hasJoined
-    lite:
-      enabled: false
-      routes:
-        - host: localhost
-          backend: localhost:25566
-          fallback:
-            motd: |
-              §cLocalhost server is offline.
-              §eCheck back later!
-            version:
-              name: '§cTry again later!'
-              protocol: -1
-            # favicon: server-icon.png
-        - host: '*.example.com'
-          backend: 172.16.0.12:25566
-          proxyProtocol: true # Use proxy protocol to connect to backend.
-          tcpShieldRealIP: true # Optionally you can also use TCPShield's RealIP protocol.
-        - host: [ 127.0.0.1, localhost ]
-          backend: [ 172.16.0.12:25566, backend.example.com:25566 ]
-          cachePingTTL: 60s
-          modifyVirtualHost: true
-        - host: '*'
-          backend: 10.0.0.10:25565
-          fallback:
-            motd: §eNo server available for this host.
-            version:
-              name: §eTry example.com
-              protocol: -1
-            #favicon: server-icon.png
-  connect:
-    enabled: false
-    #name: your-endpoint-name
 
 configmap:
   config:
