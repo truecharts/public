@@ -68,5 +68,24 @@ However, any issues after alterations are not within our scope for support.
 You need to remove all http helm repositories from the system you're using clustertool on.
 Please check the Helm docs on how to do this.
 
+## I added Volsync to all charts on TrueNAS SCALE, but no data is in the bucket.
 
+- Make sure you added Volsync to all SCALE apps you want to backup
+- Wait atleast 30 minutes
+- If still no data is propagated run the following script on your TrueNAS SCALE system:
 
+```bash
+#!/bin/bash
+
+# Get all replicationsource names and namespaces
+replicationsources=$(k3s kubectl get replicationsource -A -o jsonpath='{range .items[*]}{.metadata.namespace}{" "}{.metadata.name}{"\n"}{end}')
+
+# Loop through each replicationsource and apply the patch
+while IFS= read -r line; do
+    namespace=$(echo $line | awk '{print $1}')
+    name=$(echo $line | awk '{print $2}')
+    echo "Patching replicationsource $name in namespace $namespace..."
+    k3s kubectl patch replicationsource ${name} -n ${namespace} --type='merge' -p '{"spec":{"restic":{"copyMethod":"Direct"}, "trigger":{"manual":"{{.now}}"}}}'
+done <<< "$replicationsources"
+
+```
