@@ -36,7 +36,7 @@ From this step forward, we're going to assume a github repo. If you're starting 
 
 ### Downloading ClusterTool
 
-ClusterTool is available on [GitHub](https://github.com/truecharts/clustertool-public/releases). Please extract the archive and copy the executable into your `configuration folder`.
+ClusterTool is available on [GitHub](https://github.com/truecharts/public/releases). Please extract the archive and copy the executable into your `configuration folder`.
 
 ### Initialisation
 
