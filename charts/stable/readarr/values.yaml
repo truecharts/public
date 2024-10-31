@@ -40,8 +40,15 @@ workload:
               type: http
               path: /ping
           env:
-            READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            READARR__AUTHENTICATION_METHOD: "None"
+            READARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
+             # External | Basic | Forms
+            READARR__AUTH__METHOD: ""
+            # DisabledForLocalAddresses | Enabled
+            READARR__AUTH__REQUIRED: DisabledForLocalAddresses
+            # READARR__APP__THEME: dark     
+            # READARR__APP__INSTANCENAME: Readarr
+            # READARR__LOG__LEVEL: info
+            # READARR__UPDATE__BRANCH: develop
         exportarr:
           enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
