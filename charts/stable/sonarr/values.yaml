@@ -37,8 +37,15 @@ workload:
               type: http
               path: /ping
           env:
-            SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            SONARR__AUTHENTICATION_METHOD: ""
+            SONARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
+             # External | Basic | Forms
+            SONARR__AUTH__METHOD: ""
+            # DisabledForLocalAddresses | Enabled
+            SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
+            # SONARR__APP__THEME: dark     
+            # SONARR__APP__INSTANCENAME: Sonarr
+            # SONARR__LOG__LEVEL: info
+            # SONARR__UPDATE__BRANCH: develop
         exportarr:
           enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
@@ -92,4 +99,3 @@ metrics:
 portal:
   open:
     enabled: true
-updated: true

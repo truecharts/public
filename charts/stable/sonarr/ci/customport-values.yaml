@@ -1,0 +1,13 @@
+service:
+  main:
+    ports:
+      main:
+        port: 7979
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SONARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
