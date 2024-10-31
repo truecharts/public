@@ -1,0 +1,58 @@
+image:
+  repository: ghcr.io/minekube/gate
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:f607f64b7b83f4a993719c1b50eddf5d481c683b321619cc627039c481a67f88
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: tcp
+        port: 25565
+      query:
+        enabled: true
+        protocol: udp
+        port: 25565
+
+configmap:
+  config:
+    enabled: true
+    data:
+      config.yml: |-
+        config:
+          bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+          servers:
+            server1: localhost:25566
+          try:
+            - server1
+          query:
+            enabled: true
+            port: "{{ .Values.service.main.ports.query.port }}"
+            showPlugins: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+
+persistence:
+  config-file:
+    enabled: true
+    type: configmap
+    objectName: config
+    mountPath: "/config.yml"
+
+portal:
+  open:
+    enabled: false
