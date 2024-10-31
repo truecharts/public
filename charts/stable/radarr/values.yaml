@@ -40,7 +40,15 @@ workload:
               type: http
               path: /ping
           env:
-            RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            RADARR__SERVER__PORT: "{{ .Values.service.main.ports.main.port }}"
+             # External | Basic | Forms
+            RADARR__AUTH__METHOD: ""
+            # DisabledForLocalAddresses | Enabled
+            RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
+            # RADARR__APP__THEME: dark     
+            # RADARR__APP__INSTANCENAME: Radarr
+            # RADARR__LOG__LEVEL: info
+            # RADARR__UPDATE__BRANCH: develop
         exportarr:
           enabled: "{{ .Values.metrics.main.enabled }}"
           imageSelector: exportarrImage
