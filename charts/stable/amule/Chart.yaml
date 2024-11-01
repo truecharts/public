@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: 2.3.3-18
 dependencies:
   - name: common
     version: 25.1.5
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: amule
 sources:
-  - https://github.com/t-chab/dockerfiles
+  - https://github.com/ngosang/docker-amule
   - https://github.com/truecharts/charts/tree/master/charts/stable/amule
-  - https://hub.docker.com/r/tchabaud/amule
+  - https://ghcr.io/ngosang/amule
 type: application
-version: 9.2.1
+version: 10.0.0

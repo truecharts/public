@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: docker.io/tchabaud/amule
-  tag: latest@sha256:66351396337f50b40613222c5c47adfbc8685eb631b38e73f217358f54182d64
+  repository: ghcr.io/ngosang/amule
+  tag: 2.3.3-18test@sha256:3ef93d32a37bf73b22330b310112b4db42b78514930e217a3040980c4f36ee80
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -15,18 +15,29 @@ service:
         port: 4711
         protocol: http
         targetPort: 4711
-  porttcp:
+  remote:
     enabled: true
     ports:
-      porttcp:
+      gui:
+        enabled: true
+        port: 4712
+        protocol: tcp
+        targetPort: 4712
+  ed2k:
+    enabled: true
+    ports:
+      tcp:
         enabled: true
         port: 4662
         protocol: tcp
         targetPort: 4662
-  portudp:
-    enabled: true
-    ports:
-      portudp:
+      # ed2k global search udp (tcp port +3)
+      udp:
+        enabled: true
+        port: 4665
+        protocol: udp
+        targetPort: 4665
+      udp2:
         enabled: true
         port: 4672
         protocol: udp
@@ -48,14 +59,20 @@ workload:
               path: /
           env:
             WEBUI_PWD: ""
-            WEBUI_TEMPLATE: default
+            GUI_PWD: ""
+            MOD_AUTO_RESTART_ENABLED: true
+            MOD_AUTO_RESTART_CRON: "0 6 * * *"
+            # MOD_AUTO_SHARE_ENABLED: false
+            # MOD_AUTO_SHARE_DIRECTORIES=/incoming;/my_movies
+            # MOD_FIX_KAD_GRAPH_ENABLED=true
+            # MOD_FIX_KAD_BOOTSTRAP_ENABLED=true
 persistence:
-  complete:
-    enabled: true
-    mountPath: /incoming
   config:
     enabled: true
     mountPath: /home/amule/.aMule
+  complete:
+    enabled: true
+    mountPath: /incoming
   incomplete:
     enabled: true
     mountPath: /temp
