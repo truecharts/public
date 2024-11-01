@@ -137,6 +137,8 @@ Those env have to be set additionally to your VPN setup from above.
 
 - `HTTPPROXY`: `on`
 - `HTTPPROXY_LOG`: `on` (optional, but useful to verify initial setup)
+- `HTTPPROXY_LISTENING_ADDRESS`: `:8080`
+- `FIREWALL_INPUT_PORTS`: `10095,8888`
 
 ```yaml
 addons:
@@ -149,8 +151,8 @@ addons:
     env:
       HTTPPROXY: "on"
       HTTPPROXY_LOG: "on"
-      #optional
-      HTTPPROXY_LISTENING_ADDRESS: 8888
+      HTTPPROXY_LISTENING_ADDRESS: :8888
+      FIREWALL_INPUT_PORTS: 10095,8888
 ```
 
 Only the additional ENV needed for the Proxy are shown here to keep it shorter. You still need your VPN setup from above.
