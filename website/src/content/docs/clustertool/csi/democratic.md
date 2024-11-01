@@ -141,7 +141,7 @@ Due to flaws in TrueNAS SCALE, this script needs to run each day est. 20min afte
 
 ```python
 from datetime import datetime, timedelta, timezone
-from middlewared.client import Client
+from truenas_api_client import Client
 import subprocess
 
 def main():
