@@ -14,23 +14,6 @@ service:
         enabled: true
         protocol: udp
         port: 25565
-
-configmap:
-  config:
-    enabled: true
-    data:
-      config.yml: |-
-        config:
-          bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-          servers:
-            server1: localhost:25566
-          try:
-            - server1
-          query:
-            enabled: true
-            port: "{{ .Values.service.main.ports.query.port }}"
-            showPlugins: false
-
 workload:
   main:
     podSpec:
@@ -45,14 +28,31 @@ workload:
               type: tcp
             startup:
               type: tcp
-
+# https://gate.minekube.com/guide/lite.html
+# https://gate.minekube.com/guide/config/
+configmap:
+  config:
+    enabled: true
+    data:
+      config.yml: |
+        config:
+          bind: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+          query:
+            enabled: true
+            port: {{ .Values.service.main.ports.query.port }}
+            showPlugins: false
+          lite:
+            enabled: true
+            routes:
+              - host: minecraft.local
+                backend: localhost:25565
 persistence:
   config-file:
     enabled: true
     type: configmap
     objectName: config
-    mountPath: "/config.yml"
-
+    mountPath: /config.yml
+    subPath: config.yml
 portal:
   open:
     enabled: false
