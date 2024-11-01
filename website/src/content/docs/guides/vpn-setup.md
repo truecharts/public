@@ -137,7 +137,7 @@ Those env have to be set additionally to your VPN setup from above.
 
 - `HTTPPROXY`: `on`
 - `HTTPPROXY_LOG`: `on` (optional, but useful to verify initial setup)
-- `HTTPPROXY_LISTENING_ADDRESS`: `:8080` (optional)
+- `HTTPPROXY_LISTENING_ADDRESS`: `:8888` (optional)
 - `FIREWALL_INPUT_PORTS`: `10095,8888`
 
 ```yaml
