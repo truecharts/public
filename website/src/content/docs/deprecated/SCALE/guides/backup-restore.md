@@ -20,7 +20,7 @@ We've recently completely reworked the way we handle backups, moving away from p
 
 ### System Apps
 
-As this is a SCALE-specific guide, we expect users to have fully followed the SCALE quick-start [guide](/deprecated/scale) and hence have installed _all_ [operators](/deprecated/scale/#minimal-getting-started-setup-with-scale) from the `system` train as listed there. This includes `VolSync`, which depends on `Prometheus-Operator`, so ensure you have installed `Prometheus-Operator` prior to installing `VolSync`.
+As this is a SCALE-specific guide, we expect users to have fully followed the SCALE quick-start [guide](/ and hence have installed _all_ [operators](/ from the `system` train as listed there. This includes `VolSync`, which depends on `Prometheus-Operator`, so ensure you have installed `Prometheus-Operator` prior to installing `VolSync`.
 
 ### S3 Provider Setup
 

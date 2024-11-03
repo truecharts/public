@@ -33,9 +33,9 @@ Please be sure to use the publicly reachable IP of the TrueNAS server and not `1
 
 To ensure a stable running environment, we would strongly advise you to ensure the TrueNAS SCALE host running NFS, uses a static IP and does *NOT* use a DHCP-supplied IP address, typically from your modem/router.
 
-Ensure you setup the permissions on the Dataset according to [this](https://truecharts.org/deprecated/scale/guides/dataset/#dataset-permissions) guide.
+Ensure you setup the permissions on the Dataset according to [this](https://truecharts.org/ guide.
 
-And configure the NFS Shares according to [this](https://truecharts.org/deprecated/scale/guides/nfs-share/) guide.
+And configure the NFS Shares according to [this](https://truecharts.org/ guide.
 
 
 We  also *heavily* advise that config storage should almost *always* be set to "PVC" and not *hostPath* nor *NFS*.  If you did decide on using NFS storage for config, we cannot take responsibility if the migration fails.
@@ -51,14 +51,14 @@ While we've not fully finished our design docs, there are big chances those are 
 
 Please follow the guides for setting-up VolSync backups on TrueNAS SCALE. However, setting recovery is not needed and currently not functional on our TrueNAS SCALE Apps. Hence this can be safely skipped.
 
-Setup VolSync according to [this](https://truecharts.org/deprecated/scale/guides/backup-restore/) guide.
+Setup VolSync according to [this](https://truecharts.org/ guide.
 
 *If you currently do not have VolSync installed, a migration-specific catalog will be provided at a later date to install it prior to migration*
 
 ### Ensure all CNPG/Postgresql sections have their backups **enabled**
 
 CNPG/postgresql data is not backed up using volsync but uses their own backup solution.
-Its imperative to setup those backups seperately as described in [this](https://truecharts.org/deprecated/scale/guides/backup-restore/) guide.
+Its imperative to setup those backups seperately as described in [this](https://truecharts.org/ guide.
 
 ### Note on other databases and their backups
 
@@ -111,7 +111,7 @@ Afterwards, ensure you run `git add . && git commit -m "Exported SCALE App confi
 
 ### Alterations for CNPG restore
 
-The same issues with CNPG restores discussed in [this](https://truecharts.org/deprecated/scale/guides/backup-restore/) guide, also Apply to other clusters/deployments other than TrueNAS SCALE.
+The same issues with CNPG restores discussed in [this](https://truecharts.org/ guide, also Apply to other clusters/deployments other than TrueNAS SCALE.
 Primarily the requirement to set the bootstrap mode to recovery and having to change the revision numbers on both the backup and restore sections.
 
 So to restore your CNPG backup made on SCALE< please ensure this is done before loading onto the cluster

@@ -51,7 +51,7 @@ Currently, this new restore functionality isn't yet functional on TrueNAS SCALE 
 
 ### Documentation and Instructions
 
-You can find our initial guides and documentation for how to take advantage of the above exciting new solutions for SCALE [here](/deprecated/scale/guides/backup-restore), and in the Helm section linked above. Please note that these pages will evolve and be updated in the near future, especially once functionality on SCALE is _restored_, and we welcome discussion in our [Discord](https://discord.gg/tVsPTHWTtr) [channel](https://discord.com/channels/830763548678291466/1234481318499323956).
+You can find our initial guides and documentation for how to take advantage of the above exciting new solutions for SCALE [here](/, and in the Helm section linked above. Please note that these pages will evolve and be updated in the near future, especially once functionality on SCALE is _restored_, and we welcome discussion in our [Discord](https://discord.gg/tVsPTHWTtr) [channel](https://discord.com/channels/830763548678291466/1234481318499323956).
 
 ## Closing Out
 

@@ -8,7 +8,7 @@ tags:
 ---
 
 BLUF: Traefik (Stable) is Deprecated. Users need to add the Enterprise channel and install Traefik.
-[See how to get started](/deprecated/scale#adding-truecharts)
+[See how to get started](/
 
 The use of TrueNAS Scale Certificates is also deprecated and you must migrate to [Clusterissuer](/charts/premium/clusterissuer/how-to).
 (note: Clusterissuer replaced Cert-Manager)

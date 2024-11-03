@@ -18,12 +18,12 @@ To update an existing install with applications using postgresql databases to th
 We want to explicitly highlight that this procedure _will_ **COMPLETELY DESTROY** all your databases.
 It's absolutely crucial to export your databases manually beforehand.
 
-- export all your databases manually, on SCALE using the [following guide](/deprecated/scale/guides/cnpg-migration-guide) (do **not** rely on heavyscript backups for this!)
+- export all your databases manually, on SCALE using the [following guide](/ (do **not** rely on heavyscript backups for this!)
 - run this in a **root** shell: `k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete2`
 - install the new `cloudnative-pg` chart from the `operators` train
 - wait a few minutes
 - Hit `edit` and save without changes on all applications using postgresql databases.
 - wait a few minutes
-- Restore all your databases manually, on SCALE using the [following guide](/deprecated/scale/guides/cnpg-migration-guide) (do **not** rely on heavyscript backups for this!)
+- Restore all your databases manually, on SCALE using the [following guide](/ (do **not** rely on heavyscript backups for this!)
 
 _If you run into additional issues, please file a ticket with our dedicated support staff via the **#support** channel of our [discord](/s/discord) as normal._

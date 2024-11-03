@@ -36,7 +36,7 @@ This name change reflects this train no longer just containing operators, but no
 ## Experimental Support for TrueNAS SCALE 24.04 DragonFish
 
 In a bold move, we've added initial prototype support for TrueNAS SCALE 24.04 DragonFish. However, it's crucial to note that this support is still highly experimental. As such, we do not offer staff support or guarantee data integrity for the BETA or TC versions of TrueNAS SCALE 24.04 DragonFish.
-You can read more on the steps required for running TrueNAS SCALE 24.04 Dragonfish [here](/deprecated/scale/migrations/cobia-dragonfish).
+You can read more on the steps required for running TrueNAS SCALE 24.04 Dragonfish [here](/.
 
 ## Our Successful Bounty Program
 

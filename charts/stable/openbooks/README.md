@@ -24,7 +24,7 @@ For more information on how to install TrueCharts Helm charts, checkout the [ins
 
 ### TrueNAS SCALE Apps
 
-For more information on how to use TrueCharts as TrueNAS SCALE Apps, please checkout the [quick-start guides for TrueNAS SCALE](/deprecated/scale).
+For more information on how to use TrueCharts as TrueNAS SCALE Apps, please checkout the [quick-start guides for TrueNAS SCALE](/.
 
 ## Chart Specific Guides and information
 

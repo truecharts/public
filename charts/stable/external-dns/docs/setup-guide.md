@@ -13,7 +13,7 @@ Inspired by Kubernetes DNS, Kubernetes' cluster-internal DNS server, ExternalDNS
 - Traefik
 - Clusterissuer / Cert-manager installed (vital if exposed externally)
 
-Please follow the [Getting Started](/deprecated/scale/) guide on the [Truecharts](https://truecharts.org) website.
+Please follow the [Getting Started](/ guide on the [Truecharts](https://truecharts.org) website.
 
 ## Installation instructions
 

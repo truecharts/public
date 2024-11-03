@@ -11,7 +11,7 @@ After building our own MetalLB, CNPG and Prometheus operator charts, we've also 
 
 If you have already installed clusterissuer follow the below guidance for installation of the Cert-Manager operator chart.
 
-If you have not already done so add the operator train to TrueCharts [as outlined here](/deprecated/scale#adding-truecharts)
+If you have not already done so add the operator train to TrueCharts [as outlined here](/
 
 1. Run this in the system shell as **root**: <br />
    `k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete4`
