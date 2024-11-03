@@ -5,13 +5,11 @@ ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
 
-# Set up binary download and installation
-RUN apt-get update && apt-get install -y curl tar \
-    && curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
+# Download and set up the binary
+RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
     && tar -xzvf /tmp/clustertool.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/clustertool \
-    && rm /tmp/clustertool.tar.gz \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && rm /tmp/clustertool.tar.gz
 
 ENTRYPOINT ["clustertool"]
 CMD ["--help"]
