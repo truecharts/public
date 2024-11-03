@@ -161,7 +161,7 @@ workload:
                   {{- $numRegex := "^[0-9]+([.][0-9]+)?$" -}}
                   {{- $boolRegex := "^(true|false)$" -}}
                   {{- $valueStr := toString $value -}}
-                  
+
                   {{- if (mustRegexMatch $numRegex $valueStr) }}
                     set_ini "{{ $key }}" {{ $value }}
                   {{- else if (mustRegexMatch $boolRegex (lower $valueStr)) }}
