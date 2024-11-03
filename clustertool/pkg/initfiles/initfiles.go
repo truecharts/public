@@ -127,7 +127,7 @@ func FormatGitURL(input string) string {
     }
 
     // Compile a regex to match and replace the URL pattern
-    re := regexp.MustCompile(`^ssh://git@([^:/]+)([:/])(\w+)/(\w+)\.git$`)
+    re := regexp.MustCompile(`^ssh://git@([^:/]+)([:/])([\w-]+)/([\w-]+)\.git$`)
     matches := re.FindStringSubmatch(input)
 
     if len(matches) == 5 {

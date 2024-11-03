@@ -1,7 +1,8 @@
 ## The Following are required by ClusterTool and CANNOT be removed
 # Ensure VIP is different from all master IPs
 VIP: 192.168.20.200
-# Defines the MasterNode IP
+## Defines the MasterNode IP
+# Please be aware, we only support x86_64 for the first node, ARM will NOT work by default
 MASTER1IP: 192.168.20.210
 # Defines the gateway for all nodes
 GATEWAY: 192.168.20.1
@@ -11,6 +12,7 @@ METALLB_RANGE: 192.168.20.211-192.168.20.219
 DASHBOARD_IP: 192.168.20.211
 # Used to automatically generate a sshkey-pair for FluxCD
 # Has to start with ssh://
+# Please make sure to NOT contain any special characters in the URL except "-"
 GITHUB_REPOSITORY: ""
 ## Uncomment and adapt to automatically setup your dockerhub credentials
 ## This should prevent much of the potential ratelimits
