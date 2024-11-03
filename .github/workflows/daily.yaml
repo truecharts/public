@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ secrets.OR_PAT }}
           fetch-depth: 1
 
       - name: Setting repo parent dir as safe safe.directory
