@@ -1,0 +1,19 @@
+name: "Pull Request: Validate"
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.head_ref }}-placeholder
+  # cancel-in-progress: true
+
+jobs:
+
+  placeholder:
+    name: Placeholder PR Tests
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check Results
+        run: |
+          echo "Placeholder Finished"
