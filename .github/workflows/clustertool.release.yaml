@@ -15,7 +15,9 @@ jobs:
         with:
           go-version: stable
           cache: true
-          cache-dependency-path: clustertool/go.sum
+          cache-dependency-path: |
+            **/go.mod
+            **/go.sum
       # - name: Install Syft
       #   run: sudo curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
       - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
