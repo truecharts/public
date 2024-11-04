@@ -106,6 +106,7 @@ export default defineConfig({
           errorOnRelativeLinks: false,
           errorOnFallbackPages: false,
           exclude: [
+            "/charts",
             "/s/charts",
             "/s/discord",
             "/s/fb",
