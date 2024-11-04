@@ -515,7 +515,7 @@ pagefind: false
 
 ### Fix
 
-- use https://localhost:9443 for outposts ([#3708](https://github.com/truecharts/charts/issues/3708))
+- use 9443 for outposts ([#3708](https://github.com/truecharts/charts/issues/3708))
 
 ## [authentik-6.0.0](https://github.com/truecharts/charts/compare/authentik-5.0.0...authentik-6.0.0) (2022-09-05)
 
