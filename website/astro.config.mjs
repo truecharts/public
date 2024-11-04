@@ -105,8 +105,8 @@ export default defineConfig({
         starlightLinksValidator({
           errorOnRelativeLinks: false,
           errorOnFallbackPages: false,
+          errorOnLocalLinks: false,
           exclude: [
-            "/charts",
             "/s/charts",
             "/s/discord",
             "/s/fb",
