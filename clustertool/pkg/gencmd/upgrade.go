@@ -13,6 +13,7 @@ import (
     "github.com/truecharts/public/clustertool/pkg/helper"
 )
 
+// TODO: remove talhelper dependency for cmd creation
 func GenUpgrade(node string, extraFlags []string) []string {
     cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
     if err != nil {

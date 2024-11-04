@@ -2,21 +2,18 @@ package gencmd
 
 import (
     "context"
-    "io"
     "os"
     "path/filepath"
-    "strings"
 
     "github.com/rs/zerolog/log"
 
-    talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
-    "github.com/budimanjojo/talhelper/v3/pkg/generate"
     "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
     "github.com/truecharts/public/clustertool/pkg/kubectlcmds"
     "github.com/truecharts/public/clustertool/pkg/nodestatus"
     "github.com/truecharts/public/clustertool/pkg/sops"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 var HelmRepos map[string]*fluxhandler.HelmRepo
@@ -28,29 +25,8 @@ var manifestPaths = []string{
 }
 
 func GenBootstrap(node string, extraFlags []string) string {
-    cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to parse talconfig or talenv file: %s")
-    }
-
-    applyStdout := os.Stdout
-    r, w, _ := os.Pipe()
-    os.Stdout = w
-
-    err = generate.GenerateBootstrapCommand(cfg, helper.TalosGenerated, node, extraFlags)
-
-    w.Close()
-    out, _ := io.ReadAll(r)
-    os.Stdout = applyStdout
-
     talosPath := embed.GetTalosExec()
-    strout := strings.ReplaceAll(string(out), "talosctl", talosPath)
-    strout = strings.ReplaceAll(strout, "\n", "")
-    strout = strings.ReplaceAll(strout, ";", "")
-
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to generate talosctl bootstrap command: %s")
-    }
+    strout := talosPath + "bootstrap --talosconfig " + helper.TalosConfigFile + " -n " + talassist.IpAddresses[0]
     return strout
 }
 
@@ -83,7 +59,7 @@ func RunBootstrap(args []string) {
 
     log.Info().Msgf("Bootstrap: Configuring kubectl for VIP: %v", helper.TalEnv["VIP_IP"])
     // Ensure kubeconfig is loaded
-    kubeconfigcmds := GenKubeConfig(helper.TalEnv["VIP_IP"])
+    kubeconfigcmds := GenKubeConfig(helper.TalEnv["VIP_IP"], extraArgs)
     ExecCmd(kubeconfigcmds)
 
     // Desired pod names

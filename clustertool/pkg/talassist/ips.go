@@ -30,7 +30,7 @@ func LoadNodeIPs() error {
 
     // Extract the IP addresses into a list
     for _, node := range config.Nodes {
-        ipAddresses = append(ipAddresses, node.IPAddress)
+        IpAddresses = append(IpAddresses, node.IPAddress)
     }
 
     return nil

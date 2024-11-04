@@ -5,8 +5,11 @@ import (
     "github.com/truecharts/public/clustertool/pkg/helper"
 )
 
-func GenKubeConfig(node string) string {
+func GenKubeConfig(node string, extraFlags []string) string {
+
+    //extraFlags = append(extraFlags, "--preserve")
     talosPath := embed.GetTalosExec()
-    strout := talosPath + " kubeconfig --talosconfig " + helper.TalosConfigFile + " -n " + node + " --force"
-    return strout
+    cmd := talosPath + " kubeconfig --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
+
+    return cmd
 }
