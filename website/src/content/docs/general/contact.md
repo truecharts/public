@@ -1,7 +1,7 @@
 ---
 title: Contact
 sidebar:
-  order: 5
+  order: 4
 ---
 
 While many of our maintainers are available in a lot of places, we have a few official contact options to chat about TrueCharts or ask for Support.

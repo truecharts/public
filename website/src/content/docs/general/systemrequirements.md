@@ -1,12 +1,12 @@
 ---
 title: System Requirements
 sidebar:
-  order: 1
+  order: 3
 ---
 
 Below are our recommended and supported system requirements for running TrueCharts Charts inside a Talos VM atop a TrueNAS SCALE or other hypervisor (Proxmox, UnRaid, etc.) host system. These are early, preliminary system requirements and will likely change in the future as we gather feedback from more migrated users.
 
-See [below](/clustertool/virtual-machines/systemrequirements/#best-effort-cpu-recommendations) for additional information.
+See [below](/general/systemrequirements/#best-effort-cpu-recommendations) for additional information.
 
 :::note
 

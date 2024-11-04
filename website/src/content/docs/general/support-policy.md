@@ -1,5 +1,7 @@
 ---
 title: General Helm Support Policy
+sidebar:
+  order: 2
 ---
 
 This manual contains general information on working with TrueCharts Charts using Helm directly.

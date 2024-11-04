@@ -1,6 +1,6 @@
 ---
 sidebar:
-  order: 5
+  order: 4
 title: Frequently Asked Questions (FAQ)
 ---
 
@@ -613,5 +613,3 @@ while IFS= read -r line; do
 done <<< "$replicationsources"
 
 ```
-
-

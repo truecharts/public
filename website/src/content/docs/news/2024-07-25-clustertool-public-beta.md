@@ -37,7 +37,7 @@ In tandem with ClusterTool development, over the course of the last month we've 
 
 - [Link](/clustertool/migrations/scale) to our TrueNAS SCALE -> ClusterTool/Talos migration guide which includes instructions for **prerequisite steps to be performed by users on TrueNAS SCALE prior to migrating to Talos via ClusterTool**
 
-- [Link](/clustertool/virtual-machines/systemrequirements) to our Talos VM system requirements section, which leads into platform-specific, start-to-finish guides on how to setup a Talos VM for our users be it on [SCALE](/clustertool/virtual-machines/truenas-scale), [Proxmox](/clustertool/virtual-machines/proxmox), [unRAID](/clustertool/virtual-machines/unraid) or other host platforms.
+- [Link](/general/systemrequirements) to our Talos VM system requirements section, which leads into platform-specific, start-to-finish guides on how to setup a Talos VM for our users be it on [SCALE](/clustertool/virtual-machines/truenas-scale), [Proxmox](/clustertool/virtual-machines/proxmox), [unRAID](/clustertool/virtual-machines/unraid) or other host platforms.
 
 As always, we welcome feedback and additions to our docs which you can submit by opening a PR in [this](https://github.com/truecharts/website) repo for review. Specifically, we welcome instructions for setting up a Talos VM on platforms other than the ones we've already written guides for.
 
