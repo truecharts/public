@@ -4,7 +4,6 @@ import (
     "bytes"
     "errors"
     "fmt"
-    "log/slog"
     "os"
     "path"
 
@@ -12,7 +11,6 @@ import (
 
     talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
     "github.com/budimanjojo/talhelper/v3/pkg/generate"
-    "github.com/budimanjojo/talhelper/v3/pkg/substitute"
     "github.com/budimanjojo/talhelper/v3/pkg/talos"
     "github.com/fatih/color"
     sideroConfig "github.com/siderolabs/talos/pkg/machinery/config"
@@ -119,27 +117,12 @@ func talhelperGenConfig() error {
 
 func validateTalConfig(argsInt []string) error {
     cfg := helper.TalConfigFile
-    validateTHNoSubstitute := false
-    args := []string{}
-    if len(args) > 0 {
-        cfg = args[0]
-    }
 
-    log.Info().Msg("start loading and validating config file")
-    slog.Debug(fmt.Sprintf("reading %s", cfg))
+    log.Info().Msgf("start loading and validating Talconfig file for cluster %s", helper.ClusterName)
+    log.Debug().Msg(fmt.Sprintf("reading %s", cfg))
     cfgByte, err := os.ReadFile(cfg)
     if err != nil {
-        log.Fatal().Err(err).Msgf("failed to read config file: %s", err)
-    }
-
-    if !validateTHNoSubstitute {
-        if err := substitute.LoadEnvFromFiles([]string{helper.ClusterEnvFile}); err != nil {
-            log.Fatal().Err(err).Msg("failed to load env file: %s")
-        }
-        cfgByte, err = substitute.SubstituteEnvFromByte(cfgByte)
-        if err != nil {
-            log.Fatal().Err(err).Msg("failed trying to substitute env: %s")
-        }
+        log.Fatal().Err(err).Msgf("failed to read Talconfig file %s: %s", helper.TalConfigFile, err)
     }
 
     errs, warns, err := talhelperCfg.ValidateFromByte(cfgByte)
@@ -147,19 +130,29 @@ func validateTalConfig(argsInt []string) error {
         log.Fatal().Err(err).Msgf("failed to validate talhelper config file: %s", err)
     }
 
-    if len(errs) > 0 || len(warns) > 0 {
-        color.Red("There are issues with your talhelper config file:")
-        grouped := make(map[string][]string)
+    if len(errs) > 0 {
+        log.Error().Msg("There are issues with your talhelper config file:")
+        groupedWarns := make(map[string][]string)
         for _, v := range errs {
-            grouped[v.Field] = append(grouped[v.Field], v.Message.Error())
+            groupedWarns[v.Field] = append(groupedWarns[v.Field], v.Message.Error())
         }
-        for _, v := range warns {
-            grouped[v.Field] = append(grouped[v.Field], v.Message)
-        }
-        for field, list := range grouped {
+        for field, list := range groupedWarns {
             color.Yellow("field: %q\n", field)
             for _, l := range list {
-                log.Info().Msgf(l + "\n")
+                log.Error().Msgf(l + "\n")
+            }
+        }
+        if len(warns) > 0 {
+            log.Warn().Msg("There might be some issues with your talhelper config file:")
+            groupedErr := make(map[string][]string)
+            for _, v := range warns {
+                groupedErr[v.Field] = append(groupedErr[v.Field], v.Message)
+            }
+            for field, list := range groupedErr {
+                color.Yellow("field: %q\n", field)
+                for _, l := range list {
+                    log.Warn().Msgf(l + "\n")
+                }
             }
         }
     } else {
