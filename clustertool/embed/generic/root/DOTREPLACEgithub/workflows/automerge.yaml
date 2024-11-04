@@ -20,3 +20,4 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           UPDATE_RETRIES: 24
           UPDATE_RETRY_SLEEP: 60000
+          MERGE_METHOD: "squash"
