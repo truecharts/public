@@ -18,11 +18,6 @@ service:
         targetPort: 8080
         port: 10680
 
-romm:
-  auth:
-    user: "admin"
-    pass: "admin"
-
 workload:
   main:
     podSpec:
@@ -36,13 +31,57 @@ workload:
             startup:
               type: http
           env:
+            # dont touch!
             ROMM_BASE_PATH: /romm
-            ROMM_DB_DRIVER: mariadb
-            # IGDB client id
-            CLIENT_ID: ""
-            # IGDB client secret
-            CLIENT_SECRET: ""
-            STEAMGRIDDB_API_KEY: ""
+            
+            ROMM_HOST: localhost
+
+            # IGDB client id and secret (not required but recommended to set)
+            IGDB_CLIENT_ID: ""
+            IGDB_CLIENT_SECRET: ""
+
+            # optional api
+            # STEAMGRIDDB_API_KEY: ""
+
+            # paid API only (optional)
+            # MOBYGAMES_API_KEY: ""
+
+            # Disables playing in browser with EmulatorJS (builtin)
+            # DISABLE_EMULATOR_JS: false
+
+            # Disables playing flash games with RuffleRS (builtin)
+            # DISABLE_RUFFLE_RS: false
+
+            # Disables CSRF protection (not recommended)
+            # DISABLE_CSRF_PROTECTION: false
+
+            # Disable auth on download endpoint (WebRcade, Tinfoil)
+            # DISABLE_DOWNLOAD_ENDPOINT_AUTH: false
+
+            # Timeout for the background scan/rescan tasks (in seconds)
+            # SCAN_TIMEOUT: 14400
+
+            # Enable rescanning of library when filesystem changes
+            # ENABLE_RESCAN_ON_FILESYSTEM_CHANGE: false
+
+            # Delay in minutes before rescanning library when filesystem changes
+            # RESCAN_ON_FILESYSTEM_CHANGE_DELAY: 5
+
+            # Cron expression for scheduled rescanning
+            # SCHEDULED_RESCAN_CRON: "0 3 * * *"
+
+            # Enable scheduled updating of Switch TitleDB index
+            # ENABLE_SCHEDULED_UPDATE_SWITCH_TITLEDB: false
+
+            # Cron expression for scheduled updating of Switch TitleDB
+            # SCHEDULED_UPDATE_SWITCH_TITLEDB_CRON: "0 4 * * *"
+
+            # Enable scheduled updating of MAME XML index
+            # ENABLE_SCHEDULED_UPDATE_MAME_XML: false
+
+            # Cron expression for scheduled updating of MAME XML
+            # SCHEDULED_UPDATE_MAME_XML_CRON: "0 5 * * *"
+
             DB_PORT: 3306
             DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
@@ -63,10 +102,6 @@ workload:
               secretKeyRef:
                 name: romm-secrets
                 key: ROMM_AUTH_SECRET_KEY
-            ROMM_AUTH_ENABLED: true
-            ENABLE_EXPERIMENTAL_REDIS: true
-            ROMM_AUTH_USERNAME: "{{ .Values.romm.auth.user}}"
-            ROMM_AUTH_PASSWORD: "{{ .Values.romm.auth.pass}}"
 
 persistence:
   library:

@@ -2,8 +2,16 @@
 title: Installation Notes
 ---
 
-Set Client Id and Client Secret with the API key from [IGDB](https://api-docs.igdb.com/#about)
-SteamGridDB API Key is WIP and can be optionally set.
+Set the `IGDB_CLIENT_ID` and `IGDB_CLIENT_SECRET` with the API key from [IGDB](https://api-docs.igdb.com/#about).
+
+## Optional API
+
+`STEAMGRIDDB_API_KEY` and/or `MOBYGAMES_API_KEY` API Key can be optionally set for additional metadata.
+
+MobyGames API is no longer free.
+
+
+## Rom Library Structure
 
 This app has two folder structures found [here](https://github.com/zurdi15/romm/blob/master/README.md#-folder-structure).
 
