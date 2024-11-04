@@ -1,5 +1,5 @@
 ---
-title: FluxCD Support Policy
+title: FluxCD Basics
 ---
 
 fluxcd is a so-called gitops tool.
@@ -10,31 +10,6 @@ It allows users to define their cluster in a git repository and automatically sy
 Please, always remember to check the content specific to the chart.
 
 :::
-
-## Tier
-
-fluxcd is what we call a "Tier 2" deployment options.
-This means that we expect it to work smoothly, all options being technically available and we've enough staff available to help-out.
-
-With Tier 2 options, you should not have to expect issues caused by the deployment option.
-
-## TrueCharts on FluxCD
-
-TrueCharts aims to always support the latest version of FluxCD.
-However, sometimes new versions of either TrueNAS or TrueCharts introduces breaking changes.
-This document highlights which versions of TrueCharts (or rather branches), support which versions of FluxCD.
-
-We also document which versions of TrueNAS will receive TrueCharts updates and for which versions we are accepting bug reports.
-
-### Supported Versions of FluxCD
-
-| FluxCD version | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
-| -------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
-| 1.2.1 or prior | `master` | ✅                     | ❌                        | ❌                    |       |
-
-## Project Scope
-
-For more info on what to expect from TrueCharts Apps, be sure to also read the [Project Scope documentation](/general/scope)
 
 ## How to Configure
 

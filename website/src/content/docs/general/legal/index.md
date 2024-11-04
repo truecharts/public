@@ -1,6 +1,6 @@
 ---
 sidebar:
-  order: 1
+  order: 6
 title: Legal Documents
 ---
 

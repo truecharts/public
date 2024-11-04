@@ -1,7 +1,7 @@
 ---
 title: Sponsor
 sidebar:
-  order: 6
+  order: 5
 ---
 
 Open-source projects live and die with community support. To ensure TrueCharts can continue it's great effort to become the best resource for Helm Charts and TrueNAS SCALE Apps, we aim to become fully self-funding in the future.
