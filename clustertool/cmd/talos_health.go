@@ -30,5 +30,5 @@ var health = &cobra.Command{
 }
 
 func init() {
-    adv.AddCommand(health)
+    talosCmd.AddCommand(health)
 }

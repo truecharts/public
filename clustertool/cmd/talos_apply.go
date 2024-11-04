@@ -44,7 +44,7 @@ Not any contained helm-charts
 
 var apply = &cobra.Command{
     Use:     "apply",
-    Short:   "apply TalosConfig",
+    Short:   "apply",
     Example: "clustertool apply <NodeIP>",
     Long:    applyLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
@@ -115,5 +115,5 @@ func RunApply(kubeconfig bool, node string, extraArgs []string) {
 }
 
 func init() {
-    RootCmd.AddCommand(apply)
+    talosCmd.AddCommand(apply)
 }

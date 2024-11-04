@@ -24,5 +24,5 @@ func bootstrapfunc(cmd *cobra.Command, args []string) {
 }
 
 func init() {
-    adv.AddCommand(bootstrap)
+    talosCmd.AddCommand(bootstrap)
 }

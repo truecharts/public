@@ -58,5 +58,5 @@ var upgrade = &cobra.Command{
 }
 
 func init() {
-    RootCmd.AddCommand(upgrade)
+    talosCmd.AddCommand(upgrade)
 }

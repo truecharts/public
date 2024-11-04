@@ -45,5 +45,5 @@ var reset = &cobra.Command{
 }
 
 func init() {
-    adv.AddCommand(reset)
+    talosCmd.AddCommand(reset)
 }
