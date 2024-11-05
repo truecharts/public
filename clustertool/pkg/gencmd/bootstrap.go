@@ -158,16 +158,17 @@ func RunBootstrap(args []string) {
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/spegel/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/cert-manager/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/kyverno/app"), false, false},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/system/kubernetes-reflector/app"), false, false},
     }
     fluxhandler.InstallCharts(prioCharts, HelmRepos, false)
 
     intermediateCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/metallb/app"), false, false},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/core/clusterissuer/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/cloudnative-pg/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/kube-system/node-feature-discovery/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/kube-system/metrics-server/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/kube-system/descheduler/app"), false, false},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/kubernetes-reflector/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/volsync/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/snapshot-controller/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/openebs/app"), false, true},
@@ -207,6 +208,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msg("Bootstrap: Installing included applications")
     postCharts := []fluxhandler.HelmChart{
+        {filepath.Join(helper.ClusterPath, "/kubernetes/core/traefik/app"), false, true},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/core/blocky/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/apps/kubernetes-dashboard/app"), false, true},
     }
 
