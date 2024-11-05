@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: games
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: An extensible, high performant & paralleled Minecraft proxy server.
-home: https://truecharts.org/charts/incubator/minecraft-gate
+home: https://truecharts.org/charts/stable/minecraft-gate
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-gate.webp
 keywords:
   - minecraft-gate
@@ -32,6 +32,6 @@ name: minecraft-gate
 sources:
   - https://ghcr.io/minekube/gate
   - https://github.com/minekube/gate
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/minecraft-gate
+  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-gate
 type: application
-version: 0.0.3
+version: 1.0.0
