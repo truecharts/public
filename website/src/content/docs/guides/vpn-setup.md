@@ -235,7 +235,7 @@ spec:
               name: qbittorrent
             patch: |
               - op: add
-                path: /spec/template/spec/containers/1/resources/limits/kernel.org~1tun
+                path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
                 value: 1
     interval: 5m
     chart:
