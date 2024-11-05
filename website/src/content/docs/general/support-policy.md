@@ -1,11 +1,8 @@
 ---
-title: General Helm Support Policy
+title: Support Policy
 sidebar:
   order: 2
 ---
-
-This manual contains general information on working with TrueCharts Charts using Helm directly.
-As well as when editing Helm Yaml for tools like FluxCD, KubeApps and Rancher
 
 :::tip
 
@@ -13,31 +10,76 @@ Please, always remember to check the content specific to the chart.
 
 :::
 
-We at TrueCharts offer limited free support via a support-ticketing system on Discord.
-However the scope of this support is limited to two things:
+TrueCharts is a comprehensive project that focuses on providing opinionated Helm charts for applications to run on Kubernetes-based platforms.
 
-- ClusterTool Commands
-- The `values.yaml` of our Helm charts
+We also offer free support via a support-ticketing system on Discord, according to the policy layed out in this document.
+
+## Support Rules
+
+- If its covered by support as outlined below make a ticket in [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826).
+- [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826) is not rendered on GitHub or any other platform.
+- Bugs must be reported on GitHub, but only after confirmation by the staff via a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826)
+- Anything not covered by the below Support Policy is not eligble for a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826). If you need assitance outside the scuoe of [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826) make a thread in an appropiate [Discord Channel](https://discord.gg/tVsPTHWTtr).
+- We help out where we can, as long as you tried to do it yourself *first*. We do not provide a walkthrough service.
+- Our staff will try to help out with providing instructions on how to use `kubectl` and other `*ctl` tools where needed.
+- Please be aware that the code of conduct also applies to all support.
 
 ## Expected Prior Knowledge
 
-- How to use a shell/console/terminal
-- Basic shell commands (`cp`, `ls`, `etc` and if you think `etc` is a command here, you'll have a problem)
-- Basic `kubectl` use (get pods, get svc, describe something etc)
-- Basic knowhow of Talos when you use it (things like: what is "Apply", what is a "machineconfig", what does "upgrade" do vs `k8s-upgrade`)
-- Basic Kubernetes knowhow (such as what is a "worker" node vs a "controlplane" node, what's "etcd", what's a "pod" vs a "container", etc.)
+- How to use a shell/console/terminal and basic commands (ie. `cp`, `ls`, `etc`).
+- Having read our Guides, Docs, News and Announcements.
+- Basic Kubernetes know how (such as what is a "worker" node vs a "controlplane" node, what's "etcd", what's a "pod" vs a "container", etc).
 
-## What's Explicitly Not Covered By Support:
+## ClusterTool Support Policy
 
-- Network configuration
-- CloudFlare proxying
-- Operating-Systems, outside of Talos deployed using ClusterTool
-- Helm 101 (e.g. "how do I install/upgrade/edit a Helm Chart?")
-- The software *contained* in our Helm Charts (for example "how do I configure Radarr?")
-- Cluster Operations (maintenance, fixing flaky pods, tracking non-deploying fluxcd helm-releases/customisations)
-- How to install/use `kubectl`/`talosctl`
+- We offer support for all ClusterTool functions, except those under `adv` and `charts`
+- If you deviate from default configurations significantly, we cannot guarantee a bootstrap will work and support will be limited on a case-by-case basis.
+- We do provide support for issues regarding talconfig.yaml, as long as ClusterTool is used for the deployment.
+- We do provide *basic* assistance with [Talos OS](../guides/talos/), when deployed or maintained through ClusterTool (upgrades, config changes etc)
+- We do provide support for FluxCD setup and layout, as long as ClusterTool is used for the deployment.
 
-### Supported Versions of Helm
+## Kubernetes Support Policy
+
+- We do not offer support for any component of kubernets that is not made by TrueCharts.
+- This includes charts by other parties or manually created kubernetes manifests and deployments.
+- We do not offer support for any component of kubernets that is not made by TrueCharts.
+
+## Helm Chart Support Policy
+
+- We offer support for all features available in our helm-charts, including all options in the common-chart.
+- We offer [basic documentation](../guides/helm/) and support for installing, upgrading and editing our Helm-Charts using Helm.
+- We do not support external secret management outside of values.yaml
+- We offer support for all our charts trains, except `incubator`, `dev`, and `test`.
+
+:::note
+
+Some [(common-chart)](../common/) features might not work correctly with all charts.
+
+:::
+
+## FluxCD Support Policy
+
+- We offer support for our Helm-Charts values in FLuxCD as outlined in Helm Chart Support.
+- We offer [basic documentation](../guides/fluxcd/) and support on how to create a `helm-release` file, to deploy our helm-charts on Flux.
+- We offer support for our Helm-Charts values in FLuxCD as outlined in Helm Chart Support.
+
+## What's Explicitly Not Covered By Support
+
+- Troubleshooting complete clusters, outside of just our Helm-Charts.
+- CloudFlare proxying.
+- The software *contained* in our Helm Charts (for example "how to configure Radarr to connect to a torrent client?").
+- How to install additional tools (like: [kubectl](https://kubernetes.io/docs/tasks/tools/), [talosctl](https://www.talos.dev/latest/talos-guides/install/talosctl/), [flux](https://fluxcd.io/flux/cmd/) etc)
+- We do not support any Cloud providers or OpenShift.
+
+:::note
+
+If an issue is covered support create a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826) for assistance.
+
+For all issues not covered by support you can make a thread in an appropriate [Discord Channel](https://discord.gg/tVsPTHWTtr) for assistance from the community.
+
+:::
+
+## Supported Helm Versions
 
 | Helm version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
@@ -50,7 +92,3 @@ Due to local regulations and restrictions, we are unable to provide support or s
 We appreciate your understanding.
 
 :::
-
-## Project Scope
-
-For more info on what to expect from TrueCharts Apps, be sure to also read the [Project Scope documentation](/general/scope).
