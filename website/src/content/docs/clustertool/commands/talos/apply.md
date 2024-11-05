@@ -1,9 +1,9 @@
 ---
-title: apply
+title: talos apply
 ---
-## clustertool apply
+## clustertool talos apply
 
-apply TalosConfig
+apply
 
 ### Synopsis
 
@@ -36,7 +36,7 @@ Apply and *all other* commands, are just for maintaining Talos itself.
 Not any contained helm-charts
 
 ```
-clustertool apply [flags]
+clustertool talos apply [flags]
 ```
 
 ### Examples

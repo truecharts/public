@@ -1,12 +1,12 @@
 ---
-title: adv health
+title: talos health
 ---
-## clustertool adv health
+## clustertool talos health
 
 Check Talos Cluster Health
 
 ```
-clustertool adv health [flags]
+clustertool talos health [flags]
 ```
 
 ### Examples

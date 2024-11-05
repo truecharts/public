@@ -1,12 +1,12 @@
 ---
-title: adv reset
+title: talos reset
 ---
-## clustertool adv reset
+## clustertool talos reset
 
 Reset Talos Nodes and Kubernetes
 
 ```
-clustertool adv reset [flags]
+clustertool talos reset [flags]
 ```
 
 ### Examples

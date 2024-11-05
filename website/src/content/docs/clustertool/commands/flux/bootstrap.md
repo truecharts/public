@@ -1,18 +1,18 @@
 ---
-title: adv bootstrap
+title: flux bootstrap
 ---
-## clustertool adv bootstrap
+## clustertool flux bootstrap
 
-bootstrap first Talos Node
+Manually bootstrap fluxcd on existing cluster
 
 ```
-clustertool adv bootstrap [flags]
+clustertool flux bootstrap [flags]
 ```
 
 ### Examples
 
 ```
-clustertool adv bootstrap
+clustertool flux bootstrap
 ```
 
 ### Options
