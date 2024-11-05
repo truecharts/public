@@ -1,0 +1,321 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minecraft
+  namespace: minecraft
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: minecraft-java
+      version: 11.0.2
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      s3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3PREFIX}-minecraft"
+        accessKey: "${S3ID}"
+        secretKey: "${S3KEY}"
+        encrKey: "${S3KEY}"
+    service:
+     main:
+       enabled: true
+       loadBalancerIP: ${MINECRAFT_IP}
+       type: LoadBalancer
+       ports:
+         main:
+           enabled: true
+           protocol: tcp
+           port: 25565
+         query:
+           enabled: true
+           protocol: udp
+           port: 25565
+     rcon:
+       enabled: true
+       loadBalancerIP: ${MINECRAFT_IP}
+       type: LoadBalancer
+       ports:
+         rcon:
+           enabled: true
+           port: 25575
+     dynmap:
+       enabled: true
+       loadBalancerIP: ${MINECRAFT_IP}
+       type: LoadBalancer
+       ports:
+         dynmap:
+           enabled: true
+           port: 8123
+
+    mcbackup:
+     # White spaced separated list
+     zstd_params:
+       - --long=25
+       - --single-thread
+     # comma separated list
+     excludes:
+       - "*.jar"
+       - "cache"
+       - "logs"
+       - "*.tmp"
+    podOptions:
+      terminationGracePeriodSeconds: 120
+    workload:
+     main:
+       podSpec:
+         containers:
+           main:
+             imageSelector: j17alpineImage
+             env:
+               ENABLE_QUERY: "true"
+               OVERRIDE_SERVER_PROPERTIES: true
+               VERSION: "1.20.1"
+               TYPE: "AUTO_CURSEFORGE"
+               FORGEVERSION: "forge-47.3.7"
+               CF_SLUG: "sixcraft"
+               # CF_MODPACK_ZIP: "/customdata/SixCraft-4.1.0.zip"
+               DIFFICULTY: hard
+               MAX_PLAYERS: 20
+               MAX_WORLD_SIZE: 1000000
+               ALLOW_NETHER: true
+               ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+               ENABLE_COMMAND_BLOCK: false
+               FORCE_GAMEMODE: true
+               STOP_SERVER_ANNOUNCE_DELAY: 60
+               GENERATE_STRUCTURES: true
+               HARDCORE: false
+               MAX_BUILD_HEIGHT: 300
+               MAX_TICK_TIME: 90000
+               SPAWN_ANIMALS: true
+               SPAWN_MONSTERS: true
+               SPAWN_NPCS: true
+               VIEW_DISTANCE: 32
+               SPAWN_PROTECTION: 5
+               MODE: survival
+               MOTD: "Welcome to Six-Shooter Minecraft"
+               PVP: false
+               LEVEL_TYPE: DEFAULT
+               LEVEL: world
+               ONLINE_MODE: true
+               MAX_MEMORY: 12228M
+               INIT_MEMORY: 8096M
+               JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
+               RCON_PASSWORD:  ${MC_RCON_PASS}
+               BROADCAST_CONSOLE_TO_OPS: true
+               USE_AIKAR_FLAGS: true
+               OPS: "99093856-888c-49e5-b7ea-6849c4012469,6253eb28-5be7-4c94-8936-701b9e257f0c"
+               WHITELIST: "99093856-888c-49e5-b7ea-6849c4012469,6253eb28-5be7-4c94-8936-701b9e257f0c,06fd4434-f41d-45bb-84a7-16c1138b62a8,497d6257-d336-4922-b5e0-3ee0fbe2b3d3"
+               EXISTING_OPS_FILE: "SYNCHRONIZE"
+               EXISTING_WHITELIST_FILE: "SYNCHRONIZE"
+               # PACKWIZ_URL: ""
+               # CUSTOM_SERVER: ""
+               # QUILT_LOADER_VERSION: ""
+               # QUILT_LAUNCHER: ""
+               # QUILT_LAUNCHER_URL: ""
+               # PUFFERFISH_BUILD: "lastSuccessfulBuild"
+               # FORGE_INSTALLER: ""
+               # FORGE_INSTALLER_URL: ""
+               # FABRIC_LOADER_VERSION: ""
+               # FABRIC_INSTALLER: ""
+               # FABRIC_INSTALLER_URL: ""
+               # SPIGOT_DOWNLOAD_URL: ""
+               # BUILD_FROM_SOURCE: false
+               # BUKKIT_DOWNLOAD_URL: ""
+               # PAPERBUILD: ""
+               # PAPER_DOWNLOAD_URL: ""
+               # AIRPLANE_BUILD: "lastSuccessfulBuild"
+               # MAGMA_CHANNEL: "stable"
+               # MOHIST_BUILD: ""
+               # CANYON_BUILD: ""
+               # SPONGEBRANCH: "STABLE"
+               # SPONGEVERSION: ""
+               # LIMBO_BUILD: "LATEST"
+               # LIMBO_SCHEMA_FILENAME: "default.schem"
+               # CRUCIBLE_RELEASE: "latest"
+               # FTB_MODPACK_ID: ""
+               # FTB_MODPACK_VERSION_ID: ""
+               # CF_SERVER_MOD: ""
+               # CF_BASE_DIR: ""
+               # USE_MODPACK_START_SCRIPT: true
+               # FTB_LEGACYJAVAFIXER: false
+               # WHITELIST: ""
+               # OPS: ""
+               # ICON: ""
+               SEED: "-1412583731547517931"
+               # GENERATOR_SETTINGS: ""
+               # WORLD: ""
+               # FORCE_REDOWNLOAD: false
+               # USE_FLARE_FLAGS: false
+               # USE_AIKAR_FLAGS: true
+               # USE_SIMD_FLAGS: false
+               # JVM_OPTS: ""
+               # JVM_XX_OPTS: ""
+               CF_API_KEY: "$2a$10$/${MINECRAFT_CF_API_KEY}"
+               # CF_PAGE_URL
+               # CF_SLUG
+               # CF_EXCLUDE_INCLUDE_FILE
+               # CF_EXCLUDE_MODS
+               # CF_FORCE_INCLUDE_MODS
+               # CF_FORCE_SYNCHRONIZE
+               # CF_OVERRIDES_SKIP_EXISTING
+               # CF_PARALLEL_DOWNLOADS
+               # CF_SET_LEVEL_FROM
+           mcbackup:
+             enabled: true
+
+    persistence:
+     data:
+       volsync:
+          - name: b2
+            type: restic
+            credentials: s3
+            dest:
+              accessModes:
+                - ReadWriteOnce
+              enabled: true
+            src:
+              enabled: true
+       enabled: true
+       size: 500Gi
+       targetSelector:
+         main:
+           main:
+             mountPath: /data
+         mcbackup:
+           mcbackup:
+             mountPath: /data
+             readOnly: true
+     dynmap:
+       enabled: true
+       storageClass: ceph-nvme2
+       size: 250Gi
+       targetSelector:
+         main:
+           main:
+             mountPath: /data/dynmap/web
+     #customdata:
+     #  existingClaim: minecraft-serverdata-pvc
+     #  enabled: true
+     #  targetSelector:
+     #    main:
+     #      main:
+     #        mountPath: /customdata
+     backups:
+       volsync:
+          - name: b2
+            type: restic
+            credentials: s3
+            dest:
+              accessModes:
+                - ReadWriteOnce
+              enabled: true
+            src:
+              enabled: true
+       enabled: true
+       storageClass: ceph-nvme2
+       size: 250Gi
+       targetSelector:
+         mcbackup:
+           mcbackup:
+             mountPath: /backups
+    resources:
+       limits:
+         cpu: 10000m
+         memory: 14Gi
+       requests:
+         cpu: 1000m
+         memory: 5Gi
+
+    ingress:
+      main:
+        enabled: true
+        primary: true
+        targetSelector:
+          dynmap: dynmap
+        hosts:
+          -  host: dynmap.sixcraft.org
+             paths:
+                - path: /
+                  pathType: Prefix
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: sc-le-prod
+          traefik:
+            enabled: true
+            middlewares:
+              - name: bouncer
+                namespace: traefik
+              #- name: auth
+              # namespace: traefik
+            entrypoints:
+              - websecure
+            enableFixedMiddlewares: true
+            forceTLS: true
+            allowCors: false
+            fixedMiddlewares:
+              - name: chain-basic
+                namespace: ""
+
+    cnpg:
+      main:
+        enabled: false
+        primary: true
+        # -- Puts the cnpg cluster in hibernation mode
+        hibernate: false
+        pgVersion: 16
+        mode: standalone
+
+        # Database details
+        database: “dynmap”
+        user: “dynmap
+        password: “minecraftdynmapPASSWORD"
+
+        # Database cluster configuration
+        cluster:
+
+          # Number of instances
+          instances: 1
+
+          # set to true on single-node clusters to allow PVCs to be kept on instance restart
+          singleNode: true
+          # # -- storage size for the data pvc's
+          # # Follows the same spec as .Values.Persistence type=PVC
+          storage:
+            storageClass: “ceph-nvme2”
+          # # -- storage size for the wal pvc's
+          # # Follows the same spec as .Values.Persistence type=PVC
+          walStorage:
+            storageClass: “ceph-nvme2”
+
+
+          # The instances' log level, one of the following values: error, warning, info (default), debug, trace
+          logLevel: info
+
+        backups:
+          enabled: true
+          credentials: s3
+        recovery:
+          method: object_store
+          credentials: s3

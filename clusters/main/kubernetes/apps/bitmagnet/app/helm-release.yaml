@@ -1,0 +1,78 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: bitmagnet
+  namespace: bitmagnet
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: bitmagnet
+      version: 3.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      s3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3PREFIX}-bitmagnet"
+        accessKey: "${S3ID}"
+        secretKey: "${S3KEY}"
+        encrKey: "${S3KEY}"
+
+    global:
+      stopAll: false
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                TMDB_API_KEY: ${TMDB_API_KEY}
+
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+            middlewares:
+              - name: local
+                namespace: traefik
+              - name: bouncer
+                namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: ks-le-prod
+        hosts:
+          - host: bitmagnet.${BASE_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+    cnpg:
+      main:
+        backups:
+          enabled: false
+          credentials: s3
+
+        recovery:
+          method: object_store
+          credentials: s3
