@@ -1,0 +1,40 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: traefik
+      version: 29.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  driftDetection:
+    mode: warn
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ## set stopAll to "true" if you do not want to use traefik
+    # and/or disable its service
+    global:
+      stopAll: false
+    defaultCertificate: "domain-0-wildcard"
+    service:
+      tcp:
+        loadBalancerIP: ${TRAEFIK_IP}

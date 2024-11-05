@@ -1,0 +1,67 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: clusterissuer
+  namespace: clusterissuer
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: clusterissuer
+      version: 9.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+
+    clusterIssuer:
+      selfSigned:
+        enabled: true
+        name: "selfsigned"
+      ## Remove these if you do NOT want to use clusterissuer
+      ACME:
+        - name: domain-0-le-staging
+          # Used for both logging in to the DNS provider AND ACME registration
+          email: "${DOMAIN_0_EMAIL}"
+          server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+          # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns
+          type: "cloudflare"
+          # for cloudflare
+          cfapitoken: "${DOMAIN_0_CLOUDFLARE_TOKEN}"
+        - name: domain-0-le-prod
+          # Used for both logging in to the DNS provider AND ACME registration
+          email: "${DOMAIN_0_EMAIL}"
+          server: 'https://acme-v02.api.letsencrypt.org/directory'
+          # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns
+          type: "cloudflare"
+          # for cloudflare
+          cfapitoken: "${DOMAIN_0_CLOUDFLARE_TOKEN}"
+
+    ## Remove these if you do NOT want to use clusterissuer
+    clusterCertificates:
+      # Namespaces in which the certificates must be available
+      # Accepts comma-separated regex expressions
+      replicationNamespaces: '.*'
+      certificates:
+        - name: domain-0-wildcard
+          enabled: true
+          certificateIssuer: tc-le-prod
+          hosts:
+            - ${DOMAIN_0}
+            - '*.${DOMAIN_0}'

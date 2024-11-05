@@ -233,6 +233,9 @@ func CheckEnvVariables() {
         "METALLB_RANGE",
         "PODNET",
         "SVCNET",
+        "DOMAIN_0",
+        "DOMAIN_0_EMAIL",
+        "DOMAIN_0_CLOUDFLARE_TOKEN",
     }
     for _, key := range requiredKeys {
         if helper.TalEnv[key] == "" {

@@ -1,0 +1,73 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: blocky
+  namespace: blocky
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: blocky
+      version: 16.6.2
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ## set stopAll to "true" if you do not want to use blocky
+    # and/or disable its service
+    global:
+      stopAll: false
+    service:
+      dns:
+        externalTrafficPolicy: Local
+        loadBalancerIP: ${BLOCKY_IP}
+        type: LoadBalancer
+    k8sgateway:
+      # -- list of processed domains
+      domains:
+      - domain: "${DOMAIN_0}"
+        # -- Optional configuration option for DNS01 challenge that will redirect all acme
+        # challenge requests to external cloud domain (e.g. managed by cert-manager)
+        # See: https://cert-manager.io/docs/configuration/acme/dns01/
+        dnsChallenge:
+          enabled: false
+          domain: dns01.clouddns.com
+
+      forward:
+        enabled: false
+        primary: tls://1.1.1.1
+        secondary: tls://1.0.0.1
+        options:
+          - name: tls_servername
+            value: cloudflare-dns.com
+
+    # CANNOT be defined in above yaml section
+    queryLog:
+      # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console only
+      type: ""
+
+    configmap:
+      dashboard:
+        enabled: false
+      datasource:
+        enabled: false
+
+    cnpg:
+      main:
+        enabled: false

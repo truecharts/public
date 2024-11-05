@@ -8,8 +8,19 @@ MASTER1IP: 192.168.20.210
 GATEWAY: 192.168.20.1
 # Defines the ip range metallb is allowed to use
 METALLB_RANGE: 192.168.20.211-192.168.20.219
+# IP Traefik will use for externally exposing ingress-resources (NOT its dashboard)
+TRAEFIK_IP: 192.168.20.211
+# IP Blocky DNS will be exposed on
+BLOCKY_IP: 192.168.20.212
 # Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use
-DASHBOARD_IP: 192.168.20.211
+DASHBOARD_IP: 192.168.20.213
+## Configures Traefik, ClusterIssuer and Blocky for said domain, using these credentials
+# domain is the base/highest level of your domain, so without subdomain, example: truecharts.org, not somesite.truecharts.org
+# To disable, please see the comments in their respective helm-values.yaml files!
+# When disabled, please use placeholder values instead.
+DOMAIN_0: ""
+DOMAIN_0_EMAIL: ""
+DOMAIN_0_CLOUDFLARE_TOKEN: ""
 # Used to automatically generate a sshkey-pair for FluxCD
 # Has to start with ssh://
 # Please make sure to NOT contain any special characters in the URL except "-"
