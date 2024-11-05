@@ -1,0 +1,46 @@
+image:
+  repository: ghcr.io/squat/generic-device-plugin
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:ba6f0b4cf6c858d6ad29ba4d32e4da11638abbc7d96436bf04f582a97b2b8821
+portal:
+  open:
+    enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --domain
+            - truecharts.org
+            - --device
+            - |
+              name: tun
+              groups:
+                - count: 1000
+                  paths:
+                    - path: /dev/net/tun
+securityContext:
+  container:
+    readOnlyRootFilesystem: true
+    privileged: true
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+persistence:
+  dev:
+    enabled: true
+    type: hostPath
+    hostPath: /dev
+    mountPath: /dev
+  device-plugin:
+    enabled: true
+    type: hostPath
+    hostPath: /var/lib/kubelet/device-plugins
+    mountPath: /var/lib/kubelet/device-plugins
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp

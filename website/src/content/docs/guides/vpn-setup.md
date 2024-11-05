@@ -213,20 +213,20 @@ In talos in order to use the tun interface for Gluetun a workaround is needed ot
 
 ### Step 1: Add the generic-device-plugin
 
-you can find the steps [here](https://www.talos.dev/v1.8/kubernetes-guides/configuration/device-plugins/#deploying-the-device-plugin)
+Install the generic-device-plugin from our helm chart repository. Make sure to make the namespace privileged.
 
 ### Step 2: Add this into your helm-release.yaml for your app
 
-Here is an example snippet for qbittorrent
+Here is an example snippet on how to add it:
 
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: qbittorrent
-  namespace: qbittorrent
+    name: chart
+    namespace: namespace
 spec:
-  postRenderers:
+    postRenderers:
     - kustomize:
         patches:
           - target:
@@ -235,6 +235,8 @@ spec:
               name: qbittorrent
             patch: |
               - op: add
-                path: /spec/template/spec/containers/1/resources/limits/squat.ai~1tun
+                path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
                 value: 1
+    interval: 5m
+    chart:
 ```
