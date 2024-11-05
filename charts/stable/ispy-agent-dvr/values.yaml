@@ -4,12 +4,14 @@ image:
   pullPolicy: IfNotPresent
 service:
   main:
+    type: LoadBalancer
     ports:
       main:
         port: 10184
         targetPort: 8090
   turn:
     enabled: true
+    type: LoadBalancer
     ports:
       turn:
         enabled: true
