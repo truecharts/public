@@ -4,7 +4,7 @@ import (
     "path"
     "strings"
 
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 // Node represents a node structure in the YAML file.

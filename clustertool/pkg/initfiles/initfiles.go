@@ -14,7 +14,7 @@ import (
     "time"
 
     "github.com/rs/zerolog/log"
-    "gopkg.in/yaml.v2"
+    "sigs.k8s.io/yaml"
 
     age "filippo.io/age"
     talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"

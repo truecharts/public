@@ -12,7 +12,7 @@ import (
     "github.com/rs/zerolog/log"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 type RadarrConfig struct {

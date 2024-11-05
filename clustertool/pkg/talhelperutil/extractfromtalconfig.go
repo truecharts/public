@@ -6,7 +6,7 @@ import (
     "github.com/rs/zerolog/log"
 
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 // Node represents the structure of each node in the YAML file

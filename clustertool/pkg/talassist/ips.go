@@ -4,7 +4,7 @@ import (
     "io/ioutil"
 
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 // NodeIPConfig represents a simplified YAML structure to only parse node IP addresses

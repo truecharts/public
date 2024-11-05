@@ -18,7 +18,6 @@ import (
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
     "github.com/truecharts/public/clustertool/pkg/initfiles"
-    "gopkg.in/yaml.v3"
 )
 
 func GenConfig(args []string) error {
@@ -65,7 +64,7 @@ func genTalSecret() error {
         }
 
         buf := new(bytes.Buffer)
-        encoder := yaml.NewEncoder(buf)
+        encoder := helper.YamlNewEncoder(buf)
         encoder.SetIndent(2)
 
         err = encoder.Encode(s)

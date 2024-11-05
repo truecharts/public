@@ -5,7 +5,7 @@ import (
     "io/ioutil"
 
     "github.com/rs/zerolog/log"
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 type SopsConfig struct {

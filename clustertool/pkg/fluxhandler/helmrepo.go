@@ -6,7 +6,7 @@ import (
     "strings"
 
     "github.com/rs/zerolog/log"
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 type HelmRepoMetadata struct {

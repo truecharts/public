@@ -7,11 +7,8 @@ require (
     github.com/Masterminds/semver/v3 v3.3.0
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.8
-    github.com/fatih/color v1.18.0
     github.com/getsops/sops/v3 v3.9.1
     github.com/go-git/go-git/v5 v5.12.0
-    github.com/go-logr/logr v1.4.2
-    github.com/go-logr/zapr v1.3.0
     github.com/go-playground/validator/v10 v10.22.1
     github.com/invopop/jsonschema v0.12.0
     github.com/joho/godotenv v1.5.1
@@ -22,10 +19,7 @@ require (
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.9.0-alpha.0
     github.com/spf13/cobra v1.8.1
-    go.uber.org/zap v1.27.0
     golang.org/x/crypto v0.28.0
-    gopkg.in/yaml.v2 v2.4.0
-    gopkg.in/yaml.v3 v3.0.1
     helm.sh/helm/v3 v3.16.2
     k8s.io/api v0.31.2
     k8s.io/apimachinery v0.31.2
@@ -120,6 +114,7 @@ require (
     github.com/evanphx/json-patch v5.9.0+incompatible // indirect
     github.com/evanphx/json-patch/v5 v5.9.0 // indirect
     github.com/exponent-io/jsonpath v0.0.0-20210407135951-1de76d718b3f // indirect
+    github.com/fatih/color v1.18.0 // indirect
     github.com/felixge/httpsnoop v1.0.4 // indirect
     github.com/fsnotify/fsnotify v1.7.0 // indirect
     github.com/fxamacker/cbor/v2 v2.7.0 // indirect
@@ -131,6 +126,7 @@ require (
     github.com/go-git/go-billy/v5 v5.5.0 // indirect
     github.com/go-gorp/gorp/v3 v3.1.0 // indirect
     github.com/go-jose/go-jose/v4 v4.0.4 // indirect
+    github.com/go-logr/logr v1.4.2 // indirect
     github.com/go-logr/stdr v1.2.2 // indirect
     github.com/go-openapi/jsonpointer v0.21.0 // indirect
     github.com/go-openapi/jsonreference v0.21.0 // indirect
@@ -258,7 +254,6 @@ require (
     go.opentelemetry.io/otel v1.30.0 // indirect
     go.opentelemetry.io/otel/metric v1.30.0 // indirect
     go.opentelemetry.io/otel/trace v1.30.0 // indirect
-    go.uber.org/multierr v1.11.0 // indirect
     golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
     golang.org/x/mod v0.21.0 // indirect
     golang.org/x/net v0.30.0 // indirect
@@ -278,6 +273,8 @@ require (
     gopkg.in/inf.v0 v0.9.1 // indirect
     gopkg.in/ini.v1 v1.67.0 // indirect
     gopkg.in/warnings.v0 v0.1.2 // indirect
+    gopkg.in/yaml.v2 v2.4.0 // indirect
+    gopkg.in/yaml.v3 v3.0.1 // indirect
     k8s.io/apiextensions-apiserver v0.31.1 // indirect
     k8s.io/apiserver v0.31.1 // indirect
     k8s.io/cli-runtime v0.31.1 // indirect
