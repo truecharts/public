@@ -217,7 +217,7 @@ Install the generic-device-plugin from our helm chart repository. Make sure to m
 
 ### Step 2: Add this into your helm-release.yaml for your app
 
-Here is an example snippet for qbittorrent
+Here is an example snippet on how to add it:
 
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
