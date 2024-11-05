@@ -141,11 +141,27 @@ func FormatGitURL(input string) string {
 }
 
 func genBaseFiles() error {
+    clusterEnvPresent := false
+
+    if _, err := os.Stat(helper.ClusterEnvFile); err == nil {
+        clusterEnvPresent = true
+        log.Debug().Msg("Detected existing cluster, continuing")
+    } else if os.IsNotExist(err) {
+        log.Warn().Msg("New cluster detected, creating clusterenv.yaml\n Please fill out ClusterEnv.yaml and run again!")
+    } else {
+        log.Fatal().Err(err).Msgf("Error checking clusterenv file: %s", err)
+        return err
+    }
+
     err := helper.CopyDir(helper.BaseCache, helper.ClusterPath+"", false)
     if err != nil {
-        log.Info().Msgf("Error: %v", err)
+        log.Error().Msgf("Error: %v", err)
     } else {
         log.Info().Msg("Base files copied successfully.")
+    }
+
+    if !clusterEnvPresent {
+        os.Exit(0)
     }
 
     log.Info().Msg("basefiles successfully altered.")

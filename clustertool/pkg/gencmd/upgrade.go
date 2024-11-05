@@ -15,6 +15,7 @@ import (
 
 // TODO: remove talhelper dependency for cmd creation
 func GenUpgrade(node string, extraFlags []string) []string {
+    // TODO: get rid of this, due to double uncontrollable log output
     cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
     if err != nil {
         log.Fatal().Err(err).Msgf("failed to parse talconfig or talenv file: %s", err)

@@ -25,10 +25,10 @@ func LoadTalEnv(noFail bool) error {
     } else if os.IsNotExist(err) {
         // If the file doesn't exist, check noFail to determine next steps
         if noFail {
-            log.Info().Msg("clusterenv.yaml file not found, but skipping due to noFail being true.")
+            log.Debug().Msg("clusterenv.yaml file not found, but skipping due to noFail being true.")
             return nil // Skip execution without error
         } else {
-            log.Info().Msg("clusterenv.yaml file not found, exiting as noFail is false.")
+            log.Fatal().Msg("clusterenv.yaml file not found, exiting...")
             os.Exit(1) // Exit with error code 1
         }
     } else {
