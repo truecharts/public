@@ -8,5 +8,7 @@
     },
     "postStartCommand": {
       "git": "git config --global --add safe.directory ${containerWorkspaceFolder}"
-    }
+    },
+    "updateRemoteUserUID": false,
+    "runArgs": ["--privileged"]
   }
