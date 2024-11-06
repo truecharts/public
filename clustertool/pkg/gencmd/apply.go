@@ -1,6 +1,7 @@
 package gencmd
 
 import (
+    "os"
     "path/filepath"
     "strings"
 
@@ -25,7 +26,19 @@ func GenApply(node string, extraArgs []string) []string {
             commands = append(commands, cmd)
         }
     } else {
-        cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " " + strings.Join(extraArgs, " ")
+        nodename := ""
+        for _, noderef := range talassist.TalConfig.Nodes {
+            if noderef.IPAddress == node {
+                nodename = noderef.Hostname
+            }
+        }
+        if nodename == "" {
+            log.Error().Msgf("Node IP %s, does not match any node in talconfig. Exiting...", node)
+            os.Exit(1)
+        }
+
+        filename := talassist.TalConfig.ClusterName + "-" + nodename + ".yaml"
+        cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " -f " + filepath.Join(helper.TalosGenerated, filename) + " " + strings.Join(extraArgs, " ")
         commands = append(commands, cmd)
     }
     log.Debug().Msgf("Apply Commands rendered: %s", commands)
