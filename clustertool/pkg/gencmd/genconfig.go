@@ -15,6 +15,7 @@ import (
 )
 
 func GenConfig(args []string) error {
+    talassist.LoadTalConfig()
     talassist.GenSchema()
     initfiles.GenTalEnvConfigMap()
     initfiles.CheckEnvVariables()
