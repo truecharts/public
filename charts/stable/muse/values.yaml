@@ -1,5 +1,5 @@
 image:
-  repository: docker.io/codetheweb/muse
+  repository: ghcr.io/museofficial/muse
   pullPolicy: IfNotPresent
   tag: 2.10.0@sha256:28e58e69df8613285cd2922c6c0ecdaa3c5a9992753bccfc678f031a5d2867b1
 securityContext:
@@ -14,6 +14,35 @@ service:
     ports:
       main:
         enabled: false
+muse:
+  discord:
+    token: ""
+  spotify:
+    client:
+      id: ""
+      secret: ""
+  youtube:
+    key: ""
+  bot:
+    # online (Online)
+    # idle (Away)
+    # dnd (Do not Disturb)
+    status: "online"
+    # PLAYING (Playing XYZ)
+    # LISTENING (Listening to XYZ)
+    # WATCHING (Watching XYZ)
+    # STREAMING (Streaming XYZ)
+    activity:
+      type: "PLAYING"
+      detail: "A helm chart"
+      url: "https://www.youtube.com/truecharts"
+    # If you have Muse running in a lot of guilds (10+) 
+    # you may want to set to true to registering commands bot-wide 
+    # rather than for each guild (may take hours for commands to propagate)
+    register_commands: false
+  cache:
+    # 512MB | 10GB
+    limit: 2GB
 workload:
   main:
     podSpec:
@@ -27,16 +56,18 @@ workload:
             startup:
               enabled: false
           env:
-            DATA_DIR: /config
-            DISCORD_TOKEN: ""
-            SPOTIFY_CLIENT_ID: ""
-            SPOTIFY_CLIENT_SECRET: ""
-            YOUTUBE_API_KEY: ""
-            # CACHE_LIMIT: 2GB
-            # BOT_STATUS: online
-            # BOT_ACTIVITY_TYPE: PLAYING
-            # BOT_ACTIVITY: A incubator app
-            # BOT_ACTIVITY_URL: https://www.youtube.com/truecharts
+            DATA_DIR: "{{.Values.persistence.config.mountPath }}"
+            DISCORD_TOKEN: "{{.Values.muse.disccord.token }}"
+            SPOTIFY_CLIENT_ID: "{{.Values.muse.spotify.client.id }}"
+            SPOTIFY_CLIENT_SECRET: "{{.Values.muse.spotify.client.secret }}"
+            YOUTUBE_API_KEY: "{{.Values.muse.youtube.key }}"
+            REGISTER_COMMANDS_ON_BOT: "{{.Values.muse.bot.register_commands }}"
+            CACHE_LIMIT: "{{.Values.muse.cache.limit }}"
+            BOT_STATUS: "{{.Values.muse.bot.misc.id }}"
+            BOT_ACTIVITY_TYPE: "{{.Values.muse.bot.activity.type }}"
+            BOT_ACTIVITY: "{{.Values.muse.bot.activity.detail }}"
+            BOT_ACTIVITY_URL: "{{.Values.muse.bot.activity.url }}"
+
 persistence:
   config:
     enabled: true
