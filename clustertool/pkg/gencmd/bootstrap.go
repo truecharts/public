@@ -34,11 +34,11 @@ func RunBootstrap(args []string) {
     }
 
     bootstrapNode := talassist.TalConfig.Nodes[0].IPAddress
-    bootstrapcmds := GenPlain("bootstrap", bootstrapNode, extraArgs)
 
     nodestatus.WaitForHealth(bootstrapNode, []string{"maintenance"})
 
     taloscmds := GenApply(bootstrapNode, extraArgs)
+
     ExecCmds(taloscmds, false)
 
     nodestatus.WaitForHealth(bootstrapNode, []string{"booting"})
@@ -46,6 +46,8 @@ func RunBootstrap(args []string) {
     log.Info().Msgf("Bootstrap: At this point your system is installed to disk, please make sure not to reboot into the installer ISO/USB  %s", bootstrapNode)
 
     log.Info().Msgf("Bootstrap: running bootstrap on node:  %s", bootstrapNode)
+    bootstrapcmds := GenPlain("bootstrap", bootstrapNode, extraArgs)
+
     ExecCmd(bootstrapcmds[0])
 
     log.Info().Msgf("Bootstrap: waiting for VIP %v to come online...", helper.TalEnv["VIP_IP"])

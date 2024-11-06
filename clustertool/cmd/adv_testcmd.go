@@ -3,8 +3,11 @@ package cmd
 import (
     "strings"
 
+    "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
+    "github.com/truecharts/public/clustertool/pkg/gencmd"
     "github.com/truecharts/public/clustertool/pkg/initfiles"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 var advTestCmdlongHelp = strings.TrimSpace(`
@@ -17,10 +20,13 @@ var testcmd = &cobra.Command{
     Long:  advTestCmdlongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         initfiles.LoadTalEnv(false)
+        talassist.LoadTalConfig()
         // err := fluxhandler.ProcessJSONFiles("./testdata/truenas_exports")
         // if err != nil {
         //  log.Info().Msg("Error:", err)
         // }
+        cmds := gencmd.GenApply("", []string{})
+        log.Info().Msgf("%s", cmds[0])
     },
 }
 
