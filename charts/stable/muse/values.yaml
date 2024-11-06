@@ -57,7 +57,7 @@ workload:
               enabled: false
           env:
             DATA_DIR: "{{.Values.persistence.config.mountPath }}"
-            DISCORD_TOKEN: "{{.Values.muse.disccord.token }}"
+            DISCORD_TOKEN: "{{.Values.muse.discord.token }}"
             SPOTIFY_CLIENT_ID: "{{.Values.muse.spotify.client.id }}"
             SPOTIFY_CLIENT_SECRET: "{{.Values.muse.spotify.client.secret }}"
             YOUTUBE_API_KEY: "{{.Values.muse.youtube.key }}"
