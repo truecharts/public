@@ -28,9 +28,11 @@ func RunBootstrap(args []string) {
     if len(args) > 1 {
         extraArgs = args[1:]
     }
+
     if err := sops.DecryptFiles(); err != nil {
         log.Info().Msgf("Error decrypting files: %v\n", err)
     }
+
     bootstrapNode := talassist.TalConfig.Nodes[0].IPAddress
     bootstrapcmds := GenPlain("bootstrap", bootstrapNode, extraArgs)
 
