@@ -1,49 +1,30 @@
 package gencmd
 
 import (
-    "io"
-    "os"
-    "strings"
+    "path/filepath"
 
-    "github.com/rs/zerolog/log"
-
-    talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
-    "github.com/budimanjojo/talhelper/v3/pkg/generate"
     "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "github.com/truecharts/public/clustertool/pkg/initfiles"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 func GenApply(node string, extraFlags []string) []string {
-    initfiles.LoadTalEnv(false)
-    cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to parse talconfig or talenv file: %s")
-    }
 
-    applyStdout := os.Stdout
-    r, w, _ := os.Pipe()
-    os.Stdout = w
-    // replace this with self-made stuff, be aware we also need to use the configfile
-    err = generate.GenerateApplyCommand(cfg, helper.TalosGenerated, node, extraFlags)
+    commands := []string{}
+    //extraFlags = append(extraFlags, "--preserve")
 
-    w.Close()
-    out, _ := io.ReadAll(r)
-    os.Stdout = applyStdout
-
-    sliceOut := strings.Split(string(out), ";\n")
     talosPath := embed.GetTalosExec()
-    var slice []string
-    for _, str := range sliceOut {
-        if str != "" {
-            str = strings.ReplaceAll(str, "talosctl", talosPath)
-            slice = append(slice, str)
+    if node == "" {
+
+        for _, noderef := range talassist.TalConfig.Nodes {
+            // TODO add extraFlags
+            filename := talassist.TalConfig.ClusterName + "-" + noderef.Hostname + ".yaml"
+            cmd := talosPath + " " + "apply" + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress + " " + "--file=" + filepath.Join(helper.TalosGenerated, filename)
+            commands = append(commands, cmd)
         }
-
+    } else {
+        cmd := talosPath + " " + "apply" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
+        commands = append(commands, cmd)
     }
-
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to generate talosctl apply command: %s")
-    }
-    return slice
+    return commands
 }

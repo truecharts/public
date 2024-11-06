@@ -38,7 +38,7 @@ var reset = &cobra.Command{
 
         log.Info().Msg("Running Cluster node Reset")
 
-        taloscmds := gencmd.GenReset(node, extraArgs)
+        taloscmds := gencmd.GenPlain("reset", node, extraArgs)
         gencmd.ExecCmds(taloscmds, true)
 
     },

@@ -6,24 +6,21 @@ import (
     "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
-func GenReset(node string, extraFlags []string) []string {
+func GenPlain(command string, node string, extraFlags []string) []string {
 
     commands := []string{}
     //extraFlags = append(extraFlags, "--preserve")
 
     talosPath := embed.GetTalosExec()
     if node == "" {
-        for _, nodeRef := range talassist.IpAddresses {
-            talassist.LoadNodeIPs()
-            // TODO add extraFlags
 
-            // TODO: add images Refs
-            // TODO: add schematic
-            cmd := talosPath + " reset --talosconfig " + helper.TalosConfigFile + " -n " + nodeRef + " "
+        for _, noderef := range talassist.TalConfig.Nodes {
+            // TODO add extraFlags
+            cmd := talosPath + " " + command + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress + " "
             commands = append(commands, cmd)
         }
     } else {
-        cmd := talosPath + " reset --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
+        cmd := talosPath + " " + command + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
         commands = append(commands, cmd)
     }
     return commands

@@ -2,7 +2,6 @@ package initfiles
 
 import (
     "bufio"
-    "encoding/json"
     "errors"
     "fmt"
     "io/ioutil"
@@ -17,10 +16,9 @@ import (
     "sigs.k8s.io/yaml"
 
     age "filippo.io/age"
-    talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
-    "github.com/invopop/jsonschema"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
     corev1 "k8s.io/api/core/v1"
 )
 
@@ -30,7 +28,7 @@ func InitFiles() error {
     genBaseFiles()
     UpdateRootFiles()
     UpdateBaseFiles()
-    GenSchema()
+    talassist.GenSchema()
     GenPatches()
     genKubernetes()
     GenTalEnvConfigMap()
@@ -482,21 +480,5 @@ func GenSopsSecret() error {
         return fmt.Errorf("failed to write secret YAML to file: %w", err)
     }
     log.Info().Msgf("SOPS secret YAML saved to: %s\n", secretPath)
-    return nil
-}
-
-func GenSchema() error {
-    cfg := talhelperCfg.TalhelperConfig{}
-    r := new(jsonschema.Reflector)
-    r.FieldNameTag = "yaml"
-    r.RequiredFromJSONSchemaTags = true
-    os.MkdirAll(helper.ClusterPath+"/talos", os.ModePerm)
-    var genschemaFile = path.Join(helper.ClusterPath, "/talos/talconfig.json")
-
-    schema := r.Reflect(&cfg)
-    data, _ := json.MarshalIndent(schema, "", "  ")
-    if err := os.WriteFile(genschemaFile, data, os.FileMode(0o644)); err != nil {
-        log.Fatal().Err(err).Msg("failed to write file to %s: %v")
-    }
     return nil
 }

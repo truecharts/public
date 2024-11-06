@@ -24,8 +24,8 @@ var health = &cobra.Command{
             log.Info().Msgf("Error decrypting files: %v\n", err)
         }
         log.Info().Msg("Running Cluster HealthCheck")
-        healthcmd := gencmd.GenHealth(helper.TalEnv["VIP_IP"])
-        gencmd.ExecCmd(healthcmd)
+        healthcmd := gencmd.GenPlain("health", helper.TalEnv["VIP_IP"], []string{})
+        gencmd.ExecCmd(healthcmd[0])
     },
 }
 

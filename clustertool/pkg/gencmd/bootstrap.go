@@ -7,7 +7,6 @@ import (
 
     "github.com/rs/zerolog/log"
 
-    "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
     "github.com/truecharts/public/clustertool/pkg/kubectlcmds"
@@ -24,12 +23,6 @@ var manifestPaths = []string{
     filepath.Join(helper.KubernetesPath, "flux-system", "flux", "clustersettings.secret.yaml"),
 }
 
-func GenBootstrap(node string, extraFlags []string) string {
-    talosPath := embed.GetTalosExec()
-    strout := talosPath + "bootstrap --talosconfig " + helper.TalosConfigFile + " -n " + talassist.IpAddresses[0]
-    return strout
-}
-
 func RunBootstrap(args []string) {
     var extraArgs []string
     if len(args) > 1 {
@@ -38,9 +31,8 @@ func RunBootstrap(args []string) {
     if err := sops.DecryptFiles(); err != nil {
         log.Info().Msgf("Error decrypting files: %v\n", err)
     }
-
-    bootstrapcmds := GenBootstrap("", extraArgs)
-    bootstrapNode := helper.ExtractNode(bootstrapcmds)
+    bootstrapNode := talassist.TalConfig.Nodes[0].IPAddress
+    bootstrapcmds := GenPlain("bootstrap", bootstrapNode, extraArgs)
 
     nodestatus.WaitForHealth(bootstrapNode, []string{"maintenance"})
 
@@ -52,15 +44,15 @@ func RunBootstrap(args []string) {
     log.Info().Msgf("Bootstrap: At this point your system is installed to disk, please make sure not to reboot into the installer ISO/USB  %s", bootstrapNode)
 
     log.Info().Msgf("Bootstrap: running bootstrap on node:  %s", bootstrapNode)
-    ExecCmd(bootstrapcmds)
+    ExecCmd(bootstrapcmds[0])
 
     log.Info().Msgf("Bootstrap: waiting for VIP %v to come online...", helper.TalEnv["VIP_IP"])
     nodestatus.WaitForHealth(helper.TalEnv["VIP_IP"], []string{"running"})
 
     log.Info().Msgf("Bootstrap: Configuring kubectl for VIP: %v", helper.TalEnv["VIP_IP"])
     // Ensure kubeconfig is loaded
-    kubeconfigcmds := GenKubeConfig(helper.TalEnv["VIP_IP"], extraArgs)
-    ExecCmd(kubeconfigcmds)
+    kubeconfigcmds := GenPlain("health", helper.TalEnv["VIP_IP"], extraArgs)
+    ExecCmd(kubeconfigcmds[0])
 
     // Desired pod names
     requiredPods := []string{
@@ -150,8 +142,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msg("Bootstrap: Base Cluster Configuration Completed, continuing setup...")
     log.Info().Msg("Bootstrap: Confirming cluster health...")
-    healthcmd := GenHealth(helper.TalEnv["VIP_IP"])
-    ExecCmd(healthcmd)
+    healthcmd := GenPlain("health", helper.TalEnv["VIP_IP"], []string{})
+    ExecCmd(healthcmd[0])
     close(stopCh)
 
     prioCharts := []fluxhandler.HelmChart{

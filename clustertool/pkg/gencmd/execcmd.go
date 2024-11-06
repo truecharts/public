@@ -76,8 +76,8 @@ func ExecCmds(taloscmds []string, healthcheck bool) error {
         } else {
             if helper.GetYesOrNo("Do you want to check the health of the cluster? (yes/no) [y/n]: ") {
                 log.Info().Msg("Checking if cluster is healthy...")
-                healthcmd := GenHealth(helper.TalEnv["VIP_IP"])
-                ExecCmd(healthcmd)
+                healthcmd := GenPlain("health", helper.TalEnv["VIP_IP"], []string{})
+                ExecCmd(healthcmd[0])
             } else {
                 skipped = true
             }
