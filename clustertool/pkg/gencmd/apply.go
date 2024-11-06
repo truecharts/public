@@ -19,11 +19,11 @@ func GenApply(node string, extraFlags []string) []string {
         for _, noderef := range talassist.TalConfig.Nodes {
             // TODO add extraFlags
             filename := talassist.TalConfig.ClusterName + "-" + noderef.Hostname + ".yaml"
-            cmd := talosPath + " " + "apply" + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress + " " + "--file=" + filepath.Join(helper.TalosGenerated, filename)
+            cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress + " " + "--file=" + filepath.Join(helper.TalosGenerated, filename)
             commands = append(commands, cmd)
         }
     } else {
-        cmd := talosPath + " " + "apply" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
+        cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " "
         commands = append(commands, cmd)
     }
     return commands
