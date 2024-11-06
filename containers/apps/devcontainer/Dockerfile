@@ -20,9 +20,9 @@ RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/
     && rm /tmp/clustertool.tar.gz
 
 # Download and set up the krew binary
-RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz"
-    && tar zxvf "krew-linux_amd64.tar.gz"
-    && ./"krew-linux_amd64" install krew
+RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz" \
+    && tar zxvf "krew-linux_amd64.tar.gz" \
+    && ./"krew-linux_amd64" install krew \
     && rm /tmp/clustertool.tar.gz
 
 ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
