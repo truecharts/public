@@ -9,6 +9,7 @@ import (
     "path/filepath"
 
     "github.com/rs/zerolog/log"
+    "gopkg.in/yaml.v3"
     "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
     "k8s.io/client-go/tools/clientcmd"
     "k8s.io/client-go/util/homedir"
@@ -16,7 +17,6 @@ import (
     "sigs.k8s.io/kustomize/api/krusty"
     "sigs.k8s.io/kustomize/kyaml/filesys"
     "sigs.k8s.io/kustomize/kyaml/kio"
-    "sigs.k8s.io/yaml"
 )
 
 // getKubeClient initializes and returns a controller-runtime client.Client

@@ -13,7 +13,7 @@ import (
     "time"
 
     "github.com/rs/zerolog/log"
-    "sigs.k8s.io/yaml"
+    "gopkg.in/yaml.v3"
 
     age "filippo.io/age"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"

@@ -9,7 +9,7 @@ import (
 
     "github.com/rs/zerolog/log"
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "sigs.k8s.io/yaml"
+    "gopkg.in/yaml.v3"
 )
 
 // EncrFileData holds information about a file and its encryption status.
