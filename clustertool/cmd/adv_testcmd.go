@@ -3,9 +3,7 @@ package cmd
 import (
     "strings"
 
-    "github.com/rs/zerolog/log"
     "github.com/spf13/cobra"
-    "github.com/truecharts/public/clustertool/pkg/gencmd"
     "github.com/truecharts/public/clustertool/pkg/initfiles"
 )
 
@@ -23,8 +21,6 @@ var testcmd = &cobra.Command{
         // if err != nil {
         //  log.Info().Msg("Error:", err)
         // }
-        something := gencmd.GenBootstrap("", []string{})
-        log.Info().Msgf("test %v", something)
     },
 }
 
