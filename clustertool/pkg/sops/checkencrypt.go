@@ -149,7 +149,9 @@ func CheckFilesAndReportEncryption(tryEncrypt bool, checkStaged bool) error {
 
         // If tryEncrypt is false, exit with failure code.
         if !tryEncrypt {
-            log.Fatal().Msg("Exiting due to unencrypted files and tryEncrypt is false")
+            log.Debug().Msg("tryEncrypt is false")
+            log.Fatal().Msg("Exiting due to unencrypted files")
+
             os.Exit(1)
         } else {
             // Check if all files were successfully encrypted after the attempt.
