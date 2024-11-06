@@ -61,12 +61,12 @@ workload:
             SPOTIFY_CLIENT_ID: "{{.Values.muse.spotify.client.id }}"
             SPOTIFY_CLIENT_SECRET: "{{.Values.muse.spotify.client.secret }}"
             YOUTUBE_API_KEY: "{{.Values.muse.youtube.key }}"
-            REGISTER_COMMANDS_ON_BOT: "{{.Values.muse.bot.register_commands }}"
-            CACHE_LIMIT: "{{.Values.muse.cache.limit }}"
-            BOT_STATUS: "{{.Values.muse.bot.misc.id }}"
+            BOT_STATUS: "{{.Values.muse.bot.status }}"
             BOT_ACTIVITY_TYPE: "{{.Values.muse.bot.activity.type }}"
             BOT_ACTIVITY: "{{.Values.muse.bot.activity.detail }}"
             BOT_ACTIVITY_URL: "{{.Values.muse.bot.activity.url }}"
+            REGISTER_COMMANDS_ON_BOT: "{{.Values.muse.bot.register_commands }}"
+            CACHE_LIMIT: "{{.Values.muse.cache.limit }}"
 
 persistence:
   config:
