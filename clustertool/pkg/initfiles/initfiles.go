@@ -145,7 +145,7 @@ func genBaseFiles() error {
         clusterEnvPresent = true
         log.Debug().Msg("Detected existing cluster, continuing")
     } else if os.IsNotExist(err) {
-        log.Warn().Msg("New cluster detected, creating clusterenv.yaml\n Please fill out ClusterEnv.yaml and run again!")
+        log.Warn().Msg("New cluster detected, creating clusterenv.yaml\n Please fill out ClusterEnv.yaml and run init again!")
     } else {
         log.Fatal().Err(err).Msgf("Error checking clusterenv file: %s", err)
         return err
