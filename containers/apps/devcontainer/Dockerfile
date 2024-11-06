@@ -5,11 +5,30 @@ ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
 
-# Download and set up the binary
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155
+RUN \
+apk update && \
+  apk --no-cache update && \
+  apk --no-cache add \
+    sshfs && \
+  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
+
+# Download and set up the clustertool binary
 RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
     && tar -xzvf /tmp/clustertool.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/clustertool \
     && rm /tmp/clustertool.tar.gz
+
+# Download and set up the krew binary
+RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz" \
+    && tar zxvf "krew-linux_amd64.tar.gz" \
+    && ./"krew-linux_amd64" install krew \
+    && rm ./krew-linux_amd64.tar.gz
+
+ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# add pvmounter to kubectl using crew
+RUN kubectl krew install pv-mounter
 
 ENTRYPOINT ["clustertool"]
 CMD ["--help"]
