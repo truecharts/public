@@ -117,6 +117,7 @@ Only add things you also explicitly and manually have added to SCALE before.
 - Move back to your main machine running ClusterTool and ensure your gotten your latest additions to your Cluster GIT repository, by running: `git pull`
 - Run `./clustertool scale migrate` to convert all exported SCALE Apps to ClusterTool/FluxCD compatible Helm-Releases
 - Remove any, unwanted, changes (or duplicates of) to any charts included by clustertool by default.
+- Please do a first setup without any addons and, where possible and reasonable, without ingress.
 - run `./clustertool init` and `./clustertool genconfig` again to ensure a fluxcd compatible directory structure is loaded
 
 ### Alterations for CNPG restore
