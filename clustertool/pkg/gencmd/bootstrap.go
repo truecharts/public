@@ -53,9 +53,9 @@ func RunBootstrap(args []string) {
     log.Info().Msgf("Bootstrap: waiting for VIP %v to come online...", helper.TalEnv["VIP_IP"])
     nodestatus.WaitForHealth(helper.TalEnv["VIP_IP"], []string{"running"})
 
-    log.Info().Msgf("Bootstrap: Configuring kubectl for VIP: %v", helper.TalEnv["VIP_IP"])
+    log.Info().Msgf("Bootstrap: Configuring kubeconfig/kubectl for VIP: %v", helper.TalEnv["VIP_IP"])
     // Ensure kubeconfig is loaded
-    kubeconfigcmds := GenPlain("health", helper.TalEnv["VIP_IP"], extraArgs)
+    kubeconfigcmds := GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], extraArgs)
     ExecCmd(kubeconfigcmds[0])
 
     // Desired pod names
