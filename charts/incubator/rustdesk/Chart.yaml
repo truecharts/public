@@ -4,7 +4,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 1.32.2
+appVersion: 1.1.12
 dependencies:
   - name: common
     version: 25.1.5
@@ -26,8 +26,9 @@ maintainers:
     url: https://truecharts.org
 name: rustdesk
 sources:
-  - https://rustdesk.com/de/
   - https://github.com/rustdesk/rustdesk-server
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rustdesk
+  - https://hub.docker.com/r/rustdesk/rustdesk-server-s6
+  - https://rustdesk.com/de/
 type: application
 version: 0.0.1
