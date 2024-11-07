@@ -11,14 +11,14 @@ import (
     "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
-var advResetLongHelp = strings.TrimSpace(`
+var advKubeconfigLongHelp = strings.TrimSpace(`
 
 `)
 
-var reset = &cobra.Command{
-    Use:     "reset",
-    Short:   "Reset Talos Nodes and Kubernetes",
-    Example: "clustertool talos reset <NodeIP>",
+var kubeconfig = &cobra.Command{
+    Use:     "kubeconfig",
+    Short:   "kubeconfig for Talos Cluster",
+    Example: "clustertool talos kubeconfig <NodeIP>",
     Long:    advResetLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
@@ -39,15 +39,14 @@ var reset = &cobra.Command{
         }
         initfiles.LoadTalEnv(false)
         talassist.LoadTalConfig()
+        log.Info().Msg("Running Cluster kubeconfig")
 
-        log.Info().Msg("Running Cluster node Reset")
-
-        taloscmds := gencmd.GenPlain("reset", node, extraArgs)
+        taloscmds := gencmd.GenPlain("kubeconfig", node, extraArgs)
         gencmd.ExecCmds(taloscmds, true)
 
     },
 }
 
 func init() {
-    talosCmd.AddCommand(reset)
+    talosCmd.AddCommand(kubeconfig)
 }
