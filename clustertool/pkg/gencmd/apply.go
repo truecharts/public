@@ -19,7 +19,7 @@ func GenApply(node string, extraArgs []string) []string {
 
         for _, noderef := range talassist.TalConfig.Nodes {
             filename := talassist.TalConfig.ClusterName + "-" + noderef.Hostname + ".yaml"
-            cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress + " -f " + filepath.Join(helper.TalosGenerated, filename) // + " " + strings.Join(extraArgs, " ")
+            cmd := talosPath + " " + "apply machineconfig" + " -f " + filepath.Join(helper.TalosGenerated, filename) + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress // + " " + strings.Join(extraArgs, " ")
             commands = append(commands, cmd)
         }
     } else {
@@ -35,7 +35,7 @@ func GenApply(node string, extraArgs []string) []string {
         }
 
         filename := talassist.TalConfig.ClusterName + "-" + nodename + ".yaml"
-        cmd := talosPath + " " + "apply-config" + " --talosconfig " + helper.TalosConfigFile + " -n " + node + " -f " + filepath.Join(helper.TalosGenerated, filename) // + " " + strings.Join(extraArgs, " ")
+        cmd := talosPath + " " + "apply machineconfig" + " -f " + filepath.Join(helper.TalosGenerated, filename) + " --talosconfig " + helper.TalosConfigFile + " -n " + node // + " " + strings.Join(extraArgs, " ")
         commands = append(commands, cmd)
     }
     log.Debug().Msgf("Apply Commands rendered: %s", commands)

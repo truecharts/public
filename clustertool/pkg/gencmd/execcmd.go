@@ -12,7 +12,7 @@ import (
 
 func ExecCmd(cmd string) {
     argslice := strings.Split(cmd, " ")
-    // log.Info().Msgf("Running: %s\n", argslice[0:])
+    log.Trace().Msgf("command", argslice[:])
 
     // log.Info().Msg("test", strings.Join(argslice, " "))
     out, err := helper.RunCommand(argslice, false)
