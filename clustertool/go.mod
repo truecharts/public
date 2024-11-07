@@ -28,6 +28,7 @@ require (
     sigs.k8s.io/controller-runtime v0.19.1
     sigs.k8s.io/kustomize/api v0.18.0
     sigs.k8s.io/kustomize/kyaml v0.18.1
+    sigs.k8s.io/yaml v1.4.0
 )
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.16
@@ -285,5 +286,4 @@ require (
     oras.land/oras-go v1.2.5 // indirect
     sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
     sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
-    sigs.k8s.io/yaml v1.4.0 // indirect
 )
