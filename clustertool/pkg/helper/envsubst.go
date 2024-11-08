@@ -28,7 +28,6 @@ func LoadEnvFromFile(file string, output map[string]string) error {
         // Strip comments from YAML content before processing
         content = StripYamlComment(content)
 
-        // See: https://github.com/budimanjojo/talhelper/issues/220
         content = StripYAMLDocDelimiter(content)
         if err := LoadEnv(content, output); err != nil {
             return fmt.Errorf("trying to load env from %s: %s", file, err)

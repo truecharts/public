@@ -7,8 +7,10 @@ import (
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    "github.com/truecharts/public/clustertool/pkg/initfiles"
     "github.com/truecharts/public/clustertool/pkg/nodestatus"
     "github.com/truecharts/public/clustertool/pkg/sops"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 var applyLongHelp = strings.TrimSpace(`
@@ -45,6 +47,7 @@ Not any contained helm-charts
 var apply = &cobra.Command{
     Use:     "apply",
     Short:   "apply",
+    Aliases: []string{"apply-config"},
     Example: "clustertool apply <NodeIP>",
     Long:    applyLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
@@ -65,8 +68,9 @@ var apply = &cobra.Command{
             log.Info().Msgf("Error decrypting files: %v\n", err)
         }
 
-        bootstrapcmds := gencmd.GenBootstrap("", extraArgs)
-        bootstrapNode := helper.ExtractNode(bootstrapcmds)
+        initfiles.LoadTalEnv(false)
+        talassist.LoadTalConfig()
+        bootstrapNode := talassist.TalConfig.Nodes[0].IPAddress
 
         log.Info().Msgf("Checking if first node   is ready to recieve anything... %s", bootstrapNode)
         status, err := nodestatus.WaitForHealth(bootstrapNode, []string{"running", "maintenance"})
@@ -105,8 +109,8 @@ func RunApply(kubeconfig bool, node string, extraArgs []string) {
     gencmd.ExecCmds(taloscmds, true)
 
     if kubeconfig {
-        kubeconfigcmds := gencmd.GenKubeConfig(helper.TalEnv["VIP_IP"], extraArgs)
-        gencmd.ExecCmd(kubeconfigcmds)
+        kubeconfigcmds := gencmd.GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], extraArgs)
+        gencmd.ExecCmd(kubeconfigcmds[0])
     }
 
     //if helper.GetYesOrNo("Do you want to (re)load ssh, Sops and ClusterEnv onto the cluster? (yes/no) [y/n]: ") {

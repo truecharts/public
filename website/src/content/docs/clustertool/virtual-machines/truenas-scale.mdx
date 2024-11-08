@@ -327,6 +327,12 @@ Workernodes can be pretty basic and should "just work".
         size: <= 600GB
 ```
 
+### Post-Installation steps
+
+To make sure your Talos cluster starts correctly after restarting the VM, don't forget to remove the Installation Media ISO after you initialized the cluster.
+
+You can do this by going to `Virtualization` > Expand your VM > `Devices` and then delete the "CD Rom"-device.
+
 
 ### GPU pass-through Caveats
 
