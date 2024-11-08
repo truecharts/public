@@ -11,10 +11,18 @@ import (
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
     "github.com/truecharts/public/clustertool/pkg/helper"
     "github.com/truecharts/public/clustertool/pkg/initfiles"
+    "github.com/truecharts/public/clustertool/pkg/sops"
     "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 func GenConfig(args []string) error {
+    if initfiles.CheckRunAgainFileExists() {
+        log.Fatal().Msg("You need to re-run Init. Exiting...")
+        os.Exit(1)
+    }
+    if err := sops.DecryptFiles(); err != nil {
+        log.Info().Msgf("Error decrypting files: %v\n", err)
+    }
     talassist.LoadTalConfig()
     talassist.GenSchema()
     initfiles.GenTalEnvConfigMap()

@@ -168,11 +168,11 @@ To ensure stability, we will first apply the configuration to the first ControlP
 
 For this, in a terminal, run:
 
-`ClusterTool apply`
+`ClusterTool talos apply`
 
 or, on Windows:
 
-`ClusterTool.exe apply`
+`ClusterTool.exe talos apply`
 
 You will be asked if you want to bootstrap the cluster, to do this enter `y` or `yes`
 After this is finished successfully, make sure the node is running correctly. It should have everything loaded already.
@@ -183,8 +183,8 @@ Now we can continue to add more nodes to the cluster. This is completely automat
 
 In a terminal, run:
 
-`ClusterTool apply`
+`ClusterTool talos apply`
 
 or, on Windows:
 
-`ClusterTool.exe apply`
+`ClusterTool.exe talos apply`
