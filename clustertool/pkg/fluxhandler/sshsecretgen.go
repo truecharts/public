@@ -16,8 +16,8 @@ import (
 
     "github.com/truecharts/public/clustertool/pkg/helper"
     "golang.org/x/crypto/ssh"
+    "gopkg.in/yaml.v3"
     corev1 "k8s.io/api/core/v1"
-    "sigs.k8s.io/yaml"
 )
 
 // Define a struct to map the YAML content

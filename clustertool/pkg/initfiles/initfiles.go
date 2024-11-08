@@ -13,7 +13,7 @@ import (
     "time"
 
     "github.com/rs/zerolog/log"
-    "sigs.k8s.io/yaml"
+    "gopkg.in/yaml.v3"
 
     age "filippo.io/age"
     "github.com/truecharts/public/clustertool/pkg/fluxhandler"
@@ -23,6 +23,7 @@ import (
 )
 
 func InitFiles() error {
+    removeRunAgainFile()
     ageGen()
     genRootFiles()
     genBaseFiles()
@@ -145,7 +146,8 @@ func genBaseFiles() error {
         clusterEnvPresent = true
         log.Debug().Msg("Detected existing cluster, continuing")
     } else if os.IsNotExist(err) {
-        log.Warn().Msg("New cluster detected, creating clusterenv.yaml\n Please fill out ClusterEnv.yaml and run again!")
+        createRunAgainFile()
+        log.Warn().Msg("New cluster detected, creating clusterenv.yaml\n Please fill out ClusterEnv.yaml and run init again, after setting-up clusterenv.yaml!")
     } else {
         log.Fatal().Err(err).Msgf("Error checking clusterenv file: %s", err)
         return err
@@ -164,6 +166,38 @@ func genBaseFiles() error {
 
     log.Info().Msg("basefiles successfully altered.")
     return nil
+}
+
+// Create the "RUNAGAIN" file
+func createRunAgainFile() {
+    file, err := os.Create("RUNAGAIN")
+    if err != nil {
+        log.Err(err).Msg("error creating runagain file...")
+        return
+    }
+    defer file.Close()
+    return
+}
+
+// Remove the "RUNAGAIN" file if it exists
+func removeRunAgainFile() error {
+    if CheckRunAgainFileExists() {
+        err := os.Remove("RUNAGAIN")
+        if err != nil {
+            log.Err(err).Msg("error removing runagain file...")
+            return err
+        }
+        log.Debug().Msg("RUNAGAIN file removed.")
+    } else {
+        log.Debug().Msg("RUNAGAIN file does not exist.")
+    }
+    return nil
+}
+
+// Check if the "RUNAGAIN" file exists
+func CheckRunAgainFileExists() bool {
+    _, err := os.Stat("RUNAGAIN")
+    return !os.IsNotExist(err)
 }
 
 func UpdateBaseFiles() error {

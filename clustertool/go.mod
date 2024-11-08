@@ -9,17 +9,19 @@ require (
     github.com/budimanjojo/talhelper/v3 v3.0.8
     github.com/getsops/sops/v3 v3.9.1
     github.com/go-git/go-git/v5 v5.12.0
+    github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.22.1
     github.com/invopop/jsonschema v0.12.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
     github.com/knadh/koanf/providers/file v1.1.2
-    github.com/knadh/koanf/v2 v2.1.1
+    github.com/knadh/koanf/v2 v2.1.2
     github.com/leaanthony/debme v1.2.1
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.9.0-alpha.0
     github.com/spf13/cobra v1.8.1
     golang.org/x/crypto v0.28.0
+    gopkg.in/yaml.v3 v3.0.1
     helm.sh/helm/v3 v3.16.2
     k8s.io/api v0.31.2
     k8s.io/apimachinery v0.31.2
@@ -274,7 +276,6 @@ require (
     gopkg.in/ini.v1 v1.67.0 // indirect
     gopkg.in/warnings.v0 v0.1.2 // indirect
     gopkg.in/yaml.v2 v2.4.0 // indirect
-    gopkg.in/yaml.v3 v3.0.1 // indirect
     k8s.io/apiextensions-apiserver v0.31.1 // indirect
     k8s.io/apiserver v0.31.1 // indirect
     k8s.io/cli-runtime v0.31.1 // indirect

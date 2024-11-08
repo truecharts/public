@@ -1,18 +1,34 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:2eba37d8623f2e69badb3ec5bdb067a760bd511732016480f989e4279680d57b
+FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:30b307b4341453c8c2caad1a698057873f2a12f383c1c4ff6ddfc5c22b7b4498
 
 ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
 
-# Download and set up the binary
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155
+RUN \
+apk update && \
+  apk --no-cache update && \
+  apk --no-cache add \
+    sshfs && \
+  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
+
+# Download and set up the clustertool binary
 RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
     && tar -xzvf /tmp/clustertool.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/clustertool \
     && rm /tmp/clustertool.tar.gz
 
-ENTRYPOINT ["clustertool"]
-CMD ["--help"]
+# Download and set up the krew binary
+RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz" \
+    && tar zxvf "krew-linux_amd64.tar.gz" \
+    && ./"krew-linux_amd64" install krew \
+    && rm ./krew-linux_amd64.tar.gz
+
+ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# add pvmounter to kubectl using crew
+RUN kubectl krew install pv-mounter
 
 
 # Maintainer and metadata
