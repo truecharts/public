@@ -12,7 +12,7 @@ import (
 
 func ExecCmd(cmd string) {
     argslice := strings.Split(cmd, " ")
-    // log.Info().Msgf("Running: %s\n", argslice[0:])
+    log.Trace().Msgf("command", argslice[:])
 
     // log.Info().Msg("test", strings.Join(argslice, " "))
     out, err := helper.RunCommand(argslice, false)
@@ -47,7 +47,7 @@ func ExecCmd(cmd string) {
 }
 
 func ExecCmds(taloscmds []string, healthcheck bool) error {
-    log.Info().Msg("Regenerating config prior to apply...")
+    log.Info().Msg("Regenerating config prior to commands...")
     GenConfig([]string{})
     var todocmds []string
     var healthcmd string
@@ -56,6 +56,7 @@ func ExecCmds(taloscmds []string, healthcheck bool) error {
         log.Info().Msg("Pre-Run Healthchecks...")
 
         for _, command := range taloscmds {
+
             node := helper.ExtractNode(command)
             log.Info().Msgf("checking node availability:  %v", node)
             err := nodestatus.CheckHealth(node, "", false)
@@ -92,10 +93,12 @@ func ExecCmds(taloscmds []string, healthcheck bool) error {
         log.Info().Msgf("Executing commands on node:  %v", node)
         argslice := strings.Split(string(command), " ")
         // log.Info().Msg("test", strings.Join(argslice, " "))
+        log.Debug().Msgf("running command: %s", command)
         out, err := helper.RunCommand(argslice, false)
         if err != nil {
             if strings.Contains(string(out), "certificate signed by unknown authority") {
                 argslice = append(argslice, "--insecure")
+                log.Debug().Msgf("Re-Running command using insecure flag: %s", command)
                 _, err2 := helper.RunCommand(argslice, false)
                 if err2 != nil {
                     log.Info().Msgf("err:  %v", err2)

@@ -1,11 +1,13 @@
 package sops
 
 import (
+    "bufio"
     "bytes"
     "fmt"
     "os"
     "path/filepath"
     "regexp"
+    "strings"
 
     "github.com/rs/zerolog/log"
     "github.com/truecharts/public/clustertool/pkg/helper"
@@ -179,6 +181,7 @@ func CheckFilesAndReportEncryption(tryEncrypt bool, checkStaged bool) error {
                 log.Fatal().Msg("Exiting due to unencrypted files after encryption attempt")
                 os.Exit(1)
             }
+            shamCheck()
         }
     }
 
@@ -188,6 +191,33 @@ func CheckFilesAndReportEncryption(tryEncrypt bool, checkStaged bool) error {
     os.Exit(0)
 
     return nil
+}
+
+// shamCheck checks if clusterenv contains the phrase "shamir_threshold" indicating it is indeed encrypted
+func shamCheck() {
+    log.Debug().Msg("Checking if clusterenv contains shamir_threshold to ensure encryption...")
+    file, err := os.Open(helper.ClusterEnvFile)
+    if err != nil {
+        log.Error().Err(err).Msgf("error opening file: %w", err)
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        if strings.Contains(scanner.Text(), "shamir_threshold") {
+            log.Debug().Msg("clusterenv contains shamir_threshold, continuing...")
+            return
+        } else {
+            log.Error().Msg("clusterenv is NOT encrypted and encryption-check failed!\n DO NOT UPLOAD!")
+            os.Exit(1)
+        }
+    }
+
+    if err := scanner.Err(); err != nil {
+        log.Error().Err(err).Msgf("error reading file: %w", err)
+    }
+
+    return
 }
 
 // filesToCheck returns a list of files to check for encryption based on the logic in .sops.yaml.
