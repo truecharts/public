@@ -9,12 +9,13 @@ require (
     github.com/budimanjojo/talhelper/v3 v3.0.8
     github.com/getsops/sops/v3 v3.9.1
     github.com/go-git/go-git/v5 v5.12.0
+    github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.22.1
     github.com/invopop/jsonschema v0.12.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
     github.com/knadh/koanf/providers/file v1.1.2
-    github.com/knadh/koanf/v2 v2.1.1
+    github.com/knadh/koanf/v2 v2.1.2
     github.com/leaanthony/debme v1.2.1
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.9.0-alpha.0
@@ -28,6 +29,7 @@ require (
     sigs.k8s.io/controller-runtime v0.19.1
     sigs.k8s.io/kustomize/api v0.18.0
     sigs.k8s.io/kustomize/kyaml v0.18.1
+    sigs.k8s.io/yaml v1.4.0
 )
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.16
@@ -285,5 +287,4 @@ require (
     oras.land/oras-go v1.2.5 // indirect
     sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
     sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
-    sigs.k8s.io/yaml v1.4.0 // indirect
 )
