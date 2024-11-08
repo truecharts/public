@@ -75,7 +75,7 @@ func CheckStatus(node string) (string, error) {
     return string(out), nil
 }
 
-func CheckReadyStatus(node string) (string, error) {
+func CheckReadyStatus(node string, silent bool) (string, error) {
     log.Info().Str("node", node).Msg("Checking node readiness status")
 
     argsslice := append(baseStatusCMD(node), "-o", "jsonpath={.spec.status.ready}")
@@ -83,7 +83,9 @@ func CheckReadyStatus(node string) (string, error) {
 
     if err != nil {
         errstring := "status: " + string(out) + " error: " + err.Error()
-        log.Error().Msg(errstring)
+        if !silent {
+            log.Error().Msg(errstring)
+        }
         return "ERROR", errors.New(errstring)
     }
     if strings.Contains(string(out), "true") {

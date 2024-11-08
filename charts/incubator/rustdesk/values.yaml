@@ -1,0 +1,50 @@
+image:
+  repository: docker.io/rustdesk/rustdesk-server-s6
+  pullPolicy: IfNotPresent
+  tag: 1.1.12@sha256:d37e4e44f3237fb9f8a49f0308ddd34bfe93b04375e67b0fecdae01e705f4189
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RELAY: "localhost:21117"
+            ENCRYPTED_ONLY: 1
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      client1:
+        enabled: true
+        port: 21118
+        protocol: tcp
+      client2:
+        enabled: true
+        port: 21119
+        protocol: tcp
+      id:
+        enabled: true
+        port: 21116
+        protocol: udp
+      main:
+        primary: true
+        enalbed: true
+        port: 21117
+        protocol: tcp
+      nat:
+        enabled: true
+        port: 21115
+        protocol: tcp
+      tcp:
+        enabled: true
+        port: 21116
+        protocol: tcp
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
