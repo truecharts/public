@@ -32,7 +32,7 @@ require (
     sigs.k8s.io/yaml v1.4.0
 )
 
-replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.16
+replace github.com/imdario/mergo => github.com/imdario/mergo v1.0.1
 
 replace go.mozilla.org/sops/v3 => github.com/getsops/sops/v3 v3.9.1
 
