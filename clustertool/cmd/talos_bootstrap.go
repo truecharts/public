@@ -17,7 +17,7 @@ var advBootstrapLongHelp = strings.TrimSpace(`
 var bootstrap = &cobra.Command{
     Use:     "bootstrap",
     Short:   "bootstrap first Talos Node",
-    Example: "clustertool adv bootstrap",
+    Example: "clustertool talos bootstrap",
     Long:    advBootstrapLongHelp,
     Run:     bootstrapfunc,
 }

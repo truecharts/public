@@ -19,6 +19,7 @@ This tool can, for example, be used as a pre-commit check and will fail with a n
 var checkcrypt = &cobra.Command{
     Use:     "checkcrypt",
     Short:   "Checks if all files are encrypted correctly in accordance with .sops.yaml",
+    Aliases: []string{"checkencrypt"},
     Example: "clustertool checkcrypt",
     Long:    checkcyptLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
