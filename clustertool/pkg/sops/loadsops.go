@@ -3,6 +3,7 @@ package sops
 import (
     "fmt"
     "io/ioutil"
+    "os"
 
     "github.com/rs/zerolog/log"
     "gopkg.in/yaml.v3"
@@ -18,6 +19,15 @@ type SopsConfig struct {
 
 func LoadSopsConfig() (SopsConfig, error) {
     log.Trace().Msg("Starting LoadSopsConfig function")
+
+    if _, err := os.Stat(".sops.yaml"); os.IsNotExist(err) {
+        log.Info().Msg(".sops.yaml file does not exist, skipping loading SOPS....")
+        return SopsConfig{}, fmt.Errorf("error reading file: %v", err)
+    } else if err != nil {
+        log.Error().Msgf("Error checking .sops.yaml file :", err)
+    } else {
+        log.Debug().Msg(".sops.yaml File exists.")
+    }
 
     // Read .sops.yaml file
     data, err := ioutil.ReadFile(".sops.yaml")

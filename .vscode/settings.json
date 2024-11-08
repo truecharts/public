@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "*.json5": "jsonc",
+        "./kubernetes/**/*.sops.toml": "plaintext"
+    },
+    "sops.defaults.ageKeyFile": "age.key",
+    "yaml.schemas": {
+        "Kubernetes": "./kubernetes/*.yaml"
+    },
+    "vs-kubernetes": {
+        "vs-kubernetes.kubeconfig": "/workspaces/cluster/kubeconfig",
+        "vs-kubernetes.knownKubeconfigs": ["/workspaces/cluster/kubeconfig"]
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "/usr/bin/fish"
+        }
+      },
+    "terminal.integrated.defaultProfile.linux": "fish"
+}
