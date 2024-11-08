@@ -2,7 +2,7 @@ annotations:
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.1.12
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: rustdesk self-hosted
-home: https://truecharts.org/charts/incubator/rustdesk
+home: https://truecharts.org/charts/stable/rustdesk
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustdesk.webp
 keywords:
   - rustdesk
@@ -27,8 +27,8 @@ maintainers:
 name: rustdesk
 sources:
   - https://github.com/rustdesk/rustdesk-server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rustdesk
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rustdesk
   - https://hub.docker.com/r/rustdesk/rustdesk-server-s6
   - https://rustdesk.com/de/
 type: application
-version: 0.0.1
+version: 1.0.0
