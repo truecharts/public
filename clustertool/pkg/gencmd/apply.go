@@ -1,49 +1,43 @@
 package gencmd
 
 import (
-    "io"
     "os"
-    "strings"
+    "path/filepath"
 
     "github.com/rs/zerolog/log"
-
-    talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
-    "github.com/budimanjojo/talhelper/v3/pkg/generate"
     "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/helper"
-    "github.com/truecharts/public/clustertool/pkg/initfiles"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
-func GenApply(node string, extraFlags []string) []string {
-    initfiles.LoadTalEnv(false)
-    cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to parse talconfig or talenv file: %s")
-    }
+func GenApply(node string, extraArgs []string) []string {
 
-    applyStdout := os.Stdout
-    r, w, _ := os.Pipe()
-    os.Stdout = w
-    // replace this with self-made stuff, be aware we also need to use the configfile
-    err = generate.GenerateApplyCommand(cfg, helper.TalosGenerated, node, extraFlags)
+    commands := []string{}
 
-    w.Close()
-    out, _ := io.ReadAll(r)
-    os.Stdout = applyStdout
-
-    sliceOut := strings.Split(string(out), ";\n")
     talosPath := embed.GetTalosExec()
-    var slice []string
-    for _, str := range sliceOut {
-        if str != "" {
-            str = strings.ReplaceAll(str, "talosctl", talosPath)
-            slice = append(slice, str)
+    if node == "" {
+
+        for _, noderef := range talassist.TalConfig.Nodes {
+            filename := talassist.TalConfig.ClusterName + "-" + noderef.Hostname + ".yaml"
+            cmd := talosPath + " " + "apply machineconfig" + " -f " + filepath.Join(helper.TalosGenerated, filename) + " --talosconfig " + helper.TalosConfigFile + " -n " + noderef.IPAddress // + " " + strings.Join(extraArgs, " ")
+            commands = append(commands, cmd)
+        }
+    } else {
+        nodename := ""
+        for _, noderef := range talassist.TalConfig.Nodes {
+            if noderef.IPAddress == node {
+                nodename = noderef.Hostname
+            }
+        }
+        if nodename == "" {
+            log.Error().Msgf("Node IP %s, does not match any node in talconfig. Exiting...", node)
+            os.Exit(1)
         }
 
+        filename := talassist.TalConfig.ClusterName + "-" + nodename + ".yaml"
+        cmd := talosPath + " " + "apply machineconfig" + " -f " + filepath.Join(helper.TalosGenerated, filename) + " --talosconfig " + helper.TalosConfigFile + " -n " + node // + " " + strings.Join(extraArgs, " ")
+        commands = append(commands, cmd)
     }
-
-    if err != nil {
-        log.Fatal().Err(err).Msg("failed to generate talosctl apply command: %s")
-    }
-    return slice
+    log.Debug().Msgf("Apply Commands rendered: %s", commands)
+    return commands
 }

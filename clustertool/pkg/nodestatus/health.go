@@ -15,8 +15,8 @@ func CheckHealth(node string, status string, silent bool) error {
     if err != nil {
         errstring := "healthcheck failed. status: " + string(out) + " error: " + err.Error()
         if !silent {
-            log.Info().Msgf("Healthcheck: check on node : failed %v", node)
-            log.Info().Msgf("failed with error:  %s", errstring)
+            log.Error().Msgf("Healthcheck: check on node : failed %v", node)
+            log.Error().Msgf("failed with error:  %s", errstring)
         }
         log.Error().Err(err).Str("node", node).Msg("Healthcheck failed")
         return errors.New(errstring)
@@ -36,17 +36,22 @@ func CheckHealth(node string, status string, silent bool) error {
         response := "Healthcheck: WARN detected node " + node + " in mode " + "maintenance" + ".\nLikely a new node, so trying commands anyway. Continuing..."
         log.Warn().Msg(response)
     } else if status == "" && strings.Contains(out, "running") {
-        _, err = CheckReadyStatus(node)
+        _, err = CheckReadyStatus(node, silent)
         if err != nil {
+
             errstring := "healthcheck failed. status: " + string(out) + " error: " + err.Error()
-            log.Error().Err(err).Str("node", node).Msg("Healthcheck failed while checking readiness")
+
+            if !silent {
+                log.Error().Err(err).Str("node", node).Msg("Healthcheck failed while checking readiness")
+            }
             return errors.New(errstring)
         }
     } else {
         if !silent {
             log.Info().Msgf("Healthcheck: check on node : failed %v", node)
+            log.Error().Str("node", node).Msg("Healthcheck failed with unexpected status")
         }
-        log.Error().Str("node", node).Msg("Healthcheck failed with unexpected status")
+
         return errors.New("healthcheck failed")
     }
     log.Debug().Str("node", node).Msg("Health check completed successfully")
@@ -83,7 +88,7 @@ func WaitForHealth(node string, status []string) (string, error) {
         log.Debug().Str("node", node).Str("check", check).Msg("Performing initial health check")
         err := CheckHealth(node, check, true)
         if err == nil {
-            log.Info().Str("node", node).Str("status", check).Msg("Initial health check passed")
+            log.Debug().Str("node", node).Str("status", check).Msg("Initial health check passed")
             return check, nil
         }
     }

@@ -7,25 +7,21 @@ import (
 
     "github.com/rs/zerolog/log"
 
-    talhelperCfg "github.com/budimanjojo/talhelper/v3/pkg/config"
     "github.com/budimanjojo/talhelper/v3/pkg/generate"
     "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 // TODO: remove talhelper dependency for cmd creation
 func GenUpgrade(node string, extraFlags []string) []string {
     // TODO: get rid of this, due to double uncontrollable log output
-    cfg, err := talhelperCfg.LoadAndValidateFromFile(helper.TalConfigFile, []string{helper.ClusterEnvFile}, false)
-    if err != nil {
-        log.Fatal().Err(err).Msgf("failed to parse talconfig or talenv file: %s", err)
-    }
 
     upgradeStdout := os.Stdout
     r, w, _ := os.Pipe()
     os.Stdout = w
     extraFlags = append(extraFlags, "--preserve")
-    err = generate.GenerateUpgradeCommand(cfg, helper.TalosGenerated, node, extraFlags)
+    err := generate.GenerateUpgradeCommand(talassist.TalConfig, helper.TalosGenerated, node, extraFlags)
 
     w.Close()
     out, _ := io.ReadAll(r)
