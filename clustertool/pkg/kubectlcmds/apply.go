@@ -7,6 +7,7 @@ import (
     "io/ioutil"
     "os"
     "path/filepath"
+    "time"
 
     "github.com/rs/zerolog/log"
     "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
@@ -64,8 +65,12 @@ func applyYAML(k8sClient client.Client, yamlData []byte) error {
             return fmt.Errorf("failed to unmarshal node: %v", err)
         }
         if err := k8sClient.Patch(context.TODO(), obj, client.Apply, client.FieldOwner("kustomize-controller")); err != nil {
-            log.Error().Err(err).Msg("Failed to apply object")
-            return fmt.Errorf("failed to apply object: %v", err)
+            log.Warn().Err(err).Msg("Failed to apply yaml object... trying again in 15 seconds...")
+            time.Sleep(15 * time.Second)
+            if err := k8sClient.Patch(context.TODO(), obj, client.Apply, client.FieldOwner("kustomize-controller")); err != nil {
+                log.Error().Err(err).Msg("Failed to apply object")
+                return fmt.Errorf("failed to apply object: %v", err)
+            }
         }
         log.Info().Msgf("Successfully applied object: %s of kind: %s in namespace: %s", obj.GetName(), obj.GetKind(), obj.GetNamespace())
     }
