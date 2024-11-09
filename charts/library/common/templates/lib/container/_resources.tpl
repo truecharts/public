@@ -38,7 +38,7 @@ limits:
     {{- if not $objectData.resources.excludeExtra -}}
       {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
         {{- if or (not $v) (eq (toString $v) "0") -}}
-          {{ continue }}
+          {{- continue -}}
         {{- end }}
   {{ $k }}: {{ $v }}
       {{- end -}}
