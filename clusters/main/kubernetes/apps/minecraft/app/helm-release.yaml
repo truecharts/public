@@ -112,8 +112,10 @@ spec:
                MAX_TICK_TIME: 90000
                SPAWN_ANIMALS: true
                SPAWN_MONSTERS: true
+               ALLOW_FLIGHT: true
                SPAWN_NPCS: true
-               VIEW_DISTANCE: 32
+               VIEW_DISTANCE: 25
+               SYNC_CHUNK_WRITES: false
                SPAWN_PROTECTION: 5
                MODE: survival
                MOTD: "Welcome to Six-Shooter Minecraft"
@@ -131,6 +133,7 @@ spec:
                WHITELIST: "99093856-888c-49e5-b7ea-6849c4012469,6253eb28-5be7-4c94-8936-701b9e257f0c,06fd4434-f41d-45bb-84a7-16c1138b62a8,497d6257-d336-4922-b5e0-3ee0fbe2b3d3"
                EXISTING_OPS_FILE: "SYNCHRONIZE"
                EXISTING_WHITELIST_FILE: "SYNCHRONIZE"
+               SIMULATION_DISTANCE: 4
                # PACKWIZ_URL: ""
                # CUSTOM_SERVER: ""
                # QUILT_LOADER_VERSION: ""
@@ -247,8 +250,8 @@ spec:
          cpu: 10000m
          memory: 14Gi
        requests:
-         cpu: 1000m
-         memory: 5Gi
+         cpu: 3000m
+         memory: 6Gi
 
     ingress:
       main:
