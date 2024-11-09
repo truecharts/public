@@ -42,6 +42,7 @@ spec:
        enabled: true
        loadBalancerIP: ${MINECRAFT_IP}
        type: LoadBalancer
+       externalTrafficPolicy: Local
        ports:
          main:
            enabled: true
@@ -55,6 +56,7 @@ spec:
        enabled: true
        loadBalancerIP: ${MINECRAFT_IP}
        type: LoadBalancer
+       externalTrafficPolicy: Local
        ports:
          rcon:
            enabled: true
@@ -63,6 +65,7 @@ spec:
        enabled: true
        loadBalancerIP: ${MINECRAFT_IP}
        type: LoadBalancer
+       externalTrafficPolicy: Local
        ports:
          dynmap:
            enabled: true
