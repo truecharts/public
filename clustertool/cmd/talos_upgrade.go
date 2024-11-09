@@ -55,7 +55,7 @@ var upgrade = &cobra.Command{
         gencmd.ExecCmd(kubeUpgradeCmd)
 
         log.Info().Msg("(re)Loading KubeConfig)")
-        kubeconfigcmds := gencmd.GenPlain("health", helper.TalEnv["VIP_IP"], extraArgs)
+        kubeconfigcmds := gencmd.GenPlain("health", helper.TalEnv["VIP_IP"], []string{"-f"})
         gencmd.ExecCmd(kubeconfigcmds[0])
 
     },

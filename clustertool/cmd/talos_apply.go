@@ -109,7 +109,7 @@ func RunApply(kubeconfig bool, node string, extraArgs []string) {
     gencmd.ExecCmds(taloscmds, true)
 
     if kubeconfig {
-        kubeconfigcmds := gencmd.GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], extraArgs)
+        kubeconfigcmds := gencmd.GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], []string{"-f"})
         gencmd.ExecCmd(kubeconfigcmds[0])
     }
 
