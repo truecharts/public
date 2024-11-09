@@ -116,15 +116,16 @@ objectData: The object data to be used to render the container.
 
     {{- if lt $idx (sub (len $sorted) 1) -}}
       {{- $nextPort := (get $portsByName (index $sorted (add1 $idx))).containerPort -}}
-      {{- if not (eq $port $nextPort) -}}
+      {{- if ne $port $nextPort -}}
         {{- $portNamesUsingNum := list -}}
         {{- range $name, $p := $portsByName -}}
           {{- if eq $p.containerPort $port -}}
             {{- $portNamesUsingNum = mustAppend $portNamesUsingNum $name -}}
           {{- end -}}
         {{- end -}}
-        {{- fail (printf "Port number [%s] is used by multiple ports [%s] in the service [%s] but their names are not adjacent when sorted alphabetically (Other ports in this container: [%s]). This can cause issues with Kubernetes port updates." $port (join ", " $portNamesUsingNum) $portValues.serviceName (join ", " (keys $portsByName | sortAlpha))) -}}
+        {{- fail (printf "Port number [%s] is used by multiple ports [%s] in the service [%s] but their names are not adjacent when sorted alphabetically (Other ports in this container sorted: [%s]). This can cause issues with Kubernetes port updates." $port (join ", " $portNamesUsingNum) $portValues.serviceName (join ", " (keys $portsByName | sortAlpha))) -}}
       {{- end -}}
+      {{- $_ := set $portCounts $port 1 -}}
     {{- end -}}
 
   {{- end -}}
