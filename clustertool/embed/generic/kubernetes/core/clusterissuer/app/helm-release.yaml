@@ -61,7 +61,7 @@ spec:
       certificates:
         - name: domain-0-wildcard
           enabled: true
-          certificateIssuer: tc-le-prod
+          certificateIssuer: domain-0-le-prod
           hosts:
             - ${DOMAIN_0}
             - '*.${DOMAIN_0}'
