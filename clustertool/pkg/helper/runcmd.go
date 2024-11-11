@@ -6,6 +6,8 @@ import (
     "os"
     "os/exec"
     "strings"
+
+    "github.com/rs/zerolog/log"
 )
 
 type filteredWriter struct {
@@ -33,6 +35,10 @@ func (fw *filteredWriter) Write(p []byte) (n int, err error) {
 
 func RunCommand(commandSlice []string, silent bool) (string, error) {
     filters := []string{"certificate signed by unknown authority", "bootstrap is not available yet"}
+    log.Trace().Msg("Command slice structure:")
+    for i, s := range commandSlice {
+        log.Trace().Msgf("Index: %d, Value: %s\n", i, s)
+    }
     cmd := exec.Command(commandSlice[0], commandSlice[1:]...)
 
     var stdoutBuf, stderrBuf bytes.Buffer

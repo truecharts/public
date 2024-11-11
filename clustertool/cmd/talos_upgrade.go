@@ -7,7 +7,9 @@ import (
     "github.com/spf13/cobra"
     "github.com/truecharts/public/clustertool/pkg/gencmd"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    "github.com/truecharts/public/clustertool/pkg/initfiles"
     "github.com/truecharts/public/clustertool/pkg/sops"
+    "github.com/truecharts/public/clustertool/pkg/talassist"
 )
 
 var upgradeLongHelp = strings.TrimSpace(`
@@ -21,7 +23,7 @@ On top of this, after upgrading Talos on all nodes, it also executes kubernetes-
 var upgrade = &cobra.Command{
     Use:     "upgrade",
     Short:   "Upgrade Talos Nodes and Kubernetes",
-    Example: "clustertool upgrade <NodeIP>",
+    Example: "clustertool talos upgrade <NodeIP>",
     Long:    upgradeLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
         var extraArgs []string
@@ -40,6 +42,8 @@ var upgrade = &cobra.Command{
         if err := sops.DecryptFiles(); err != nil {
             log.Info().Msgf("Error decrypting files: %v\n", err)
         }
+        initfiles.LoadTalEnv(false)
+        talassist.LoadTalConfig()
 
         log.Info().Msg("Running Cluster Upgrade")
 
@@ -51,7 +55,7 @@ var upgrade = &cobra.Command{
         gencmd.ExecCmd(kubeUpgradeCmd)
 
         log.Info().Msg("(re)Loading KubeConfig)")
-        kubeconfigcmds := gencmd.GenPlain("health", helper.TalEnv["VIP_IP"], extraArgs)
+        kubeconfigcmds := gencmd.GenPlain("health", helper.TalEnv["VIP_IP"], []string{"-f"})
         gencmd.ExecCmd(kubeconfigcmds[0])
 
     },

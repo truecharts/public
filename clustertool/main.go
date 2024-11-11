@@ -8,9 +8,11 @@ import (
     "github.com/rs/zerolog"
     "github.com/rs/zerolog/log"
 
+    "github.com/go-logr/zerologr"
     "github.com/truecharts/public/clustertool/cmd"
     "github.com/truecharts/public/clustertool/embed"
     "github.com/truecharts/public/clustertool/pkg/helper"
+    k8slog "sigs.k8s.io/controller-runtime/pkg/log"
 )
 
 var Version = "dev"
@@ -53,6 +55,15 @@ func main() {
         TimeFormat: time.RFC3339, // Keep this for the timestamp format
         NoColor:    noColor,      // Set to true if you prefer no color
     })
+
+    // Initialize zerolog with console output
+    zlogger := zerolog.New(os.Stderr).With().Timestamp().Logger()
+
+    // Wrap zerolog with zerologr to create a logr.Logger
+    logger := zerologr.New(&zlogger)
+
+    // Set this logger for dependencies expecting log.SetLogger
+    k8slog.SetLogger(logger)
 
     fmt.Printf("\n%s\n", helper.Logo)
     fmt.Printf("---\nClustertool Version: %s\n---\n", Version)

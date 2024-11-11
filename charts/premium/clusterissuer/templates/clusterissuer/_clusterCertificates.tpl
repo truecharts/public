@@ -5,8 +5,6 @@
   {{- $replicationNamespaces := ".*" -}}
   {{- if .Values.clusterCertificates.replicationNamespaces -}}
     {{- $replicationNamespaces = .Values.clusterCertificates.replicationNamespaces -}}
-  {{- else if .Values.ixChartContext -}}
-    {{- $replicationNamespaces = "ix-.*" -}}
   {{- end -}}
     {{- $reflectorAnnotations := (dict
         "reflector.v1.k8s.emberstack.com/reflection-allowed" "true"

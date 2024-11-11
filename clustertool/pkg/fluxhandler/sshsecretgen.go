@@ -176,7 +176,7 @@ func publicKeyToOpenSSH(pub *ecdsa.PublicKey) (string, error) {
 
 // getKnownHostsEntry generates the known_hosts entry for the given URL
 func getKnownHostsEntry(url string) string {
-    if url == "github.com" {
+    if strings.Contains(url, "github.com") {
         return getGithubKnownHostsEntry()
     }
     return generateKnownHostsEntry(url)

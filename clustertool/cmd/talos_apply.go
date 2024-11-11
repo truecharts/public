@@ -47,6 +47,7 @@ Not any contained helm-charts
 var apply = &cobra.Command{
     Use:     "apply",
     Short:   "apply",
+    Aliases: []string{"apply-config"},
     Example: "clustertool apply <NodeIP>",
     Long:    applyLongHelp,
     Run: func(cmd *cobra.Command, args []string) {
@@ -108,7 +109,7 @@ func RunApply(kubeconfig bool, node string, extraArgs []string) {
     gencmd.ExecCmds(taloscmds, true)
 
     if kubeconfig {
-        kubeconfigcmds := gencmd.GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], extraArgs)
+        kubeconfigcmds := gencmd.GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], []string{"-f"})
         gencmd.ExecCmd(kubeconfigcmds[0])
     }
 
