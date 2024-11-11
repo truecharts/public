@@ -71,6 +71,7 @@ spec:
            port: 8123
 
     mcbackup:
+     enabled: false
      # White spaced separated list
      zstd_params:
        - --long=25
@@ -187,7 +188,7 @@ spec:
                # CF_PARALLEL_DOWNLOADS
                # CF_SET_LEVEL_FROM
            mcbackup:
-             enabled: true
+             enabled: false
 
     persistence:
      data:
@@ -219,24 +220,7 @@ spec:
          main:
            main:
              mountPath: /data/dynmap/web
-     #customdata:
-     #  existingClaim: minecraft-serverdata-pvc
-     #  enabled: true
-     #  targetSelector:
-     #    main:
-     #      main:
-     #        mountPath: /customdata
      backups:
-       volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              accessModes:
-                - ReadWriteOnce
-              enabled: true
-            src:
-              enabled: true
        enabled: true
        storageClass: ceph-nvme2
        size: 250Gi
