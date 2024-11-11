@@ -303,3 +303,100 @@ tests:
                 containerPort: 1234
                 hostPort: null
                 protocol: UDP
+
+  - it: should fail if there are duplicate ports but they are not adjacent
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          targetSelector: workload-name1
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 1234
+              protocol: tcp
+              targetSelector: container-name1
+            my-port2:
+              enabled: true
+              port: 1235
+              protocol: tcp
+              targetSelector: container-name1
+            my-port3:
+              enabled: true
+              port: 1234
+              protocol: udp
+              targetSelector: container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: "Port number [1234] is used by multiple ports [my-port, my-port3] in the service [my-service1] but their names are not adjacent when sorted alphabetically (Other ports in this container sorted: [my-port, my-port2, my-port3]). This can cause issues with Kubernetes port updates."
+
+  - it: should pass if there are duplicate ports but they are adjacent
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          targetSelector: workload-name1
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 1234
+              protocol: tcp
+              targetSelector: container-name1
+            my-port2:
+              enabled: true
+              port: 1234
+              protocol: udp
+              targetSelector: container-name1
+            my-port3:
+              enabled: true
+              port: 1235
+              protocol: udp
+              targetSelector: container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].ports
+          value:
+            - name: my-port
+              containerPort: 1234
+              protocol: TCP
+              hostPort: null
+            - name: my-port2
+              containerPort: 1234
+              protocol: UDP
+              hostPort: null
+            - name: my-port3
+              containerPort: 1235
+              protocol: UDP
+              hostPort: null
