@@ -53,16 +53,16 @@ spec:
            port: 25565
      rcon:
        enabled: true
-       loadBalancerIP: ${MINECRAFT_IP}
-       type: LoadBalancer
+       # loadBalancerIP: ${MINECRAFT_IP}
+       # type: LoadBalancer
        ports:
          rcon:
            enabled: true
            port: 25575
      dynmap:
        enabled: true
-       loadBalancerIP: ${MINECRAFT_IP}
-       type: LoadBalancer
+       # SloadBalancerIP: ${MINECRAFT_IP}
+       # type: LoadBalancer
        ports:
          dynmap:
            enabled: true
