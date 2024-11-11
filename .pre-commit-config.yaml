@@ -35,7 +35,7 @@ repos:
       - id: requirements-txt-fixer # sorts entries in requirements.txt.
         exclude: ^archive/
       - id: check-added-large-files # prevents giant files from being committed.
-        exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl)$
+        exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl|md)$
       - id: check-yaml # checks yaml files for parseable syntax.
         exclude: (^archive|^website\/public|templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml|common-test\/.*\.yaml|^clustertool)
       - id: detect-private-key # detects the presence of private keys.
