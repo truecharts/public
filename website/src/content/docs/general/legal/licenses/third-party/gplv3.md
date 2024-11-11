@@ -1,3 +1,7 @@
+---
+title: GPL V3
+---
+
 GNU General Public License
 ==========================
 

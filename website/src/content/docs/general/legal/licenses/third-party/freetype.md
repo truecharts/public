@@ -1,3 +1,6 @@
+---
+title: FreeType Project
+---
 The FreeType Project LICENSE
 2006-Jan-27 Copyright 1996-2002, 2006 by David Turner, Robert Wilhelm, and Werner Lemberg
 Introduction

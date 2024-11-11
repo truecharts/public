@@ -1,3 +1,7 @@
+---
+title: W3C
+---
+
 This work is being provided by the copyright holders under the following license.
 License
 By obtaining and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions.

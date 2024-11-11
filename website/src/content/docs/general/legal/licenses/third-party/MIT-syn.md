@@ -1,3 +1,6 @@
+---
+title: MIT Synopsis
+---
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software annotated with this license and the Software, to
 deal in the Software without restriction, including without limitation

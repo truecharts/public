@@ -1,3 +1,7 @@
+---
+title: Unicode
+---
+
 UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE
 Unicode Data Files include all data files under the directories http://www.unicode.org/Public/, http://www.unicode.org/reports/, http://www.unicode.org/cldr/data/, http://source.icu-project.org/repos/icu/, and http://www.unicode.org/utility/trac/browser/.
 Unicode Data Files do not include PDF online code charts under the directory http://www.unicode.org/Public/.
