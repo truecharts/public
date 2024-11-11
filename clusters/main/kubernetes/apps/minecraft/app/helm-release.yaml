@@ -227,25 +227,9 @@ spec:
           dynmap: dynmap
         hosts:
           -  host: dynmap.sixcraft.org
-             paths:
-                - path: /
-                  pathType: Prefix
         integrations:
           certManager:
             enabled: true
             certificateIssuer: sc-le-prod
           traefik:
             enabled: true
-            middlewares:
-              - name: bouncer
-                namespace: traefik
-              #- name: auth
-              # namespace: traefik
-            entrypoints:
-              - websecure
-            enableFixedMiddlewares: true
-            forceTLS: true
-            allowCors: false
-            fixedMiddlewares:
-              - name: chain-basic
-                namespace: ""
