@@ -203,7 +203,7 @@ spec:
             src:
               enabled: true
        enabled: true
-       size: 500Gi
+       size: 600Gi
        targetSelector:
          main:
            main:
@@ -215,19 +215,13 @@ spec:
      dynmap:
        enabled: true
        storageClass: ceph-nvme2
-       size: 250Gi
+       size: 500Gi
        targetSelector:
          main:
            main:
              mountPath: /data/dynmap/web
      backups:
-       enabled: true
-       storageClass: ceph-nvme2
-       size: 250Gi
-       targetSelector:
-         mcbackup:
-           mcbackup:
-             mountPath: /backups
+       enabled: false
     resources:
        limits:
          cpu: 10000m
