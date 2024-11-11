@@ -95,6 +95,15 @@ persistence:
         main: {}
       microservices:
         microservices: {}
+  backups:
+    enabled: true
+    mountPath: /usr/src/app/upload/backups
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
   thumbs:
     enabled: true
     mountPath: /usr/src/app/upload/thumbs
