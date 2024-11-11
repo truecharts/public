@@ -1,6 +1,16 @@
 {{- define "tc.v1.common.lib.cnpg.cluster.backup" -}}
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
+
+  {{- $compression := "gzip" -}}
+  {{- if and $objectData.backups.compression (not $objectData.backups.compression.enabled) -}}
+    {{- $compression = "" -}}
+  {{- end -}}
+
+  {{- $encryption := "" -}}
+  {{- if and $objectData.backups.encryption $objectData.backups.encryption.enabled -}}
+    {{- $encryption = "AES256" -}}
+  {{- end }}
 backup:
   {{- with $objectData.backups.target }}
   target: {{ . }}
@@ -9,13 +19,21 @@ backup:
   barmanObjectStore:
     data:
       jobs: {{ $objectData.backups.jobs | default 2 }}
-  {{- if and $objectData.backups.encryption $objectData.backups.encryption.enabled }}
-      compression: "gzip"
-      encryption: "AES256"
+      {{- if $compression }}
+      compression: {{ $compression }}
+      {{- end }}
+      {{- if $encryption }}
+      encryption: {{ $encryption }}
+      {{- end }}
+    {{- if or $compression $encryption }}
     wal:
-      compression: "gzip"
-      encryption: "AES256"
-  {{- end -}}
+      {{- if $compression }}
+      compression: {{ $compression }}
+      {{- end }}
+      {{- if $encryption }}
+      encryption: {{ $encryption }}
+      {{- end }}
+    {{- end }}
   {{/* Fetch provider data */}}
   {{/* Get the creds defined in backup.$provider */}}
   {{- $creds := (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
