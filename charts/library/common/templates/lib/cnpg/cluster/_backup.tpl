@@ -19,11 +19,11 @@ backup:
   barmanObjectStore:
     data:
       jobs: {{ $objectData.backups.jobs | default 2 }}
-      {{- if $compression }}
-      compression: {{ $compression }}
+      {{- with $compression }}
+      compression: {{ . }}
       {{- end }}
-      {{- if $encryption }}
-      encryption: {{ $encryption }}
+      {{- with $encryption }}
+      encryption: {{ . }}
       {{- end }}
     {{- if or $compression $encryption }}
     wal:
