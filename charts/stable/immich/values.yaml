@@ -6,17 +6,17 @@ image:
 mlImage:
   repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.120.1@sha256:0a5d8d75f026342a56e1065613e565ec40a05f4042dc7fead1dcfd66d539fef3
+  tag: v1.120.2@sha256:3cca923bc8eaa3616c48fc6088005e08d574cf1acf6c1253c92393ae11e4788d
 
 mlCudaImage:
   repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.120.1-cuda@sha256:e25392f2b61ef07e9f9aaedabdea1d87c1b66338af311eee0f382a78381db632
+  tag: v1.120.2-cuda@sha256:232ff2410d4bde6491ca101973b2d7f13b3dd30e9a42d49ee84008f6ff69003e
 
 mlOpenvinoImage:
   repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.120.1-openvino@sha256:c2d95ceaaab1b388a95f6f92058b9bae4e283d22de4e2e72a3a0264eb1dc3be7
+  tag: v1.120.2-openvino@sha256:62450b0344d8cf1fb468e6435d1901207efcb68e59cb5f15b6db327540c71390
 
 securityContext:
   container:
@@ -89,6 +89,15 @@ persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload/upload
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+  backups:
+    enabled: true
+    mountPath: /usr/src/app/upload/backups
     targetSelector:
       # Main pod/container is server
       main:

@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: minecraft-java
-      version: 11.2.3
+      version: 11.2.4
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -54,34 +54,23 @@ spec:
            port: 25565
      rcon:
        enabled: true
-       loadBalancerIP: ${MINECRAFT_IP}
-       type: LoadBalancer
-       externalTrafficPolicy: Local
+       # loadBalancerIP: ${MINECRAFT_IP}
+       # type: LoadBalancer
        ports:
          rcon:
            enabled: true
            port: 25575
      dynmap:
        enabled: true
-       loadBalancerIP: ${MINECRAFT_IP}
-       type: LoadBalancer
-       externalTrafficPolicy: Local
+       # SloadBalancerIP: ${MINECRAFT_IP}
+       # type: LoadBalancer
        ports:
          dynmap:
            enabled: true
            port: 8123
 
     mcbackup:
-     # White spaced separated list
-     zstd_params:
-       - --long=25
-       - --single-thread
-     # comma separated list
-     excludes:
-       - "*.jar"
-       - "cache"
-       - "logs"
-       - "*.tmp"
+     enabled: false
     podOptions:
       terminationGracePeriodSeconds: 120
     workload:
@@ -188,7 +177,7 @@ spec:
                # CF_PARALLEL_DOWNLOADS
                # CF_SET_LEVEL_FROM
            mcbackup:
-             enabled: true
+             enabled: false
 
     persistence:
      data:
@@ -203,7 +192,7 @@ spec:
             src:
               enabled: true
        enabled: true
-       size: 500Gi
+       size: 600Gi
        targetSelector:
          main:
            main:
@@ -215,42 +204,19 @@ spec:
      dynmap:
        enabled: true
        storageClass: ceph-nvme2
-       size: 250Gi
+       size: 500Gi
        targetSelector:
          main:
            main:
              mountPath: /data/dynmap/web
-     #customdata:
-     #  existingClaim: minecraft-serverdata-pvc
-     #  enabled: true
-     #  targetSelector:
-     #    main:
-     #      main:
-     #        mountPath: /customdata
      backups:
-       volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              accessModes:
-                - ReadWriteOnce
-              enabled: true
-            src:
-              enabled: true
-       enabled: true
-       storageClass: ceph-nvme2
-       size: 250Gi
-       targetSelector:
-         mcbackup:
-           mcbackup:
-             mountPath: /backups
+       enabled: false
     resources:
        limits:
          cpu: 10000m
          memory: 14Gi
        requests:
-         cpu: 1500m
+         cpu: 2000m
          memory: 6Gi
 
     ingress:
@@ -261,67 +227,9 @@ spec:
           dynmap: dynmap
         hosts:
           -  host: dynmap.sixcraft.org
-             paths:
-                - path: /
-                  pathType: Prefix
         integrations:
           certManager:
             enabled: true
             certificateIssuer: sc-le-prod
           traefik:
             enabled: true
-            middlewares:
-              - name: bouncer
-                namespace: traefik
-              #- name: auth
-              # namespace: traefik
-            entrypoints:
-              - websecure
-            enableFixedMiddlewares: true
-            forceTLS: true
-            allowCors: false
-            fixedMiddlewares:
-              - name: chain-basic
-                namespace: ""
-
-    cnpg:
-      main:
-        enabled: false
-        primary: true
-        # -- Puts the cnpg cluster in hibernation mode
-        hibernate: false
-        pgVersion: 16
-        mode: standalone
-
-        # Database details
-        database: “dynmap”
-        user: “dynmap
-        password: “minecraftdynmapPASSWORD"
-
-        # Database cluster configuration
-        cluster:
-
-          # Number of instances
-          instances: 1
-
-          # set to true on single-node clusters to allow PVCs to be kept on instance restart
-          singleNode: true
-          # # -- storage size for the data pvc's
-          # # Follows the same spec as .Values.Persistence type=PVC
-          storage:
-            storageClass: “ceph-nvme2”
-          # # -- storage size for the wal pvc's
-          # # Follows the same spec as .Values.Persistence type=PVC
-          walStorage:
-            storageClass: “ceph-nvme2”
-
-
-          # The instances' log level, one of the following values: error, warning, info (default), debug, trace
-          logLevel: info
-
-        backups:
-          enabled: true
-          credentials: s3
-        recovery:
-          method: object_store
-          credentials: s3

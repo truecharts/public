@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/tccr/traefik
-  tag: v3.2.0@sha256:f43d461c75562a123a3b4a2a5e1c4bda813e2f1ed97aafe231917aca807fe08c
+  tag: v3.2.0@sha256:e69ce9684c7169005f654ac6d760e157c7bb093e76b57bae279c3aa58ee4033d
   pullPolicy: IfNotPresent
 
 workload:
@@ -176,7 +176,6 @@ tlsOptions:
 # from.
 service:
   main:
-    type: LoadBalancer
     ports:
       main:
         port: 9000
@@ -191,8 +190,7 @@ service:
   tcp:
     enabled: true
     type: LoadBalancer
-    ## In most cases, you want this changed to `Local`
-    externalTrafficPolicy: Cluster
+    externalTrafficPolicy: Local
     ports:
       web:
         enabled: true
