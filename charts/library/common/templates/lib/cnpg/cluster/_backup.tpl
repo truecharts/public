@@ -27,11 +27,11 @@ backup:
       {{- end }}
     {{- if or $compression $encryption }}
     wal:
-      {{- if $compression }}
-      compression: {{ $compression }}
+      {{- with $compression }}
+      compression: {{ . }}
       {{- end }}
-      {{- if $encryption }}
-      encryption: {{ $encryption }}
+      {{- with $encryption }}
+      encryption: {{ . }}
       {{- end }}
     {{- end }}
   {{/* Fetch provider data */}}
