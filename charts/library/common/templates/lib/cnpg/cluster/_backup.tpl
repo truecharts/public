@@ -2,7 +2,7 @@
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $compression := "gzip" -}}
+  {{- $compression := "bzip2" -}}
   {{- if and $objectData.backups.compression (not $objectData.backups.compression.enabled) -}}
     {{- $compression = "" -}}
   {{- end -}}
