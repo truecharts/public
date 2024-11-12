@@ -10,13 +10,6 @@ fullImage:
   repository: ghcr.io/stirling-tools/s-pdf
   pullPolicy: IfNotPresent
   tag: 0.32.0@sha256:c5e8df69f2839009a0bae8fa47968a510ee5f78c471f9439f3661c222a64fd81
-# run as non root | will remove if checks pass.
-securityContext:
-  container:
-    readOnlyRootFilesystem: true
-    runAsNonRoot: true
-    runAsGroup: 568
-    runAsUser: 568
 service:
   main:
     ports:
