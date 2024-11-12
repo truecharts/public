@@ -21,19 +21,19 @@ backup:
       jobs: {{ $objectData.backups.jobs | default 2 }}
       {{- with $compression }}
       compression: {{ . }}
-      {{- end }}
+      {{- end -}}
       {{- with $encryption }}
       encryption: {{ . }}
-      {{- end }}
+      {{- end -}}
     {{- if or $compression $encryption }}
     wal:
       {{- with $compression }}
       compression: {{ . }}
-      {{- end }}
+      {{- end -}}
       {{- with $encryption }}
       encryption: {{ . }}
-      {{- end }}
-    {{- end }}
+      {{- end -}}
+    {{- end -}}
   {{/* Fetch provider data */}}
   {{/* Get the creds defined in backup.$provider */}}
   {{- $creds := (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
