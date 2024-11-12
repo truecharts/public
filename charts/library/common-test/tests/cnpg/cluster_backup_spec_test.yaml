@@ -61,7 +61,7 @@ tests:
             backup:
               barmanObjectStore:
                 data:
-                  compression: gzip
+                  compression: bzip2
                   jobs: 2
                 destinationPath: some-path
                 endpointURL: some-url
@@ -74,7 +74,7 @@ tests:
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
                 serverName: test-release-name-common-test-cnpg-my-pg
                 wal:
-                  compression: gzip
+                  compression: bzip2
               retentionPolicy: 10d
               target: primary
 
@@ -129,7 +129,7 @@ tests:
             backup:
               barmanObjectStore:
                 data:
-                  compression: gzip
+                  compression: bzip2
                   jobs: 2
                 destinationPath: some-path
                 endpointURL: some-url
@@ -142,7 +142,7 @@ tests:
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
                 serverName: test-release-name-common-test-cnpg-my-pg-rsome-revision
                 wal:
-                  compression: gzip
+                  compression: bzip2
               retentionPolicy: 10d
               target: primary
 
@@ -197,7 +197,7 @@ tests:
             backup:
               barmanObjectStore:
                 data:
-                  compression: gzip
+                  compression: bzip2
                   jobs: 2
                 destinationPath: some-path
                 endpointURL: some-url
@@ -210,7 +210,7 @@ tests:
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
                 serverName: some-server-name
                 wal:
-                  compression: gzip
+                  compression: bzip2
               retentionPolicy: 10d
               target: primary
 
@@ -266,7 +266,7 @@ tests:
             backup:
               barmanObjectStore:
                 data:
-                  compression: gzip
+                  compression: bzip2
                   jobs: 2
                 destinationPath: some-path
                 endpointURL: some-url
@@ -279,7 +279,7 @@ tests:
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
                 serverName: some-server-name-r1
                 wal:
-                  compression: gzip
+                  compression: bzip2
               retentionPolicy: 10d
               target: primary
 
@@ -335,7 +335,7 @@ tests:
             backup:
               barmanObjectStore:
                 data:
-                  compression: gzip
+                  compression: bzip2
                   encryption: AES256
                   jobs: 2
                 destinationPath: some-path
@@ -349,7 +349,7 @@ tests:
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
                 serverName: test-release-name-common-test-cnpg-my-pg
                 wal:
-                  compression: gzip
+                  compression: bzip2
                   encryption: AES256
               retentionPolicy: 10d
               target: primary
