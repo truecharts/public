@@ -37,6 +37,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 - We do provide support for issues regarding talconfig.yaml, as long as ClusterTool is used for the deployment.
 - We do provide *basic* assistance with [Talos OS](../guides/talos/), when deployed or maintained through ClusterTool (upgrades, config changes etc)
 - We do provide support for FluxCD setup and layout, as long as ClusterTool is used for the deployment.
+- We *only* provide support for the latest version of ClusterTool. Please ensure you are utilizing the latest version before requesting support.
 
 ## Kubernetes Support Policy
 
