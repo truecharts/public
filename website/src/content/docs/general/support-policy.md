@@ -12,14 +12,14 @@ Please, always remember to check the content specific to the chart.
 
 TrueCharts is a comprehensive project that focuses on providing opinionated Helm charts for applications to run on Kubernetes-based platforms.
 
-We also offer free support via a support-ticketing system on Discord, according to the policy layed out in this document.
+We also offer free support via a support-ticketing system on Discord, according to the policy laid out in this document.
 
 ## Support Rules
 
 - If its covered by support as outlined below make a ticket in [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826).
 - [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826) is not rendered on GitHub or any other platform.
 - Bugs must be reported on GitHub, but only after confirmation by the staff via a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826)
-- Anything not covered by the below Support Policy is not eligble for a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826). If you need assitance outside the scuoe of [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826) make a thread in an appropiate [Discord Channel](https://discord.gg/tVsPTHWTtr).
+- Anything not covered by the below Support Policy is not eligible for a [⁠🎫・support ticket](https://discord.com/channels/830763548678291466/936275413179723826). If you need assistance outside the scope of [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826) make a thread in an appropriate [Discord Channel](https://discord.gg/tVsPTHWTtr).
 - We help out where we can, as long as you tried to do it yourself *first*. We do not provide a walkthrough service.
 - Our staff will try to help out with providing instructions on how to use `kubectl` and other `*ctl` tools where needed.
 - Please be aware that the code of conduct also applies to all support.
@@ -42,7 +42,6 @@ We also offer free support via a support-ticketing system on Discord, according 
 
 - We do not offer support for any component of kubernets that is not made by TrueCharts.
 - This includes charts by other parties or manually created kubernetes manifests and deployments.
-- We do not offer support for any component of kubernets that is not made by TrueCharts.
 
 ## Helm Chart Support Policy
 
@@ -50,6 +49,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 - We offer [basic documentation](../guides/helm/) and support for installing, upgrading and editing our Helm-Charts using Helm.
 - We do not support external secret management outside of values.yaml
 - We offer support for all our charts trains, except `incubator`, `dev`, and `test`.
+- We cannot guarantee special characters will work flawlessly in any field.
 
 :::note
 
@@ -59,9 +59,10 @@ Some [(common-chart)](../common/) features might not work correctly with all cha
 
 ## FluxCD Support Policy
 
-- We offer support for our Helm-Charts values in FLuxCD as outlined in Helm Chart Support.
+- We offer support for our Helm-Charts values in FluxCD as outlined in Helm Chart Support.
 - We offer [basic documentation](../guides/fluxcd/) and support on how to create a `helm-release` file, to deploy our helm-charts on Flux.
-- We offer support for our Helm-Charts values in FLuxCD as outlined in Helm Chart Support.
+- To be eligible for FluxCD support your repository must be public.
+- All information being provided *must* be un-encrypted. You can obfuscate any sensitive information as needed.
 
 ## What's Explicitly Not Covered By Support
 
