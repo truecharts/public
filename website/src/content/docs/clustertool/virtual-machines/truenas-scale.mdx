@@ -124,7 +124,7 @@ Go back to the "preparation" section and make sure the IP you are trying to move
 
   3. Click the `Add Zvol` button on the top-right
 
-  4. You will be presented with a pane of potential options. Leave all of these as default except for `Zvol name` (call it something recognizable like `Talos Zvol 1`), `Size for this zvol` (set to between `256GiB` and `512GiB`), `Force size` (check this option), `Sparse` (check this option) and `Block size` (change to `128 KiB`)
+  4. You will be presented with a pane of potential options. Leave all of these as default except for `Zvol name` (call it something recognizable like `Talos zvol`), `Size for this zvol` (set to between `256GiB` and `512GiB`), `Force size` (check this option), `Sparse` (check this option) and `Block size` (change to `128 KiB`)
 
   5. We do **not** recommend to encrypt the dataset
 
@@ -220,42 +220,6 @@ Make sure your GPU is [isolated](#gpu-isolation) before you try to assign it to 
 If you followed this guide correctly, the options shown should look similar to the screenshot below. Make sure everything is correct and then click on `Save` to finish the VM setup.
 
 ![VM Confirm](./img/vm_confirm.png)
-
-### Attaching Extra Disk
-
-:::note
-
-You can skip this step if you don't have multiple disks configured for usage with Talos
-
-Please be warned, we do NOT actively provide support for multi-disk setups and this *will* require modifications to the default CSI setup
-
-:::
-
-Now that we have created the Talos VM, we need to attach the second Zvol we created earlier to it.
-
-<Steps>
-
-  1. Select/Expand the VM
-
-  2. Select the `Devices` button
-
-  3. Select the `Add` button in the top-right
-
-  4. Change `Type` to `Disk` and click into the `Search` box under `Zvol`. It should show the two Zvols you created earlier, select the second. In the below example, this would be "Talos zvol 2"
-
-  5. Change `Mode` to `VirtIO` and `Device Order` to `1002`. Leave all other options as default.
-
-</Steps>
-
-If you followed this correctly, the options shown should look similar to the screenshot below. Make sure everything is correct and then click on `Save` to finish the VM setup. Alternatively, follow the instructions [here](https://www.truenas.com/docs/scale/scaletutorials/virtualization/addmanagevmdevicesscale/#add-a-disk-device-type).
-
-:::note
-
-Under the `Order` section of the table, there should be two disks. You want Zvol1 from earlier to be a *lower* order number than Zvol2. If this is not done by default, change the `Device Order` numbering so that your first Zvol comes before the second
-
-:::
-
-![VM Disks 2](./img/vm_disks2.png)
 
 ## Fixed DHCP Lease
 
