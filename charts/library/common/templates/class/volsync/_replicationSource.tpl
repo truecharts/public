@@ -22,9 +22,9 @@ objectData:
     {{- $schedule = $volsyncData.src.trigger.schedule -}}
   {{- end }}
 
-  {{- $retain := dict "hourly" 24 "daily" 7 "weekly" 5 -}}
+  {{- $retain := dict "hourly" 6 "daily" 5 "weekly" 4 "monthly" 3 "yearly" 1 -}}
   {{- if $volsyncData.src.retain -}}
-    {{- $items := list "hourly" "daily" "weekly" -}}
+    {{- $items := list "hourly" "daily" "weekly" "monthly" "yearly"  -}}
     {{- range $item := $items -}}
       {{- with get $volsyncData.src.retain $item -}}
         {{- $_ := set $retain $item . -}}
@@ -60,6 +60,8 @@ spec:
       hourly: {{ $retain.hourly }}
       daily: {{ $retain.daily }}
       weekly: {{ $retain.weekly }}
+      monthly: {{ $retain.monthly }}
+      yearly: {{ $retain.yearly }}
     {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
     {{- include "tc.v1.common.lib.volsync.cache" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
     {{- include "tc.v1.common.lib.volsync.moversecuritycontext" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
