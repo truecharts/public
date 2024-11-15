@@ -207,9 +207,6 @@ func shamCheck() {
         if strings.Contains(scanner.Text(), "shamir_threshold") {
             log.Debug().Msg("clusterenv contains shamir_threshold, continuing...")
             return
-        } else {
-            log.Error().Msg("clusterenv is NOT encrypted and encryption-check failed!\n DO NOT UPLOAD!")
-            os.Exit(1)
         }
     }
 
@@ -217,7 +214,8 @@ func shamCheck() {
         log.Error().Err(err).Msgf("error reading file: %w", err)
     }
 
-    return
+    log.Error().Msg("clusterenv is NOT encrypted and encryption-check failed!\n DO NOT UPLOAD!")
+    os.Exit(1)
 }
 
 // filesToCheck returns a list of files to check for encryption based on the logic in .sops.yaml.
