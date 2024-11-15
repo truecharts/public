@@ -1,11 +1,11 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-phponly
-  tag: 1.16.1@sha256:7139440b6bc6daae1400408a9e0a9216749db4779a5d1e22dfb88caf80b9fac8
+  tag: 1.16.2@sha256:0b4595f535b7e4a9cbeeefdfb247a16d209ca245ad6418cb27d4bfc25852114d
 nginxImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-nginx
-  tag: 1.16.1@sha256:2823d2840d16e511a0111d9745ddfa53b98a4ebbcc70f788463b826ac2c65a20
+  tag: 1.16.2@sha256:54835639d84bba4c930e2ad1b23f15b4f7bba7c71fec13683f1a7b522208abbd
 
 securityContext:
   container:
