@@ -10,7 +10,7 @@ require (
     github.com/getsops/sops/v3 v3.9.1
     github.com/go-git/go-git/v5 v5.12.0
     github.com/go-logr/zerologr v1.2.3
-    github.com/go-playground/validator/v10 v10.22.1
+    github.com/go-playground/validator/v10 v10.23.0
     github.com/invopop/jsonschema v0.12.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
