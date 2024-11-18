@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: 0.32.0
 dependencies:
   - name: common
-    version: 25.1.5
+    version: 25.1.7
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: stirling-pdf
 sources:
-  - https://github.com/Stirling-Tools/Stirling-PDF
   - https://ghcr.io/stirling-tools/s-pdf
+  - https://github.com/Stirling-Tools/Stirling-PDF
   - https://github.com/truecharts/charts/tree/master/charts/incubator/stirling-pdf
 type: application
-version: 0.0.1
+version: 0.0.2
