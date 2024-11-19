@@ -31,19 +31,19 @@ workload:
             # Sets a custom default locale. Defaults to en_US | de, fr and es
             LOCALE: en_US
             # The url for your SMTP email provider. Must be set.
-            # SMTP_HOST: ""
+            SMTP_HOST: "smtp.gmail.com"
             # The port for your SMTP relay. Defaults to 587.
             # SMTP_PORT: 587
             # The username for your SMTP relay. Must be set!
-            # SMTP_USERNAME: ""
+            SMTP_USERNAME: "example@gmail.com"
             # The password for your SMTP relay. Must be set!
-            # SMTP_PASSWORD: ""
+            SMTP_PASSWORD: "example"
             # Set to true to enable SSL for emails. Defaults to false.
-            # SMTP_SSL: false
+            SMTP_SSL: false
             # Sets the sender email in sent emails. Defaults to no-reply@HOST where HOST was previously defined.
-            # EMAIL_FROM: "no-reply@HOST"
+            EMAIL_FROM: "no-reply@HOST"
             # Sets the sender name in sent emails. Defaults to "Cannery".
-            # EMAIL_NAME: Cannery
+            EMAIL_NAME: Cannery
 cnpg:
   main:
     enabled: true
