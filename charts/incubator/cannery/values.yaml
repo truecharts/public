@@ -2,6 +2,12 @@ image:
   repository: docker.io/shibaobun/cannery
   pullPolicy: IfNotPresent
   tag: 0.9.12@sha256:1700f704ba5ded03b895d503f3321aa73230d3b6b7e2fe9c49ed49a57d4a651b
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
@@ -17,7 +23,7 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # HOST must be set!
             # without http/https, preferrably the ingress url
-            HOST: "localhost:4000"
+            HOST: "cannery.local"
             # ecto://postgres:postgres@cannery-db/cannery
             DATABASE_URL: '{{ printf "ecto://%s:%s@%s:5432/%s" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database }}'
             SECRET_KEY_BASE:
