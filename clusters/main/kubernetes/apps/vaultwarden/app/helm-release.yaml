@@ -111,7 +111,7 @@ spec:
             dest:
               volumeSnapshotClassName: csi-ceph-filesystem
               storageClassName: ceph-filesystem-nvme-3
-              enabled: true
+              enabled: false
             src:
               volumeSnapshotClassName: csi-ceph-filesystem
               storageClassName: ceph-filesystem-nvme-3
