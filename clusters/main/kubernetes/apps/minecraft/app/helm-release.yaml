@@ -32,7 +32,7 @@ spec:
     credentials:
       s3:
         type: s3
-        url: "${S3URL_TC}"
+        url: "${S3URL}"
         bucket: "${S3PREFIX_TC}-minecraft"
         accessKey: "${S3ID_TC}"
         secretKey: "${S3KEY_TC}"
