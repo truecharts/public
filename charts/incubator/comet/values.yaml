@@ -32,7 +32,7 @@ workload:
             SCRAPE_TORRENTIO: "False"
             DATABASE_TYPE: postgresql
             DATABASE_URL: '{{ printf "%s:%s@%s:5432" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") }}'
-            
+
 persistence:
   data:
     enabled: true
