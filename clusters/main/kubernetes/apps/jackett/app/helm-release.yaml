@@ -39,11 +39,11 @@ spec:
         encrKey: "${S3KEY}"
       b2:
         type: s3
-        url: "${S3URL}"
-        bucket: "${S3PREFIX}-jackett"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        url: "${S3URL_BB}"
+        bucket: "${S3PREFIX_BB}-jackett"
+        accessKey: "${S3ID_BB}"
+        secretKey: "${S3KEY_BB}"
+        encrKey: "${S3KEY_BB}"
 
     persistence:
       config:
