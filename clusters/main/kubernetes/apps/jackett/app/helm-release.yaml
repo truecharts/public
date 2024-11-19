@@ -33,6 +33,13 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
+        bucket: "${S3PREFIX}-hass"
+        accessKey: "${S3ID}"
+        secretKey: "${S3KEY}"
+        encrKey: "${S3KEY}"
+      b2:
+        type: s3
+        url: "${S3URL}"
         bucket: "${S3PREFIX}-jackett"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
