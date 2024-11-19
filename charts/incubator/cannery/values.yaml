@@ -17,7 +17,8 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # HOST must be set!
             HOST: "{{ .Values.chartContext.appUrl }}"
-            DATABASE_URL: '{{ (printf "ecto://%s" (.Values.cnpg.main.creds.std | trimAll "\"")) }}'
+            # ecto://postgres:postgres@cannery-db/cannery
+            DATABASE_URL: '{{ printf "ecto://%s:%s@%s:5432/%s" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database }}'
             SECRET_KEY_BASE:
               secretKeyRef:
                 name: cannery-secrets
