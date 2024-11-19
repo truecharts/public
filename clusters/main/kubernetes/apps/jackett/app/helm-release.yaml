@@ -31,12 +31,13 @@ spec:
   values:
     credentials:
       s3:
+      s3:
         type: s3
-        url: "${S3URL}"
-        bucket: "${S3PREFIX}-hass"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        url: "${S3URL_TC}"
+        bucket: "${S3PREFIX_TC}-jackett"
+        accessKey: "${S3ID_TC}"
+        secretKey: "${S3KEY_TC}"
+        encrKey: "${S3KEY_TC}"
       b2:
         type: s3
         url: "${S3URL_BB}"
