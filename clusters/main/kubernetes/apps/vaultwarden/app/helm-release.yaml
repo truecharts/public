@@ -33,7 +33,7 @@ spec:
       s3:
         type: s3
         url: "${S3URL_TC}"
-        bucket: "${S3PREFIX_TC}-hass"
+        bucket: "${S3PREFIX_TC}-vaultwarden"
         accessKey: "${S3ID_TC}"
         secretKey: "${S3KEY_TC}"
         encrKey: "${S3KEY_TC}"
