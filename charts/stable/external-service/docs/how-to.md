@@ -16,7 +16,6 @@ service:
   main:
     type: ExternalIP
     externalIP: "192.168.178.10"
-    useSlice: false
     ports:
       main:
         protocol: https
@@ -28,8 +27,6 @@ Don't forget to add your Ingress to the external-service. To learn more about In
 ```yaml
 ingress:
   main:
-    annotations:
-      traefik.frontend.passHostHeader: "false"
     enabled: true
     hosts:
       - host: "service.xyz.dev"
