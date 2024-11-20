@@ -2,12 +2,6 @@ image:
   repository: docker.io/shibaobun/cannery
   pullPolicy: IfNotPresent
   tag: 0.9.12@sha256:1700f704ba5ded03b895d503f3321aa73230d3b6b7e2fe9c49ed49a57d4a651b
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsGroup: 0
-    runAsUser: 0
 service:
   main:
     ports:
