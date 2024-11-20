@@ -226,10 +226,10 @@ spec:
         targetSelector:
           dynmap: dynmap
         hosts:
-          -  host: dynmap.sixcraft.org
+          -  host: dynmap.truecharts.org
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: sc-le-prod
+            certificateIssuer: domain-0-le-prod
           traefik:
             enabled: true
