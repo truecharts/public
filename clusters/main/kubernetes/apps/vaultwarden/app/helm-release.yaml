@@ -105,9 +105,9 @@ spec:
           - ReadWriteMany
         storageClass: ceph-filesystem
         volsync:
-          - name: s3
+          - name: s3-bb
             type: restic
-            credentials: s3
+            credentials: b2
             dest:
               volumeSnapshotClassName: csi-ceph-filesystem
               storageClassName: ceph-filesystem
@@ -118,7 +118,7 @@ spec:
               enabled: true
           - name: b2
             type: restic
-            credentials: b2
+            credentials: s3
             dest:
               volumeSnapshotClassName: csi-ceph-filesystem
               storageClassName: ceph-filesystem
