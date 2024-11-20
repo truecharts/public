@@ -37,13 +37,6 @@ spec:
         accessKey: "${S3ID_TC}"
         secretKey: "${S3KEY_TC}"
         encrKey: "${S3KEY_TC}"
-      b2:
-        type: s3
-        url: "${S3URL_BB}"
-        bucket: "${S3PREFIX_BB}-minecraft"
-        accessKey: "${S3ID_BB}"
-        secretKey: "${S3KEY_BB}"
-        encrKey: "${S3KEY_BB}"
     service:
      main:
        enabled: true
@@ -189,18 +182,9 @@ spec:
     persistence:
      data:
        volsync:
-          - name: s3
-            type: restic
-            credentials: s3
-            dest:
-              accessModes:
-                - ReadWriteOnce
-              enabled: false
-            src:
-              enabled: true
           - name: b2
             type: restic
-            credentials: b2
+            credentials: s3
             dest:
               accessModes:
                 - ReadWriteOnce
@@ -219,7 +203,7 @@ spec:
              readOnly: true
      dynmap:
        enabled: true
-       storageClass: ceph-nvme2
+       storageClass: ceph-nvme
        size: 500Gi
        targetSelector:
          main:
