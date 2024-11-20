@@ -116,14 +116,14 @@ spec:
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: tc-le-prod
+            certificateIssuer: domain-1-le-prod
           traefik:
             enabled: true
             middlewares:
               - name: bouncer
                 namespace: traefik
         hosts:
-          - host: vaultwarden.${BASE_DOMAIN2}
+          - host: vaultwarden.${DOMAIN_1}
             paths:
               - path: /
                 pathType: Prefix
@@ -133,7 +133,7 @@ spec:
         targetSelector:
           main: main
         hosts:
-          -  host: vaultwarden.${BASE_DOMAIN2}
+          -  host: vaultwarden.${DOMAIN_1}
              paths:
                - path: /admin
                  pathType: Prefix
