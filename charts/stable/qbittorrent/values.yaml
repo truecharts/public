@@ -45,15 +45,19 @@ workload:
       containers:
         main:
           env:
+            QBT_WEBUI_PORT: "{{ .Values.service.main.ports.main.port }}"
+            QBT_TORRENTING_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+            # deprecated https://github.com/onedr0p/containers/pull/1109
             # set the default port
-            QBITTORRENT__PORT: "{{ .Values.service.main.ports.main.port }}"
+            # QBITTORRENT__PORT: "{{ .Values.service.main.ports.main.port }}"
             # stops users from bricking their chart from setting the ip to a random ip when its a container.
-            QBT_Preferences__WebUI__Address: "*"
+            # QBT_Preferences__WebUI__Address: "*"
             # set port from gui.
-            QBT_BitTorrent__Session__Port: "{{ .Values.service.torrent.ports.torrent.port }}"
+            # QBT_BitTorrent__Session__Port: "{{ .Values.service.torrent.ports.torrent.port }}"
             # legacy ini key
             # key deprecated https://github.com/qbittorrent/qBittorrent/issues/8324
-            QBT_Preferences__Connection__PortRangeMin: "{{ .Values.service.torrent.ports.torrent.port }}"
+            # QBT_Preferences__Connection__PortRangeMin: "{{ .Values.service.torrent.ports.torrent.port }}"
   qbitportforward:
     enabled: true
     type: CronJob
