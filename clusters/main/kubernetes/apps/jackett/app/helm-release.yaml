@@ -64,9 +64,9 @@ spec:
                 namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: ks-le-prod
+            certificateIssuer: domain-1-le-prod
         hosts:
-          - host: jackett.${BASE_DOMAIN}
+          - host: jackett.${DOMAIN_1}
             paths:
               - path: /
                 pathType: Prefix
