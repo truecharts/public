@@ -37,13 +37,6 @@ spec:
         accessKey: "${S3ID_TC}"
         secretKey: "${S3KEY_TC}"
         encrKey: "${S3KEY_TC}"
-      b2:
-        type: s3
-        url: "${S3URL_BB}"
-        bucket: "${S3PREFIX_BB}-vaultwarden"
-        accessKey: "${S3ID_BB}"
-        secretKey: "${S3KEY_BB}"
-        encrKey: "${S3KEY_BB}"
     workload:
       main:
         replicas: 2
@@ -105,17 +98,6 @@ spec:
           - ReadWriteMany
         storageClass: ceph-filesystem
         volsync:
-          - name: s3-bb
-            type: restic
-            credentials: b2
-            dest:
-              volumeSnapshotClassName: csi-ceph-filesystem
-              storageClassName: ceph-filesystem
-              enabled: false
-            src:
-              volumeSnapshotClassName: csi-ceph-filesystem
-              storageClassName: ceph-filesystem
-              enabled: true
           - name: b2
             type: restic
             credentials: s3
