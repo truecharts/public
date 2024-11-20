@@ -226,7 +226,7 @@ spec:
         targetSelector:
           dynmap: dynmap
         hosts:
-          -  host: dynmap.truecharts.org
+          -  host: dynmap.${DOMAIN_1}
         integrations:
           certManager:
             enabled: true
