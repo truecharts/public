@@ -6,7 +6,7 @@ metadata:
   name: vaultwarden
   namespace: vaultwarden
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: vaultwarden
@@ -33,10 +33,10 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-vaultwarden"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        bucket: "${S3PREFIX_TC}-vaultwarden"
+        accessKey: "${S3ID_TC}"
+        secretKey: "${S3KEY_TC}"
+        encrKey: "${S3KEY_TC}"
     workload:
       main:
         replicas: 2
@@ -96,18 +96,18 @@ spec:
       data:
         accessModes:
           - ReadWriteMany
-        storageClass: ceph-filesystem-nvme-3
+        storageClass: ceph-filesystem
         volsync:
           - name: b2
             type: restic
             credentials: s3
             dest:
               volumeSnapshotClassName: csi-ceph-filesystem
-              storageClassName: ceph-filesystem-nvme-3
+              storageClassName: ceph-filesystem
               enabled: true
             src:
               volumeSnapshotClassName: csi-ceph-filesystem
-              storageClassName: ceph-filesystem-nvme-3
+              storageClassName: ceph-filesystem
               enabled: true
 
     ingress:
@@ -116,14 +116,14 @@ spec:
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: tc-le-prod
+            certificateIssuer: domain-1-le-prod
           traefik:
             enabled: true
             middlewares:
               - name: bouncer
                 namespace: traefik
         hosts:
-          - host: vaultwarden.${BASE_DOMAIN2}
+          - host: vaultwarden.${DOMAIN_1}
             paths:
               - path: /
                 pathType: Prefix
@@ -133,7 +133,7 @@ spec:
         targetSelector:
           main: main
         hosts:
-          -  host: vaultwarden.${BASE_DOMAIN2}
+          -  host: vaultwarden.${DOMAIN_1}
              paths:
                - path: /admin
                  pathType: Prefix

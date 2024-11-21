@@ -6,11 +6,11 @@ metadata:
   name: jackett
   namespace: jackett
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: jackett
-      version: 23.0.49
+      version: 23.0.51
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -33,15 +33,15 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-jackett"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        bucket: "${S3PREFIX_TC}-jackett"
+        accessKey: "${S3ID_TC}"
+        secretKey: "${S3KEY_TC}"
+        encrKey: "${S3KEY_TC}"
 
     persistence:
       config:
         volsync:
-          - name: b2
+          - name: s3
             type: restic
             credentials: s3
             dest:
@@ -64,9 +64,9 @@ spec:
                 namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: ks-le-prod
+            certificateIssuer: domain-1-le-prod
         hosts:
-          - host: jackett.${BASE_DOMAIN}
+          - host: jackett.${DOMAIN_1}
             paths:
               - path: /
                 pathType: Prefix
