@@ -20,7 +20,7 @@ LLDAP is a `stable` train chart and therefore isn't supported at the same level 
 
 ## Setup Authelia
 
-- The setup for Authelia is very specific and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](/charts/stable/lldap/authelia) and the upstream repo.
+- The setup for Authelia is very specific and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`.
 
 ```yaml
 // values.yaml
