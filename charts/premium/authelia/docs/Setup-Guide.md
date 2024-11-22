@@ -135,6 +135,7 @@ ingress:
         enabled: true
         middlewares:
           - name: auth
+            namespace: traefik
       certManager:
         enabled: true
         certificateIssuer: domain-0-le-prod
