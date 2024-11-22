@@ -8,7 +8,7 @@ This quick guide should take you through the steps necessary to setup `Authelia`
 
 :::caution
 
-LLDAP is a `Stable` train chart and therefore isn't supported at the same level as the charts in the `premium` train (Authelia and Traefik).
+LLDAP is a `stable` train chart and therefore isn't supported at the same level as the charts in the `premium` train (Authelia and Traefik).
 
 :::
 
