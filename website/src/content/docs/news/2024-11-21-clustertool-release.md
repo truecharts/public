@@ -1,6 +1,6 @@
 ---
 slug: "news/clustertool-release"
-title: "Clustertool finally released"
+title: "Clustertool v1.0.0 Released"
 authors: [alfi0812]
 date: 2024-11-21
 tags:
