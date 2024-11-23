@@ -249,7 +249,7 @@ data:
           public: {{ $client.public }}
           secret: ""
           {{- else }}
-          secret: {{ $client.secret | default (randAlphaNum 128) }}
+          secret: {{ $client.secret  }}
           {{- end }}
           authorization_policy: {{ $client.authorization_policy | default "two_factor" }}
           consent_mode: {{ $client.consent_mode | default "auto" }}
