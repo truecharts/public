@@ -30,6 +30,8 @@ ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # add pvmounter to kubectl using crew
 RUN kubectl krew install pv-mounter
 
+# Needed for clustertool binaries
+RUN apk add libc6-compat
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
