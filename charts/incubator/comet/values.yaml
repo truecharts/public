@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/elfhosted/comet
   pullPolicy: IfNotPresent
-  tag: v1.38.0@sha256:b12bbc62e70e5799f88a57732e597c819386dec3ab057d1fb82465a582d6de4b
+  tag: v1.43.4@sha256:e59c0c0077fb36512208035a65c19d3fa646da23d0293de84bbcb2154e34f26b
 
 service:
   main:
@@ -32,7 +32,7 @@ workload:
             SCRAPE_TORRENTIO: "False"
             DATABASE_TYPE: postgresql
             DATABASE_URL: '{{ printf "%s:%s@%s:5432" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") }}'
-            
+
 persistence:
   data:
     enabled: true

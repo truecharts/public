@@ -6,7 +6,7 @@ metadata:
   name: minecraft
   namespace: minecraft
 spec:
-  interval: 15m
+  interval: 10m
   chart:
     spec:
       chart: minecraft-java
@@ -33,10 +33,10 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-minecraft"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        bucket: "${S3PREFIX_TC}-minecraft"
+        accessKey: "${S3ID_TC}"
+        secretKey: "${S3KEY_TC}"
+        encrKey: "${S3KEY_TC}"
     service:
      main:
        enabled: true
@@ -203,7 +203,7 @@ spec:
              readOnly: true
      dynmap:
        enabled: true
-       storageClass: ceph-nvme2
+       storageClass: ceph-nvme
        size: 500Gi
        targetSelector:
          main:
@@ -226,10 +226,10 @@ spec:
         targetSelector:
           dynmap: dynmap
         hosts:
-          -  host: dynmap.sixcraft.org
+          -  host: dynmap.${DOMAIN_1}
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: sc-le-prod
+            certificateIssuer: domain-1-le-prod
           traefik:
             enabled: true

@@ -4,9 +4,9 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.32.0
+appVersion: 0.33.1
 dependencies:
   - name: common
     version: 25.1.7
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A robust, locally hosted web-based PDF manipulation tool.
-home: https://truecharts.org/charts/incubator/stirling-pdf
+home: https://truecharts.org/charts/stable/stirling-pdf
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stirling-pdf.webp
 keywords:
   - stirling-pdf
@@ -31,6 +31,6 @@ name: stirling-pdf
 sources:
   - https://ghcr.io/stirling-tools/s-pdf
   - https://github.com/Stirling-Tools/Stirling-PDF
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/stirling-pdf
+  - https://github.com/truecharts/charts/tree/master/charts/stable/stirling-pdf
 type: application
-version: 0.0.2
+version: 1.3.0
