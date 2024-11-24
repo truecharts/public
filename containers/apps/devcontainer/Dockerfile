@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:cb1b62b6eecd4b471466d820e831a70783701e792c9342573cae03f3c86f9acb
+FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:bc8d9d5e35fde58602890e9b3c81a848236bc73e10c156343c92474c705c4062
 
 ARG VERSION
 ARG CONTAINER_NAME
@@ -30,6 +30,8 @@ ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # add pvmounter to kubectl using crew
 RUN kubectl krew install pv-mounter
 
+# Needed for clustertool binaries
+RUN apk add libc6-compat
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
