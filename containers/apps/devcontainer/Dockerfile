@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:ac3e11332a13df3952b02a5359955ecaf83c5ce94f466441bf6e3b885263bbb2
+FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:bc8d9d5e35fde58602890e9b3c81a848236bc73e10c156343c92474c705c4062
 
 ARG VERSION
 ARG CONTAINER_NAME
