@@ -45,8 +45,6 @@ This rule will bypass Authelia for API level access in most apps. This should al
 
 ## Vaultwarden
 
-These rules will protect the Vaultwarden admin page with Authelia but bypass when accessing the web vault. The order of these rules is critical or the admin page will not be protected.
-
 This rule will allow users of the `admin` group to access the Vaultwarden admin page and bypass Authelia when accessing the webportal as auth is already provided by vaultwarden.
 
 ```yaml
