@@ -94,9 +94,6 @@ ingress:
         certificateIssuer: domain-0-le-prod
     hosts:
       - host: auth.example.com
-        paths:
-          - path: /
-            pathType: Prefix
 ```
 
 ## Traefik ForwardAuth Setup
@@ -141,9 +138,6 @@ ingress:
         certificateIssuer: domain-0-le-prod
     hosts:
       - host: radarr.example.com
-        paths:
-          - path: /
-            pathType: Prefix
 ```
 
 ### References
