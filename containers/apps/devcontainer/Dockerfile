@@ -10,7 +10,9 @@ RUN \
 apk update && \
   apk --no-cache update && \
   apk --no-cache add \
-    sshfs && \
+    sshfs \
+    libc6-compat \
+    fuse && \
   rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 # Download and set up the clustertool binary
@@ -29,9 +31,6 @@ ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # add pvmounter to kubectl using crew
 RUN kubectl krew install pv-mounter
-
-# Needed for clustertool binaries
-RUN apk add libc6-compat
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
