@@ -27,11 +27,11 @@ RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/downloa
 
 ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# add pvmounter to kubectl using crew
-RUN kubectl krew install pv-mounter
-
 # Needed for clustertool binaries
 RUN apk add libc6-compat
+
+# Needed for pv-mounter
+RUN apk add fuse
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
