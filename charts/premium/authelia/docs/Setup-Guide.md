@@ -108,7 +108,7 @@ middlewares:
   forwardAuth:
     - name: auth
       address: http://authelia.authelia.svc.cluster.local:9091/api/verify?rd=https://auth.example.com/
-      authResponseHeaders: 
+      authResponseHeaders:
         - Remote-User
         - Remote-Group
         - Remote-Name
