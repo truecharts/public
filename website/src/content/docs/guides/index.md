@@ -26,7 +26,7 @@ To configure MetalLB, you will need to also add `metallb-config` and adapt it to
 
 - Steps Above -> [Minimal Getting Started](#minimal-getting-started-setup)
 - Install the `traefik-crds` chart
-- Install `traefik` -> [Traefik How-To](/charts/premium/traefik/how-to)
+- Install `traefik` chart
 - Use CloudFlare for DNS and create an API token -> [Guide](/charts/premium/clusterissuer/how-to#configure-acme-issuer)
 - Install `Clusterissuer` and configure it for your needs -> [Clusterissuer How-to](/charts/premium/clusterissuer/how-to)
 - Add `Blocky` and configure it with k8s-gateway enabled -> [Blocky Setup Guide](/charts/premium/blocky/setup-guide)
@@ -54,7 +54,7 @@ Many of the popular TrueCharts charts rely on `Prometheus Operator` and `Cloudna
 
 ![Traefik](./img/icons/traefik.png)
 
-`Traefik` is our "ingress" or "reverse-proxy" solution of choice and is integrated into all our charts in order to make it as easy as possible to secure your charts. To support this, we supply a separate Traefik "ingress" app, which has been pre-configured to provide secure and fast connections. Please check the `Traefik` [How-To](/charts/premium/traefik/how-to) for basic instructions and a video as well.
+`Traefik` is our "ingress" or "reverse-proxy" solution of choice and is integrated into all our charts in order to make it as easy as possible to secure your charts. To support this, we supply a separate Traefik "ingress" app, which has been pre-configured to provide secure and fast connections.
 
 An optional but extra function enabled by Traefik and supported by many Truecharts Charts like `Nextcloud`, is the ability to use a `middleware` to use your charts remotely. You can setup a basicAuth middleware using our guide [Add Traefik Basic Auth to Charts](/charts/premium/traefik/traefik-basicauth-middleware/).
 
