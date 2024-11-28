@@ -3,13 +3,9 @@
         "*.json5": "jsonc",
         "./kubernetes/**/*.sops.toml": "plaintext"
     },
-    "sops.defaults.ageKeyFile": "age.key",
+    "sops.defaults.ageKeyFile": "age.agekey",
     "yaml.schemas": {
         "Kubernetes": "./kubernetes/*.yaml"
-    },
-    "vs-kubernetes": {
-        "vs-kubernetes.kubeconfig": "/workspaces/cluster/kubeconfig",
-        "vs-kubernetes.knownKubeconfigs": ["/workspaces/cluster/kubeconfig"]
     },
     "terminal.integrated.profiles.linux": {
         "bash": {
