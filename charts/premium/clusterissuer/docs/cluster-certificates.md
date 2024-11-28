@@ -25,15 +25,25 @@ In order for an ACME issuer to issue a wildcard certificate, you need to have a 
 
 :::
 
-![clusterissuer-clusterwidecert](./img/clusterissuer-clusterwidecert.png)
+```yaml
+// values.yaml
+clusterCertificates:
+  replicationNamespaces: '.*'
+  certificates:
+    - name: domain-0-wildcard
+      enabled: true
+      # name of previously configured single domain certificate
+      certificateIssuer: domain-0-le-prod
+      hosts:
+        - example.com
+        - '*.example.com
+```
 
-After creating the cluster certificate, verify it is working by checking the `Application Events` created in the `clusterissuer` app (see [how to verify a single app certificate is working](how-to#verifying-clusterissuer-is-working) for more information).
+After creating the cluster certificate, verify it is working by checking the `kubectl events` for the `clusterissuer` chart (see [how to verify a single app certificate is working](how-to#verifying-clusterissuer-is-working) for more information).
 
 ## Using a cluster certificate
 
-After you have verified the certificate was created successfully, edit the settings of the app you wish to use it for and go to the _Ingress_ section.
-
-If you have previously used a single domain certificate from clusterissuer, remove the specified issuer name. Then, click on _Show Advanced Settings_ and add a _TLS_ entry. Enter the name of your cluster certificate, and the certificate host(s) which it will be used for. These are usually the same as your app host(s), unless you wish to use more than one certificate. Save the chart.
+After you have verified the certificate was created successfully, edit the `values.yaml` of the chart you wish to use it for.
 
 :::note
 
@@ -41,4 +51,18 @@ In order for your cluster certificate to show up as valid, the certificate hosts
 
 :::
 
-![clusterissuer7](./img/clusterissuer7.png)
+```yaml
+// values.yaml
+ingress:
+  main:
+    enabled: true
+    integrations:
+      traefik:
+        enabled: true
+    tls:
+      - hosts:
+          - app.example.com
+        clusterIssuer: domain-0-wildcard
+    hosts:
+      - host: app.example.com
+```
