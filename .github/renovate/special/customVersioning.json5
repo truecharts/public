@@ -4,7 +4,7 @@
     {
       "description": ["Loose versioning for non-semver packages"],
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["cross-seed", "plex", "alicevision/meshroom", "meshroom", "oscam"],
+      "matchPackagePatterns": ["cross-seed", "plex", "alicevision/meshroom", "meshroom"],
       "versioning": "loose"
     },
     {
@@ -231,10 +231,13 @@
 },
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)(?<minor>\\d{2})(?<patch>\\d{2})-ls(?<build>\\d+)$",
+      "matchPackageNames": ["linuxserver/oscam"]
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackageNames": ["alicevision/meshroom"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
-
-
   ]
 }
