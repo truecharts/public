@@ -1,0 +1,29 @@
+image:
+  repository: docker.io/shibaobun/cannery
+  pullPolicy: IfNotPresent
+  tag: main@sha256:0197160ed4e6837bdbff9fe8877ab098683ce82bf0a68fdd50f145b5cf35139e
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+persistence:
+  app:
+    enabled: true
+    mountPath: "/app/tmp"
+    type: emptyDir
+  tmp:
+    enabled: true
+    mountPath: "/tmp"
+    type: emptyDir
+portal:
+  open:
+    enabled: true
