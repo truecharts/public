@@ -64,6 +64,7 @@ tests:
             restic:
               repository: test-release-name-common-test-destbackup-volsync-mybackup1
               copyMethod: Snapshot
+              cacheCapacity: 10Gi
               capacity: 100Gi
               accessModes:
                 - ReadWriteOnce
@@ -106,6 +107,7 @@ tests:
             restic:
               repository: test-release-name-common-test-destbackup-volsync-mybackup1
               copyMethod: Clone
+              cacheCapacity: 10Gi
               capacity: 200Gi
               accessModes:
                 - ReadWriteOnce
@@ -148,6 +150,7 @@ tests:
             restic:
               repository: test-release-name-common-test-destbackup-volsync-mybackup1
               copyMethod: Clone
+              cacheCapacity: 10Gi
               capacity: 100Gi
               accessModes:
                 - ReadWriteOnce
@@ -191,6 +194,7 @@ tests:
             restic:
               repository: test-release-name-common-test-destbackup-volsync-mybackup1
               copyMethod: Clone
+              cacheCapacity: 10Gi
               capacity: 100Gi
               accessModes:
                 - ReadWriteOnce
@@ -235,6 +239,7 @@ tests:
             restic:
               repository: test-release-name-common-test-destbackup-volsync-mybackup1
               copyMethod: Clone
+              cacheCapacity: 10Gi
               capacity: 100Gi
               accessModes:
                 - ReadWriteOnce

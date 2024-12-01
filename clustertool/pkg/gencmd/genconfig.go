@@ -45,12 +45,11 @@ func GenConfig(args []string) error {
 }
 
 func genTalSecret() error {
-
-    log.Info().Msg("Generating TalSecret...")
-
+    log.Info().Msg("Running TalSecret check-and-create...")
     if _, err := os.Stat(helper.TalSecretFile); err == nil {
-
+        log.Debug().Msg("TalSecret already exists, skipping...")
     } else if errors.Is(err, os.ErrNotExist) {
+        log.Info().Msg("Generating TalSecret...")
         os.MkdirAll(helper.TalosGenerated, os.ModePerm)
         outfile, err := os.Create(helper.TalSecretFile)
         if err != nil {

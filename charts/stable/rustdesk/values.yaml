@@ -31,18 +31,18 @@ service:
         enabled: true
         port: 21116
         protocol: udp
+      id2:
+        enabled: true
+        port: 21116
+        protocol: tcp
       main:
         primary: true
-        enalbed: true
+        enabled: true
         port: 21117
         protocol: tcp
       nat:
         enabled: true
         port: 21115
-        protocol: tcp
-      tcp:
-        enabled: true
-        port: 21116
         protocol: tcp
 persistence:
   data:

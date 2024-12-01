@@ -11,7 +11,7 @@
     {{- end -}}
   {{- end -}}
 
-  {{- if or (not .name) (not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name)) -}}
+  {{- if or (not .name) (not (mustRegexMatch "^[a-z0-9]+(-[a-z0-9]+)*$" .name)) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
   {{- end -}}
   {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" -}}

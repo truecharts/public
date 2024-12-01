@@ -19,16 +19,21 @@ type Config struct {
 }
 
 func ExtractNode(cmd string) string {
-    sliceOut := strings.Split(string(cmd), " ")
+    sliceOut := strings.Split(cmd, " ")
     nodeout := ""
 
-    for _, str := range sliceOut {
-        if strings.Contains(str, "--nodes=") {
-            nodeout = strings.ReplaceAll(str, "--nodes=", "")
+    for i, str := range sliceOut {
+        if strings.HasPrefix(str, "--nodes=") {
+            nodeout = strings.TrimPrefix(str, "--nodes=")
+            break
         }
-
+        if str == "-n" && i+1 < len(sliceOut) {
+            nodeout = sliceOut[i+1]
+            break
+        }
     }
-    return string(nodeout)
+
+    return nodeout
 }
 func ExtractSchematic(cmd string) string {
     sliceOut := strings.Split(string(cmd), " ")

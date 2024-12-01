@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 25.1.5
+    version: 25.1.7
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/prometheus-operator
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 8.11.0
+version: 8.11.1

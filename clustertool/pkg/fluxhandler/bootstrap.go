@@ -96,6 +96,15 @@ func setupFluxCD(ctx context.Context, fluxPath string) error {
 
     if err := kubectlcmds.KubectlApplyKustomize(ctx, fluxPath); err != nil {
         log.Error().Err(err).Str("path", fluxPath).Msg("Error applying FluxCD manifest")
+        log.Debug().Msg("Reverting renamed files for fluxbootstrap")
+        if err := os.Rename(filepath.Join(fluxPath, kustomFile), filepath.Join(fluxPath, bootstrapFile)); err != nil {
+            log.Error().Err(err).Msg("Error renaming kustomization file back after previous error")
+            return err
+        }
+        if err := os.Rename(filepath.Join(fluxPath, tmpFile), filepath.Join(fluxPath, kustomFile)); err != nil {
+            log.Error().Err(err).Msg("Error renaming placeholder file after previous back")
+            return err
+        }
         return err
     }
 

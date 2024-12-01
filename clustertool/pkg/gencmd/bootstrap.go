@@ -55,7 +55,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msgf("Bootstrap: Configuring kubeconfig/kubectl for VIP: %v", helper.TalEnv["VIP_IP"])
     // Ensure kubeconfig is loaded
-    kubeconfigcmds := GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], extraArgs)
+
+    kubeconfigcmds := GenPlain("kubeconfig", helper.TalEnv["VIP_IP"], []string{"-f"})
     ExecCmd(kubeconfigcmds[0])
 
     // Desired pod names

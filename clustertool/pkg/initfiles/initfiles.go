@@ -126,7 +126,7 @@ func FormatGitURL(input string) string {
         input = strings.Replace(input, "ssh://", "ssh://git@", 1)
     }
 
-    if strings.Contains(url, "git@git@") {
+    if strings.Contains(input, "git@git@") {
         input = strings.Replace(input, "git@git@", "git@", 1)
     }
 
