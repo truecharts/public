@@ -62,7 +62,7 @@ tests:
       credentials:
         my-other-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: some-key
           accessKey: some-access-key
@@ -88,7 +88,7 @@ tests:
       credentials:
         my-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: ""
     asserts:
       - failedTemplate:
@@ -100,7 +100,7 @@ tests:
       credentials:
         my-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: ""
     asserts:
@@ -113,7 +113,7 @@ tests:
       credentials:
         my-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: some-key
           accessKey: ""
@@ -127,7 +127,7 @@ tests:
       credentials:
         my-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: some-key
           accessKey: some-access-key
@@ -155,7 +155,7 @@ tests:
       credentials: &credentials
         my-secret:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: some-key
           accessKey: some-access-key
