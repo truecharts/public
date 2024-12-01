@@ -14,7 +14,7 @@ tests:
           secretKey: some-secret-key
           bucket: some-bucket
           encrKey: some-encr-key
-          url: some-url
+          url: http://some-url
       cnpg:
         my-pg:
           enabled: true
@@ -63,7 +63,7 @@ tests:
                 data:
                   jobs: 2
                 destinationPath: some-path
-                endpointURL: some-url
+                endpointURL: http://some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
@@ -128,7 +128,7 @@ tests:
                 data:
                   jobs: 2
                 destinationPath: some-path
-                endpointURL: some-url
+                endpointURL: http://some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
@@ -193,7 +193,7 @@ tests:
                 data:
                   jobs: 2
                 destinationPath: some-path
-                endpointURL: some-url
+                endpointURL: http://some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
@@ -259,7 +259,7 @@ tests:
                 data:
                   jobs: 2
                 destinationPath: some-path
-                endpointURL: some-url
+                endpointURL: http://some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
@@ -327,7 +327,7 @@ tests:
                   encryption: AES256
                   jobs: 2
                 destinationPath: some-path
-                endpointURL: some-url
+                endpointURL: http://some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
