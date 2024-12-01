@@ -4,9 +4,9 @@ annotations:
   truecharts.org/category: monitoring
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: v5.13.1
+appVersion: 5.13.1
 dependencies:
   - name: common
     version: 25.2.0
@@ -17,19 +17,19 @@ dependencies:
     import-values: []
 deprecated: false
 description: Automated service health dashboard
-home: https://github.com/TwiN/gatus
+home: https://truecharts.org/charts/incubator/gatus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gatus.webp
 keywords:
   - gatus
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: gatus
 sources:
-  - https://hub.docker.com/r/twinproduction/gatus
   - https://github.com/TwiN/gatus
-  - https://github.com/truecharts/charts/tree/master/charts/stable/gatus
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/gatus
+  - https://hub.docker.com/r/twinproduction/gatus
 type: application
 version: 0.0.1
