@@ -40,3 +40,28 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Name [test-release-name-common-test-cnpg-my-pg-backup-_invalid] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with invalid url in s3 credentials
+    set:
+      credentials:
+        test:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          backups:
+            enabled: true
+            credentials: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [url] in [credentials.test] to start with [http://] or [https://]. It was observed that sometimes can cause issues if it does not. Got [some-url]
