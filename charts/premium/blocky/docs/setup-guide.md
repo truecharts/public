@@ -104,7 +104,7 @@ bootstrapDns:
 
 ## DNS Blacklists and Whitelists
 
-Blocky comes preconfigured with basic Blacklists and Whitelists (commented out by default). DNS Blacklists are used to prevent DNS resolution of advertisement, malware, trackers and adult sites domains. DNS Whitelists are used to always allow DNS resolution of domains regardless of existing blacklists. This is completed with public maintained blocklists. A good source for these is [firebog.net](https://firebog.net).
+Blocky comes preconfigured with basic Blacklists and Whitelists. DNS Blacklists are used to prevent DNS resolution of advertisement, malware, trackers and adult sites domains. DNS Whitelists are used to always allow DNS resolution of domains regardless of existing blacklists. This is completed with public maintained blocklists. A good source for these is [firebog.net](https://firebog.net).
 
 :::caution
 
@@ -114,21 +114,36 @@ certain blocklists if you find legitimate traffic being blocked.
 
 :::
 
-If you wish to enable or customize the default Block Blacklists or Whitelists follow the example below.
+If you wish to disable the default Blocklist and Whitelist make changes as shown below:
+
+```yaml
+// values.yaml
+blocking:
+  clientGroupsBlock:
+    - name: default
+      groups:
+        []
+```
+
+If you wish to use custom Blacklists or Whitelists follow the example below:
 
 ```yaml
 // values.yaml
 blocking:
   whitelist:
-  - name: default
+  - name: mylist
     lists:
     - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
     - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
     - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
   blacklist:
-  - name: default
+  - name: mylist
     lists:
     - https://big.oisd.nl/domainswild
+  clientGroupsBlock:
+    - name: default
+      groups:
+        - mylist
 ```
 
 ## Networking
