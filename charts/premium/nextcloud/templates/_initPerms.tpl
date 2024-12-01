@@ -22,10 +22,10 @@ args:
   - -c
   - |
     echo "Setting permissions to 700 on data directory [{{ $path }}] ..."
-    chmod 770 {{ $path }} | echo "Failed to set permissions on data directory [{{ $path }}]"
+    chmod 770 {{ $path }} || echo "Failed to set permissions on data directory [{{ $path }}]"
 
     echo "Setting ownership to {{ $uid }}:{{ $gid }} on data directory [{{ $path }}] ..."
-    chown {{ $uid }}:{{ $gid }} {{ $path }} | echo "Failed to set ownership on data directory [{{ $path }}]"
+    chown {{ $uid }}:{{ $gid }} {{ $path }} || echo "Failed to set ownership on data directory [{{ $path }}]"
 
     echo "Finished."
 {{- end -}}
