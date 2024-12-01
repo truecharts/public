@@ -7,8 +7,8 @@ on:
       - main
     paths:
       - ".github/workflows/housekeeping.yaml"
-  #schedule:
-  #  - cron: "0 1 * * *"
+  schedule:
+    - cron: "0 1 * * *"
 
 jobs:
   housekeeping:
