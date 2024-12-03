@@ -1,0 +1,126 @@
+image:
+  repository: ghcr.io/snypy/snypy-backend
+  pullPolicy: IfNotPresent
+  tag: 1.5.2sha256:d6cc8d8fedfa5d70d0836cbd770e8b6bb5392db99f67ff8204cffd454580fa32
+staticImage:
+  repository: ghcr.io/snypy/snypy-static
+  pullPolicy: IfNotPresent
+  tag: 1.5.2@sha256:ab866b8dc8b4e995bf9e364888b9a24499c0217f234a39e503a2434577ddbd14
+uiImage:
+  repository: ghcr.io/snypy/snypy-frontend
+  pullPolicy: IfNotPresent
+  tag: 1.5.1@sha256:1c2cd720663d391bd386b08dc7d6c15fe337679c753ebcab0d9fbaf503b2a3b6
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    targetSelector: ui
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 8080
+        targetSelector: ui
+  api:
+    enabled: true
+    targetSelector: main
+    ports:
+      api:
+        enabled: true
+        protocol: http
+        targetPort: 8000
+        port: 8080
+        targetSelector: main
+
+ingress:
+  api:
+    enabled: false
+    targetSelector:
+      api: api
+
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /api/version
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /api/version
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+          env:
+            SECRET_KEY:
+              secretKeyRef:
+                name: snypy-secrets
+                key: SECRET_KEY
+            DEBUG: "False"
+            ALLOWED_HOSTS: "127.0.0.1"
+            # EMAIL_URL: "smtp://mail:1025"
+            # STATIC_URL: "http://127.0.0.1:8081/"
+            DATABASE_URL: '{{ printf "psql://%s:%s@%s:5432/%s" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database }}'
+            CORS_ORIGIN_WHITELIST: "http://127.0.0.1:8080"
+            CSRF_TRUSTED_ORIGINS: "http://127.0.0.1"
+            REGISTER_VERIFICATION_URL: "http://127.0.0.1:8080/verify-user/"
+            RESET_PASSWORD_VERIFICATION_URL: "http://127.0.0.1:8080/set-password/"
+            REGISTER_EMAIL_VERIFICATION_URL: "http://127.0.0.1:8080/verify-email/"
+            # SENTRY_ENABLED: "True"
+            # SENTRY_DSN: "http://changeme@localhost:9000/1"
+            # GUNICORN_WORKERS: 2
+  ui:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        ui:
+          primary: true
+          enabled: true
+          imageSelector: uiImage
+          resources:
+            excludeExtra: true
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            REST_API_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+persistence:
+  fixtures:
+    enabled: true
+    mountPath: /fixtures
+cnpg:
+  main:
+    enabled: true
+    user: snypy
+    database: snypy
+portal:
+  open:
+    enabled: true
