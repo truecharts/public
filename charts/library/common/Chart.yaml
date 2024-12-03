@@ -6,7 +6,7 @@ annotations:
       url: https://discord.com/invite/tVsPTHWTtr
   truecharts.org/category: unsorted
   truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: library
 apiVersion: v2
 appVersion: 1.10.3
@@ -19,7 +19,7 @@ keywords:
   - truecharts
   - library-chart
   - common
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,4 +48,4 @@ sources:
   - https://hub.docker.com/_/
   - https://hub.docker.com/r/mikefarah/yq
 type: library
-version: 25.2.0
+version: 25.2.1
