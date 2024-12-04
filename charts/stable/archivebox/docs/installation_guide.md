@@ -28,10 +28,7 @@ title: Installation Guide
         server: ${NAS_IP}
   ```
 
-  Make sure whatever filesystem the data is located on supports FSYNC and doesn't squash permissions.
-
-  NFS servers may need to set <code>no_root_squash</code>
-  - On TrueNas Scale this equals to <code>Maproot User = root</code> and <code>Maproot Group = wheel</code> under **Advanced Options**
+  Make sure whatever filesystem the data is located on supports FSYNC and doesn't squash permissions. NFS servers may need to set <code>no_root_squash</code>
 
   For more info about ArchiveBox's filesystem requirements, see here:
 
