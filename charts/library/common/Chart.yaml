@@ -5,8 +5,8 @@ annotations:
     - name: support
       url: https://discord.com/invite/tVsPTHWTtr
   truecharts.org/category: unsorted
-  truecharts.org/max_helm_version: "3.16"
-  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: library
 apiVersion: v2
 appVersion: 1.10.3
@@ -19,7 +19,7 @@ keywords:
   - truecharts
   - library-chart
   - common
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

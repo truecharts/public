@@ -40,7 +40,7 @@ cnpg:
 ```
 
 3. Confirm the data is being sent to your S3 host after ~5 minutes. At 00:00 UTC a complete backup will be made.
-   
+
 4. We advise you to set the "mode" to `recovery`, this should prevent the app starting with an empty database upon recovery.
 
 It will look something like this:
