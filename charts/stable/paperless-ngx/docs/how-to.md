@@ -31,7 +31,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
     installation, you can change them later in the app.
   - Enter the URL your Paperless-ngx will be accessible under in `PAPERLESS_URL` if you plan on making your app
     accessible from the web.
-- If you have set up [Traefik](/charts/premium/traefik/how-to/) for ingress click `Enable Ingress` and enter your
+- If you have set up Traefik for ingress click `Enable Ingress` and enter your
   Paperless-ngx domain in the Hosts section.
 
 ![Configure paperless-ngx](./img/configure_paperless-ngx.png)
