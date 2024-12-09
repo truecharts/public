@@ -39,7 +39,7 @@ Example
 ingress:
   ingress-name:
     integrations:
-      certManager:
+      homepage:
         enabled: true
 ```
 
@@ -281,6 +281,32 @@ ingress:
 
 ---
 
+### `widget.enabled`
+
+Enables or Disables the widget
+
+
+|            |                                                      |
+| ---------- | ---------------------------------------------------- |
+| Key        | `ingress.$name.integrations.homepage.widget.enabled` |
+| Type       | `bool`                                               |
+| Required   | ❌                                                  |
+| Helm `tpl` | ❌                                                  |
+| Default    | `true`                                              |
+
+Example
+
+```yaml
+ingress:
+  ingress-name:
+    integrations:
+      homepage:
+        widget:
+          enabled: true
+```
+
+---
+
 ### `widget.type`
 
 Define the type of the widget
@@ -473,6 +499,7 @@ ingress:
         weight: 0
         podSelector: []
         widget:
+          enabled: true
           type: ""
           url: ""
           custom:
