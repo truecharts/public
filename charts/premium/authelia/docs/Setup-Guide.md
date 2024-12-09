@@ -98,7 +98,7 @@ ingress:
 
 ## Traefik ForwardAuth Setup
 
-- This part is straight forward as long as you have a working `Traefik` install, please see our [How-To](/charts/premium/traefik/how-to) if you need more info on getting that running.
+- This part is straight forward as long as you have a working `Traefik` install.
 
 - The following is added to `Traefik` `values.yaml`,
 
