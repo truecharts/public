@@ -4,22 +4,7 @@ title: Installation Notes
 
 ## Requirements
 
-1. The Cloudnative-PG operator is required from the `system` train. More information can be found on our [getting started guide](/
-
-2. Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be
-   found on our [getting started guide](/.
-
-:::caution[SNAPSHOT DIRECTORY VISIBILITY]
-
-Nextcloud installation will fail if the application or user data datasets have Snapshot Directory set to Visible (invisible by default). Return this setting to default prior to installation.
-
-:::
-
-## User Data Permissions
-
-If you plan to use HostPath or NFS to store user data then the permissions for the dataset will need to be set as shown below.
-
-![userdata-perms](./img/userdata-perms.png)
+Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be found on our [getting started guide](/.
 
 ## Nextcloud Configurations
 
@@ -27,11 +12,20 @@ If you plan to use HostPath or NFS to store user data then the permissions for t
 
 The following configurations must be set during initial setup in order for Nextcloud to deploy.
 
-1. An initial admin username needs to be set
-
-2. An initial admin password needs to be set.
-
-3. Default phone region needs to be set (if you are unsure about your region, you can find your code for your region in this [wiki](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))
+```yaml
+// values.yaml
+nextcloud:
+  credentials:
+    # An admin username needs to be set
+    initialAdminUser: admin
+    # An admin password needs to be set.
+    initialAdminPassword: somepassword
+  general:
+    # The default phone region needs to be set (if you are unsure about your region, you can find your code for your region in this [wiki](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))
+    default_phone_region: US
+    # You must set `accessIP` to the ip address used by _Traefik_
+    accessIP: 192.168.0.10
+```
 
 :::caution[Password Requirements]
 
@@ -41,15 +35,73 @@ Due to limitations when converting YAML to JSON, the passwords used with Nextclo
 
 ### Optional Addons
 
-1. Notify Push (Allows Nextcloud to notify clients of changes, instead of clients having to poll. A Notify Push container will be deployed automatically). This is highly recommended to keep enabled.
-
-2. ClamAV (Anti-virus for Nextcloud, keep in mind that only scans files that Nextcloud posts to its endpoint. A Clam AV container will be deployed automatically.
-
-3. Collabora (document editor for Nextcloud. A Collabora container will be deployed automatically.
-
-4. Only Office (document editor for Nextcloud, this does **NOT** deploy the Only Office container.
-   You will need to have a separate installation.
+```yaml
+// values.yaml
+nextcloud:
+# ClamAV (Anti-virus for Nextcloud, keep in mind that only scans files that Nextcloud posts to its endpoint. A Clam AV container will be deployed automatically.
+  clamav:
+    enabled: true
+    stream_max_length: 26214400
+    file_max_size: -1
+    infected_action: only_log
+# Notify Push (Allows Nextcloud to notify clients of changes, instead of clients having to poll. A Notify Push container will be deployed automatically). This is highly recommended to keep enabled.
+  notify_push:
+    enabled: true
+# Collabora (document editor for Nextcloud. A Collabora container will be deployed automatically.
+  collabora:
+    enabled: true
+    # default|compact|tabbed
+    interface_mode: default
+    username: admin
+    password: changeme
+    dictionaries:
+      - de_DE
+      - en_GB
+      - en_US
+      - el_GR
+      - es_ES
+      - fr_FR
+      - pt_BR
+      - pt_PT
+      - it
+      - nl
+      - ru
+# Only Office (document editor for Nextcloud, this does **NOT** deploy the Only Office container. You will need to have a separate installation.
+  onlyoffice:
+    enabled: false
+    url: ""
+    internal_url: ""
+    verify_ssl: true
+    jwt: ""
+    jwt_header: Authorization
+```
 
 ### Storage
 
-You can change the User Data Storage option to your preference here if you previously setup the proper dataset permissions. All other Storage should remain the default of PVC.
+You can change the User Data Storage option to your preference here. All other Storage should remain the default of PVC.
+
+```yaml
+// values.yaml
+persistence:
+  data:
+    enabled: true
+    type: nfs
+    path: /mnt/data/nextcloud
+    server: 192.168.1.100
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html/data
+        init-perms:
+          mountPath: /var/www/html/data
+      nextcloud-cron:
+        nextcloud-cron:
+          mountPath: /var/www/html/data
+      preview-cron:
+        preview-cron:
+          mountPath: /var/www/html/data
+      nginx:
+        nginx:
+          mountPath: /var/www/html/data
+          readOnly: true
+```
