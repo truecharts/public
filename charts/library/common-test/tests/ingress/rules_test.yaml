@@ -208,6 +208,7 @@ tests:
                   overrideService:
                     name: other-service
                     port: 8080
+            - host: host-no-paths
           integrations: *integrations
     asserts:
       - documentIndex: &ingressDoc 2
@@ -248,3 +249,14 @@ tests:
                         name: test-release-name-common-test-other-service
                         port:
                           number: 8080
+
+            - host: host-no-paths
+              http:
+                paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test-my-service2
+                        port:
+                          number: 9000
