@@ -110,6 +110,14 @@ tests:
                     value: some-other-value-slice
                   - key: some-empty-key-slice
                     value: ""
+        my-ingress5:
+          enabled: true
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+          hosts:
+            - host: no-paths-host
     asserts:
       - documentIndex: &ingressDoc 2
         isKind:
@@ -205,6 +213,19 @@ tests:
             gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
             gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+      - documentIndex: &fifthIngressDoc 6
+        isKind:
+          of: Ingress
+      - documentIndex: *fifthIngressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://no-paths-host/
             gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
             gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
 
