@@ -3,7 +3,7 @@
 "minor": {
   "enabled": true, // Enable minor updates
   "automerge": true,
-  "packageRules": [     // Exception
+  "packageRules": [     // Exception for Talos (Clustertool)
     {
       "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer"],
       "labels": ["type/minor", "system-upgrade"],
