@@ -1,10 +1,17 @@
 {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "minor": {
-    "enabled": true, // Enable minor updates
-    "automerge": true
-  },
-  "ignore": [
-    // Add any paths or patterns to ignore specific minor updates, if necessary
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+"minor": {
+  "enabled": true, // Enable minor updates
+  "automerge": true,
+  "packageRules": [     // Exception
+    {
+      "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer"],
+      "labels": ["type/minor", "system-upgrade"],
+      "automerge": false
+    }
   ]
+},
+"ignore": [
+  // Add any paths or patterns to ignore specific minor updates, if necessary
+]
 }
