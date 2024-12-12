@@ -1,10 +1,17 @@
 {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "patch": {
-    "enabled": true, // Enable patch updates
-    "automerge": true
-  },
-  "ignore": [
-    // Add any paths or patterns to ignore specific patch updates, if necessary
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+"patch": {
+  "enabled": true, // Enable patch updates
+  "automerge": true,
+  "packageRules": [     // Exception for Talos (Clustertool)
+  {
+    "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer"],
+    "labels": ["type/patch", "system-upgrade"],
+    "automerge": false
+  }
+]
+},
+"ignore": [
+  // Add any paths or patterns to ignore specific patch updates, if necessary
+]
 }
