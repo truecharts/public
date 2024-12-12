@@ -1,10 +1,17 @@
 {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "major": {
-    "enabled": true,
-    "dependencyDashboardApproval": true,
-  },
-  "ignore": [
-    // Add any paths or patterns to ignore specific minor updates, if necessary
-  ],
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+"major": {
+  "enabled": true,
+  "dependencyDashboardApproval": true,
+  "packageRules": [     // Exception for Talos (Clustertool)
+    {
+      "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer"],
+      "labels": ["type/major", "system-upgrade"],
+      "dependencyDashboardApproval": true
+    }
+  ]  
+},
+"ignore": [
+  // Add any paths or patterns to ignore specific major updates, if necessary
+]
 }
