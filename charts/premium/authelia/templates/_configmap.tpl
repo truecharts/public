@@ -249,7 +249,7 @@ data:
           public: {{ $client.public }}
           secret: ""
           {{- else }}
-          secret: {{ $client.secret  }}
+          secret: {{ $client.secret | required "Client secret is required" }}
           {{- end }}
           authorization_policy: {{ $client.authorization_policy | default "two_factor" }}
           consent_mode: {{ $client.consent_mode | default "auto" }}
