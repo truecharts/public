@@ -22,4 +22,10 @@
       {{- fail (printf "VolSync - Expected non-empty [%s] in [credentials.%s]" $key $credName) -}}
     {{- end -}}
   {{- end -}}
+
+  {{- $url := get $credentials "url" -}}
+  {{- if and (not (hasPrefix "http://" $url)) (not (hasPrefix "https://" $url)) -}}
+    {{- fail (printf "%s - Expected [url] in [credentials.%s] to start with [http://] or [https://]. It was observed that sometimes can cause issues if it does not. Got [%s]" $caller $credName $url) -}}
+  {{- end -}}
+
 {{- end -}}
