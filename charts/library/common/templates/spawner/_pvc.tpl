@@ -1,4 +1,4 @@
-{{/* PVC Spawwner */}}
+{{/* PVC Spawner */}}
 {{/* Call this template:
 {{ include "tc.v1.common.spawner.pvc" $ -}}
 */}}
@@ -102,7 +102,9 @@
 
             {{- $credentials := get $.Values.credentials $volsync.credentials -}}
 
-            {{- $baseRepo := printf "s3:%s/%s" $credentials.url $credentials.bucket -}}
+            {{- $url := $credentials.url | replace "http://" "" | replace "https://" "" -}}
+
+            {{- $baseRepo := printf "s3:%s/%s" $url $credentials.bucket -}}
             {{- $repoSuffix := printf "%s/volsync/%s-volsync-%s" $.Release.Name $objectData.shortName $volsyncData.name -}}
             {{- $resticrepository := printf "%s/%s" $baseRepo $repoSuffix -}}
             {{- if $credentials.path -}}

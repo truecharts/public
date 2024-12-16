@@ -25,7 +25,7 @@ tests:
       credentials: &credentials
         mys3:
           type: s3
-          url: some-url
+          url: http://some-url
           bucket: some-bucket
           encrKey: some-key
           accessKey: some-access-key
@@ -66,9 +66,11 @@ tests:
             copyMethod: Snapshot
             pruneIntervalDays: 7
             retain:
-              hourly: 24
-              daily: 7
-              weekly: 5
+              hourly: 6
+              daily: 5
+              weekly: 4
+              monthly: 3
+              yearly: 1
             accessModes:
               - ReadWriteOnce
             moverSecurityContext:
@@ -102,6 +104,8 @@ tests:
                   hourly: 20
                   daily: 5
                   weekly: 3
+                  monthly: 4
+                  yearly: 2
                 pruneIntervalDays: 5
       credentials: *credentials
     asserts:
@@ -129,6 +133,8 @@ tests:
               hourly: 20
               daily: 5
               weekly: 3
+              monthly: 4
+              yearly: 2
             accessModes:
               - ReadWriteOnce
             moverSecurityContext:
@@ -190,6 +196,8 @@ tests:
               hourly: 20
               daily: 5
               weekly: 3
+              monthly: 3
+              yearly: 1
             accessModes:
               - ReadWriteOnce
             storageClassName: somestorageclass
@@ -252,6 +260,8 @@ tests:
               hourly: 20
               daily: 5
               weekly: 3
+              monthly: 3
+              yearly: 1
             accessModes:
               - ReadWriteOnce
             volumeSnapshotClassName: somevsc
@@ -315,6 +325,8 @@ tests:
               hourly: 20
               daily: 5
               weekly: 3
+              monthly: 3
+              yearly: 1
             accessModes:
               - ReadWriteOnce
             storageClassName: somestorageclass

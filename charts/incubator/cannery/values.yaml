@@ -1,0 +1,56 @@
+image:
+  repository: docker.io/shibaobun/cannery
+  pullPolicy: IfNotPresent
+  tag: 0.9.12@sha256:1700f704ba5ded03b895d503f3321aa73230d3b6b7e2fe9c49ed49a57d4a651b
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 4000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # HOST must be set!
+            # without http/https, preferrably the ingress url
+            HOST: "cannery.local"
+            # ecto://postgres:postgres@cannery-db/cannery
+            DATABASE_URL: '{{ printf "ecto://%s:%s@%s:5432/%s" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database }}'
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: cannery-secrets
+                key: SECRET_KEY_BASE
+            # Ecto should use ipv6 to connect to PostgreSQL
+            ECTO_IPV6: false
+            # Controls the pool size to use with PostgreSQL. Defaults to 10.
+            # POOL_SIZE: 10
+            # Controls if user sign-up should be invite only or set to public. Set to public to enable public registration. Defaults to invite.
+            REGISTRATION: "invite"
+            # Sets a custom default locale. Defaults to en_US | de, fr and es
+            LOCALE: en_US
+            # The url for your SMTP email provider. Must be set.
+            SMTP_HOST: "smtp.gmail.com"
+            # The port for your SMTP relay. Defaults to 587.
+            # SMTP_PORT: 587
+            # The username for your SMTP relay. Must be set!
+            SMTP_USERNAME: "example@gmail.com"
+            # The password for your SMTP relay. Must be set!
+            SMTP_PASSWORD: "example"
+            # Set to true to enable SSL for emails. Defaults to false.
+            SMTP_SSL: false
+            # Sets the sender email in sent emails. Defaults to no-reply@HOST where HOST was previously defined.
+            EMAIL_FROM: "no-reply@HOST"
+            # Sets the sender name in sent emails. Defaults to "Cannery".
+            EMAIL_NAME: Cannery
+cnpg:
+  main:
+    enabled: true
+    user: cannery
+    database: cannery
+portal:
+  open:
+    enabled: true

@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:5ab2afbbc968eaa66f1ad5df8d075c1ca1b10177c552ad5a338bcd295e828efd
+FROM ghcr.io/onedr0p/cluster-template/devcontainer:latest@sha256:bc8d9d5e35fde58602890e9b3c81a848236bc73e10c156343c92474c705c4062
 
 ARG VERSION
 ARG CONTAINER_NAME
@@ -10,7 +10,9 @@ RUN \
 apk update && \
   apk --no-cache update && \
   apk --no-cache add \
-    sshfs && \
+    sshfs \
+    libc6-compat \
+    fuse && \
   rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 # Download and set up the clustertool binary
@@ -29,7 +31,6 @@ ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # add pvmounter to kubectl using crew
 RUN kubectl krew install pv-mounter
-
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"

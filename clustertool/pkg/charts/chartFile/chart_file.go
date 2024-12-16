@@ -14,8 +14,8 @@ import (
 )
 
 const (
-    minHelmVersion     = "3.11"
-    maxHelmVersion     = "3.15"
+    minHelmVersion     = "3.14"
+    maxHelmVersion     = "3.16"
     kubeVersion        = ">=1.24.0-0"
     apiVersion         = "v2"
     chartType          = "application"

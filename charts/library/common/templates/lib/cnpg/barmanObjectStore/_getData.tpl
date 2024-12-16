@@ -4,7 +4,6 @@
   {{- $type := .type -}}
 
   {{- $serverName := $objectData.clusterName -}}
-  {{- $endpointURL := "" -}}
   {{- $destinationPath := "" -}}
   {{- $creds := dict -}}
   {{- $key := "" -}}
@@ -38,7 +37,6 @@
 
   {{- $data := (dict
     "serverName" $serverName
-    "endpointURL" $endpointURL
     "destinationPath" $destinationPath
     "creds" $creds
     "key" $key

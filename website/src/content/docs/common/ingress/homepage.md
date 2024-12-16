@@ -29,8 +29,8 @@ Enables or Disables the homepage integration
 | ---------- | --------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.enabled` |
 | Type       | `bool`                                        |
-| Required   | ✅                                            |
-| Helm `tpl` | ❌                                            |
+| Required   | ✅                                             |
+| Helm `tpl` | ❌                                             |
 | Default    | `false`                                       |
 
 Example
@@ -39,7 +39,7 @@ Example
 ingress:
   ingress-name:
     integrations:
-      certManager:
+      homepage:
         enabled: true
 ```
 
@@ -59,8 +59,8 @@ Sets the `gethomepage.dev/name` annotation
 | ---------- | ------------------------------------------ |
 | Key        | `ingress.$name.integrations.homepage.name` |
 | Type       | `string`                                   |
-| Required   | ❌                                         |
-| Helm `tpl` | ❌                                         |
+| Required   | ❌                                          |
+| Helm `tpl` | ❌                                          |
 | Default    | The Release Name                           |
 
 Example
@@ -89,8 +89,8 @@ Sets the `gethomepage.dev/description` annotation
 | ---------- | ------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.description` |
 | Type       | `string`                                          |
-| Required   | ❌                                                |
-| Helm `tpl` | ❌                                                |
+| Required   | ❌                                                 |
+| Helm `tpl` | ❌                                                 |
 | Default    | The Description of the Chart                      |
 
 Example
@@ -119,8 +119,8 @@ Sets the `gethomepage.dev/group` annotation
 | ---------- | ------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.group` |
 | Type       | `string`                                    |
-| Required   | ❌                                          |
-| Helm `tpl` | ❌                                          |
+| Required   | ❌                                           |
+| Helm `tpl` | ❌                                           |
 | Default    | `""`                                        |
 
 Example
@@ -149,8 +149,8 @@ Sets the `gethomepage.dev/icon` annotation
 | ---------- | ------------------------------------------ |
 | Key        | `ingress.$name.integrations.homepage.icon` |
 | Type       | `string`                                   |
-| Required   | ❌                                         |
-| Helm `tpl` | ❌                                         |
+| Required   | ❌                                          |
+| Helm `tpl` | ❌                                          |
 | Default    | The Chart Icon                             |
 
 Example
@@ -179,8 +179,8 @@ Sets the `gethomepage.dev/href` annotation
 | ---------- | ------------------------------------------ |
 | Key        | `ingress.$name.integrations.homepage.href` |
 | Type       | `string`                                   |
-| Required   | ❌                                         |
-| Helm `tpl` | ❌                                         |
+| Required   | ❌                                          |
+| Helm `tpl` | ❌                                          |
 | Default    | The first ingress host                     |
 
 Example
@@ -209,8 +209,8 @@ Sets the `gethomepage.dev/weight` annotation
 | ---------- | -------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.weight` |
 | Type       | `int`                                        |
-| Required   | ❌                                           |
-| Helm `tpl` | ❌                                           |
+| Required   | ❌                                            |
+| Helm `tpl` | ❌                                            |
 | Default    | unset                                        |
 
 Example
@@ -239,8 +239,8 @@ Sets the `gethomepage.dev/pod-selector` annotation
 | ---------- | ------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.podSelector` |
 | Type       | `list` of `string`                                |
-| Required   | ❌                                                |
-| Helm `tpl` | ❌                                                |
+| Required   | ❌                                                 |
+| Helm `tpl` | ❌                                                 |
 | Default    | `[]`                                              |
 
 Example
@@ -265,8 +265,8 @@ Define configuration for the widget
 | ---------- | -------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget` |
 | Type       | `map`                                        |
-| Required   | ❌                                           |
-| Helm `tpl` | ❌                                           |
+| Required   | ❌                                            |
+| Helm `tpl` | ❌                                            |
 | Default    | `{}`                                         |
 
 Example
@@ -277,6 +277,31 @@ ingress:
     integrations:
       homepage:
         widget: {}
+```
+
+---
+
+### `widget.enabled`
+
+Enables or Disables the widget
+
+|            |                                                      |
+| ---------- | ---------------------------------------------------- |
+| Key        | `ingress.$name.integrations.homepage.widget.enabled` |
+| Type       | `bool`                                               |
+| Required   | ❌                                                    |
+| Helm `tpl` | ❌                                                    |
+| Default    | `true`                                               |
+
+Example
+
+```yaml
+ingress:
+  ingress-name:
+    integrations:
+      homepage:
+        widget:
+          enabled: true
 ```
 
 ---
@@ -295,8 +320,8 @@ Sets the `gethomepage.dev/widget.type` annotation
 | ---------- | ------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget.type` |
 | Type       | `string`                                          |
-| Required   | ❌                                                |
-| Helm `tpl` | ❌                                                |
+| Required   | ❌                                                 |
+| Helm `tpl` | ❌                                                 |
 | Default    | The Chart Name                                    |
 
 Example
@@ -308,6 +333,37 @@ ingress:
       homepage:
         widget:
           type: some-type
+```
+
+---
+
+### `widget.version`
+
+Define the version of the widget
+
+:::note
+
+Sets the `gethomepage.dev/widget.version` annotation
+
+:::
+
+|            |                                                      |
+| ---------- | ---------------------------------------------------- |
+| Key        | `ingress.$name.integrations.homepage.widget.version` |
+| Type       | `int`                                                |
+| Required   | ❌                                                    |
+| Helm `tpl` | ❌                                                    |
+| Default    | `1`                                                  |
+
+Example
+
+```yaml
+ingress:
+  ingress-name:
+    integrations:
+      homepage:
+        widget:
+          version: 1
 ```
 
 ---
@@ -326,8 +382,8 @@ Sets the `gethomepage.dev/widget.url` annotation
 | ---------- | ------------------------------------------------ |
 | Key        | `ingress.$name.integrations.homepage.widget.url` |
 | Type       | `string`                                         |
-| Required   | ❌                                               |
-| Helm `tpl` | ❌                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ❌                                                |
 | Default    | The first ingress host                           |
 
 Example
@@ -357,8 +413,8 @@ Sets the `gethomepage.dev/widget.$key` annotation
 | ---------- | --------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget.custom` |
 | Type       | `map`                                               |
-| Required   | ❌                                                  |
-| Helm `tpl` | ❌                                                  |
+| Required   | ❌                                                   |
+| Helm `tpl` | ❌                                                   |
 | Default    | `{}`                                                |
 
 Example
@@ -382,8 +438,8 @@ Define custom annotations for the widget as a list
 | ---------- | ----------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget.customkv` |
 | Type       | `list` of `map`                                       |
-| Required   | ❌                                                    |
-| Helm `tpl` | ❌                                                    |
+| Required   | ❌                                                     |
+| Helm `tpl` | ❌                                                     |
 | Default    | `[]`                                                  |
 
 Example
@@ -413,8 +469,8 @@ Sets the `gethomepage.dev/widget.$key` annotation
 | ---------- | ----------------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget.customkv[].key` |
 | Type       | `string`                                                    |
-| Required   | ✅                                                          |
-| Helm `tpl` | ❌                                                          |
+| Required   | ✅                                                           |
+| Helm `tpl` | ❌                                                           |
 | Default    | `""`                                                        |
 
 Example
@@ -439,8 +495,8 @@ Define the value for the custom annotation
 | ---------- | ------------------------------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage.widget.customkv[].value` |
 | Type       | `string`                                                      |
-| Required   | ✅                                                            |
-| Helm `tpl` | ❌                                                            |
+| Required   | ✅                                                             |
+| Helm `tpl` | ❌                                                             |
 | Default    | `""`                                                          |
 
 Example
@@ -473,6 +529,7 @@ ingress:
         weight: 0
         podSelector: []
         widget:
+          enabled: true
           type: ""
           url: ""
           custom:

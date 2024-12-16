@@ -26,7 +26,20 @@ For each chart:
 
 2. Add the name you gave to the S3 credentials earlier, under the `credentials` section
 
-3. Confirm the data is being sent to your S3 host after ~5 minutes
+It will look like something like this:
+
+```yaml
+cnpg:
+  main:
+    backups:
+      enabled: true
+      credentials: s3
+    recovery:
+      credentials: s3
+
+```
+
+3. Confirm the data is being sent to your S3 host after ~5 minutes. At 00:00 UTC a complete backup will be made.
 
 4. We advise you to set the "mode" to `recovery`, this should prevent the app starting with an empty database upon recovery.
 
@@ -40,7 +53,6 @@ cnpg:
       enabled: true
       credentials: s3
     recovery:
-      method: object_store
       credentials: s3
 
 ```
@@ -53,9 +65,9 @@ Before CNPG will correctly restore the database, the following modifications nee
 
 2. Ensure the "mode" is set to `recovery`
 
-3. Set "revision" on your restore to match the previous **revision** setting on your backup settings
+3. Set "revision" on your recovery to match the previous **revision** setting on your backup settings.
 
-4. Increase the **revision** on your backup setting by 1 (or set to 1 if previously empty)
+4. Increase the **revision** on your backup setting by 1 (or set to 1 if previously empty). Revision needs to set as string ("")
 
 It will look something like this:
 
@@ -65,10 +77,10 @@ cnpg:
     mode: recovery
     backups:
       enabled: true
-      revision: 1
+      revision: "1"
       credentials: s3
     recovery:
-      method: object_store
+      # revision: "x"          ## Can be added when you are would like to recover when the revision is > 0 (Step 3)
       credentials: s3
 ```
 

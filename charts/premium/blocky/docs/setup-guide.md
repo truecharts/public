@@ -46,6 +46,17 @@ While UDP provides no security for DNS both DoT and DoH will encrypt DNS request
 - Google DNS: `8.8.8.8` `8.8.4.4`
 - Cloudflare DNS: `1.1.1.1` `1.0.0.1`
 
+```yaml
+// values.yaml
+defaultUpstreams:
+  # Google
+  - 8.8.8.8
+  - 8.8.4.4
+  # Cloudflare
+  - 1.1.1.1
+  - 1.0.0.1
+```
+
 ![blocky-udp-upstream-google](./img/blocky-udp-upstream-google.png)
 
 ### DoT DNS Setup
@@ -53,14 +64,30 @@ While UDP provides no security for DNS both DoT and DoH will encrypt DNS request
 - Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `tcp-tls:dns.google:853`
 - Cloudflare DNS: `tcp-tls:1.1.1.1:853` `tcp-tls:1.0.0.1:853`
 
-![blocky-dot-upstream-google](./img/blocky-dot-upstream-google.png)
+```yaml
+// values.yaml
+defaultUpstreams:
+  # Google
+  - tcp-tls:dns.google:853
+  # Cloudflare
+  - tcp-tls:1.1.1.1:853
+  - tcp-tls:1.0.0.1:853
+```
 
 ### DoH Upstream
 
 - Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `https://dns.google/dns-query`
 - Cloudflare DNS: `https://1.1.1.1/dns-query` `https://1.0.0.1/dns-query`
 
-![blocky-doh-upstream-google](./img/blocky-doh-upstream-google.png)
+```yaml
+// values.yaml
+defaultUpstreams:
+  # Google
+  - https://dns.google/dns-query
+  # Cloudflare
+  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
+```
 
 ## Bootstrap DNS
 
@@ -68,7 +95,12 @@ If you entered a non-IP address (meaning you used a domain name) for DoT or DoH,
 is configured to resolve the DoT or DoH address. This provider can be any UDP upstream DNS.
 In the below example I am using Google DNS.
 
-![blocky-bootstrap-google](./img/blocky-bootstrap-google.png)
+```yaml
+// values.yaml
+bootstrapDns:
+  # Google
+  upstream: "8.8.8.8"
+```
 
 ## DNS Blacklists and Whitelists
 
@@ -82,11 +114,37 @@ certain blocklists if you find legitimate traffic being blocked.
 
 :::
 
-If you wish to customize the default Block Blacklists or Whitelists follow the steps below (replace whitelist as appropriate).
+If you wish to disable the default Blocklist and Whitelist make changes as shown below:
 
-1. Set Group Name for your blocklists as `default`.
-2. Add List entries for each blocklist by URL (or none if you wish to disable).
-   ![blocky-blacklist](./img/blocky-blacklist.png)
+```yaml
+// values.yaml
+blocking:
+  clientGroupsBlock:
+    - name: default
+      groups:
+        []
+```
+
+If you wish to use custom Blacklists or Whitelists follow the example below:
+
+```yaml
+// values.yaml
+blocking:
+  whitelist:
+  - name: mylist
+    lists:
+    - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
+    - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+    - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
+  blacklist:
+  - name: mylist
+    lists:
+    - https://big.oisd.nl/domainswild
+  clientGroupsBlock:
+    - name: default
+      groups:
+        - mylist
+```
 
 ## Networking
 
@@ -101,7 +159,12 @@ k8s-Gateway will automatically provide split DNS for your local domain. This wil
 you to resolve all ingress configured subdomains locally. All that is required for setup
 is to add your root domain in the Domain name block.
 
-![blocky-k8s-gateway](./img/blocky-k8s-gateway.png)
+```yaml
+// values.yaml
+k8sgateway:
+  domains:
+  - domain: "domain.tld"
+```
 
 ## Prometheus/Grafana
 

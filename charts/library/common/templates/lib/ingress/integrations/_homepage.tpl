@@ -23,6 +23,7 @@
     {{- $defaultType = regexReplaceAll "\\W+" $defaultType "" -}}
     {{- $type := $homepage.widget.type | default $defaultType -}}
     {{- $url := $homepage.widget.url -}}
+    {{- $version := $homepage.widget.version | default 1 | toString -}}
     {{- $href := $homepage.href -}}
 
     {{- if not $href -}}
@@ -64,6 +65,7 @@
 
     {{- if $widEnabled -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/widget.type" (tpl $type $rootCtx) -}}
+      {{- $_ := set $objectData.annotations "gethomepage.dev/widget.version" (tpl $version $rootCtx) -}}
 
       {{- with $url -}}
         {{- $_ := set $objectData.annotations "gethomepage.dev/widget.url" (tpl $url $rootCtx) -}}

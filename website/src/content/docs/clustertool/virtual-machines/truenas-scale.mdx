@@ -315,3 +315,38 @@ or
 **GPU1:** Motherboard IPMI GPU
 
 **GPU2:** Intel iGPU or dedicated Nvidia GPU isolated within SCALE for VM passthrough
+
+
+### Single GPU pass-through (Advanced)
+
+:::caution[Work In Progress]
+
+This requires some knowledge about html and you need to enable developer-mode for it to work.
+
+:::
+
+1. Modify the Python file `/usr/lib/python3/dist-packages/middlewared/plugins/system_advanced/gpu.py`
+```python
+if len(available - provided) < 1:
+  verrors.add(
+      f'{schema}.isolated_gpu_pci_ids',
+      'A minimum of 1 GPU is required for the host to ensure it functions as desired.'
+  )
+```
+
+   Comment Out this section (`# ` in front of every line)
+
+2. Delete the whole folder `/usr/lib/python3/dist-packages/middlewared/plugins/system_advanced/__pycache__`
+
+3. Reboot Server or atleast middleware
+
+4. Go to system> advanced and isolate the gpu. (Button will be greyed out and will show the red error thats totally fine)
+
+5. Open he Inspect window of your browser and find the button which is greyed out. Should look like this:
+```<button mat-button="" type="submit" color="primary" ixtest="save" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-button mat-mdc-button mat-primary mat-mdc-button-disabled mat-mdc-button-base ng-star-inserted" mat-ripple-loader-disabled="" disabled="true" data-test="button-save">```
+
+6. Remove `"disabled="true"` and `mat-mdc-button-disabled`
+
+7. The error will still be there but you should be able to click the button
+
+Might need to do the same Steps 5 and 6 when assigning the gpu to the VM.

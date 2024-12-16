@@ -85,6 +85,8 @@ tests:
             traefik: *traefik
             homepage:
               enabled: true
+              widget:
+                version: 2
           hosts:
             - host: "{{ .Values.someHost }}"
               paths:
@@ -110,6 +112,14 @@ tests:
                     value: some-other-value-slice
                   - key: some-empty-key-slice
                     value: ""
+        my-ingress5:
+          enabled: true
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+          hosts:
+            - host: no-paths-host
     asserts:
       - documentIndex: &ingressDoc 2
         isKind:
@@ -125,6 +135,7 @@ tests:
             gethomepage.dev/widget.url: https://test-release-name-common-test.test-release-namespace.svc:9443
             gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
             gethomepage.dev/widget.type: commontest
+            gethomepage.dev/widget.version: "1"
             gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
       - documentIndex: *ingressDoc
         matchRegex:
@@ -157,6 +168,7 @@ tests:
             gethomepage.dev/icon: some-icon
             gethomepage.dev/widget.url: some-url
             gethomepage.dev/weight: "1"
+            gethomepage.dev/widget.version: "1"
             gethomepage.dev/widget.type: some-type
             gethomepage.dev/pod-selector: pod.name in (main,other),pod.lifecycle in (permanent)
             gethomepage.dev/widget.some-key: some-value
@@ -185,6 +197,7 @@ tests:
             gethomepage.dev/widget.url: http://test-release-name-common-test-my-service2.test-release-namespace.svc:80
             gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
             gethomepage.dev/widget.type: commontest
+            gethomepage.dev/widget.version: "2"
             gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
       - documentIndex: *thirdIngressDoc
         equal:
@@ -205,6 +218,19 @@ tests:
             gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
             gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+      - documentIndex: &fifthIngressDoc 6
+        isKind:
+          of: Ingress
+      - documentIndex: *fifthIngressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://no-paths-host/
             gethomepage.dev/icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
             gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
 
