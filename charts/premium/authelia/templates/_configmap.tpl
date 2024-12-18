@@ -245,9 +245,11 @@ data:
     {{- range $client := .Values.identity_providers.oidc.clients }}
         - id: {{ $client.id }}
           description: {{ $client.description | default $client.id }}
-          secret: {{ $client.secret | default (randAlphaNum 128) }}
           {{- if $client.public }}
           public: {{ $client.public }}
+          secret: ""
+          {{- else }}
+          secret: {{ $client.secret | required "Client secret is required" }}
           {{- end }}
           authorization_policy: {{ $client.authorization_policy | default "two_factor" }}
           consent_mode: {{ $client.consent_mode | default "auto" }}
