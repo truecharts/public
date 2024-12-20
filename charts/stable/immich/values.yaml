@@ -1,22 +1,22 @@
 image:
-  repository: altran1502/immich-server
-  tag: v1.106.4@sha256:d39cb7ecbcc9924f2c51a3e0deb8a469075996c6ba9e1384eb2ddb550984848e
+  repository: ghcr.io/immich-app/immich-server
+  tag: v1.121.0@sha256:851c02f28891f1854c5b5762ee8d2e254e2de528cfe3627b2fbcb37a7f108ff3
   pullPolicy: IfNotPresent
 
 mlImage:
-  repository: altran1502/immich-machine-learning
+  repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.106.4@sha256:9db20e5c2033bef01fa2be50fa0a2c3d62e43f069aedde4d49a65e65a436d40b
+  tag: v1.121.0@sha256:1b8494bb9fe2194f2dc72c4d6b0104e16718f50e8772d54ade57909770816ad1
 
 mlCudaImage:
-  repository: altran1502/immich-machine-learning
+  repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.106.4-cuda@sha256:f6f53566dbe5582502e2738c5b7a546dfcbe09b5d87c3c156b3090659e187a6a
+  tag: v1.121.0-cuda@sha256:c10ebb0bd206e17cd24dc9e65390fad2f9ef9c636889759b3bff35f82b0e351c
 
 mlOpenvinoImage:
-  repository: altran1502/immich-machine-learning
+  repository: ghcr.io/immich-app/immich-machine-learning
   pullPolicy: IfNotPresent
-  tag: v1.106.4-openvino@sha256:6e1a3ebe612f1812fb16eaf405813112e7abf6bdb390ec9ca3cdae603228f165
+  tag: v1.121.0-openvino@sha256:d5ed294419b11cb5eb746bb47628ade057a38d27031be89ab83866a74712bae6
 
 securityContext:
   container:
@@ -95,6 +95,15 @@ persistence:
         main: {}
       microservices:
         microservices: {}
+  backups:
+    enabled: true
+    mountPath: /usr/src/app/upload/backups
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
   thumbs:
     enabled: true
     mountPath: /usr/src/app/upload/thumbs
@@ -148,3 +157,10 @@ redis:
 portal:
   open:
     enabled: true
+
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          version: 2
