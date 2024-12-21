@@ -20,7 +20,16 @@ objectData:
   {{- $schedule := "0 0 * * *" -}}
   {{- if and $volsyncData.src.trigger $volsyncData.src.trigger.schedule -}}
     {{- $schedule = $volsyncData.src.trigger.schedule -}}
-  {{- end }}
+  {{- end -}}
+
+  {{- $cleanupTempPVC := false -}}
+  {{- $cleanupCachePVC := false -}}
+  {{- if and (hasKey $volsyncData "cleanupTempPVC") (kindIs "bool" $volsyncData.cleanupTempPVC) -}}
+    {{- $cleanupTempPVC = $volsyncData.cleanupTempPVC -}}
+  {{- end -}}
+  {{- if and (hasKey $volsyncData "cleanupCachePVC") (kindIs "bool" $volsyncData.cleanupCachePVC) -}}
+    {{- $cleanupCachePVC = $volsyncData.cleanupCachePVC -}}
+  {{- end -}}
 
   {{- $retain := dict "hourly" 6 "daily" 5 "weekly" 4 "monthly" 3 "yearly" 1 -}}
   {{- if $volsyncData.src.retain -}}
@@ -54,6 +63,8 @@ spec:
   {{ $volsyncData.type }}:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot" }}
+    cleanupTempPVC: {{ $cleanupTempPVC }}
+    cleanupCachePVC: {{ $cleanupCachePVC }}
     pruneIntervalDays: {{ $volsyncData.src.pruneIntervalDays | default 7 }}
     unlock: {{ now | date "20060102150405" | quote }}
     retain:
