@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: main
+appVersion: 1.2.21
 dependencies:
   - name: common
     version: 25.1.7
@@ -33,8 +33,8 @@ maintainers:
     url: https://truecharts.org
 name: threadfin
 sources:
-  - https://hub.docker.com/r/fyb3roptik/threadfin
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/threadfin
   - https://github.com/Threadfin/Threadfin
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/threadfin
+  - https://hub.docker.com/r/fyb3roptik/threadfin
 type: application
 version: 0.0.1
