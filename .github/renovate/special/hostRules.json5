@@ -1,0 +1,15 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "hostRules": [
+        {
+            "matchHost": "index.docker.io",
+            "concurrentRequestLimit": 1,
+            "maxRequestsPerSecond": 1
+        },
+        {
+            "matchHost": "hub.docker.com",
+            "concurrentRequestLimit": 1,
+            "maxRequestsPerSecond": 1
+        },
+    ]
+}
