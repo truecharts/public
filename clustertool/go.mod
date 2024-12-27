@@ -3,7 +3,7 @@ module github.com/truecharts/public/clustertool
 go 1.23.2
 
 require (
-    filippo.io/age v1.2.0
+    filippo.io/age v1.2.1
     github.com/Masterminds/semver/v3 v3.3.1
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.10
