@@ -102,7 +102,13 @@
 
             {{- $credentials := get $.Values.credentials $volsync.credentials -}}
 
-            {{- $baseRepo := printf "s3:%s/%s" $credentials.url $credentials.bucket -}}
+            {{/* Only amazon needs the https:// trimmed, anything else requires it */}}
+            {{- $url := $credentials.url -}}
+            {{- if hasPrefix "https://s3." $url -}}
+              {{- $url = trimPrefix "https://" $url -}}
+            {{- end -}}
+
+            {{- $baseRepo := printf "s3:%s/%s" $url $credentials.bucket -}}
             {{- $repoSuffix := printf "%s/volsync/%s-volsync-%s" $.Release.Name $objectData.shortName $volsyncData.name -}}
             {{- $resticrepository := printf "%s/%s" $baseRepo $repoSuffix -}}
             {{- if $credentials.path -}}
