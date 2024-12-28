@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.11.1
+appVersion: 24.12.1
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://hub.docker.com/r/jlesage/jdownloader-2
   - https://jdownloader.org/
 type: application
-version: 18.6.0
+version: 18.8.1

@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.24.0
+appVersion: 2.25.1
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://hub.docker.com/r/portainer/portainer-ce
   - https://hub.docker.com/r/portainer/portainer-ee
 type: application
-version: 10.6.3
+version: 10.8.1

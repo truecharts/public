@@ -44,7 +44,7 @@ tests:
             AWS_ACCESS_KEY_ID: some-access-key
             AWS_SECRET_ACCESS_KEY: some-secret-key
             RESTIC_PASSWORD: some-key
-            RESTIC_REPOSITORY: s3:some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
+            RESTIC_REPOSITORY: s3:http://some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
       - documentIndex: &replicationDestDoc 1
         isKind:
           of: ReplicationSource

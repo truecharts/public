@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.26.1.4844
+appVersion: 1.29.0.4897
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/k8s-at-home/container-images
   - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
 type: application
-version: 18.9.2
+version: 18.11.1

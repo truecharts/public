@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 5.13.1
+appVersion: 5.14.0
 dependencies:
   - name: common
-    version: 25.2.0
+    version: 25.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/gatus
   - https://hub.docker.com/r/twinproduction/gatus
 type: application
-version: 0.0.1
+version: 0.1.1
