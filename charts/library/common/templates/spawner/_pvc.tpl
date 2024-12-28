@@ -102,9 +102,7 @@
 
             {{- $credentials := get $.Values.credentials $volsync.credentials -}}
 
-            {{- $url := $credentials.url | replace "http://" "" | replace "https://" "" -}}
-
-            {{- $baseRepo := printf "s3:%s/%s" $url $credentials.bucket -}}
+            {{- $baseRepo := printf "s3:%s/%s" $credentials.url $credentials.bucket -}}
             {{- $repoSuffix := printf "%s/volsync/%s-volsync-%s" $.Release.Name $objectData.shortName $volsyncData.name -}}
             {{- $resticrepository := printf "%s/%s" $baseRepo $repoSuffix -}}
             {{- if $credentials.path -}}
