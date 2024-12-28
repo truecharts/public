@@ -15,6 +15,15 @@ ingress_enabled=$(go-yq '.ingress | map(.enabled) | any' <<<"$values_yaml")
 traefik_needed="false"
 if [[ "$ingress_required" == "true" ]] || [[ "$ingress_enabled" == "true" ]]; then
     traefik_needed="true"
+else
+    for ci_values in "$curr_chart"/ci/*values.yaml; do
+        ci_values_yaml=$(cat "$ci_values")
+        ingress_enabled=$(go-yq '.ingress | map(.enabled) | any' <<<"$ci_values_yaml")
+        if [[ "$ingress_enabled" == "true" ]]; then
+            traefik_needed="true"
+            break
+        fi
+    done
 fi
 
 if [[ "$curr_chart" != "charts/system/prometheus-operator" ]]; then
