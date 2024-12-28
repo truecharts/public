@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: 5.11.0
 dependencies:
   - name: common
-    version: 25.2.2
+    version: 25.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sourcegraph
   - https://hub.docker.com/r/sourcegraph/server
 type: application
-version: 7.9.0
+version: 7.9.1
