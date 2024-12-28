@@ -154,7 +154,7 @@ tests:
         isSubset:
           path: metadata.annotations
           content:
-            metallb.universe.tf/allow-shared-ip: test-release-name-common-test
+            metallb.io/allow-shared-ip: test-release-name-common-test
             traefik.ingress.kubernetes.io/service.serversscheme: https
 
   - it: should add metallb shared ip annotation without externalTrafficPolicy
@@ -186,7 +186,7 @@ tests:
         isSubset:
           path: metadata.annotations
           content:
-            metallb.universe.tf/allow-shared-ip: test-release-name-common-test
+            metallb.io/allow-shared-ip: test-release-name-common-test
 
   - it: should add metallb shared ip annotation with externalTrafficPolicy set to Cluster
     set:
@@ -218,7 +218,7 @@ tests:
         isSubset:
           path: metadata.annotations
           content:
-            metallb.universe.tf/allow-shared-ip: test-release-name-common-test
+            metallb.io/allow-shared-ip: test-release-name-common-test
 
   - it: should NOT add metallb shared ip annotation with externalTrafficPolicy set to Local
     set:
