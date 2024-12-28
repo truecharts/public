@@ -65,6 +65,11 @@ patches:
 
 ```
 
+## Adding it to your cluster
+
+If its a fresh bootstrap you can simply follow the clustertool guide on how to bootstrap your cluster.
+If it is a existing cluster you will need to run `clustertool talos upgrade` to add the extensions and `clustertool talos apply` to add the patch.
+
 ## Testing
 
 Run the following commands and see if the shown outputs are included in your command-output:
