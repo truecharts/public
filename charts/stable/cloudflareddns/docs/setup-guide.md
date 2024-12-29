@@ -42,11 +42,11 @@ An example configuration could look like that:
 ```yaml
 values:
   cloudflareddns:
-    api_token: ${CF_DNS_API_TOKEN}
+    api_token: ${DOMAIN_0_CLOUDFLARE_TOKEN}
     host_zone_record:
       - domain: ${DOMAIN_0}
         record: A
-        zone: ${CF_ZONE}
+        zone: ${DOMAIN_0}
 ```
 
 If you're using or changing specific A records or CNAMEs you may want to refer to the upstream documentation for more examples [here](https://hotio.dev/containers/cloudflareddns/))
