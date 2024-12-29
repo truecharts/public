@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: 6.7.1
 dependencies:
   - name: common
-    version: 25.2.4
+    version: 25.2.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.4.2
+    version: 15.6.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://hub.docker.com/r/bitnami/wordpress
   - https://www.wordpress.org
 type: application
-version: 9.9.1
+version: 9.10.0

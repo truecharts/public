@@ -460,7 +460,7 @@ APPURL: ""
 
 gluetunImage:
   repository: tccr.io/tccr/gluetun
-  tag: v3.39.0@sha256:043522d3c797668666cffe6c53aa1a4bb8532ca08e71a9a862c414893a28c1cb
+  tag: v3.40.0@sha256:f5d434869d03fe3c91f832915ecabf7cb65c330732c5ba39ac03feb5e917f552
   pullPolicy: IfNotPresent
 
 netshootImage:
@@ -470,12 +470,12 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.76.6@sha256:b1ba1b2709a1a22926b43763141b731accf4af5c70bff606171660b067219230
+  tag: v1.78.3@sha256:2d2714b75c7e14a0a9b9e69cebec9815282158d65790276ef783c4ac5e424446
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.93.1@sha256:0f6d7b4617569b4c2a2af19a8daa35374adcde46532d9d31eff7e0853b9fd603
+  tag: v4.96.2@sha256:24675f246cb1644bda3b70abb47b7151839d03033bcdc8140c0d4438a9aab99c
   pullPolicy: IfNotPresent
 
 alpineImage:
@@ -525,7 +525,7 @@ mongodbClientImage:
 
 postgres15Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "15.8"
+  tag: "15.10"
   pullPolicy: IfNotPresent
 
 postgres16Image:
