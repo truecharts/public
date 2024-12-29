@@ -43,7 +43,7 @@ spec:
   task: filesystem-trim
 
 ```
-This runs a filesystem trim on midnight cet. To free the "used" space. 
+This runs a filesystem trim on midnight cet. To free the "used" space.
 
 ## Other references
 

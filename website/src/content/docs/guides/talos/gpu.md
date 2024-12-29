@@ -52,7 +52,7 @@ Additionally, you will need to create the following patch file `gpu.yaml` in the
 - op: add
   path: /machine/sysctls
   value:
-    "net.core.bpf_jit_harden": 1 
+    "net.core.bpf_jit_harden": 1
 
 ```
 
@@ -112,7 +112,7 @@ Output (the numbers and hex values may be different):
 
 ```bash
 NVRM version: NVIDIA UNIX x86_64 Kernel Module  535.183.06  Wed Jun 26 06:46:07 UTC 2024
-GCC version:  gcc version 13.3.0 (GCC) 
+GCC version:  gcc version 13.3.0 (GCC)
 ```
 
 ### Testing the GPU
@@ -130,7 +130,7 @@ kubectl run \
 Output (The Warning about PodSecurity can be ignored):
 
 ```bash
-Mon Dec 16 12:54:35 2024       
+Mon Dec 16 12:54:35 2024
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.183.06             Driver Version: 535.183.06   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
@@ -142,7 +142,7 @@ Mon Dec 16 12:54:35 2024
 | 24%   26C    P8               5W / 125W |      1MiB /  6144MiB |      0%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
+
 +---------------------------------------------------------------------------------------+
 | Processes:                                                                            |
 |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
