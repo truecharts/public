@@ -22,7 +22,7 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
     {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
       {{/* If externalTrafficPolicy is not set or is not Local, add the shared key as annotation */}}
       {{- if ne $objectData.externalTrafficPolicy "Local" -}}
-        {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+        {{- $_ := set $annotations "metallb.io/allow-shared-ip" $sharedKey -}}
       {{- end -}}
 
       {{- if and $objectData.loadBalancerIP $objectData.loadBalancerIPs -}}
@@ -52,7 +52,7 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
       {{- end -}}
 
       {{- if $ips -}}
-        {{- $_ := set $annotations "metallb.universe.tf/loadBalancerIPs" (join "," $ips) -}}
+        {{- $_ := set $annotations "metallb.io/loadBalancerIPs" (join "," $ips) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
