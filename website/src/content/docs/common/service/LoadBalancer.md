@@ -25,7 +25,7 @@ title: LoadBalancer
 
 ## `sharedKey`
 
-Sets the shared key in `metallb.universe.tf/allow-shared-ip` **MetalLB** Annotation
+Sets the shared key in `metallb.io/allow-shared-ip` **MetalLB** Annotation
 
 |            |                           |
 | ---------- | ------------------------- |
@@ -45,7 +45,7 @@ service:
 
 ## `loadBalancerIP`
 
-Define the load balancer IP, sets the `metallb.universe.tf/loadBalancerIPs` **MetalLB** annotation. Mutually exclusive with `loadBalancerIPs`
+Define the load balancer IP, sets the `metallb.io/loadBalancerIPs` **MetalLB** annotation. Mutually exclusive with `loadBalancerIPs`
 
 |            |                                |
 | ---------- | ------------------------------ |
@@ -65,7 +65,7 @@ service:
 
 ## `loadBalancerIPs`
 
-Define the load balancer IPs, sets the `metallb.universe.tf/loadBalancerIPs` **MetalLB** annotation. Mutually exclusive with `loadBalancerIP`
+Define the load balancer IPs, sets the `metallb.io/loadBalancerIPs` **MetalLB** annotation. Mutually exclusive with `loadBalancerIP`
 
 |            |                                 |
 | ---------- | ------------------------------- |

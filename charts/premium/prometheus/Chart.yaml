@@ -6,17 +6,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 2.55.1
+appVersion: 3.0.1
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 65.8.1
+    version: 67.5.0
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -42,4 +42,4 @@ sources:
   - https://hub.docker.com/r/bitnami/prometheus
   - https://quay.io/thanos/thanos
 type: application
-version: 19.29.6
+version: 20.0.2

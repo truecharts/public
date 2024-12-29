@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.5.23
+appVersion: 1.5.24
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/vabene1111/recipes
   - https://hub.docker.com/r/vabene1111/recipes
 type: application
-version: 18.2.6
+version: 18.3.2

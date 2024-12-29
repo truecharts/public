@@ -126,12 +126,14 @@ Go back to the "preparation" section and make sure the IP you are trying to move
 
   4. You will be presented with a pane of potential options. Leave all of these as default except for `Zvol name` (call it something recognizable like `Talos zvol`), `Size for this zvol` (set to between `256GiB` and `512GiB`), `Force size` (check this option), `Sparse` (check this option) and `Block size` (change to `128 KiB`)
 
-  5. We do **not** recommend to encrypt the dataset
+  5. Set `Sync` to disabled.
 
-  6. After you are done it should look similar to this:
+  6. We do **not** recommend to encrypt the dataset
+
+  7. After you are done it should look similar to this:
     ![ZVOL Creation](./img/vm_zvol.png)
 
-  7. Hit `save` and wait for the system to create the Zvol. The GUI should refresh and then show your Zvol in the list of datasets like so
+  8. Hit `save` and wait for the system to create the Zvol. The GUI should refresh and then show your Zvol in the list of datasets like so
       ![ZVOL Creation 2](./img/vm_zvol2.png)
 
 </Steps>
@@ -246,59 +248,14 @@ Below you can find 2 examples on how to set a fixed DHCP Lease for UniFi and Fri
 ![DHCP FritzBox](./img/dhcp_fritzbox.png)
 (screenshot in german)
 
-## TalConfig Examples
-
-Here are a few examples you can copy-paste into talconfig to setup the above VMs to run Talos.
-
-### Single-Node Cluster or Master-Node
-
-By default we ensure qemu guest additions are always loaded for all master-nodes.
-It's important to note that for master nodes, we use static IPs for referencing them *after* they are initially initialised using a Fixed DHCP lease.
-
-
-```yaml
-    - hostname: k8s-control-1
-      ipAddress: ${MASTER1IP}
-      controlPlane: true
-      nameservers:
-        - 8.8.8.8
-        - 1.1.1.1
-      installDiskSelector:
-        size: <= 100TB
-      networkInterfaces:
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP}/24
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-          vip:
-            ip: ${VIP}
-```
-
-### Worker Node
-
-By default we ensure qemu guest additions are always loaded for all worker-nodes.
-Workernodes can be pretty basic and should "just work".
-
-```yaml
-    - hostname: k8s-worker-1
-      ipAddress: 192.168.10.111
-      nameservers:
-        - 8.8.8.8
-        - 1.1.1.1
-      installDiskSelector:
-        size: <= 600GB
-```
-
-### Post-Installation steps
+## Post-Installation steps
 
 To make sure your Talos cluster starts correctly after restarting the VM, don't forget to remove the Installation Media ISO after you initialized the cluster.
 
 You can do this by going to `Virtualization` > Expand your VM > `Devices` and then delete the "CD Rom"-device.
 
 
-### GPU pass-through Caveats
+## GPU pass-through Caveats
 
 Users running the Talos VM atop a TrueNAS SCALE host system that want to also take advantage of GPU passthrough to the VM will require a **minimum** of 2 *different* GPUs to be present in the system.
 
@@ -317,7 +274,7 @@ or
 **GPU2:** Intel iGPU or dedicated Nvidia GPU isolated within SCALE for VM passthrough
 
 
-### Single GPU pass-through (Advanced)
+## Single GPU pass-through (Advanced)
 
 :::caution[Work In Progress]
 

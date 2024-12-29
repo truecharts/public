@@ -43,4 +43,4 @@ Run the command `kubectl get svc -A` to verify the IP addresses assigned for eac
 
 If you have an IP conflict with a previously assigned address it will show as `<pending>`.
 
-For details on other configuration options, please reference the [MetaLB documentation](https://metallb.universe.tf/configuration/).
+For details on other configuration options, please reference the [MetaLB documentation](https://metallb.io/configuration/).

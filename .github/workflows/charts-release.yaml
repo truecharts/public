@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Filter paths
         id: filter
@@ -71,7 +71,7 @@ jobs:
       - name: Cache Changelog
         id: cache-changelog
         if: github.event_name == 'push'
-        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
         with:
           key: ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
           path: changelog.json.gz
@@ -108,7 +108,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
+        uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
           version: v3.14.0
 
@@ -228,7 +228,7 @@ jobs:
 
       - name: Setup astro Cache
         if: needs.check_changes.outputs.changes_detected == 'true'
-        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
         with:
           # Cache for build and optimized images.
           key: astro-${{ hashFiles('website/package-lock.json') }}
@@ -237,7 +237,7 @@ jobs:
 
       - name: Setup npm Cache
         if: needs.check_changes.outputs.changes_detected == 'true'
-        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
         with:
           # Cache for npm
           path: ~/website/.npm
@@ -247,7 +247,7 @@ jobs:
       - name: Setup node_modules Cache
         id: modulescache
         if: needs.check_changes.outputs.changes_detected == 'true'
-        uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
         with:
           # Cache for npm and optimized images.
           path: ./website/node_modules

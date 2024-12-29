@@ -6,17 +6,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 15.1.0
+appVersion: 15.3.0
 dependencies:
   - name: common
-    version: 25.1.7
+    version: 25.2.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.4.2
+    version: 15.6.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/linuxserver/docker-piwigo
   - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
 type: application
-version: 15.1.2
+version: 15.4.0

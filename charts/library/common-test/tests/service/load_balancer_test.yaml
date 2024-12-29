@@ -57,7 +57,7 @@ tests:
         isSubset:
           path: metadata.annotations
           content:
-            metallb.universe.tf/loadBalancerIPs: "1.2.3.4,5.6.7.8"
+            metallb.io/loadBalancerIPs: "1.2.3.4,5.6.7.8"
 
   - it: should pass with type LoadBalancer and available options set
     set:
@@ -153,4 +153,4 @@ tests:
         isSubset:
           path: metadata.annotations
           content:
-            metallb.universe.tf/loadBalancerIPs: "10.100.200.45"
+            metallb.io/loadBalancerIPs: "10.100.200.45"

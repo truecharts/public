@@ -44,7 +44,7 @@ tests:
             AWS_ACCESS_KEY_ID: some-access-key
             AWS_SECRET_ACCESS_KEY: some-secret-key
             RESTIC_PASSWORD: some-key
-            RESTIC_REPOSITORY: s3:some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
+            RESTIC_REPOSITORY: s3:http://some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
       - documentIndex: &replicationDestDoc 1
         isKind:
           of: ReplicationSource
@@ -64,6 +64,8 @@ tests:
           content:
             repository: test-release-name-common-test-srcbackup-volsync-mybackup1
             copyMethod: Snapshot
+            cleanupTempPVC: false
+            cleanupCachePVC: false
             pruneIntervalDays: 7
             retain:
               hourly: 6
@@ -128,6 +130,8 @@ tests:
           content:
             repository: test-release-name-common-test-srcbackup-volsync-mybackup1
             copyMethod: Clone
+            cleanupTempPVC: false
+            cleanupCachePVC: false
             pruneIntervalDays: 5
             retain:
               hourly: 20
@@ -191,6 +195,8 @@ tests:
           content:
             repository: test-release-name-common-test-srcbackup-volsync-mybackup1
             copyMethod: Clone
+            cleanupTempPVC: false
+            cleanupCachePVC: false
             pruneIntervalDays: 5
             retain:
               hourly: 20
@@ -255,6 +261,8 @@ tests:
           content:
             repository: test-release-name-common-test-srcbackup-volsync-mybackup1
             copyMethod: Clone
+            cleanupTempPVC: false
+            cleanupCachePVC: false
             pruneIntervalDays: 5
             retain:
               hourly: 20
@@ -320,6 +328,8 @@ tests:
           content:
             repository: test-release-name-common-test-srcbackup-volsync-mybackup1
             copyMethod: Clone
+            cleanupTempPVC: false
+            cleanupCachePVC: false
             pruneIntervalDays: 5
             retain:
               hourly: 20
@@ -339,3 +349,58 @@ tests:
         matchRegex:
           path: spec.restic.unlock
           pattern: "^[0-9]{14}$"
+
+  - it: should generate correct spec with cleanup flags
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              cleanupTempPVC: true
+              cleanupCachePVC: true
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                trigger:
+                  schedule: "1 0 * * *"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        isSubset:
+          path: spec.restic
+          content:
+            repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+            copyMethod: Clone
+            cleanupTempPVC: true
+            cleanupCachePVC: true
+            pruneIntervalDays: 5
+            retain:
+              hourly: 20
+              daily: 5
+              weekly: 3
+              monthly: 3
+              yearly: 1
+            accessModes:
+              - ReadWriteOnce
+            moverSecurityContext:
+              fsGroup: 568
+              runAsUser: 568
+              runAsGroup: 568
