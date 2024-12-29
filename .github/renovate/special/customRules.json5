@@ -5,21 +5,17 @@
       "description": ["Block automerge for unstable minors"],
       "automerge": false,
       "matchUpdateTypes": ["minor"],
-      "matchPackagePatterns": [
-        "placeholder",
-        ],
+      "matchPackagePatterns": ["placeholder"],
       "branchPrefix": "block-automerge-minor",
       "labels": ["type/minor", "unstable"]
     },
     {
       "description": ["Block automerge for unstable patches"],
       "automerge": false,
-      "matchUpdateTypes": ["minor", "pin", "digest", "lockfile"],
-      "matchPackagePatterns": [
-        "placeholder",
-        ],
+      "matchUpdateTypes": ["minor", "pin", "digest", "lockFileMaintenance"],
+      "matchPackagePatterns": ["placeholder"],
       "branchPrefix": "block-automerge-patch",
       "labels": ["type/minor", "unstable"]
-    },
+    }
   ]
 }
