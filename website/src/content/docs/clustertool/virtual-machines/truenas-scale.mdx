@@ -126,12 +126,14 @@ Go back to the "preparation" section and make sure the IP you are trying to move
 
   4. You will be presented with a pane of potential options. Leave all of these as default except for `Zvol name` (call it something recognizable like `Talos zvol`), `Size for this zvol` (set to between `256GiB` and `512GiB`), `Force size` (check this option), `Sparse` (check this option) and `Block size` (change to `128 KiB`)
 
-  5. We do **not** recommend to encrypt the dataset
+  5. Set `Sync` to disabled.
 
-  6. After you are done it should look similar to this:
+  6. We do **not** recommend to encrypt the dataset
+
+  7. After you are done it should look similar to this:
     ![ZVOL Creation](./img/vm_zvol.png)
 
-  7. Hit `save` and wait for the system to create the Zvol. The GUI should refresh and then show your Zvol in the list of datasets like so
+  8. Hit `save` and wait for the system to create the Zvol. The GUI should refresh and then show your Zvol in the list of datasets like so
       ![ZVOL Creation 2](./img/vm_zvol2.png)
 
 </Steps>
