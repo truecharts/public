@@ -24,7 +24,7 @@ service:
   port1tcp:
     enabled: true
     ports:
-      tcp1:
+      port1tcp:
         enabled: true
         port: 30110
         protocol: tcp
@@ -32,7 +32,7 @@ service:
   port2tcp:
     enabled: true
     ports:
-      tcp2:
+      port2tcp:
         enabled: true
         port: 30120
         protocol: tcp
@@ -40,7 +40,7 @@ service:
   port1udp:
     enabled: true
     ports:
-      udp1:
+      port1udp:
         enabled: true
         port: 30110
         protocol: udp
@@ -48,7 +48,7 @@ service:
   port2udp:
     enabled: true
     ports:
-      udp2:
+      port2udp:
         enabled: true
         port: 30120
         protocol: udp
