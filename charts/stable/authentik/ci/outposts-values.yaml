@@ -19,9 +19,6 @@ authentik:
 
 ingress:
   main:
-    enabled: false
+    enabled: true
     hosts:
       - host: authentik.example.com
-        paths:
-          - path: /
-            pathType: Prefix
