@@ -22,4 +22,4 @@ workload:
           env:
             NETWORK_TEST_ON_START: false
             INCLUDE_PUBLIC_IP_IN_NAT_1_TO_1_IP: true
-            UDP_MUX_PORT: 60006
+            UDP_MUX_PORT: "{{ .Values.service.main.ports.webrtc.port }}"
