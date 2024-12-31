@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/redmserver
-  tag: latest@sha256:05fe3fc7a4e6ebc5f40dbdee7863806af1af4c5cfb2d3b643254a15fb6e0ae8a
+  tag: latest@sha256:40114bd20d141ec86e51b9d9cd2f904c97579aa5be4d00a1bfee6c95622b3d43
 persistence:
   serverfiles:
     enabled: true
@@ -21,34 +21,34 @@ service:
         port: 9016
         protocol: http
         targetPort: 8080
-  tcp1:
+  port1tcp:
     enabled: true
     ports:
-      tcp1:
+      port1tcp:
         enabled: true
         port: 30110
         protocol: tcp
         targetPort: 30110
-  tcp2:
+  port2tcp:
     enabled: true
     ports:
-      tcp2:
+      port2tcp:
         enabled: true
         port: 30120
         protocol: tcp
         targetPort: 30120
-  udp1:
+  port1udp:
     enabled: true
     ports:
-      udp1:
+      port1udp:
         enabled: true
         port: 30110
         protocol: udp
         targetPort: 30110
-  udp2:
+  port2udp:
     enabled: true
     ports:
-      udp2:
+      port2udp:
         enabled: true
         port: 30120
         protocol: udp
