@@ -22,14 +22,15 @@ objectData:
 # bouncer
 
   {{- $typeClass := dict
-    "add-prefix" "tc.v1.common.class.traefik.middleware.addPrefix"
-    "buffering" "tc.v1.common.class.traefik.middleware.buffering"
-    "chain" "tc.v1.common.class.traefik.middleware.chain"
-    "compress" "tc.v1.common.class.traefik.middleware.compress"
-    "redirect-regex" "tc.v1.common.class.traefik.middleware.redirectRegex"
-    "rate-limit" "tc.v1.common.class.traefik.middleware.rateLimit"
-    "forward-auth" "tc.v1.common.class.traefik.middleware.forwardAuth"
-    "ip-allow-list" "tc.v1.common.class.traefik.middleware.ipAllowList"
+    "add-prefix"        "tc.v1.common.class.traefik.middleware.addPrefix"
+    "buffering"         "tc.v1.common.class.traefik.middleware.buffering"
+    "chain"             "tc.v1.common.class.traefik.middleware.chain"
+    "compress"          "tc.v1.common.class.traefik.middleware.compress"
+    "forward-auth"      "tc.v1.common.class.traefik.middleware.forwardAuth"
+    "ip-allow-list"     "tc.v1.common.class.traefik.middleware.ipAllowList"
+    "rate-limit"        "tc.v1.common.class.traefik.middleware.rateLimit"
+    "redirect-regex"    "tc.v1.common.class.traefik.middleware.redirectRegex"
+    "redirect-scheme"   "tc.v1.common.class.traefik.middleware.redirectScheme"
   -}}
 
   {{- if not (hasKey $typeClass $objectData.type) -}}
