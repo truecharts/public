@@ -46,6 +46,9 @@
   {{/* Render volumeSnapshotClass(s) */}}
   {{- include "tc.v1.common.spawner.volumesnapshotclass" . | nindent 0 -}}
 
+  {{/* Render Middleware(s) */}}
+  {{- include "tc.v1.common.spawner.traefik.middleware" . | nindent 0 -}}
+
   {{/* Render ingress(s) */}}
   {{- include "tc.v1.common.spawner.ingress" . | nindent 0 -}}
 

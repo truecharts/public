@@ -235,6 +235,20 @@ credentials:
   #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
+middlewares: {}
+#   basic-auth:
+#     type: basicAuth
+#     data:
+#       # middleware specific data ie
+#       users:
+#         - username: user1
+#           password: password1
+#   some-other-middleware:
+#     type: someOtherMiddleware
+#     data:
+#       # middleware specific data ie
+#       someOtherMiddlewareData: someOtherMiddlewareData
+
 # -- (docs/persistence/README.md)
 persistence:
   shared:
