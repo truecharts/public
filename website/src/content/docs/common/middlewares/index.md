@@ -141,6 +141,7 @@ Available types:
 - [add-prefix](/common/middlewares/add-prefix)
 - [buffering](/common/middlewares/buffering)
 - [compress](/common/middlewares/compress)
+- [forward-auth](/common/middlewares/forward-auth)
 - [rate-limit](/common/middlewares/rate-limit)
 
 |            |                          |

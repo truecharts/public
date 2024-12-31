@@ -1,0 +1,106 @@
+suite: forward-auth middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with values
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            address: some-address
+            authResponseHeadersRegex: some-regex
+            trustForwardHeader: true
+            authResponseHeaders:
+              - some-header
+            authRequestHeaders:
+              - some-header
+            tls:
+              insecureSkipVerify: true
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            forwardAuth:
+              address: some-address
+              authResponseHeadersRegex: some-regex
+              trustForwardHeader: true
+              authResponseHeaders:
+                - some-header
+              authRequestHeaders:
+                - some-header
+              tls:
+                insecureSkipVerify: true
+
+  - it: should fail with missing address
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            authResponseHeadersRegex: some-regex
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (forward-auth) - Expected [address] to be set
+
+  - it: should fail with invalid authResponseHeaders
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            address: some-address
+            authResponseHeaders: some-header
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (forward-auth) - Expected [authResponseHeaders] to be a list, but got [string]
+
+  - it: should fail with invalid authRequestHeaders
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            address: some-address
+            authRequestHeaders: some-header
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (forward-auth) - Expected [authRequestHeaders] to be a list, but got [string]
+
+  - it: should fail with invalid tls.insecureSkipVerify
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            address: some-address
+            tls:
+              insecureSkipVerify: some-value
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (forward-auth) - Expected [tls.insecureSkipVerify] to be a boolean, but got [string]
+
+  - it: should fail with invalid trustForwardHeader
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: forward-auth
+          data:
+            address: some-address
+            trustForwardHeader: some-value
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (forward-auth) - Expected [trustForwardHeader] to be a boolean, but got [string]

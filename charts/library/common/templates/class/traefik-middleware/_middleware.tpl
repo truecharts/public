@@ -16,11 +16,18 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
+# TODO:
+# headers
+# chain
+# basicAuth
+# bouncer
+
   {{- $typeClass := dict
     "add-prefix" "tc.v1.common.class.traefik.middleware.addPrefix"
     "buffering" "tc.v1.common.class.traefik.middleware.buffering"
     "compress" "tc.v1.common.class.traefik.middleware.compress"
     "rate-limit" "tc.v1.common.class.traefik.middleware.rateLimit"
+    "forward-auth" "tc.v1.common.class.traefik.middleware.forwardAuth"
   -}}
 
   {{- if not (hasKey $typeClass $objectData.type) -}}
