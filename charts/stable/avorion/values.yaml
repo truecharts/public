@@ -27,7 +27,7 @@ service:
   mainudp:
     enabled: true
     ports:
-      hostport2:
+      mainudp:
         enabled: true
         port: 27000
         protocol: udp
