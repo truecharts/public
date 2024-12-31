@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/steamcmd
-  tag: avorion@sha256:7e93b177a96b72ea87be36c543343bd6137f1e6103b3bbd164ea52808577eace
+  tag: avorion@sha256:70a10bfbddc1554102f7b5b99673521fcb8a5f4a8593b58686a04629457e5873
 persistence:
   serverfiles:
     enabled: true
@@ -18,10 +18,16 @@ securityContext:
     runAsGroup: 0
     runAsUser: 0
 service:
-  hostport2:
+  main:
+    ports:
+      main:
+        port: 27000
+        protocol: tcp
+        targetPort: 27000
+  mainudp:
     enabled: true
     ports:
-      hostport2:
+      mainudp:
         enabled: true
         port: 27000
         protocol: udp
@@ -50,12 +56,6 @@ service:
         port: 27021
         protocol: udp
         targetPort: 27021
-  main:
-    ports:
-      main:
-        port: 27000
-        protocol: tcp
-        targetPort: 27000
 stdin: true
 tty: true
 workload:
