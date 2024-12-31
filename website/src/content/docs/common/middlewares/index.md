@@ -140,6 +140,7 @@ Available types:
 
 - [add-prefix](/common/middlewares/add-prefix)
 - [buffering](/common/middlewares/buffering)
+- [chain](/common/middlewares/chain)
 - [compress](/common/middlewares/compress)
 - [forward-auth](/common/middlewares/forward-auth)
 - [ip-allow-list](/common/middlewares/ip-allow-list)
