@@ -139,7 +139,7 @@ Define the type for this object
 Available types:
 
 - [buffering](/common/middlewares/buffering)
-- [add-prefix](/common/middlewares/addPrefix)
+- [add-prefix](/common/middlewares/add-prefix)
 
 |            |                          |
 | ---------- | ------------------------ |
