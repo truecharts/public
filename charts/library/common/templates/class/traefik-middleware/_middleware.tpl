@@ -19,13 +19,13 @@ objectData:
 # TODO:
 # headers
 # basicAuth
-# bouncer
 
   {{- $typeClass := dict
     "add-prefix"          "tc.v1.common.class.traefik.middleware.addPrefix"
     "buffering"           "tc.v1.common.class.traefik.middleware.buffering"
     "chain"               "tc.v1.common.class.traefik.middleware.chain"
     "compress"            "tc.v1.common.class.traefik.middleware.compress"
+    "content-type"        "tc.v1.common.class.traefik.middleware.contentType"
     "forward-auth"        "tc.v1.common.class.traefik.middleware.forwardAuth"
     "ip-allow-list"       "tc.v1.common.class.traefik.middleware.ipAllowList"
     "rate-limit"          "tc.v1.common.class.traefik.middleware.rateLimit"
