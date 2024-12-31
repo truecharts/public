@@ -148,6 +148,7 @@ Available types:
 - [redirect-scheme](/common/middlewares/redirect-scheme)
 - [redirect-regex](/common/middlewares/redirect-regex)
 - [strip-prefix-regex](/common/middlewares/strip-prefix-regex)
+- [strip-prefix](/common/middlewares/strip-prefix)
 
 |            |                          |
 | ---------- | ------------------------ |
