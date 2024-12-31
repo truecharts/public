@@ -24,6 +24,14 @@ service:
         port: 26900
         protocol: tcp
         targetPort: 26900
+  steammasterser:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 26900
+        protocol: udp
+        targetPort: 26900
   raknet:
     enabled: true
     ports:
@@ -48,14 +56,6 @@ service:
         port: 26901
         protocol: udp
         targetPort: 26901
-  steammasterser:
-    enabled: true
-    ports:
-      steammasterser:
-        enabled: true
-        port: 26900
-        protocol: udp
-        targetPort: 26900
   unet:
     enabled: true
     ports:
