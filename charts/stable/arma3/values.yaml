@@ -27,6 +27,14 @@ service:
         port: 2302
         protocol: tcp
         targetPort: 2302
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 2302
+        protocol: udp
+        targetPort: 2302
   udpbattleyetra:
     enabled: true
     ports:
@@ -35,14 +43,6 @@ service:
         port: 2306
         protocol: udp
         targetPort: 2306
-  udpgameport:
-    enabled: true
-    ports:
-      udpgameport:
-        enabled: true
-        port: 2302
-        protocol: udp
-        targetPort: 2302
   udpsteammaster:
     enabled: true
     ports:
