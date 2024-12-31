@@ -18,6 +18,7 @@ objectData:
 
   {{- $typeClass := dict
     "buffering" "tc.v1.common.class.traefik.middleware.buffering"
+    "add-prefix" "tc.v1.common.class.traefik.middleware.addPrefix"
   -}}
 
   {{- if not (hasKey $typeClass $objectData.type) -}}
