@@ -1,0 +1,37 @@
+suite: replacePath middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: replace-path
+          data:
+            path: /some-path
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            replacePath:
+              path: /some-path
+
+  - it: should fail with missing path
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: replace-path
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (replace-path) - Expected [path] to be set

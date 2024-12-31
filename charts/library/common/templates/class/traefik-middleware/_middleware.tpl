@@ -31,6 +31,7 @@ objectData:
     "rate-limit"          "tc.v1.common.class.traefik.middleware.rateLimit"
     "redirect-regex"      "tc.v1.common.class.traefik.middleware.redirectRegex"
     "redirect-scheme"     "tc.v1.common.class.traefik.middleware.redirectScheme"
+    "replace-path"        "tc.v1.common.class.traefik.middleware.replacePath"
     "strip-prefix"        "tc.v1.common.class.traefik.middleware.stripPrefix"
     "strip-prefix-regex"  "tc.v1.common.class.traefik.middleware.stripPrefixRegex"
   -}}
