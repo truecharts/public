@@ -20,6 +20,7 @@ objectData:
     "add-prefix" "tc.v1.common.class.traefik.middleware.addPrefix"
     "buffering" "tc.v1.common.class.traefik.middleware.buffering"
     "compress" "tc.v1.common.class.traefik.middleware.compress"
+    "rate-limit" "tc.v1.common.class.traefik.middleware.rateLimit"
   -}}
 
   {{- if not (hasKey $typeClass $objectData.type) -}}
