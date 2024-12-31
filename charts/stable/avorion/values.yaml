@@ -18,7 +18,13 @@ securityContext:
     runAsGroup: 0
     runAsUser: 0
 service:
-  hostport2:
+  main:
+    ports:
+      main:
+        port: 27000
+        protocol: tcp
+        targetPort: 27000
+  mainudp:
     enabled: true
     ports:
       hostport2:
@@ -50,12 +56,6 @@ service:
         port: 27021
         protocol: udp
         targetPort: 27021
-  main:
-    ports:
-      main:
-        port: 27000
-        protocol: tcp
-        targetPort: 27000
 stdin: true
 tty: true
 workload:
