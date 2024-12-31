@@ -25,11 +25,12 @@ tests:
         equal:
           path: spec
           value:
-            maxRequestBodyBytes: 1024
-            memRequestBodyBytes: 1024
-            maxResponseBodyBytes: 1024
-            memResponseBodyBytes: 1024
-            retryExpression: "some-expression"
+            buffering:
+              maxRequestBodyBytes: 1024
+              memRequestBodyBytes: 1024
+              maxResponseBodyBytes: 1024
+              memResponseBodyBytes: 1024
+              retryExpression: "some-expression"
 
   - it: should pass with only maxRequestBodyBytes set
     set:
@@ -44,9 +45,10 @@ tests:
         equal:
           path: spec
           value:
-            maxRequestBodyBytes: 1024
+            buffering:
+              maxRequestBodyBytes: 1024
 
-  - it: should ignore 0 or null values
+  - it: should render 0 and non-null values
     set:
       middlewares:
         my-middleware1:
@@ -63,5 +65,7 @@ tests:
         equal:
           path: spec
           value:
-            maxResponseBodyBytes: 1024
-            memResponseBodyBytes: 1024
+            buffering:
+              maxRequestBodyBytes: 0
+              maxResponseBodyBytes: 1024
+              memResponseBodyBytes: 1024
