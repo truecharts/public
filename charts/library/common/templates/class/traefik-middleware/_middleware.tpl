@@ -26,6 +26,7 @@ objectData:
     "buffering" "tc.v1.common.class.traefik.middleware.buffering"
     "chain" "tc.v1.common.class.traefik.middleware.chain"
     "compress" "tc.v1.common.class.traefik.middleware.compress"
+    "redirect-regex" "tc.v1.common.class.traefik.middleware.redirectRegex"
     "rate-limit" "tc.v1.common.class.traefik.middleware.rateLimit"
     "forward-auth" "tc.v1.common.class.traefik.middleware.forwardAuth"
     "ip-allow-list" "tc.v1.common.class.traefik.middleware.ipAllowList"

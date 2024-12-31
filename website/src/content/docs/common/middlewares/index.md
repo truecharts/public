@@ -145,6 +145,7 @@ Available types:
 - [forward-auth](/common/middlewares/forward-auth)
 - [ip-allow-list](/common/middlewares/ip-allow-list)
 - [rate-limit](/common/middlewares/rate-limit)
+- [redirect-regex](/common/middlewares/redirect-regex)
 
 |            |                          |
 | ---------- | ------------------------ |
