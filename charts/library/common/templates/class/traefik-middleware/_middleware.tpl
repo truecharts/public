@@ -33,6 +33,7 @@ objectData:
     "redirect-scheme"     "tc.v1.common.class.traefik.middleware.redirectScheme"
     "replace-path"        "tc.v1.common.class.traefik.middleware.replacePath"
     "replace-path-regex"  "tc.v1.common.class.traefik.middleware.replacePathRegex"
+    "retry"               "tc.v1.common.class.traefik.middleware.retry"
     "strip-prefix"        "tc.v1.common.class.traefik.middleware.stripPrefix"
     "strip-prefix-regex"  "tc.v1.common.class.traefik.middleware.stripPrefixRegex"
   -}}

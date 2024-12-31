@@ -150,6 +150,7 @@ Available types:
 - [redirect-scheme](/common/middlewares/redirect-scheme)
 - [replace-path](/common/middlewares/replace-path)
 - [replace-path-regex](/common/middlewares/replace-path-regex)
+- [retry](/common/middlewares/retry)
 - [strip-prefix-regex](/common/middlewares/strip-prefix-regex)
 - [strip-prefix](/common/middlewares/strip-prefix)
 
