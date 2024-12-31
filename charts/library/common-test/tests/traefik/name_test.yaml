@@ -18,6 +18,12 @@ tests:
           type: buffering
           data:
             foo: bar
+        my-middleware3:
+          enabled: true
+          type: buffering
+          expandObjectName: false
+          data:
+            foo: bar
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -39,3 +45,13 @@ tests:
         equal:
           path: metadata.name
           value: test-release-name-common-test-my-middleware2
+      - documentIndex: &otherMiddlewareDoc2 2
+        isKind:
+          of: Middleware
+      - documentIndex: *otherMiddlewareDoc2
+        isAPIVersion:
+          of: traefik.io/v1alpha1
+      - documentIndex: *otherMiddlewareDoc2
+        equal:
+          path: metadata.name
+          value: my-middleware3
