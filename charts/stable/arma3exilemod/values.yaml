@@ -30,7 +30,7 @@ service:
   mainudp:
     enabled: true
     ports:
-      udpgameport:
+      mainudp:
         enabled: true
         port: 2302
         protocol: udp
