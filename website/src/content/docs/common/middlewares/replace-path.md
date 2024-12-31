@@ -53,6 +53,5 @@ middlewares:
     enabled: true
     type: replace-path
     data:
-      average: 1000
-      burst: 1000
+      path: /some-path
 ```
