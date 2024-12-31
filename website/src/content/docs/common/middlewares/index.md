@@ -138,8 +138,9 @@ Define the type for this object
 
 Available types:
 
-- [buffering](/common/middlewares/buffering)
 - [add-prefix](/common/middlewares/add-prefix)
+- [buffering](/common/middlewares/buffering)
+- [compress](/common/middlewares/compress)
 
 |            |                          |
 | ---------- | ------------------------ |

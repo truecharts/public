@@ -5,7 +5,7 @@ title: Add Prefix Middleware
 :::note
 
 - Examples under each key are only to be used as a placement guide
-- See the [Full Examples](/common/persistence/configmap#full-examples) section for complete examples.
+- See the [Full Examples](/common/middlewares/add-prefix#full-examples) section for complete examples.
 
 :::
 
