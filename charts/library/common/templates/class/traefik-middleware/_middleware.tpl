@@ -28,6 +28,7 @@ objectData:
     "compress" "tc.v1.common.class.traefik.middleware.compress"
     "rate-limit" "tc.v1.common.class.traefik.middleware.rateLimit"
     "forward-auth" "tc.v1.common.class.traefik.middleware.forwardAuth"
+    "ip-allow-list" "tc.v1.common.class.traefik.middleware.ipAllowList"
   -}}
 
   {{- if not (hasKey $typeClass $objectData.type) -}}

@@ -142,6 +142,7 @@ Available types:
 - [buffering](/common/middlewares/buffering)
 - [compress](/common/middlewares/compress)
 - [forward-auth](/common/middlewares/forward-auth)
+- [ip-allow-list](/common/middlewares/ip-allow-list)
 - [rate-limit](/common/middlewares/rate-limit)
 
 |            |                          |
