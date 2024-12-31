@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/fivemserver
-  tag: latest@sha256:059a2bb9387ef76b0008010d31bc28c119e81d78f1cd360c053b815ab20d94de
+  tag: latest@sha256:6534fde2a257c976738049fda0d11f2b257c92806c19d1acde6d4fb095c7dd3f
 persistence:
   serverfiles:
     enabled: true
@@ -21,34 +21,34 @@ service:
         port: 9016
         protocol: http
         targetPort: 8080
-  tcp1:
+  port1tcp:
     enabled: true
     ports:
-      tcp1:
+      port1tcp:
         enabled: true
         port: 30110
         protocol: tcp
         targetPort: 30110
-  tcp2:
+  port2tcp:
     enabled: true
     ports:
-      tcp2:
+      port2tcp:
         enabled: true
         port: 30120
         protocol: tcp
         targetPort: 30120
-  udp1:
+  port1udp:
     enabled: true
     ports:
-      udp1:
+      port1udp:
         enabled: true
         port: 30110
         protocol: udp
         targetPort: 30110
-  udp2:
+  port2udp:
     enabled: true
     ports:
-      udp2:
+      port2udp:
         enabled: true
         port: 30120
         protocol: udp

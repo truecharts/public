@@ -9,14 +9,14 @@ apiVersion: v2
 appVersion: 6.1.21
 dependencies:
   - name: common
-    version: 25.2.5
+    version: 25.3.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 15.4.1
+    version: 15.5.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
   - https://hub.docker.com/r/fireflyiii/core
 type: application
-version: 27.7.0
+version: 27.9.0

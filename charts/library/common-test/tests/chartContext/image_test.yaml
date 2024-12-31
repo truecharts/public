@@ -1,0 +1,142 @@
+suite: image version test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should make sure that postgres 15 uses correct image
+    set:
+      cnpg:
+        my-15pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: 15
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-15pg
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/cloudnative-pg/postgresql:15.\d+
+
+  - it: should make sure that postgis 15 uses correct image
+    set:
+      cnpg:
+        my-15postgis:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          type: postgis
+          pgVersion: 15
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-15postgis
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/cloudnative-pg/postgis:15.\d+
+
+  - it: should make sure that vector 15 uses correct image
+    set:
+      cnpg:
+        my-15vector:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          type: vectors
+          pgVersion: 15
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-15vector
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/tensorchord/cloudnative-pgvecto.rs:15.\d+
+
+  - it: should make sure that postgres 16 uses correct image
+    set:
+      cnpg:
+        my-16pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: 16
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-16pg
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/cloudnative-pg/postgresql:16.\d+
+
+  - it: should make sure that postgis 16 uses correct image
+    set:
+      cnpg:
+        my-16postgis:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          type: postgis
+          pgVersion: 16
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-16postgis
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/cloudnative-pg/postgis:16.\d+
+
+  - it: should make sure that vector 16 uses correct image
+    set:
+      cnpg:
+        my-16vector:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          pgVersion: 16
+          type: vectors
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-16vector
+      - documentIndex: *clusterDoc
+        matchRegex:
+          path: spec.imageName
+          pattern: ghcr.io/tensorchord/cloudnative-pgvecto.rs:16.\d+

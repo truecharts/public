@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: 0.11.0
 dependencies:
   - name: common
-    version: 25.2.5
+    version: 25.3.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,11 +29,11 @@ maintainers:
     url: https://truecharts.org
 name: volsync
 sources:
+  - https://github.com/backube/helm-charts
+  - https://github.com/backube/volsync
   - https://github.com/truecharts/charts/tree/master/charts/system/volsync
-  - https://github.com/volsync/volsync
-  - https://github.com/volsync/volsync-helm-chart
   - https://quay.io/backube/volsync
   - https://quay.io/brancz/kube-rbac-proxy
   - https://volsync.readthedocs.io/
 type: application
-version: 2.6.3
+version: 2.7.0

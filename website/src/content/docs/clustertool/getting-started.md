@@ -158,7 +158,7 @@ We **highly** advise to always run `checkcrypt` before sending data to git.
 
 To send the data to git run:
 
-- `git add *`
+- `git add -A`
 - `git commit -a -m "some description"`
 - `git push`
 

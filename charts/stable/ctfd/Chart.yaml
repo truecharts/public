@@ -9,21 +9,21 @@ apiVersion: v2
 appVersion: 3.7.5
 dependencies:
   - name: common
-    version: 25.2.5
+    version: 25.3.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.6.1
+    version: 15.6.2
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 15.4.1
+    version: 15.5.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/CTFd/CTFd
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
 type: application
-version: 6.10.0
+version: 6.12.0
