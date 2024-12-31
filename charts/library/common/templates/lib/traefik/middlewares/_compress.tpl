@@ -3,5 +3,5 @@
   {{- $rootCtx := .rootCtx -}}
 
   {{- $mw := $objectData.data }}
-compress: {}
+  compress: {}
 {{- end -}}

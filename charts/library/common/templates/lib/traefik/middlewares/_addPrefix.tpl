@@ -6,7 +6,7 @@
 
   {{- if not $mw.prefix -}}
     {{- fail "Middleware (add-prefix) - Expected [prefix] to be set" -}}
-  {{- end -}}
-addPrefix:
-  prefix: {{ $mw.prefix }}
+  {{- end }}
+  addPrefix:
+    prefix: {{ $mw.prefix }}
 {{- end -}}

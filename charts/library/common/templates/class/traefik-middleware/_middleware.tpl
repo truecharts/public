@@ -16,12 +16,9 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-# TODO:
-# headers
-# basicAuth
-
   {{- $typeClass := dict
     "add-prefix"          "tc.v1.common.class.traefik.middleware.addPrefix"
+    "basic-auth"          "tc.v1.common.class.traefik.middleware.basicAuth"
     "buffering"           "tc.v1.common.class.traefik.middleware.buffering"
     "chain"               "tc.v1.common.class.traefik.middleware.chain"
     "compress"            "tc.v1.common.class.traefik.middleware.compress"
@@ -58,5 +55,9 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- include (get $typeClass $objectData.type) (dict "rootCtx" $rootCtx "objectData" $objectData) | nindent 2 }}
+  {{- /*
+    Nothing goes after the include, each middleware can also render other manifests.
+    For the same reason indentation must be handled by each middleware.
+  */ -}}
+  {{- include (get $typeClass $objectData.type) (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
 {{- end -}}

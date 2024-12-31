@@ -17,24 +17,24 @@
       {{- end -}}
     {{- end -}}
   {{- end }}
-ipAllowList:
-  {{- if $mw.sourceRange }}
-  sourceRange:
-    {{- range $mw.sourceRange }}
-    - {{ . | quote }}
-    {{- end }}
-  {{- end -}}
-
-  {{- if $mw.ipStrategy }}
-  ipStrategy:
-    {{- if hasKey $mw.ipStrategy "depth" }}
-    depth: {{ $mw.ipStrategy.depth }}
-    {{- end -}}
-    {{- if $mw.ipStrategy.excludedIPs }}
-    excludedIPs:
-      {{- range $mw.ipStrategy.excludedIPs }}
+  ipAllowList:
+    {{- if $mw.sourceRange }}
+    sourceRange:
+      {{- range $mw.sourceRange }}
       - {{ . | quote }}
       {{- end }}
     {{- end -}}
-  {{- end -}}
+
+    {{- if $mw.ipStrategy }}
+    ipStrategy:
+      {{- if hasKey $mw.ipStrategy "depth" }}
+      depth: {{ $mw.ipStrategy.depth }}
+      {{- end -}}
+      {{- if $mw.ipStrategy.excludedIPs }}
+      excludedIPs:
+        {{- range $mw.ipStrategy.excludedIPs }}
+        - {{ . | quote }}
+        {{- end }}
+      {{- end -}}
+    {{- end -}}
 {{- end -}}

@@ -31,30 +31,30 @@
   {{- if not $mw.address -}}
     {{- fail "Middleware (forward-auth) - Expected [address] to be set" -}}
   {{- end }}
-forwardAuth:
-  address: {{ $mw.address }}
-  trustForwardHeader: {{ $mw.trustForwardHeader }}
+  forwardAuth:
+    address: {{ $mw.address }}
+    trustForwardHeader: {{ $mw.trustForwardHeader }}
 
-  {{- if $mw.authResponseHeadersRegex }}
-  authResponseHeadersRegex: {{ $mw.authResponseHeadersRegex }}
-  {{- end -}}
+    {{- if $mw.authResponseHeadersRegex }}
+    authResponseHeadersRegex: {{ $mw.authResponseHeadersRegex }}
+    {{- end -}}
 
-  {{- if $mw.authResponseHeaders }}
-  authResponseHeaders:
-    {{- range $mw.authResponseHeaders }}
-    - {{ . | quote }}
-    {{- end }}
-  {{- end -}}
+    {{- if $mw.authResponseHeaders }}
+    authResponseHeaders:
+      {{- range $mw.authResponseHeaders }}
+      - {{ . | quote }}
+      {{- end }}
+    {{- end -}}
 
-  {{- if $mw.authRequestHeaders }}
-  authRequestHeaders:
-    {{- range $mw.authRequestHeaders }}
-    - {{ . | quote }}
-    {{- end }}
-  {{- end -}}
+    {{- if $mw.authRequestHeaders }}
+    authRequestHeaders:
+      {{- range $mw.authRequestHeaders }}
+      - {{ . | quote }}
+      {{- end }}
+    {{- end -}}
 
-  {{- if $mw.tls }}
-  tls:
-    insecureSkipVerify: {{ $mw.tls.insecureSkipVerify }}
-  {{- end -}}
+    {{- if $mw.tls }}
+    tls:
+      insecureSkipVerify: {{ $mw.tls.insecureSkipVerify }}
+    {{- end -}}
 {{- end -}}

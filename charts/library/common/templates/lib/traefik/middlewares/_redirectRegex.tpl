@@ -15,10 +15,10 @@
       {{- fail (printf "Middleware (redirect-regex) - Expected [permanent] to be a boolean, but got [%s]" (kindOf $mw.permanent)) -}}
     {{- end -}}
   {{- end }}
-redirectRegex:
-  regex: {{ $mw.regex }}
-  replacement: {{ $mw.replacement }}
-  {{- if hasKey $mw "permanent" }}
-  permanent: {{ $mw.permanent }}
-  {{- end -}}
+  redirectRegex:
+    regex: {{ $mw.regex }}
+    replacement: {{ $mw.replacement }}
+    {{- if hasKey $mw "permanent" }}
+    permanent: {{ $mw.permanent }}
+    {{- end -}}
 {{- end -}}

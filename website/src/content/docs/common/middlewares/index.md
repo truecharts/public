@@ -139,6 +139,7 @@ Define the type for this object
 Available types:
 
 - [add-prefix](/common/middlewares/add-prefix)
+- [basic-auth](/common/middlewares/basic-auth)
 - [buffering](/common/middlewares/buffering)
 - [chain](/common/middlewares/chain)
 - [compress](/common/middlewares/compress)

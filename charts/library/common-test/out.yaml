@@ -1,0 +1,85 @@
+---
+# Source: common-test/templates/common.yaml
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: release-name-common-test-my-middleware1
+  namespace: default
+  labels:
+    app: "common-test-1.0.0"
+    app.kubernetes.io/instance: "release-name"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/name: "common-test"
+    app.kubernetes.io/version: "unknown"
+    helm-revision: "1"
+    helm.sh/chart: "common-test-1.0.0"
+    release: "release-name"
+spec:  
+  basicAuth:
+    secret: some-secret 
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: release-name-common-test-my-middleware2
+  namespace: default
+  labels:
+    app: "common-test-1.0.0"
+    app.kubernetes.io/instance: "release-name"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/name: "common-test"
+    app.kubernetes.io/version: "unknown"
+    helm-revision: "1"
+    helm.sh/chart: "common-test-1.0.0"
+    release: "release-name"
+spec:  
+  basicAuth:
+    secret: 
+  ---
+  apiVersion: v1
+  kind: Secret
+  type: Opaque
+  metadata:
+    name: release-name-common-test-my-middleware2
+    namespace: default
+    labels:
+      app: "common-test-1.0.0"
+      app.kubernetes.io/instance: "release-name"
+      app.kubernetes.io/managed-by: "Helm"
+      app.kubernetes.io/name: "common-test"
+      app.kubernetes.io/version: "unknown"
+      helm-revision: "1"
+      helm.sh/chart: "common-test-1.0.0"
+      release: "release-name"
+  stringData:
+    users: |-
+      some-username:$2a$10$/TczFUTtEvCBmS5IWRkpSOr3x1RakG.mX7o3SL8ssU8QUtxg5ZHV6
+      some-other-username:$2a$10$Tr1fAKqM/Zyh55Glu9a.4O3PpfeTnTcolMfTamI19unLqIwXZiJ9S

@@ -9,7 +9,7 @@
   {{- if not $mw.replacement -}}
     {{- fail "Middleware (replace-path-regex) - Expected [replacement] to be set" -}}
   {{- end }}
-replacePathRegex:
-  regex: {{ $mw.regex }}
-  replacement: {{ $mw.replacement }}
+  replacePathRegex:
+    regex: {{ $mw.regex }}
+    replacement: {{ $mw.replacement }}
 {{- end -}}

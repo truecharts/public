@@ -12,15 +12,15 @@
       {{- fail (printf "Middleware (strip-prefix) - Expected [forceSlash] to be a boolean, but got [%s]" (kindOf $mw.forceSlash)) -}}
     {{- end -}}
   {{- end }}
-stripPrefix:
-  prefix:
-    {{- range $mw.prefix }}
-    - {{ . | quote }}
-    {{- end -}}
-  {{- if hasKey $mw "forceSlash" -}}
-    {{- if not (kindIs "bool" $mw.forceSlash) -}}
-      {{- fail (printf "Middleware (strip-prefix) - Expected [forceSlash] to be a boolean, but got [%s]" (kindOf $mw.forceSlash)) -}}
+  stripPrefix:
+    prefix:
+      {{- range $mw.prefix }}
+      - {{ . | quote }}
+      {{- end -}}
+    {{- if hasKey $mw "forceSlash" -}}
+      {{- if not (kindIs "bool" $mw.forceSlash) -}}
+        {{- fail (printf "Middleware (strip-prefix) - Expected [forceSlash] to be a boolean, but got [%s]" (kindOf $mw.forceSlash)) -}}
+      {{- end }}
+    forceSlash: {{ $mw.forceSlash }}
     {{- end }}
-  forceSlash: {{ $mw.forceSlash }}
-  {{- end }}
 {{- end -}}

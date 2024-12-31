@@ -6,6 +6,6 @@
   {{- if not $mw.path -}}
     {{- fail "Middleware (replace-path) - Expected [path] to be set" -}}
   {{- end }}
-replacePath:
-  path: {{ $mw.path }}
+  replacePath:
+    path: {{ $mw.path }}
 {{- end -}}

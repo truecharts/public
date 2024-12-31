@@ -12,9 +12,9 @@
       {{- fail (printf "Middleware (redirect-scheme) - Expected [permanent] to be a boolean, but got [%s]" (kindOf $mw.permanent)) -}}
     {{- end -}}
   {{- end }}
-redirectScheme:
-  scheme: {{ $mw.scheme }}
-  {{- if hasKey $mw "permanent" }}
-  permanent: {{ $mw.permanent }}
-  {{- end -}}
+  redirectScheme:
+    scheme: {{ $mw.scheme }}
+    {{- if hasKey $mw "permanent" }}
+    permanent: {{ $mw.permanent }}
+    {{- end -}}
 {{- end -}}
