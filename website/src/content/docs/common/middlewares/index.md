@@ -147,6 +147,7 @@ Available types:
 - [rate-limit](/common/middlewares/rate-limit)
 - [redirect-scheme](/common/middlewares/redirect-scheme)
 - [redirect-regex](/common/middlewares/redirect-regex)
+- [strip-prefix-regex](/common/middlewares/strip-prefix-regex)
 
 |            |                          |
 | ---------- | ------------------------ |
