@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/steamcmd
-  tag: 7dtd@sha256:c0511c04143804c6c7ccc7214a687cc92dd16feec0f670981421ec45c8a7e29d
+  tag: 7dtd@sha256:637cfee789129cbcf978c5a950fd43a6c255284c2f7c0f7d731e194898c67d21
 persistence:
   serverfiles:
     enabled: true
@@ -23,6 +23,14 @@ service:
       main:
         port: 26900
         protocol: tcp
+        targetPort: 26900
+  steammasterser:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 26900
+        protocol: udp
         targetPort: 26900
   raknet:
     enabled: true
@@ -48,14 +56,6 @@ service:
         port: 26901
         protocol: udp
         targetPort: 26901
-  steammasterser:
-    enabled: true
-    ports:
-      steammasterser:
-        enabled: true
-        port: 26900
-        protocol: udp
-        targetPort: 26900
   unet:
     enabled: true
     ports:
