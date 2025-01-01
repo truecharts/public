@@ -7,7 +7,7 @@ require (
     github.com/Masterminds/semver/v3 v3.3.1
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.14
-    github.com/getsops/sops/v3 v3.9.2
+    github.com/getsops/sops/v3 v3.9.3
     github.com/go-git/go-git/v5 v5.13.0
     github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.23.0
@@ -34,7 +34,7 @@ require (
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.16
 
-replace go.mozilla.org/sops/v3 => github.com/getsops/sops/v3 v3.9.2
+replace go.mozilla.org/sops/v3 => github.com/getsops/sops/v3 v3.9.3
 
 require (
     cel.dev/expr v0.18.0 // indirect
