@@ -18,6 +18,8 @@
     "strip-prefix"                    "tc.v1.common.class.traefik.middleware.stripPrefix"
     "strip-prefix-regex"              "tc.v1.common.class.traefik.middleware.stripPrefixRegex"
 
+    "plugin-bouncer"                  "tc.v1.common.class.traefik.middleware.pluginBouncer"
+    "plugin-geoblock"                 "tc.v1.common.class.traefik.middleware.pluginGeoblock"
     "plugin-mod-security"             "tc.v1.common.class.traefik.middleware.pluginModSecurity"
     "plugin-real-ip"                  "tc.v1.common.class.traefik.middleware.pluginRealIP"
     "plugin-rewrite-response-headers" "tc.v1.common.class.traefik.middleware.pluginRewriteResponseHeaders"

@@ -147,6 +147,8 @@ Available types:
 - [forward-auth](/common/middlewares/forward-auth)
 - [headers](/common/middlewares/headers)
 - [ip-allow-list](/common/middlewares/ip-allow-list)
+- [plugin-bouncer](/common/middlewares/plugin-bouncer)
+- [plugin-geoblock](/common/middlewares/plugin-geoblock)
 - [plugin-mod-security](/common/middlewares/plugin-mod-security)
 - [plugin-real-ip](/common/middlewares/plugin-real-ip)
 - [plugin-rewrite-response-headers](/common/middlewares/plugin-rewrite-response-headers)
