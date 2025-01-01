@@ -11,7 +11,7 @@ require (
     github.com/go-git/go-git/v5 v5.13.0
     github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.23.0
-    github.com/invopop/jsonschema v0.12.0
+    github.com/invopop/jsonschema v0.13.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
     github.com/knadh/koanf/providers/file v1.1.2
