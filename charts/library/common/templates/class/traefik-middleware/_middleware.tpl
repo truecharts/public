@@ -24,6 +24,7 @@ objectData:
     "compress"            "tc.v1.common.class.traefik.middleware.compress"
     "content-type"        "tc.v1.common.class.traefik.middleware.contentType"
     "forward-auth"        "tc.v1.common.class.traefik.middleware.forwardAuth"
+    "headers"             "tc.v1.common.class.traefik.middleware.headers"
     "ip-allow-list"       "tc.v1.common.class.traefik.middleware.ipAllowList"
     "rate-limit"          "tc.v1.common.class.traefik.middleware.rateLimit"
     "redirect-regex"      "tc.v1.common.class.traefik.middleware.redirectRegex"

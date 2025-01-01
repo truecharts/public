@@ -17,7 +17,8 @@
 {{- define "tc.v1.common.class.traefik.middleware.buffering.helper" -}}
   {{- $key := .key -}}
   {{- $value := .value -}}
+
   {{- if and (not (kindIs "invalid" $value)) (ge ($value | int) 0) -}}
-  {{- $key }}: {{ $value }}
+    {{- $key }}: {{ $value }}
   {{- end -}}
 {{- end -}}

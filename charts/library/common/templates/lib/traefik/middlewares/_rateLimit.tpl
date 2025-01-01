@@ -2,8 +2,16 @@
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
 
-  {{- $mw := $objectData.data }}
+  {{- $mw := $objectData.data -}}
+
+  {{- if and (not $mw.average) (not $mw.burst) -}}
+    {{- fail "Middleware (rate-limit) - Expected either [average] or [burst] to be set" -}}
+  {{- end }}
   rateLimit:
-    average: {{ $mw.average | default 600 }}
-    burst: {{ $mw.burst | default 400 }}
+    {{- if $mw.average }}
+    average: {{ $mw.average }}
+    {{- end -}}
+    {{- if $mw.burst }}
+    burst: {{ $mw.burst }}
+    {{- end -}}
 {{- end -}}

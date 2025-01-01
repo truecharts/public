@@ -30,9 +30,9 @@ Define the average rate limit
 | ---------- | -------------------------------- |
 | Key        | `middlewares.$name.data.average` |
 | Type       | `int`                            |
-| Required   | ✅                                |
+| Required   | ❌                                |
 | Helm `tpl` | ❌                                |
-| Default    | `600`                            |
+| Default    | -                                |
 
 Example
 
@@ -53,9 +53,9 @@ Define the burst rate limit
 | ---------- | ------------------------------ |
 | Key        | `middlewares.$name.data.burst` |
 | Type       | `int`                          |
-| Required   | ✅                              |
+| Required   | ❌                              |
 | Helm `tpl` | ❌                              |
-| Default    | `200`                          |
+| Default    | -                              |
 
 Example
 
