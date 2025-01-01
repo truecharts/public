@@ -36,13 +36,14 @@ workload:
 
 configmap:
   config:
-    enabled:
-      data:
-        config.json: |-
-          {
-            "repositories": ["truecharts/public"],
-            "dryRun" : "full"
-          }
+    enabled: true
+    data:
+      config.json: |-
+        {
+          "repositories": ["truecharts/public"],
+          "dryRun" : "full"
+        }
+
 service:
   main:
     enabled: false
