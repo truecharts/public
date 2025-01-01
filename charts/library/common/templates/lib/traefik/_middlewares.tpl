@@ -18,7 +18,8 @@
     "strip-prefix"        "tc.v1.common.class.traefik.middleware.stripPrefix"
     "strip-prefix-regex"  "tc.v1.common.class.traefik.middleware.stripPrefixRegex"
 
-    "plugin-theme-park"    "tc.v1.common.class.traefik.middleware.pluginThemePark"
+    "plugin-theme-park"   "tc.v1.common.class.traefik.middleware.pluginThemePark"
+    "plugin-real-ip"      "tc.v1.common.class.traefik.middleware.pluginRealIP"
   -}}
 
   {{- $typeClassMap | toJson -}}

@@ -147,6 +147,8 @@ Available types:
 - [forward-auth](/common/middlewares/forward-auth)
 - [headers](/common/middlewares/headers)
 - [ip-allow-list](/common/middlewares/ip-allow-list)
+- [plugin-real-ip](/common/middlewares/plugin-real-ip)
+- [plugin-theme-park](/common/middlewares/plugin-theme-park)
 - [rate-limit](/common/middlewares/rate-limit)
 - [redirect-regex](/common/middlewares/redirect-regex)
 - [redirect-scheme](/common/middlewares/redirect-scheme)
