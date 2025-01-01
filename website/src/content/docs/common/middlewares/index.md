@@ -149,6 +149,7 @@ Available types:
 - [ip-allow-list](/common/middlewares/ip-allow-list)
 - [plugin-mod-security](/common/middlewares/plugin-mod-security)
 - [plugin-real-ip](/common/middlewares/plugin-real-ip)
+- [plugin-rewrite-response-headers](/common/middlewares/plugin-rewrite-response-headers)
 - [plugin-theme-park](/common/middlewares/plugin-theme-park)
 - [rate-limit](/common/middlewares/rate-limit)
 - [redirect-regex](/common/middlewares/redirect-regex)

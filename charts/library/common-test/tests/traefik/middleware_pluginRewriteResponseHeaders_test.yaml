@@ -1,0 +1,125 @@
+suite: plugin-rewrite-response-headers middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            rewrites:
+              - header: some-header
+                regex: some-regex
+                replacement: some-replacement
+              - header: some-other-header
+                regex: some-other-regex
+                replacement: some-other-replacement
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        equal:
+          path: spec
+          value:
+            plugin:
+              rewriteResponseHeaders:
+                rewrites:
+                  - header: some-header
+                    regex: some-regex
+                    replacement: some-replacement
+                  - header: some-other-header
+                    regex: some-other-regex
+                    replacement: some-other-replacement
+
+  - it: should pass with pluginName set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            pluginName: traefik-rewrite-response-headers-test
+            rewrites:
+              - header: some-header
+                regex: some-regex
+                replacement: some-replacement
+    asserts:
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            plugin:
+              traefik-rewrite-response-headers-test:
+                rewrites:
+                  - header: some-header
+                    regex: some-regex
+                    replacement: some-replacement
+
+  - it: should fail with missing header
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            rewrites:
+              - regex: some-regex
+                replacement: some-replacement
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rewrite-response-headers) - Expected [header] to be set for rewrite [0]
+
+  - it: should fail with missing regex
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            rewrites:
+              - header: some-header
+                replacement: some-replacement
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rewrite-response-headers) - Expected [regex] to be set for rewrite [0]
+
+  - it: should fail with missing replacement
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            rewrites:
+              - header: some-header
+                regex: some-regex
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rewrite-response-headers) - Expected [replacement] to be set for rewrite [0]
+
+  - it: should fail with missing rewrites
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rewrite-response-headers) - Expected [rewrites] to be set
+
+  - it: should fail with invalid rewrites
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: plugin-rewrite-response-headers
+          data:
+            rewrites: some-value
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rewrite-response-headers) - Expected [rewrites] to be a list, but got [string]
