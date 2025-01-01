@@ -23,6 +23,29 @@ title: Plugin Rewrite Response Headers Middleware
 
 ---
 
+## `pluginName`
+
+Define the pluginName
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `middlewares.$name.data.pluginName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `rewriteResponseHeaders`            |
+
+Example
+
+```yaml
+middlewares:
+  middleware-name:
+    data:
+      pluginName: my-plugin-name
+```
+
+---
+
 ## `rewrites`
 
 Define the rewrites
@@ -117,29 +140,6 @@ middlewares:
     data:
       rewrites:
         - replacement: some-replacement
-```
-
----
-
-## `pluginName`
-
-Define the pluginName
-
-|            |                                     |
-| ---------- | ----------------------------------- |
-| Key        | `middlewares.$name.data.pluginName` |
-| Type       | `string`                            |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
-| Default    | `rewriteResponseHeaders`            |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    data:
-      pluginName: my-plugin-name
 ```
 
 ---

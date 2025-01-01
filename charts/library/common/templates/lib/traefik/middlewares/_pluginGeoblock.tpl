@@ -18,42 +18,18 @@
   plugin:
     {{ $mwName }}:
       api: {{ $mw.api }}
-      {{- if hasKey $mw "allowLocalRequests" }}
-      allowLocalRequests: {{ $mw.allowLocalRequests }}
-      {{- end -}}
-      {{- if hasKey $mw "logLocalRequests" }}
-      logLocalRequests: {{ $mw.logLocalRequests }}
-      {{- end -}}
-      {{- if hasKey $mw "logAllowedRequests" }}
-      logAllowedRequests: {{ $mw.logAllowedRequests }}
-      {{- end -}}
-      {{- if hasKey $mw "logApiRequests" }}
-      logApiRequests: {{ $mw.logApiRequests }}
-      {{- end -}}
-      {{- if $mw.apiTimeoutMs }}
-      apiTimeoutMs: {{ $mw.apiTimeoutMs }}
-      {{- end -}}
-      {{- if $mw.cacheSize }}
-      cacheSize: {{ $mw.cacheSize }}
-      {{- end -}}
-      {{- if hasKey $mw "forceMonthlyUpdate" }}
-      forceMonthlyUpdate: {{ $mw.forceMonthlyUpdate }}
-      {{- end -}}
-      {{- if hasKey $mw "allowUnknownCountries" }}
-      allowUnknownCountries: {{ $mw.allowUnknownCountries }}
-      {{- end -}}
-      {{- if $mw.unknownCountryApiResponse }}
-      unknownCountryApiResponse: {{ $mw.unknownCountryApiResponse }}
-      {{- end -}}
-      {{- if hasKey $mw "blackListMode" }}
-      blackListMode: {{ $mw.blackListMode }}
-      {{- end -}}
-      {{- if hasKey $mw "silentStartUp" }}
-      silentStartup: {{ $mw.silentStartUp }}
-      {{- end -}}
-      {{- if hasKey $mw "addCountryHeader" }}
-      addCountryHeader: {{ $mw.addCountryHeader }}
-      {{- end }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "allowLocalRequests" "value" $mw.allowLocalRequests) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "logLocalRequests" "value" $mw.logLocalRequests) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "logAllowedRequests" "value" $mw.logAllowedRequests) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "logApiRequests" "value" $mw.logApiRequests) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "apiTimeoutMs" "value" $mw.apiTimeoutMs) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "cacheSize" "value" $mw.cacheSize) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "forceMonthlyUpdate" "value" $mw.forceMonthlyUpdate) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "allowUnknownCountries" "value" $mw.allowUnknownCountries) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.string" (dict "key" "unknownCountryApiResponse" "value" $mw.unknownCountryApiResponse) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "blackListMode" "value" $mw.blackListMode) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "silentStartUp" "value" $mw.silentStartUp) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "addCountryHeader" "value" $mw.addCountryHeader) | nindent 6 }}
       countries:
         {{- range $mw.countries }}
         - {{ . | quote }}

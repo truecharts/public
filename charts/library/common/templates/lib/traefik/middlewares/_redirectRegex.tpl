@@ -18,7 +18,5 @@
   redirectRegex:
     regex: {{ $mw.regex }}
     replacement: {{ $mw.replacement }}
-    {{- if hasKey $mw "permanent" }}
-    permanent: {{ $mw.permanent }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "permanent" "value" $mw.permanent) | nindent 4 }}
 {{- end -}}

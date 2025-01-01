@@ -8,10 +8,6 @@
     {{- fail "Middleware (rate-limit) - Expected either [average] or [burst] to be set" -}}
   {{- end }}
   rateLimit:
-    {{- if $mw.average }}
-    average: {{ $mw.average }}
-    {{- end -}}
-    {{- if $mw.burst }}
-    burst: {{ $mw.burst }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "average" "value" $mw.average) | nindent 4 }}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "burst" "value" $mw.burst) | nindent 4 }}
 {{- end -}}

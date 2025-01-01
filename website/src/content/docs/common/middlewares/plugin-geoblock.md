@@ -23,6 +23,29 @@ title: Plugin Geoblock Middleware
 
 ---
 
+## `pluginName`
+
+Define the pluginName
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `middlewares.$name.data.pluginName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `GeoBlock`                          |
+
+Example
+
+```yaml
+middlewares:
+  middleware-name:
+    data:
+      pluginName: my-plugin-name
+```
+
+---
+
 ## `api`
 
 Define the api
@@ -343,29 +366,6 @@ middlewares:
       countries:
         - some-country
         - some-other-country
-```
-
----
-
-## `pluginName`
-
-Define the pluginName
-
-|            |                                     |
-| ---------- | ----------------------------------- |
-| Key        | `middlewares.$name.data.pluginName` |
-| Type       | `string`                            |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
-| Default    | `GeoBlock`                          |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    data:
-      pluginName: my-plugin-name
 ```
 
 ---

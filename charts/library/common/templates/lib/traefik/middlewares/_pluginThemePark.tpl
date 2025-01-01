@@ -20,9 +20,7 @@
     {{ $mwName }}:
       app: {{ $mw.app }}
       theme: {{ $mw.theme }}
-      {{- if $mw.baseUrl }}
-      baseUrl: {{ $mw.baseUrl }}
-      {{- end -}}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.string" (dict "key" "baseUrl" "value" $mw.baseUrl) | nindent 6 }}
       {{- if $mw.addons }}
       addons:
         {{- range $mw.addons }}

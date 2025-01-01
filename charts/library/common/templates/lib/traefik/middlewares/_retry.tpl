@@ -8,7 +8,5 @@
   {{- end }}
   retry:
     attempts: {{ $mw.attempts }}
-    {{- if $mw.initialInterval }}
-    initialInterval: {{ $mw.initialInterval }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "initialInterval" "value" $mw.initialInterval) | nindent 4 }}
 {{- end -}}

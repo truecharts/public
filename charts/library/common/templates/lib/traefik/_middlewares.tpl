@@ -28,3 +28,31 @@
 
   {{- $typeClassMap | toJson -}}
 {{- end -}}
+
+{{/* Only render if its not <nil> and has a value of 0 or greater */}}
+{{- define "tc.v1.common.class.traefik.middleware.helper.int" -}}
+  {{- $key := .key -}}
+  {{- $value := .value -}}
+
+  {{- if and (not (kindIs "invalid" $value)) (ge ($value | int) 0) -}}
+    {{- $key }}: {{ $value }}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.traefik.middleware.helper.bool" -}}
+  {{- $key := .key -}}
+  {{- $value := .value | toString -}}
+
+  {{- if or (eq $value "true") (eq $value "false") -}}
+    {{- $key }}: {{ $value }}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.traefik.middleware.helper.string" -}}
+  {{- $key := .key -}}
+  {{- $value := .value | toString -}}
+
+  {{- if and $value (ne $value "<nil>") -}}
+    {{- $key }}: {{ $value | quote }}
+  {{- end -}}
+{{- end -}}

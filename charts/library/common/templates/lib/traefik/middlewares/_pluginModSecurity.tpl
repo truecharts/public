@@ -16,10 +16,6 @@
   plugin:
     {{ $mwName }}:
       modSecurityUrl: {{ $mw.modSecurityUrl }}
-      {{- if $mw.timeoutMillis }}
-      timeoutMillis: {{ $mw.timeoutMillis }}
-      {{- end -}}
-      {{- if $mw.maxBodySize }}
-      maxBodySize: {{ $mw.maxBodySize }}
-      {{- end -}}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "timeoutMillis" "value" $mw.timeoutMillis) | nindent 6 }}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "maxBodySize" "value" $mw.maxBodySize) | nindent 6 }}
 {{- end -}}

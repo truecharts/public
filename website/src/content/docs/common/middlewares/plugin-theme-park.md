@@ -23,6 +23,29 @@ title: Plugin Theme Park Middleware
 
 ---
 
+## `pluginName`
+
+Define the pluginName
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `middlewares.$name.data.pluginName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `traefik-themepark`                 |
+
+Example
+
+```yaml
+middlewares:
+  middleware-name:
+    data:
+      pluginName: my-plugin-name
+```
+
+---
+
 ## `app`
 
 Define the app
@@ -113,29 +136,6 @@ middlewares:
       addons:
         - some-addon
         - some-other-addon
-```
-
----
-
-## `pluginName`
-
-Define the pluginName
-
-|            |                                     |
-| ---------- | ----------------------------------- |
-| Key        | `middlewares.$name.data.pluginName` |
-| Type       | `string`                            |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
-| Default    | `traefik-themepark`                 |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    data:
-      pluginName: my-plugin-name
 ```
 
 ---

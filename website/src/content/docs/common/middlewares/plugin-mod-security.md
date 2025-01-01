@@ -23,6 +23,29 @@ title: Plugin Mod Security Middleware
 
 ---
 
+## `pluginName`
+
+Define the pluginName
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `middlewares.$name.data.pluginName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `traefik-modsecurity-plugin`        |
+
+Example
+
+```yaml
+middlewares:
+  middleware-name:
+    data:
+      pluginName: my-plugin-name
+```
+
+---
+
 ## `modSecurityUrl`
 
 Define the modSecurityUrl
@@ -88,29 +111,6 @@ middlewares:
   middleware-name:
     data:
       maxBodySize: 1024
-```
-
----
-
-## `pluginName`
-
-Define the pluginName
-
-|            |                                     |
-| ---------- | ----------------------------------- |
-| Key        | `middlewares.$name.data.pluginName` |
-| Type       | `string`                            |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
-| Default    | `traefik-modsecurity-plugin`        |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    data:
-      pluginName: my-plugin-name
 ```
 
 ---

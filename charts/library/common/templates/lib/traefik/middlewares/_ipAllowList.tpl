@@ -27,9 +27,7 @@
 
     {{- if $mw.ipStrategy }}
     ipStrategy:
-      {{- if hasKey $mw.ipStrategy "depth" }}
-      depth: {{ $mw.ipStrategy.depth }}
-      {{- end -}}
+      {{- include "tc.v1.common.class.traefik.middleware.helper.int" (dict "key" "depth" "value" $mw.ipStrategy.depth) | nindent 6 }}
       {{- if $mw.ipStrategy.excludedIPs }}
       excludedIPs:
         {{- range $mw.ipStrategy.excludedIPs }}

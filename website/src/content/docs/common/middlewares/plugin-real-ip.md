@@ -23,6 +23,29 @@ title: Plugin Real IP Middleware
 
 ---
 
+## `pluginName`
+
+Define the pluginName
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `middlewares.$name.data.pluginName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `traefik-real-ip`                   |
+
+Example
+
+```yaml
+middlewares:
+  middleware-name:
+    data:
+      pluginName: my-plugin-name
+```
+
+---
+
 ## `excludednets`
 
 Define the excludednets
@@ -44,29 +67,6 @@ middlewares:
       excludednets:
         - some-excluded-net
         - some-other-excluded-net
-```
-
----
-
-## `pluginName`
-
-Define the pluginName
-
-|            |                                     |
-| ---------- | ----------------------------------- |
-| Key        | `middlewares.$name.data.pluginName` |
-| Type       | `string`                            |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
-| Default    | `traefik-real-ip`                   |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    data:
-      pluginName: my-plugin-name
 ```
 
 ---

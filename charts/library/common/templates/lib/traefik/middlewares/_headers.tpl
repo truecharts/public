@@ -61,9 +61,7 @@
     accessControlMaxAge: {{ $mw.accessControlMaxAge }}
     {{- end -}}
 
-    {{- if hasKey $mw "addVaryHeader" }}
-    addVaryHeader: {{ $mw.addVaryHeader }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "addVaryHeader" "value" $mw.addVaryHeader) | nindent 4 }}
 
     {{- if $mw.allowedHosts }}
     allowedHosts:
@@ -90,33 +88,17 @@
     stsSeconds: {{ $mw.stsSeconds }}
     {{- end -}}
 
-    {{- if hasKey $mw "stsIncludeSubdomains" }}
-    stsIncludeSubdomains: {{ $mw.stsIncludeSubdomains }}
-    {{- end -}}
-
-    {{- if hasKey $mw "stsPreload" }}
-    stsPreload: {{ $mw.stsPreload }}
-    {{- end -}}
-
-    {{- if hasKey $mw "forceSTSHeader" }}
-    forceSTSHeader: {{ $mw.forceSTSHeader }}
-    {{- end -}}
-
-    {{- if hasKey $mw "frameDeny" }}
-    frameDeny: {{ $mw.frameDeny }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "stsIncludeSubdomains" "value" $mw.stsIncludeSubdomains) | nindent 4 }}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "stsPreload" "value" $mw.stsPreload) | nindent 4 }}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "forceSTSHeader" "value" $mw.forceSTSHeader) | nindent 4 }}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "frameDeny" "value" $mw.frameDeny) | nindent 4 }}
 
     {{- if $mw.customFrameOptionsValue }}
     customFrameOptionsValue: {{ $mw.customFrameOptionsValue }}
     {{- end -}}
 
-    {{- if hasKey $mw "contentTypeNosniff" }}
-    contentTypeNosniff: {{ $mw.contentTypeNosniff }}
-    {{- end -}}
-
-    {{- if hasKey $mw "browserXssFilter" }}
-    browserXssFilter: {{ $mw.browserXssFilter }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "contentTypeNosniff" "value" $mw.contentTypeNosniff) | nindent 4 }}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "browserXssFilter" "value" $mw.browserXssFilter) | nindent 4 }}
 
     {{- if $mw.customBrowserXSSValue }}
     customBrowserXSSValue: {{ $mw.customBrowserXSSValue }}
@@ -142,7 +124,5 @@
     permissionsPolicy: {{ $mw.permissionsPolicy }}
     {{- end -}}
 
-    {{- if hasKey $mw "isDevelopment" }}
-    isDevelopment: {{ $mw.isDevelopment }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.bool" (dict "key" "isDevelopment" "value" $mw.isDevelopment) | nindent 4 }}
 {{- end -}}

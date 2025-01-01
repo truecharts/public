@@ -35,9 +35,7 @@
     address: {{ $mw.address }}
     trustForwardHeader: {{ $mw.trustForwardHeader }}
 
-    {{- if $mw.authResponseHeadersRegex }}
-    authResponseHeadersRegex: {{ $mw.authResponseHeadersRegex }}
-    {{- end -}}
+    {{- include "tc.v1.common.class.traefik.middleware.helper.string" (dict "key" "authResponseHeadersRegex" "value" $mw.authResponseHeadersRegex) | nindent 4 }}
 
     {{- if $mw.authResponseHeaders }}
     authResponseHeaders:
