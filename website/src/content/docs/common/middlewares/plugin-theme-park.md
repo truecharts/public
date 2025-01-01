@@ -1,5 +1,5 @@
 ---
-title: IP Allow List Middleware
+title: Plugin Theme Park Middleware
 ---
 
 :::note

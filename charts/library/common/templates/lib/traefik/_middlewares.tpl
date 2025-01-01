@@ -20,6 +20,7 @@
 
     "plugin-theme-park"   "tc.v1.common.class.traefik.middleware.pluginThemePark"
     "plugin-real-ip"      "tc.v1.common.class.traefik.middleware.pluginRealIP"
+    "plugin-mod-security" "tc.v1.common.class.traefik.middleware.pluginModSecurity"
   -}}
 
   {{- $typeClassMap | toJson -}}

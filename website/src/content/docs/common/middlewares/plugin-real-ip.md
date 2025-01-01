@@ -1,5 +1,5 @@
 ---
-title: IP Allow List Middleware
+title: Plugin Real IP Middleware
 ---
 
 :::note
