@@ -16,28 +16,10 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $typeClass := dict
-    "add-prefix"          "tc.v1.common.class.traefik.middleware.addPrefix"
-    "basic-auth"          "tc.v1.common.class.traefik.middleware.basicAuth"
-    "buffering"           "tc.v1.common.class.traefik.middleware.buffering"
-    "chain"               "tc.v1.common.class.traefik.middleware.chain"
-    "compress"            "tc.v1.common.class.traefik.middleware.compress"
-    "content-type"        "tc.v1.common.class.traefik.middleware.contentType"
-    "forward-auth"        "tc.v1.common.class.traefik.middleware.forwardAuth"
-    "headers"             "tc.v1.common.class.traefik.middleware.headers"
-    "ip-allow-list"       "tc.v1.common.class.traefik.middleware.ipAllowList"
-    "rate-limit"          "tc.v1.common.class.traefik.middleware.rateLimit"
-    "redirect-regex"      "tc.v1.common.class.traefik.middleware.redirectRegex"
-    "redirect-scheme"     "tc.v1.common.class.traefik.middleware.redirectScheme"
-    "replace-path"        "tc.v1.common.class.traefik.middleware.replacePath"
-    "replace-path-regex"  "tc.v1.common.class.traefik.middleware.replacePathRegex"
-    "retry"               "tc.v1.common.class.traefik.middleware.retry"
-    "strip-prefix"        "tc.v1.common.class.traefik.middleware.stripPrefix"
-    "strip-prefix-regex"  "tc.v1.common.class.traefik.middleware.stripPrefixRegex"
-  -}}
+  {{- $typeClassMap := (include "tc.v1.common.lib.traefik.middlewares.map" $) | fromJson -}}
 
-  {{- if not (hasKey $typeClass $objectData.type) -}}
-    {{- fail (printf "Traefik - Middleware [%s] is not supported. Supported middlewares are [%s]" $objectData.type (keys $typeClass | join ", ")) -}}
+  {{- if not (hasKey $typeClassMap $objectData.type) -}}
+    {{- fail (printf "Traefik - Middleware [%s] is not supported. Supported middlewares are [%s]" $objectData.type (keys $typeClassMap | join ", ")) -}}
   {{- end }}
 ---
 apiVersion: traefik.io/v1alpha1
@@ -60,5 +42,5 @@ spec:
     Nothing goes after the include, each middleware can also render other manifests.
     For the same reason indentation must be handled by each middleware.
   */ -}}
-  {{- include (get $typeClass $objectData.type) (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- include (get $typeClassMap $objectData.type) (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
 {{- end -}}
