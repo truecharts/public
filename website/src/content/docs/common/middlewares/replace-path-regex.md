@@ -6,6 +6,7 @@ title: Replace Path Regex Middleware
 
 - Examples under each key are only to be used as a placement guide
 - See the [Full Examples](/common/middlewares/replace-path-regex#full-examples) section for complete examples.
+- Upstream documentation for this middleware can be found [here](https://doc.traefik.io/traefik/middlewares/http/replacepathregex)
 
 :::
 
