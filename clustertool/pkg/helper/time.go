@@ -13,8 +13,6 @@ import (
 func CheckSystemTime() bool {
     log.Info().Msg("Checking if System Time is correct...")
     threshold := 5 * time.Second
-    // Get the current system time
-    systemTime := time.Now()
 
     // Get the time from an NTP server
     ntpTime, err := ntp.Time("pool.ntp.org")
@@ -22,6 +20,9 @@ func CheckSystemTime() bool {
         log.Info().Msgf("Failed to get NTP time: %v", err)
         return true
     }
+
+    // Get the current system time
+    systemTime := time.Now()
 
     // Calculate the difference between system time and NTP time
     timeDifference := systemTime.Sub(ntpTime)
