@@ -12,7 +12,7 @@ import (
 // checkSystemTime compares the system time with an NTP server time and returns whether it's correct within the given threshold
 func CheckSystemTime() bool {
     log.Info().Msg("Checking if System Time is correct...")
-    threshold := 5 * time.Second
+    threshold := 10 * time.Second
 
     // Get the time from an NTP server
     ntpTime, err := ntp.Time("pool.ntp.org")
