@@ -1,0 +1,57 @@
+suite: middleware name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: buffering
+          data:
+            foo: bar
+        my-middleware2:
+          enabled: true
+          type: buffering
+          data:
+            foo: bar
+        my-middleware3:
+          enabled: true
+          type: buffering
+          expandObjectName: false
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        isAPIVersion:
+          of: traefik.io/v1alpha1
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-middleware1
+      - documentIndex: &otherMiddlewareDoc 1
+        isKind:
+          of: Middleware
+      - documentIndex: *otherMiddlewareDoc
+        isAPIVersion:
+          of: traefik.io/v1alpha1
+      - documentIndex: *otherMiddlewareDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-middleware2
+      - documentIndex: &otherMiddlewareDoc2 2
+        isKind:
+          of: Middleware
+      - documentIndex: *otherMiddlewareDoc2
+        isAPIVersion:
+          of: traefik.io/v1alpha1
+      - documentIndex: *otherMiddlewareDoc2
+        equal:
+          path: metadata.name
+          value: my-middleware3

@@ -1,0 +1,81 @@
+suite: basicAuth middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: basic-auth
+          data:
+            secret: some-secret
+        my-middleware2:
+          enabled: true
+          type: basic-auth
+          data:
+            users:
+              - username: some-username
+                password: some-password
+              - username: some-other-username
+                password: some-other-password
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            basicAuth:
+              secret: some-secret
+      - documentIndex: &otherMiddlewareDoc 1
+        isKind:
+          of: Middleware
+      - documentIndex: *otherMiddlewareDoc
+        equal:
+          path: spec
+          value:
+            basicAuth:
+              secret: test-release-name-common-test-my-middleware2
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-middleware2
+      - documentIndex: *secretDoc
+        matchRegex:
+          path: stringData.users
+          pattern: some-username:.+\nsome-other-username:.+
+
+  - it: should fail with missing both users and secret
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: basic-auth
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (basic-auth) - Expected at least one of [users] or [secret] to be set
+
+  - it: should fail with both secret and users set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: basic-auth
+          data:
+            secret: some-secret
+            users:
+              - username: some-username
+                password: some-password
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (basic-auth) - Expected either [users] or [secret] to be set, but not both

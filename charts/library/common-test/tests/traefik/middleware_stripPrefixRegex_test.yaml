@@ -1,0 +1,41 @@
+suite: stripPrefixRegex middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: strip-prefix-regex
+          data:
+            regex:
+              - some-regex
+              - some-other-regex
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            stripPrefixRegex:
+              regex:
+                - some-regex
+                - some-other-regex
+
+  - it: should fail with missing regex
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: strip-prefix-regex
+          data:
+            regex: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (strip-prefix-regex) - Expected [regex] to be set
