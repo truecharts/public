@@ -26,7 +26,7 @@ COPY ./containers/apps/kube-sa-proxy/internal/utils ./internal/utils
 RUN go build -ldflags "-w -s" -o /output/my-proxy-service .
 
 # Stage 2 - Create the final image
-FROM alpine@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d AS runner
+FROM alpine@sha256:21dc6063fd678b478f57c0e13f47560d0ea4eeba26dfc947b2a4f81f686b9f45 AS runner
 
 # Install necessary runtime dependencies
 RUN apk --no-cache add ca-certificates
