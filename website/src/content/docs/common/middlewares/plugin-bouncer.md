@@ -726,11 +726,11 @@ middlewares:
   middleware-name:
     data:
       crowdsecLapiTLSCertificateBouncerKey: |-
-        -----BEGIN RSA PRIVATE KEY-----
+        -----BEGIN TOTALY NOT A SECRET-----
         MIIEogIBAAKCAQEAtYQnbJqifH+ZymePylDxGGLIuxzcAUU4/ajNj+qRAdI/Ux3d
         ...
         ic5cDRo6/VD3CS3MYzyBcibaGaV34nr0G/pI+KEqkYChzk/PZRA=
-        -----END RSA PRIVATE KEY-----
+        -----END TOTALY NOT A SECRET-----
 ```
 
 ---
@@ -937,18 +937,18 @@ middlewares:
       redisCachePassword: password
       redisCacheDatabase: "5"
       crowdsecLapiTLSCertificateAuthority: |-
-        -----BEGIN CERTIFICATE-----
+        -----BEGIN TOTALY NOT A CERT-----
         MIIEBzCCAu+gAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwgZQxCzAJBgNVBAYTAlVT
         ...
         Q0veeNzBQXg1f/JxfeA39IDIX1kiCf71tGlT
-        -----END CERTIFICATE-----
+        -----END TOTALY NOT A CERT-----
       crowdsecLapiTLSCertificateBouncer: |-
-        -----BEGIN CERTIFICATE-----
+        -----BEGIN TOTALY NOT A CERT-----
         MIIEHjCCAwagAwIBAgIUOBTs1eqkaAUcPplztUr2xRapvNAwDQYJKoZIhvcNAQEL
         ...
         RaXAnYYUVRblS1jmePemh388hFxbmrpG2pITx8B5FMULqHoj11o2Rl0gSV6tHIHz
         N2U=
-        -----END CERTIFICATE-----
+        -----END TOTALY NOT A CERT-----
       captchaProvider: hcaptcha
       captchaSiteKey: FIXME
       captchaSecretKey: FIXME
