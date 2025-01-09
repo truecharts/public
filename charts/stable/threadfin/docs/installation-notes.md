@@ -16,4 +16,4 @@ Enable Stream Buffer of FFmpeg in the ThreadFin administration webpage
 ## Additional info
 
 Review the information here for Plex, Jellyfin or Emby minimum requirements
-https://github.com/Threadfin/Threadfin?tab=readme-ov-file 
+https://github.com/Threadfin/Threadfin?tab=readme-ov-file
