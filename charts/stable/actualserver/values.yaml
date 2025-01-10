@@ -32,12 +32,9 @@ service:
         protocol: http
         targetPort: 5006
 persistence:
-  server-files:
+  data:
     enabled: true
-    mountPath: /data/server-files
-  user-files:
-    enabled: true
-    mountPath: /data/user-files
+    mountPath: /data
 portal:
   open:
     enabled: true
