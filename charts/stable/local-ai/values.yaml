@@ -1,7 +1,7 @@
 image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2@sha256:495aa2bfc2f839460e45066443fcd7931f4935968a6ef2f62c240d754da3d519
+  tag: v2.25.0@sha256:9941689d599c154f15bf88d9ae7942d388909a2711ead51b8534f7ee3487f869
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -9,7 +9,7 @@ ffmpegImage:
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2-cublas-cuda12-core@sha256:73010f9e01fcc46ba7f424e203d3d69f2ea3b0f784ccfc2b98c6dea607394446
+  tag: v2.25.0-cublas-cuda12-core@sha256:26a399963615f05e98e6a1d03142fb9a34da5899556e424eec3f7d6ca56a74f2
 cublasCuda12FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
@@ -17,19 +17,19 @@ cublasCuda12FfmpegImage:
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2-cublas-cuda11-core@sha256:a6863af39d7867bcdb9eba270d921631045006532200d8baf4d352a65f869771
+  tag: v2.25.0-cublas-cuda11-core@sha256:07c6e5699bd4242d54aaa1d61fd633d63b76780b7b4c266e08ef409da1a896e2
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2-cublas-cuda11-ffmpeg-core@sha256:c5ff9f07daa577ec4e6c0e52fcc81811845d64b5c2dd0046edc584fe5d3c6bf7
+  tag: v2.25.0-cublas-cuda11-ffmpeg-core@sha256:df04e93b10787c702047792b81920d202d4ca5bf8ad1a5a4bd4e5045899bdc45
 allInOneCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2-aio-gpu-nvidia-cuda-12@sha256:f2dae33c620c89c8c7801cc9661e92630e679a26b05c71be4f177da504284ae6
+  tag: v2.25.0-aio-gpu-nvidia-cuda-12@sha256:1d517dbfed3445973a90b328659b9c51b066bec42af243eb43376c63c2d93b84
 allInOneCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.24.2-aio-gpu-nvidia-cuda-11@sha256:49941bddfb0d26eb4949c1ccc82ec517a2f4ee5536958103bed01f89deb6e478
+  tag: v2.25.0-aio-gpu-nvidia-cuda-11@sha256:5ea947a9d79f69db9e7af889bdfbf1e7b2e66de34f65ab0f485e168597651dba
 allInOneCpuImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
