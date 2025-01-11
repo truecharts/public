@@ -1,0 +1,35 @@
+suite: compress middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: rate-limit
+          data:
+            average: 1000
+            burst: 2000
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        equal:
+          path: spec
+          value:
+            rateLimit:
+              average: 1000
+              burst: 2000
+  - it: should fail with missing average and burst
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: rate-limit
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (rate-limit) - Expected either [average] or [burst] to be set

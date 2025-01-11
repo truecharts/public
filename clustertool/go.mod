@@ -7,11 +7,11 @@ require (
     github.com/Masterminds/semver/v3 v3.3.1
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.14
-    github.com/getsops/sops/v3 v3.9.2
-    github.com/go-git/go-git/v5 v5.13.0
+    github.com/getsops/sops/v3 v3.9.3
+    github.com/go-git/go-git/v5 v5.13.1
     github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.23.0
-    github.com/invopop/jsonschema v0.12.0
+    github.com/invopop/jsonschema v0.13.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
     github.com/knadh/koanf/providers/file v1.1.2
@@ -20,13 +20,13 @@ require (
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.10.0-alpha.0
     github.com/spf13/cobra v1.8.1
-    golang.org/x/crypto v0.31.0
+    golang.org/x/crypto v0.32.0
     gopkg.in/yaml.v3 v3.0.1
     helm.sh/helm/v3 v3.16.4
     k8s.io/api v0.32.0
     k8s.io/apimachinery v0.32.0
     k8s.io/client-go v0.32.0
-    sigs.k8s.io/controller-runtime v0.19.3
+    sigs.k8s.io/controller-runtime v0.19.4
     sigs.k8s.io/kustomize/api v0.18.0
     sigs.k8s.io/kustomize/kyaml v0.18.1
     sigs.k8s.io/yaml v1.4.0
@@ -34,7 +34,7 @@ require (
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.16
 
-replace go.mozilla.org/sops/v3 => github.com/getsops/sops/v3 v3.9.2
+replace go.mozilla.org/sops/v3 => github.com/getsops/sops/v3 v3.9.3
 
 require (
     cel.dev/expr v0.18.0 // indirect

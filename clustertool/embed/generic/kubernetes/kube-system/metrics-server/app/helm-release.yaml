@@ -2,30 +2,30 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-    name: metrics-server
-    namespace: kube-system
+  name: metrics-server
+  namespace: kube-system
 spec:
   interval: 15m
   chart:
-      spec:
-          chart: metrics-server
-          version: 0.1.0
-          sourceRef:
-              kind: HelmRepository
-              name: truecharts
-              namespace: flux-system
-          interval: 15m
+    spec:
+      chart: metrics-server
+      version: 0.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
   timeout: 20m
   maxHistory: 3
   driftDetection:
     mode: warn
   install:
-      createNamespace: true
-      remediation:
-          retries: 3
+    createNamespace: true
+    remediation:
+      retries: 3
   upgrade:
-      remediation:
-          retries: 3
+    remediation:
+      retries: 3
   uninstall:
-      keepHistory: false
+    keepHistory: false
   values:

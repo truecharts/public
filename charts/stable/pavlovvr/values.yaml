@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/steamcmd
-  tag: pavlovvr@sha256:d6a60c3c019b636f367a40485fd1d96cdcdd4ba0e2f0649e37430d243ff0cf75
+  tag: pavlovvr@sha256:6131e0be611e55f4df02feb7e249d9ffa1724ff4911a8f38a640e39cf9a9a2f7
 persistence:
   serverfiles:
     enabled: true
@@ -27,6 +27,14 @@ service:
         port: 7777
         protocol: tcp
         targetPort: 7777
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 7777
+        protocol: udp
+        targetPort: 7777
   udp2:
     enabled: true
     ports:
@@ -43,14 +51,7 @@ service:
         port: 7977
         protocol: udp
         targetPort: 7977
-  udpgameport:
-    enabled: true
-    ports:
-      udpgameport:
-        enabled: true
-        port: 7777
-        protocol: udp
-        targetPort: 7777
+
 workload:
   main:
     podSpec:

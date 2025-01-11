@@ -1,0 +1,69 @@
+suite: redirectRegex middleware test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with all set
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: redirect-regex
+          data:
+            regex: some-regex
+            replacement: some-replacement
+            permanent: true
+    asserts:
+      - documentIndex: &middlewareDoc 0
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: spec
+          value:
+            redirectRegex:
+              regex: some-regex
+              replacement: some-replacement
+              permanent: true
+
+  - it: should fail with missing regex
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: redirect-regex
+          data:
+            replacement: some-replacement
+            permanent: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (redirect-regex) - Expected [regex] to be set
+
+  - it: should fail with missing replacement
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: redirect-regex
+          data:
+            regex: some-regex
+            permanent: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (redirect-regex) - Expected [replacement] to be set
+
+  - it: should fail with invalid permanent
+    set:
+      middlewares:
+        my-middleware1:
+          enabled: true
+          type: redirect-regex
+          data:
+            regex: some-regex
+            replacement: some-replacement
+            permanent: some-value
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware (redirect-regex) - Expected [permanent] to be a boolean, but got [string]

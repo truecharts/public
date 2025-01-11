@@ -235,6 +235,20 @@ credentials:
   #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
+middlewares: {}
+#   basic-auth:
+#     type: basicAuth
+#     data:
+#       # middleware specific data ie
+#       users:
+#         - username: user1
+#           password: password1
+#   some-other-middleware:
+#     type: someOtherMiddleware
+#     data:
+#       # middleware specific data ie
+#       someOtherMiddlewareData: someOtherMiddlewareData
+
 # -- (docs/persistence/README.md)
 persistence:
   shared:
@@ -480,7 +494,7 @@ codeserverImage:
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.20.3@sha256:0f0162635afb50d4794d7fd92b74c635ae3422cc426284da88e5e8754d1cfdcd
+  tag: v3.20.3@sha256:1e8d4e2c057280ff8e4139757ff2a5d77a0f7271a3be3b8244a19a2697840e01
   pullPolicy: IfNotPresent
 
 scratchImage:
@@ -505,22 +519,22 @@ yqImage:
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:eb330c9d63de46eac5c0acf58fd1fd79190d92505f8957b66ba150b24244774e
+  tag: v1.1.0@sha256:5e95119261f8184663b618bf53db254fad31a369d74169155406d0472cb7680c
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:e5022ada570152f7d4a051fe61745cf39f68cc4faf195d9d3654aeccbd60ce41
+  tag: v1.1.0@sha256:725f7d48022a74206ad78807560ea92ad0356c8092cc7ec756660918465b8bae
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:8fe7439963ea5fece9bac13c18eb196ca70434a1d87630f5e04360ffa21e2851
+  tag: v1.1.0@sha256:11cbaee0ce92bc243071f31f4fb8bc30c2735ee34ead52cd842713c77bdf8739
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: v1.1.0@sha256:ee44fbd32673ba711aa72c95e604d51f845038366916559cec52ecfb8148073c
+  tag: v1.1.0@sha256:9d94dd46107cedcd2e838a2040d12da4f3d5f7bf1baf4615dd606465c3787188
   pullPolicy: IfNotPresent
 
 postgres15Image:

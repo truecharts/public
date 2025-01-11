@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/ich777/steamcmd
-  tag: arma3@sha256:6fc4a810c2a054f7b6e948499d507689191a4d6b2024cae67dc9fd3293192a15
+  tag: arma3@sha256:0823a8e9faa4b2d1db640c839ff3915388442d4b5f9cdd5227c1a60ee1fdf1bf
 persistence:
   profiles:
     enabled: true
@@ -27,6 +27,14 @@ service:
         port: 2302
         protocol: tcp
         targetPort: 2302
+  mainudp:
+    enabled: true
+    ports:
+      mainudp:
+        enabled: true
+        port: 2302
+        protocol: udp
+        targetPort: 2302
   udpbattleyetra:
     enabled: true
     ports:
@@ -35,14 +43,6 @@ service:
         port: 2306
         protocol: udp
         targetPort: 2306
-  udpgameport:
-    enabled: true
-    ports:
-      udpgameport:
-        enabled: true
-        port: 2302
-        protocol: udp
-        targetPort: 2302
   udpsteammaster:
     enabled: true
     ports:

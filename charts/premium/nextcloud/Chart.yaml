@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.5.0
+    version: 15.5.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -49,4 +49,4 @@ sources:
   - https://hub.docker.com/r/collabora/code
   - https://hub.docker.com/r/nginxinc/nginx-unprivileged
 type: application
-version: 32.6.0
+version: 32.6.4

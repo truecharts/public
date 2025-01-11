@@ -39,8 +39,8 @@ See more info about global values [here](/common/global)
 | ---------- | ----------------------------------- |
 | Key        | `global`                            |
 | Type       | `map`                               |
-| Required   | ❌                                  |
-| Helm `tpl` | ❌                                  |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
 | Default    | See [here](/common/global#defaults) |
 
 Example
@@ -65,8 +65,8 @@ The fallback defaults are used when a value is not defined in the chart.
 | ---------- | --------------------------------------------- |
 | Key        | `fallbackDefaults`                            |
 | Type       | `map`                                         |
-| Required   | ❌                                            |
-| Helm `tpl` | ❌                                            |
+| Required   | ❌                                             |
+| Helm `tpl` | ❌                                             |
 | Default    | See [here](/common/fallbackdefaults#defaults) |
 
 ---
@@ -79,8 +79,8 @@ Define kubernetes resources, 1 per list item, tpl will be resolved
 | ---------- | ------------------ |
 | Key        | `extraTpl`         |
 | Type       | `list` of `string` |
-| Required   | ❌                 |
-| Helm `tpl` | ✅                 |
+| Required   | ❌                  |
+| Helm `tpl` | ✅                  |
 | Default    | `[]`               |
 
 Example
@@ -103,8 +103,8 @@ Contains specific settings for helm charts containing or using system
 | ---------- | ---------- |
 | Key        | `operator` |
 | Type       | `map`      |
-| Required   | ❌         |
-| Helm `tpl` | ❌         |
+| Required   | ❌          |
+| Helm `tpl` | ❌          |
 
 Default
 
@@ -138,8 +138,8 @@ Adds a configmap in the operator's namespace to register the chart as an operato
 | ---------- | ------------------- |
 | Key        | `operator.register` |
 | Type       | `bool`              |
-| Required   | ❌                  |
-| Helm `tpl` | ❌                  |
+| Required   | ❌                   |
+| Helm `tpl` | ❌                   |
 | Default    | `false`             |
 
 Example
@@ -159,8 +159,8 @@ Contains specific settings for verifying system
 | ---------- | ----------------- |
 | Key        | `operator.verify` |
 | Type       | `map`             |
-| Required   | ❌                |
-| Helm `tpl` | ❌                |
+| Required   | ❌                 |
+| Helm `tpl` | ❌                 |
 
 Default
 
@@ -192,8 +192,8 @@ Enables or disables the verification of system
 | ---------- | ------------------------- |
 | Key        | `operator.verify.enabled` |
 | Type       | `bool`                    |
-| Required   | ❌                        |
-| Helm `tpl` | ❌                        |
+| Required   | ❌                         |
+| Helm `tpl` | ❌                         |
 | Default    | `true`                    |
 
 Example
@@ -214,8 +214,8 @@ Additional system to verify
 | ---------- | ---------------------------------- |
 | Key        | `operator.verify.additionalsystem` |
 | Type       | `list` of `string`                 |
-| Required   | ❌                                 |
-| Helm `tpl` | ❌                                 |
+| Required   | ❌                                  |
+| Helm `tpl` | ❌                                  |
 | Default    | `[]`                               |
 
 Example
@@ -244,8 +244,8 @@ See more info about podOptions [here](/common/podoptions)
 | ---------- | --------------------------------------- |
 | Key        | `podOptions`                            |
 | Type       | `map`                                   |
-| Required   | ❌                                      |
-| Helm `tpl` | ❌                                      |
+| Required   | ❌                                       |
+| Helm `tpl` | ❌                                       |
 | Default    | See [here](/common/podoptions#defaults) |
 
 Example
@@ -287,8 +287,8 @@ See more info about containerOptions [here](/common/containeroptions)
 | ---------- | --------------------------------------------- |
 | Key        | `containerOptions`                            |
 | Type       | `map`                                         |
-| Required   | ❌                                            |
-| Helm `tpl` | ❌                                            |
+| Required   | ❌                                             |
+| Helm `tpl` | ❌                                             |
 | Default    | See [here](/common/containeroptions#defaults) |
 
 Example
@@ -309,8 +309,8 @@ Timezone that is used everywhere applicable, unless overridden at the container 
 | ---------- | ----- |
 | Key        | `TZ`  |
 | Type       | `map` |
-| Required   | ✅    |
-| Helm `tpl` | ❌    |
+| Required   | ✅     |
+| Helm `tpl` | ❌     |
 | Default    | `UTC` |
 
 Example
@@ -347,8 +347,8 @@ Resources apply to **EACH** container, not to the pod as a whole.
 | ---------- | -------------------------------------- |
 | Key        | `resources`                            |
 | Type       | `map`                                  |
-| Required   | ✅                                     |
-| Helm `tpl` | ❌                                     |
+| Required   | ✅                                      |
+| Helm `tpl` | ❌                                      |
 | Default    | See [here](/common/resources#defaults) |
 
 Example
@@ -379,8 +379,8 @@ See more info about securityContext [here](/common/securitycontext)
 | ---------- | -------------------------------------------- |
 | Key        | `securityContext`                            |
 | Type       | `map`                                        |
-| Required   | ✅                                           |
-| Helm `tpl` | ❌                                           |
+| Required   | ✅                                            |
+| Helm `tpl` | ❌                                            |
 | Default    | See [here](/common/securitycontext#defaults) |
 
 Example
@@ -455,8 +455,8 @@ Defines the image details
 | ---------- | ------- |
 | Key        | `image` |
 | Type       | `map`   |
-| Required   | ✅      |
-| Helm `tpl` | ❌      |
+| Required   | ✅       |
+| Helm `tpl` | ❌       |
 
 Default
 
@@ -486,8 +486,8 @@ Defines the image repository
 | ---------- | ------------------ |
 | Key        | `image.repository` |
 | Type       | `string`           |
-| Required   | ✅                 |
-| Helm `tpl` | ❌                 |
+| Required   | ✅                  |
+| Helm `tpl` | ❌                  |
 | Default    | `""`               |
 
 Example
@@ -507,8 +507,8 @@ Defines the image tag
 | ---------- | ----------- |
 | Key        | `image.tag` |
 | Type       | `string`    |
-| Required   | ✅          |
-| Helm `tpl` | ❌          |
+| Required   | ✅           |
+| Helm `tpl` | ❌           |
 | Default    | `""`        |
 
 Example
@@ -528,8 +528,8 @@ Defines the image pull policy
 | ---------- | ------------------ |
 | Key        | `image.pullPolicy` |
 | Type       | `string`           |
-| Required   | ✅                 |
-| Helm `tpl` | ❌                 |
+| Required   | ✅                  |
+| Helm `tpl` | ❌                  |
 | Default    | `IfNotPresent`     |
 
 Example
@@ -545,26 +545,27 @@ image:
 
 - [certificate](/common/certificate)
 - [configmap](/common/configmap)
-- [container](/common/container/)
+- [container](/common/container)
 - [containerOptions](/common/containeroptions)
 - [imagePullSecret](/common/imagepullsecret)
 - [ingress](/common/ingress)
+- [middlewares](/common/middlewares)
 - [notes](/common/notes)
-- [persistence](/common/persistence/)
+- [persistence](/common/persistence)
 - [podDisruptionBudget](/common/poddisruptionbudget)
 - [priorityClass](/common/priorityclass)
 - [rbac](/common/rbac)
 - [resources](/common/resources)
 - [secret](/common/secret)
 - [securityContext](/common/securitycontext)
-- [service](/common/service/)
+- [service](/common/service)
 - [serviceAccount](/common/serviceaccount)
 - [storageClass](/common/storageclass)
 - [volumeSnapshot](/common/volumesnapshot)
 - [volumeSnapshotClass](/common/volumesnapshotclass)
 - [webhook](/common/webhook)
 - [webhook](/common/webhook)
-- [workload](/common/workload/)
+- [workload](/common/workload)
 
 ---
 

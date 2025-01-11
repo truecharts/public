@@ -1,0 +1,103 @@
+suite: middleware validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 253 characters
+    set:
+      middlewares:
+        ? my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-long-long-long-long-long-long-long-name
+        : enabled: true
+          type: buffering
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-name-that-is-longer-than-253-characters-my-middleware-super-long-long-long-long-long-long-long-long-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      middlewares:
+        _my-middleware:
+          enabled: true
+          type: buffering
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [test-release-name-common-test-_my-middleware] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      middlewares:
+        my-middleware:
+          enabled: true
+          type: buffering
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      middlewares:
+        my-middleware:
+          enabled: true
+          type: buffering
+          labels: "not a dict"
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      middlewares:
+        my-middleware:
+          enabled: true
+          type: buffering
+          annotations: "not a dict"
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with data not a dict
+    set:
+      middlewares:
+        my-middleware:
+          enabled: true
+          type: buffering
+          data: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Expected [data] to be a dictionary, but got [string]
+
+  - it: should fail with empty enabled
+    set:
+      middlewares:
+        my-middleware:
+          enabled:
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Expected the defined key [enabled] in [middlewares.my-middleware] to not be empty
+
+  - it: should fail with empty type
+    set:
+      middlewares:
+        my-middleware:
+          enabled: true
+          type:
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Middleware - Expected [type] to be set
