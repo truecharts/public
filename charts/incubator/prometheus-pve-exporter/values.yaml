@@ -28,7 +28,7 @@ secret:
   credentials:
     enabled: true
     data:
-      PVE_TOKEN_VALUE: { { .Values.pve.credentials.tokenValue } }
+      PVE_TOKEN_VALUE: "{{ .Values.pve.credentials.tokenValue }}"
 
 workload:
   main:
