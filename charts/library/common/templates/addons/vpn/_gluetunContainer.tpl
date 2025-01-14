@@ -38,7 +38,7 @@ env:
   {{- $excludednetworks = (printf "%v,%v" $excludednetworks .) -}}
 {{- end }}
 {{- range $.Values.addons.vpn.excludedNetworks_IPv6 -}}
-  {{- $excludednetworksv6 = (printf "%v,%v" $excludednetworks .) -}}
+  {{- $excludednetworks = (printf "%v,%v" $excludednetworks .) -}}
 {{- end }}
   FIREWALL: "on"
   FIREWALL_OUTBOUND_SUBNETS: {{ $excludednetworks | quote }}
