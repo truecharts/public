@@ -39,12 +39,8 @@
   - --containerd-sock={{ .Values.spegel.containerdSock }}
   - --containerd-namespace={{ .Values.spegel.containerdNamespace }}
   - --containerd-registry-config-path={{ .Values.spegel.containerdRegistryConfigPath }}
-  - --bootstrap-kind=kubernetes
-  {{- with .Values.spegel.kubeconfigPath }}
-  - --kubeconfig-path={{ . }}
-  {{- end }}
-  - '--leader-election-namespace={{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $.Values.workload.main.podSpec.containers.main "caller" "Deployment") }}'
-  - --leader-election-name={{ .Release.Name }}-leader-election
+  - --bootstrap-kind=dns
+  - --dns-bootstrap-domain={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-router.{{ include "tc.v1.common.lib.metadata.namespace" (dict "caller" "spegel" "rootCtx" $ "objectData" .Values) }}.svc.cluster.local.
   - --resolve-latest-tag={{ .Values.spegel.resolveLatestTag }}
   - --local-addr=$(NODE_IP):{{ .Values.service.main.ports.main.hostPort }}
   {{- with .Values.spegel.containerdContentPath }}
