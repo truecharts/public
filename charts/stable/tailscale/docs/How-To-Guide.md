@@ -15,6 +15,7 @@ This guide doesn't cover using Tailscale with individual applications. While the
 
 - Tailscale Account (Free accounts available at [Tailscale's Official website](https://www.tailscale.com))
 - Tailscale Truecharts Chart
+- Tailscale DNS setup for Talos Cluster Domain
 
 ## Prerequisites (LAN access only)
 
@@ -84,6 +85,12 @@ Should be left as is, unless you know what you are doing!
 
 You can set custom resources for CPU/RAM, but defaults should be work fine in most cases
 Defaults are 4 vCores and 8G RAM.
+
+### Tailscale DNS Setup
+
+In Tailscale Portal on DNS, Namespace section add a new custom nameserver using  the Blocky IP address and restrict to domain (SplitDNS) for the Domain used in ClusterTool for Talos.
+
+![tailscale-nameserver](./img/tailscale-nameserver.png)
 
 ### Addons
 
