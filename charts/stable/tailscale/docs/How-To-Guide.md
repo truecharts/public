@@ -2,8 +2,8 @@
 title: How-To
 ---
 
-This is a quick how-to or setup-guide to use Tailscale using on your TrueNAS box.
-This can be applied to other systems but this specific guide is SCALE specific with the prerequisites.
+This is a quick how-to or setup-guide to use Tailscale on Talos.
+This can be applied to other systems but this specific guide is Talos on TrueNAS specific with the prerequisites.
 
 :::caution
 
@@ -39,13 +39,6 @@ Also prepare your Tailscale Auth Key for your setup, easy to generate on the pag
 
 Ideally use `tailscale` but you can use any name here.
 
-### Global Pod Options
-
-This section is hidden by default for TrueNAS SCALE but if you wish to use `Host-Networking` or create an interface inside TrueNAS SCALE (`tailscale0`)
-
-- Click `Expert - Pod Options`
-- Click the checkbox for `Host-Networking` if it isn't enabled
-
 ### App Configuration
 
 - `Auth Key`: The key you received from tailscale in prerequisites above
@@ -59,22 +52,25 @@ This section is hidden by default for TrueNAS SCALE but if you wish to use `Host
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
 
-TODO: Update image with the new fields
-![tailscale-step-3](./img/How-To-Image-2.png)
-
 **Hostname example**
 
 ![hostname-example](./img/Hostname.png)
+
+## Namespace Privileges Required for Talos Cluster
+
+In your namespace.yaml file add ```
+labels:
+    pod-security.kubernetes.io/enforce: privileged
+```
+to allow this Chart to run with privileged permissions.
 
 ### Networking and Services
 
 The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
 
-![tailscale-step-4](./img/How-To-Image-3.png)
-
 ### Storage and Persistence
 
-Highly recommended to leave it as `PVC (Simple)`
+Highly recommended to leave it as specified in the Charts values.yaml file.
 
 ### Ingress
 
