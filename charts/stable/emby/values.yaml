@@ -41,7 +41,7 @@ workload:
           env: {}
   broadcastproxy:
     enabled: false
-    type: DaemonSet
+    type: Deployment
     podSpec:
       hostNetwork: true
       # Proxy doesn't seem to respect the TERM signal, so by default
