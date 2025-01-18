@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/spegel-org/spegel
   pullPolicy: IfNotPresent
-  tag: v0.0.29
+  tag: v0.0.30
 
 securityContext:
   container:
@@ -21,6 +21,7 @@ service:
         nodePort: 30021
   router:
     enabled: true
+    clusterIP: None
     publishNotReadyAddresses: true
     ports:
       router:
