@@ -6,7 +6,7 @@ require (
     filippo.io/age v1.2.1
     github.com/Masterminds/semver/v3 v3.3.1
     github.com/beevik/ntp v1.4.3
-    github.com/budimanjojo/talhelper/v3 v3.0.14
+    github.com/budimanjojo/talhelper/v3 v3.0.16
     github.com/getsops/sops/v3 v3.9.3
     github.com/go-git/go-git/v5 v5.13.1
     github.com/go-logr/zerologr v1.2.3
