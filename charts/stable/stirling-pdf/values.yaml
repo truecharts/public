@@ -1,15 +1,15 @@
 image:
   repository: ghcr.io/stirling-tools/s-pdf
   pullPolicy: IfNotPresent
-  tag: 0.36.6-ultra-lite@sha256:e0b077baaed97e04f6dbc09efecfd3e3ebd5f092e4f2a8f82d14b330fe48e96f
+  tag: 0.38.0-ultra-lite@sha256:56d4b3191e437e438021d60486550bd8e06dfbff6b96cd3acf85f40d25daa7d6
 fatImage:
   repository: ghcr.io/stirling-tools/s-pdf
   pullPolicy: IfNotPresent
-  tag: 0.36.6-fat@sha256:002ef64728ef44ee0671a4899f224b50e0142b58b5e47c68414d9bf86f8484bd
+  tag: 0.38.0-fat@sha256:49e41b5833963927f254a08b867efe0db65c75e6d3116fe285fb5fcf05927b3e
 fullImage:
   repository: ghcr.io/stirling-tools/s-pdf
   pullPolicy: IfNotPresent
-  tag: 0.36.6@sha256:05b680a2dfb127b31f4b4e3d04637bee2fd84e9005b96f0e32c639e61ca6039e
+  tag: 0.38.0@sha256:346b56d63f87eafe7d024abbe8aca458f722054838b4d6b8eb7cfa7f7ec2c2b9
 service:
   main:
     ports:
