@@ -211,7 +211,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5
+        uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5
         with:
           # list of Docker images to use as base name for tags
           images: |
