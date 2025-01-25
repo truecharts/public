@@ -34,11 +34,12 @@ env:
   DOT: "off"
 {{- if $.Values.addons.vpn.killSwitch }}
 {{- $excludednetworks := (printf "%v,%v" $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR) -}}
+{{- $excludednetworksv6 := "" -}}
 {{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
   {{- $excludednetworks = (printf "%v,%v" $excludednetworks .) -}}
 {{- end }}
 {{- range $.Values.addons.vpn.excludedNetworks_IPv6 -}}
-  {{- $excludednetworks = (printf "%v,%v" $excludednetworks .) -}}
+  {{- $excludednetworksv6 = (printf "%v,%v" $excludednetworksv6 .) -}}
 {{- end }}
   FIREWALL: "on"
   FIREWALL_OUTBOUND_SUBNETS: {{ $excludednetworks | quote }}
