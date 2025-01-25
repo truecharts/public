@@ -1,33 +1,13 @@
 image:
   repository: ghcr.io/techno-tim/littlelink-server
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f953db398533c453745e1db670680e1cbf7e36072eaec0d938fef81334a72553
+  tag: latest@sha256:c66ac0f65d674eaf40ed577bfa749fde58c594f436d387697ceaf7789dbc7e52
 service:
   main:
     ports:
       main:
         port: 10040
         targetPort: 3000
-littlelink:
-  meta_title: "techno tim"
-  meta_description: "techno tim link page"
-  meta_author: "techno tim"
-  theme: "dark"
-  favicon_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
-  avatar_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
-  avatar_2x_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"
-  avatar_alt: "techno tim profile pic"
-  name: "technotim"
-  bio: "hey! just a place where you can connect with me!"
-  github: "https://github.com/timothystewart6"
-  twitter: "https://twitter.com/technotimlive"
-  instagram: "https://www.instagram.com/techno.tim"
-  youtube: "https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"
-  twitch: "https://www.twitch.tv/technotim/"
-  discord: "https://discord.gg/djkexrj"
-  tiktok: "https://www.tiktok.com/@technotim"
-  kit: "https://kit.co/technotim"
-  footer: "thanks for stopping by!"
 portal:
   open:
     enabled: true
@@ -36,6 +16,23 @@ workload:
     podSpec:
       containers:
         main:
-          envFrom:
-            - configMapRef:
-                name: config
+          env:
+            META_TITLE: "techno tim"
+            META_DESCRIPTION: "techno tim link page"
+            META_AUTHOR: "techno tim"
+            THEME: "Dark"
+            FAVICON_URL: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
+            AVATAR_URL: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
+            AVATAR_2X_URL: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"
+            AVATAR_ALT: "techno tim profile pic"
+            NAME: "technotim"
+            BIO: "hey! just a place where you can connect with me!"
+            GITHUB: "https://github.com/timothystewart6"
+            TWITTER: "https://twitter.com/technotimlive"
+            INSTAGRAM: "https://www.instagram.com/techno.tim"
+            YOUTUBE: "https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"
+            TWITCH: "https://www.twitch.tv/technotim/"
+            DISCORD: "https://discord.gg/djkexrj"
+            TIKTOK: "https://www.tiktok.com/@technotim"
+            KIT: "https://kit.co/technotim"
+            FOOTER: "thanks for stopping by!"

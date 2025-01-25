@@ -3,7 +3,8 @@
   "npm": {
     "fileMatch": [
       "(^|/)website/.+/astro\\.config\\.(mjs|js|ts)$", // Matches Astro config files in /website and any subdirectory
-      "(^|/)website/.+/package\\.json$" // Matches package.json files in /website and any subdirectory
+      "(^|/)website/.+/package\\.json$", // Matches package.json files in /website and any subdirectory
+      "(^|/)website/.+/package-lock\\.json$" // Matches package.json files in /website and any subdirectory
     ],
     "branchPrefix": "renovate/astro-",
     "enabled": true, // Enable updates for website dependencies
