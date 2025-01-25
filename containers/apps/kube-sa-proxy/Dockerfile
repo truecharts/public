@@ -11,7 +11,7 @@ RUN mkdir -p /build /output
 WORKDIR /build
 
 # Copy go mod and sum files
-COPY ./containers/apps/kube-sa-proxy/go.mod apps/kube-sa-proxy/go.sum ./
+COPY ./containers/apps/kube-sa-proxy/go.mod ./containers/apps/kube-sa-proxy/go.sum ./
 
 # Download dependencies
 RUN go mod download
