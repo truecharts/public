@@ -16,7 +16,7 @@ service:
         port: 10079
         targetPort: 8096
   autodiscovery:
-    enabled: true
+    enabled: "{{ .Values.autodiscovery.enabled }}"
     ports:
       autodiscovery:
         enabled: true
@@ -40,7 +40,7 @@ workload:
               path: /
           env: {}
   broadcastproxy:
-    enabled: false
+    enabled: "{{ .Values.autodiscovery.enabled }}"
     type: Deployment
     podSpec:
       hostNetwork: true
