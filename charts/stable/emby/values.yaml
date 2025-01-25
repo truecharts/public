@@ -2,6 +2,10 @@ image:
   repository: ghcr.io/elfhosted/emby
   pullPolicy: IfNotPresent
   tag: 4.9.0.37@sha256:f2993275af1b96127cfcb10f2e87403cd35645263730785cd5f372c0f768aa38
+broadcastProxyImage:
+  repository: docker.io/alpine/socat
+  pullPolicy: IfNotPresent
+  tag: 1.8.0.0@sha256:a6be4c0262b339c53ddad723cdd178a1a13271e1137c65e27f90a08c16de02b8
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -11,6 +15,14 @@ service:
       main:
         port: 10079
         targetPort: 8096
+  autodiscovery:
+    enabled: "{{ .Values.autodiscovery.enabled }}"
+    ports:
+      autodiscovery:
+        enabled: true
+        protocol: udp
+        port: 7359
+        targetPort: 7359
 workload:
   main:
     podSpec:
@@ -27,6 +39,56 @@ workload:
               type: http
               path: /
           env: {}
+  broadcastproxy:
+    enabled: "{{ .Values.autodiscovery.enabled }}"
+    type: Deployment
+    podSpec:
+      hostNetwork: true
+      # Proxy doesn't seem to respect the TERM signal, so by default
+      # this ends up just hanging until the default grace period ends.
+      # This is unnecesary since this workload only proxies autodiscovery
+      # messages.
+      terminationGracePeriodSeconds: 3
+      containers:
+        broadcastproxy:
+          enabled: true
+          primary: true
+          imageSelector: broadcastProxyImage
+          securityContext:
+            readOnlyRootFilesystem: true
+          command: ["/bin/sh"]
+          # Quite a lot going on here:
+          # - Resolve Emby's autodiscovery service IP from its FQDN via getent hosts
+          # - Export the IP to `$TARGET_IP`
+          # - Check `$TARGET_IP` is not empty (so we can crash if it is - will help to detect templating errors)
+          # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
+          # - Start socat in proxy mode
+          # - On exit remove `/tmp/healthy`
+          args:
+            - "-c"
+            - 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat -T1 UDP4-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:$TARGET_IP:7359,rcvbuf=8096 ; rm -rf /tmp/healthy'
+          probes:
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+# -- enable Emby autodiscovery on LAN
+autodiscovery:
+  enabled: false
 persistence:
   config:
     enabled: true
