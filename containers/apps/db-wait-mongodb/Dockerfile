@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM ubuntu:noble@sha256:d4f6f70979d0758d7a6f81e34a61195677f4f4fa576eaf808b79f17499fd93d1
+FROM ubuntu:latest@sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6734ab
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -14,18 +14,6 @@ ENV \
     APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn \
     UMASK="0002" \
     TZ="Etc/UTC"
-    
-RUN \
-    adduser apps \
-        --uid 568 \
-        --group \
-        --system \
-        --disabled-password \
-        --no-create-home \
-    && \
-    mkdir -p /config \
-    && chown -R apps:apps /config \
-    && chmod -R 775 /config
 
 WORKDIR /app
 
