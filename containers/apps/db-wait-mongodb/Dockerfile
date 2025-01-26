@@ -107,7 +107,7 @@ ENV LANG en_US.UTF-8
 
 VOLUME ["/config"]
 
-COPY ./containers/base/ubuntu/shim /shim
+COPY ./containers/apps/db-wait-mongodb/shim /shim
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL4001
 RUN \
