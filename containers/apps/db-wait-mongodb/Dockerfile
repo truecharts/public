@@ -48,7 +48,6 @@ RUN \
         redis-server \
         postgresql-client \
         mariadb-client \
-        libicu70 \
         pv \
     git \
     && \
