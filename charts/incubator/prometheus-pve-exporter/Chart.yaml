@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 3.5.0
+appVersion: 3.5.1
 dependencies:
   - name: common
     version: 25.2.6
@@ -36,4 +36,4 @@ sources:
   - https://grafana.com/grafana/dashboards/10347-proxmox-via-prometheus/
   - https://hub.docker.com/r/prompve/prometheus-pve-exporter
 type: application
-version: 0.1.1
+version: 0.1.2
