@@ -48,6 +48,7 @@ RUN \
         redis-server \
         postgresql-client \
         mariadb-client \
+        libicu74 \
         pv \
     git \
     && \
@@ -55,40 +56,7 @@ RUN \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/vi \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/vim \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/nano \
-    && ln -s /usr/bin/vim.tiny /usr/local/bin/emacs \
-    && \
-    curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg \
-    && \
-    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list \
-    && \
-    wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | apt-key add - \
-    && \
-    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list \
-    && \
-    case "${TARGETPLATFORM}" in \
-      'linux/amd64') export ARCH='linux-x64' ;; \
-    esac \
-    && \
-    apt-get -qq update \
-    && \
-    apt-get -qq install -y \
-      mongodb-mongosh \
-      kubectl \
-    && chown -R apps:apps /app \
-    && \
-    printf "/bin/bash /shim/greeting.sh\n" >> /etc/bash.bashrc \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && apt-get autoremove -y \
-    && apt-get clean \
-    && \
-    rm -rf \
-        /tmp/* \
-        /var/lib/apt/lists/* \
-        /var/cache/apt/* \
-        /var/tmp/* \
-    && chmod -R u=rwX,go=rX /app \
-    && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-    && update-ca-certificates
+    && ln -s /usr/bin/vim.tiny /usr/local/bin/emacs
     
 ENV LANG en_US.UTF-8
 
