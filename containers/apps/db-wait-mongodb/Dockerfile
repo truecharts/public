@@ -57,7 +57,7 @@ RUN \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/vim \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/nano \
     && ln -s /usr/bin/vim.tiny /usr/local/bin/emacs
-    
+
 ENV LANG en_US.UTF-8
 
 VOLUME ["/config"]
