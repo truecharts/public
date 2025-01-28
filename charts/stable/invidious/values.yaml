@@ -37,6 +37,7 @@ workload:
           command: ["sh", "-c"]
           args:
             - |
+              sudo apk add git
               echo "Starting DB Seed..."
               mkdir -p invidious && cd invidious
 
