@@ -39,6 +39,8 @@ persistence:
   media:
     enabled: true
     mountPath: "/core_app/media"
+  varrun:
+    enabled: false
 redis:
   enabled: true
   redisUsername: papermerge
