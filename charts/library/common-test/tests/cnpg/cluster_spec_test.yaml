@@ -36,6 +36,8 @@ tests:
             imageName: ghcr.io/cloudnative-pg/postgresql:16.3
             primaryUpdateStrategy: unsupervised
             primaryUpdateMethod: switchover
+            postgresUID: 26
+            postgresGID: 26
             logLevel: info
             instances: 2
             nodeMaintenanceWindow:
@@ -260,6 +262,8 @@ tests:
             imageName: some-image
             primaryUpdateStrategy: supervised
             primaryUpdateMethod: restart
+            postgresUID: 26
+            postgresGID: 26
             logLevel: debug
             instances: 3
             initdb:
@@ -307,6 +311,8 @@ tests:
             imageName: some-image
             primaryUpdateStrategy: supervised
             primaryUpdateMethod: restart
+            postgresUID: 26
+            postgresGID: 26
             logLevel: debug
             instances: 3
             nodeMaintenanceWindow:
