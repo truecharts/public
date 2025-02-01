@@ -12,19 +12,6 @@
   {{- if $enabled -}}
     {{- include "tc.v1.common.lib.ingress.integration.traefik.validate" (dict "objectData" $objectData) -}}
 
-    {{- $fixedMiddlewares := list -}}
-    {{- $allowCorsMiddlewares := list -}}
-    {{- $enableFixed := true -}}
-    {{- if (hasKey $rootCtx.Values.global "traefik") -}}
-      {{- $fixedMiddlewares = $rootCtx.Values.global.traefik.fixedMiddlewares -}}
-      {{- $allowCorsMiddlewares = $rootCtx.Values.global.traefik.allowCorsMiddlewares -}}
-    {{- end -}}
-
-    {{/* Override global (enable)fixedMiddlewares with local */}}
-    {{- if $traefik.fixedMiddlewares -}}
-      {{- $fixedMiddlewares = $traefik.fixedMiddlewares -}}
-    {{- end -}}
-
     {{- if and (hasKey $traefik "enableFixedMiddlewares") (kindIs "bool" $traefik.enableFixedMiddlewares) -}}
       {{- $enableFixed = $traefik.enableFixedMiddlewares -}}
     {{- end -}}
@@ -37,11 +24,6 @@
     {{- $entrypoints := $traefik.entrypoints | default (list "websecure") -}}
     {{- $middlewares := list -}}
 
-    {{/* Add the fixedMiddlewares */}}
-    {{- if and $enableFixed $fixedMiddlewares -}}
-      {{- $middlewares = concat $middlewares $fixedMiddlewares -}}
-    {{- end -}}
-
     {{/* Add the user middlewares */}}
     {{- if $traefik.middlewares -}}
       {{- $middlewares = concat $middlewares $traefik.middlewares -}}
@@ -52,55 +34,13 @@
       {{- fail (printf "Ingress - Combined traefik entrypoints contain duplicates [%s]" (join ", " $entrypoints)) -}}
     {{- end -}}
 
-    {{- $lookupMiddlewares := list -}}
-    {{- $parsedMiddlewares := list -}}
-    {{- if $middlewares -}}
-      {{/* Only lookup if there are defined middlewares */}}
-      {{- $lookupMiddlewares := (lookup "traefik.io/v1alpha1" "Middleware" "" "") -}}
-
-      {{/* If there are items, re-assign the variable */}}
-      {{- if and $lookupMiddlewares $lookupMiddlewares.items -}}
-        {{- $lookupMiddlewares = $lookupMiddlewares.items -}}
-      {{- else -}} {{/* If there are no items, assign an empty list */}}
-        {{- $lookupMiddlewares = list -}}
-      {{- end -}}
-
-      {{/* Parse look-ed up middlewares */}}
-      {{- range $m := $lookupMiddlewares -}}
-        {{- $name := $m.metadata.name -}}
-        {{- $namespace := $m.metadata.namespace -}}
-        {{/* Create a smaller list with only the data we want */}}
-        {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
-      {{- end -}}
-    {{- end -}}
-
     {{- $formattedMiddlewares := list -}}
     {{- range $mid := $middlewares -}}
-      {{- $midNamespace := "" -}}
 
+      {{ $midNamespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") }}
       {{/* If a namespace is given, use that */}}
       {{- if $mid.namespace -}}
         {{- $midNamespace = $mid.namespace -}}
-      {{- end -}}
-
-      {{/* If no namespace is given, try to find it */}}
-      {{- if not $midNamespace -}}
-        {{- $found := false -}}
-        {{- range $p := $parsedMiddlewares -}}
-          {{- if eq $p.name $mid.name -}}
-            {{- if $found -}}
-              {{- fail (printf "Ingress - Middleware [%s] is defined in multiple namespaces. Explicitly specify [namespace]" $mid.name) -}}
-            {{- end -}}
-
-            {{- $found = true -}}
-            {{- $midNamespace = $p.namespace -}}
-          {{- end -}}
-        {{- end -}}
-
-        {{- if not $found -}}
-          {{/* This will also display when lookup is not supported (eg dry-run) */}}
-          {{- fail (printf "Ingress - Middleware [%s] is not defined in any namespace. Middleware should be created first." $mid.name) -}}
-        {{- end -}}
       {{- end -}}
 
       {{/* Format middleware */}}
@@ -143,10 +83,5 @@
     {{- end -}}
   {{- end -}}
 
-  {{- if $traefik.fixedMiddlewares -}}
-    {{- if not (kindIs "slice" $traefik.fixedMiddlewares) -}}
-      {{- fail (printf "Ingress - Expected [integrations.traefik.fixedMiddlewares] to be a [slice], but got [%s]" (kindOf $traefik.fixedMiddlewares)) -}}
-    {{- end -}}
-  {{- end -}}
 
 {{- end -}}
