@@ -3,7 +3,6 @@
   {{- $rootCtx := .rootCtx -}}
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
-  {{- $namespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") -}}
   {{- $ingMiddlewares := $rootCtx.Values.ingressMiddlewares -}}
   {{- if $ingMiddlewares -}}
     {{- $ingMiddlewares = $ingMiddlewares.traefik | default dict -}}
@@ -18,6 +17,7 @@
 
   {{- if $enabled -}}
     {{- include "tc.v1.common.lib.ingress.integration.traefik.validate" (dict "objectData" $objectData) -}}
+    {{- $namespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") -}}
 
     {{- $entrypoints := $traefik.entrypoints | default (list "websecure") -}}
     {{- $middlewares := list -}}
