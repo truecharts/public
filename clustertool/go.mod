@@ -6,7 +6,7 @@ require (
 	filippo.io/age v1.2.1
 	github.com/Masterminds/semver/v3 v3.3.1
 	github.com/beevik/ntp v1.4.3
-	github.com/budimanjojo/talhelper/v3 v3.0.16
+	github.com/budimanjojo/talhelper/v3 v3.0.17
 	github.com/getsops/sops/v3 v3.9.4
 	github.com/go-git/go-git/v5 v5.13.2
 	github.com/go-logr/zerologr v1.2.3
@@ -100,7 +100,7 @@ require (
 	github.com/containerd/errdefs v1.0.0 // indirect
 	github.com/containerd/go-cni v1.1.11 // indirect
 	github.com/containerd/log v0.1.0 // indirect
-	github.com/containerd/platforms v1.0.0-rc.0 // indirect
+	github.com/containerd/platforms v1.0.0-rc.1 // indirect
 	github.com/containernetworking/cni v1.2.3 // indirect
 	github.com/cosi-project/runtime v0.8.1 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.6 // indirect
@@ -118,7 +118,7 @@ require (
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/envoyproxy/go-control-plane v0.13.1 // indirect
 	github.com/envoyproxy/protoc-gen-validate v1.1.0 // indirect
-	github.com/evanphx/json-patch v5.9.0+incompatible // indirect
+	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
 	github.com/evanphx/json-patch/v5 v5.9.0 // indirect
 	github.com/exponent-io/jsonpath v0.0.0-20210407135951-1de76d718b3f // indirect
 	github.com/fatih/color v1.18.0 // indirect
@@ -225,7 +225,7 @@ require (
 	github.com/planetscale/vtprotobuf v0.6.1-0.20241121165744-79df5c4772f2 // indirect
 	github.com/prometheus/client_golang v1.20.5 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
-	github.com/prometheus/common v0.59.1 // indirect
+	github.com/prometheus/common v0.60.1 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/rubenv/sql-migrate v1.7.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
@@ -237,7 +237,7 @@ require (
 	github.com/siderolabs/gen v0.8.0 // indirect
 	github.com/siderolabs/go-blockdevice/v2 v2.0.13 // indirect
 	github.com/siderolabs/go-pointer v1.0.0 // indirect
-	github.com/siderolabs/image-factory v0.6.5 // indirect
+	github.com/siderolabs/image-factory v0.6.6 // indirect
 	github.com/siderolabs/net v0.4.0 // indirect
 	github.com/siderolabs/protoenc v0.2.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
