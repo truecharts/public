@@ -13,7 +13,7 @@
                     "name" $name "caller" "Image Pull Secret"
                     "key" "imagePullSecret")) -}}
 
-    {{- if eq $enabled "true" -}}
+    {{- if eq $enabled "true" and not $imgPullSecret.existingSecret -}}
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $imgPullSecret) -}}
