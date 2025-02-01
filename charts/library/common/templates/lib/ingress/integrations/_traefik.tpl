@@ -12,12 +12,6 @@
   {{- if $enabled -}}
     {{- include "tc.v1.common.lib.ingress.integration.traefik.validate" (dict "objectData" $objectData) -}}
 
-
-    {{/* Replace global and local fixed middlewares with the allowCorsMiddlewares */}}
-    {{- if $traefik.allowCors -}}
-      {{- $fixedMiddlewares = $allowCorsMiddlewares -}}
-    {{- end -}}
-
     {{- $entrypoints := $traefik.entrypoints | default (list "websecure") -}}
     {{- $middlewares := list -}}
 
