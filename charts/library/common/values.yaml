@@ -212,19 +212,39 @@ credentials:
   #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
-middlewares: {}
-#   basic-auth:
-#     type: basicAuth
-#     data:
-#       # middleware specific data ie
-#       users:
-#         - username: user1
-#           password: password1
-#   some-other-middleware:
-#     type: someOtherMiddleware
-#     data:
-#       # middleware specific data ie
-#       someOtherMiddlewareData: someOtherMiddlewareData
+ingressMiddlewares: 
+  traefik:
+    tc-basic-secure-headers:
+      enabled: false
+      type: headers
+      data:
+        accessControlAllowMethods:
+          - GET
+          - OPTIONS
+          - HEAD
+          - PUT
+        accessControlMaxAge: 100
+        stsSeconds: 63072000
+        forceSTSHeader: true
+        contentTypeNosniff: true
+        browserXssFilter: true
+        referrerPolicy: same-origin
+        customRequestHeaders:
+          X-Forwarded-Proto: "https"
+#    basic-auth:
+#      enabled: true
+#      type: basicAuth
+#      data:
+#        # middleware specific data ie
+#        users:
+#          - username: user1
+#            password: password1
+#    some-other-middleware:
+#      enabled: true
+#      type: someOtherMiddleware
+#      data:
+#        # middleware specific data ie
+#        someOtherMiddlewareData: someOtherMiddlewareData
 
 # -- (docs/persistence/README.md)
 persistence:

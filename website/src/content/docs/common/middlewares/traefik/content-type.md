@@ -5,14 +5,14 @@ title: Content Type Middleware
 :::note
 
 - Examples under each key are only to be used as a placement guide
-- See the [Full Examples](/common/middlewares/content-type#full-examples) section for complete examples.
+- See the [Full Examples](/common/middlewares/traefik/content-type#full-examples) section for complete examples.
 - Upstream documentation for this middleware can be found [here](https://doc.traefik.io/traefik/middlewares/http/contenttype)
 
 :::
 
 ## Appears in
 
-- `.Values.middlewares.$name.data`
+- `.Values.ingressMiddlewares.$name.data`
 
 :::tip
 
@@ -26,8 +26,9 @@ title: Content Type Middleware
 ## Full Examples
 
 ```yaml
-middlewares:
-  middleware-name:
-    enabled: true
-    type: content-type
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      enabled: true
+      type: content-type
 ```

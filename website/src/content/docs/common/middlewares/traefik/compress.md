@@ -5,14 +5,14 @@ title: Compress Middleware
 :::note
 
 - Examples under each key are only to be used as a placement guide
-- See the [Full Examples](/common/middlewares/compress#full-examples) section for complete examples.
+- See the [Full Examples](/common/middlewares/traefik/compress#full-examples) section for complete examples.
 - Upstream documentation for this middleware can be found [here](https://doc.traefik.io/traefik/middlewares/http/compress)
 
 :::
 
 ## Appears in
 
-- `.Values.middlewares.$name.data`
+- `.Values.ingressMiddlewares.traefik.$name.data`
 
 :::tip
 
@@ -26,8 +26,9 @@ title: Compress Middleware
 ## Full Examples
 
 ```yaml
-middlewares:
-  middleware-name:
-    enabled: true
-    type: compress
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      enabled: true
+      type: compress
 ```

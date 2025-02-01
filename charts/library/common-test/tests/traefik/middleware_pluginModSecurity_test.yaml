@@ -7,14 +7,15 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-mod-security
-          data:
-            modSecurityUrl: some-url
-            timeoutMillis: 1000
-            maxBodySize: 1024
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-mod-security
+            data:
+              modSecurityUrl: some-url
+              timeoutMillis: 1000
+              maxBodySize: 1024
     asserts:
       - documentIndex: &middlewareDoc 0
         equal:
@@ -28,13 +29,14 @@ tests:
 
   - it: should pass with pluginName set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-mod-security
-          data:
-            pluginName: traefik-mod-security-test
-            modSecurityUrl: some-url
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-mod-security
+            data:
+              pluginName: traefik-mod-security-test
+              modSecurityUrl: some-url
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -46,12 +48,13 @@ tests:
 
   - it: should fail with missing modSecurityUrl
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-mod-security
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-mod-security
+            data:
+              foo: bar
     asserts:
       - failedTemplate:
           errorMessage: Middleware (modsecurity) - Expected [modSecurityUrl] to be set
