@@ -8,7 +8,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if .Values.addons.vpn.config -}}
     {{/* Append the vpn config secret to the secrets */}}
-    {{- $secret := include "tc.v1.common.addon.vpn.secret" . | fromYaml -}}
+    {{- $secret := include "tc.v1.common.addon.wireguard.secret" . | fromYaml -}}
     {{- if $secret -}}
       {{- $_ := set .Values.secret "vpnconfig" $secret -}}
     {{- end -}}
@@ -16,7 +16,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if or .Values.addons.vpn.configFile .Values.addons.vpn.config .Values.addons.vpn.existingSecret -}}
     {{/* Append the vpn config to the persistence */}}
-    {{- $configper := include "tc.v1.common.addon.vpn.volume.config" . | fromYaml -}}
+    {{- $configper := include "tc.v1.common.addon.wireguard.volume.config" . | fromYaml -}}
     {{- if $configper -}}
       {{- $_ := set .Values.persistence "vpnconfig" $configper -}}
     {{- end -}}
@@ -33,7 +33,7 @@ It will include / inject the required templates based on the given values.
     {{- $container := dict -}}
     {{- $containerModify := dict -}}
       {{- $container = $.Values.addons.vpn.wireguard.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.vpn.wireguard.containerModify" $ | fromYaml -}}
+      {{- $containerModify = include "tc.v1.common.addon.wireguard.containerModify" $ | fromYaml -}}
 
 
     {{- if $container.enabled -}}

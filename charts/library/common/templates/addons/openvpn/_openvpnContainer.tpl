@@ -1,7 +1,7 @@
 {{/*
 The gluetun sidecar container to be inserted.
 */}}
-{{- define "tc.v1.common.addon.vpn.openvpn.containerModify" -}}
+{{- define "tc.v1.common.addon.openvpn.containerModify" -}}
 
 
 env:

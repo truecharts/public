@@ -3,8 +3,8 @@
 {{/*
 The volume (referencing VPN config) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.config" -}}
-{{- "/vpn" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.tailscale.volume.config" -}}
+{{- "/vpn" := (include "tc.v1.common.addon.tailscale.volume.basePath" .) }}
 {{- $mountPath := "/vpn" }}
 
 enabled: true
@@ -43,8 +43,8 @@ targetSelector:
 {{/*
 The volume (referencing VPN config folder) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.folder" -}}
-{{- "/vpn" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.tailscale.volume.folder" -}}
+{{- "/vpn" := (include "tc.v1.common.addon.tailscale.volume.basePath" .) }}
 enabled: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFolder | quote }}
@@ -65,7 +65,7 @@ targetSelector:
 {{/*
 The empty tailscale folder
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.tailscale" -}}
+{{- define "tc.v1.common.addon.tailscale.volume.tailscale" -}}
 enabled: true
 type: emptyDir
 targetSelector:

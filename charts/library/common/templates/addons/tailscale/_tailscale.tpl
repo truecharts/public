@@ -8,7 +8,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if .Values.addons.vpn.config -}}
     {{/* Append the vpn config secret to the secrets */}}
-    {{- $secret := include "tc.v1.common.addon.vpn.secret" . | fromYaml -}}
+    {{- $secret := include "tc.v1.common.addon.tailscale.secret" . | fromYaml -}}
     {{- if $secret -}}
       {{- $_ := set .Values.secret "vpnconfig" $secret -}}
     {{- end -}}
@@ -18,7 +18,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if or .Values.addons.vpn.configFile .Values.addons.vpn.config .Values.addons.vpn.existingSecret -}}
     {{/* Append the vpn config to the persistence */}}
-    {{- $configper := include "tc.v1.common.addon.vpn.volume.config" . | fromYaml -}}
+    {{- $configper := include "tc.v1.common.addon.tailscale.volume.config" . | fromYaml -}}
     {{- if $configper -}}
       {{- $_ := set .Values.persistence "vpnconfig" $configper -}}
     {{- end -}}
@@ -28,7 +28,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if .Values.addons.vpn.configFolder -}}
     {{/* Append the vpn folder to the persistence */}}
-    {{- $folderper := include "tc.v1.common.addon.vpn.volume.folder" . | fromYaml -}}
+    {{- $folderper := include "tc.v1.common.addon.tailscale.volume.folder" . | fromYaml -}}
     {{- if $folderper -}}
       {{- $_ := set .Values.persistence "vpnfolder" $folderper -}}
     {{- end -}}
@@ -48,7 +48,7 @@ It will include / inject the required templates based on the given values.
       {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
       {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
       {{- $container = $.Values.addons.vpn.tailscale.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.vpn.tailscale.containerModify" $ | fromYaml -}}
+      {{- $containerModify = include "tc.v1.common.addon.tailscale.containerModify" $ | fromYaml -}}
 
     {{- if $container.enabled -}}
    {{- range $targetSelector -}}
@@ -61,7 +61,7 @@ It will include / inject the required templates based on the given values.
 
   {{- if eq "tailscale" $.Values.addons.vpn.type -}}
     {{/* Append the empty tailscale folder to the persistence */}}
-    {{- $tailscaledir := include "tc.v1.common.addon.vpn.volume.tailscale" . | fromYaml -}}
+    {{- $tailscaledir := include "tc.v1.common.addon.tailscale.volume.tailscale" . | fromYaml -}}
     {{- if $tailscaledir -}}
       {{- $_ := set .Values.persistence "tailscalestate" $tailscaledir -}}
     {{- end -}}

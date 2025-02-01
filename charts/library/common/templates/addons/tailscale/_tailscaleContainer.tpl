@@ -1,7 +1,7 @@
 {{/*
 The Tailscale sidecar container to be inserted.
 */}}
-{{- define "tc.v1.common.addon.vpn.tailscale.containerModify" -}}
+{{- define "tc.v1.common.addon.tailscale.containerModify" -}}
 
 
 securityContext:

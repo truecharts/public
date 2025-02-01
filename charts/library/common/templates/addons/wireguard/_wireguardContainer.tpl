@@ -1,7 +1,7 @@
 {{/*
 The gluetun sidecar container to be inserted.
 */}}
-{{- define "tc.v1.common.addon.vpn.wireguard.containerModify" -}}
+{{- define "tc.v1.common.addon.wireguard.containerModify" -}}
 env:
   SEPARATOR: ";"
   IPTABLES_BACKEND: "nft"

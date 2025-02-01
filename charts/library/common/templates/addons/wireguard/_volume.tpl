@@ -3,8 +3,8 @@
 {{/*
 The volume (referencing VPN config) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.config" -}}
-{{- "/etc/wireguard" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.wireguard.volume.config" -}}
+{{- "/etc/wireguard" := (include "tc.v1.common.addon.wireguard.volume.basePath" .) }}
 {{- $mountPath := "/etc/wireguard" }}
 
 enabled: true
@@ -43,8 +43,8 @@ targetSelector:
 {{/*
 The volume (referencing VPN config folder) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.folder" -}}
-{{- "/etc/wireguard" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.wireguard.volume.folder" -}}
+{{- "/etc/wireguard" := (include "tc.v1.common.addon.wireguard.volume.basePath" .) }}
 enabled: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFolder | quote }}

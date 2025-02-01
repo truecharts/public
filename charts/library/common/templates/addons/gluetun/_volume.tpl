@@ -3,8 +3,8 @@
 {{/*
 The volume (referencing VPN config) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.config" -}}
-{{- "/gluetun" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.gluetun.volume.config" -}}
+{{- "/gluetun" := (include "tc.v1.common.addon.gluetun.volume.basePath" .) }}
 {{- $mountPath := "/gluetun" }}
 
 enabled: true
@@ -43,8 +43,8 @@ targetSelector:
 {{/*
 The volume (referencing VPN config folder) to be inserted into persistence.
 */}}
-{{- define "tc.v1.common.addon.vpn.volume.folder" -}}
-{{- "/gluetun" := (include "tc.v1.common.addon.vpn.volume.basePath" .) }}
+{{- define "tc.v1.common.addon.gluetun.volume.folder" -}}
+{{- "/gluetun" := (include "tc.v1.common.addon.gluetun.volume.basePath" .) }}
 enabled: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFolder | quote }}

@@ -1,7 +1,7 @@
 {{/*
 The gluetun sidecar container to be inserted.
 */}}
-{{- define "tc.v1.common.addon.vpn.gluetun.containerModify" -}}
+{{- define "tc.v1.common.addon.gluetun.containerModify" -}}
 env:
   DNS_KEEP_NAMESERVER: "on"
   DOT: "off"
