@@ -7,13 +7,14 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: redirect-scheme
-          data:
-            scheme: https
-            permanent: true
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: redirect-scheme
+            data:
+              scheme: https
+              permanent: true
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -28,25 +29,27 @@ tests:
 
   - it: should fail with missing scheme
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: redirect-scheme
-          data:
-            permanent: true
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: redirect-scheme
+            data:
+              permanent: true
     asserts:
       - failedTemplate:
           errorMessage: Middleware (redirect-scheme) - Expected [scheme] to be set
 
   - it: should fail with invalid permanent
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: redirect-scheme
-          data:
-            scheme: https
-            permanent: some-value
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: redirect-scheme
+            data:
+              scheme: https
+              permanent: some-value
     asserts:
       - failedTemplate:
           errorMessage: Middleware (redirect-scheme) - Expected [permanent] to be a boolean, but got [string]

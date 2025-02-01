@@ -263,20 +263,20 @@ ingressDefaultMiddlewares:
         customRequestHeaders:
           X-Forwarded-Proto: "https"
         customResponseHeaders:
-          server: ''
+          server: ""
     tc-closedcors-headers:
       type: headers
       data:
         accessControlAllowHeaders:
-        - '*'
+          - "*"
         accessControlAllowMethods:
-        - GET
-        - OPTIONS
-        - HEAD
-        - PUT
-        - POST
+          - GET
+          - OPTIONS
+          - HEAD
+          - PUT
+          - POST
         accessControlAllowOriginList:
-        - '*'
+          - "*"
         accessControlMaxAge: 100
         browserXssFilter: true
         contentTypeNosniff: true
@@ -308,7 +308,8 @@ ingressDefaultMiddlewares:
         customRequestHeaders:
           X-Forwarded-Proto: "https"
         customResponseHeaders:
-          server: ''
+          server: ""
+
 ingressMiddlewares: {}
 #  traefik:
 #    basic-auth:
