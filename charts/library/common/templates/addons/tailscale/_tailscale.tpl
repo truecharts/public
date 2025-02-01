@@ -2,7 +2,7 @@
 Template to render VPN addon
 It will include / inject the required templates based on the given values.
 */}}
-{{- define "tc.v1.common.addon.vpn" -}}
+{{- define "tc.v1.common.addon.tailscale" -}}
 {{- if ne "disabled" .Values.addons.vpn.type -}}
 
 
@@ -14,13 +14,7 @@ It will include / inject the required templates based on the given values.
     {{- end -}}
   {{- end }}
 
-  {{- if or .Values.addons.vpn.scripts.up .Values.addons.vpn.scripts.down -}}
-    {{/* Append the vpn up/down scripts to the configmaps */}}
-    {{- $configmap := include "tc.v1.common.addon.vpn.configmap" . | fromYaml -}}
-    {{- if $configmap -}}
-      {{- $_ := set .Values.configmap "vpnscripts" $configmap -}}
-    {{- end -}}
-  {{- end }}
+
 
   {{- if or .Values.addons.vpn.configFile .Values.addons.vpn.config .Values.addons.vpn.existingSecret -}}
     {{/* Append the vpn config to the persistence */}}
@@ -30,13 +24,7 @@ It will include / inject the required templates based on the given values.
     {{- end -}}
   {{- end -}}
 
-  {{- if or .Values.addons.vpn.scripts.up .Values.addons.vpn.scripts.down -}}
-    {{/* Append the vpn scripts to the persistence */}}
-    {{- $scriptsper := include "tc.v1.common.addon.vpn.volume.scripts" . | fromYaml -}}
-    {{- if $scriptsper -}}
-      {{- $_ := set .Values.persistence "vpnscripts" $scriptsper -}}
-    {{- end -}}
-  {{- end -}}
+
 
   {{- if .Values.addons.vpn.configFolder -}}
     {{/* Append the vpn folder to the persistence */}}
@@ -56,25 +44,12 @@ It will include / inject the required templates based on the given values.
   {{- range $targetSelector -}}
     {{- $container := dict -}}
     {{- $containerModify := dict -}}
-    {{- if eq "gluetun" $.Values.addons.vpn.type -}}
-      {{- $container = $.Values.addons.vpn.gluetun.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.vpn.gluetun.containerModify" $ | fromYaml -}}
 
-    {{- else if eq "tailscale" $.Values.addons.vpn.type -}}
       {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
       {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
       {{- $container = $.Values.addons.vpn.tailscale.container -}}
       {{- $containerModify = include "tc.v1.common.addon.vpn.tailscale.containerModify" $ | fromYaml -}}
 
-    {{- else if eq "openvpn" $.Values.addons.vpn.type -}}
-      {{- $container = $.Values.addons.vpn.openvpn.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.vpn.openvpn.containerModify" $ | fromYaml -}}
-
-    {{- else if eq "wireguard" $.Values.addons.vpn.type -}}
-      {{- $container = $.Values.addons.vpn.wireguard.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.vpn.wireguard.containerModify" $ | fromYaml -}}
-
-    {{- end -}}
     {{- if $container.enabled -}}
    {{- range $targetSelector -}}
       {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}

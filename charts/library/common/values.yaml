@@ -235,7 +235,7 @@ credentials:
   #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
-ingressMiddlewares: 
+ingressMiddlewares:
   traefik:
     tc-basic-secure-headers:
       enabled: false
@@ -826,168 +826,153 @@ metrics:
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below
 addons:
-  # -- The common chart supports adding a VPN add-on. It can be configured under this key.
-  # @default -- See values.yaml
-  vpn:
+  gluetun:
+    enabled: true
+    targetSelector:
+      - main
+    # -- you can directly specify the config file here
+    config: ""
+    ## to enable kubernetes network communication
+    inputPorts: []
+    container:
       enabled: true
-      # -- Specify the VPN type. Valid options are disabled, gluetun, openvpn, wireguard or tailscale
-      # OpenVPN and Wireguard are considered deprecated
-      type: disabled
+      imageSelector: gluetunImage
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+      resources:
+        excludeExtra: true
+      securityContext:
+        runAsUser: 0
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        runAsGroup: 568
+        capabilities:
+          add:
+            - NET_ADMIN
+            - NET_RAW
+            - MKNOD
+  wireguard:
+    enabled: true
+    targetSelector:
+      - main
+    # -- you can directly specify the config file here
+    config: ""
+    ## Only for Wireguard and OpenVPN
+    killSwitch: true
+    excludedNetworks_IPv4: []
+    excludedNetworks_IPv6: []
+    container:
+      enabled: true
+      imageSelector: wireguardImage
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+      resources:
+        excludeExtra: true
+      securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        readOnlyRootFilesystem: false
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+            - AUDIT_WRITE
+            - NET_ADMIN
+            - SETUID
+            - SETGID
+            - SYS_MODULE
 
-      gluetun:
-        container:
-          enabled: true
-          imageSelector: gluetunImage
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-          resources:
-            excludeExtra: true
-          securityContext:
-            runAsUser: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
-            runAsGroup: 568
-            capabilities:
-              add:
-                - NET_ADMIN
-                - NET_RAW
-                - MKNOD
-      wireguard:
-        container:
-          enabled: true
-          imageSelector: wireguardImage
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-          resources:
-            excludeExtra: true
-          securityContext:
-            runAsUser: 568
-            runAsGroup: 568
-            readOnlyRootFilesystem: false
-            allowPrivilegeEscalation: true
-            capabilities:
-              add:
-                - AUDIT_WRITE
-                - NET_ADMIN
-                - SETUID
-                - SETGID
-                - SYS_MODULE
+  # -- Tailscale specific configuration
+  # @default -- See below
+  # See more info for the configuration
+  # https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
+  tailscale:
+    enabled: true
+    targetSelector:
+      - main
+    # -- you can directly specify the config file here
+    config: ""
+    container:
+      enabled: true
+      imageSelector: "tailscaleImage"
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+      command:
+        - /usr/local/bin/containerboot
+      resources:
+        excludeExtra: true
+      securityContext:
+        capabilities:
+          add:
+            - NET_ADMIN
+            - NET_RAW
 
-      # -- Tailscale specific configuration
-      # @default -- See below
-      # See more info for the configuration
-      # https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
-      tailscale:
-        container:
-          enabled: true
-          imageSelector: "tailscaleImage"
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-          command:
-            - /usr/local/bin/containerboot
-          resources:
-            excludeExtra: true
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
-                - NET_RAW
+    # -- Auth key to connect to the VPN Service
+    authkey: ""
+    # As a sidecar, it should only need to run in userspace
+    userspace: true
+    auth_once: true
+    accept_dns: false
+    routes: ""
+    dest_ip: ""
+    sock5_server: ""
+    extra_args: ""
+    daemon_extra_args: ""
+    outbound_http_proxy_listen: ""
+    # -- Annotations for tailscale sidecar
+    annotations: {}
 
-        # -- Auth key to connect to the VPN Service
-        authkey: ""
-        # As a sidecar, it should only need to run in userspace
-        userspace: true
-        auth_once: true
-        accept_dns: false
-        routes: ""
-        dest_ip: ""
-        sock5_server: ""
-        extra_args: ""
-        daemon_extra_args: ""
-        outbound_http_proxy_listen: ""
-        # -- Annotations for tailscale sidecar
-        annotations: {}
-
-      # -- OpenVPN specific configuration
-      # @default -- See below
-      openvpn:
-        container:
-          enabled: true
-          imageSelector: openvpnImage
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-          resources:
-            excludeExtra: true
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            capabilities:
-              add:
-                - NET_ADMIN
-                - NET_RAW
-                - MKNOD
-                - SYS_MODULE
-
-        # -- Credentials to connect to the VPN Service (used with -a)
-        # Only using password is enough
-        username: ""
-        password: ""
-
-      # -- you can directly specify the config file here
-      config: ""
-
-      scripts:
-        # -- you can directly specify the upscript here
-        up: ""
-        # some script
-
-        # -- you can directly specify the downscript here
-        down: ""
-        # some script
-
-      # -- Provide a customized vpn configuration file location to be used by the VPN.
-      configFile: ""
-
-      # -- Provide a customized vpn configuration folder location to be added to the VPN container
-      # The config file needs to be mounted seperately
-      # the upscript and downscript need to be named: upscript.sh and downscript.sh respectively
-      configFolder: ""
-
-      # -- Provide an existing secret for vpn config storage
-      existingSecret: ""
-
-      # -- select pods to bind vpn addon to
-      # Add "codeserver" to also add the codeserver pod to VPN
-      targetSelector:
-        - main
-
-      ## Only for Wireguard and OpenVPN
-      killSwitch: true
-      excludedNetworks_IPv4: []
-      excludedNetworks_IPv6: []
-
-      ## For Gluetun to enable kubernetes network communication
-      inputPorts: []
+  # -- OpenVPN specific configuration
+  # @default -- See below
+  openvpn:
+    enabled: true
+    targetSelector:
+      - main
+    # -- Credentials to connect to the VPN Service (used with -a)
+    # Only using password is enough
+    username: ""
+    password: ""
+    # -- you can directly specify the config file here
+    config: ""
+    ## Only for Wireguard and OpenVPN
+    killSwitch: true
+    excludedNetworks_IPv4: []
+    excludedNetworks_IPv6: []
+    container:
+      enabled: true
+      imageSelector: openvpnImage
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+      resources:
+        excludeExtra: true
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        capabilities:
+          add:
+            - NET_ADMIN
+            - NET_RAW
+            - MKNOD
+            - SYS_MODULE
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # @default -- See values.yaml
