@@ -99,7 +99,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
-      "matchPackageNames": ["xwiki"]
+      "matchPackageNames": ["docker.io/library/xwiki"]
     },
     {
       "matchDatasources": ["docker"],
@@ -203,13 +203,13 @@
       // Not found in repository 2025-02-01
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["bcavin/hexo"]
+      "matchPackageNames": ["docker.io/bcavin/hexo"]
     },
     {
       // Not found in repository 2025-02-01
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["linode/lke"]
+      "matchPackageNames": ["docker.io/linode/lke"]
     },
     {
       // Not found in repository 2025-02-01
@@ -227,7 +227,7 @@
       // Not found in repository 2025-02-01
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["coder/coder"]
+      "matchPackageNames": ["docker.io/coder/coder"]
     },
     {
       // Not found in repository 2025-02-01
