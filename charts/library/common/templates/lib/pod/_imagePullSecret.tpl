@@ -14,7 +14,7 @@ objectData: The object data to be used to render the Pod.
     {{- $pullName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $name) -}}
 
     {{- if $imgPull.existingSecret -}}
-      {{- $pullname = $imgPull.existingSecret-}}
+      {{- $pullName = $imgPull.existingSecret-}}
     {{- end -}}
 
     {{- if $imgPull.enabled -}}
@@ -39,5 +39,4 @@ objectData: The object data to be used to render the Pod.
   {{- range $imgPullSecrets }}
 - name: {{ . }}
   {{- end -}}
-
 {{- end -}}
