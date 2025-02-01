@@ -42,12 +42,17 @@
                 "name" $mid.name "caller" "Traefik Integration"
                 "key" "middlewares")) -}}
 
+      {{/*
+        Note: if the middleware defined in ingressMiddlewares.traefik has expandObjectName: false,
+        it has to also be set to false here
+      */}}
       {{- if eq $expandName "true" -}}
         {{- if eq $namespace $midNamespace -}}
           {{- if not (hasKey $ingMiddlewares $mid.name) -}}
             {{- fail (printf "Ingress - Traefik Middleware [%s] is not defined under [ingressMiddlewares.traefik]" $mid.name) -}}
           {{- end -}}
         {{- end -}}
+
         {{- $midName = (printf "%s-%s" $fullname $mid.name) -}}
       {{- end -}}
 
