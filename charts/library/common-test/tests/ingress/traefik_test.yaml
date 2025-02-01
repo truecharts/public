@@ -10,11 +10,6 @@ release:
 tests:
   - it: should pass with ingress created with annotations from traefik
     set:
-      global: &global
-        traefik:
-          fixedMiddlewares:
-            - name: chain-basic
-              namespace: test-release-namespace
       service: &service
         my-service:
           enabled: true
@@ -32,6 +27,15 @@ tests:
             - host: test-host
               paths:
                 - path: /test-path
+          integrations:
+            traefik:
+              middlewares:
+                - name: chain-basic
+                - name: some-existing-middleware-on-this-namespace
+                  expandObjectName: false
+                - name: some-existing-middleware-on-other-namespace
+                  namespace: some-namespace
+                  expandObjectName: false
     asserts:
       - documentIndex: &ingressDoc 1
         isKind:
@@ -46,7 +50,7 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd,test-release-namespace-some-existing-middleware-on-this-namespace@kubernetescrd,some-namespace-some-existing-middleware-on-other-namespace@kubernetescrd
       - documentIndex: *ingressDoc
         matchRegex:
           path: metadata.annotations.checksum/secrets
@@ -85,12 +89,11 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
 
   - it: should override default entrypoint(s)
     set:
       service: *service
-      global: *global
       ingress:
         my-ingress:
           enabled: true
@@ -101,6 +104,8 @@ tests:
               entrypoints:
                 - web
                 - websecure
+              middlewares:
+                - name: chain-basic
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -116,12 +121,11 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
 
   - it: should add the defined middlewares to the ingress
     set:
       service: *service
-      global: *global
       ingress:
         my-ingress:
           enabled: true
@@ -152,12 +156,11 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd,test-release-namespace-some-middleware@kubernetescrd,test-release-namespace-some-other-middleware@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-some-middleware@kubernetescrd,test-release-namespace-test-release-name-common-test-some-other-middleware@kubernetescrd
 
   - it: should add the the tls annotation
     set:
       service: *service
-      global: *global
       ingress:
         my-ingress:
           enabled: true
@@ -168,6 +171,8 @@ tests:
               forceTLS: true
               entrypoints:
                 - web
+              middlewares:
+                - name: chain-basic
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -186,12 +191,11 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: web
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
 
   - it: should not add the the tls annotation
     set:
       service: *service
-      global: *global
       ingress:
         my-ingress:
           enabled: true
@@ -202,6 +206,8 @@ tests:
               forceTLS: false
               entrypoints:
                 - web
+              middlewares:
+                - name: chain-basic
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -219,7 +225,7 @@ tests:
           path: metadata.annotations
           content:
             traefik.ingress.kubernetes.io/router.entrypoints: web
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
 
   # Failures
   - it: should fail with entrypoint not a slice
@@ -257,7 +263,6 @@ tests:
   - it: should fail with duplicate middlewares
     set:
       service: *service
-      global: *global
       ingress:
         my-ingress1:
           enabled: true
@@ -268,6 +273,10 @@ tests:
               middlewares:
                 - name: chain-basic
                   namespace: test-release-namespace
+                  expandObjectName: false
+                - name: chain-basic
+                  namespace: test-release-namespace
+                  expandObjectName: false
           hosts: *hosts
     asserts:
       - failedTemplate:
