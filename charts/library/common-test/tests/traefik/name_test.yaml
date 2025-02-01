@@ -7,23 +7,24 @@ release:
 tests:
   - it: should generate correct name
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            foo: bar
-        my-middleware2:
-          enabled: true
-          type: buffering
-          data:
-            foo: bar
-        my-middleware3:
-          enabled: true
-          type: buffering
-          expandObjectName: false
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              foo: bar
+          my-middleware2:
+            enabled: true
+            type: buffering
+            data:
+              foo: bar
+          my-middleware3:
+            enabled: true
+            type: buffering
+            expandObjectName: false
+            data:
+              foo: bar
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:

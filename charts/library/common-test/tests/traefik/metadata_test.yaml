@@ -20,18 +20,19 @@ tests:
         annotations:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          labels:
-            label1: "{{ .Values.label1 }}"
-            label2: label2
-          annotations:
-            annotation1: "{{ .Values.annotation1 }}"
-            annotation2: annotation2
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            labels:
+              label1: "{{ .Values.label1 }}"
+              label2: label2
+            annotations:
+              annotation1: "{{ .Values.annotation1 }}"
+              annotation2: annotation2
+            data:
+              foo: bar
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -67,13 +68,14 @@ tests:
 
   - it: should pass with middlewares created with namespace
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          namespace: some-namespace
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            namespace: some-namespace
+            data:
+              foo: bar
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -83,13 +85,14 @@ tests:
   - it: should pass with middlewares created with object namespace from tpl
     set:
       key: some-namespace
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          namespace: "{{ .Values.key }}"
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            namespace: "{{ .Values.key }}"
+            data:
+              foo: bar
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -101,12 +104,13 @@ tests:
       key: global-namespace
       global:
         namespace: "{{ .Values.key }}"
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              foo: bar
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -119,12 +123,13 @@ tests:
       namespace: "{{ .Values.key }}"
       global:
         namespace: global-namespace
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              foo: bar
     asserts:
       - documentIndex: *middlewareDoc
         equal:

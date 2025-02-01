@@ -5,8 +5,14 @@
 
 {{- define "tc.v1.common.spawner.traefik.middleware" -}}
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+  {{- if not .Values.ingressMiddlewares -}}
+    {{- $_ := set $.Values "ingressMiddlewares" dict -}}
+  {{- end -}}
+  {{- if not .Values.ingressMiddlewares.traefik -}}
+    {{- $_ := set $.Values.ingressMiddlewares "traefik" dict -}}
+  {{- end -}}
 
-  {{- range $name, $middleware := .Values.middlewares -}}
+  {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
 
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                     "rootCtx" $ "objectData" $middleware

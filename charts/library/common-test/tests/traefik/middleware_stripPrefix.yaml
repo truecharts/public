@@ -7,15 +7,16 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: strip-prefix
-          data:
-            forceSlash: true
-            prefix:
-              - /some-prefix
-              - /some-other-prefix
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: strip-prefix
+            data:
+              forceSlash: true
+              prefix:
+                - /some-prefix
+                - /some-other-prefix
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -32,26 +33,28 @@ tests:
 
   - it: should fail with missing prefix
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: strip-prefix
-          data:
-            prefix: []
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: strip-prefix
+            data:
+              prefix: []
     asserts:
       - failedTemplate:
           errorMessage: Middleware (strip-prefix) - Expected [prefix] to be set
 
   - it: should fail with invalid forceSlash
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: strip-prefix
-          data:
-            prefix:
-              - /some-prefix
-            forceSlash: some-value
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: strip-prefix
+            data:
+              prefix:
+                - /some-prefix
+              forceSlash: some-value
     asserts:
       - failedTemplate:
           errorMessage: Middleware (strip-prefix) - Expected [forceSlash] to be a boolean, but got [string]

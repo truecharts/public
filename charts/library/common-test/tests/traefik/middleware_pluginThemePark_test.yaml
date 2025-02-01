@@ -7,17 +7,18 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-theme-park
-          data:
-            app: sonarr
-            theme: dark
-            baseUrl: https://example.com
-            addons:
-              - some-addon
-              - some-other-addon
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-theme-park
+            data:
+              app: sonarr
+              theme: dark
+              baseUrl: https://example.com
+              addons:
+                - some-addon
+                - some-other-addon
     asserts:
       - documentIndex: &middlewareDoc 0
         equal:
@@ -34,14 +35,15 @@ tests:
 
   - it: should pass with pluginName set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-theme-park
-          data:
-            app: sonarr
-            theme: dark
-            pluginName: traefik-themepark-test
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-theme-park
+            data:
+              app: sonarr
+              theme: dark
+              pluginName: traefik-themepark-test
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -54,24 +56,26 @@ tests:
 
   - it: should fail with missing app
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-theme-park
-          data:
-            theme: dark
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-theme-park
+            data:
+              theme: dark
     asserts:
       - failedTemplate:
           errorMessage: Middleware (themepark) - Expected [app] to be set
 
   - it: should fail with missing theme
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-theme-park
-          data:
-            app: sonarr
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-theme-park
+            data:
+              app: sonarr
     asserts:
       - failedTemplate:
           errorMessage: Middleware (themepark) - Expected [theme] to be set
