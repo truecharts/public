@@ -2,6 +2,8 @@
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
 
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
+
   {{- $traefik := $objectData.integrations.traefik -}}
 
   {{- $enabled := true -}}
@@ -17,7 +19,6 @@
 
     {{/* Add the user middlewares */}}
     {{- if $traefik.middlewares -}}
-      {{ /* TODO: expand middleware name, and allow to disable expansion */ }}
       {{- $middlewares = concat $middlewares $traefik.middlewares -}}
     {{- end -}}
 
@@ -35,12 +36,22 @@
         {{- $midNamespace = $mid.namespace -}}
       {{- end -}}
 
+      {{- $midName := $mid.name -}}
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $rootCtx "objectData" $mid
+                "name" $mid.name "caller" "Traefik Integration"
+                "key" "middlewares")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $midName = (printf "%s-%s" $fullname $mid.name) -}}
+      {{- end -}}
+
       {{/* Format middleware */}}
-      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $mid.name) -}}
+      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $midName) -}}
     {{- end -}}
 
     {{- if $formattedMiddlewares -}}
-      {{/* Make sure we dont have dupes */}}
+      {{/* Make sure we do not have dupes */}}
       {{- if not (deepEqual (mustUniq $formattedMiddlewares) $formattedMiddlewares) -}}
         {{- fail (printf "Ingress - Combined traefik middlewares contain duplicates [%s]" (join ", " $formattedMiddlewares)) -}}
       {{- end -}}
