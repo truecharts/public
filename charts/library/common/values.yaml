@@ -524,7 +524,7 @@ postgresClientImage:
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:725f7d48022a74206ad78807560ea92ad0356c8092cc7ec756660918465b8bae
+  tag: v1.1.0@sha256:5fe79127a25db81839b574fefb50aa57358c59fa0ba5d642263ab694786ba08b
   pullPolicy: IfNotPresent
 
 redisClientImage:
@@ -544,7 +544,7 @@ postgres15Image:
 
 postgres16Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "16.4"
+  tag: "16.6"
   pullPolicy: IfNotPresent
 
 postgresPostgis15Image:
