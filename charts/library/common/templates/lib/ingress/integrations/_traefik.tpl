@@ -17,6 +17,7 @@
 
     {{/* Add the user middlewares */}}
     {{- if $traefik.middlewares -}}
+      {{ /* TODO: expand middleware name, and allow to disable expansion */ }}
       {{- $middlewares = concat $middlewares $traefik.middlewares -}}
     {{- end -}}
 
