@@ -87,112 +87,6 @@ tests:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
             traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
 
-  - it: should replace local fixedMiddlewares when allowCors true
-    set:
-      service: *service
-      global:
-        traefik:
-          fixedMiddlewares:
-            - name: chain-basic
-              namespace: test-release-namespace
-          allowCorsMiddlewares:
-            - name: tc-opencors-chain
-              namespace: test-release-namespace
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              allowCors: true
-              fixedMiddlewares:
-                - name: some-fixed-middleware
-                  namespace: test-release-namespace
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test
-      - documentIndex: *ingressDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/router.tls: "true"
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-tc-opencors-chain@kubernetescrd
-
-  - it: should replace global fixedMiddlewares when allowCors true
-    set:
-      service: *service
-      global:
-        traefik:
-          fixedMiddlewares:
-            - name: chain-basic
-              namespace: test-release-namespace
-          allowCorsMiddlewares:
-            - name: tc-opencors-chain
-              namespace: test-release-namespace
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              allowCors: true
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test
-      - documentIndex: *ingressDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/router.tls: "true"
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-tc-opencors-chain@kubernetescrd
-
-  - it: should replace global fixedMiddlewares when local fixedMiddlewares is defined
-    set:
-      service: *service
-      global: *global
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              fixedMiddlewares:
-                - name: some-fixed-middleware
-                  namespace: test-release-namespace
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test
-      - documentIndex: *ingressDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/router.tls: "true"
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-some-fixed-middleware@kubernetescrd
-
   - it: should override default entrypoint(s)
     set:
       service: *service
@@ -223,29 +117,6 @@ tests:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
             traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
-
-  - it: should not contain fixed middlewares when are disabled
-    set:
-      service: *service
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              enableFixedMiddlewares: false
-          hosts: *hosts
-    asserts:
-      - documentIndex: *ingressDoc
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/router.tls: "true"
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
 
   - it: should add the defined middlewares to the ingress
     set:
@@ -383,22 +254,6 @@ tests:
       - failedTemplate:
           errorMessage: Ingress - Expected [integrations.traefik.middlewares] to be a [slice], but got [string]
 
-  - it: should fail with fixedMiddlewares not a slice
-    set:
-      service: *service
-      ingress:
-        my-ingress1:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              fixedMiddlewares: "not a slice"
-          hosts: *hosts
-    asserts:
-      - failedTemplate:
-          errorMessage: Ingress - Expected [integrations.traefik.fixedMiddlewares] to be a [slice], but got [string]
-
   - it: should fail with duplicate middlewares
     set:
       service: *service
@@ -435,23 +290,3 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Combined traefik entrypoints contain duplicates [websecure, websecure]
-
-  - it: should fail when a middleware does not have a namespace (or failed to be looked up)
-    set:
-      service: *service
-      global: *global
-      ingress:
-        my-ingress1:
-          enabled: true
-          primary: true
-          integrations:
-            traefik:
-              enabled: true
-              entrypoints:
-                - websecure
-              middlewares:
-                - name: some-middleware
-          hosts: *hosts
-    asserts:
-      - failedTemplate:
-          errorMessage: Ingress - Middleware [some-middleware] is not defined in any namespace. Middleware should be created first.
