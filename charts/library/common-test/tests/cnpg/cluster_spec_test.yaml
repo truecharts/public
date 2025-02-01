@@ -36,6 +36,8 @@ tests:
             imageName: ghcr.io/cloudnative-pg/postgresql:16.3
             primaryUpdateStrategy: unsupervised
             primaryUpdateMethod: switchover
+            postgresUID: 26
+            postgresGID: 26
             logLevel: info
             instances: 2
             nodeMaintenanceWindow:
@@ -69,7 +71,75 @@ tests:
                 database: test-db
                 owner: test-user
                 dataChecksums: true
-
+  - it: should work with custom UID/GID
+    set:
+      postgres16Image:
+        repository: ghcr.io/cloudnative-pg/postgresql
+        tag: "16.3"
+        pullPolicy: IfNotPresent
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+          cluster:
+            postgresUID: 666
+            postgresGID: 666
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: true
+            imageName: ghcr.io/cloudnative-pg/postgresql:16.3
+            postgresUID: 666
+            postgresGID: 666
+            primaryUpdateStrategy: unsupervised
+            primaryUpdateMethod: switchover
+            logLevel: info
+            instances: 2
+            nodeMaintenanceWindow:
+              reusePVC: true
+              inProgress: false
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: test-db
+                owner: test-user
+                dataChecksums: true
   - it: should respect changed fallbackDefaults
     set:
       postgres15Image:
@@ -192,6 +262,8 @@ tests:
             imageName: some-image
             primaryUpdateStrategy: supervised
             primaryUpdateMethod: restart
+            postgresUID: 26
+            postgresGID: 26
             logLevel: debug
             instances: 3
             initdb:
@@ -239,6 +311,8 @@ tests:
             imageName: some-image
             primaryUpdateStrategy: supervised
             primaryUpdateMethod: restart
+            postgresUID: 26
+            postgresGID: 26
             logLevel: debug
             instances: 3
             nodeMaintenanceWindow:

@@ -22,7 +22,12 @@ tests:
             username: user2
             password: pass2
             email: mail2
+        my-pull-secret3:
+          enabled: true
+          existingSecret: some-existing-secret
     asserts:
+      - hasDocuments:
+          count: 2
       - documentIndex: &secretDoc 0
         isKind:
           of: Secret
