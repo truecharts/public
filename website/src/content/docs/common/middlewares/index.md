@@ -1,5 +1,5 @@
 ---
-title: Middlewares
+title: Ingress Middlewares
 ---
 
 :::note
@@ -11,7 +11,7 @@ title: Middlewares
 
 ## Appears in
 
-- `.Values.middlewares`
+- `.Values.ingressMiddlewares`
 
 ## Naming scheme
 
@@ -25,224 +25,240 @@ title: Middlewares
 
 ---
 
-## `middlewares`
+## `ingressMiddlewares`
 
 Create Middleware objects
 
-|            |               |
-| ---------- | ------------- |
-| Key        | `middlewares` |
-| Type       | `map`         |
-| Required   | ❌             |
-| Helm `tpl` | ❌             |
-| Default    | `{}`          |
+|            |                      |
+| ---------- | -------------------- |
+| Key        | `ingressMiddlewares` |
+| Type       | `map`                |
+| Required   | ❌                    |
+| Helm `tpl` | ❌                    |
+| Default    | `{}`                 |
 
 Example
 
 ```yaml
-middlewares: {}
+ingressMiddlewares: {}
 ```
 
 ---
 
-### `$name`
+### `$provider`
 
 Define Middleware
 
-|            |                     |
-| ---------- | ------------------- |
-| Key        | `middlewares.$name` |
-| Type       | `map`               |
-| Required   | ✅                   |
-| Helm `tpl` | ❌                   |
-| Default    | `{}`                |
+:::note
+
+- Available providers are:
+  - [traefik](/common/middlewares/traefik)
+
+:::
+
+|            |                                |
+| ---------- | ------------------------------ |
+| Key        | `ingressMiddlewares.$provider` |
+| Type       | `map`                          |
+| Required   | ✅                              |
+| Helm `tpl` | ❌                              |
+| Default    | `{}`                           |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name: {}
+ingressMiddlewares:
+  traefik: {}
 ```
 
 ---
 
-#### `enabled`
+#### `$name`
 
-Enables or Disables the Configmap
+Define Middleware
 
-|            |                           |
-| ---------- | ------------------------- |
-| Key        | `configmap.$name.enabled` |
-| Type       | `bool`                    |
-| Required   | ✅                         |
-| Helm `tpl` | ✅                         |
-| Default    | `false`                   |
+|            |                                      |
+| ---------- | ------------------------------------ |
+| Key        | `ingressMiddlewares.$provider.$name` |
+| Type       | `map`                                |
+| Required   | ✅                                    |
+| Helm `tpl` | ❌                                    |
+| Default    | `{}`                                 |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name:
-    enabled: true
+ingressMiddlewares:
+  traefik:
+    middleware-name: {}
 ```
 
 ---
 
-#### `expandObjectName`
+##### `enabled`
+
+Enables or Disables the Middleware
+
+|            |                                              |
+| ---------- | -------------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.enabled` |
+| Type       | `bool`                                       |
+| Required   | ✅                                            |
+| Helm `tpl` | ✅                                            |
+| Default    | `false`                                      |
+
+Example
+
+```yaml
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      enabled: true
+```
+
+---
+
+##### `expandObjectName`
 
 Whether to expand (adding the fullname as prefix) the middleware name.
 
-|            |                                    |
-| ---------- | ---------------------------------- |
-| Key        | `configmap.$name.expandObjectName` |
-| Type       | `bool`                             |
-| Required   | ✅                                  |
-| Helm `tpl` | ✅                                  |
-| Default    | `true`                             |
+|            |                                                      |
+| ---------- | ---------------------------------------------------- |
+| Key        | `ingressMiddleware.$provider.$name.expandObjectName` |
+| Type       | `bool`                                               |
+| Required   | ✅                                                    |
+| Helm `tpl` | ✅                                                    |
+| Default    | `true`                                               |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name:
-    expandObjectName: false
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      expandObjectName: false
 ```
 
 ---
 
-#### `namespace`
+##### `namespace`
 
 Define the namespace for this object
 
-|            |                               |
-| ---------- | ----------------------------- |
-| Key        | `middlewares.$name.namespace` |
-| Type       | `string`                      |
-| Required   | ❌                             |
-| Helm `tpl` | ✅                             |
-| Default    | `""`                          |
+|            |                                                |
+| ---------- | ---------------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.namespace` |
+| Type       | `string`                                       |
+| Required   | ❌                                              |
+| Helm `tpl` | ✅                                              |
+| Default    | `""`                                           |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name:
-    namespace: some-namespace
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      namespace: some-namespace
 ```
 
 ---
 
-#### `type`
-
-Define the type for this object
-
-Available types:
-
-- [add-prefix](/common/middlewares/add-prefix)
-- [basic-auth](/common/middlewares/basic-auth)
-- [buffering](/common/middlewares/buffering)
-- [chain](/common/middlewares/chain)
-- [compress](/common/middlewares/compress)
-- [content-type](/common/middlewares/content-type)
-- [forward-auth](/common/middlewares/forward-auth)
-- [headers](/common/middlewares/headers)
-- [ip-allow-list](/common/middlewares/ip-allow-list)
-- [plugin-bouncer](/common/middlewares/plugin-bouncer)
-- [plugin-geoblock](/common/middlewares/plugin-geoblock)
-- [plugin-mod-security](/common/middlewares/plugin-mod-security)
-- [plugin-real-ip](/common/middlewares/plugin-real-ip)
-- [plugin-rewrite-response-headers](/common/middlewares/plugin-rewrite-response-headers)
-- [plugin-theme-park](/common/middlewares/plugin-theme-park)
-- [rate-limit](/common/middlewares/rate-limit)
-- [redirect-regex](/common/middlewares/redirect-regex)
-- [redirect-scheme](/common/middlewares/redirect-scheme)
-- [replace-path-regex](/common/middlewares/replace-path-regex)
-- [replace-path](/common/middlewares/replace-path)
-- [retry](/common/middlewares/retry)
-- [strip-prefix-regex](/common/middlewares/strip-prefix-regex)
-- [strip-prefix](/common/middlewares/strip-prefix)
-
-|            |                          |
-| ---------- | ------------------------ |
-| Key        | `middlewares.$name.type` |
-| Type       | `string`                 |
-| Required   | ❌                        |
-| Helm `tpl` | ❌                        |
-| Default    | `""`                     |
-
-Example
-
-```yaml
-middlewares:
-  middleware-name:
-    type: buffering
-```
-
----
-
-#### `labels`
+##### `labels`
 
 Additional labels for middleware
 
-|            |                            |
-| ---------- | -------------------------- |
-| Key        | `middlewares.$name.labels` |
-| Type       | `map`                      |
-| Required   | ❌                          |
-| Helm `tpl` | ✅ (On value only)          |
-| Default    | `{}`                       |
+|            |                                             |
+| ---------- | ------------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.labels` |
+| Type       | `map`                                       |
+| Required   | ❌                                           |
+| Helm `tpl` | ✅ (On value only)                           |
+| Default    | `{}`                                        |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name:
-    labels:
-      key: value
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      labels:
+        key: value
 ```
 
 ---
 
-#### `annotations`
+##### `annotations`
 
 Additional annotations for middleware
 
-|            |                                 |
-| ---------- | ------------------------------- |
-| Key        | `middlewares.$name.annotations` |
-| Type       | `map`                           |
-| Required   | ❌                               |
-| Helm `tpl` | ✅ (On value only)               |
-| Default    | `{}`                            |
+|            |                                                  |
+| ---------- | ------------------------------------------------ |
+| Key        | `ingressMiddlewares.$provider.$name.annotations` |
+| Type       | `map`                                            |
+| Required   | ❌                                                |
+| Helm `tpl` | ✅ (On value only)                                |
+| Default    | `{}`                                             |
 
 Example
 
 ```yaml
-middlewares:
-  middleware-name:
-    annotations:
-      key: value
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      annotations:
+        key: value
 ```
 
 ---
 
-#### `data`
+##### `data`
 
 Define the data of the middleware
 
-|            |                          |
-| ---------- | ------------------------ |
-| Key        | `middlewares.$name.data` |
-| Type       | `map`                    |
-| Required   | ✅                        |
-| Helm `tpl` | ✅                        |
-| Example    | `{}`                     |
+|            |                                           |
+| ---------- | ----------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.data` |
+| Type       | `map`                                     |
+| Required   | ✅                                         |
+| Helm `tpl` | ✅                                         |
+| Example    | `{}`                                      |
 
 ```yaml
-middlewares:
-  middleware-name:
-    data:
-      key: value
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      data:
+        key: value
+```
+
+---
+
+##### `type`
+
+Define the type for this object
+
+:::note
+
+See the [provider](/common/middlewares#provider) documentation for more information.
+
+:::
+
+|            |                                           |
+| ---------- | ----------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.type` |
+| Type       | `string`                                  |
+| Required   | ❌                                         |
+| Helm `tpl` | ❌                                         |
+| Default    | `""`                                      |
+
+Example
+
+```yaml
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      type: buffering
 ```
 
 ---
@@ -250,24 +266,25 @@ middlewares:
 ## Full Examples
 
 ```yaml
-middlewares:
-  middleware-name:
-    enabled: true
-    type: buffering
-    expandObjectName: false
-    labels:
-      key: value
-      keytpl: "{{ .Values.some.value }}"
-    annotations:
-      key: value
-      keytpl: "{{ .Values.some.value }}"
-    data:
-      key: value
+ingressMiddlewares:
+  traefik:
+    middleware-name:
+      enabled: true
+      type: buffering
+      expandObjectName: false
+      labels:
+        key: value
+        keytpl: "{{ .Values.some.value }}"
+      annotations:
+        key: value
+        keytpl: "{{ .Values.some.value }}"
+      data:
+        key: value
 
-  other-middleware-name:
-    enabled: true
-    type: buffering
-    namespace: some-namespace
-    data:
-      key: value
+    other-middleware-name:
+      enabled: true
+      type: buffering
+      namespace: some-namespace
+      data:
+        key: value
 ```
