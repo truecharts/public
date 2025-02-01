@@ -993,24 +993,21 @@ addons:
   # @default -- See values.yaml
   codeserver:
       enabled: false
-      # -- Specify the working dir that will be opened when code-server starts
-      # If not given, the app will default to the mountpah of the first specified volumeMount
-      workingDir: "/"
       # -- Enable running a code-server container in the pod
       container:
         enabled: true
         probes:
           liveness:
             enabled: true
-            port: "{{ .Values.service.codeserver.ports.codeserver.port }}"
+            port: 12321
             path: "/"
           readiness:
             enabled: true
-            port: "{{ .Values.service.codeserver.ports.codeserver.port }}"
+            port: 12321
             path: "/"
           startup:
             enabled: true
-            port: "{{ .Values.service.codeserver.ports.codeserver.port }}"
+            port: 12321
             path: "/"
         imageSelector: "codeserverImage"
         resources:
@@ -1022,14 +1019,15 @@ addons:
           readOnlyRootFilesystem: false
         args:
         - "--port"
-        - "{{ .Values.addons.codeserver.service.ports.codeserver.port }}"
-        - '{{ .Values.addons.codeserver.workingDir | default "/" }}'
+        - 12321
+        - '/'
         - --auth
         - none
         # - --user-data-dir
         # - "/config/.vscode"
         # -- Select a container to add the addon to
         targetSelector:
+          - "main"
 
       service:
         # -- Enable a service for the code-server add-on.
@@ -1042,6 +1040,7 @@ addons:
             primary: true
             protocol: http
             port: 12321
+            targetPort: 12321
 
       ingress:
         # -- Enable an ingress for the code-server add-on.
