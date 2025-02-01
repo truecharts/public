@@ -60,34 +60,11 @@ global:
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true
-  traefik:
-    # -- Adds traefik annotations to services (when needed)
-    addServiceAnnotations: true
-    # Enables or disables the fixed middlewares on all ingresses
-    # Can be overruled per ingress
-    enableFixedMiddlewares: true
-    # Applies middleware to all ingresses
-    # Can be overruled per ingress
-    fixedMiddlewares:
-      - name: chain-basic
-        # Optional, by default will try to
-        # "lookup" the namespace based on the name
-        namespace: ""
-    # The middlewares to apply if allowCors toggle is enabled
-    allowCorsMiddlewares:
-      - name: tc-opencors-chain
-        # Optional, by default will try to
-        # "lookup" the namespace based on the name
-        namespace: ""
   # -- Minimum nodePort value
   minNodePort: 9000
   # -- Enable to stop most pods and containers including cnpg
   # does not include stand-alone pods
   stopAll: false
-
-# -- Hook to disable having a common-dependency enabled.
-# Primarily used to ensure we don't include common multiple times with nested dependencies
-includeCommon: true
 
 # -- Explicitly set a namespace for this chart only
 namespace: ""
