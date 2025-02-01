@@ -51,13 +51,13 @@ Available types:
 - [strip-prefix-regex](/common/middlewares/traefik/strip-prefix-regex)
 - [strip-prefix](/common/middlewares/traefik/strip-prefix)
 
-|            |              |
-| ---------- | ------------ |
-| Key        | `$name.type` |
-| Type       | `string`     |
-| Required   | ❌            |
-| Helm `tpl` | ❌            |
-| Default    | `""`         |
+|            |                                           |
+| ---------- | ----------------------------------------- |
+| Key        | `ingressMiddlewares.$provider.$name.type` |
+| Type       | `string`                                  |
+| Required   | ❌                                         |
+| Helm `tpl` | ❌                                         |
+| Default    | `""`                                      |
 
 Example
 
