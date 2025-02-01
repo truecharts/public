@@ -3,6 +3,11 @@
   {{- $rootCtx := .rootCtx -}}
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
+  {{- $namespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") -}}
+  {{- $ingMiddlewares := $rootCtx.Values.ingressMiddlewares -}}
+  {{- if $ingMiddlewares -}}
+    {{- $ingMiddlewares = $ingMiddlewares.traefik | default dict -}}
+  {{- end -}}
 
   {{- $traefik := $objectData.integrations.traefik -}}
 
@@ -29,12 +34,7 @@
 
     {{- $formattedMiddlewares := list -}}
     {{- range $mid := $middlewares -}}
-
-      {{ $midNamespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") }}
-      {{/* If a namespace is given, use that */}}
-      {{- if $mid.namespace -}}
-        {{- $midNamespace = $mid.namespace -}}
-      {{- end -}}
+      {{- $midNamespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $mid "caller" "Traefik Integration") -}}
 
       {{- $midName := $mid.name -}}
       {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
@@ -43,6 +43,11 @@
                 "key" "middlewares")) -}}
 
       {{- if eq $expandName "true" -}}
+        {{- if eq $namespace $midNamespace -}}
+          {{- if not (hasKey $ingMiddlewares $mid.name) -}}
+            {{- fail (printf "Ingress - Traefik Middleware [%s] is not defined under [ingressMiddlewares.traefik]" $mid.name) -}}
+          {{- end -}}
+        {{- end -}}
         {{- $midName = (printf "%s-%s" $fullname $mid.name) -}}
       {{- end -}}
 

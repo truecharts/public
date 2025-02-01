@@ -19,6 +19,11 @@ tests:
               enabled: true
               primary: true
               port: 80
+      ingressMiddlewares: &ingressMiddlewares
+        traefik:
+          my-compress:
+            enabled: true
+            type: compress
       ingress:
         my-ingress:
           enabled: true
@@ -30,14 +35,14 @@ tests:
           integrations:
             traefik:
               middlewares:
-                - name: chain-basic
+                - name: my-compress
                 - name: some-existing-middleware-on-this-namespace
                   expandObjectName: false
                 - name: some-existing-middleware-on-other-namespace
                   namespace: some-namespace
                   expandObjectName: false
     asserts:
-      - documentIndex: &ingressDoc 1
+      - documentIndex: &ingressDoc 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDoc
@@ -50,7 +55,7 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd,test-release-namespace-some-existing-middleware-on-this-namespace@kubernetescrd,some-namespace-some-existing-middleware-on-other-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd,test-release-namespace-some-existing-middleware-on-this-namespace@kubernetescrd,some-namespace-some-existing-middleware-on-other-namespace@kubernetescrd
       - documentIndex: *ingressDoc
         matchRegex:
           path: metadata.annotations.checksum/secrets
@@ -67,6 +72,7 @@ tests:
   - it: should pass with ingress created without traefik annotations when traefik false
     set:
       service: *service
+      ingressMiddlewares: *ingressMiddlewares
       ingress:
         my-ingress:
           enabled: true
@@ -89,11 +95,12 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
 
   - it: should override default entrypoint(s)
     set:
       service: *service
+      ingressMiddlewares: *ingressMiddlewares
       ingress:
         my-ingress:
           enabled: true
@@ -105,7 +112,7 @@ tests:
                 - web
                 - websecure
               middlewares:
-                - name: chain-basic
+                - name: my-compress
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -121,11 +128,12 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
 
   - it: should add the defined middlewares to the ingress
     set:
       service: *service
+      ingressMiddlewares: *ingressMiddlewares
       ingress:
         my-ingress:
           enabled: true
@@ -134,10 +142,10 @@ tests:
             traefik:
               enabled: true
               middlewares:
-                - name: some-middleware
+                - name: my-compress
                   namespace: test-release-namespace
                 - name: some-other-middleware
-                  namespace: test-release-namespace
+                  namespace: test-other-release-namespace
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -156,11 +164,12 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-some-middleware@kubernetescrd,test-release-namespace-test-release-name-common-test-some-other-middleware@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd,test-other-release-namespace-test-release-name-common-test-some-other-middleware@kubernetescrd
 
   - it: should add the the tls annotation
     set:
       service: *service
+      ingressMiddlewares: *ingressMiddlewares
       ingress:
         my-ingress:
           enabled: true
@@ -172,7 +181,7 @@ tests:
               entrypoints:
                 - web
               middlewares:
-                - name: chain-basic
+                - name: my-compress
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -191,11 +200,12 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.tls: "true"
             traefik.ingress.kubernetes.io/router.entrypoints: web
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
 
   - it: should not add the the tls annotation
     set:
       service: *service
+      ingressMiddlewares: *ingressMiddlewares
       ingress:
         my-ingress:
           enabled: true
@@ -207,7 +217,7 @@ tests:
               entrypoints:
                 - web
               middlewares:
-                - name: chain-basic
+                - name: my-compress
           hosts: *hosts
     asserts:
       - documentIndex: *ingressDoc
@@ -225,7 +235,7 @@ tests:
           path: metadata.annotations
           content:
             traefik.ingress.kubernetes.io/router.entrypoints: web
-            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-test-release-name-common-test-my-compress@kubernetescrd
 
   # Failures
   - it: should fail with entrypoint not a slice
@@ -299,3 +309,20 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Combined traefik entrypoints contain duplicates [websecure, websecure]
+
+  - it: should fail when a middleware uses the current namespace but is not defined under ingressMiddlewares.traefik
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: my-compress
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Traefik Middleware [my-compress] is not defined under [ingressMiddlewares.traefik]
