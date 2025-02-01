@@ -177,6 +177,8 @@ metadata:
   {{- end }}
 spec:
   imageName: {{ $imageName }}
+  postgresUID: {{ $objectData.cluster.postgresUID | default 26 }}
+  postgresGID: {{ $objectData.cluster.postgresGID | default 26 }}
   enableSuperuserAccess: {{ $enableSuperUser }}
   primaryUpdateStrategy: {{ $primaryUpdateStrategy }}
   primaryUpdateMethod: {{ $primaryUpdateMethod }}
