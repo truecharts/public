@@ -43,16 +43,6 @@
     {{- include "tc.v1.common.addon.tailscale" . }}
   {{- end -}}
 
-  {{/* Enable openvpn add-on if required */}}
-  {{- if .Values.addons.openvpn.enabled -}}
-    {{- include "tc.v1.common.addon.openvpn" . }}
-  {{- end -}}
-
-  {{/* Enable wireguard add-on if required */}}
-  {{- if .Values.addons.wireguard.enabled -}}
-    {{- include "tc.v1.common.addon.wireguard" . }}
-  {{- end -}}
-
   {{/* Enable netshoot add-on if required */}}
   {{- if .Values.addons.netshoot.enabled }}
     {{- include "tc.v1.common.addon.netshoot" . }}
