@@ -60,6 +60,9 @@ global:
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true
+  traefik:
+    # -- Adds traefik annotations to services (when needed)
+    addServiceAnnotations: true
   # -- Minimum nodePort value
   minNodePort: 9000
   # -- Enable to stop most pods and containers including cnpg
@@ -212,7 +215,7 @@ credentials:
   #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
-ingressMiddlewares: 
+ingressMiddlewares:
   traefik:
     tc-basic-secure-headers:
       enabled: false
