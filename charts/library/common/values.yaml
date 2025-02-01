@@ -238,13 +238,16 @@ credentials:
 ingressDefaultMiddlewares:
   traefik:
     tc-basic-ratelimit:
+      enabled: true
       type: ratelimit
       data:
         average: 600
       burst: 400
     tc-compress:
+      enabled: true
       type: compress
     tc-basic-secure-headers:
+      enabled: true
       type: headers
       data:
         accessControlAllowMethods:
@@ -265,6 +268,7 @@ ingressDefaultMiddlewares:
         customResponseHeaders:
           server: ""
     tc-closedcors-headers:
+      enabled: true
       type: headers
       data:
         accessControlAllowHeaders:
@@ -289,6 +293,7 @@ ingressDefaultMiddlewares:
         referrerPolicy: same-origin
         stsSeconds: 63072000
     tc-opencors-headers:
+      enabled: true
       type: headers
       data:
         accessControlAllowMethods:
@@ -313,6 +318,7 @@ ingressDefaultMiddlewares:
 ingressMiddlewares: {}
 #  traefik:
 #    basic-auth:
+#      enabled: true
 #      type: basicAuth
 #      data:
 #        # middleware specific data ie
@@ -320,6 +326,7 @@ ingressMiddlewares: {}
 #          - username: user1
 #            password: password1
 #    some-other-middleware:
+#      enabled: true
 #      type: someOtherMiddleware
 #      data:
 #        # middleware specific data ie
