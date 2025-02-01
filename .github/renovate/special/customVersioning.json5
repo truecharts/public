@@ -25,11 +25,6 @@
       "allowedVersions": "<999"
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["ghcr.io/cloudnative-pg/postgresql"],
-      "allowedVersions": "<17"
-    },
-    {
       // Not found in repository
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
