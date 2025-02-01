@@ -25,9 +25,8 @@
       "allowedVersions": "<999"
     },
     {
-      // !Confirm match against recent PRs
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["postgresql"],
+      "matchPackagePatterns": ["ghcr.io/cloudnative-pg/postgresql"],
       "allowedVersions": "<17"
     },
     {
