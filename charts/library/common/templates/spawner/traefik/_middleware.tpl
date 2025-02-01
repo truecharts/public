@@ -12,14 +12,7 @@
     {{- $_ := set $.Values.ingressMiddlewares "traefik" dict -}}
   {{- end -}}
 
-  {{- $middlewares := $.Values.ingressMiddlewares -}}
-  {{- if $.Values.defaultIngressMiddlewares -}}
-    {{- if $.Values.defaultIngressMiddlewares.traefik -}}
-      {{- $middlewares = mustMerge $.Values.ingressMiddlewares $.Values.defaultIngressMiddlewares -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- range $name, $middleware := $middlewares -}}
+  {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
 
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                     "rootCtx" $ "objectData" $middleware
