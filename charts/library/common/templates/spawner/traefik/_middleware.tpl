@@ -26,29 +26,19 @@
       {{- range $ingressName, $ingress := $.Values.ingress }}
         {{- if and $ingress.enabled $ingress.integrations  $ingress.integrations.traefik $ingress.integrations.traefik.enabled }}
           {{- range $middlewareEntry := $.Values.global.traefik.commonMiddlewares }}
-            {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-                      "rootCtx" $ "objectData" $middlewareEntry
-                      "name" $middlewareEntry.name "caller" "Middleware-Auto-enable"
-                      "key" "middlewares")) -}}
-            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) ( ne $expandName "true" ) }}
+
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
               {{- $enabled = "true" -}}
             {{- end }}
           {{- end }}
           {{- range $middlewareEntry := $ingress.integrations.traefik.middlewares }}
-            {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-                      "rootCtx" $ "objectData" $middlewareEntry
-                      "name" $middlewareEntry.name "caller" "Middleware-Auto-enable"
-                      "key" "middlewares")) -}}
-            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) ( ne $expandName "true" ) }}
+
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
               {{- $enabled = "true" -}}
             {{- end }}
           {{- end }}
           {{- range $middlewareEntry := $ingress.integrations.traefik.chartMiddlewares }}
-            {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-                      "rootCtx" $ "objectData" $middlewareEntry
-                      "name" $middlewareEntry.name "caller" "Middleware-Auto-enable"
-                      "key" "middlewares")) -}}
-            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) ( ne $expandName "true" ) }}
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
               {{- $enabled = "true" -}}
             {{- end }}
           {{- end }}
