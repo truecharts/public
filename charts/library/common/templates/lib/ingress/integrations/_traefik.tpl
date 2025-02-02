@@ -24,7 +24,7 @@
 
     {{/* Add the user middlewares */}}
     {{- if $traefik.middlewares -}}
-      {{- $middlewares = concat $middlewares $traefik.middlewares -}}
+      {{- $middlewares = concat $rootCtx.Values.global.traefik.commonMiddlewares $traefik.includedMiddlewares $traefik.middlewares -}}
     {{- end -}}
 
     {{/* Make sure we dont have dupes */}}
