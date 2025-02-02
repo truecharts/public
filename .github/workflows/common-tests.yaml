@@ -227,8 +227,6 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          helm install traefik-crds oci://tccr.io/truecharts/traefik-crds --namespace traefik-crds --create-namespace --wait
-
           if [[ "${{ matrix.values }}" =~ (ingress|metrics|cnpg|volsync).*-values.yaml ]]; then
             helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
@@ -237,6 +235,7 @@ jobs:
           fi
           if [[ "${{ matrix.values }}" =~ ingress.*-values.yaml ]]; then
             helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
+            helm install traefik-crds oci://tccr.io/truecharts/traefik-crds --namespace traefik-crds --create-namespace --wait
             helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
               --set service.main.type=ClusterIP --set service.tcp.type=ClusterIP
           fi
