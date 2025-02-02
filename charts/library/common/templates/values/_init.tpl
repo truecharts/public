@@ -9,6 +9,10 @@
     {{- $commonValues := mustDeepCopy .Values.common -}}
     {{- $chartValues := mustDeepCopy (omit .Values "common") -}}
     {{- $mergedValues := mustMergeOverwrite $commonValues $chartValues -}}
+    {{- range .Values.dependencies -}}
+      {{- $dependencyValues := . -}}
+      {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
+    {{- end -}}
     {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
 {{- end -}}
