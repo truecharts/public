@@ -521,7 +521,15 @@ redis:
 portal:
   open:
     enabled: true
-updated: true
+
+ingressMiddlewares:
+  traefik:
+    nextcloud-redirect:
+      enabled: false
+      type: redirectRegex
+      data:
+        regex: "https://(.*)/.well-known/(card|cal)dav"
+        replacement: "https://${1}/remote.php/dav/"
 
 ingress:
   main:
