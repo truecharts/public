@@ -226,6 +226,10 @@ jobs:
           #
           #done < src/assets/contributors.json
 
+      - name: Fix Package-Lock
+        if: needs.check_changes.outputs.changes_detected == 'true'
+        run: cd website && npm i --package-lock-only
+
       - name: Setup astro Cache
         if: needs.check_changes.outputs.changes_detected == 'true'
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
