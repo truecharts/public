@@ -24,7 +24,7 @@
 
     {{- if ne $enabled "true" -}}
       {{- range $ingressName, $ingress := $.Values.ingress }}
-        {{- if and $ingress.enabled $ingress.integrations.traefik.enabled }}
+        {{- if and $ingress.enabled $ingress.integrations  $ingress.integrations.traefik $ingress.integrations.traefik.enabled }}
           {{- range $middlewareEntry := $.Values.global.traefik.commonMiddlewares }}
             {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
               {{- $enabled = "true" -}}
