@@ -41,8 +41,8 @@ Create Ingress objects
 | ---------- | --------- |
 | Key        | `ingress` |
 | Type       | `map`     |
-| Required   | ❌        |
-| Helm `tpl` | ❌        |
+| Required   | ❌         |
+| Helm `tpl` | ❌         |
 | Default    | `{}`      |
 
 Example
@@ -61,8 +61,8 @@ Define Ingress
 | ---------- | --------------- |
 | Key        | `ingress.$name` |
 | Type       | `map`           |
-| Required   | ✅              |
-| Helm `tpl` | ❌              |
+| Required   | ✅               |
+| Helm `tpl` | ❌               |
 | Default    | `{}`            |
 
 Example
@@ -82,8 +82,8 @@ Enables or Disables the Ingress
 | ---------- | ----------------------- |
 | Key        | `ingress.$name.enabled` |
 | Type       | `bool`                  |
-| Required   | ✅                      |
-| Helm `tpl` | ✅                      |
+| Required   | ✅                       |
+| Helm `tpl` | ✅                       |
 | Default    | `false`                 |
 
 Example
@@ -104,8 +104,8 @@ Define the primary ingress
 | ---------- | ----------------------- |
 | Key        | `ingress.$name.primary` |
 | Type       | `bool`                  |
-| Required   | ✅                      |
-| Helm `tpl` | ❌                      |
+| Required   | ✅                       |
+| Helm `tpl` | ❌                       |
 | Default    | `false`                 |
 
 Example
@@ -126,8 +126,8 @@ Define if the object name should be expanded
 | ---------- | -------------------------------- |
 | Key        | `ingress.$name.expandObjectName` |
 | Type       | `bool`                           |
-| Required   | ❌                               |
-| Helm `tpl` | ❌                               |
+| Required   | ❌                                |
+| Helm `tpl` | ❌                                |
 | Default    | `false`                          |
 
 Example
@@ -148,8 +148,8 @@ Define if the ingress is required
 | ---------- | ------------------------ |
 | Key        | `ingress.$name.required` |
 | Type       | `bool`                   |
-| Required   | ❌                       |
-| Helm `tpl` | ❌                       |
+| Required   | ❌                        |
+| Helm `tpl` | ❌                        |
 | Default    | `false`                  |
 
 Example
@@ -170,8 +170,8 @@ Define the namespace for this object
 | ---------- | ------------------------- |
 | Key        | `ingress.$name.namespace` |
 | Type       | `string`                  |
-| Required   | ❌                        |
-| Helm `tpl` | ✅                        |
+| Required   | ❌                         |
+| Helm `tpl` | ✅                         |
 | Default    | `""`                      |
 
 Example
@@ -192,8 +192,8 @@ Additional labels for ingress
 | ---------- | ---------------------- |
 | Key        | `ingress.$name.labels` |
 | Type       | `map`                  |
-| Required   | ❌                     |
-| Helm `tpl` | ✅ (On value only)     |
+| Required   | ❌                      |
+| Helm `tpl` | ✅ (On value only)      |
 | Default    | `{}`                   |
 
 Example
@@ -215,8 +215,8 @@ Additional annotations for ingress
 | ---------- | --------------------------- |
 | Key        | `ingress.$name.annotations` |
 | Type       | `map`                       |
-| Required   | ❌                          |
-| Helm `tpl` | ✅ (On value only)          |
+| Required   | ❌                           |
+| Helm `tpl` | ✅ (On value only)           |
 | Default    | `{}`                        |
 
 Example
@@ -238,8 +238,8 @@ Define the ingress class name for this object
 | ---------- | -------------------------------- |
 | Key        | `ingress.$name.ingressClassName` |
 | Type       | `string`                         |
-| Required   | ❌                               |
-| Helm `tpl` | ✅                               |
+| Required   | ❌                                |
+| Helm `tpl` | ✅                                |
 | Default    | `nil`                            |
 
 Example
@@ -260,8 +260,8 @@ Define the `service: port` to assign the ingress
 | ---------- | ------------------------------ |
 | Key        | `ingress.$name.targetSelector` |
 | Type       | `dict`                         |
-| Required   | ❌                             |
-| Helm `tpl` | ❌                             |
+| Required   | ❌                              |
+| Helm `tpl` | ❌                              |
 | Default    | `{}`                           |
 
 Example
@@ -283,8 +283,8 @@ Define the hosts for this ingress
 | ---------- | --------------------- |
 | Key        | `ingress.$name.hosts` |
 | Type       | `list` of `map`       |
-| Required   | ✅                    |
-| Helm `tpl` | ❌                    |
+| Required   | ✅                     |
+| Helm `tpl` | ❌                     |
 | Default    | `[]`                  |
 
 Example
@@ -305,8 +305,8 @@ Define the host for this ingress
 | ---------- | ---------------------------- |
 | Key        | `ingress.$name.hosts[].host` |
 | Type       | `string`                     |
-| Required   | ✅                           |
-| Helm `tpl` | ✅                           |
+| Required   | ✅                            |
+| Helm `tpl` | ✅                            |
 | Default    | `""`                         |
 
 Example
@@ -328,8 +328,8 @@ Define the paths for this ingress
 | ---------- | ----------------------------- |
 | Key        | `ingress.$name.hosts[].paths` |
 | Type       | `list` of `map`               |
-| Required   | ✅                            |
-| Helm `tpl` | ❌                            |
+| Required   | ✅                             |
+| Helm `tpl` | ❌                             |
 | Default    | `[]`                          |
 
 Example
@@ -352,8 +352,8 @@ Define the path for this ingress
 | ---------- | ------------------------------------ |
 | Key        | `ingress.$name.hosts[].paths[].path` |
 | Type       | `string`                             |
-| Required   | ✅                                   |
-| Helm `tpl` | ✅                                   |
+| Required   | ✅                                    |
+| Helm `tpl` | ✅                                    |
 | Default    | `""`                                 |
 
 Example
@@ -377,8 +377,8 @@ Define the path type for this ingress
 | ---------- | ---------------------------------------- |
 | Key        | `ingress.$name.hosts[].paths[].pathType` |
 | Type       | `string`                                 |
-| Required   | ❌                                       |
-| Helm `tpl` | ✅                                       |
+| Required   | ❌                                        |
+| Helm `tpl` | ✅                                        |
 | Default    | `Prefix`                                 |
 
 Example
@@ -403,8 +403,8 @@ Overrides the "selected" service for this path
 | ---------- | ----------------------------------------------- |
 | Key        | `ingress.$name.hosts[].paths[].overrideService` |
 | Type       | `dict`                                          |
-| Required   | ❌                                              |
-| Helm `tpl` | ❌                                              |
+| Required   | ❌                                               |
+| Helm `tpl` | ❌                                               |
 | Default    | `{}`                                            |
 
 Example
@@ -430,8 +430,8 @@ Define the service name for this path
 | ---------- | ---------------------------------------------------- |
 | Key        | `ingress.$name.hosts[].paths[].overrideService.name` |
 | Type       | `string`                                             |
-| Required   | ✅                                                   |
-| Helm `tpl` | ❌                                                   |
+| Required   | ✅                                                    |
+| Helm `tpl` | ❌                                                    |
 | Default    | `""`                                                 |
 
 Example
@@ -458,8 +458,8 @@ Define if the override service object name should be expanded
 | ---------- | ---------------------------------------------------------------- |
 | Key        | `ingress.$name.hosts[].paths[].overrideService.expandObjectName` |
 | Type       | `bool`                                                           |
-| Required   | ❌                                                               |
-| Helm `tpl` | ✅                                                               |
+| Required   | ❌                                                                |
+| Helm `tpl` | ✅                                                                |
 | Default    | `true`                                                           |
 
 Example
@@ -487,8 +487,8 @@ Define the service port for this path
 | ---------- | ---------------------------------------------------- |
 | Key        | `ingress.$name.hosts[].paths[].overrideService.port` |
 | Type       | `int`                                                |
-| Required   | ✅                                                   |
-| Helm `tpl` | ❌                                                   |
+| Required   | ✅                                                    |
+| Helm `tpl` | ❌                                                    |
 | Default    | unset                                                |
 
 Example
@@ -515,8 +515,8 @@ Define the TLS for this ingress
 | ---------- | ------------------- |
 | Key        | `ingress.$name.tls` |
 | Type       | `list` of `map`     |
-| Required   | ✅                  |
-| Helm `tpl` | ❌                  |
+| Required   | ✅                   |
+| Helm `tpl` | ❌                   |
 | Default    | `[]`                |
 
 Example
@@ -537,8 +537,8 @@ Define the hosts for this TLS
 | ---------- | -------------------------- |
 | Key        | `ingress.$name.tls[].host` |
 | Type       | `list` of `string`         |
-| Required   | ✅                         |
-| Helm `tpl` | ✅ (On each entry)         |
+| Required   | ✅                          |
+| Helm `tpl` | ✅ (On each entry)          |
 | Default    | `[]`                       |
 
 Example
@@ -561,8 +561,8 @@ Define the secret name for this TLS
 | ---------- | -------------------------------- |
 | Key        | `ingress.$name.tls[].secretName` |
 | Type       | `string`                         |
-| Required   | ❌                               |
-| Helm `tpl` | ✅                               |
+| Required   | ❌                                |
+| Helm `tpl` | ✅                                |
 | Default    | `""`                             |
 
 Example
@@ -586,8 +586,8 @@ Define the certificate issuer for this TLS
 | ---------- | --------------------------------------- |
 | Key        | `ingress.$name.tls[].certificateIssuer` |
 | Type       | `string`                                |
-| Required   | ❌                                      |
-| Helm `tpl` | ❌                                      |
+| Required   | ❌                                       |
+| Helm `tpl` | ❌                                       |
 | Default    | `""`                                    |
 
 Example
@@ -611,8 +611,8 @@ Define the cluster issuer for this TLS
 | ---------- | ----------------------------------- |
 | Key        | `ingress.$name.tls[].clusterIssuer` |
 | Type       | `string`                            |
-| Required   | ❌                                  |
-| Helm `tpl` | ✅                                  |
+| Required   | ❌                                   |
+| Helm `tpl` | ✅                                   |
 | Default    | `""`                                |
 
 Example
@@ -636,8 +636,8 @@ Define the integrations for this ingress
 | ---------- | ---------------------------- |
 | Key        | `ingress.$name.integrations` |
 | Type       | `map`                        |
-| Required   | ❌                           |
-| Helm `tpl` | ❌                           |
+| Required   | ❌                            |
+| Helm `tpl` | ❌                            |
 | Default    | `{}`                         |
 
 Example
@@ -660,8 +660,8 @@ See more details in [Cert Manager Integration](/common/ingress/certmanager)
 | ---------- | ---------------------------------------- |
 | Key        | `ingress.$name.integrations.certManager` |
 | Type       | `map`                                    |
-| Required   | ❌                                       |
-| Helm `tpl` | ❌                                       |
+| Required   | ❌                                        |
+| Helm `tpl` | ❌                                        |
 | Default    | `{}`                                     |
 
 Example
@@ -685,8 +685,8 @@ See more details in [Traefik Integration](/common/ingress/traefik)
 | ---------- | ------------------------------------ |
 | Key        | `ingress.$name.integrations.traefik` |
 | Type       | `map`                                |
-| Required   | ❌                                   |
-| Helm `tpl` | ❌                                   |
+| Required   | ❌                                    |
+| Helm `tpl` | ❌                                    |
 | Default    | `{}`                                 |
 
 Example
@@ -710,8 +710,8 @@ See more details in [Homepage Integration](/common/ingress/homepage)
 | ---------- | ------------------------------------- |
 | Key        | `ingress.$name.integrations.homepage` |
 | Type       | `map`                                 |
-| Required   | ❌                                    |
-| Helm `tpl` | ❌                                    |
+| Required   | ❌                                     |
+| Helm `tpl` | ❌                                     |
 | Default    | `{}`                                  |
 
 Example
@@ -763,12 +763,7 @@ ingress:
         enabled: true
         entrypoints:
           - websecure
-        enableFixedMiddlewares: true
         forceTLS: true
-        allowCors: false
-        fixedMiddlewares:
-          - name: chain-basic
-            namespace: ""
         middlewares:
           - name: my-middleware
             namespace: ""

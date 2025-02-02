@@ -77,8 +77,6 @@ ingress:
 
   label:
     enabled: true
-    fixedMiddlewares:
-      - chain-basic
     labels:
       labelexample1: labelvalue2
     hosts:
@@ -93,8 +91,6 @@ ingress:
 
   autolink:
     enabled: true
-    fixedMiddlewares:
-      - chain-basic
     hosts:
       - host: label.chart-example.local
         paths:
@@ -108,8 +104,6 @@ ingress:
 
   notls:
     enabled: true
-    fixedMiddlewares:
-      - chain-basic
     hosts:
       - host: notls.chart-example.local
         paths:

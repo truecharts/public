@@ -645,13 +645,6 @@ ingress:
           - websecure
         # Ensures tls annotation is set
         forceTLS: true
-        # Drops both global and local fixedMiddlewares when enabled
-        allowCors: false
-        # fixedMiddlewares:
-        #   - name: chain-basic
-        #     # Optional, by default will try to
-        #     # "lookup" the namespace based on the name
-        #     namespace: ""
         middlewares: []
         #   - name: my-middleware
         #     # Optional, by default will try to
