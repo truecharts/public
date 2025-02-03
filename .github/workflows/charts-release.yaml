@@ -226,6 +226,12 @@ jobs:
           #
           #done < src/assets/contributors.json
 
+      - name: Setup Node
+        if: needs.check_changes.outputs.changes_detected == 'true' && needs.check_changes.outputs.changes_detected == 'true'
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        with:
+          node-version-file: ./website/.nvmrc
+
       - name: Fix Package-Lock
         if: needs.check_changes.outputs.changes_detected == 'true'
         run: cd website && npm i --package-lock-only
@@ -256,12 +262,6 @@ jobs:
           # Cache for npm and optimized images.
           path: ./website/node_modules
           key: modules-${{ hashFiles('website/package-lock.json') }}
-
-      - name: Setup Node
-        if: needs.check_changes.outputs.changes_detected == 'true' && needs.check_changes.outputs.changes_detected == 'true'
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
-        with:
-          node-version-file: ./website/.nvmrc
 
       - name: Install Packages
         if: steps.modulescache.outputs.cache-hit != 'true' && needs.check_changes.outputs.changes_detected == 'true'
