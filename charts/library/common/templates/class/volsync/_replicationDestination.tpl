@@ -56,6 +56,9 @@ spec:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot"}}
     capacity: {{ $capacity }}
+{{- if and (hasKey $volsyncData "copyMethod") (eq $volsyncData.copyMethod "Direct") }}
+    destinationPVC: {{ $objectData.name }}
+{{- end }}
     cleanupTempPVC: {{ $cleanupTempPVC }}
     cleanupCachePVC: {{ $cleanupCachePVC }}
   {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}
