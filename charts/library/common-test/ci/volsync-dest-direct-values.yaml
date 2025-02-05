@@ -36,19 +36,21 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
-  srcbackup:
+  destbackup:
     enabled: true
     type: pvc
     mountPath: /backedup
+    copyMethod: Direct
     targetSelectAll: true
     volsync:
       - name: mybackup
         type: restic
+        copyMethod: Direct
         credentials: mys3
         dest:
-          enabled: false
-        src:
           enabled: true
+        src:
+          enabled: false
 
 credentials:
   mys3:
