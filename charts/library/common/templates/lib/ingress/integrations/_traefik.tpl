@@ -22,7 +22,15 @@
     {{- $entrypoints := $traefik.entrypoints | default (list "websecure") -}}
     {{- $middlewares := list -}}
 
-    {{/* Add the user middlewares */}}
+    {{/* Add the user, common and chart middlewares */}}
+    {{- if $rootCtx.Values.global.traefik.commonMiddlewares -}}
+      {{- $middlewares = concat $middlewares $rootCtx.Values.global.traefik.commonMiddlewares -}}
+    {{- end -}}
+
+    {{- if $traefik.chartMiddlewares -}}
+      {{- $middlewares = concat $middlewares $traefik.chartMiddlewares -}}
+    {{- end -}}
+
     {{- if $traefik.middlewares -}}
       {{- $middlewares = concat $middlewares $traefik.middlewares -}}
     {{- end -}}

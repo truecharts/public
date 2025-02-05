@@ -12,12 +12,39 @@
     {{- $_ := set $.Values.ingressMiddlewares "traefik" dict -}}
   {{- end -}}
 
+
   {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
+
+
 
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                     "rootCtx" $ "objectData" $middleware
                     "name" $name "caller" "Middleware"
                     "key" "middlewares")) -}}
+
+    {{- if ne $enabled "true" -}}
+      {{- range $ingressName, $ingress := $.Values.ingress }}
+        {{- if and $ingress.enabled $ingress.integrations  $ingress.integrations.traefik $ingress.integrations.traefik.enabled }}
+          {{- range $middlewareEntry := $.Values.global.traefik.commonMiddlewares }}
+
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
+              {{- $enabled = "true" -}}
+            {{- end }}
+          {{- end }}
+          {{- range $middlewareEntry := $ingress.integrations.traefik.middlewares }}
+
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
+              {{- $enabled = "true" -}}
+            {{- end }}
+          {{- end }}
+          {{- range $middlewareEntry := $ingress.integrations.traefik.chartMiddlewares }}
+            {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
+              {{- $enabled = "true" -}}
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
 
     {{- if eq $enabled "true" -}}
 

@@ -63,6 +63,8 @@ global:
   traefik:
     # -- Adds traefik annotations to services (when needed)
     addServiceAnnotations: true
+    commonMiddlewares:
+      - name: tc-basic-secure-headers
   # -- Minimum nodePort value
   minNodePort: 9000
   # -- Enable to stop most pods and containers including cnpg
