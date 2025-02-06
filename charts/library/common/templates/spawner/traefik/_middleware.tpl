@@ -24,7 +24,11 @@
 
     {{- if ne $enabled "true" -}}
       {{- range $ingressName, $ingress := $.Values.ingress }}
-        {{- if and $ingress.enabled $ingress.integrations  $ingress.integrations.traefik $ingress.integrations.traefik.enabled }}
+       {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
+                       "rootCtx" $ "objectData" $ingress
+                       "name" $ingressName "caller" "Middleware"
+                       "key" "middlewares")) -}}
+        {{- if and ( eq $enabledIng "true" ) $ingress.integrations  $ingress.integrations.traefik $ingress.integrations.traefik.enabled }}
           {{- range $middlewareEntry := $.Values.global.traefik.commonMiddlewares }}
 
             {{- if and ( eq $middlewareEntry.name $name ) ( not $middlewareEntry.namespace ) }}
