@@ -21,10 +21,8 @@ objectData: The object data to be used to render the Pod.
   {{- end -}}
 
   {{- $validTypes := (list "Deployment" "StatefulSet") -}}
+   {{/* TODO: We need to merge default with user input */}}
   {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultAffinity }}
-  {{/*
-TODO: We need to label pods with the PVCs that are attached, then use those labels here
-EXAMPLE FORMAT:
   podAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
@@ -32,11 +30,12 @@ EXAMPLE FORMAT:
             - key: app
               operator: In
               values:
-                - PERSITENCE NAME LABEL
+                - {{include "tc.v1.common.lib.metadata.volumeLabels" (dict "rootCtx" $rootCtx "objectData" $objectData)}}
         topologyKey: "kubernetes.io/hostname"
-        */}}
-  {{- end -}}
+  {{- else -}}
   {{- with $affinity -}} {{/* TODO: Template this, so we can add some validation around easy to make mistakes. Low Prio */}}
     {{- . | toYaml | nindent 0 }}
   {{- end -}}
+  {{- end -}}
+
 {{- end -}}
