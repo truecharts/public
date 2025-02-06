@@ -40,11 +40,13 @@ persistence:
     enabled: true
     type: pvc
     mountPath: /backedup
+    copyMethod: Direct
     targetSelectAll: true
     volsync:
       - name: mybackup
         type: restic
         credentials: mys3
+        copyMethod: Direct
         dest:
           enabled: false
         src:
