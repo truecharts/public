@@ -22,7 +22,8 @@ objectData: The object data to be used to render the Pod.
 
   {{- $validTypes := (list "Deployment" "StatefulSet") -}}
    {{/* TODO: We need to merge default with user input */}}
-  {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultAffinity }}
+  {{- $pvcLabels := (include "tc.v1.common.lib.metadata.volumeLabels" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
+  {{- if and (mustHas $objectData.type $validTypes) $pvcLabels $rootCtx.Values.podOptions.defaultAffinity }}
   podAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
@@ -30,7 +31,7 @@ objectData: The object data to be used to render the Pod.
             - key: app
               operator: In
               values:
-                - {{include "tc.v1.common.lib.metadata.volumeLabels" (dict "rootCtx" $rootCtx "objectData" $objectData)}}
+                - {{ $pvcLabels }}
         topologyKey: "kubernetes.io/hostname"
   {{- else -}}
   {{- with $affinity -}} {{/* TODO: Template this, so we can add some validation around easy to make mistakes. Low Prio */}}
