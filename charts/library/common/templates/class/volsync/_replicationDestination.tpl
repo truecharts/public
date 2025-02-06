@@ -26,6 +26,7 @@ objectData:
     {{- $cleanupCachePVC = $volsyncData.cleanupCachePVC -}}
   {{- end -}}
 
+  {{- $copyMethod := $volsyncData.copyMethod | default "Snapshot" -}}
   {{- $capacity := $rootCtx.Values.global.fallbackDefaults.pvcSize -}}
   {{- if $objectData.size -}}
     {{- $capacity = $objectData.size -}}
@@ -54,11 +55,11 @@ spec:
     manual: restore-once
   {{ $volsyncData.type }}:
     repository: {{ $volsyncData.repository }}
-    copyMethod: {{ $volsyncData.copyMethod | default "Snapshot"}}
+    copyMethod: {{ $copyMethod }}
     capacity: {{ $capacity }}
-{{- if and (hasKey $volsyncData "copyMethod") (eq $volsyncData.copyMethod "Direct") }}
+    {{- if eq $copyMethod "Direct" }}
     destinationPVC: {{ $objectData.name }}
-{{- end }}
+    {{- end }}
     cleanupTempPVC: {{ $cleanupTempPVC }}
     cleanupCachePVC: {{ $cleanupCachePVC }}
   {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}
