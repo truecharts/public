@@ -23,4 +23,5 @@
     {{- fail "PodLabels - Template used in a place that is not designed to be used" -}}
   {{- end }}
 pod.lifecycle: {{ $label }}
+{{include "tc.v1.common.lib.metadata.volumeLabels" (dict "rootCtx" $rootCtx "objectData" $objectData)}}
 {{- end -}}
