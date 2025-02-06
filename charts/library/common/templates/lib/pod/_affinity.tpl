@@ -21,6 +21,21 @@ objectData: The object data to be used to render the Pod.
   {{- end -}}
 
   {{- $validTypes := (list "Deployment" "StatefulSet") -}}
+  {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultAffinity }}
+  {{/*
+TODO: We need to label pods with the PVCs that are attached, then use those labels here
+EXAMPLE FORMAT:
+  podAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - PERSITENCE NAME LABEL
+        topologyKey: "kubernetes.io/hostname"
+        */}}
+  {{- end -}}
   {{- with $affinity -}} {{/* TODO: Template this, so we can add some validation around easy to make mistakes. Low Prio */}}
     {{- . | toYaml | nindent 0 }}
   {{- end -}}
