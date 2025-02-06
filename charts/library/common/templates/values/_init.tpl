@@ -12,8 +12,8 @@
     {{- range .Values.dependencies -}}
       {{- if .enabled -}}
         {{- $dependencyValues := omit . "global "-}}
-        {{- $dependencyValues := omit $dependencyValues "securityContext "-}}
-        {{- $dependencyValues := omit $dependencyValues "podOptions "-}}
+        {{- $dependencyValues := omit $dependencyValues "securityContext  "-}}
+        {{- $dependencyValues := omit $dependencyValues "podOptions " -}}
         {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
       {{- end -}}
     {{- end -}}
