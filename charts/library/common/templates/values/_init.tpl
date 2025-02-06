@@ -10,8 +10,12 @@
     {{- $chartValues := mustDeepCopy (omit .Values "common") -}}
     {{- $mergedValues := mustMergeOverwrite $commonValues $chartValues -}}
     {{- range .Values.dependencies -}}
-      {{- $dependencyValues := . -}}
-      {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
+      {{- if .enabled -}}
+        {{- $dependencyValues := omit . "global "-}}
+        {{- $dependencyValues := omit $dependencyValues "securityContext "-}}
+        {{- $dependencyValues := omit $dependencyValues "podOptions "-}}
+        {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
+      {{- end -}}
     {{- end -}}
     {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
