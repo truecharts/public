@@ -30,7 +30,7 @@ workload:
             RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
             RENOVATE_PLATFORM: 'github'
             RENOVATE_TOKEN: '${GITHUB_PAT}'
-            RENOVATE_CONFIG_FILE: /tmp/renovate/config.json
+            RENOVATE_CONFIG_FILE: /tmp/renovate/renovate-config.js
             RENOVATE_BASE_DIR: ${GITHUB_WORKSPACE}
             LOGLEVEL: debug
 
