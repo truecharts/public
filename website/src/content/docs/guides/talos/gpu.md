@@ -72,28 +72,11 @@ nodes:
     - hostname: k8s-control-1
       ipAddress: ${MASTER1IP_IP}
       controlPlane: true
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 1600GB
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP_CIDR}
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-          vip:
-            ip: ${VIP}
       schematic:
         customization:
           systemExtensions:
             officialExtensions:
               - siderolabs/util-linux-tools
-              - siderolabs/iscsi-tools
-              - siderolabs/qemu-guest-agent
               - siderolabs/nonfree-kmod-nvidia-lts
               - siderolabs/nvidia-container-toolkit-lts
       ### Note the placement of the gpu patch reference ###
