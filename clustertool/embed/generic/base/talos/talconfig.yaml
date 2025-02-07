@@ -106,6 +106,8 @@ worker:
           discard_unpacked_layers = false
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
           discard_unpacked_layers = false
+        [plugins."io.containerd.cri.v1.images"] 
+          discard_unpacked_layers = false
       permissions: 0
       path: /etc/cri/conf.d/20-customization.part
       op: create
