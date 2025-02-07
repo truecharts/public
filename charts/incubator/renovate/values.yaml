@@ -52,6 +52,9 @@ service:
         enabled: false
 
 persistence:
+  renovate-cache:
+    enabled: true
+    mountPath: /tmp/renovate
   configmap-vol:
     enabled: true
     type: configmap
