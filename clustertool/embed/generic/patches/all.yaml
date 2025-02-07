@@ -40,7 +40,7 @@
   value:
     enabled: true
     resolveMemberNames: true
-    forwardKubeDNSToHost: false
+    forwardKubeDNSToHost: true
 - op: add
   path: /machine/sysctls
   value:
