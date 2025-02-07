@@ -38,7 +38,7 @@ configmap:
   config:
     enabled: true
     data:
-      config.json: |-
+      renovate-config.js: |-
         {
           "repositories": ["truecharts/public"],
           "dryRun" : "full"
