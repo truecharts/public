@@ -60,11 +60,11 @@ persistence:
     type: configmap
     objectName: config
     defaultMode: "0777"
-    mountPath: /tmp/renovate/config.json
-    subPath: config.json
+    mountPath: /tmp/renovate/renovate-config.js
+    subPath: renovate-config.js
     items:
-      - key: config.json
-        path: config.json
+      - key: renovate-config.js
+        path: renovate-config.js
 
 portal:
   open:
