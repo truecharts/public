@@ -31,11 +31,9 @@ spec:
   values:
     workload:
       main:
-        schedule: "@hourly"
         podSpec:
           containers:
             main:
-
               env:
                 GITHUB_COM_TOKEN: '${GITHUB_PAT_TC}'
                 # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
