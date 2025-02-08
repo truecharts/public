@@ -10,6 +10,9 @@ cluster:
   controllerManager:
     extraArgs:
       bind-address: 0.0.0.0
+  proxy:
+    extraArgs:
+      metrics-bind-address: 0.0.0.0:10249
   apiServer:
     extraArgs:
       enable-aggregator-routing: "true"
@@ -31,6 +34,8 @@ cluster:
               - volsync
               - flux-system
   scheduler:
+    extraArgs:
+      bind-address: 0.0.0.0
     config:
       apiVersion: kubescheduler.config.k8s.io/v1
       kind: KubeSchedulerConfiguration
