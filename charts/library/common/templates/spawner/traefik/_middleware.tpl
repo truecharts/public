@@ -19,7 +19,7 @@
     {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
       "rootCtx" $ "objectData" $ing
       "name" $ingName "caller" "Middleware"
-      "key" "middlewares")) -}}
+      "key" "ingress")) -}}
 
     {{/* Skip disabled ingresses or ingresses without traefik integration */}}
     {{- if ne $enabledIng "true" -}}{{- continue -}}{{- end -}}
@@ -28,7 +28,7 @@
     {{- $enabledTraefikIntegration := (include "tc.v1.common.lib.util.enabled" (dict
         "rootCtx" $ "objectData" $ing.integrations.traefik
         "name" $ingName "caller" "Middleware"
-        "key" "middlewares")) -}}
+        "key" "ingress.integrations.traefik")) -}}
     {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
 
     {{/* User middlewares */}}
