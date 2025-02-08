@@ -47,7 +47,7 @@
 
   {{/* Global Middlewares */}}
   {{- range $mw := $.Values.global.traefik.commonMiddlewares -}}
-    {{- if $middlewareEntry.namespace -}}{{- continue -}}{{- end -}}
+    {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
       {{- $_ := set $filteredMiddlewares $mw.name "global-mw" -}}
   {{- end -}}
 
@@ -69,8 +69,8 @@
       {{- $enabled = "true" -}}
 
       {{- if eq $indexedMid "user-mw" -}}
-        {{- include "add.warning" (dict "rootCtx" $rootCtx
-            "warn" (printf "WARNING: Because middleware [%s] was used in an ingress under traefik integration, it was forcefully enabled")
+        {{- include "add.warning" (dict "rootCtx" $
+            "warn" (printf "WARNING: Because middleware [%s] was used in an ingress under traefik integration, it was forcefully enabled"))
         -}}
       {{- end -}}
     {{- end -}}
