@@ -12,6 +12,45 @@
     {{- $_ := set $.Values.ingressMiddlewares "traefik" dict -}}
   {{- end -}}
 
+  {{- $filteredMiddlewares := dict -}}
+
+  {{/* Go over all ingresses and get their defined middlewares */}}
+  {{- range $ingName, $ing := $.Values.ingress -}}
+    {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
+      "rootCtx" $ "objectData" $ing
+      "name" $ingName "caller" "Middleware"
+      "key" "middlewares")) -}}
+
+    {{/* Skip disabled ingresses or ingresses without traefik integration */}}
+    {{- if ne $enabledIng "true" -}}{{- continue -}}{{- end -}}
+    {{- if not $ing.integrations -}}{{- continue -}}{{- end -}}
+    {{- if not $ing.integrations.traefik -}}{{- continue -}}{{- end -}}
+    {{- $enabledTraefikIntegration := (include "tc.v1.common.lib.util.enabled" (dict
+        "rootCtx" $ "objectData" $ing.integrations.traefik
+        "name" $ingName "caller" "Middleware"
+        "key" "middlewares")) -}}
+    {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
+
+    {{/* User middlewares */}}
+    {{- range $mw := $ing.integrations.traefik.middlewares -}}
+      {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
+      {{- $_ := set $filteredMiddlewares $mw "user-mw" -}}
+    {{- end -}}
+
+    {{/* Chart middlewares */}}
+    {{- range $mw := $ing.integrations.traefik.chartMiddlewares -}}
+      {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
+      {{- $_ := set $filteredMiddlewares $mw "chart-mw" -}}
+    {{- end -}}
+
+  {{- end -}}
+
+  {{/* Global Middlewares */}}
+  {{- range $mw := $.Values.global.traefik.commonMiddlewares -}}
+    {{- if $middlewareEntry.namespace -}}{{- continue -}}{{- end -}}
+      {{- $_ := set $filteredMiddlewares $mw "global-mw" -}}
+  {{- end -}}
+
   {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
 
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
@@ -20,64 +59,23 @@
                     "key" "middlewares")) -}}
 
     {{- if ne $enabled "true" -}}
-      {{- range $ingressName, $ingress := $.Values.ingress }}
-        {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
-            "rootCtx" $ "objectData" $ingress
-            "name" $ingressName "caller" "Middleware"
-            "key" "middlewares")) -}}
+      {{- $indexedMid := get $filteredMiddlewares $name -}}
+      {{- if not $indexedMid -}}{{- continue -}}{{- end -}}
 
-        {{/* Skip disabled ingresses or ingresses without traefik integration */}}
-        {{- if ne $enabledIng "true" -}}{{- continue -}}{{- end -}}
-        {{- if not $ingress.integrations -}}{{- continue -}}{{- end -}}
-        {{- if not $ingress.integrations.traefik -}}{{- continue -}}{{- end -}}
+      {{/*
+        If current middleware manifest is in the middlewares listed under one of the above sections
+        Forcefully enable it/render it.
+      */}}
+      {{- $enabled = "true" -}}
 
-        {{- $enabledTraefikIntegration := (include "tc.v1.common.lib.util.enabled" (dict
-            "rootCtx" $ "objectData" $ingress.integrations.traefik
-            "name" $ingressName "caller" "Middleware"
-            "key" "middlewares")) -}}
-
-        {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
-
-        {{/*
-          If current middleware is also listed in global traefik common middlewares,
-          forcefully enable it.
-          This is so, if a user tries to use one of our pre-shipped global middlewares,
-          wont have to manually enable it.
-        */}}
-        {{- range $middlewareEntry := $.Values.global.traefik.commonMiddlewares -}}
-          {{- if and (eq $middlewareEntry.name $name) (not $middlewareEntry.namespace) -}}
-            {{- $enabled = "true" -}}
-          {{- end -}}
-        {{- end -}}
-
-        {{/*
-          If current middleware is also listed in the traefik integration user middlewares,
-          forcefully enable it. ?? Why not error here and let user know that he has to enable it.
-        */}}
-        {{- range $middlewareEntry := $ingress.integrations.traefik.middlewares -}}
-          {{- if and (eq $middlewareEntry.name $name) (not $middlewareEntry.namespace) -}}
-            {{- $enabled = "true" -}}
-          {{- end }}
-        {{- end }}
-
-
-        {{/*
-          If current middleware is also listed in the traefik integration chart middlewares,
-          forcefully enable it.
-          This is so if we define a custom middleware for a specific chart, and user wants to use it,
-          ie user does not remove the middleware. The user wont have to manually enable it.
-        */}}
-        {{- range $middlewareEntry := $ingress.integrations.traefik.chartMiddlewares -}}
-          {{- if and (eq $middlewareEntry.name $name) (not $middlewareEntry.namespace) -}}
-            {{- $enabled = "true" -}}
-          {{- end -}}
-        {{- end -}}
-
+      {{- if eq $indexedMid "user-mw" -}}
+        {{- include "add.warning" (dict "rootCtx" $rootCtx
+            "warn" (printf "WARNING: Because middleware [%s] was used in an ingress under traefik integration, it was forcefully enabled")
+        -}}
       {{- end -}}
     {{- end -}}
 
     {{- if eq $enabled "true" -}}
-
       {{/* Create a copy of the middleware */}}
       {{- $objectData := (mustDeepCopy $middleware) -}}
 
