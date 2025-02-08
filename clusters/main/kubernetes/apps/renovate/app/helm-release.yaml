@@ -42,6 +42,7 @@ spec:
                 RENOVATE_AUTODISCOVER: 'false'
                 RENOVATE_TOKEN: '${GITHUB_PAT}'
                 LOG_LEVEL: debug
+                RENOVATE_CACHE_DIR: /tmp/renovate/cache
 
     configmap:
       config:
