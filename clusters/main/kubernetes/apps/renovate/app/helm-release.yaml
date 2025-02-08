@@ -37,10 +37,10 @@ spec:
             main:
 
               env:
-                GITHUB_COM_TOKEN: '${GITHUB_PAT}'
+                GITHUB_COM_TOKEN: '${GITHUB_PAT_TC}'
                 # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
                 RENOVATE_AUTODISCOVER: 'false'
-                RENOVATE_TOKEN: '${GITHUB_PAT}'
+                RENOVATE_TOKEN: '${GITHUB_PAT_TC}'
                 LOG_LEVEL: debug
                 RENOVATE_CACHE_DIR: /tmp/renovate/cache
 
