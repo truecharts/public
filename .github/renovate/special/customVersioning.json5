@@ -44,7 +44,7 @@
       // Duplicated below
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      "matchPackagePrefixes": ["jupyter"]
+      "matchPackagePrefixes": ["quay.io/jupyter"]
     },
     {
       // Not found in respository - alternative package used - 2025-02-01
@@ -60,7 +60,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-      "matchPackagePatterns": ["^jupyter\\/.+$"]
+      "matchPackagePatterns": ["^quay.io/jupyter\\/.+$"]
     },
     {
       // Not found in repository 2025-02-01
