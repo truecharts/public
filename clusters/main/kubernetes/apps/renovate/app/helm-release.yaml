@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: renovate
-      version: 1.11.2
+      version: 1.11.3
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -41,8 +41,7 @@ spec:
                 # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
                 RENOVATE_AUTODISCOVER: 'false'
                 RENOVATE_TOKEN: '${GITHUB_PAT}'
-                RENOVATE_CONFIG_FILE: /tmp/renovate/renovate-config.js
-                LOGLEVEL: debug
+                LOG_LEVEL: debug
 
     configmap:
       config:
