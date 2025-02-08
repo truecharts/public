@@ -1,7 +1,7 @@
 image:
   repository: mirror.gcr.io/cthulhoo/ttrss-fpm-pgsql-static
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ab99998e99f6c1395eed9e478401b9a1a822e3f0a4628d34b66a36b9e1157cfd
+  tag: latest@sha256:195c7bbb61d2f848eecec201825f36204a5c75f1342e645fc7986d7230b2ce0b
 nginxImage:
   repository: mirror.gcr.io/cthulhoo/ttrss-web-nginx
   pullPolicy: IfNotPresent
@@ -9,7 +9,7 @@ nginxImage:
 updaterImage:
   repository: mirror.gcr.io/cthulhoo/ttrss-fpm-pgsql-static
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ab99998e99f6c1395eed9e478401b9a1a822e3f0a4628d34b66a36b9e1157cfd
+  tag: latest@sha256:195c7bbb61d2f848eecec201825f36204a5c75f1342e645fc7986d7230b2ce0b
 securityContext:
   container:
     readOnlyRootFilesystem: false
