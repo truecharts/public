@@ -65,7 +65,7 @@ patches:
 
 ```
 
-Example: 
+Example:
 ```yaml
 nodes:
     # We would adivce to always stick to a "k8s-something-1" style naming scheme
