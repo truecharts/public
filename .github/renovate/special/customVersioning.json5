@@ -249,6 +249,16 @@
       "matchDataSources": ["docker"],
       "matchPackagePrefixes": ["docker.io/remie/yourtransfer"],
       "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v3-3\\.(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>.+)$",
+      "matchPackageNames": ["ghcr.io/corentinth/it-tools"]
     }
   ]
 }
