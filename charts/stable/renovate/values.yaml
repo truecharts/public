@@ -51,6 +51,12 @@ service:
         enabled: false
 
 persistence:
+  renovate:
+    enabled: true
+    mountPath: /tmp/renovate
+  renovate-repos:
+    enabled: true
+    mountPath: /tmp/renovate/repos
   renovate-cache:
     enabled: true
     mountPath: /tmp/renovate/cache
