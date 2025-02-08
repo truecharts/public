@@ -31,6 +31,7 @@ workload:
             RENOVATE_TOKEN: '${GITHUB_PAT}'
             RENOVATE_CONFIG_FILE: /config/renovate-config.js
             LOG_LEVEL: debug
+            RENOVATE_CACHE_DIR: /tmp/renovate/cache
 
 configmap:
   config:
@@ -52,7 +53,7 @@ service:
 persistence:
   renovate-cache:
     enabled: true
-    mountPath: /tmp/renovate
+    mountPath: /tmp/renovate/cache
   configmap-vol:
     enabled: true
     type: configmap
