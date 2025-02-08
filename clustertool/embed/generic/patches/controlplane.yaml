@@ -18,17 +18,8 @@ cluster:
     admissionControl:
       - name: PodSecurity
         configuration:
-          apiVersion: pod-security.admission.config.k8s.io/v1alpha1
-          defaults:
-            audit: restricted
-            audit-version: latest
-            enforce: baseline
-            enforce-version: latest
-            warn: restricted
-            warn-version: latest
           exemptions:
             namespaces:
-              - kube-system
               - metallb
               - metallb-config
               - topolvm-system
@@ -39,9 +30,6 @@ cluster:
               - snapshot-controller
               - volsync
               - flux-system
-            runtimeClasses: []
-            usernames: []
-          kind: PodSecurityConfiguration
   scheduler:
     config:
       apiVersion: kubescheduler.config.k8s.io/v1
