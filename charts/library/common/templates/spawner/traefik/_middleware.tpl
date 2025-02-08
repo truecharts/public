@@ -34,13 +34,13 @@
     {{/* User middlewares */}}
     {{- range $mw := $ing.integrations.traefik.middlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
-      {{- $_ := set $filteredMiddlewares $mw "user-mw" -}}
+      {{- $_ := set $filteredMiddlewares $mw.name "user-mw" -}}
     {{- end -}}
 
     {{/* Chart middlewares */}}
     {{- range $mw := $ing.integrations.traefik.chartMiddlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
-      {{- $_ := set $filteredMiddlewares $mw "chart-mw" -}}
+      {{- $_ := set $filteredMiddlewares $mw.name "chart-mw" -}}
     {{- end -}}
 
   {{- end -}}
@@ -48,7 +48,7 @@
   {{/* Global Middlewares */}}
   {{- range $mw := $.Values.global.traefik.commonMiddlewares -}}
     {{- if $middlewareEntry.namespace -}}{{- continue -}}{{- end -}}
-      {{- $_ := set $filteredMiddlewares $mw "global-mw" -}}
+      {{- $_ := set $filteredMiddlewares $mw.name "global-mw" -}}
   {{- end -}}
 
   {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
