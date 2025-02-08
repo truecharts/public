@@ -15,12 +15,17 @@ tests:
             - name: some-middleware
       ingressMiddlewares:
         traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
           some-middleware:
             enabled: false
             type: buffering
             data:
               foo: bar
     asserts:
+      - hasDocuments:
+          count: 1
       - documentIndex: &middlewareDoc 0
         isKind:
           of: Middleware
@@ -37,6 +42,9 @@ tests:
     set:
       ingressMiddlewares:
         traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
           some-chart-middleware:
             enabled: false
             type: buffering
@@ -63,6 +71,8 @@ tests:
           hosts:
             - host: chart-example.local
     asserts:
+      - hasDocuments:
+          count: 3
       - documentIndex: &middlewareDoc 1
         isKind:
           of: Middleware
@@ -79,6 +89,9 @@ tests:
     set:
       ingressMiddlewares:
         traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
           some-user-middleware:
             enabled: false
             type: buffering
@@ -105,6 +118,8 @@ tests:
           hosts:
             - host: chart-example.local
     asserts:
+      - hasDocuments:
+          count: 3
       - documentIndex: &middlewareDoc 1
         isKind:
           of: Middleware
