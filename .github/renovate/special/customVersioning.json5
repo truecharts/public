@@ -99,7 +99,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
-      "matchPackageNames": ["docker.io/library/xwiki"]
+      "matchPackageNames": ["public.ecr.aws/docker/library/xwiki"]
     },
     {
       "matchDatasources": ["docker"],
