@@ -47,7 +47,11 @@ spec:
     configmap:
       config:
         enabled: false
-
+    podOptions:
+        hostAliases:
+          - ip: 192.168.10.201
+            hostnames:
+            - dockerhub.kjeldschouten.nl
     persistence:
       configmap-vol:
         enabled: true
