@@ -1,14 +1,14 @@
 image:
   pullPolicy: IfNotPresent
-  repository: docker.io/codeproject/ai-server
+  repository: mirror.gcr.io/codeproject/ai-server
   tag: cpu-2.6.5@sha256:181c85af30bb464a1ad5db396ba0803ec82d9f912e54ff751f171f3342d27489
 gpu12Image:
   pullPolicy: IfNotPresent
-  repository: docker.io/codeproject/ai-server
+  repository: mirror.gcr.io/codeproject/ai-server
   tag: cuda12_2@sha256:4087f113123dd165ca2da7ad573d21fead73a2a255f9684967db326f1e003199
 gpu11Image:
   pullPolicy: IfNotPresent
-  repository: docker.io/codeproject/ai-server
+  repository: mirror.gcr.io/codeproject/ai-server
   tag: cuda11_7@sha256:49d862f7bf8e1220ad1d58c3c0ba43dea0a7a512d1965730438094abb3d402f8
 
 securityContext:

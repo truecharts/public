@@ -1,37 +1,37 @@
 image:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0@sha256:9941689d599c154f15bf88d9ae7942d388909a2711ead51b8534f7ee3487f869
 ffmpegImage:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-ffmpeg-core@sha256:ee97417514e9432da699fdafc2c8eed31334abe7824b913278b5f1c58267b986
 cublasCuda12Image:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-cublas-cuda12-core@sha256:26a399963615f05e98e6a1d03142fb9a34da5899556e424eec3f7d6ca56a74f2
 cublasCuda12FfmpegImage:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-cublas-cuda12-ffmpeg-core@sha256:ae5e20b7ed64cb231f5be4f98d697dcc04eb6b2711010f77a278670f311a1d9f
 cublasCuda11Image:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-cublas-cuda11-core@sha256:07c6e5699bd4242d54aaa1d61fd633d63b76780b7b4c266e08ef409da1a896e2
 cublasCuda11FfmpegImage:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-cublas-cuda11-ffmpeg-core@sha256:df04e93b10787c702047792b81920d202d4ca5bf8ad1a5a4bd4e5045899bdc45
 allInOneCuda12Image:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-aio-gpu-nvidia-cuda-12@sha256:1d517dbfed3445973a90b328659b9c51b066bec42af243eb43376c63c2d93b84
 allInOneCuda11Image:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-aio-gpu-nvidia-cuda-11@sha256:5ea947a9d79f69db9e7af889bdfbf1e7b2e66de34f65ab0f485e168597651dba
 allInOneCpuImage:
-  repository: docker.io/localai/localai
+  repository: mirror.gcr.io/localai/localai
   pullPolicy: IfNotPresent
   tag: v2.25.0-aio-cpu@sha256:f7c65fe0e802367d34b2c64a630b784f6008fb2dedb0fe28e56dad6611592a7c
 securityContext:

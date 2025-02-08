@@ -1,11 +1,11 @@
 image:
   pullPolicy: IfNotPresent
-  repository: docker.io/jasongdove/ersatztv
+  repository: mirror.gcr.io/jasongdove/ersatztv
   tag: v25.1.0@sha256:a3d5c42dcc4272e190db4e286e8da9e9670687fe3a75ca79fcc4867a640170f8
 imageSelector: image
 nvidiaImage:
   pullPolicy: Always
-  repository: docker.io/jasongdove/ersatztv
+  repository: mirror.gcr.io/jasongdove/ersatztv
   tag: v25.1.0-nvidia@sha256:686c3b18dada18f73aa2c1fcca90e46f317abfe364d165e6886396ac2cfd115b
 persistence:
   config:
@@ -30,7 +30,7 @@ service:
         targetPort: 8409
 vaapiImage:
   pullPolicy: Always
-  repository: docker.io/jasongdove/ersatztv
+  repository: mirror.gcr.io/jasongdove/ersatztv
   tag: v25.1.0-vaapi@sha256:f845dc4d4d458cdeac89f97b2331fe02bb5877e4772ab9cef0e71b776382a657
 workload:
   main:

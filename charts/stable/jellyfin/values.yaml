@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 10.10.5@sha256:54340f53459858156896d5758a6eaa2cea9c95ff95c3c966f2fff1307e31660c
 broadcastProxyImage:
-  repository: docker.io/alpine/socat
+  repository: mirror.gcr.io/alpine/socat
   pullPolicy: IfNotPresent
   tag: 1.8.0.1@sha256:e899028c84c1a1e65bb14821b0802a683a2cffbff96c9ac02ff1d9cbb03f64e6
 service:

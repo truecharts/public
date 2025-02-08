@@ -4,22 +4,22 @@ image:
   tag: latest
 
 webImage:
-  repository: docker.io/kubernetesui/dashboard-web
+  repository: mirror.gcr.io/kubernetesui/dashboard-web
   pullPolicy: IfNotPresent
   tag: 1.6.1@sha256:06a9bb6993c3763d7d2b83da7250cc6cbed69b96f9fd856d403eb717a87770c9
 
 authImage:
-  repository: docker.io/kubernetesui/dashboard-auth
+  repository: mirror.gcr.io/kubernetesui/dashboard-auth
   pullPolicy: IfNotPresent
   tag: 1.2.3@sha256:af2a00ac93d53ad9f5d7673605c8d56e76ff241baeda416762a6762fcaf62ba0
 
 apiImage:
-  repository: docker.io/kubernetesui/dashboard-api
+  repository: mirror.gcr.io/kubernetesui/dashboard-api
   pullPolicy: IfNotPresent
   tag: 1.10.2@sha256:5d1df36a99f2e0afb4ab4fd9f98b7f72bf5aee013108a0225be68c17913cad17
 
 scraperImage:
-  repository: docker.io/kubernetesui/dashboard-metrics-scraper
+  repository: mirror.gcr.io/kubernetesui/dashboard-metrics-scraper
   pullPolicy: IfNotPresent
   tag: 1.2.2@sha256:5154b68252bd601cf85092b6413cb9db224af1ef89cb53009d2070dfccd30775
 

@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v30.0.0@sha256:121757677d05261308cdeb81e1777f2f5f34c5ebc4477df855c787fa8837248f
 nginxImage:
-  repository: docker.io/nginxinc/nginx-unprivileged
+  repository: mirror.gcr.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
   tag: 1.27.3@sha256:6d51e4a8e10dfe334f8e2d15bb81b1ed2580ea9cb874b644acc720eda7022b54
 imaginaryImage:
@@ -15,11 +15,11 @@ hpbImage:
   pullPolicy: IfNotPresent
   tag: v0.7.0@sha256:00387072fc02080d022360529195f34e97cc22c9755103376295186d7cc0e805
 clamavImage:
-  repository: docker.io/clamav/clamav
+  repository: mirror.gcr.io/clamav/clamav
   pullPolicy: IfNotPresent
   tag: 1.4.2@sha256:cb9aed55ec997eacd768af9e9d4a6194f2dad2eba4d63e32128739b2bc0d2bbd
 collaboraImage:
-  repository: docker.io/collabora/code
+  repository: mirror.gcr.io/collabora/code
   pullPolicy: IfNotPresent
   tag: 24.04.12.2.1@sha256:46f799f6f5d4b985dbfdaacabbdcb6ecb90c4e3659d28a4b66757f6946c07829
 
