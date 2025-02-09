@@ -270,6 +270,22 @@ tests:
       - failedTemplate:
           errorMessage: Ingress - Expected [integrations.traefik.middlewares] to be a [slice], but got [string]
 
+  - it: should fail with chartMiddlewares not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              chartMiddlewares: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.chartMiddlewares] to be a [slice], but got [string]
+
   - it: should fail with duplicate middlewares
     set:
       service: *service

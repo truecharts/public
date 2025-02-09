@@ -217,6 +217,29 @@ global:
 
 ---
 
+### `traefik.commonMiddlewares`
+
+Define middlewares that will be applied to all ingresses
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `global.traefik.commonMiddlewares`  |
+| Type       | `list`                              |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `[{name: tc-basic-secure-headers}]` |
+
+Example
+
+```yaml
+global:
+  traefik:
+    commonMiddlewares:
+      - name: tc-basic-secure-headers
+```
+
+---
+
 ## Full Examples
 
 ```yaml
@@ -232,4 +255,6 @@ global:
     addServiceAnnotations: true
   traefik:
     addServiceAnnotations: true
+    commonMiddlewares:
+      - name: tc-basic-secure-headers
 ```
