@@ -9,6 +9,18 @@
     {{- $commonValues := mustDeepCopy .Values.common -}}
     {{- $chartValues := mustDeepCopy (omit .Values "common") -}}
     {{- $mergedValues := mustMergeOverwrite $commonValues $chartValues -}}
+    {{- range $name, $dependencyValues := .Values.dependencies -}}
+      {{ $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                      "rootCtx" $ "objectData" $dependencyValues
+                      "name" $name "caller" "dependency"
+                      "key" "dependencies")) }}
+      {{- if eq $enabled "true" -}}
+        {{- $dependencyValues := omit $dependencyValues "global " -}}
+        {{- $dependencyValues := omit $dependencyValues "securityContext  " -}}
+        {{- $dependencyValues := omit $dependencyValues "podOptions " -}}
+        {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
+      {{- end -}}
+    {{- end -}}
     {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
 {{- end -}}
