@@ -15,8 +15,8 @@
                       "name" $name "caller" "dependency"
                       "key" "dependencies")) }}
       {{- if eq $enabled "true" -}}
-        {{- $dependencyValues := omit $dependencyValues "global "-}}
-        {{- $dependencyValues := omit $dependencyValues "securityContext  "-}}
+        {{- $dependencyValues := omit $dependencyValues "global " -}}
+        {{- $dependencyValues := omit $dependencyValues "securityContext  " -}}
         {{- $dependencyValues := omit $dependencyValues "podOptions " -}}
         {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
       {{- end -}}
