@@ -18,29 +18,30 @@
   {{- range $ingName, $ing := $.Values.ingress -}}
     {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
       "rootCtx" $ "objectData" $ing
-      "name" $ingName "caller" "Middleware"
+      "name" $ingName "caller" "Ingress"
       "key" "ingress")) -}}
 
     {{/* Skip disabled ingresses or ingresses without traefik integration */}}
     {{- if ne $enabledIng "true" -}}{{- continue -}}{{- end -}}
     {{- if not $ing.integrations -}}{{- continue -}}{{- end -}}
     {{- if not $ing.integrations.traefik -}}{{- continue -}}{{- end -}}
-    {{- $enabledTraefikIntegration := (include "tc.v1.common.lib.util.enabled" (dict
-        "rootCtx" $ "objectData" $ing.integrations.traefik
-        "name" $ingName "caller" "Middleware"
-        "key" "ingress.integrations.traefik")) -}}
+    {{- $traefik := $ing.integrations.traefik -}}
+    {{- $enabledTraefikIntegration := "true" -}}
+    {{- if and (hasKey $traefik "enabled") (kindIs "bool" $traefik.enabled) -}}
+      {{- $enabledTraefikIntegration = $traefik.enabled | toString -}}
+    {{- end -}}
     {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
 
     {{/* User middlewares */}}
-    {{- if not (kindIs "slice" $ing.integrations.traefik.middlewares) -}}{{- continue -}}{{- end -}}
-    {{- range $mw := $ing.integrations.traefik.middlewares -}}
+    {{- if and $traefik.middlewares (not (kindIs "slice" $traefik.middlewares)) -}}{{- continue -}}{{- end -}}
+    {{- range $mw := $traefik.middlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
       {{- $_ := set $filteredMiddlewares $mw.name "user-mw" -}}
     {{- end -}}
 
     {{/* Chart middlewares */}}
-    {{- if not (kindIs "slice" $ing.integrations.traefik.chartMiddlewares) -}}{{- continue -}}{{- end -}}
-    {{- range $mw := $ing.integrations.traefik.chartMiddlewares -}}
+    {{- if and $traefik.chartMiddlewares (not (kindIs "slice" $traefik.chartMiddlewares)) -}}{{- continue -}}{{- end -}}
+    {{- range $mw := $traefik.chartMiddlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
       {{- $_ := set $filteredMiddlewares $mw.name "chart-mw" -}}
     {{- end -}}
@@ -56,9 +57,10 @@
   {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
 
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                    "rootCtx" $ "objectData" $middleware
-                    "name" $name "caller" "Middleware"
-                    "key" "middlewares")) -}}
+        "rootCtx" $ "objectData" $middleware
+        "name" $name "caller" "Middleware"
+        "key" "middlewares"))
+    -}}
 
     {{- if ne $enabled "true" -}}
       {{- $indexedMid := get $filteredMiddlewares $name -}}
