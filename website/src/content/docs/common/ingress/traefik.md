@@ -29,9 +29,9 @@ Enables or Disables the traefik integration
 | ---------- | -------------------------------------------- |
 | Key        | `ingress.$name.integrations.traefik.enabled` |
 | Type       | `bool`                                       |
-| Required   | ✅                                            |
+| Required   | ❌                                            |
 | Helm `tpl` | ❌                                            |
-| Default    | `true`                                       |
+| Default    | `false`                                      |
 
 Example
 

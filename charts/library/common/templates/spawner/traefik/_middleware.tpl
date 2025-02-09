@@ -30,7 +30,7 @@
       {{- $_ := set $ing.integrations "traefik" dict -}}
     {{- end -}}
     {{- $traefik := $ing.integrations.traefik -}}
-    {{- $enabledTraefikIntegration := "true" -}}
+    {{- $enabledTraefikIntegration := "false" -}}
     {{- if and (hasKey $traefik "enabled") (kindIs "bool" $traefik.enabled) -}}
       {{- $enabledTraefikIntegration = $traefik.enabled | toString -}}
     {{- end -}}
