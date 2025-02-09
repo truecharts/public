@@ -9,13 +9,12 @@
   {{- end -}}
 
   {{- $traefik := $objectData.integrations.traefik -}}
-
-  {{- $enabled := true -}}
-  {{- if and $traefik (hasKey $traefik "enabled") (kindIs "bool" $traefik.enabled) -}}
-    {{- $enabled = $traefik.enabled -}}
+  {{- $enabled := "false" -}}
+  {{- if and (hasKey $traefik "enabled") (kindIs "bool" $traefik.enabled) -}}
+    {{- $enabled = $traefik.enabled | toString -}}
   {{- end -}}
 
-  {{- if $enabled -}}
+  {{- if eq $enabled "true" -}}
     {{- include "tc.v1.common.lib.ingress.integration.traefik.validate" (dict "objectData" $objectData) -}}
     {{- $namespace := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Traefik Integration") -}}
 

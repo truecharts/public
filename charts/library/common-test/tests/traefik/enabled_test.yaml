@@ -38,6 +38,9 @@ tests:
           primary: true
           hosts:
             - host: chart-example.local
+          integrations:
+            traefik:
+              enabled: true
     asserts:
       - hasDocuments:
           count: 3
@@ -100,6 +103,7 @@ tests:
           primary: true
           integrations:
             traefik:
+              enabled: true
               chartMiddlewares:
                 - name: some-chart-middleware
           hosts:
@@ -146,6 +150,7 @@ tests:
           primary: true
           integrations:
             traefik:
+              enabled: true
               middlewares:
                 - name: some-user-middleware
           hosts:

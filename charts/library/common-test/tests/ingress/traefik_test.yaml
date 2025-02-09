@@ -34,6 +34,7 @@ tests:
                 - path: /test-path
           integrations:
             traefik:
+              enabled: true
               middlewares:
                 - name: my-compress
                 - name: some-existing-middleware-on-this-namespace
