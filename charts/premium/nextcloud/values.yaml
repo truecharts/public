@@ -534,3 +534,7 @@ ingressMiddlewares:
 ingress:
   main:
     required: true
+    integrations:
+      traefik:
+        chartMiddlewares:
+          - nextcloud-redirect
