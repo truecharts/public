@@ -641,7 +641,7 @@ ingress:
         enabled: false
         certificateIssuer: ""
       traefik:
-        enabled: true
+        enabled: false
         # Default to websecure
         entrypoints:
           - websecure
