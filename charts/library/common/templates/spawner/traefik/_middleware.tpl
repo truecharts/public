@@ -13,7 +13,7 @@
   {{- end -}}
 
   {{- $filteredMiddlewares := dict -}}
-
+  {{- $hasIngressEnabled := false -}}
   {{/* Go over all ingresses and get their defined middlewares */}}
   {{- range $ingName, $ing := $.Values.ingress -}}
     {{- $enabledIng := (include "tc.v1.common.lib.util.enabled" (dict
@@ -23,14 +23,20 @@
 
     {{/* Skip disabled ingresses or ingresses without traefik integration */}}
     {{- if ne $enabledIng "true" -}}{{- continue -}}{{- end -}}
-    {{- if not $ing.integrations -}}{{- continue -}}{{- end -}}
-    {{- if not $ing.integrations.traefik -}}{{- continue -}}{{- end -}}
+    {{- if not $ing.integrations -}}
+      {{- $_ := set $ing "integrations" dict -}}
+    {{- end -}}
+    {{- if not $ing.integrations.traefik -}}
+      {{- $_ := set $ing.integrations "traefik" dict -}}
+    {{- end -}}
     {{- $traefik := $ing.integrations.traefik -}}
     {{- $enabledTraefikIntegration := "true" -}}
     {{- if and (hasKey $traefik "enabled") (kindIs "bool" $traefik.enabled) -}}
       {{- $enabledTraefikIntegration = $traefik.enabled | toString -}}
     {{- end -}}
     {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
+
+    {{- $hasIngressEnabled = true -}}
 
     {{/* User middlewares */}}
     {{- if and $traefik.middlewares (not (kindIs "slice" $traefik.middlewares)) -}}{{- continue -}}{{- end -}}
@@ -48,10 +54,12 @@
 
   {{- end -}}
 
-  {{/* Global Middlewares */}}
-  {{- range $mw := $.Values.global.traefik.commonMiddlewares -}}
-    {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
-      {{- $_ := set $filteredMiddlewares $mw.name "global-mw" -}}
+  {{- if $hasIngressEnabled -}}
+    {{/* Global Middlewares */}}
+    {{- range $mw := $.Values.global.traefik.commonMiddlewares -}}
+      {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
+        {{- $_ := set $filteredMiddlewares $mw.name "global-mw" -}}
+    {{- end -}}
   {{- end -}}
 
   {{- range $name, $middleware := $.Values.ingressMiddlewares.traefik -}}
