@@ -53,6 +53,26 @@ tests:
           path: metadata.namespace
           value: test-release-namespace
 
+  - it: should not enable middleware when listed under global.traefik.commonMiddlewares if there is no ingress
+    set:
+      global:
+        traefik:
+          commonMiddlewares:
+            - name: some-middleware
+      ingressMiddlewares:
+        traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
+          some-middleware:
+            enabled: false
+            type: buffering
+            data:
+              foo: bar
+    asserts:
+      - hasDocuments:
+          count: 0
+
   - it: should enable middleware when listed under ingress.traefik.chartMiddlewares
     set:
       ingressMiddlewares:
