@@ -104,5 +104,10 @@
     {{- end -}}
   {{- end -}}
 
+  {{- if $traefik.chartMiddlewares -}}
+    {{- if not (kindIs "slice" $traefik.chartMiddlewares) -}}
+      {{- fail (printf "Ingress - Expected [integrations.traefik.chartMiddlewares] to be a [slice], but got [%s]" (kindOf $traefik.chartMiddlewares)) -}}
+    {{- end -}}
+  {{- end -}}
 
 {{- end -}}

@@ -32,12 +32,14 @@
     {{- if ne $enabledTraefikIntegration "true" }}{{- continue -}}{{- end -}}
 
     {{/* User middlewares */}}
+    {{- if not (kindIs "slice" $ing.integrations.traefik.middlewares) -}}{{- continue -}}{{- end -}}
     {{- range $mw := $ing.integrations.traefik.middlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
       {{- $_ := set $filteredMiddlewares $mw.name "user-mw" -}}
     {{- end -}}
 
     {{/* Chart middlewares */}}
+    {{- if not (kindIs "slice" $ing.integrations.traefik.chartMiddlewares) -}}{{- continue -}}{{- end -}}
     {{- range $mw := $ing.integrations.traefik.chartMiddlewares -}}
       {{- if $mw.namespace -}}{{- continue -}}{{- end -}}
       {{- $_ := set $filteredMiddlewares $mw.name "chart-mw" -}}
