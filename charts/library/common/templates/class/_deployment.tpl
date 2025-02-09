@@ -37,6 +37,7 @@ spec:
         {{- $labels := (mustMerge ($objectData.podSpec.labels | default dict)
                                   (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)
                                   (include "tc.v1.common.lib.metadata.podLabels" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml)
+                                  (include "tc.v1.common.lib.metadata.podLabels" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml)
                                   (include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | fromYaml)) -}}
         {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
       labels:
