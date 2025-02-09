@@ -1,0 +1,58 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: renovate
+      version: 1.11.8
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                GITHUB_COM_TOKEN: '${GITHUB_PAT_TC}'
+                # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
+                RENOVATE_AUTODISCOVER: 'false'
+                RENOVATE_TOKEN: '${GITHUB_PAT_TC}'
+                LOG_LEVEL: debug
+                RENOVATE_CACHE_DIR: /tmp/renovate/cache
+
+    configmap:
+      config:
+        enabled: false
+    podOptions:
+        hostAliases:
+          - ip: 192.168.10.201
+            hostnames:
+            - dockerhub.kjeldschouten.nl
+    persistence:
+      configmap-vol:
+        enabled: true
+        type: configmap
+        objectName: renovate-config
+        expandObjectName: false

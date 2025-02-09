@@ -4,7 +4,6 @@ apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: kubernetes
-  namespace: system-upgrade
 spec:
   version: ${KUBERNETES_VERSION}
   serviceAccountName: system-upgrade
@@ -24,29 +23,20 @@ spec:
       - key: feature.node.kubernetes.io/system-os_release.VERSION_ID
         operator: In
         values: ["${TALOS_VERSION}"]
-      - key: kubernetes.io/hostname
-        operator: In
-        values: ["k8s-control-1"]
   tolerations:
   - key: CriticalAddonsOnly
     operator: Exists
   - key: node-role.kubernetes.io/control-plane
     operator: Exists
     effect: NoSchedule
-  prepare: &prepare
+  upgrade:
     image: ghcr.io/siderolabs/talosctl:${TALOS_VERSION}
     envs:
-      - name: NODE_IP
+      - name: NODE
         valueFrom:
           fieldRef:
             fieldPath: status.hostIP
     args:
-      - --nodes=$(NODE_IP)
-      - health
-      - --server=false
-  upgrade:
-    <<: *prepare
-    args:
-      - --nodes=$(NODE_IP)
+      - --nodes=$(NODE)
       - upgrade-k8s
       - --to=$(SYSTEM_UPGRADE_PLAN_LATEST_VERSION)

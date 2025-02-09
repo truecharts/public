@@ -11,6 +11,14 @@
   path: /cluster/scheduler/extraArgs
   value:
     "bind-address": "0.0.0.0"
+
+- op: add
+  path: /cluster/apiServer/extraArgs
+  value:
+    enable-aggregator-routing: true
+    runtime-config: admissionregistration.k8s.io/v1alpha1=true
+    feature-gates: MutatingAdmissionPolicy=true
+
 - op: replace
   path: /cluster/apiServer/admissionControl
   value:
@@ -48,3 +56,23 @@
       - os:admin
     allowedKubernetesNamespaces:
       - system-upgrade
+- op: add
+  path: /cluster/scheduler
+  value:
+    config:
+      apiVersion: kubescheduler.config.k8s.io/v1
+      kind: KubeSchedulerConfiguration
+      profiles:
+        - schedulerName: default-scheduler
+          plugins:
+            score:
+              disabled:
+                - name: ImageLocality
+          pluginConfig:
+            - name: PodTopologySpread
+              args:
+                defaultingType: List
+                defaultConstraints:
+                  - maxSkew: 1
+                    topologyKey: kubernetes.io/hostname
+                    whenUnsatisfiable: ScheduleAnyway

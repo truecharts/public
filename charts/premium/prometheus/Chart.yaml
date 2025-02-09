@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 68.4.4
+    version: 68.5.0
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -35,11 +35,11 @@ maintainers:
     url: https://truecharts.org
 name: prometheus
 sources:
+  - https://gallery.ecr.aws/bitnami/alertmanager
+  - https://gallery.ecr.aws/bitnami/prometheus
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/premium/prometheus
-  - https://hub.docker.com/r/bitnami/alertmanager
-  - https://hub.docker.com/r/bitnami/prometheus
   - https://quay.io/thanos/thanos
 type: application
-version: 21.2.1
+version: 21.3.1

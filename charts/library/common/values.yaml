@@ -536,7 +536,7 @@ redisClientImage:
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: v1.2.0@sha256:0bdb6180f92b434341c17b3ca0c7fa05e5795bb577c92d364d5dd5db32485079
+  tag: v1.2.0@sha256:a7096b68c6f5fae9aca5b4b1ed6ec51b64428d93e2ba619328b107229e98ca86
   pullPolicy: IfNotPresent
 
 postgres15Image:
@@ -575,7 +575,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: tccr.io/tccr/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:2816991021542042f34ca2448b8a8bde93e8e75ae52f53922b1ab70491788ee5
+  tag: latest@sha256:9bfdf50791d6e51056e31c03f73c9db329b2b72e7746155cfdc63e0c8b49b55a
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 

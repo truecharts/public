@@ -44,7 +44,7 @@
       // Duplicated below
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      "matchPackagePrefixes": ["jupyter"]
+      "matchPackagePrefixes": ["quay.io/jupyter"]
     },
     {
       // Not found in respository - alternative package used - 2025-02-01
@@ -60,7 +60,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-      "matchPackagePatterns": ["^jupyter\\/.+$"]
+      "matchPackagePatterns": ["^quay.io/jupyter\\/.+$"]
     },
     {
       // Not found in repository 2025-02-01
@@ -99,7 +99,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
-      "matchPackageNames": ["docker.io/library/xwiki"]
+      "matchPackageNames": ["public.ecr.aws/docker/library/xwiki"]
     },
     {
       "matchDatasources": ["docker"],
@@ -244,6 +244,21 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/alicevision/meshroom"],
       "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "matchDataSources": ["docker"],
+      "matchPackagePrefixes": ["docker.io/remie/yourtransfer"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v3-3\\.(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>.+)$",
+      "matchPackageNames": ["ghcr.io/corentinth/it-tools"]
     }
   ]
 }

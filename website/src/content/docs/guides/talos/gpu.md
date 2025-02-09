@@ -56,13 +56,32 @@ Additionally, you will need to create the following patch file `gpu.yaml` in the
 
 ```
 
-This patch file then needs to be added to the `talconfig.yaml`:
+This patch file then needs to be added to the `talconfig.yaml`. The placement of this line would be in relation to where your GPU exists. More than likely it would be placed under a specific node:
 
 ```yaml
 
 patches:
     - "@./patches/gpu.yaml"
 
+```
+
+Example:
+```yaml
+nodes:
+    # We would adivce to always stick to a "k8s-something-1" style naming scheme
+    - hostname: k8s-control-1
+      ipAddress: ${MASTER1IP_IP}
+      controlPlane: true
+      schematic:
+        customization:
+          systemExtensions:
+            officialExtensions:
+              - siderolabs/util-linux-tools
+              - siderolabs/nonfree-kmod-nvidia-lts
+              - siderolabs/nvidia-container-toolkit-lts
+      ### Note the placement of the gpu patch reference ###
+      patches:
+        - "@./patches/gpu.yaml"
 ```
 
 ## Adding it to your cluster
