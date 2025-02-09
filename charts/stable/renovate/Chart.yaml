@@ -2,9 +2,9 @@ annotations:
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 39.162.1
+appVersion: 39.164.0
 dependencies:
   - name: common
     version: 25.4.10
@@ -15,7 +15,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: renovate self-hosted
-home: https://truecharts.org/charts/incubator/renovate
+home: https://truecharts.org/charts/stable/renovate
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/renovate.webp
 keywords:
   - renovate
@@ -26,7 +26,7 @@ maintainers:
     url: https://truecharts.org
 name: renovate
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/renovate
+  - https://github.com/truecharts/charts/tree/master/charts/stable/renovate
   - https://hub.docker.com/r/renovate/renovate
 type: application
 version: 1.11.8
