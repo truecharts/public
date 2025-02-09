@@ -1,49 +1,39 @@
-- op: replace
-  path: /machine/time
-  value:
-    "disabled": false
-    "servers":
-      - "time.cloudflare.com"
-- op: replace
-  path: /cluster/proxy
-  value:
-    "disabled": true
-- op: add
-  path: /machine/kubelet/extraArgs
-  value:
-    "rotate-server-certificates": true
-- op: add
-  path: /machine/kubelet/extraConfig
-  value:
-    "maxPods": 250
-    "shutdownGracePeriod": "15s"
-    "shutdownGracePeriodCriticalPods": "10s"
-- op: add
-  path: /machine/kubelet/extraMounts
-  value:
-    - "destination": "/var/openebs/local"
-      "type": "bind"
-      "source": "/var/openebs/local"
-      "options":
-        - "bind"
-        - "rshared"
-        - "rw"
-    - destination: /var/lib/longhorn
-      type: bind
-      source: /var/lib/longhorn
-      options:
-        - bind
-        - rshared
-        - rw
-- op: replace
-  path: /machine/features/hostDNS
-  value:
-    enabled: true
-    resolveMemberNames: true
-    forwardKubeDNSToHost: true
-- op: add
-  path: /machine/sysctls
-  value:
+cluster:
+  proxy:
+    disabled: true
+machine:
+  time:
+    disabled: false
+    servers:
+      - time.cloudflare.com
+  kubelet:
+    extraArgs:
+      rotate-server-certificates: "true"
+    extraConfig:
+      maxPods: 250
+      shutdownGracePeriod: 15s
+      shutdownGracePeriodCriticalPods: 10s
+    extraMounts:
+      - destination: /var/openebs/local
+        type: bind
+        source: /var/openebs/local
+        options:
+          - bind
+          - rshared
+          - rw
+      - destination: /var/lib/longhorn
+        type: bind
+        source: /var/lib/longhorn
+        options:
+          - bind
+          - rshared
+          - rw
+  features:
+    hostDNS:
+      enabled: true
+      forwardKubeDNSToHost: true
+      resolveMemberNames: true
+  sysctls:
     fs.inotify.max_queued_events: "65536"
     fs.inotify.max_user_instances: "8192"
     fs.inotify.max_user_watches: "524288"
@@ -58,47 +48,45 @@
     net.ipv4.tcp_wmem: 4096 65536 33554432 # 10Gb/s
     net.ipv4.tcp_window_scaling: 1         # 10Gb/s
     vm.nr_hugepages: 1024                  # PostgreSQL
-
-- op: add
-  path: /machine/registries/mirrors
-  value:
-    cgr.dev:
-      endpoints:
-        - https://cgr.dev
-    docker.io:
-      endpoints:
-        - https://mirror.gcr.io
-        - https://registry-1.docker.io
-        - https://docker.io
-    registry-1.docker.io:
-      endpoints:
-        - https://mirror.gcr.io
-        - https://registry-1.docker.io
-    ghcr.io:
-      endpoints:
-        - https://ghcr.io
-    quay.io:
-      endpoints:
-        - https://quay.io
-    mcr.microsoft.com:
-      endpoints:
-        - https://mcr.microsoft.com
-    public.ecr.aws:
-      endpoints:
-        - https://public.ecr.aws
-    gcr.io:
-      endpoints:
-        - https://gcr.io
-    registry.k8s.io:
-      endpoints:
-        - https://registry.k8s.io
-    k8s.gcr.io:
-      endpoints:
-        - https://k8s.gcr.io
-    tccr.io:
-      endpoints:
-        - https://quay.io
-        - https://tccr.io
-    factory.talos.dev:
-      endpoints:
-        - https://factory.talos.dev
+  registries:
+    mirrors:
+      cgr.dev:
+        endpoints:
+          - https://cgr.dev
+      docker.io:
+        endpoints:
+          - https://mirror.gcr.io
+          - https://registry-1.docker.io
+          - https://docker.io
+      factory.talos.dev:
+        endpoints:
+          - https://factory.talos.dev
+      gcr.io:
+        endpoints:
+          - https://gcr.io
+      ghcr.io:
+        endpoints:
+          - https://ghcr.io
+      k8s.gcr.io:
+        endpoints:
+          - https://k8s.gcr.io
+      mcr.microsoft.com:
+        endpoints:
+          - https://mcr.microsoft.com
+      public.ecr.aws:
+        endpoints:
+          - https://public.ecr.aws
+      quay.io:
+        endpoints:
+          - https://quay.io
+      registry-1.docker.io:
+        endpoints:
+          - https://mirror.gcr.io
+          - https://registry-1.docker.io
+      registry.k8s.io:
+        endpoints:
+          - https://registry.k8s.io
+      tccr.io:
+        endpoints:
+          - https://quay.io
+          - https://tccr.io

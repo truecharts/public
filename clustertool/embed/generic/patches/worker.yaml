@@ -1,6 +1,5 @@
-- op: replace
-  path: /machine/time
-  value:
-    "disabled": false
-    "servers":
-      - "time.cloudflare.com"
+machine:
+  time:
+    disabled: false
+    servers:
+      - time.cloudflare.com
