@@ -21,7 +21,7 @@ tensorflowImage:
 datascienceImage:
   repository: quay.io/jupyter/datascience-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-02-12@sha256:ff52b940cf19ea677ef83e2fbd883302ef04e0e45c4f6d95f625d74c4e871a92
+  tag: 2025-02-12@sha256:47a5f785b0781addb1206065f023af7e502db18d1310160ba5e0d1e3577c10ef
 pysparkImage:
   repository: quay.io/jupyter/pyspark-notebook
   pullPolicy: IfNotPresent
@@ -29,7 +29,7 @@ pysparkImage:
 allsparkImage:
   repository: quay.io/jupyter/all-spark-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-02-12@sha256:66d7eebe662975ede2aabe4e8a65ffc301891d253c1804c235568e52880dbf04
+  tag: 2025-02-12@sha256:bdbed14c6dcea030e924cbddf7b867292a34548995c0d4411d85ed1a0187de76
 jupyter:
   jupyter_cmd: lab
   restartable: true
