@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/traefik:v3.3.3@sha256:f1fdee7fda041872cff24e36a08f45ca53f006ded88f743a8e30e3d87ca52b48
+FROM public.ecr.aws/docker/library/traefik:v3.3.3@sha256:be1aeb861f91d0e65f7134ea2d7bc254e93ea690935cd45218eff3f2c306159c
 # Above line used by CI to find tags etc
 
 FROM public.ecr.aws/docker/library/alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c as plugins
