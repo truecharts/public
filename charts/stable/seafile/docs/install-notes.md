@@ -2,10 +2,6 @@
 title: Installation notes and guidelines
 ---
 
-## Ingress
-
-Our install requires a FQDN or domain name entered when installing the chart. This doesn't mean you need Traefik however we support only installs using FQDN with valid certificates + Traefik installed
-
 ## CSRF Error
 
 Starting with Seafile 11, the defaults fail CSRF verification, and you may see the error message when logging in.
@@ -45,7 +41,3 @@ By default WebDAV is disabled by default, as per [upstream docs](https://manual.
 - Restart Seafile and your WebDAV share will be accessible using your domain.com/seafdav
 
 ![SeafileWebDAV](./img/SeafileWebDAV.png)
-
-## FUSE Extension
-
-The FUSE extension isn't supported by default due to privileges required by the extension and non-standard mounts, so no support tickets will be accepted for using/enabling it.
