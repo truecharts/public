@@ -71,7 +71,7 @@ To contact the TrueCharts project:
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-265-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-266-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -423,6 +423,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/BlacCello"><img src="https://avatars.githubusercontent.com/u/18525266?v=4?s=100" width="100px;" alt="Marcel Henrich"/><br /><sub><b>Marcel Henrich</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=BlacCello" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://blog.luxifer.fr"><img src="https://avatars.githubusercontent.com/u/419078?v=4?s=100" width="100px;" alt="Florent Viel"/><br /><sub><b>Florent Viel</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=luxifer" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SniperAsh6"><img src="https://avatars.githubusercontent.com/u/39700437?v=4?s=100" width="100px;" alt="SniperAsh6"/><br /><sub><b>SniperAsh6</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=SniperAsh6" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://codersdiary.me"><img src="https://avatars.githubusercontent.com/u/1217680?v=4?s=100" width="100px;" alt="Alexandre Acebedo"/><br /><sub><b>Alexandre Acebedo</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=aacebedo" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
