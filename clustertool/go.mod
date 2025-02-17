@@ -19,7 +19,7 @@ require (
     github.com/leaanthony/debme v1.2.1
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.10.0-alpha.1.0.20250203100439-e2aa7c98cceb
-    github.com/spf13/cobra v1.9.0
+    github.com/spf13/cobra v1.9.1
     golang.org/x/crypto v0.33.0
     gopkg.in/yaml.v3 v3.0.1
     helm.sh/helm/v3 v3.17.1
