@@ -9,7 +9,7 @@ This feature ensure that a specific commit is signed by the owner of a certain p
 If the keypair is boundle with the GitHub account all the commits in a PR are verified to be made from the owner of the GitHub account appearing as commit author. 
 If a commit is verified on GitHub is showed a green tick mark with written *verified*.
 
-<!-- TODO: add picture of the verified commit -->
+![github verified commit](img/github-verified-commit.png)
 
 To enanche the security of a repository all commit should be verified, but the procedure to generate the keys, add to GitHub and enable the signature require his guide on its own and the following should show how to sign every commit on the local fork of the repository.
 
@@ -140,6 +140,6 @@ gpg --export -a <key-ID>
 ```
 command in the "*Key*" section.
 
-<!-- TODO: add image adding key -->
+![github add GPG key](img/github-add-gpgkey.png)
 
 Click "*Add GPG key*" to save. Now you key should show under the ["*SSH and GPG keys*" section](https://github.com/settings/keys)
