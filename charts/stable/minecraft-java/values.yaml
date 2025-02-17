@@ -1,5 +1,5 @@
 image:
-  repository: ghcr.io/itzg/minecraft-server
+  repository: ghcr.io/itzg/docker-minecraft-server
   tag: 2025.2.0@sha256:498b3e03fc49cde4370f2f5a20552751526c8d6774dde12d5f4a0b92c95b00b5
   pullPolicy: Always
 j21Image:
@@ -51,8 +51,8 @@ j8alpineImage:
   tag: 2024.9.0-java8-alpine@sha256:ee8505b9670a82b7703ec35b2a87fe9b7f7823b50ae50fad18bf1fe511e577f9
   pullPolicy: Always
 mcBackupImage:
-  repository: ghcr.io/itzg/mc-backup
-  tag: latest@sha256:b40aebf4f089b373495c92483c7990222560977b5e703de507733401b38456f8
+  repository: docker.io/itzg/mc-backup
+  tag: latest@sha256:c62972a87294f94a98e5d941441da8020cf86af887c5dabe9ab0ee43109a495f
   pullPolicy: Always
 
 service:
