@@ -51,7 +51,7 @@ but for now this guide will assume you're using Visual Studio Code.
 
 ### Git
 
-VS Code has great documentation and allows you to manage everything you need threw their UI.
+VS Code has great documentation and allows you to manage everything you need through their UI.
 
 ### Create a Topic Branch
 
