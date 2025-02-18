@@ -1,5 +1,5 @@
 ---
-title: Setting up VPN
+title: Gluetun VPN
 ---
 
 ## Gluetun VPN Addon Setup Guide
