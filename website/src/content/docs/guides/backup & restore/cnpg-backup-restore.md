@@ -1,10 +1,6 @@
 ---
-title: CNPG Backups and Restores on Helm Platforms
+title: CNPG
 ---
-
-## Requirements
-
-### S3 Provider Setup
 
 ### Adding Credentials
 
