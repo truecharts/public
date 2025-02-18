@@ -162,13 +162,6 @@ export default defineConfig({
             directory: "development",
           },
         },
-        {
-          label: "Deprecated",
-          collapsed: true,
-          autogenerate: {
-            directory: "deprecated",
-          },
-        },
       ],
     }),
     sitemap(),

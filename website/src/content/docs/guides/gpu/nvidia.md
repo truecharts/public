@@ -1,5 +1,5 @@
 ---
-title: Adding a Nvidia-GPU to your Cluster
+title: Nvidia-GPU
 ---
 
 :::caution[Charts]
@@ -37,35 +37,19 @@ schematic:
 
 ## GPU Talos Patch
 
-Additionally, you will need to create the following patch file `gpu.yaml` in the patches folder of clustertool:
-
-```yaml
-
-- op: add
-  path: /machine/kernel
-  value:
-    modules:
-     - "name": "nvidia"
-     - "name": "nvidia_uvm"
-     - "name": "nvidia_drm"
-     - "name": "nvidia_modeset"
-- op: add
-  path: /machine/sysctls
-  value:
-    "net.core.bpf_jit_harden": 1
-
-```
-
-This patch file then needs to be added to the `talconfig.yaml`. The placement of this line would be in relation to where your GPU exists. More than likely it would be placed under a specific node:
+Additionally, you will need to add the `nvidia.yaml` patch shipped by clustertool to your `talconfig.yaml`
+This patch file then needs to be added to the `talconfig.yaml`. The placement of this line would be in relation to where your GPU exists.
+More than likely it would be placed under a specific node:
 
 ```yaml
 
 patches:
-    - "@./patches/gpu.yaml"
+    - "@./patches/nvidia.yaml"
 
 ```
 
 Example:
+
 ```yaml
 nodes:
     # We would adivce to always stick to a "k8s-something-1" style naming scheme
@@ -76,12 +60,11 @@ nodes:
         customization:
           systemExtensions:
             officialExtensions:
-              - siderolabs/util-linux-tools
               - siderolabs/nonfree-kmod-nvidia-lts
               - siderolabs/nvidia-container-toolkit-lts
       ### Note the placement of the gpu patch reference ###
       patches:
-        - "@./patches/gpu.yaml"
+        - "@./patches/nvidia.yaml"
 ```
 
 ## Adding it to your cluster
