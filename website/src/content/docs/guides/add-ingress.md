@@ -21,9 +21,6 @@ ingress:
     enabled: true
     hosts:
       - host: chart-example.local
-    tls:
-      - hosts:
-         - chart-example.local
 ```
 
 This can be expanded by adding "integrations" with cert-manager, and/or homepage, for example:
@@ -34,10 +31,6 @@ ingress:
     enabled: true
     hosts:
       - host: chart-example.local
-    tls:
-      - hosts:
-          - chart-example.local
-        secretName: chart-example-tls
     integrations:
       certManager:
         enabled: false
