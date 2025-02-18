@@ -17,7 +17,7 @@ Install the following charts with **default** values.yaml if not already install
 - Install `cloudnative-pg` -> [Cloudnative-PG Installation](#prometheus-and-cnpg-system-app-installations)
 - Install `prometheus-operator` -> [Prometheus-Operator Installation](#prometheus-and-cnpg-system-app-installations)
 - Install `cert-manager` -> [Certificate Management with Cert-Manager](#cert-manager-operator-and-clusterissuer-installation-for-certificate-management)
-- Install `volsync` which is used to configure Backups-> [PVC Backup Guide](/guides/volsync-backup-restore)
+- Install `volsync` which is used to configure Backups->
 - `metallb` or another loadBalancer is required if you do not have a loadBalancer yet
 
 To configure MetalLB, you will need to also add `metallb-config` and adapt it to your own needs.
