@@ -35,7 +35,7 @@ RUN apk add --no-cache --update git
 COPY --chmod=777 ./containers/apps/traefik/clone-plugins.sh /clone-plugins.sh
 RUN /clone-plugins.sh
 
-FROM traefik:v3.3.3@sha256:be1aeb861f91d0e65f7134ea2d7bc254e93ea690935cd45218eff3f2c306159c
+FROM traefik:v3.3.3@sha256:19884a9d0b922b321c9cff54cbfe43f3169893041b8dd4ea6100677afaddce46
 # Copy the plugins from the previous stage
 COPY --from=plugins /plugins-local /plugins-local
 
