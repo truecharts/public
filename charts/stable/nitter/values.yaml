@@ -34,6 +34,13 @@ nitter:
     proxyVideos: true
     hlsPlayback: false
     infiniteScroll: false
+    
+configmap:
+  nitter-sessions:
+    enabled: true
+    data:
+      sessions.jsonl: |
+        {"oauth_token": "", "oauth_token_secret": ""}
 
 workload:
   main:
@@ -52,6 +59,8 @@ workload:
             startup:
               enabled: true
               type: tcp
+          env:
+            NITTER_SESSIONS_FILE: /src/sessions.jsonl
 
 persistence:
   nitter-config:
@@ -60,6 +69,13 @@ persistence:
     objectName: nitter-config
     mountPath: /src/nitter.conf
     subPath: nitter.conf
+    readOnly: true
+  nitter-sessions:
+    enabled: true
+    type: configmap
+    objectName: nitter-sessions
+    mountPath: /src/sessions.jsonl
+    subPath: sessions.jsonl
     readOnly: true
 
 redis:
