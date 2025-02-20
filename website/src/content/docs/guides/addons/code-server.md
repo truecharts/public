@@ -1,5 +1,5 @@
 ---
-title: CodeServer Addon
+title: CodeServer
 ---
 
 You can add a CodeServer addon to our charts to modify files of the running chart inside your browser. You can choose between exposing a port or adding an ingress to it.

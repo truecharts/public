@@ -12,13 +12,12 @@ apiVersion: The chart API version (required)
 kubeVersion: A SemVer range of compatible Kubernetes versions (optional)
 name: The name of the chart (required)
 version: A SemVer 2 version (required)
-upstream_version: A SemVer 2 version, as used by an upstream Helm Chart source (optional)
 appVersion: The version of the app that this contains (optional). Needn't be SemVer. Quotes recommended.
 description: A single-sentence description of this project (optional)
 type: The type of the chart (optional)
 deprecated: Whether this chart is deprecated (optional, boolean)
 home: The URL of this projects home page (optional)
-icon: A URL to an SVG or PNG image to be used as an icon (optional).
+icon: A URL to an SVG or PNG image to be used as an icon.
 keywords:
   - A list of keywords about this project (optional)
 sources:

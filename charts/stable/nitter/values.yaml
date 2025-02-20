@@ -1,7 +1,7 @@
 image:
   repository: docker.io/zedeus/nitter
   pullPolicy: IfNotPresent
-  tag: latest@sha256:c0275459df4de2331a1ceac61c42be30a8731e168f582851134b5ec25af75171
+  tag: latest@sha256:7f26cc177e2ebedd6724a44c385ec6303bc30180321cf412245b944405bb26e0
 
 service:
   main:
@@ -34,6 +34,14 @@ nitter:
     proxyVideos: true
     hlsPlayback: false
     infiniteScroll: false
+    
+# See: https://github.com/zedeus/nitter/wiki/Creating-session-tokens  
+configmap:
+  nitter-sessions:
+    enabled: true
+    data:
+      sessions.jsonl: |
+        {"oauth_token": "TOKEN", "oauth_token_secret": "SECRET"}
 
 workload:
   main:
@@ -52,6 +60,8 @@ workload:
             startup:
               enabled: true
               type: tcp
+          env:
+            NITTER_SESSIONS_FILE: /src/sessions.jsonl
 
 persistence:
   nitter-config:
@@ -60,6 +70,13 @@ persistence:
     objectName: nitter-config
     mountPath: /src/nitter.conf
     subPath: nitter.conf
+    readOnly: true
+  nitter-sessions:
+    enabled: true
+    type: configmap
+    objectName: nitter-sessions
+    mountPath: /src/sessions.jsonl
+    subPath: sessions.jsonl
     readOnly: true
 
 redis:

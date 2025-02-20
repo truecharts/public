@@ -1,10 +1,6 @@
 ---
-title: VolSync Backups and Restores on Helm Platforms
+title: VolSync
 ---
-
-## Requirements
-
-### S3 Provider Setup
 
 ### Adding Credentials
 
