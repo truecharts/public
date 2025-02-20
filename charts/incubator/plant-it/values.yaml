@@ -56,6 +56,8 @@ persistence:
   certificates:
     enabled: true
     mountPath: /certificates
+  varrun:
+    enabled: false
 
 mariadb:
   enabled: true
