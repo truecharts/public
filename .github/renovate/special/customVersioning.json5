@@ -20,6 +20,12 @@
       "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$"
     },
     {
+        "description": ["Custom versioning for glances"],
+        "matchDatasources": ["docker"],
+        "matchPackagePatterns": ["docker.io/nicolargo/glances"],
+        "versioning": "regex:^ubuntu\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)-full$"
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["docker.io/kopia/kopia"],
       "allowedVersions": "<999"
