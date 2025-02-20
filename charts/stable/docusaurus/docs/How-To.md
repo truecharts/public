@@ -45,10 +45,6 @@ persistence:
     mountPath: /docusaurus/website/docs
 ```
 
-### Ingress
-
-Recommended for use with a domain name but not required as mentioned above. You can refer to our Quick-Start Guides for an overview on using Ingress with your chart.
-
 ## Support
 
 If you need more details or have a more customized setup, the documentation on the [upstream](https://github.com/facebook/docusaurus) repository is very comprehensive. Check the descriptions of the available options there for further guidance.
