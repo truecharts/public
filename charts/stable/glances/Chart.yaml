@@ -2,7 +2,7 @@ annotations:
   truecharts.org/category: metrics
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 4.3.0
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Glances is a monitoring software
-home: https://truecharts.org/charts/incubator/glances
+home: https://truecharts.org/charts/stable/glances
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/glances.webp
 keywords:
   - metrics
@@ -28,7 +28,7 @@ maintainers:
 name: glances
 sources:
   - https://github.com/nicolargo/glances
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/glances
+  - https://github.com/truecharts/charts/tree/master/charts/stable/glances
   - https://hub.docker.com/r/nicolargo/glances
 type: application
-version: 0.0.1
+version: 1.0.0
