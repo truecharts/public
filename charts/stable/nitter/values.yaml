@@ -35,12 +35,13 @@ nitter:
     hlsPlayback: false
     infiniteScroll: false
     
+# See: https://github.com/zedeus/nitter/wiki/Creating-session-tokens  
 configmap:
   nitter-sessions:
     enabled: true
     data:
       sessions.jsonl: |
-        {"oauth_token": "1", "oauth_token_secret": "1"}
+        {"oauth_token": "TOKEN", "oauth_token_secret": "SECRET"}
 
 workload:
   main:
