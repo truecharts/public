@@ -47,12 +47,6 @@ persistence:
 
 ## Advanced Configuration
 
-:::warning
-
-Out of Support Scope – Proceed only if you fully understand the implications and potential risks.
-
-:::
-
 ###VolSync Backup considerations
 
 To reduce potential costs (e.g., for an S3 storage provider), it makes sense to exclude certain folders from being backed up by VolSync.
