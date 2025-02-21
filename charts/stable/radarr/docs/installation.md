@@ -47,7 +47,7 @@ persistence:
 
 ## Advanced Configuration
 
-###VolSync Backup considerations
+### VolSync Backup considerations
 
 To reduce potential costs (e.g., for an S3 storage provider), it makes sense to exclude certain folders from being backed up by VolSync.
 - Depending on the library size, the folder **/config/MediaConver** can contain a significant amount of data.
