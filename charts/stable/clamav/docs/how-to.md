@@ -2,41 +2,40 @@
 title: How-To
 ---
 
-This is a quick setup-guide on how-to to use ClamAV with mounting directories using NFS shares and using the integrated cron job to scan these mounted folders.
+This is a quick setup guide on how to use ClamAV with mounted directories via NFS shares and configure the integrated cron job to scan these mounted folders.
 
-:::tip
+## App Installation
 
-- ClamAV TrueCharts App
-- NFS Shares of the folders you want to scan
+### Cron Job
 
-:::
+Without a GUI, using a cron job is the easiest way to run ClamAV in the background at specific times.
+- To generate a cron schedule, you can use a website like [CronHub](https://crontab.cronhub.io) or [Crontab Guru](https://crontab.guru).
+- `date_format` follows the Linux `date` command syntax. See the [date(1)](https://man7.org/linux/man-pages/man1/date.1.html) man page for reference.
+- `extra_args` is where you define the directories to be scanned.
 
-## Guide
+```yaml
+clamav:
+  cron_enabled: true
+  cron_schedule: "* * * * *"
+  date_format: "+%m-%d-%Y_%H.%M.%S"
+  log_file_name: clamscan_report
+  extra_args: "/Apps /PathA /PathB"
+```
 
-### Step 1
+### Scan directory
 
-Setup App Name and Configuration as necessary, but where you deviate from defaults is by `Enable cronjob` at the <u>ClamAV Cron Configuration</u> section.
+Add your scanned directories, ensuring that your mounted directories match the paths specified in the `extra_args` section above.
 
-- To generate a cron schedule one can use a website like [cronhub](https://crontab.cronhub.io) or [crontab.guru](https://crontab.guru)
-
-![Cron Config](./img/Cron-Config.png)
-
-**Note the added directory to `Extra Args`, this is where your scanned directories will go**
-
-### Step 2
-
-Add your scanned directories using `Configure Additional Storage` and make sure your mounted directories match the directory in the `Extra Args` section above
-
-![NFS Share](./img/NFS-Share.png)
-
-That's it, without a GUI having the cron job is the easiest way to have your ClamAV running in the background at specific times.
+```yaml
+persistence:
+  Apps:
+    enabled: true
+    type: nfs
+    path: ${NFS_PATH}
+    server: ${SERVER_IP}
+    mountPath: /Apps
+```
 
 ## Support
 
-- If you need more details or have a more custom setup the documentation on the [upstream](https://github.com/Cisco-Talos/clamav) is very complete so check the descriptions of the options there.
-- You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
-- If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
-
----
-
-All Rights Reserved - The TrueCharts Project
+If you need more details or have a more customized setup, refer to the documentation on the [upstream repository](https://github.com/Cisco-Talos/clamav)
