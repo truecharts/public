@@ -2,11 +2,6 @@ image:
   repository: ghcr.io/pi-hole/pihole
   pullPolicy: IfNotPresent
   tag: 2025.02.2@sha256:8db61ff8b7647a2af225990d14f9209ccf47828f19eb989d59cafb98bb8d8605
-pihole:
-  webPassword: somepassword"
-  dnsServers:
-    - "9.9.9.9"
-    - "149.112.112.112"
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -28,9 +23,8 @@ workload:
           env:
             PIHOLE_UID: "{{ .Values.securityContext.container.PUID }}"
             PIHOLE_GID: "{{ .Values.securityContext.pod.fsGroup }}"
-          envFrom:
-            - configMapRef:
-                name: pihole-env
+            FTLCONF_dns_upstreams: "8.8.8.8;8.8.4.4"
+            FTLCONF_webserver_api_password: "somepassword"
           probes:
             liveness:
               type: http
