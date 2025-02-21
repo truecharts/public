@@ -521,17 +521,17 @@ yqImage:
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:d9f071bd4b1b8f7aa4a43de0960999e7f83a15eadbd3e7c64e32135339859c38
+  tag: v1.1.0@sha256:c85c459d3ca854d705b4aa8663a77752e62c8d33aa43d6a5e4455523f7eb53bd
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:5fe79127a25db81839b574fefb50aa57358c59fa0ba5d642263ab694786ba08b
+  tag: v1.1.0@sha256:513e3d11ea19317f2d6b146329eaa05f76e24322734d81effb98a5fccea6ed0c
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:078875f5774a39e623abe878a303eab72cf9fc59a1951411aebc39815c1176ea
+  tag: v1.1.0@sha256:910ade9977376cef26e6ee3b03939d74e295bb980e3c62ec8174bdd0b12af9af
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
