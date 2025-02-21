@@ -2,14 +2,14 @@ image:
   repository: docker.io/msdeluise/plant-it-server
   pullPolicy: IfNotPresent
   tag: 0.10.0@sha256:23ddf8660087d6b9f5dbdca2ca09817b84db45cb2d9d6e2e0176e70f514629e7
-  
+
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-    
+
 workload:
   main:
     podSpec:
