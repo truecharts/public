@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.4
+    version: 15.6.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/immich-app/immich
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
 type: application
-version: 17.48.1
+version: 17.48.2
