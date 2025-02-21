@@ -34,19 +34,19 @@ workload:
           probes:
             liveness:
               type: http
-              path: /admin/index.php
+              path: /admin
             readiness:
               type: http
-              path: /admin/index.php
+              path: /admin
             startup:
               type: http
-              path: /admin/index.php
+              path: /admin
 service:
   main:
     ports:
       main:
         port: 9089
-        targetPort: 8080
+        targetPort: 80
   dns:
     enabled: true
     ports:
