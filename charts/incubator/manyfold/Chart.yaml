@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.4
+    version: 15.6.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/Floppy/van_dam
   - https://github.com/truecharts/charts/tree/master/charts/incubator/van-dam
 type: application
-version: 0.27.0
+version: 0.27.1
