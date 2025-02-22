@@ -32,6 +32,7 @@ service:
         targetPort: 4327
 ingress:
   websocketaccess:
+    enabled: true
     autoLink: true
 persistence:
   db:
