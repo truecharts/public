@@ -8,6 +8,15 @@ service:
       main:
         port: 10157
         targetPort: 8888
+configmap:
+  patch:
+    enabled: true
+    data:
+      10-patch.sh: |
+        chmod +x /etc/cont-init.d/20-config
+        chmod +x /etc/cont-init.d/30-patch-nvidia
+        chmod +x /etc/cont-init.d/60-custom-setup-script
+        chmod +x /etc/services.d/unmanic/run
 persistence:
   config:
     enabled: true
@@ -24,6 +33,14 @@ persistence:
     type: emptyDir
   varrun:
     enabled: false
+  patch:
+    enabled: true
+    type: configmap
+    objectName: patch
+    mountPath: /etc/cont-init.d/10-patch.sh
+    subPath: 10-patch.sh
+    readOnly: true
+    defaultMode: "0755"
 portal:
   open:
     enabled: true
