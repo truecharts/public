@@ -30,10 +30,6 @@ service:
         port: 4327
         protocol: tcp
         targetPort: 4327
-ingress:
-  websocketaccess:
-    enabled: true
-    autoLink: true
 persistence:
   db:
     enabled: true
