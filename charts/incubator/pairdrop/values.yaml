@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/schlagmichdoch/pairdrop
+  pullPolicy: IfNotPresent
+  tag: v1.11.1@sha256:6363f3483fad9f4efd7ac1c135f729eb5c92885caa1981883b548fc7d8e8f1a3
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+portal:
+  open:
+    enabled: true
