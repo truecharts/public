@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 68.5.0
+    version: 69.4.1
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/premium/prometheus
   - https://quay.io/thanos/thanos
 type: application
-version: 21.3.1
+version: 22.1.2

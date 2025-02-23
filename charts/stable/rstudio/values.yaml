@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: quay.io/rocker/rstudio
-  tag: 4.4.2@sha256:050e232046d8a8681d84444498a48afadfa7900fa783be5ec3ed9f4eb9f3ceb0
+  repository: ghcr.io/rocker-org/rstudio
+  tag: 4.4.2@sha256:58fe5df4df01791d312d0c6b27043526579551ceba64232387320b916837085a
 persistence:
   config:
     enabled: true

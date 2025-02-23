@@ -1,0 +1,32 @@
+image:
+  repository: docker.io/victoriametrics/victoria-metrics
+  tag: v1.111.0@sha256:1676d73b39297a938eb60f0894b44b264152a6a38074fa5de99d9bdc425deb65
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8428
+        targetPort: 8428
+persistence:
+  data:
+    enabled: true
+    mountPath: /victoria-metrics-data
+    targetSelectAll: true
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /health
+            readiness:
+              type: http
+              path: /health
+            startup:
+              enabled: false

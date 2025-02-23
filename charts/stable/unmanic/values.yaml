@@ -1,6 +1,6 @@
 image:
   repository: docker.io/josh5/unmanic
-  tag: 0.2.7@sha256:7652682370454f509d718d9dcfbd27c7099def3800f770bb7bb932c5a6e0212a
+  tag: 0.2.8@sha256:8d3ceb79c4d03d25cfa245eda5b6615e9c145873ab9673a586eb73e8f111ee93
   pullPolicy: IfNotPresent
 service:
   main:
@@ -8,6 +8,15 @@ service:
       main:
         port: 10157
         targetPort: 8888
+configmap:
+  patch:
+    enabled: true
+    data:
+      10-patch.sh: |
+        chmod +x /etc/cont-init.d/20-config
+        chmod +x /etc/cont-init.d/30-patch-nvidia
+        chmod +x /etc/cont-init.d/60-custom-setup-script
+        chmod +x /etc/services.d/unmanic/run
 persistence:
   config:
     enabled: true
@@ -23,7 +32,15 @@ persistence:
     mountPath: "/tmp/unmanic"
     type: emptyDir
   varrun:
+    enabled: false
+  patch:
     enabled: true
+    type: configmap
+    objectName: patch
+    mountPath: /etc/cont-init.d/10-patch.sh
+    subPath: 10-patch.sh
+    readOnly: true
+    defaultMode: "0755"
 portal:
   open:
     enabled: true

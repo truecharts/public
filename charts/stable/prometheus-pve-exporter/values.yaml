@@ -1,0 +1,77 @@
+image:
+  repository: docker.io/prompve/prometheus-pve-exporter
+  tag: 3.5.2@sha256:3dfc633fa4f74482e5469b7571b33c12876d88f3362721675da88ea39bee924a
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9221
+
+pve:
+  credentials:
+    # The username in the format 'username@realm' for authentication.
+    user: username@realm
+    # The name of the API token to be used for authentication.
+    tokenName: your-token-name
+    # The value of the API token to be used for authentication.
+    # The token role should be set to PVEAuditor on Proxmox VE.
+    tokenValue: your-token-value
+  general:
+    # The Proxmox VE instance to scrape metrics from, specified by IP or hostname.
+    target: pve.example.com
+    # Toggle TLS certificate verification for Proxmox VE.
+    verifySsl: true
+
+secret:
+  credentials:
+    enabled: true
+    data:
+      PVE_TOKEN_VALUE: "{{ .Values.pve.credentials.tokenValue }}"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PVE_VERIFY_SSL: "{{ .Values.pve.general.verifySsl }}"
+            PVE_USER: "{{ .Values.pve.credentials.user }}"
+            PVE_TOKEN_NAME: "{{ .Values.pve.credentials.tokenName }}"
+          envFrom:
+            - secretRef:
+                name: credentials
+          args:
+            - --web.listen-address
+            - :{{ .Values.service.main.ports.main.port }}
+            # Optional arguments to disable specific collectors in the exporter. By default, all collectors are enabled.
+            # - "--no-collector.status"
+            # - "--no-collector.version"
+            # - "--no-collector.node"
+            # - "--no-collector.cluster"
+            # - "--no-collector.resources"
+            # - "--no-collector.config"
+
+metrics:
+  main:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: main
+        path: "/pve"
+        params:
+          target:
+            - "{{ .Values.pve.general.target }}"
+        relabelings:
+          - targetLabel: instance
+            replacement: "{{ .Values.pve.general.target }}"
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      pve.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}

@@ -6,11 +6,11 @@ require (
     filippo.io/age v1.2.1
     github.com/Masterminds/semver/v3 v3.3.1
     github.com/beevik/ntp v1.4.3
-    github.com/budimanjojo/talhelper/v3 v3.0.18
+    github.com/budimanjojo/talhelper/v3 v3.0.19
     github.com/getsops/sops/v3 v3.9.4
     github.com/go-git/go-git/v5 v5.13.2
     github.com/go-logr/zerologr v1.2.3
-    github.com/go-playground/validator/v10 v10.24.0
+    github.com/go-playground/validator/v10 v10.25.0
     github.com/invopop/jsonschema v0.13.0
     github.com/joho/godotenv v1.5.1
     github.com/knadh/koanf/parsers/yaml v0.1.0
@@ -19,14 +19,14 @@ require (
     github.com/leaanthony/debme v1.2.1
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.10.0-alpha.1.0.20250203100439-e2aa7c98cceb
-    github.com/spf13/cobra v1.8.1
-    golang.org/x/crypto v0.33.0
+    github.com/spf13/cobra v1.9.1
+    golang.org/x/crypto v0.34.0
     gopkg.in/yaml.v3 v3.0.1
-    helm.sh/helm/v3 v3.17.0
-    k8s.io/api v0.32.1
-    k8s.io/apimachinery v0.32.1
-    k8s.io/client-go v0.32.1
-    sigs.k8s.io/controller-runtime v0.20.1
+    helm.sh/helm/v3 v3.17.1
+    k8s.io/api v0.32.2
+    k8s.io/apimachinery v0.32.2
+    k8s.io/client-go v0.32.2
+    sigs.k8s.io/controller-runtime v0.20.2
     sigs.k8s.io/kustomize/api v0.19.0
     sigs.k8s.io/kustomize/kyaml v0.19.0
     sigs.k8s.io/yaml v1.4.0
