@@ -2,15 +2,6 @@
 title: Longhorn
 ---
 
-
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 Longhorn is a distributed block storage system for Kubernetes. Longhorn is cloud-native storage built using Kubernetes and container primitives.
 
 Their Helm-Chart is available at: <https://github.com/longhorn/charts>
@@ -41,6 +32,7 @@ spec:
   retain: 0
   task: filesystem-trim
 ```
+
 This runs a filesystem trim at midnight UTC. To free the "used" space.
 
 In addition to trim, it is possible to delete and cleanup all snapshots by adding tasks for snapshot-delete and snapshot-cleanup.
@@ -50,7 +42,6 @@ In addition to trim, it is possible to delete and cleanup all snapshots by addin
 This tasks should only be used with caution, as they will delete manually created snapshots too.
 
 :::
-
 
 ```yaml
 apiVersion: longhorn.io/v1beta2
@@ -67,6 +58,7 @@ spec:
   retain: 0
   task: snapshot-delete
 ```
+
 This runs a snapshot delete task at 22:00 UTC.
 
 ```yaml
@@ -84,6 +76,7 @@ spec:
   retain: 0
   task: snapshot-cleanup
 ```
+
 This runs a snapshot cleanup task at 22:30 UTC.
 
 ## Other references

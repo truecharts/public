@@ -4,14 +4,6 @@ sidebar:
 title: Getting Started
 ---
 
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 ### (Optional) Create a Git Repository to store your config
 
 With our new ClusterTool, we started for fully embrace Infrastructure-as-Code.
@@ -64,7 +56,6 @@ Thanks to our use of TalHelper, a streamlined Talos configuration tool, there ar
 
 - `clusters/main/clusterenv.yaml`
 - `clusters/main/talos/talconfig.yaml`
-
 
 ### ClusterEnv
 

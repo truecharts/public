@@ -2,16 +2,7 @@
 title: Files and Folders
 ---
 
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 File and Folder structure on init, is as follows
-
 
 ## Created Files and Folders
 

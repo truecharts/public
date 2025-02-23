@@ -2,15 +2,6 @@
 title: TopoLVM
 ---
 
-
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 TopoLVM is a CSI plugin using LVM for Kubernetes. It can be considered as a specific implementation of local persistent volumes using CSI and LVM.
 
 Their repo and helm chart are available at: https://github.com/topolvm/topolvm
@@ -21,14 +12,15 @@ Nothing in this guide is specific to TrueCharts. There are some Talos-specific s
 
 TopoLVM requires it's own LVM Volume Group to provision storage from. In this guide we'll assume you're accomplishing this by providing a separate drive (or virtual disk) specifically for TopoLVM to keep it more simple.
 
-
 ### LVM Prep
+
 In this guide we are preparing LVM to use in a clustertool environment. Also the configuration is done in a way it can be used by e.g. volsync for backup/restore functionalities.
 Complete preparation is based upon:
 - https://github.com/topolvm/topolvm/blob/main/docs/getting-started.md
 - https://github.com/topolvm/topolvm/blob/main/docs/snapshot-and-restore.md
 
 Most important highlights of above are the:
+
 - Use of cert-manager
 - Correctly labeled namespaces
 - Installation of CRDs and the controller for volume snapshots
@@ -41,7 +33,9 @@ Chart information at: https://truecharts.org/charts/system/lvm-disk-watcher/
 Find the name of the disk you want to use for TopoLVM. With Talos OS, use `talosctl disks` to list the names of the available disks. You may need to install another disk to your VM or your bare-metal server.
 
 ## Install Lvm_Disk
+
 Create the namespace with these labels:
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -53,6 +47,7 @@ metadata:
 ```
 
 Example of deployment:
+
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -83,6 +78,7 @@ spec:
 ```
 
 ## Install TopoLVM
+
 Now that you've completed your prep on the node to create volumes for TopoLVM to use, we can install TopoLVM.
 The reference Values and their explanations could be find here:
 https://github.com/topolvm/topolvm/blob/main/charts/topolvm/values.yaml
@@ -125,14 +121,10 @@ The following example can be used and adjust where necesarry.
     #   replicaCount: 1
 ```
 
-## Snapshots
-TBD
-
-
-
 ## Kernel Modules
 
 Add these two kernel modules. Use modprobe for typical linux installs or add them to your talconfig.yaml if using TalHelper or ClusterTool as shown below:
+
 ```yaml
 #talconfig.yaml
 nodes:
@@ -153,14 +145,19 @@ These steps could lead to data loss if done on the wrong disks.
 These commands set up a Volume Group and Thin Pool for TopoLVM to use. The names of these will need to be put into your TopoLVM Helm Values. The name of the disk may vary depending on your setup.
 
 Create a Physical Volume
+
 ```bash
 pvcreate /dev/vdb
 ```
+
 Create a Volume Group
+
 ```bash
 vgcreate topolvm_vg /dev/vdb
 ```
+
 Create a Thin Pool
+
 ```bash
 lvcreate -l 100%FREE --chunksize 256 -T -A n -n topolvm_thin topolvm_vg
 ```
@@ -168,6 +165,7 @@ lvcreate -l 100%FREE --chunksize 256 -T -A n -n topolvm_thin topolvm_vg
 ## Create Privilaged Namespace
 
 Create the namespace with these labels:
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -177,7 +175,6 @@ metadata:
         pod-security.kubernetes.io/enforce: privileged
         topolvm.io/webhook: ignore
 ```
-
 
 ## Other references
 
