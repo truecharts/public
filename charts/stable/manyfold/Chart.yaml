@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.101.0
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
-home: https://truecharts.org/charts/incubator/manyfold
+home: https://truecharts.org/charts/stable/manyfold
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/manyfold.webp
 keywords:
   - manyfold
@@ -38,6 +38,6 @@ name: manyfold
 sources:
   - https://ghcr.io/manyfold3d/manyfold
   - https://github.com/Floppy/van_dam
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/manyfold
+  - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
 type: application
-version: 1.0.0
+version: 2.0.0

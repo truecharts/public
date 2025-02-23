@@ -1,15 +1,13 @@
 image:
   repository: ghcr.io/manyfold3d/manyfold
-  tag: 0.101.0@sha256:0db2d0b301cab79a1b17fe8f8f23512838b5f08ff5118660924bba388e2cdb39
+  tag: 0.101.0@sha256:0eae59e96af1679e690bb24056c618f33f57675e61901019831b43bef9e8ef86
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         targetPort: 3214
         port: 3214
-
 workload:
   main:
     podSpec:
@@ -43,32 +40,22 @@ workload:
                 key: url
           probes:
             readiness:
-              enabled: true
-              type: http
               path: /health
             liveness:
-              enabled: true
-              type: http
               path: /health
             startup:
-              enabled: true
-              type: http
               path: /health
-
 persistence:
   libraries:
     enabled: true
     mountPath: "/libraries"
-
 cnpg:
   main:
     enabled: true
     user: manyfold
     database: manyfold
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true
