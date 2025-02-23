@@ -35,18 +35,17 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set $workload.podSpec.containers "tailscale" $ts.container -}}
     {{- end -}}
 
-    {{- $emptyDir := dict -}}
-    {{- $_ := set $emptyDir "enabled" true -}}
-    {{- $_ := set $emptyDir "type" "emptyDir" -}}
-    {{- $_ := set $emptyDir "targetSelector" dict -}}
+    {{- $persistence := $.Values.persistence.tailscalestate -}}
+    {{- $_ := set $persistence "enabled" true -}}
+    {{- $_ := set $persistence "targetSelector" dict -}}
 
     {{- $selectorValue := (dict "tailscale" (dict "mountPath" "/var/lib/tailscale")) -}}
     {{- range $targetSelector -}}
-      {{- $_ := set $emptyDir.targetSelector . $selectorValue -}}
+      {{- $_ := set $persistence.targetSelector . $selectorValue -}}
     {{- end -}}
 
     {{/* Append the empty dir tailscale to the persistence */}}
-    {{- $_ := set .Values.persistence "tailscalestate" $emptyDir -}}
+    {{- $_ := set $.Values.persistence "tailscalestate" $persistence -}}
   {{- end -}}
 
 {{- end -}}

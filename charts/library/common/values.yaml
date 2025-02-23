@@ -282,6 +282,9 @@ persistence:
     mountPath: /dev/shm
     medium: Memory
     targetSelectAll: true
+  tailscalestate:
+    enabled: false
+    type: emptyDir
 #  backupexample:
 #    ## the default backup path, is the credential path suffixed by the releasename, volsync and both the pvc and volsync names
 #    enabled: true
