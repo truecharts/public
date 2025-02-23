@@ -32,20 +32,20 @@
     {{- include "tc.v1.common.addon.codeserver" . }}
   {{- end -}}
 
-  {{/* Enable gluetun add-on if required */}}
+  {{/* Enable gluetun add-on if required
   {{- if and .Values.addons.gluetun .Values.addons.gluetun.enabled -}}
     {{- include "tc.v1.common.addon.gluetun" . }}
-  {{- end -}}
+  {{- end -}} */}}
 
-  {{/* Enable tailscale add-on if required */}}
+  {{/* Enable tailscale add-on if required
   {{- if and .Values.addons.tailscale .Values.addons.tailscale.enabled -}}
     {{- include "tc.v1.common.addon.tailscale" . }}
-  {{- end -}}
+  {{- end -}} */}}
 
-  {{/* Enable netshoot add-on if required */}}
+  {{/* Enable netshoot add-on if required
   {{- if and .Values.addons.netshoot .Values.addons.netshoot.enabled }}
     {{- include "tc.v1.common.addon.netshoot" . }}
-  {{- end -}}
+  {{- end -}} */}}
 
   {{/* Append database wait containers to pods */}}
   {{- include "tc.v1.common.lib.deps.wait" $ }}

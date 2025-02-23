@@ -3,7 +3,6 @@ Template to render VPN addon
 It will include / inject the required templates based on the given values.
 */}}
 {{- define "tc.v1.common.addon.gluetun" -}}
-{{- if ne "disabled" .Values.addons.vpn.type -}}
   {{- if .Values.addons.vpn.config -}}
     {{/* Append the vpn config secret to the secrets */}}
     {{- $secret := include "tc.v1.common.addon.gluetun.secret" . | fromYaml -}}
@@ -40,5 +39,4 @@ It will include / inject the required templates based on the given values.
       {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
 {{- end -}}

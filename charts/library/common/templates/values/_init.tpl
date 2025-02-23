@@ -25,6 +25,7 @@
           {{- $mergedValues = mustMergeOverwrite $mergedValues . -}}
         {{- end -}}
       {{- end -}}
+    {{- end -}}
     {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
 {{- end -}}

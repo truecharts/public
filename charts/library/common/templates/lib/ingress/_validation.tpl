@@ -145,7 +145,7 @@ objectData:
 {{ include "tc.v1.common.lib.ingress.primaryValidation" $ -}}
 */}}
 {{- define "tc.v1.common.lib.ingress.primaryValidation" -}}
-  {{- $result := include "tc.v1.common.lib.ingress.hasPrimary" (dict "objectData" .Values.ingress) -}}
+  {{- $result := (include "tc.v1.common.lib.ingress.hasPrimary" $) | fromJson -}}
 
   {{/* Require at least one primary ingress, if any enabled */}}
   {{- if and $result.hasEnabled (not $result.hasPrimary) -}}

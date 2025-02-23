@@ -21,8 +21,8 @@ It will include / inject the required templates based on the given values.
     {{- if $codeSrv.service.enabled -}}
       {{/* Add the code-server service */}}
       {{- $hasPrimaryService := false -}}
-      {{- $result := include "tc.v1.common.lib.service.hasPrimary" (dict "objectData" $.Values.service) -}}
-      {{- if $result.hasEnabled $result.hasPrimary -}}
+      {{- $result := (include "tc.v1.common.lib.service.hasPrimary" $) | fromJson -}}
+      {{- if and $result.hasEnabled $result.hasPrimary -}}
         {{- $hasPrimaryService = true -}}
       {{- end -}}
 
@@ -43,8 +43,8 @@ It will include / inject the required templates based on the given values.
       {{- end -}}
 
       {{- $hasPrimaryIngress := false -}}
-      {{- $result := include "tc.v1.common.lib.ingress.hasPrimary" (dict "objectData" $) -}}
-      {{- if $result.hasEnabled $result.hasPrimary -}}
+      {{- $result := (include "tc.v1.common.lib.ingress.hasPrimary" $) | fromJson -}}
+      {{- if and $result.hasEnabled $result.hasPrimary -}}
         {{- $hasPrimaryIngress = true -}}
       {{- end -}}
 
