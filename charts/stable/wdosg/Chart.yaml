@@ -4,9 +4,9 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.22.2
+appVersion: latest
 dependencies:
   - name: common
     version: 25.4.10
@@ -16,22 +16,22 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: Slskd is a modern client-server application for the Soulseek file sharing network.
-home: https://truecharts.org/charts/incubator/slskd
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/slskd.webp
+description: A Simple web server to manage and run DOS based games on the browser.
+home: https://truecharts.org/charts/stable/wdosg
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wdosg.webp
 keywords:
-  - slskd
-  - music
-  - soulseek
+  - wdosg
+  - dos
+  - emulator
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: slskd
+name: wdosg
 sources:
-  - https://ghcr.io/slskd/slskd
-  - https://github.com/ansible-slskd/slskd
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/slskd
+  - https://github.com/SoulRaven80/wdosg
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wdosg
+  - https://hub.docker.com/r/soulraven1980/wdosg
 type: application
-version: 2.6.2
+version: 1.0.0

@@ -2,9 +2,9 @@ annotations:
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.9.3
+appVersion: 3.4.0
 dependencies:
   - name: common
     version: 25.4.10
@@ -14,19 +14,19 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: zurg Self-Hosted
-home: https://truecharts.org/charts/incubator/zurg
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/zurg.webp
+description: Zilean self-hosted
+home: https://truecharts.org/charts/stable/zilean
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/zilean.webp
 keywords:
-  - zurg
+  - zilean
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: zurg
+name: zilean
 sources:
-  - https://ghcr.io/geek-cookbook/zurg
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/zurg
+  - https://ghcr.io/elfhosted/zilean
+  - https://github.com/truecharts/charts/tree/master/charts/stable/zilean
 type: application
-version: 0.3.1
+version: 2.0.0

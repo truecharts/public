@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: database
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.111.0
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Fast, cost-effective monitoring solution and time series database
-home: https://truecharts.org/charts/incubator/victoriametrics
+home: https://truecharts.org/charts/stable/victoriametrics
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/victoriametrics.webp
 keywords:
   - victoriametrics
@@ -31,7 +31,7 @@ maintainers:
 name: victoriametrics
 sources:
   - https://github.com/VictoriaMetrics/VictoriaMetrics/tree/master
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/victoriametrics
+  - https://github.com/truecharts/charts/tree/master/charts/stable/victoriametrics
   - https://hub.docker.com/r/victoriametrics/victoria-metrics
 type: application
-version: 2.15.1
+version: 3.0.0
