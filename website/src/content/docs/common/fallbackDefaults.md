@@ -48,6 +48,7 @@ fallbackDefaults:
       timeoutSeconds: 2
       failureThreshold: 60
       successThreshold: 1
+  topologyKey: kubernetes.io/hostname
 ```
 
 ## `probeType`
@@ -781,6 +782,22 @@ fallbackDefaults:
 
 ---
 
+## `topologyKey`
+
+Define default topologyKey for topologySpreadConstraints in podOptions
+
+
+|            |                                |
+| ---------- | ------------------------------ |
+| Key        | `fallbackDefaults.topologyKey` |
+| Type       | `string`                          |
+| Required   | ❌                             |
+| Helm `tpl` | ❌                             |
+| Default    | `kubernetes.io/hostname`                            |
+
+
+---
+
 ## Full Examples
 
 ```yaml
@@ -808,4 +825,5 @@ fallbackDefaults:
       timeoutSeconds: 2
       failureThreshold: 60
       successThreshold: 1
+  topologyKey: truecharts.org/example
 ```
