@@ -4,14 +4,6 @@ sidebar:
 title: 'TrueNAS SCALE -> ClusterTool'
 ---
 
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 With the upcoming 24.10 "Electric Eel" version of TrueNAS SCALE, iX-Systems has decided to completely gut the Kubernetes backend of SCALE. However, we've got you covered so you can safely keep running your TrueCharts Charts.
 
 Our new ClusterTool can, among other things, be used to craft yourself a new kubernetes backend to continue self-hosting using TrueCharts. For this guide we'll be using a TalosOS VM on TrueNAS SCALE, but any solid hypervisor would suffice.
