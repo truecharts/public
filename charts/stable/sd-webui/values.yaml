@@ -16,11 +16,12 @@ service:
         port: 7860
         targetPort: 7860
 
-# securityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-#   fsGroup: 0
-#   readOnlyRootFilesystem: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
 workload:
   main:
@@ -32,6 +33,7 @@ workload:
             - "--skip-version-check"
           env:
             PYTHONUNBUFFERED: "1"
+            SD_WEBUI_VARIANT: "general"
           probes:
             liveness:
               enabled: true
@@ -47,6 +49,8 @@ persistence:
   output:
     enabled: true
     mountPath: /output
+  varrun:
+    enabled: false
 
 portal:
   open:
