@@ -37,10 +37,10 @@
     {{- include "tc.v1.common.addon.gluetun" . }}
   {{- end -}} */}}
 
-  {{/* Enable tailscale add-on if required
+  {{/* Enable tailscale add-on if required */}}
   {{- if and .Values.addons.tailscale .Values.addons.tailscale.enabled -}}
     {{- include "tc.v1.common.addon.tailscale" . }}
-  {{- end -}} */}}
+  {{- end -}}
 
   {{/* Enable netshoot add-on if required */}}
   {{- if and .Values.addons.netshoot .Values.addons.netshoot.enabled }}

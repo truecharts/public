@@ -3,63 +3,50 @@ Template to render VPN addon
 It will include / inject the required templates based on the given values.
 */}}
 {{- define "tc.v1.common.addon.tailscale" -}}
-{{- if ne "disabled" .Values.addons.vpn.type -}}
-  {{- if .Values.addons.vpn.config -}}
-    {{/* Append the vpn config secret to the secrets */}}
-    {{- $secret := include "tc.v1.common.addon.tailscale.secret" . | fromYaml -}}
-    {{- if $secret -}}
-      {{- $_ := set .Values.secret "vpnconfig" $secret -}}
-    {{- end -}}
-  {{- end }}
+  {{- $ts := $.Values.addons.tailscale -}}
+  {{- if $ts.enabled -}}
+    {{- $secContext := dict -}}
+    {{- $_ := set $secContext "runAsUser" 0 -}}
+    {{- $_ := set $secContext "runAsGroup" 0 -}}
+    {{- $_ := set $secContext "runAsNonRoot" true -}}
+    {{- $_ := set $secContext "readOnlyRootFilesystem" false -}}
 
-  {{- if or .Values.addons.vpn.configFile .Values.addons.vpn.config .Values.addons.vpn.existingSecret -}}
-    {{/* Append the vpn config to the persistence */}}
-    {{- $configper := include "tc.v1.common.addon.tailscale.volume.config" . | fromYaml -}}
-    {{- if $configper -}}
-      {{- $_ := set .Values.persistence "vpnconfig" $configper -}}
+    {{- if and $ts.container.env ($ts.container.env.TS_USERSPACE) -}}
+      {{- $_ := set $secContext "runAsUser" 1000 -}}
+      {{- $_ := set $secContext "runAsGroup" 1000 -}}
+      {{- $_ := set $secContext "runAsNonRoot" false -}}
+      {{- $_ := set $secContext "readOnlyRootFilesystem" true -}}
     {{- end -}}
+
+    {{- $newSecContext := $ts.container.securityContext -}}
+    {{- $newSecContext = mustMergeOverwrite $newSecContext $secContext -}}
+    {{- $_ := set $ts.container "securityContext" $newSecContext -}}
+
+    {{- $targetSelector := list "main" -}}
+    {{- if $ts.targetSelector -}}
+      {{- $targetSelector = $ts.targetSelector -}}
+    {{- end -}}
+
+    {{/* Append the vpn container to the containers */}}
+    {{- range $targetSelector -}}
+      {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
+      {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
+      {{- $workload := get $.Values.workload . -}}
+      {{- $_ := set $workload.podSpec.containers "tailscale" $ts.container -}}
+    {{- end -}}
+
+    {{- $emptyDir := dict -}}
+    {{- $_ := set $emptyDir "enabled" true -}}
+    {{- $_ := set $emptyDir "type" "emptyDir" -}}
+    {{- $_ := set $emptyDir "targetSelector" dict -}}
+
+    {{- $selectorValue := (dict "tailscale" (dict "mountPath" "/var/lib/tailscale")) -}}
+    {{- range $targetSelector -}}
+      {{- $_ := set $emptyDir.targetSelector . $selectorValue -}}
+    {{- end -}}
+
+    {{/* Append the empty dir tailscale to the persistence */}}
+    {{- $_ := set .Values.persistence "tailscalestate" $emptyDir -}}
   {{- end -}}
 
-  {{- if .Values.addons.vpn.configFolder -}}
-    {{/* Append the vpn folder to the persistence */}}
-    {{- $folderper := include "tc.v1.common.addon.tailscale.volume.folder" . | fromYaml -}}
-    {{- if $folderper -}}
-      {{- $_ := set .Values.persistence "vpnfolder" $folderper -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{/* Ensure target Selector defaults to main pod even if unset */}}
-  {{- $targetSelector := list "main" -}}
-  {{- if $.Values.addons.vpn.targetSelector -}}
-    {{- $targetSelector = $.Values.addons.vpn.targetSelector -}}
-  {{- end -}}
-
-  {{/* Append the vpn container to the containers */}}
-  {{- range $targetSelector -}}
-    {{- $container := dict -}}
-    {{- $containerModify := dict -}}
-
-    {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
-    {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
-    {{- $container = $.Values.addons.vpn.tailscale.container -}}
-    {{- $containerModify = include "tc.v1.common.addon.tailscale.containerModify" $ | fromYaml -}}
-
-    {{- if $container.enabled -}}
-      {{- range $targetSelector -}}
-        {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}
-        {{- $workload := get $.Values.workload . -}}
-        {{- $_ := set $workload.podSpec.containers "vpn" $mergedContainer -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- if eq "tailscale" $.Values.addons.vpn.type -}}
-    {{/* Append the empty tailscale folder to the persistence */}}
-    {{- $tailscaledir := include "tc.v1.common.addon.tailscale.volume.tailscale" . | fromYaml -}}
-    {{- if $tailscaledir -}}
-      {{- $_ := set .Values.persistence "tailscalestate" $tailscaledir -}}
-    {{- end -}}
-  {{- end -}}
-
-{{- end -}}
 {{- end -}}
