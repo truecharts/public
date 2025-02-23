@@ -20,11 +20,11 @@
         {{- $dependencyValues := omit $dependencyValues "podOptions " -}}
         {{- $mergedValues = mustMergeOverwrite $mergedValues $dependencyValues -}}
       {{- end -}}
-    {{- range $mergedValues.addons -}}
+      {{- range $mergedValues.addons -}}
         {{- if .enabled -}}
           {{- $mergedValues = mustMergeOverwrite $mergedValues . -}}
         {{- end -}}
-    {{- end -}}
+      {{- end -}}
     {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
 {{- end -}}
