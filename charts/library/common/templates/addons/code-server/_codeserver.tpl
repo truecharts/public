@@ -27,10 +27,19 @@ It will include / inject the required templates based on the given values.
       {{- end -}}
 
       {{- $svcValues := $codeSrv.service -}}
-      {{- $_ := set $svcValues "targetSelector" $targetSelector -}}
+      {{/*
+        FIXME: SVC can only target single workload, spin new svc for each workload
+        Multiple ingresses are needed too, one for each service?
+      */}}
+      {{- $_ := set $svcValues "targetSelector" ($targetSelector|first) -}}
       {{- if not $hasPrimaryService -}}
         {{- $_ := set $svcValues "primary" true -}}
       {{- end -}}
+
+      {{- if not $.Values.service -}}
+        {{- $_ := set $.Values "service" dict -}}
+      {{- end -}}
+
       {{- $_ := set $.Values.service "codeserver" $svcValues -}}
     {{- end -}}
 
@@ -50,6 +59,10 @@ It will include / inject the required templates based on the given values.
 
       {{- if not $hasPrimaryIngress -}}
         {{- $_ := set $ingressValues "primary" true -}}
+      {{- end -}}
+
+      {{- if not $.Values.ingress -}}
+        {{- $_ := set $.Values "ingress" dict -}}
       {{- end -}}
 
       {{/* Let spawner handle the rest */}}
