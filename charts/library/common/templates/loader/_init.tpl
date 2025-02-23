@@ -42,10 +42,10 @@
     {{- include "tc.v1.common.addon.tailscale" . }}
   {{- end -}} */}}
 
-  {{/* Enable netshoot add-on if required
+  {{/* Enable netshoot add-on if required */}}
   {{- if and .Values.addons.netshoot .Values.addons.netshoot.enabled }}
     {{- include "tc.v1.common.addon.netshoot" . }}
-  {{- end -}} */}}
+  {{- end -}}
 
   {{/* Append database wait containers to pods */}}
   {{- include "tc.v1.common.lib.deps.wait" $ }}

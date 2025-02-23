@@ -160,6 +160,14 @@ See service options in the [service](/common/service) section.
 
 :::
 
+:::note
+
+Only applies to:
+
+- Codeserver
+
+:::
+
 |            |                                                 |
 | ---------- | ----------------------------------------------- |
 | Key        | `addons.$addon.service`                         |
@@ -185,6 +193,14 @@ Define additional options for the ingress
 :::tip
 
 See ingress options in the [ingress](/common/ingress) section.
+
+:::
+
+:::note
+
+Only applies to:
+
+- Codeserver
 
 :::
 
