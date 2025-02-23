@@ -30,8 +30,8 @@ It will include / inject the required templates based on the given values.
     {{/* Append the vpn container to the containers */}}
     {{- range $targetSelector -}}
       {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
-      {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
       {{- $workload := get $.Values.workload . -}}
+      {{- $_ := set $workload.podSpec "automountServiceAccountToken" true -}}
       {{- $_ := set $workload.podSpec.containers "tailscale" $ts.container -}}
     {{- end -}}
 

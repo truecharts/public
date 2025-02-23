@@ -58,6 +58,11 @@ tests:
           value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         isSubset:
+          path: spec.template.spec
+          content:
+            automountServiceAccountToken: true
+      - documentIndex: *DeploymentDocument
+        isSubset:
           path: spec.template.spec.containers[0]
           content:
             resources:

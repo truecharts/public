@@ -805,7 +805,7 @@ metrics:
 # @default -- See below
 addons:
   gluetun:
-    enabled: true
+    enabled: false
     targetSelector:
       - main
     # -- you can directly specify the config file here
@@ -840,7 +840,7 @@ addons:
   # See more info for the configuration
   # https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
   tailscale:
-    enabled: true
+    enabled: false
     targetSelector:
       - main
     # -- you can directly specify the config file here
