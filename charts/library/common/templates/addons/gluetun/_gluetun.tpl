@@ -4,8 +4,6 @@ It will include / inject the required templates based on the given values.
 */}}
 {{- define "tc.v1.common.addon.gluetun" -}}
 {{- if ne "disabled" .Values.addons.vpn.type -}}
-
-
   {{- if .Values.addons.vpn.config -}}
     {{/* Append the vpn config secret to the secrets */}}
     {{- $secret := include "tc.v1.common.addon.gluetun.secret" . | fromYaml -}}
@@ -35,13 +33,12 @@ It will include / inject the required templates based on the given values.
       {{- $container = $.Values.addons.vpn.gluetun.container -}}
       {{- $containerModify = include "tc.v1.common.addon.gluetun.containerModify" $ | fromYaml -}}
     {{- if $container.enabled -}}
-   {{- range $targetSelector -}}
-      {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}
-      {{- $workload := get $.Values.workload . -}}
-      {{- $_ := set $workload.podSpec.containers "vpn" $mergedContainer -}}
+      {{- range $targetSelector -}}
+        {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}
+        {{- $workload := get $.Values.workload . -}}
+        {{- $_ := set $workload.podSpec.containers "vpn" $mergedContainer -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
 {{- end -}}
 {{- end -}}

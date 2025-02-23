@@ -2,8 +2,6 @@
 The Tailscale sidecar container to be inserted.
 */}}
 {{- define "tc.v1.common.addon.tailscale.containerModify" -}}
-
-
 securityContext:
   {{- if $.Values.addons.vpn.tailscale.userspace }}
   runAsUser: 1000
@@ -16,7 +14,6 @@ securityContext:
   runAsNonRoot: true
   readOnlyRootFilesystem: false
   {{- end }}
-
 
 {{/*
 Set KUBE_SECRET to empty string to force tailscale

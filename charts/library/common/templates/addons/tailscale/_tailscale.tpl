@@ -4,8 +4,6 @@ It will include / inject the required templates based on the given values.
 */}}
 {{- define "tc.v1.common.addon.tailscale" -}}
 {{- if ne "disabled" .Values.addons.vpn.type -}}
-
-
   {{- if .Values.addons.vpn.config -}}
     {{/* Append the vpn config secret to the secrets */}}
     {{- $secret := include "tc.v1.common.addon.tailscale.secret" . | fromYaml -}}
@@ -14,8 +12,6 @@ It will include / inject the required templates based on the given values.
     {{- end -}}
   {{- end }}
 
-
-
   {{- if or .Values.addons.vpn.configFile .Values.addons.vpn.config .Values.addons.vpn.existingSecret -}}
     {{/* Append the vpn config to the persistence */}}
     {{- $configper := include "tc.v1.common.addon.tailscale.volume.config" . | fromYaml -}}
@@ -23,8 +19,6 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set .Values.persistence "vpnconfig" $configper -}}
     {{- end -}}
   {{- end -}}
-
-
 
   {{- if .Values.addons.vpn.configFolder -}}
     {{/* Append the vpn folder to the persistence */}}
@@ -45,16 +39,16 @@ It will include / inject the required templates based on the given values.
     {{- $container := dict -}}
     {{- $containerModify := dict -}}
 
-      {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
-      {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
-      {{- $container = $.Values.addons.vpn.tailscale.container -}}
-      {{- $containerModify = include "tc.v1.common.addon.tailscale.containerModify" $ | fromYaml -}}
+    {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
+    {{- $_ := set $.Values.podOptions "automountServiceAccountToken" true -}}
+    {{- $container = $.Values.addons.vpn.tailscale.container -}}
+    {{- $containerModify = include "tc.v1.common.addon.tailscale.containerModify" $ | fromYaml -}}
 
     {{- if $container.enabled -}}
-   {{- range $targetSelector -}}
-      {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}
-      {{- $workload := get $.Values.workload . -}}
-      {{- $_ := set $workload.podSpec.containers "vpn" $mergedContainer -}}
+      {{- range $targetSelector -}}
+        {{- $mergedContainer := mustMergeOverwrite $container $containerModify -}}
+        {{- $workload := get $.Values.workload . -}}
+        {{- $_ := set $workload.podSpec.containers "vpn" $mergedContainer -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
