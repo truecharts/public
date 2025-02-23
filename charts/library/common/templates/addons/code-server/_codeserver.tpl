@@ -3,64 +3,49 @@ Template to render code-server addon
 It will include / inject the required templates based on the given values.
 */}}
 {{- define "tc.v1.common.addon.codeserver" -}}
-{{- if $.Values.addons.codeserver.enabled -}}
-  {{- $targetSelector := list "main" -}}
-  {{- if $.Values.addons.codeserver.targetSelector -}}
-    {{- $targetSelector = $.Values.addons.codeserver.container.targetSelector -}}
-  {{- end -}}
-  {{/* Add the code-server service */}}
+  {{- $codeSrv := $.Values.addons.codeserver -}}
 
-  {{- if $.Values.addons.codeserver.service.enabled -}}
-    {{- $hasPrimaryService := false -}}
-    {{- range $svcName, $svcValues := $.Values.service -}}
-      {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                      "rootCtx" $ "objectData" $svcValues
-                      "name" $svcName "caller" "Code Server Service"
-                      "key" "addons.codeserver.service")) -}}
-
-      {{- if eq $enabled "true" -}}
-        {{- if $svcValues.primary -}}
-          {{- $hasPrimaryService = true -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{/* Add the code-server service */}}
-    {{- if $.Values.addons.codeserver.service.enabled -}}
-      {{- $serviceValues := $.Values.addons.codeserver.service -}}
-      {{- $_ := set $serviceValues "targetSelector" $targetSelector -}}
-      {{- if not $hasPrimaryService -}}
-        {{- $_ := set $serviceValues "primary" true -}}
-      {{- end -}}
-      {{- $_ := set $.Values.service "codeserver" $serviceValues -}}
+  {{- if $codeSrv.enabled -}}
+    {{- $targetSelector := list "main" -}}
+    {{- if $codeSrv.targetSelector -}}
+      {{- $targetSelector = $codeSrv.targetSelector -}}
     {{- end -}}
 
     {{/* Append the code-server container to the workloads */}}
     {{- range $targetSelector -}}
       {{- $workload := get $.Values.workload . -}}
-      {{- $_ := set $workload.podSpec.containers "codeserver" $.Values.addons.codeserver.container -}}
+      {{- $_ := set $workload.podSpec.containers "codeserver" $codeSrv.container -}}
+    {{- end -}}
+
+    {{/* Add the code-server service */}}
+    {{- if $codeSrv.service.enabled -}}
+      {{/* Add the code-server service */}}
+      {{- $hasPrimaryService := false -}}
+      {{- $result := include "tc.v1.common.lib.service.hasPrimary" (dict "objectData" $.Values.service) -}}
+      {{- if $result.hasEnabled $result.hasPrimary -}}
+        {{- $hasPrimaryService = true -}}
+      {{- end -}}
+
+      {{- $svcValues := $codeSrv.service -}}
+      {{- $_ := set $svcValues "targetSelector" $targetSelector -}}
+      {{- if not $hasPrimaryService -}}
+        {{- $_ := set $svcValues "primary" true -}}
+      {{- end -}}
+      {{- $_ := set $.Values.service "codeserver" $svcValues -}}
     {{- end -}}
 
     {{/* Add the code-server ingress */}}
-    {{- if $.Values.addons.codeserver.ingress.enabled -}}
-      {{- $ingressValues := $.Values.addons.codeserver.ingress -}}
+    {{- if $codeSrv.ingress.enabled -}}
+      {{- $ingressValues := $codeSrv.ingress -}}
       {{- if not $ingressValues.targetSelector -}}
         {{/* Assumes that both service and port are named codeserver */}}
         {{- $_ := set $ingressValues "targetSelector" (dict "codeserver" "codeserver") -}}
       {{- end -}}
 
       {{- $hasPrimaryIngress := false -}}
-      {{- range $ingName, $ingValues := $.Values.ingress -}}
-        {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                        "rootCtx" $ "objectData" $ingValues
-                        "name" $ingName "caller" "Code Server Ingress"
-                        "key" "addons.codeserver.ingress")) -}}
-
-        {{- if eq $enabled "true" -}}
-          {{- if $ingValues.primary -}}
-            {{- $hasPrimaryIngress = true -}}
-          {{- end -}}
-        {{- end -}}
+      {{- $result := include "tc.v1.common.lib.ingress.hasPrimary" (dict "objectData" $) -}}
+      {{- if $result.hasEnabled $result.hasPrimary -}}
+        {{- $hasPrimaryIngress = true -}}
       {{- end -}}
 
       {{- if not $hasPrimaryIngress -}}
@@ -71,5 +56,4 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set $.Values.ingress "codeserver" $ingressValues -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
 {{- end -}}

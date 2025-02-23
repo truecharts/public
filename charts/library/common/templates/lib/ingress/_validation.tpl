@@ -144,8 +144,17 @@ objectData:
 {{/* Call this template:
 {{ include "tc.v1.common.lib.ingress.primaryValidation" $ -}}
 */}}
-
 {{- define "tc.v1.common.lib.ingress.primaryValidation" -}}
+  {{- $result := include "tc.v1.common.lib.ingress.hasPrimary" (dict "objectData" .Values.ingress) -}}
+
+  {{/* Require at least one primary ingress, if any enabled */}}
+  {{- if and $result.hasEnabled (not $result.hasPrimary) -}}
+    {{- fail "Ingress - At least one enabled ingress must be primary" -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.lib.ingress.hasPrimary" -}}
 
   {{/* Initialize values */}}
   {{- $hasPrimary := false -}}
@@ -176,9 +185,5 @@ objectData:
     {{- end -}}
   {{- end -}}
 
-  {{/* Require at least one primary ingress, if any enabled */}}
-  {{- if and $hasEnabled (not $hasPrimary) -}}
-    {{- fail "Ingress - At least one enabled ingress must be primary" -}}
-  {{- end -}}
-
+  {{- (dict "hasPrimary" $hasPrimary "hasEnabled" $hasEnabled) | toJson -}}
 {{- end -}}
