@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 9.4.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Selfhosted Mend Renovate App with included webhook and Github APP
+home: https://truecharts.org/charts/stable/mend-renovate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mend-renovate.webp
+keywords:
+  - renovate
+  - mend-renovate
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mend-renovate
+sources:
+  - https://ghcr.io/mend/renovate-ce
+  - https://github.com/mend/renovate-ce-ee
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mend-renovate
+type: application
+version: 1.0.0
