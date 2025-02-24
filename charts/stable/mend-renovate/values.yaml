@@ -23,3 +23,10 @@ service:
     ports:
       main:
         port: 80
+        protocol: tcp
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
