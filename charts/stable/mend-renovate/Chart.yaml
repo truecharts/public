@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 9.4.0
 dependencies:
@@ -31,6 +31,6 @@ name: mend-renovate
 sources:
   - https://ghcr.io/mend/renovate-ce
   - https://github.com/mend/renovate-ce-ee
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mend-renovate
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mend-renovate
 type: application
-version: 0.0.1
+version: 1.0.0
