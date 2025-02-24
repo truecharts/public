@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/mend/renovate-ce
+  pullPolicy: IfNotPresent
+  tag: 9.4.0@sha256:89dbbcac0071069a1870c3078cfe3cf3974b435be17c76b44dfee8bcbdf522b3
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # Accept TOS required
+            MEND_RNV_ACCEPT_TOS: n
+            # unregistered public license key
+            MEND_RNV_LICENSE_KEY: eyJsaW1pdCI6IjEwIn0=.30440220457941b71ea8eb345c729031718b692169f0ce2cf020095fd328812f4d7d5bc1022022648d1a29e71d486f89f27bdc8754dfd6df0ddda64a23155000a61a105da2a1
+            MEND_RNV_PLATFORM: github
+            # See https://github.com/mend/renovate-ce-ee/blob/main/docs/setup-for-github.md
+            MEND_RNV_GITHUB_APP_ID: ${RENOVATE_APP_ID}
+            MEND_RNV_GITHUB_APP_KEY: ${RENOVATE_APP_KEY}
+            MEND_RNV_WEBHOOK_SECRET: ${RENOVATE_WEBHOOK_SECRET}
+            MEND_RNV_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+service:
+  main:
+    ports:
+      main:
+        port: 80
