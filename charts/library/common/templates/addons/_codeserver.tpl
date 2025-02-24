@@ -11,6 +11,10 @@ It will include / inject the required templates based on the given values.
       {{- $targetSelector = $codeSrv.targetSelector -}}
     {{- end -}}
 
+    {{- if gt ($targetSelector|len) 1 -}}
+      {{- fail "Codeserver Addon - Can only be attached to a single workload at a time" -}}
+    {{- end -}}
+
     {{/* Append the code-server container to the workloads */}}
     {{- range $targetSelector -}}
       {{- $workload := get $.Values.workload . -}}
@@ -27,10 +31,6 @@ It will include / inject the required templates based on the given values.
       {{- end -}}
 
       {{- $svcValues := $codeSrv.service -}}
-      {{/*
-        FIXME: SVC can only target single workload, spin new svc for each workload
-        Multiple ingresses are needed too, one for each service?
-      */}}
       {{- $_ := set $svcValues "targetSelector" ($targetSelector|first) -}}
       {{- if not $hasPrimaryService -}}
         {{- $_ := set $svcValues "primary" true -}}

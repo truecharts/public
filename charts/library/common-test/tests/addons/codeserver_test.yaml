@@ -363,3 +363,15 @@ tests:
               requests:
                 cpu: 10m
                 memory: 50Mi
+
+  - it: should fail if more than 1 workload selected
+    set:
+      addons:
+        codeserver:
+          enabled: true
+          targetSelector:
+            - workload
+            - other-workload
+    asserts:
+      - failedTemplate:
+          errorMessage: Codeserver Addon - Can only be attached to a single workload at a time
