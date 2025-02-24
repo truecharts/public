@@ -17,7 +17,7 @@ workload:
             MEND_RNV_GITHUB_APP_ID: ${RENOVATE_APP_ID}
             MEND_RNV_GITHUB_APP_KEY: ${RENOVATE_APP_KEY}
             MEND_RNV_WEBHOOK_SECRET: ${RENOVATE_WEBHOOK_SECRET}
-            MEND_RNV_SERVER_PORT: {{ .Values.service.main.ports.main.port }}
+            MEND_RNV_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
 service:
   main:
     ports:
