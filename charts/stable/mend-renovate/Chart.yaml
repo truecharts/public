@@ -1,12 +1,12 @@
 annotations:
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/category: games
+  truecharts.org/category: media
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2025.2.1
+appVersion: 9.4.0
 dependencies:
   - name: common
     version: 25.4.10
@@ -16,22 +16,21 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: Minecraft Java Dedicated Server
-home: https://truecharts.org/charts/stable/minecraft-java
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.webp
+description: Selfhosted Mend Renovate App with included webhook and Github APP
+home: https://truecharts.org/charts/stable/mend-renovate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mend-renovate.webp
 keywords:
-  - minecraft-java
-  - minecraft
+  - renovate
+  - mend-renovate
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: minecraft-java
+name: mend-renovate
 sources:
-  - https://ghcr.io/itzg/minecraft-server
-  - https://github.com/itzg/docker-minecraft-server
-  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-java
-  - https://hub.docker.com/r/itzg/mc-backup
+  - https://ghcr.io/mend/renovate-ce
+  - https://github.com/mend/renovate-ce-ee
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mend-renovate
 type: application
-version: 22.12.11
+version: 1.0.1

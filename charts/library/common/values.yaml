@@ -57,6 +57,9 @@ global:
     # will be used for all CNPG objects
     # Can be overruled per CNPG objects
     pgVersion: 16
+    # -- Define a topologyKey for default topologySpreadConstraints
+    # Will be used when defaultSpread: true
+    topologyKey: kubernetes.io/hostname
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true

@@ -120,6 +120,40 @@ tests:
               topologyKey: truecharts.org/test
               whenUnsatisfiable: ScheduleAnyway
 
+  - it: should pass with topologyKey from "global"
+    set:
+      global:
+        fallbackDefaults:
+          topologyKey: "truecharts.org/test"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.selector.matchLabels
+          value:
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
+            pod.name: workload-name1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.topologySpreadConstraints
+          value:
+            - labelSelector:
+                matchLabels:
+                  app.kubernetes.io/instance: test-release-name
+                  app.kubernetes.io/name: common-test
+                  pod.name: workload-name1
+              maxSkew: 1
+              nodeAffinityPolicy: Honor
+              nodeTaintsPolicy: Honor
+              topologyKey: truecharts.org/test
+              whenUnsatisfiable: ScheduleAnyway
+
   - it: should pass with multiple topologySpreadConstraints from "pod"
     set:
       podOptions:

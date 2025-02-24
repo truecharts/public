@@ -4,7 +4,7 @@ title: README
 
 ## General Info
 
-For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/incubator/van-dam)
+For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/stable/manyfold)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -14,7 +14,7 @@ For more information about this Chart, please check the docs on the TrueCharts [
 
 To install TrueCharts Helm charts using Helm, you can use our OCI Repository.
 
-`helm install mychart oci://tccr.io/truecharts/van-dam`
+`helm install mychart oci://tccr.io/truecharts/manyfold`
 
 For more information on how to install TrueCharts Helm charts, checkout the [instructions on the website](/guides)
 
@@ -22,12 +22,12 @@ For more information on how to install TrueCharts Helm charts, checkout the [ins
 
 All our charts have dedicated documentation pages.
 The documentation for this chart can be found here:
-https://truecharts.org/charts/incubator/van-dam
+https://truecharts.org/charts/stable/manyfold
 
 ## Configuration Options
 
 To view the chart specific options, please view Values.yaml included in the chart.
-The most recent version of which, is available here: https://github.com/truecharts/public/blob/master/charts/incubator/van-dam/values.yaml
+The most recent version of which, is available here: https://github.com/truecharts/public/blob/master/charts/stable/manyfold/values.yaml
 
 All our Charts use a shared "common" library chart that contains most of the templating and options.
 For the complete overview of all available options, please checkout the documentation for them on the [common docs on our website](/common)

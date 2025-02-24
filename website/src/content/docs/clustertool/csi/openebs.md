@@ -2,15 +2,6 @@
 title: OpenEBS
 ---
 
-
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 OpenEBS is a multi-storage CSI solution.
 However, its important to note that its snapshot capabilities either are relatively unstable or non-existent.
 
