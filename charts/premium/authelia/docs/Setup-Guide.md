@@ -16,7 +16,7 @@ LLDAP is a `stable` train chart and therefore isn't supported at the same level 
 
 - Once in `LLDAP`, create a user inside the `lldap_password_manager` group and change your default `admin` password. That `lldap_password_manager` user will be used to bind to `Authelia`. Here I've created a user called `manager`, but you can use anything
 
-- Create an `admin` group and add `User` to it. We will allow users of this group to access the site with Authelia later in the guide.
+- Create an `admin` group and add `User` to it. We will allow users of this group to access the site with Authelia later in the guide. Don't confuse with the pre-configured group `lldap_admin`, which should not be used to add `User`
 
 ## Setup Authelia
 
@@ -72,7 +72,7 @@ access_control:
       - "*.example.com"
       - example.com
       policy: one_factor
-      subject: "group:lldap_admin"
+      subject: "group:admin"
 ```
 
 Please see [Authelia Rules](./authelia-rules) for more advanced rules.
