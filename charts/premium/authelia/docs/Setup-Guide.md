@@ -67,7 +67,7 @@ notifier:
     enabled: false
 access_control:
   rules:
-    # basic rule for one factor (username/password) login for users in the lldap_admin group
+    # basic rule for one factor (username/password) login for users in the admin group
     - domain:
       - "*.example.com"
       - example.com
