@@ -242,12 +242,13 @@ blocking:
       - https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt
       - https://phishing.army/download/phishing_army_blocklist_extended.txt
       - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
-      - https://v.firebog.net/hosts/RPiList-Malware.txt
-      - https://v.firebog.net/hosts/RPiList-Phishing.txt
+      - https://v.firebog.net/hosts/Prigent-Malware.txt
+      # - https://v.firebog.net/hosts/RPiList-Malware.txt (see: https://github.com/0xERR0R/blocky/issues/1718 )
+      # - https://v.firebog.net/hosts/RPiList-Phishing.txt (see: https://github.com/0xERR0R/blocky/issues/1718 )
       - https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
       - https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts
       - https://urlhaus.abuse.ch/downloads/hostfile/
-      - https://lists.cyberhost.uk/malware.txt
+      # - https://lists.cyberhost.uk/malware.txt (see: https://github.com/0xERR0R/blocky/issues/950)
     default-suspicious:
       - https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt
       - https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
