@@ -220,6 +220,11 @@ blocking:
     - name: default
       groups:
         - default
+        - default-ads
+        - default-tracking
+        - default-malicious
+        - default-suspicious
+
 # -- configure using hostsfile for lookups
 # Allows for using the hosts configured in kubernetes and such
 hostsFile:
