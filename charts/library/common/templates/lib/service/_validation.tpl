@@ -65,12 +65,22 @@ objectData:
 */}}
 
 {{- define "tc.v1.common.lib.service.primaryValidation" -}}
+  {{- $result := (include "tc.v1.common.lib.service.hasPrimary" $) | fromJson -}}
 
-  {{/* Initialize values */}}
+  {{/* Require at least one primary service, if any enabled */}}
+  {{- if and $result.hasEnabled (not $result.hasPrimary) -}}
+    {{- fail "Service - At least one enabled service must be primary" -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.lib.service.hasPrimary" -}}
+  {{- $objectData := .objectData -}}
+
   {{- $hasPrimary := false -}}
   {{- $hasEnabled := false -}}
 
-  {{- range $name, $service := .Values.service -}}
+  {{- range $name, $service := $.Values.service -}}
     {{- $enabled := "false" -}}
 
     {{- if not (kindIs "invalid" $service.enabled) -}}
@@ -99,12 +109,9 @@ objectData:
     {{- end -}}
   {{- end -}}
 
-  {{/* Require at least one primary service, if any enabled */}}
-  {{- if and $hasEnabled (not $hasPrimary) -}}
-    {{- fail "Service - At least one enabled service must be primary" -}}
-  {{- end -}}
-
+  {{- (dict "hasPrimary" $hasPrimary "hasEnabled" $hasEnabled) | toJson -}}
 {{- end -}}
+
 
 {{/* Service Port Primary Validation */}}
 {{/* Call this template:
@@ -112,11 +119,20 @@ objectData:
 objectData:
   The ports of the service.
 */}}
-
 {{- define "tc.v1.common.lib.servicePort.primaryValidation" -}}
   {{- $objectData := .objectData -}}
+  {{- $result := (include "tc.v1.common.lib.servicePort.hasPrimary" (dict "objectData" $objectData)) | fromJson -}}
 
-  {{/* Initialize values */}}
+  {{/* Require at least one primary service, if any enabled */}}
+  {{- if and $result.hasEnabled (not $result.hasPrimary) -}}
+    {{- fail "Service - At least one enabled port in service must be primary" -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.lib.servicePort.hasPrimary" -}}
+  {{- $objectData := .objectData -}}
+
   {{- $hasPrimary := false -}}
   {{- $hasEnabled := false -}}
 
@@ -141,9 +157,5 @@ objectData:
     {{- end -}}
   {{- end -}}
 
-  {{/* Require at least one primary service, if any enabled */}}
-  {{- if and $hasEnabled (not $hasPrimary) -}}
-    {{- fail "Service - At least one enabled port in service must be primary" -}}
-  {{- end -}}
-
+  {{- (dict "hasPrimary" $hasPrimary "hasEnabled" $hasEnabled) | toJson -}}
 {{- end -}}
