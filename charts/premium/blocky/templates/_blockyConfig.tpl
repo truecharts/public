@@ -220,6 +220,14 @@ blocking:
     default:
       - https://big.oisd.nl/domainswild
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+      - https://adaway.org/hosts.txt
+      - https://v.firebog.net/hosts/AdguardDNS.txt
+      - https://v.firebog.net/hosts/Admiral.txt
+      - https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+      - https://v.firebog.net/hosts/Easylist.txt
+      - https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+      - https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
+      - https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts
 {{- range $id, $value := .Values.blocking.blacklist }}
     {{ $value.name }}:
 {{- $value.lists | toYaml | nindent 10 }}
