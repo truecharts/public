@@ -32,7 +32,7 @@ The URL's based upon your IP and ingress URL will be added automaticly.
 
 Plex allows for the installation of plug-ins. Plug-ins can be added using the codeserver addon.
 
-1. Add the codeserver addon in Plex helm configuration, details in general documents.
+1. Add the codeserver addon in Plex helm configuration, details in general documentation.
 2. Access codeserver using the previously configured URL.
 3. Browse to the plug-ins folder in codeserver.
    ![codeserver-browse](./img/plex-codeserver-browse.png)
