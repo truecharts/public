@@ -314,3 +314,64 @@ tests:
         equal:
           path: spec.rules[0].http.paths[0].backend.service.port.number
           value: 30067
+
+  - it: should apply resources on the addon container
+    set:
+      workload: *workload
+      addons:
+        codeserver:
+          enabled: true
+          container:
+            resources:
+              limits:
+                cpu: 3333m
+                memory: 3333Mi
+              requests:
+                cpu: 222m
+                memory: 222Mi
+    asserts:
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3333m
+                memory: 3333Mi
+              requests:
+                cpu: 222m
+                memory: 222Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should fail if more than 1 workload selected
+    set:
+      addons:
+        codeserver:
+          enabled: true
+          targetSelector:
+            - workload
+            - other-workload
+    asserts:
+      - failedTemplate:
+          errorMessage: Codeserver Addon - Can only be attached to a single workload at a time

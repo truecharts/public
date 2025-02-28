@@ -1,7 +1,7 @@
 {{/*
 The OpenVPN config secret to be included.
 */}}
-{{- define "tc.v1.common.addon.vpn.secret" -}}
+{{- define "tc.v1.common.addon.gluetun.secret" -}}
 enabled: true
 data:
   vpn.conf: |-
