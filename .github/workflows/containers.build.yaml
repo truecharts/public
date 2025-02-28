@@ -114,6 +114,9 @@ jobs:
           if test -f "./containers/apps/${{ matrix.container }}/VERSION"; then
             CATEGORY="apps"
             VERSION=$(cat ./containers/${CATEGORY}/${{ matrix.container }}/VERSION)
+          elif test -f "./containers/apps/${{ matrix.container }}/get-version.sh"; then
+            CATEGORY="apps"
+            VERSION=$(bash ./containers/${CATEGORY}/${{ matrix.container }}/get-version.sh)
           elif test -f "./containers/apps/${{ matrix.container }}/Dockerfile"; then
             CATEGORY="apps"
             echo ::set-output name=category::${CATEGORY}
