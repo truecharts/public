@@ -53,7 +53,7 @@ clusterIssuer:
 #     # Used primarily for the SCALE GUI
 #     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 #     email: ""
-#     # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns
+#     # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns, webhook
 #     type: ""
 #     # for cloudflare
 #     cfapikey: ""
@@ -88,6 +88,13 @@ clusterIssuer:
 #         fulldomain: ""
 #         subdomain: ""
 #         allowFrom: []
+#     # for webhook
+#     groupName: ""
+#     solverName: ""
+#     # config is optional
+#     config:
+#       key1: value1
+#       key2: value2
 
 clusterCertificates:
   # Namespaces in which the certificates must be available
