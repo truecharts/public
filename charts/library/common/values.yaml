@@ -57,6 +57,9 @@ global:
     # will be used for all CNPG objects
     # Can be overruled per CNPG objects
     pgVersion: 16
+    # -- Define a topologyKey for default topologySpreadConstraints
+    # Will be used when defaultSpread: true
+    topologyKey: kubernetes.io/hostname
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true
@@ -491,12 +494,12 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.96.4@sha256:e818431edd8614daae21543649f33100d5051cb4732c25c819d684f7bbf59424
+  tag: v4.97.2@sha256:1f828b329f554fb9cf5599f3f1cc5ddcbbc9d4fe06e4c90350be0bed724d12a3
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.21.2@sha256:9a9ffc16f1f069874465aec0e8e716a4ac934eb30ee093ddfae4dc8aac47cb84
+  tag: v3.21.3
   pullPolicy: IfNotPresent
 
 scratchImage:
@@ -521,17 +524,17 @@ yqImage:
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:d9f071bd4b1b8f7aa4a43de0960999e7f83a15eadbd3e7c64e32135339859c38
+  tag: v1.1.0@sha256:c85c459d3ca854d705b4aa8663a77752e62c8d33aa43d6a5e4455523f7eb53bd
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:5fe79127a25db81839b574fefb50aa57358c59fa0ba5d642263ab694786ba08b
+  tag: v1.1.0@sha256:513e3d11ea19317f2d6b146329eaa05f76e24322734d81effb98a5fccea6ed0c
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:078875f5774a39e623abe878a303eab72cf9fc59a1951411aebc39815c1176ea
+  tag: v1.1.0@sha256:910ade9977376cef26e6ee3b03939d74e295bb980e3c62ec8174bdd0b12af9af
   pullPolicy: IfNotPresent
 
 mongodbClientImage:

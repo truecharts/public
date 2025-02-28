@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/category: security
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.4.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Zilean self-hosted
+home: https://truecharts.org/charts/stable/zilean
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/zilean.webp
+keywords:
+  - zilean
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: zilean
+sources:
+  - https://ghcr.io/elfhosted/zilean
+  - https://github.com/truecharts/charts/tree/master/charts/stable/zilean
+type: application
+version: 2.0.0

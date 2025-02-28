@@ -1,0 +1,45 @@
+image:
+  repository: twinproduction/gatus
+  pullPolicy: IfNotPresent
+  tag: v5.16.0@sha256:bb738c87cf2e2a08b8fff180cfc433e7b8b87bb1779c1fb1b00f8b748673e3c3
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config/config.yaml
+    subPath: config.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+
+configmap:
+  config:
+    enabled: true
+    data:
+      config.yaml: |
+        {{- if .Values.cnpg.main.enabled }}
+        storage:
+          type: postgres
+          path: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
+        {{- end }}
+
+        endpoints:
+          - name: example
+            url: https://example.org
+            interval: 60s
+            conditions:
+              - "[STATUS] == 200"
+              - "[BODY] == pat(*<h1>Example Domain</h1>*)"
+
+cnpg:
+  main:
+    enabled: true
+    user: gatus
+    database: gatus

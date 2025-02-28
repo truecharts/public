@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ghcr.io/itzg/rcon
-  tag: 0.14.1-1@sha256:4bec01981dc95e14f54c243ced5db23591c67e5a63d474a3f4f8acda72ce5a28
+  repository: docker.io/itzg/rcon
+  tag: latest@sha256:c9521f333bf9eaedf2db0acd750e67be88eaaa9c5e9026385bd875dc18a49110
 rcon:
   rwa_admin: true
   rwa_env: false
@@ -30,9 +30,6 @@ service:
         port: 4327
         protocol: tcp
         targetPort: 4327
-ingress:
-  websocketaccess:
-    autoLink: true
 persistence:
   db:
     enabled: true

@@ -22,7 +22,7 @@ archives:
 checksum:
   name_template: "checksums.txt"
 snapshot:
-  version_template: "{{ incpatch .Version }}-next"
+  name_template: "{{ incpatch .Version }}-next"
 changelog:
   sort: asc
   filters:
@@ -39,6 +39,8 @@ release:
   github:
     owner: truecharts
     name: public
+  extra_files:
+    - glob: "clustertool/clustertool.LICENSE"
   draft: false
   make_latest: false
   mode: append
@@ -67,14 +69,26 @@ before:
 
 nfpms:
   - package_name: clustertool
-    vendor: TrueCharts
-    homepage: https://truecharts.org
     maintainer: "TrueCharts <info@truecharts.org>"
-    description: "ClusterTool CLI for AMD64 architecture."
-    license: BSL
-    formats:
-      - apk
-      - deb
-      - rpm
-      - termux.deb
-      - archlinux
+    homepage: "https://truecharts.org"
+    description: "Tool to help bootstrap a Kubernetes cluster"
+    license: "BUSL-1.1"
+    vendor: TrueCharts
+    formats: [apk, deb, rpm, termux.deb, archlinux]
+
+aurs:
+  - name: "clustertool-bin"
+    maintainers:
+      - "TrueCharts <info@truecharts.org>"
+    homepage: "https://truecharts.org"
+    description: "Tool to help bootstrap a Kubernetes cluster"
+    license: "BUSL-1.1"
+    git_url: "ssh://aur@aur.archlinux.org/clustertool-bin.git"
+    skip_upload: auto
+    package: |
+      # Install binary
+      bsdtar -xvf clustertool_${pkgver}_linux_${CARCH}.tar.gz -C "${pkgdir}"
+      install -Dm755 "${pkgdir}/clustertool" "${pkgdir}/usr/bin/clustertool"
+
+      # Install license
+      install -Dm644 "${pkgdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
