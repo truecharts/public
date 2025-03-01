@@ -26,7 +26,7 @@ Cloudflare’s content delivery network (the “CDN”) Service can be used to c
 ![cf-tunnel-token.png](./img/cf-tunnel-token.png)
 
 - Set the `token` with **your** tunnel's token. the tunnel ID will **NOT** work.
-- Now you can manage the tunnel via cloudflare dash by setting a private network or create ingress rules for your services and domain, explained in [Setting up individial apps](#setting-up-individual-apps)
+- Now you can manage the tunnel via cloudflare dash by setting a private network or create ingress rules for your services and domain, explained in [Setting up individial charts](#setting-up-individual-charts)
 
 ![cf-tunnel-hostname](./img/cf-tunnel-hostname.png)
 
@@ -38,21 +38,21 @@ Cloudflare’s content delivery network (the “CDN”) Service can be used to c
 
 :::
 
-## Setting up individual apps
+## Setting up individual charts
 
 ### Using traefik
 
-If you've set up your apps with traefik, you need to set up two public hostnames
+If you've set up your charts with traefik, you need to set up two public hostnames
 
 - Set `subdomain` to a sub domain (can be left blank to use the root domain)
 - Set `domain` to your domain
 - Set `type` to `HTTPS`
-- Set `URL` to your traefik URL, usually `traefik-tcp.ix-traefik.svc.cluster.local:443` (make sure the port is the same as the port you specified in traefik config)
-- Under `Additional app settings` > `TLS`, set `Origin Server Name` to your domain (This needs to **match** what you have set for the sub and root domain; ex `someapp.somedomain.com`).
+- Set `URL` to your traefik URL, usually `traefik-tcp.traefik.svc.cluster.local:443` (make sure the port is the same as the port you specified in traefik config)
+- Under `Additional application settings` > `TLS`, set `Origin Server Name` to your domain (This needs to **match** what you have set for the sub and root domain; example: `chartname.somedomain.com`).
 
-Then you need to do the same to set up the subdomain for each app you want to expose, using the same subdomain you specified in the app's ingress settings as follows:
+Then you need to do the same to set up the subdomain for each chart you want to expose, using the same subdomain you specified in the charts ingress section as follows:
 
-![cloudflare-setup](./img/cloudflare-setup2.png)
+![cloudflare-setup](./img/cloudflare-setup.png)
 
 :::danger[No TLS Verify]
 
@@ -62,4 +62,4 @@ Please refrain from enabling the "No TLS Verify" option, as doing so will disabl
 
 ### Without traefik
 
-If you've not set up traefik and ingress, and exposing the ports using the normal loadbalancer, you only need to set up each app individually, and set `URL` to `<TrueNAS Local IP>:<PORT of app>` or cluster app url for each app.
+If you've not set up traefik and ingress, and exposing the ports using the normal loadbalancer, you only need to set up each chart individually, and set `URL` to `<LoadBalancerIP>:<PORT>` or cluster-url for each chart.
