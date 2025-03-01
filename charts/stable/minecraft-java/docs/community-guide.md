@@ -4,7 +4,7 @@ title: Minecraft Java Community Guide
 
 ## Running Multiple MC-Java Servers
 
-You can easily deploy Multiple MC Servers charts. You simply need to change have different IP adresses. Ports can be kept the standard port or when you prefered for both MC Servers a different port. This is depending of your way to route the traffic via your router. 
+You can easily deploy Multiple MC Servers charts. You simply need to change have different IP adresses. Ports can be kept the standard port or when you prefered for both MC Servers a different port. This is depending of your way to route the traffic via your router.
 
 MC Server 1
 
@@ -43,7 +43,7 @@ You will/may need to shell in to the pod to periodically clean up old versions o
 
 ## Plugins/mods that need additional ports
 
-Using plugins which needs an additional port, you need to configure an extra service. You can do this with loadBalancer and an IP or define with an Ingress. 
+Using plugins which needs an additional port, you need to configure an extra service. You can do this with loadBalancer and an IP or define with an Ingress.
 This is an example with Bluemap with an Ingress.
 
 ```yaml
