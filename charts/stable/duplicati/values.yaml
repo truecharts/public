@@ -23,7 +23,11 @@ workload:
             startup:
               type: http
               path: /
-          env: {}
+          env:
+            DUPLICATI__WEBSERVICE_PASSWORD: "SuperSecretPassword"
+            # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+            # DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+
 persistence:
   config:
     enabled: true
