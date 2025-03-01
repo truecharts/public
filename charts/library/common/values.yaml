@@ -285,9 +285,6 @@ persistence:
     mountPath: /dev/shm
     medium: Memory
     targetSelectAll: true
-  tailscalestate:
-    enabled: false
-    type: emptyDir
   gluetundir:
     enabled: false
     type: hostPath

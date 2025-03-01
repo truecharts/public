@@ -37,7 +37,12 @@ It will include / inject the required templates based on the given values.
 
     {{- $persistence := $.Values.persistence.tailscalestate -}}
     {{- $_ := set $persistence "enabled" true -}}
-    {{- $_ := set $persistence "targetSelector" dict -}}
+    {{- if not $persistence.type -}}
+      {{- $_ := set $persistence.type "emptyDir" -}}
+    {{- end -}}
+    {{- if not $persistence.targetSelector -}}
+      {{- $_ := set $persistence "targetSelector" dict -}}
+    {{- end -}}
 
     {{- $selectorValue := (dict "tailscale" (dict "mountPath" "/var/lib/tailscale")) -}}
     {{- range $targetSelector -}}
