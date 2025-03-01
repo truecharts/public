@@ -29,7 +29,7 @@ It will include / inject the required templates based on the given values.
       {{- end -}}
       {{- $inputPorts = concat $inputPorts $glue.inputPorts | mustUniq }}
       {{- $_ := set $glue.container.env "FIREWALL_INPUT_PORTS" (join "," $inputPorts) -}}
-    {{- end-}}
+    {{- end -}}
 
     {{- $targetSelector := list "main" -}}
     {{- if $glue.targetSelector -}}
@@ -51,7 +51,7 @@ It will include / inject the required templates based on the given values.
       {{- range $targetSelector -}}
         {{- $_ := set $persistence.targetSelector . $selectorValue -}}
       {{- end -}}
-      {{- $_ := set $.Values.persistence (printf "gluetun-%s" $secret) $persistence -}}
+      {{- $_ := set $.Values.persistence "gluetun-vpn-conf" $persistence -}}
     {{- end -}}
 
     {{- $dir := $.Values.persistence.gluetundir -}}
