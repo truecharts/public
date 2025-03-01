@@ -819,12 +819,6 @@ addons:
     enabled: false
     targetSelector:
       - main
-    ## Enable killswitch
-    killSwitch: false
-    excludedNetworksIPv4: []
-    excludedNetworksIPv6: []
-    ## to enable kubernetes network communication
-    inputPorts: []
     ## Will be mounted at /gluetun/vpn-config.conf
     vpnConfig: ""
     container:
@@ -852,6 +846,9 @@ addons:
         env:
           DOT: "off"
           DNS_KEEP_NAMESERVER: "on"
+          FIREWALL: "off"
+          FIREWALL_OUTBOUND_SUBNETS: ""
+          FIREWALL_INPUT_PORTS: ""
 
   # -- Tailscale specific configuration
   # @default -- See below

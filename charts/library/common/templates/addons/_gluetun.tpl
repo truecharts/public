@@ -9,25 +9,20 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set $glue.container "env" dict -}}
     {{- end -}}
 
-    {{- $_ := set $glue.container.env "FIREWALL" (ternary "on" "off" $glue.killSwitch) -}}
-    {{- if $glue.killSwitch -}}
-      {{- $nets := list $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR -}}
-      {{- range $glue.excludedNetworksIPv4 -}}
-        {{- $nets = append $nets . -}}
-      {{- end -}}
-      {{- range $glue.excludedNetworksIPv6 -}}
-        {{- $nets = append $nets . -}}
-      {{- end -}}
+    {{- $fw := $glue.container.env.FIREWALL -}}
+    {{- if (eq $fw "on") -}}
+      {{- $nets := $glue.container.env.FIREWALL_OUTBOUT_SUBNETS | splitList "," -}}
+      {{- $nets = mustAppend ($nets $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR) | mustUniq -}}
       {{- $_ := set $glue.container.env "FIREWALL_OUTBOUND_SUBNETS" (join "," $nets) -}}
 
-      {{- $inputPorts := list -}}
+      {{- $inputPorts := $glue.container.env.FIREWALL_INPUT_PORTS | splitList "," -}}
       {{- if and
         $.Values.service $.Values.service.main $.Values.service.main.ports
         $.Values.service.main.ports.main $.Values.service.main.ports.main.port
       -}}
-        {{- $inputPorts = list $.Values.service.main.ports.main.port -}}
+        {{- $inputPorts = mustAppend $inputPorts $.Values.service.main.ports.main.port -}}
       {{- end -}}
-      {{- $inputPorts = concat $inputPorts $glue.inputPorts | mustUniq }}
+      {{- $inputPorts = $inputPorts | mustUniq -}}
       {{- $_ := set $glue.container.env "FIREWALL_INPUT_PORTS" (join "," $inputPorts) -}}
     {{- end -}}
 
