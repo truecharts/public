@@ -6,7 +6,9 @@ title: How To
 
 The Bedrock Dedicated Server requires permissions be defined with XUIDs. There are various tools to look these up online and they are also printed to the log when a player joins.
 
-![console](./imgs/console.png)
+```bash
+[2025-03-01 08:49:08:469 INFO] Player connected: Truecharts, xuid: 2345678909876543
+```
 
 To add multiple XUIDs, you can do so by separating each `xuid` by a comma:
 
