@@ -5,181 +5,176 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: fails
+  - it: addon vpn gluetun enabled with config and env should pass
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      addons:
+        gluetun:
+          enabled: true
+          vpnConfig: |
+            some vpn config
+            with multiple lines
+          container:
+            env:
+              key: value
+              key1: value1
+              key2: value2
+              key3: value3
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          ports:
+            port-1:
+              enabled: true
+              primary: true
+              port: 8080
     asserts:
-      - failedTemplate:
-          errorMessage: >
-            Gluetun tests are missing
-            Gluetun docs are missing
-  # - it: addon vpn gluetun enabled with config and env should pass
-  #   set:
-  #     resources:
-  #       limits:
-  #         nvidia.com/gpu: 1
-  #     addons:
-  #       vpn:
-  #         type: gluetun
-  #         config: |
-  #           some vpn config
-  #           with multiple lines
-  #         env:
-  #           key: value
-  #           key1: value1
-  #         envList:
-  #           - name: key2
-  #             value: value2
-  #           - name: key3
-  #             value: value3
-  #     workload: &workload
-  #       main:
-  #         enabled: true
-  #         primary: true
-  #         type: Deployment
-  #         podSpec:
-  #           containers:
-  #             main:
-  #               enabled: true
-  #               primary: true
-  #     service:
-  #       main:
-  #         enabled: true
-  #         primary: true
-  #         ports:
-  #           main:
-  #             enabled: true
-  #             primary: true
-  #             port: 8080
-  #   asserts:
-  #     - hasDocuments:
-  #         count: 3
-  #     - documentIndex: &SecretDocument 0
-  #       isKind:
-  #         of: Secret
-  #     - documentIndex: &DeploymentDocument 1
-  #       isKind:
-  #         of: Deployment
-  #     - documentIndex: &ServiceDocument 2
-  #       isKind:
-  #         of: Service
-  #     - documentIndex: *SecretDocument
-  #       equal:
-  #         path: metadata.name
-  #         value: test-release-name-common-test-vpnconfig
-  #     - documentIndex: *SecretDocument
-  #       equal:
-  #         path: stringData
-  #         value:
-  #           vpn.conf: |-
-  #             some vpn config
-  #             with multiple lines
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: metadata.name
-  #         value: test-release-name-common-test
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[0].name
-  #         value: test-release-name-common-test
-  #     - documentIndex: *DeploymentDocument
-  #       isSubset:
-  #         path: spec.template.spec.containers[0]
-  #         content:
-  #           resources:
-  #             limits:
-  #               cpu: 4000m
-  #               memory: 8Gi
-  #               nvidia.com/gpu: 1
-  #             requests:
-  #               cpu: 10m
-  #               memory: 50Mi
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[1].name
-  #         value: test-release-name-common-test-vpn
-  #     - documentIndex: *DeploymentDocument
-  #       isSubset:
-  #         path: spec.template.spec.containers[1]
-  #         content:
-  #           resources:
-  #             limits:
-  #               cpu: 4000m
-  #               memory: 8Gi
-  #             requests:
-  #               cpu: 10m
-  #               memory: 50Mi
-  #     - documentIndex: *ServiceDocument
-  #       equal:
-  #         path: metadata.name
-  #         value: test-release-name-common-test
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].volumeMounts
-  #         content:
-  #           name: vpnconfig
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].env
-  #         content:
-  #           name: key
-  #           value: value
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].env
-  #         content:
-  #           name: key1
-  #           value: value1
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].env
-  #         content:
-  #           name: key
-  #           value: value
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].env
-  #         content:
-  #           name: key1
-  #           value: value1
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].env
-  #         content:
-  #           name: key2
-  #           value: value2
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].env
-  #         content:
-  #           name: key3
-  #           value: value3
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].volumeMounts
-  #         content:
-  #           name: vpnconfig
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.volumes
-  #         content:
-  #           name: vpnconfig
-  #           secret:
-  #             secretName: test-release-name-common-test-vpnconfig
-  #             defaultMode: 0777
-  #             optional: false
-  #             items:
-  #               - key: vpn.conf
-  #                 path: vpn.conf
+      - hasDocuments:
+          count: 3
+      - documentIndex: &SecretDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-gluetun-vpn-conf
+      - documentIndex: *SecretDocument
+        equal:
+          path: stringData
+          value:
+            vpn.conf: |
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-gluetun
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: gluetun-vpn-conf
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key2
+            value: value2
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key3
+            value: value3
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: gluetun-vpn-conf
+            mountPath: /gluetun
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: gluetun-vpn-conf
+            secret:
+              optional: false
+              secretName: test-release-name-common-test-gluetun-vpn-conf
 
   # - it: addon vpn gluetun enabled with scripts added
   #   set:
   #     addons:
-  #       vpn:
-  #         type: gluetun
-  #         config: |
+  #       gluetun:
+  #         enabled: true
+  #         vpnConfig: |
   #           some vpn config
   #           with multiple lines
   #         scripts:
@@ -217,7 +212,7 @@ tests:
   #     - documentIndex: *SecretDocument
   #       equal:
   #         path: metadata.name
-  #         value: test-release-name-common-test-vpnconfig
+  #         value: test-release-name-common-test-gluetun-vpn-conf
   #     - documentIndex: *ConfigMapDocument
   #       equal:
   #         path: metadata.name
@@ -236,7 +231,7 @@ tests:
   #       equal:
   #         path: stringData
   #         value:
-  #           vpn.conf: |-
+  #           vpn.conf: |
   #             some vpn config
   #             with multiple lines
   #     - documentIndex: *DeploymentDocument
@@ -261,7 +256,7 @@ tests:
   #       notContains:
   #         path: spec.template.spec.containers[0].volumeMounts
   #         content:
-  #           name: vpnconfig
+  #           name: gluetun-vpn-conf
   #           mountPath: /gluetun
   #           readOnly: false
   #     - documentIndex: *DeploymentDocument
@@ -279,9 +274,9 @@ tests:
   #       contains:
   #         path: spec.template.spec.volumes
   #         content:
-  #           name: vpnconfig
+  #           name: gluetun-vpn-conf
   #           secret:
-  #             secretName: test-release-name-common-test-vpnconfig
+  #             secretName: test-release-name-common-test-gluetun-vpn-conf
   #             defaultMode: 0777
   #             optional: false
   #             items:

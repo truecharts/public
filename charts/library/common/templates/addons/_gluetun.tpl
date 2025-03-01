@@ -39,10 +39,10 @@ It will include / inject the required templates based on the given values.
 
     {{/* Mount secrets */}}
     {{- if $glue.vpnConfig -}}
-      {{- $_ := set $.Values.secret "gluetun-vpn-conf" (dict "enabled" true "data" $glue.vpnConfig) -}}
+      {{- $_ := set $.Values.secret "gluetun-vpn-conf" (dict "enabled" true "data" (dict "vpn.conf" $glue.vpnConfig)) -}}
 
-      {{- $persistence := (dict "enabled" true "targetSelector" dict "type" "secret") -}}
-      {{- $selectorValue := (dict "gluetun" (dict "mountPath" "/gluetun/vpn-config.conf")) -}}
+      {{- $persistence := (dict "enabled" true "targetSelector" dict "type" "secret" "objectName" "gluetun-vpn-conf") -}}
+      {{- $selectorValue := (dict "gluetun" (dict "mountPath" "/gluetun")) -}}
       {{- range $targetSelector -}}
         {{- $_ := set $persistence.targetSelector . $selectorValue -}}
       {{- end -}}
