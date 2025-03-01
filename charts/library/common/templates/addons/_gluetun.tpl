@@ -52,7 +52,7 @@ It will include / inject the required templates based on the given values.
     {{- $dir := $.Values.persistence.gluetundir -}}
     {{- $_ := set $dir "targetSelector" dict -}}
 
-    {{- $selectorValue := (dict "tailscale" (dict "mountPath" "/gluetun")) -}}
+    {{- $selectorValue := (dict "gluetun" (dict "mountPath" "/gluetun")) -}}
     {{- range $targetSelector -}}
       {{- $_ := set $dir.targetSelector . $selectorValue -}}
     {{- end -}}
