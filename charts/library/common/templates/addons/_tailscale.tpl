@@ -27,7 +27,7 @@ It will include / inject the required templates based on the given values.
       {{- $targetSelector = $ts.targetSelector -}}
     {{- end -}}
 
-    {{/* Append the vpn container to the containers */}}
+    {{/* Append the vpn container to the workloads */}}
     {{- range $targetSelector -}}
       {{/* FIXME: https://github.com/tailscale/tailscale/issues/8188 */}}
       {{- $workload := get $.Values.workload . -}}

@@ -288,6 +288,14 @@ persistence:
   tailscalestate:
     enabled: false
     type: emptyDir
+  gluetundir:
+    enabled: false
+    type: hostPath
+    autoPermissions:
+      enabled: true
+      chown: true
+      user: 568
+      group: 568
 #  backupexample:
 #    ## the default backup path, is the credential path suffixed by the releasename, volsync and both the pvc and volsync names
 #    enabled: true
@@ -811,8 +819,10 @@ addons:
     enabled: false
     targetSelector:
       - main
-    # -- you can directly specify the config file here
-    config: ""
+    ## Enable killswitch
+    killSwitch: false
+    excludedNetworksIPv4: []
+    excludedNetworksIPv6: []
     ## to enable kubernetes network communication
     inputPorts: []
     container:
@@ -837,6 +847,14 @@ addons:
             - NET_ADMIN
             - NET_RAW
             - MKNOD
+        env:
+          DOT: "off"
+          DNS_KEEP_NAMESERVER: "on"
+    secret:
+      vpn.conf:
+        enabled: false
+        data: |
+          some vpn config
 
   # -- Tailscale specific configuration
   # @default -- See below
