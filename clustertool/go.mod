@@ -8,7 +8,7 @@ require (
     github.com/beevik/ntp v1.4.3
     github.com/budimanjojo/talhelper/v3 v3.0.19
     github.com/getsops/sops/v3 v3.9.4
-    github.com/go-git/go-git/v5 v5.13.2
+    github.com/go-git/go-git/v5 v5.14.0
     github.com/go-logr/zerologr v1.2.3
     github.com/go-playground/validator/v10 v10.25.0
     github.com/invopop/jsonschema v0.13.0
@@ -20,7 +20,7 @@ require (
     github.com/rs/zerolog v1.33.0
     github.com/siderolabs/talos/pkg/machinery v1.10.0-alpha.1.0.20250203100439-e2aa7c98cceb
     github.com/spf13/cobra v1.9.1
-    golang.org/x/crypto v0.34.0
+    golang.org/x/crypto v0.35.0
     gopkg.in/yaml.v3 v3.0.1
     helm.sh/helm/v3 v3.17.1
     k8s.io/api v0.32.2
