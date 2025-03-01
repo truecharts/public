@@ -32,10 +32,10 @@
     {{- include "tc.v1.common.addon.codeserver" . }}
   {{- end -}}
 
-  {{/* Enable gluetun add-on if required
+  {{/* Enable gluetun add-on if required */}}
   {{- if and .Values.addons.gluetun .Values.addons.gluetun.enabled -}}
     {{- include "tc.v1.common.addon.gluetun" . }}
-  {{- end -}} */}}
+  {{- end -}}
 
   {{/* Enable tailscale add-on if required */}}
   {{- if and .Values.addons.tailscale .Values.addons.tailscale.enabled -}}
