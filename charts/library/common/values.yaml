@@ -285,14 +285,6 @@ persistence:
     mountPath: /dev/shm
     medium: Memory
     targetSelectAll: true
-  gluetundir:
-    enabled: false
-    type: hostPath
-    autoPermissions:
-      enabled: true
-      chown: true
-      user: 568
-      group: 568
 #  backupexample:
 #    ## the default backup path, is the credential path suffixed by the releasename, volsync and both the pvc and volsync names
 #    enabled: true

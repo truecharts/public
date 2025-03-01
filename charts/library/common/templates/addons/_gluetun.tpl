@@ -65,14 +65,5 @@ It will include / inject the required templates based on the given values.
 
       {{- $_ := set $.Values.persistence $secretName $persistence -}}
     {{- end -}}
-
-    {{- $dir := $.Values.persistence.gluetundir -}}
-    {{- $_ := set $dir "targetSelector" dict -}}
-
-    {{- $selectorValue := (dict "gluetun" (dict "mountPath" "/gluetun")) -}}
-    {{- range $targetSelector -}}
-      {{- $_ := set $dir.targetSelector . $selectorValue -}}
-    {{- end -}}
-    {{- $_ := set $.Values.persistence "gluetundir" $dir -}}
   {{- end -}}
 {{- end -}}
