@@ -173,133 +173,133 @@ tests:
               optional: false
               secretName: test-release-name-common-test-gluetun-my-conf
 
-  # - it: addon vpn gluetun enabled with scripts added
-  #   set:
-  #     addons:
-  #       gluetun:
-  #         enabled: true
-  #         vpnConfig: |
-  #           some vpn config
-  #           with multiple lines
-  #         scripts:
-  #           up: |
-  #             echo "up"
-  #             echo "done"
-  #           down: |
-  #             echo "down"
-  #             echo "done"
-  #     workload: *workload
-  #     service:
-  #       main:
-  #         enabled: true
-  #         primary: true
-  #         ports:
-  #           main:
-  #             enabled: true
-  #             primary: true
-  #             port: 8080
-  #   asserts:
-  #     - hasDocuments:
-  #         count: 4
-  #     - documentIndex: &ConfigMapDocument 0
-  #       isKind:
-  #         of: ConfigMap
-  #     - documentIndex: &SecretDocument 1
-  #       isKind:
-  #         of: Secret
-  #     - documentIndex: &DeploymentDocument 2
-  #       isKind:
-  #         of: Deployment
-  #     - documentIndex: &ServiceDocument 3
-  #       isKind:
-  #         of: Service
-  #     - documentIndex: *SecretDocument
-  #       equal:
-  #         path: metadata.name
-  #         value: test-release-name-common-test-gluetun-vpn-conf
-  #     - documentIndex: *ConfigMapDocument
-  #       equal:
-  #         path: metadata.name
-  #         value: test-release-name-common-test-vpnscripts
-  #     - documentIndex: *ConfigMapDocument
-  #       equal:
-  #         path: data
-  #         value:
-  #           up.sh: |-
-  #             echo "up"
-  #             echo "done"
-  #           down.sh: |-
-  #             echo "down"
-  #             echo "done"
-  #     - documentIndex: *SecretDocument
-  #       equal:
-  #         path: stringData
-  #         value:
-  #           vpn.conf: |
-  #             some vpn config
-  #             with multiple lines
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[0].name
-  #         value: test-release-name-common-test
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].volumeMounts
-  #         content:
-  #           name: vpnconfig
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].volumeMounts
-  #         content:
-  #           name: vpnscripts
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].volumeMounts
-  #         content:
-  #           name: gluetun-vpn-conf
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].volumeMounts
-  #         content:
-  #           name: vpnscripts
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[1].name
-  #         value: test-release-name-common-test-vpn
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.volumes
-  #         content:
-  #           name: gluetun-vpn-conf
-  #           secret:
-  #             secretName: test-release-name-common-test-gluetun-vpn-conf
-  #             defaultMode: 0777
-  #             optional: false
-  #             items:
-  #               - key: vpn.conf
-  #                 path: vpn.conf
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.volumes
-  #         content:
-  #           name: vpnscripts
-  #           configMap:
-  #             name: vpnscripts
-  #             defaultMode: 0777
-  #             optional: false
-  #             items:
-  #               - key: up.sh
-  #                 path: up.sh
-  #               - key: down.sh
-  #                 path: down.sh
+  - it: addon vpn gluetun enabled with scripts added
+    set:
+      addons:
+        gluetun:
+          enabled: true
+          secret:
+            my-conf:
+              basePath: /gluetun/wireguard
+              data:
+                wg0.conf: |
+                  some vpn config
+                  with multiple lines
+            scripts:
+              basePath: /gluetun/scripts
+              defaultMode: "0777"
+              data:
+                up.sh: |
+                  echo "up"
+                  echo "done"
+                down.sh: |
+                  echo "down"
+                  echo "done"
+      workload: *workload
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 4
+      - documentIndex: &SecretConfDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: *SecretConfDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-gluetun-my-conf
+      - documentIndex: &SecretScriptsDocument 1
+        isKind:
+          of: Secret
+      - documentIndex: *SecretScriptsDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-gluetun-scripts
+      - documentIndex: &DeploymentDocument 2
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 3
+        isKind:
+          of: Service
+      - documentIndex: *SecretScriptsDocument
+        equal:
+          path: stringData
+          value:
+            up.sh: |
+              echo "up"
+              echo "done"
+            down.sh: |
+              echo "down"
+              echo "done"
+      - documentIndex: *SecretConfDocument
+        equal:
+          path: stringData
+          value:
+            wg0.conf: |
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content: &content1
+            mountPath: /gluetun/wireguard
+            name: gluetun-my-conf
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content: &content2
+            mountPath: /gluetun/scripts
+            name: gluetun-scripts
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content: *content1
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content: *content2
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-gluetun
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: gluetun-my-conf
+            secret:
+              items:
+                - key: wg0.conf
+                  path: wg0.conf
+              optional: false
+              secretName: test-release-name-common-test-gluetun-my-conf
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: gluetun-scripts
+            secret:
+              defaultMode: 511
+              items:
+                - key: down.sh
+                  path: down.sh
+                - key: up.sh
+                  path: up.sh
+              optional: false
+              secretName: test-release-name-common-test-gluetun-scripts
 
   # - it: addon vpn gluetun enabled with existing secret
   #   set:

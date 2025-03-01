@@ -49,6 +49,10 @@ It will include / inject the required templates based on the given values.
       {{- $persistence := (dict
         "enabled" true "type" "secret" "objectName" $secretName "targetSelector" dict "items" list
       ) -}}
+      {{- if $secValues.defaultMode -}}
+        {{- $_ := set $persistence "defaultMode" $secValues.defaultMode -}}
+      {{- end -}}
+
       {{- range $key, $val := $secValues.data -}}
         {{- $item := (dict "key" $key "path" $key) -}}
         {{- $_ := set $persistence "items" (mustAppend $persistence.items $item) -}}

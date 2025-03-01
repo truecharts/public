@@ -825,6 +825,13 @@ addons:
       #       some conf
       #     wg1.conf: |
       #       some conf
+      # scripts:
+      #   basePath: /gluetun/scripts
+      #   defaultMode: "0777"
+      #   data:
+      #     # Effective path /gluetun/scripts/up.sh
+      #     up.sh: |
+      #       some conf
     container:
       enabled: true
       imageSelector: gluetunImage
