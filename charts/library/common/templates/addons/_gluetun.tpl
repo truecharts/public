@@ -38,15 +38,28 @@ It will include / inject the required templates based on the given values.
     {{- end -}}
 
     {{/* Mount secrets */}}
-    {{- if $glue.vpnConfig -}}
-      {{- $_ := set $.Values.secret "gluetun-vpn-conf" (dict "enabled" true "data" (dict "vpn.conf" $glue.vpnConfig)) -}}
+    {{- range $secName, $secValues := $glue.secret -}}
+      {{- $secretName := printf "gluetun-%s" $secName -}}
+      {{- if not $secValues.basePath -}}
+        {{- fail (printf "Gluetun - Secret [%s] does not have basePath") -}}
+      {{- end -}}
+      {{- $sec := (dict "enabled" true "data" $secValues.data) -}}
+      {{- $_ := set $.Values.secret $secretName $sec -}}
 
-      {{- $persistence := (dict "enabled" true "targetSelector" dict "type" "secret" "objectName" "gluetun-vpn-conf") -}}
-      {{- $selectorValue := (dict "gluetun" (dict "mountPath" "/gluetun")) -}}
+      {{- $persistence := (dict
+        "enabled" true "type" "secret" "objectName" $secretName "targetSelector" dict "items" list
+      ) -}}
+      {{- range $key, $val := $secValues.data -}}
+        {{- $item := (dict "key" $key "path" $key) -}}
+        {{- $_ := set $persistence "items" (mustAppend $persistence.items $item) -}}
+      {{- end -}}
+
+      {{- $selectorValue := (dict "gluetun" (dict "mountPath" $secValues.basePath)) -}}
       {{- range $targetSelector -}}
         {{- $_ := set $persistence.targetSelector . $selectorValue -}}
       {{- end -}}
-      {{- $_ := set $.Values.persistence "gluetun-vpn-conf" $persistence -}}
+
+      {{- $_ := set $.Values.persistence $secretName $persistence -}}
     {{- end -}}
 
     {{- $dir := $.Values.persistence.gluetundir -}}

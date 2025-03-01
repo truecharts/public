@@ -35,10 +35,10 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set $workload.podSpec.containers "tailscale" $ts.container -}}
     {{- end -}}
 
-    {{- $persistence := $.Values.persistence.tailscalestate -}}
+    {{- $persistence := $.Values.persistence.tailscalestate | default dict -}}
     {{- $_ := set $persistence "enabled" true -}}
     {{- if not $persistence.type -}}
-      {{- $_ := set $persistence.type "emptyDir" -}}
+      {{- $_ := set $persistence "type" "emptyDir" -}}
     {{- end -}}
     {{- if not $persistence.targetSelector -}}
       {{- $_ := set $persistence "targetSelector" dict -}}

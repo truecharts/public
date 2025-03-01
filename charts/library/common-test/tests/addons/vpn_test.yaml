@@ -13,9 +13,13 @@ tests:
       addons:
         gluetun:
           enabled: true
-          vpnConfig: |
-            some vpn config
-            with multiple lines
+          secret:
+            my-conf:
+              basePath: /gluetun/wireguard
+              data:
+                wg0.conf: |
+                  some vpn config
+                  with multiple lines
           container:
             env:
               key: value
@@ -63,12 +67,12 @@ tests:
       - documentIndex: *SecretDocument
         equal:
           path: metadata.name
-          value: test-release-name-common-test-gluetun-vpn-conf
+          value: test-release-name-common-test-gluetun-my-conf
       - documentIndex: *SecretDocument
         equal:
           path: stringData
           value:
-            vpn.conf: |
+            wg0.conf: |
               some vpn config
               with multiple lines
       - documentIndex: *DeploymentDocument
@@ -113,9 +117,9 @@ tests:
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: gluetun-vpn-conf
-            mountPath: /gluetun
+          content: &content
+            mountPath: /gluetun/wireguard
+            name: gluetun-my-conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
@@ -156,18 +160,18 @@ tests:
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
-          content:
-            name: gluetun-vpn-conf
-            mountPath: /gluetun
-            readOnly: false
+          content: *content
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
           content:
-            name: gluetun-vpn-conf
+            name: gluetun-my-conf
             secret:
+              items:
+                - key: wg0.conf
+                  path: wg0.conf
               optional: false
-              secretName: test-release-name-common-test-gluetun-vpn-conf
+              secretName: test-release-name-common-test-gluetun-my-conf
 
   # - it: addon vpn gluetun enabled with scripts added
   #   set:

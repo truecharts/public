@@ -816,8 +816,15 @@ addons:
     enabled: false
     targetSelector:
       - main
-    ## Will be mounted at /gluetun/vpn-config.conf
-    vpnConfig: ""
+    secret:
+      # vpn-conf:
+      #   basePath: /gluetun/wireguard
+      #   data:
+      #     # Effective path /gluetun/wireguard/wg0.conf
+      #     wg0.conf: |
+      #       some conf
+      #     wg1.conf: |
+      #       some conf
     container:
       enabled: true
       imageSelector: gluetunImage
