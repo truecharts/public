@@ -2,15 +2,27 @@
 title: How To
 ---
 
-In order to OP a player through `OPS` variable you will need to get the XUID of the player. You can temporarily join and grab your XUID from the logs.
+## Use of XUID
+
+The Bedrock Dedicated Server requires permissions be defined with XUIDs. There are various tools to look these up online and they are also printed to the log when a player joins.
 
 ![console](./imgs/console.png)
 
-To add multiple XUIDS, you can do so by separating each `xuid` by a comma:
+To add multiple XUIDs, you can do so by separating each `xuid` by a comma:
 
-![xuids](./imgs/xuids.png)
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            OPS: "XUID,XUID"        # is used to define operators on the server.
+            MEMBERS: "XUID,XUID"    # is used to define the members on the server.
+            VISITORS: "XUID,XUID"   # is used to define visitors on the server.
+```
 
-Or use this 3rd party service [here](https://www.cxkes.me/xbox/xuid) to grab the XUID of the username instead.
+Example of a 3rd party service [here](https://www.cxkes.me/xbox/xuid) to grab the XUID of the username instead.
 
 :::caution
 
@@ -48,7 +60,7 @@ The `/data/permissions.json` should look something like this:
 
 This image comes bundled with a script called send-command that will send a Bedrock command and argument to the Bedrock server console. The output of the command only be visible in the container logs.
 
-shell into the container and run whatever command you want for example:
+Shell into the container and run whatever command you want for example:
 
 ```shell
 send-command gamerule dofiretick false
