@@ -2,13 +2,13 @@
 title: Installation Notes
 ---
 
-- Set `Plex Token` to your plex token, info [here](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/).
+- Set the env. `PLEX_TOKEN` to your plex token, info [here](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/).
 
-- Optionally Set `Streamable Login` and `Streamable Password` to your account details.
+- Optionally the env. `STREAMABLE_LOGIN` and `STREAMABLE_PASSWORD` to your account details.
 
-- Set `Plex URL` to the url of plex, typically you can use:
+- Set the env. `PLEX_URL` to the url of Plex, typically you can use:
 
-  - `http://plex.ix-plex.svc.cluster.local:32400`
+  - `http://plex.plex.svc.cluster.local:32400`
   - `http://IP:32400`
   - `https://plex.mydomain.tld`
 
