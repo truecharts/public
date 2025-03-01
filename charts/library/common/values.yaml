@@ -825,6 +825,8 @@ addons:
     excludedNetworksIPv6: []
     ## to enable kubernetes network communication
     inputPorts: []
+    ## Will be mounted at /gluetun/vpn-config.conf
+    vpnConfig: ""
     container:
       enabled: true
       imageSelector: gluetunImage
@@ -850,11 +852,6 @@ addons:
         env:
           DOT: "off"
           DNS_KEEP_NAMESERVER: "on"
-    secret:
-      vpn.conf:
-        enabled: false
-        data: |
-          some vpn config
 
   # -- Tailscale specific configuration
   # @default -- See below
