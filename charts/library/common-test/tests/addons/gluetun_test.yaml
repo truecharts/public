@@ -301,66 +301,6 @@ tests:
               optional: false
               secretName: test-release-name-common-test-gluetun-scripts
 
-  # - it: addon vpn gluetun enabled with existing secret
-  #   set:
-  #     addons:
-  #       vpn:
-  #         type: gluetun
-  #         existingSecret: existing-secret
-  #     workload: *workload
-  #     service:
-  #       main:
-  #         enabled: true
-  #         primary: true
-  #         ports:
-  #           main:
-  #             enabled: true
-  #             primary: true
-  #             port: 8080
-  #   asserts:
-  #     - hasDocuments:
-  #         count: 2
-  #     - documentIndex: &DeploymentDocument 0
-  #       isKind:
-  #         of: Deployment
-  #     - documentIndex: &ServiceDocument 1
-  #       isKind:
-  #         of: Service
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[0].name
-  #         value: test-release-name-common-test
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.containers[1].volumeMounts
-  #         content:
-  #           name: vpnconfig
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       notContains:
-  #         path: spec.template.spec.containers[0].volumeMounts
-  #         content:
-  #           name: vpnconfig
-  #           mountPath: /gluetun
-  #           readOnly: false
-  #     - documentIndex: *DeploymentDocument
-  #       equal:
-  #         path: spec.template.spec.containers[1].name
-  #         value: test-release-name-common-test-vpn
-  #     - documentIndex: *DeploymentDocument
-  #       contains:
-  #         path: spec.template.spec.volumes
-  #         content:
-  #           name: vpnconfig
-  #           secret:
-  #             secretName: existing-secret
-  #             defaultMode: 0777
-  #             optional: false
-  #             items:
-  #               - key: vpn.conf
-  #                 path: vpn.conf
-
   # - it: addon vpn gluetun enabled with configFile
   #   set:
   #     addons:

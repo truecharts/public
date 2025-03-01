@@ -43,8 +43,8 @@ It will include / inject the required templates based on the given values.
       {{- if not $secValues.basePath -}}
         {{- fail (printf "Gluetun - Secret [%s] does not have basePath") -}}
       {{- end -}}
-      {{- $sec := (dict "enabled" true "data" $secValues.data) -}}
-      {{- $_ := set $.Values.secret $secretName $sec -}}
+      {{- $_ := set $secValues "enabled" true -}}
+      {{- $_ := set $.Values.secret $secretName $secValues -}}
 
       {{- $persistence := (dict
         "enabled" true "type" "secret" "objectName" $secretName "targetSelector" dict "items" list
