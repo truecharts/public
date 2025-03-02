@@ -43,9 +43,12 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-  platformio:
+  cache: #caches platformio packages to prevent excess downloads
     enabled: true
-    mountPath: /.platformio
+    mountPath: /cache
+  build: #caches compiled code to not require rebuilds
+    enabled: true
+    mountPath: /build
 portal:
   open:
     enabled: true
