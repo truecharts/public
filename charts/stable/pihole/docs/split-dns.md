@@ -20,7 +20,13 @@ Blocky includes k8s Gateway which automates the split DNS process. We will be us
 
 - Deploy Blocky
 - Make sure k8s-Gateway is enabled.
-- Assuming you would like to use PiHole for Allow/Deny list, configure blocky that those list from blocky are disabled.
+- Assuming you would like to use PiHole for Allow/Deny list, configure Blocky that those list from blocky are disabled. To disable the Blocky Deny lists this can be used in the deployment of Blocky:
+
+```yaml
+clientGroupsBlock:
+    []
+```
+
 
 ## Deploy PiHole
 
