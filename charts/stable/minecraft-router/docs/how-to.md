@@ -2,13 +2,13 @@
 title: Minecraft-Server How To
 ---
 
-When you have multiple Java Minecraft-Servers running and you want to open for all the standard 25565 port. Minecraft-Router is de solution.
+When you have multiple Java Minecraft-Servers running and you want to open for all the standard 25565 port. Minecraft-Router is the solution.
 The correct minecraft server will be chosed based upon which URL is used to connect.
 
-Default server can be given in the case un unknown URL is detected.
+Default server can be given in the case an unknown URL is detected.
 
-More information about linking abouts and Cluster Internal Domain can be found in the common documentation.
-Example deployment, used with Cluster Internal Domain names.
+More information about linking charts and Cluster Internal Domain can be found in the common documentation.
+Example deployment, used with Cluster Internal Domain names:
 
 ```yaml
 mcrouter:
