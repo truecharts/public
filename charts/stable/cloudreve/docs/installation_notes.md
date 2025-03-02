@@ -40,7 +40,7 @@ Once Aria2 is deployed, open Cloudreve's webpage and navigate to the Dashboard (
 
 ### Example RPC Secrete Generation
 
-Below is an example of one way to generate the RPC Secret value, which can be copy paste in a terminal which have openssl installed. 
+Below is an example of one way to generate the RPC Secret value, which can be copy paste in a terminal which have openssl installed.
 
 ```
 $ openssl rand -hex 32

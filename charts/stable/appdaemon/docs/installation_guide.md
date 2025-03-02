@@ -35,4 +35,3 @@ workload:
             TIMEZONE: "{{ .Values.TZ }}"
             TOKEN: "ThisShouldBeTheVeryLongLivedTokenFromHomeAssistant"
 ```
-          
