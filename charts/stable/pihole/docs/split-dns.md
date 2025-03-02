@@ -40,22 +40,9 @@ Deploy PiHole with the following configuration:
 
 Example configuration:
 ```yaml
-service:
-  main:
-    type: LoadBalancer
-    loadBalancerIP: 192.168.1.220
-  dns:
-    type: LoadBalancer
-    loadBalancerIP: 192.168.1.221
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            FTLCONF_dns_upstreams: "${BLOCKY_IP}"
-            FTLCONF_webserver_api_password: "DitIsSuperGeheim"
+env:
+  FTLCONF_dns_upstreams: "${BLOCKY_IP}"
+  FTLCONF_webserver_api_password: "DitIsSuperGeheim"
 ```
 
 ## Configure Router
