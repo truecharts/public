@@ -15,13 +15,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: redis
-    version: 15.6.5
-    repository: oci://tccr.io/truecharts
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
 deprecated: false
 description: A fast and minimal paste bin, written in Python using Quart.
 home: https://truecharts.org/charts/stable/hasty-paste
