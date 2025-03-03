@@ -70,25 +70,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: true
-              type: exec
-              command:
-                - python
-                - /app/mealie/scripts/healthcheck.py
-            readiness:
-              enabled: true
-              type: exec
-              command:
-                - python
-                - /app/mealie/scripts/healthcheck.py
-            startup:
-              enabled: true
-              type: exec
-              command:
-                - python
-                - /app/mealie/scripts/healthcheck.py
           envFrom:
             - secretRef:
                 name: frontend
