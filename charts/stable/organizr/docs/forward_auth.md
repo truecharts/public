@@ -6,8 +6,8 @@ Basic setup guide for enabling Organizr authentication on your apps using Traefi
 
 ## Requirements
 
-- Organizr TrueCharts App
-- Traefik TrueCharts App
+- Organizr TrueCharts Chart
+- Traefik TrueCharts Chart
 
 ## Prerequisites
 
@@ -15,17 +15,10 @@ This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider
 [Quick-Start guides].
 Please ensure that you can access your domain properly with Ingress before attempting any further steps.
 
-## Organizr App Setup
+## Organizr Chart Setup
 
 All of the defaults are fine to start off, however `ingress` must be set if you wish to use `organizr` with `traefik`.
-
-In this guide the app name is `organizr` and ingress is configured as `organizr.example.com`
-
-**Ingress Example**
-
-![organizr-ingress-section](./img/organizr-ingress-section.png)
-
-(also complete the TLS section for ingress configuration using the same hostname as above)
+In this guide the chart name is `organizr` and ingress is configured as `organizr.example.com`
 
 ## Organizr GUI Setup
 
@@ -40,7 +33,7 @@ No changes needed here for now unless you want to create a custom group
 
 ### Configure Traefik Redirect
 
-Goto Organizr Settings -> Main -> Security
+Goto Organizr Settings -> System Settings -> Main -> Security
 
 - Set `Enable Traefik Auth Redirect` to on
 - Set `Traefik Domain for Return Override` to `https://organizr.example.com` (this should match the address you defined in the Organizr app ingress section)
@@ -56,11 +49,21 @@ We will use the Organizr user groups that map to specific forwardAuth URLs.
 The below table shows the example forwardAuth entries that correspond to the user groups in Organizr.
 The URLs for these entries use the kubernetes internal DNS address & default port (`10022`) for your Organizr app. You can name the forwardAuth entries whatever you like.
 
-| forwardAuth Name                      | forwardAuth Address                                                         |                              screenshot                               |
-| :------------------------------------ | :-------------------------------------------------------------------------- | :-------------------------------------------------------------------: |
-| `organizr-admin`                      | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=0`   |  ![Organizr-admin-forwardAuth](./img/organizr-admin-forwardAuth.png)  |
-| `organizr-guest` (optional)           | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=999` |  ![Organizr-guest-forwardAuth](./img/organizr-guest-forwardAuth.png)  |
-| `organizr-custom5` (optional, custom) | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=5`   | ![Organizr-custom-forwardAuth](./img/organizr-custom-forwardAuth.png) |
+```yaml
+middlewares:
+  forwardAuth:
+    - name: organizr-admin
+      address: http://organizr.organizr.svc.cluster.local:10022/api/v2/auth?group=0
+      trustForwardHeader: true
+    #OPTIONAL
+    - name: organizr-guest    
+      address: http://organizr.organizr.svc.cluster.local:10022/api/v2/auth?group=999
+      trustForwardHeader: true
+    #OPTIONAL, CUSTOM
+    - name: organizr-custom5
+      address: http://organizr.organizr.svc.cluster.local:10022/api/v2/auth?group=5
+      trustForwardHeader: true
+```
 
 See Organizr [documentation](https://docs.organizr.app/features/server-authentication#using-the-organizr-authorization-api) on "Server Authentication"
 for more details on the predefined groups and their corresponding URL pattern.
@@ -70,7 +73,16 @@ for more details on the predefined groups and their corresponding URL pattern.
 Once that is done all you need to add the `middleware` to your apps under the `Ingress section`, corresponding to the level of
 permissions the app's user should have to access it. Example below uses `organizr-admin`.
 
-![organizr-traefik-middleware](./img/organizr-traefik-middleware.png)
+```yaml
+ingress:
+  main:
+    integrations:
+      traefik:
+        enabled: true
+        middlewares:
+          - name: organizr-admin
+            namespace: traefik
+```
 
 ## Verify it works
 
