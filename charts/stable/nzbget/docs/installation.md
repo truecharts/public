@@ -2,7 +2,7 @@
 title: Installation Guide
 ---
 
-## Percistence
+## Persistence
 
 Add a `data` percistence for your `nzb` files. For example a mountPath `/nzb` directing to a NFS Share.
 How to setup your files a good source of information is: [Trashguides](https://trash-guides.info/Downloaders/NZBGet/Basic-Setup/)
@@ -24,7 +24,7 @@ Don't forget to change them in `SECURITY` settings when you are logged in.
 `127.0.0.1,192.168.0.*,172.16.*.*`
 
 - This field is separated by commas.
-- We added my Lan on there `192.168.0.*`
+- I added my Lan on there `192.168.0.*`
 - As well as the kubernetes Network `172.16.*.*`
 
 
