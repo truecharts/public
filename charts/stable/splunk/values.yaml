@@ -8,8 +8,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-    allowPrivilegeEscalation: true
-    privileged: true
 service:
   dataingest:
     enabled: true
