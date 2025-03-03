@@ -4,7 +4,7 @@ title: Installation Guide
 
 ## Persistence
 
-Add a `data` percistence for your `nzb` files. For example a mountPath `/nzb` directing to a NFS Share.
+Add a `data` persistence for your `nzb` files. For example a mountPath `/nzb` directing to a NFS Share.
 How to setup your files a good source of information is: [Trashguides](https://trash-guides.info/Downloaders/NZBGet/Basic-Setup/)
 
 ## Using NZBGET
