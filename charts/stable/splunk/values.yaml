@@ -2,19 +2,12 @@ image:
   pullPolicy: IfNotPresent
   repository: docker.io/splunk/splunk
   tag: 9.4.1@sha256:6e7ef6ff9c2051d2281dce1dc6619cd5b4b5c1b40316f22e4c6627c51d0a1c83
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
-splunk:
-  acceptLicense: true
-  password: changeme
-  extraArgs: []
-
 service:
   dataingest:
     enabled: true
@@ -52,9 +45,9 @@ workload:
       containers:
         main:
           envFrom:
-            - secretRef:
-                name: "secret"
-
+          env:
+            SPLUNK_START_ARGS: --accept-license
+            SPLUNK_PASSWORD: changeme
 persistence:
   appcreds:
     enabled: true
@@ -65,7 +58,3 @@ persistence:
   data:
     enabled: true
     mountPath: /splunkdata
-
-portal:
-  open:
-    enabled: true
