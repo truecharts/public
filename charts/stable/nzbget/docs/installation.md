@@ -32,13 +32,10 @@ Don't forget to change them in `SECURITY` settings when you are logged in.
 
 I use 5 categories
 
-- `Movies` is used by:
+- `Movies` is used by Radarr:
 
-??? Radarr "Radarr"
-
-    - We also always enable `Remove Completed` for NZBs
-
-    ![Settings: Radarr](./img/radarr.png)
+  - We also always enable `Remove Completed` for NZBs
+  ![Settings: Radarr](./img/radarr.png)
 
 - `Series` is used by:
 
