@@ -2,6 +2,12 @@
 title: Example Categories
 ---
 
+:::caution[Support]
+
+In app configuration isnt covered by support and only serves as a short example on a possible configuration.
+
+:::
+
 ## Categories
 
 I use 5 categories
