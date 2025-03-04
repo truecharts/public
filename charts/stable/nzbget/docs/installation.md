@@ -14,6 +14,7 @@ How to setup your files a good source of information is: [Trashguides](https://t
 **Log-in**
 
 For login credentials defaults:
+
 - Username: `nzbget`
 - ControlPassword: `tegbzn6789`
 
@@ -26,5 +27,3 @@ Don't forget to change them in `SECURITY` settings when you are logged in.
 - This field is separated by commas.
 - I added my Lan on there `192.168.0.*`
 - As well as the kubernetes Network `172.16.*.*`
-
-
