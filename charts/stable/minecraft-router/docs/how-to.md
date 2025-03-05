@@ -17,4 +17,4 @@ mcrouter:
       - ${SERVER1_URL}=minecraft-java.minecraft-java.svc.cluster.local:25565
       - ${SERVER2_URL}=truecharts-mcserver-minecraft-java.truecharts-mcserver.svc.cluster.local:25565
       - ${SERVER3_URL}=kidsplayground-server-minecraft-java.kidsplayground-server.svc.cluster.local:25565
-```` 
+````

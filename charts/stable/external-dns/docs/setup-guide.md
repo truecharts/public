@@ -30,10 +30,10 @@ When using API Token authentication, the token should be granted Zone Read, DNS 
 
 - Enter preferences for Logs and DNS updates (Suggested >5m to prevent log spam)
 - Set `cloudflare` as provider
-- set sources `ingress` and `service` should covers everything. 
+- set sources `ingress` and `service` should covers everything.
 - If you want to filter by multiple domains add your `domainFilters`
-- Recommend using `noop` for `registry` and leaving the rest as default, 
-- You can add DNS Zone filters `zoneidFilters` as necessary as well 
+- Recommend using `noop` for `registry` and leaving the rest as default,
+- You can add DNS Zone filters `zoneidFilters` as necessary as well
 
 For more details of all option, see upstream docs of external-dns.
 
@@ -46,7 +46,7 @@ externaldns:
   sources:
     - "service"
     - "ingress"
-  domainFilters: 
+  domainFilters:
     - "${BASE_DOMAIN}"
   zoneidFilters: []
   cloudflareProxied: ""

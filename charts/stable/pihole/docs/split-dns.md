@@ -47,5 +47,5 @@ env:
 
 ## Configure Router
 
-1. Configure your router to use your PiHole DNS when configuring DNS clients. You will need to consult your router manual for this as each router is different. 
-In above example, the router should be configured to use 192.168.1.221 as the DNS server. 
+1. Configure your router to use your PiHole DNS when configuring DNS clients. You will need to consult your router manual for this as each router is different.
+In above example, the router should be configured to use 192.168.1.221 as the DNS server.

@@ -56,7 +56,7 @@ middlewares:
       address: http://organizr.organizr.svc.cluster.local:10022/api/v2/auth?group=0
       trustForwardHeader: true
     #OPTIONAL
-    - name: organizr-guest    
+    - name: organizr-guest
       address: http://organizr.organizr.svc.cluster.local:10022/api/v2/auth?group=999
       trustForwardHeader: true
     #OPTIONAL, CUSTOM

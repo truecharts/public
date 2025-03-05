@@ -4,7 +4,7 @@ title: Homepage TrueCharts Integration Guide
 
 TrueCharts has adopted `Homepage` as its default dashboard application due to its support for Kubernetes.
 
-This guide will cover how to use the TrueCharts/Homepage integration included in the charts. 
+This guide will cover how to use the TrueCharts/Homepage integration included in the charts.
 Editing the configuration .yaml files of homepage can be done if you add the codeserver addon to your deployment.
 This guide will not cover every aspect of options available to Homepage. For more information, please visit the following links:
 
@@ -74,7 +74,7 @@ ingress:
     integrations:
       homepage:
         enabled: true
-        group: "Arr"          
+        group: "Arr"
         weight: 1
         widget:
           custom:
