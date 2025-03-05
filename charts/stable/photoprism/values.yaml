@@ -1,6 +1,6 @@
 image:
   repository: docker.io/photoprism/photoprism
-  tag: 20220121@sha256:8dd9e8e5290c8bf648d0e91ea8ef81038ffc8800ebf6322417682a0342e04065
+  tag: 250228@sha256:8f1cb70617cb97c2b675ad63334be57e962f91e58967e81ae31bc58fc00ed304
   pullPolicy: IfNotPresent
 service:
   main:
@@ -32,6 +32,9 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 workload:
   main:
     podSpec:
