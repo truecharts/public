@@ -14,7 +14,7 @@ For those looking to transition away from TrueCharts, whether by migrating to al
 
 Even for users who aren't looking to establish their own Kubernetes cluster, **ClusterTool** offers robust functionality to export TrueNAS SCALE App configurations. Users can easily convert their GUI-based App configurations into clean, readable YAML files. This export feature preserves existing configurations, providing a record that can be adapted for future deployments or alternative environments without re-entering every setting from scratch.
 
-To help users get started, we've created a detailed guide outlining how to use ClusterTool for this purpose. Access the guide and learn how to seamlessly migrate or export your SCALE configurations here: [TrueCharts Guide on Exporting SCALE Configurations](https://truecharts.org/clustertool/migrations/scale-config-only/).
+To help users get started, we've created a detailed guide outlining how to use ClusterTool for this purpose. Access the guide and learn how to seamlessly migrate or export your SCALE configurations here: TrueCharts Guide on Exporting SCALE Configurations.
 
 Here you can Download the RC-Release of ClusterTool here: [Download Link](https://github.com/truecharts/public/releases).
 
