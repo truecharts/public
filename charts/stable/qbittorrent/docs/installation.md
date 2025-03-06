@@ -19,7 +19,7 @@ persistence:
 
 ### Networking
 
-Add an `loadBalancerIP` to the `main` service or configure an Ingress if you preffer. Common documentation can be checked for more information.
+Add an `loadBalancerIP` to the `main` service or configure an Ingress if you prefer. Common documentation can be checked for more information.
 
 ### Listening Ports
 
