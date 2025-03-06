@@ -74,7 +74,7 @@ This guide will only describe the Paperless-ngx specific options required to set
 
 Once you have set up ForwardAuth in your Traefik installation, configure ForwardAuth in Paperless-ngx as follows:
 
-  - Add the following environment variables in the helm-release.yaml for paperless.
+  - Add the following environment variables in the values for paperless.
   - Enter `PAPERLESS_ENABLE_HTTP_REMOTE_USER` and set its value to true, and 
   - `PAPERLESS_LOGOUT_REDIRECT_URL` and your logout URL (`https://auth.mydomain.com/logout` as per the above guide's example domain) in the second box.
 
@@ -87,8 +87,3 @@ mechanism.
 
 Paperless-ngx offers a helpful [best practices guide](https://docs.paperless-ngx.com/usage/#basic-searching) as a
 starting point, as well as a recommended workflow a little further along on that same page.
-
-## Support
-
-- You can reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support.
-- If you found a bug in our chart, open a [GitHub issue](https://github.com/truecharts/apps/issues/new/choose).
