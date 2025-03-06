@@ -31,9 +31,31 @@ up the documents from there. See the explanation of the feature linked above and
 options](https://docs.paperless-ngx.com/configuration/#consume_config) for more information.
 
 This guide will only describe the Paperless-ngx specific options required to set up importing documents from a network
-share. Please refer to [TrueNAS SCALE adding SMB shares
-guide](https://www.truenas.com/docs/scale/scaletutorials/shares/smb/addsmbshares/) and note down the path to set up network sharing of that
-same folder for Windows computers or scanners offering this functionality.
+share. Please refer to your NAS documentation.
+
+## Example Values for Paperless-ngx
+
+```yaml
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PAPERLESS_ADMIN_USER: "admin"
+            PAPERLESS_ADMIN_PASSWORD: "changeme"
+            PAPERLESS_ADMIN_MAIL: "admin@admin.com"
+            PAPERLESS_OCR_LANGUAGE: "eng"
+            PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"
+persistence:
+  consume:
+    type: nfs
+    # Example NFS Share
+    server: "192.168.0.10"
+    path: "/mnt/paperless/"
+
+```
 
 ### Configure ForwardAuth authentication
 
