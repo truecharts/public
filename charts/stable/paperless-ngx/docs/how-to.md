@@ -37,14 +37,14 @@ same folder for Windows computers or scanners offering this functionality.
 
 ### Configure ForwardAuth authentication
 
-Users that have set up [Traefik with ForwardAuth, for example with Authelia](/charts/premium/authelia/docs/Setup-Guide.md)
+Users that have set up [Traefik with ForwardAuth, for example with Authelia](/charts/premium/authelia/setup-guide/)
 can take advantage of authentication through Authelia for their Paperless-ngx installation. Paperless-ngx will honour
 logins passed from Authelia but not the e-mail address nor the groups of the logged-in user, those will be internal to
 Paperless-ngx and separate from those in Authelia. ForwardAuth can be added to an existing Paperless-ngx installation as
 long as the logins of Authelia users match the logins of Paperless-ngx users.
 
 This guide will only describe the Paperless-ngx specific options required to set up ForwardAuth. Please refer to the
-[Traefik + Authelia ForwardAuth setup guide](/charts/premium/authelia/docs/Setup-Guide.md) on how to prepare ForwardAuth.
+[Traefik + Authelia ForwardAuth setup guide](/charts/premium/authelia/setup-guide/) on how to prepare ForwardAuth.
 
 Once you have set up ForwardAuth in your Traefik installation, configure ForwardAuth in Paperless-ngx as follows:
 
