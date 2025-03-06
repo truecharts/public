@@ -305,8 +305,8 @@ workload:
           resources:
             excludeExtra: true
           securityContext:
-            runAsUser: 100
-            runAsGroup: 102
+            runAsUser: 1001
+            runAsGroup: 1001
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
             capabilities:
