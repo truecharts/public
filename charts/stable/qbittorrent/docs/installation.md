@@ -2,42 +2,26 @@
 title: Installation Guide
 ---
 
-## Dataset Structure
+## Chart configuration
 
-This is the location your completed bittorrent files will be located
+### Dataset Structure
 
-Setting user:group to `apps`.
+You need to add a pesistence, for where your completed bittorrent files can be stores. For examle a NFS share:
 
-:::note
-
-The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE.
-You do not have to create a separate user for each application.
-
-When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
-
-:::
-
-![!Dataset: Tube](./img/dataset.png)
-
-<br />
-
-## App Installation
+```yaml
+persistence:
+  data:
+    type: nfs
+    # Example NFS Share
+    server: "192.168.0.10"
+    path: "/qbitvpn/"
+```
 
 ### Networking
 
-If you want to use ingress, its probably better to use `clusterIP` instead of `LoadBalancer`
+Add an `loadBalancerIP` to the `main` service or configure an Ingress if you prefer. Common documentation can be checked for more information.
 
-![!Networking: qbittorrent](./img/networking.png)
-
-#### WebGUI
-
-We left this default since there was no reason to change the WebGUI port
-
-This is ALSO the port Sonarr/Radarr and other services will use to connect to qBittorrent
-
-![!Networking: qbittorrent](./img/networking_webgui.png)
-
-#### Listening Ports
+### Listening Ports
 
 :::tip[VPN "With VPN"]
 
@@ -54,29 +38,19 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 :::
 
-![!Networking: qbittorrent](./img/networking_listening.png)
+An loadBalancer IP must assigned to the `Listening` port. Standard configures as port `6881` 
 
-<br />
-
-### Storage
-
-#### Configuration
-
-The setup is default
-
-![!Storage: qbittorrent](./img/storage_config.png)
-
-#### Data
-
-I always mount to the root directory of the container
-
-![!Storage: qbittorrent](./img/storage_data.png)
-
-<br />
+```yaml
+service:
+  torrent:
+    enabled: true
+    type: LoadBalancer
+    loadBalancerIP: 192.168.1.230
+```
 
 ### VPN
 
-Use the [Gluetun VPN Add-on Setup Guide](/
+Use the [Gluetun VPN Add-on Setup Guide](https://truecharts.org/guides/addons/vpn-setup/)
 
 <br />
 
@@ -142,7 +116,7 @@ Added both my LAN and Kubernetes LAN to the bypass list, this way neither of the
 
 ![!Speed: qbit](./img/settings_webgui1.png)
 
-Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
+Add the Kubernetes LAN to:
 
 **Enable reverse proxy support**
 
