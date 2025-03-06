@@ -55,38 +55,15 @@ In Tailscale Portal on DNS, Namespace section add a new custom nameserver using 
 
 ![tailscale-nameserver](./img/tailscale-nameserver.png)
 
-### Working Helm Release Example
+### Working Values Example
 
-```
----
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: tailscale
-  namespace: tailscale
-spec:
-  interval: 15m
-  chart:
-    spec:
-      chart: tailscale
-      version: 10.12.0 #Version will change refer to Chart.yaml file
-      sourceRef:
-        kind: HelmRepository
-        name: truecharts
-        namespace: flux-system
-      interval: 15m
-  timeout: 20m
-  values:
-    global:
-      stopAll: false
-    TZ: Australia/Sydney
-    tailscale:
-      authkey: ${TAILSCALE_AUTH_KEY}
-      accept_dns: true 
-      routes: 192.168.1.0/24 # LAN Example
-      advertise_as_exit_node: true
-      hostname: "${TAILSCALE_HOSTNAME}"
+```yaml
+tailscale:
+  authkey: MY_PRIVATE_AUTHKEY
+  accept_dns: true 
+  routes: 192.168.1.0/24 # LAN Example
+  advertise_as_exit_node: true
+  hostname: "MyHostname"
 ```
 
 ## Support
