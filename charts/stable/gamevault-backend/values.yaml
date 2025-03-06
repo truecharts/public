@@ -1,7 +1,7 @@
 image:
   repository: docker.io/phalcode/gamevault-backend
   pullPolicy: IfNotPresent
-  tag: 12.2.0@sha256:56f0f3db07f7433f9a8a46365a176acca1a623c42aa9f352fcd0bf6af8ac313a
+  tag: 14.0.0@sha256:6bf98517840589c66625493d25a27b4a10540c4b5cd0c8779515a943ca8cebe9
 securityContext:
   container:
     runAsNonRoot: false
@@ -94,7 +94,7 @@ persistence:
     mountPath: /logs
   images:
     enabled: true
-    mountPath: /images
+    mountPath: /media
   games:
     enabled: true
     mountPath: /games

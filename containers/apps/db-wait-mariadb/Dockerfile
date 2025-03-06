@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM tccr.io/tccr/alpine:latest@sha256:ec64547ad03f8d44c8d361fb3542df8cfe1012d8d79fe13fbb7ba977f07f6d7c
+FROM tccr.io/tccr/alpine:latest@sha256:8ae22cc7c6f2dbc803e2d7e8aff41496d72a3ec4c2527501baac5f94360ed20a
 
 ARG TARGETPLATFORM
 ARG VERSION

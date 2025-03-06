@@ -1,11 +1,11 @@
 image:
   repository: quay.io/backube/volsync
   pullPolicy: IfNotPresent
-  tag: 0.11.0@sha256:23d90939bf7fe1d049828a3514ee3321c139ceb3549becf25af09d4333c9a1d4
+  tag: 0.12.0@sha256:a40868b7cafd716d839f8bc51700d02f5a6015dcea97e3cadd7bf0480d4228ae
 proxyImage:
   repository: quay.io/brancz/kube-rbac-proxy
   pullPolicy: IfNotPresent
-  tag: v0.18.2@sha256:7de54b6dedc8006ffd447267b826eb417a648c00f2b735b6d313395411803719
+  tag: v0.19.0@sha256:c2ef3c3fcb4ffcfab30088b19c8ef18931aac8cf072c75ef72c654457e1d632b
 
 manageCRDs: true
 manageVSCCRD: true

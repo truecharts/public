@@ -7,17 +7,18 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: ip-allow-list
-          data:
-            sourceRange:
-              - some-source-range
-            ipStrategy:
-              depth: 1
-              excludedIPs:
-                - some-excluded-ip
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: ip-allow-list
+            data:
+              sourceRange:
+                - some-source-range
+              ipStrategy:
+                depth: 1
+                excludedIPs:
+                  - some-excluded-ip
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -36,27 +37,29 @@ tests:
 
   - it: should fail with invalid sourceRange
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: ip-allow-list
-          data:
-            sourceRange: some-source-range
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: ip-allow-list
+            data:
+              sourceRange: some-source-range
     asserts:
       - failedTemplate:
           errorMessage: Middleware (ip-allow-list) - Expected [sourceRange] to be a list, but got [string]
 
   - it: should fail with invalid ipStrategy.excludedIPs
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: ip-allow-list
-          data:
-            sourceRange:
-              - some-source-range
-            ipStrategy:
-              excludedIPs: some-excluded-ip
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: ip-allow-list
+            data:
+              sourceRange:
+                - some-source-range
+              ipStrategy:
+                excludedIPs: some-excluded-ip
     asserts:
       - failedTemplate:
           errorMessage: Middleware (ip-allow-list) - Expected [ipStrategy.excludedIPs] to be a list, but got [string]

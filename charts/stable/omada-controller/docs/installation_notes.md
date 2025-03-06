@@ -2,15 +2,6 @@
 title: Installation Notes
 ---
 
-Our chart by default runs on internal port `443` however those not running `Ingress` may run into issues with other processes requesting port `443`.
-
-**The Solution**
-
-- Click `Advanced Settings`
-- Change `Target Port` to 8043 to match the `external` port as below
-
-![Omada-HTTPS-8043](./img/Omada-HTTPS-8043.png)
-
 ## Finding APs / Omada Discovery Utility
 
 By default the `omada-controller` chart doesn't support discovery by APs on the same network.

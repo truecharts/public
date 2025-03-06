@@ -7,10 +7,11 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: compress
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: compress
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:

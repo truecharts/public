@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 1.32.7
+appVersion: 1.33.2
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,6 +36,6 @@ sources:
   - https://ghcr.io/timshel/vaultwarden
   - https://github.com/dani-garcia/vaultwarden
   - https://github.com/truecharts/charts/tree/master/charts/premium/vaultwarden
-  - https://hub.docker.com/r/vaultwarden/server
+  - https://quay.io/vaultwarden/server
 type: application
-version: 28.6.0
+version: 28.8.3

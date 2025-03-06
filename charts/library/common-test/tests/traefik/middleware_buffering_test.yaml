@@ -7,16 +7,17 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            maxRequestBodyBytes: 1024
-            memRequestBodyBytes: 1024
-            maxResponseBodyBytes: 1024
-            memResponseBodyBytes: 1024
-            retryExpression: some-expression
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              maxRequestBodyBytes: 1024
+              memRequestBodyBytes: 1024
+              maxResponseBodyBytes: 1024
+              memResponseBodyBytes: 1024
+              retryExpression: some-expression
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -34,12 +35,13 @@ tests:
 
   - it: should pass with only maxRequestBodyBytes set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            maxRequestBodyBytes: 1024
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              maxRequestBodyBytes: 1024
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -50,16 +52,17 @@ tests:
 
   - it: should render 0 and non-null values
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: buffering
-          data:
-            maxRequestBodyBytes: 0
-            memRequestBodyBytes: null
-            maxResponseBodyBytes: 1024
-            memResponseBodyBytes: 1024
-            retryExpression: ""
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: buffering
+            data:
+              maxRequestBodyBytes: 0
+              memRequestBodyBytes: null
+              maxResponseBodyBytes: 1024
+              memResponseBodyBytes: 1024
+              retryExpression: ""
     asserts:
       - documentIndex: *middlewareDoc
         equal:

@@ -39,8 +39,10 @@ objectData: The object data to be used to render the Ingress.
     {{- end -}}
   {{- end -}}
 
-  {{/* When Stop All is set, force ingressClass "stopped"
-  to yeet ingress from the ingresscontroller */}}
+  {{/*
+    When Stop All is set, force ingressClass "stopped"
+    to yeet ingress from the ingressController
+  */}}
   {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $ingressClassName = "tc-stopped" -}}
   {{- end -}}

@@ -9,7 +9,7 @@ apiVersion: v2
 appVersion: 1.2.43
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,6 +31,6 @@ name: kanboard
 sources:
   - https://github.com/kanboard/kanboard
   - https://github.com/truecharts/charts/tree/master/charts/stable/kanboard
-  - https://hub.docker.com/r/kanboard/kanboard
+  - https://quay.io/kanboard/kanboard
 type: application
-version: 18.4.0
+version: 18.5.1

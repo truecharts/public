@@ -6,21 +6,15 @@ sidebar:
 
 :::caution[Charts]
 
-Clusters are personal and may contain stuff not covered by support or Charts from different sources.
+Clusters are personal and may contain configurations not covered by support or may use Charts from different sources.
 
 :::
 
-List Personal Clusters of our staff members. These can be used as a reference and/or template when adding your own Helm Charts to the cluster.
+Below is a list of personal clusters maintained by our staff members. These can serve as references or templates when adding your own Helm Charts to the cluster.
 
-## Alfi0812
-
-- [Talos-Cluster](https://github.com/alfi0812/talos-cluster)
-- [Test Cluster](https://github.com/alfi0812/test-cluster)
-
-## kqmaverick
-
-- [Cluster](https://github.com/kqmaverick/cluster)
-
-## PrivatePuffin
-
-- [Cluster](https://github.com/PrivatePuffin/cluster)
+| Name            | Clusters |
+|----------------|--------------------------------------------------------------|
+| **Alfi0812**   | [Talos-Cluster](https://github.com/alfi0812/talos-cluster), [Test Cluster](https://github.com/alfi0812/test-cluster) |
+| **kqmaverick** | [Cluster](https://github.com/kqmaverick/cluster) |
+| **PrivatePuffin** | [Cluster](https://github.com/PrivatePuffin/cluster) |
+| **Xstar97TheNoob** | [Cluster](https://github.com/xstar97/cluster) |

@@ -7,13 +7,14 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: retry
-          data:
-            attempts: 3
-            initialInterval: 1000
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: retry
+            data:
+              attempts: 3
+              initialInterval: 1000
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -28,12 +29,13 @@ tests:
 
   - it: should fail with missing attempts
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: retry
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: retry
+            data:
+              foo: bar
     asserts:
       - failedTemplate:
           errorMessage: Middleware (retry) - Expected [attempts] to be set

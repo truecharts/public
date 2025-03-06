@@ -1,33 +1,13 @@
 image:
   repository: ghcr.io/techno-tim/littlelink-server
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f953db398533c453745e1db670680e1cbf7e36072eaec0d938fef81334a72553
+  tag: latest@sha256:9b7a42bb370fb0c9fd1cc55627c6d08535d7c2aa75436b2feb9d25e44ec0e504
 service:
   main:
     ports:
       main:
         port: 10040
         targetPort: 3000
-littlelink:
-  meta_title: "techno tim"
-  meta_description: "techno tim link page"
-  meta_author: "techno tim"
-  theme: "dark"
-  favicon_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
-  avatar_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
-  avatar_2x_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"
-  avatar_alt: "techno tim profile pic"
-  name: "technotim"
-  bio: "hey! just a place where you can connect with me!"
-  github: "https://github.com/timothystewart6"
-  twitter: "https://twitter.com/technotimlive"
-  instagram: "https://www.instagram.com/techno.tim"
-  youtube: "https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"
-  twitch: "https://www.twitch.tv/technotim/"
-  discord: "https://discord.gg/djkexrj"
-  tiktok: "https://www.tiktok.com/@technotim"
-  kit: "https://kit.co/technotim"
-  footer: "thanks for stopping by!"
 portal:
   open:
     enabled: true
@@ -36,6 +16,8 @@ workload:
     podSpec:
       containers:
         main:
-          envFrom:
-            - configMapRef:
-                name: config
+          env:
+            # See upstream for more ENV
+            META_TITLE: "techno tim"
+            META_DESCRIPTION: "techno tim link page"
+            META_AUTHOR: "techno tim"

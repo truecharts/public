@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v30.0.0@sha256:a67e7515d596fc6d9d54095528d0c1b76573ac1093a61c54adb7cefc24ed32fc
+  tag: v30.0.0@sha256:9b4d8f899f967b80b5fa30cf0cf5ec19354d707f3964f20d4ccdddf7876e8eaf
 nginxImage:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.27.3@sha256:09132b78cfbfedfdd1d8b53ae3b018bfff10e3ad6595b2002dd6ed91faec4c48
+  tag: 1.27.4@sha256:76fb15abad2b5d5f71c5c0de087c364050eb318255797bf855990e36cea24a1c
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:4701c90860b35afabbae70bc12b200ffaa0d692d35e0040e495e32f7934d05ef
+  tag: v20230401@sha256:4083014d9fe27cfada3c1bd95e1d114594798a2a585fece86b7f0870e372fa09
 hpbImage:
   repository: tccr.io/tccr/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.7.0@sha256:7727bec0a41d304d0f1bfdee3a5b36336bc8a187ef9d8fd13e584b563b490817
+  tag: v0.7.0@sha256:122dd2745ee7eed9d06500de378744388e4c223da1b51347171cb5093edeaed4
 clamavImage:
   repository: docker.io/clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.1@sha256:79f12e1ac65c3e9c52c424e0438d9b888518cef6fa976e73c5739602315cd453
+  tag: 1.4.2@sha256:2f7de5b7e7ac68345d533aaee24c6ba93363bfaaa60584786224c5777de78956
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
-  tag: 24.04.11.2.1@sha256:1cf62aa5db7f7e94d0b286f5acdd2ff823f1ef87fedffef1f487abcec5d30e9a
+  tag: 24.04.12.4.1@sha256:580ae484f914582cc24d13803a37c33820434a11aed105a922ffd079c5adcfd0
 
 nextcloud:
   # Initial Credentials
@@ -521,8 +521,20 @@ redis:
 portal:
   open:
     enabled: true
-updated: true
+
+ingressMiddlewares:
+  traefik:
+    nextcloud-redirect:
+      enabled: false
+      type: redirectRegex
+      data:
+        regex: "https://(.*)/.well-known/(card|cal)dav"
+        replacement: "https://${1}/remote.php/dav/"
 
 ingress:
   main:
     required: true
+    integrations:
+      traefik:
+        chartMiddlewares:
+          - nextcloud-redirect

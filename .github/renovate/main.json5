@@ -11,6 +11,7 @@
   "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
   "separateMinorPatch": true,
   "prHourlyLimit": 0,
+  "lockFileMaintenance": true,
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "extends": [
     "config:recommended",
@@ -42,6 +43,8 @@
   ],
   "ignoreDeps": [
     // List any dependencies to ignore globally if needed
+    "docker.io/remie/yourtransfer"
+
   ],
   "ignorePaths": [
     "**/*.sops.*",

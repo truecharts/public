@@ -1,0 +1,25 @@
+image:
+  repository: docker.io/nicolargo/glances
+  pullPolicy: IfNotPresent
+  tag: ubuntu-4.3.0.8-full
+workload:
+  main:
+    podSpec:
+      # Needed for Running Tasks
+      # hostPID: true
+      # Needed for Host Network Stats
+      # hostNetwork: true
+      containers:
+        main:
+          env:
+            GLANCES_OPT: "-w -p {{ .Values.service.main.ports.main.port }}"
+service:
+  main:
+    ports:
+      main:
+        port: 61208
+securityContext:
+  container:
+    PUID: 1000
+    runAsGroup: 1000
+    runAsUser: 1000

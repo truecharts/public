@@ -16,228 +16,255 @@
     {
       "description": ["Custom versioning for minio"],
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["minio"],
+      "matchPackagePatterns": ["docker.io/minio/minio"],
       "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$"
     },
     {
+        "description": ["Custom versioning for glances"],
+        "matchDatasources": ["docker"],
+        "matchPackagePatterns": ["docker.io/nicolargo/glances"],
+        "versioning": "regex:^ubuntu\\-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)-full$"
+    },
+    {
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["kopia"],
+      "matchPackagePatterns": ["docker.io/kopia/kopia"],
       "allowedVersions": "<999"
     },
     {
+      // Not found in repository
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["postgresql"],
-      "allowedVersions": "<17"
+      "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["tccr.io/tccr/postgresql"]
     },
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["tccr.io/tccr/postgresql"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
-  matchPackageNames: ["photoprism"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v(?<major>\\d{4})-(?<minor>\\d{2})$",
-  matchPackageNames: ["rssbridge/rss-bridge"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d{2})\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["linuxserver/heimdall"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-  matchPackagePrefixes: ["jupyter"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackagePatterns: ["^bitnami/postgresql$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
-  matchPackagePatterns: ["^.*oznu\\/homebridge$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-  matchPackagePatterns: ["^jupyter\\/.+$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu$",
-  matchPackagePatterns: ["^zabbix\\/zabbix-.*$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
-  matchPackagePatterns: ["^jitsi\\/.*$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^latest-(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
-  matchPackagePatterns: ["^wangqiru/ttrss$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackagePatterns: ["^penpot\\/.*$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^\\d+-jammy-(?<compatibility>(full|lite))-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackagePatterns: ["^.+\\/koush\\/scrypted$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.*$",
-  matchPackagePatterns: ["^.*linuxserver\\/deluge$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
-  matchPackageNames: ["xwiki"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["fireflyiii/core"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-\\d+\\.\\d+\\.\\d+$",
-  matchPackageNames: ["netboxcommunity/netbox"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
-  matchPackageNames: ["photoprism/photoprism"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["cloudflare/cloudflared"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["linuxserver/calibre-web"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^postgresql-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["ghcr.io/umami-software/umami"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)$",
-  matchPackageNames: ["linuxserver/mylar3"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^[a-z0-9]{9}-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-go\\d+\\.\\d+\\.\\d+$",
-  matchPackageNames: ["storjlabs/storagenode"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-php8\\.0-apache$",
-  matchPackageNames: ["joyqi/typecho"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["difegue/lanraragi"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T\\d+-\\d+-\\d+Z$",
-  matchPackageNames: ["minio/minio"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T\\d+-\\d+-\\d+Z$",
-  matchPackageNames: ["minio/mc"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^apache-(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)-prod$",
-  matchPackageNames: ["kimai/kimai2"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-  matchPackageNames: ["rssbridge/rss-bridge"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-  matchPackageNames: ["alexta69/metube"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^focal-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["codeproject/senseai-server"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^latest-(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
-  matchPackageNames: ["codeproject/senseai-client"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackagePatterns: ["^snyk/snyk$"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["ghcr.io/cirruslabs/ubuntu"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["bcavin/hexo"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["linode/lke"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["mcr.microsoft.com/mssql/server"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^\\d+\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["mcr.microsoft.com/dotnet/runtime"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["coder/coder"],
-},
-{
-  matchDatasources: ["docker"],
-  versioning: "regex:^latest-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-  matchPackageNames: ["registry.gitlab.com/gitlab-org/gitlab-runner"],
-},
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
+      "matchPackageNames": ["docker.io/photoprism/photoprism"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{2})\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["lscr.io/linuxserver/heimdall"]
+    },
+    {
+      // Duplicated below
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
+      "matchPackagePrefixes": ["quay.io/jupyter"]
+    },
+    {
+      // Not found in respository - alternative package used - 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^bitnami/postgresql$"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["docker.io/homebridge/homebridge"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^quay.io/jupyter\\/.+$"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu$",
+      "matchPackagePatterns": ["^zabbix\\/zabbix-.*$"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
+      "matchPackagePatterns": ["^jitsi\\/.*$"]
+    },
+    {
+      // Not found in repository - alternative package used 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["^wangqiru/ttrss$"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^penpot\\/.*$"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^\\d+-jammy-(?<compatibility>(full|lite))-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["docker.io/koush/scrypted"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.*$",
+      "matchPackagePatterns": ["ghcr.io/linuxserver/deluge"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
+      "matchPackageNames": ["public.ecr.aws/docker/library/xwiki"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/fireflyiii/core"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-\\d+\\.\\d+\\.\\d+$",
+      "matchPackageNames": ["netboxcommunity/netbox"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
+      "matchPackageNames": ["docker.io/photoprism/photoprism"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/cloudflare/cloudflared"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["lscr.io/linuxserver/calibre-web"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^postgresql-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["ghcr.io/umami-software/umami"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)$",
+      "matchPackageNames": ["lscr.io/linuxserver/mylar3"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^[a-z0-9]{9}-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-go\\d+\\.\\d+\\.\\d+$",
+      "matchPackageNames": ["docker.io/storjlabs/storagenode"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-php8\\.0-apache$",
+      "matchPackageNames": ["joyqi/typecho"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/difegue/lanraragi"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T\\d+-\\d+-\\d+Z$",
+      "matchPackageNames": ["minio/mc"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^apache-(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)-prod$",
+      "matchPackageNames": ["kimai/kimai2"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/rssbridge/rss-bridge"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/alexta69/metube"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^focal-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["codeproject/senseai-server"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["codeproject/senseai-client"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^snyk/snyk$"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["ghcr.io/cirruslabs/ubuntu"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/bcavin/hexo"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/linode/lke"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["mcr.microsoft.com/mssql/server"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^\\d+\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["mcr.microsoft.com/dotnet/runtime"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["docker.io/coder/coder"]
+    },
+    {
+      // Not found in repository 2025-02-01
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["registry.gitlab.com/gitlab-org/gitlab-runner"]
+    },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)(?<minor>\\d{2})(?<patch>\\d{2})-ls(?<build>\\d+)$",
-      "matchPackageNames": ["linuxserver/oscam"]
+      "matchPackageNames": ["ghcr.io/linuxserver/oscam"]
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["alicevision/meshroom"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "matchPackageNames": ["docker.io/alicevision/meshroom"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "matchDataSources": ["docker"],
+      "matchPackagePrefixes": ["docker.io/remie/yourtransfer"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v3-3\\.(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>.+)$",
+      "matchPackageNames": ["ghcr.io/corentinth/it-tools"]
     }
   ]
 }

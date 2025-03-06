@@ -1,0 +1,41 @@
+image:
+  repository: ghcr.io/elfhosted/zilean
+  pullPolicy: IfNotPresent
+  tag: v3.4.0@sha256:5bb6b812f400eb659ecf58eb301acb35fa1b59fdec85dab97cf0bf65b0c5cd70
+
+service:
+  main:
+    ports:
+      main:
+        port: 8181
+        targetPort: 8181
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/healthchecks/ping"
+            readiness:
+              path: "/healthchecks/ping"
+            startup:
+              path: "/healthchecks/ping"
+          env:
+            Zilean__Database__ConnectionString: '{{ printf "Host=%s;Port=5432;Database=%s;Username=%s;Password=%s" (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database .Values.cnpg.main.user .Values.cnpg.main.creds.password }}'
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/app/data"
+
+cnpg:
+  main:
+    enabled: true
+    user: zilean
+    database: zilean
+
+portal:
+  open:
+    enabled: true

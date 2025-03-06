@@ -28,12 +28,6 @@ global:
     addServiceAnnotations: true
   traefik:
     addServiceAnnotations: true
-    fixedMiddlewares:
-      - name: chain-basic
-        namespace: ""
-    allowCorsMiddlewares:
-      - name: tc-opencors-chain
-        namespace: ""
 ```
 
 ---
@@ -42,13 +36,13 @@ global:
 
 Additional Labels that apply to all objects
 
-|            |                    |
-| ---------- | ------------------ |
-| Key        | `global.labels`    |
-| Type       | `map`              |
+|            |                   |
+| ---------- | ----------------- |
+| Key        | `global.labels`   |
+| Type       | `map`             |
 | Required   | ❌                 |
 | Helm `tpl` | ✅ (On value only) |
-| Default    | `{}`               |
+| Default    | `{}`              |
 
 Example
 
@@ -68,8 +62,8 @@ Additional Annotations that apply to all objects
 | ---------- | -------------------- |
 | Key        | `global.annotations` |
 | Type       | `map`                |
-| Required   | ❌                   |
-| Helm `tpl` | ✅ (On value only)   |
+| Required   | ❌                    |
+| Helm `tpl` | ✅ (On value only)    |
 | Default    | `{}`                 |
 
 Example
@@ -90,8 +84,8 @@ Namespace to apply to all objects, also applies to chart deps
 | ---------- | ------------------ |
 | Key        | `global.namespace` |
 | Type       | `string`           |
-| Required   | ❌                 |
-| Helm `tpl` | ✅                 |
+| Required   | ❌                  |
+| Helm `tpl` | ✅                  |
 | Default    | `""`               |
 
 Example
@@ -111,8 +105,8 @@ Minimum Node Port Allowed
 | ---------- | -------------------- |
 | Key        | `global.minNodePort` |
 | Type       | `int`                |
-| Required   | ✅                   |
-| Helm `tpl` | ❌                   |
+| Required   | ✅                    |
+| Helm `tpl` | ❌                    |
 | Default    | `9000`               |
 
 Example
@@ -132,8 +126,8 @@ Applies different techniques to stop all objects in the chart and its dependenci
 | ---------- | ---------------- |
 | Key        | `global.stopAll` |
 | Type       | `bool`           |
-| Required   | ❌               |
-| Helm `tpl` | ❌               |
+| Required   | ❌                |
+| Helm `tpl` | ❌                |
 | Default    | `false`          |
 
 Example
@@ -151,8 +145,8 @@ Settings for metallb integration
 | ---------- | ---------------- |
 | Key        | `global.metallb` |
 | Type       | `map`            |
-| Required   | ❌               |
-| Helm `tpl` | ❌               |
+| Required   | ❌                |
+| Helm `tpl` | ❌                |
 
 Default
 
@@ -180,8 +174,8 @@ Settings for traefik integration
 | ---------- | ---------------- |
 | Key        | `global.traefik` |
 | Type       | `map`            |
-| Required   | ❌               |
-| Helm `tpl` | ❌               |
+| Required   | ❌                |
+| Helm `tpl` | ❌                |
 
 Default
 
@@ -189,12 +183,6 @@ Default
 global:
   traefik:
     addServiceAnnotations: true
-    fixedMiddlewares:
-      - name: chain-basic
-        namespace: ""
-    allowCorsMiddlewares:
-      - name: tc-opencors-chain
-        namespace: ""
 ```
 
 Example
@@ -203,8 +191,6 @@ Example
 global:
   traefik:
     addServiceAnnotations: false
-    fixedMiddlewares: []
-    allowCorsMiddlewares: []
 ```
 
 ---
@@ -217,8 +203,8 @@ Add annotations to services for traefik
 | ---------- | -------------------------------------- |
 | Key        | `global.traefik.addServiceAnnotations` |
 | Type       | `bool`                                 |
-| Required   | ❌                                     |
-| Helm `tpl` | ❌                                     |
+| Required   | ❌                                      |
+| Helm `tpl` | ❌                                      |
 | Default    | `true`                                 |
 
 Example
@@ -231,136 +217,25 @@ global:
 
 ---
 
-### `traefik.fixedMiddlewares`
+### `traefik.commonMiddlewares`
 
-See documentation [here](/common/ingress/traefik#fixedmiddlewares)
+Define middlewares that will be applied to all ingresses
 
-Default
-
-```yaml
-global:
-  traefik:
-    fixedMiddlewares:
-      - name: chain-basic
-        namespace: ""
-```
-
----
-
-#### `traefik.fixedMiddlewares[].name`
-
-See documentation [here](/common/ingress/traefik#fixedmiddlewaresname)
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `global.traefik.commonMiddlewares`  |
+| Type       | `list`                              |
+| Required   | ❌                                   |
+| Helm `tpl` | ❌                                   |
+| Default    | `[{name: tc-basic-secure-headers}]` |
 
 Example
 
 ```yaml
 global:
   traefik:
-    fixedMiddlewares:
-      - name: my-custom-middleware
-```
-
----
-
-#### `traefik.fixedMiddlewares[].namespace`
-
-See documentation [here](/common/ingress/traefik#fixedmiddlewaresnamespace)
-
-Example
-
-```yaml
-global:
-  traefik:
-    fixedMiddlewares:
-      - name: my-custom-middleware
-        namespace: my-namespace
-```
-
----
-
-### `traefik.allowCorsMiddlewares`
-
-Middlewares for traefik to apply when allowCors is enabled in the ingress
-
-|            |                                       |
-| ---------- | ------------------------------------- |
-| Key        | `global.traefik.allowCorsMiddlewares` |
-| Type       | `list` of `map`                       |
-| Required   | ❌                                    |
-| Helm `tpl` | ❌                                    |
-
-Default
-
-```yaml
-global:
-  traefik:
-    allowCorsMiddlewares:
-      - name: tc-opencors-chain
-        namespace: ""
-```
-
-Example
-
-```yaml
-global:
-  traefik:
-    allowCorsMiddlewares:
-      - name: my-custom-middleware
-        namespace: my-namespace
-```
-
----
-
-#### `traefik.allowCorsMiddlewares[].name`
-
-Name of the middleware
-
-|            |                                              |
-| ---------- | -------------------------------------------- |
-| Key        | `global.traefik.allowCorsMiddlewares[].name` |
-| Type       | `string`                                     |
-| Required   | ❌                                           |
-| Helm `tpl` | ❌                                           |
-| Default    | `""`                                         |
-
-Example
-
-```yaml
-global:
-  traefik:
-    allowCorsMiddlewares:
-      - name: my-custom-middleware
-```
-
----
-
-#### `traefik.allowCorsMiddlewares[].namespace`
-
-Namespace of the middleware
-
-:::tip
-
-If not defined, helm will do a lookup and try to find the namespace of the middleware.
-If more than one namespaces are found, it will throw an error.
-
-:::
-
-|            |                                                   |
-| ---------- | ------------------------------------------------- |
-| Key        | `global.traefik.allowCorsMiddlewares[].namespace` |
-| Type       | `string`                                          |
-| Required   | ❌                                                |
-| Helm `tpl` | ❌                                                |
-| Default    | `""`                                              |
-
-Example
-
-```yaml
-global:
-  traefik:
-    allowCorsMiddlewares:
-      - name: my-custom-middleware
-        namespace: my-namespace
+    commonMiddlewares:
+      - name: tc-basic-secure-headers
 ```
 
 ---
@@ -380,10 +255,6 @@ global:
     addServiceAnnotations: true
   traefik:
     addServiceAnnotations: true
-    fixedMiddlewares:
-      - name: chain-basic
-        namespace: ""
-    allowCorsMiddlewares:
-      - name: tc-opencors-chain
-        namespace: ""
+    commonMiddlewares:
+      - name: tc-basic-secure-headers
 ```

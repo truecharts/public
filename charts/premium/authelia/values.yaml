@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
-  tag: 4.38.18@sha256:a5e6fa4b1dbdc296f80f9175157b145a0598690ec8cd4d6e105cd4498fe0c731
+  tag: 4.38.19@sha256:46021dc20efdcc5cdc38a29e3050b8835429a155ae6215388ed3b793a02eb0ab
 
 workload:
   main:
@@ -107,6 +107,7 @@ totp:
 ##
 ## Parameters used for Password Policies
 password_policy:
+  enabled: false
   ## See: https://www.authelia.com/configuration/security/password-policy/
   standard:
     enabled: false

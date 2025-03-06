@@ -38,8 +38,6 @@ export default defineConfig({
     output: "directory",
   },
   experimental: {
-    directRenderScript: false,
-    clientPrerender: false
   },
   integrations: [
     starlight({
@@ -162,13 +160,6 @@ export default defineConfig({
           collapsed: true,
           autogenerate: {
             directory: "development",
-          },
-        },
-        {
-          label: "Deprecated",
-          collapsed: true,
-          autogenerate: {
-            directory: "deprecated",
           },
         },
       ],

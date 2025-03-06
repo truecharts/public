@@ -1,0 +1,30 @@
+image:
+  repository: docker.io/soulraven1980/wdosg
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:be9aa259fd0614905273753d5e529a4c649b45e064a85c4d3f8bcc2e70a5953b
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3001
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # required for Credentials for IGDB
+            TWITCH_CLIENT_ID: "fake_client_id"
+            TWITCH_APP_ACCESS_TOKEN: "fake_access_token"
+persistence:
+  database:
+    enabled: true
+    mountPath: "/app/database"
+  library:
+    enabled: true
+    mountPath: "/app/wdosglibrary"
+portal:
+  open:
+    enabled: true

@@ -1,6 +1,6 @@
 image:
   repository: docker.io/spx01/blocky
-  tag: v0.24@sha256:9a82e0235c52ef3048586f8006add06e52132adaae70d02f980569dae16421a2
+  tag: v0.25@sha256:347f8c6addc1775ef74b83dfc609c28436a67f812ef0ee7e2602569dc0e56cd1
   pullPolicy: IfNotPresent
 k8sgatewayImage:
   repository: quay.io/oriedge/k8s_gateway
@@ -220,6 +220,11 @@ blocking:
     - name: default
       groups:
         - default
+        - default-ads
+        - default-tracking
+        - default-malicious
+        - default-suspicious
+
 # -- configure using hostsfile for lookups
 # Allows for using the hosts configured in kubernetes and such
 hostsFile:

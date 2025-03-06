@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/spegel-org/spegel
   pullPolicy: IfNotPresent
-  tag: v0.0.29
+  tag: v0.0.30
 
 securityContext:
   container:
@@ -21,6 +21,8 @@ service:
         nodePort: 30021
   router:
     enabled: true
+    clusterIP: None
+    publishNotReadyAddresses: true
     ports:
       router:
         enabled: true
@@ -154,8 +156,6 @@ spegel:
   containerdContentPath: "/var/lib/containerd/io.containerd.content.v1.content"
   # -- If true Spegel will add mirror configuration to the node.
   containerdMirrorAdd: true
-  # -- Path to Kubeconfig credentials, should only be set if Spegel is run in an environment without RBAC.
-  kubeconfigPath: ""
   # -- When true Spegel will resolve tags to digests.
   resolveTags: true
   # -- When true latest tags will be resolved to digests.
@@ -163,16 +163,6 @@ spegel:
   # -- When true existing mirror configuration will be appended to instead of replaced.
   appendMirrors: true
 
-# -- Whether Role Based Access Control objects like roles and rolebindings should be created
-rbac:
-  main:
-    enabled: true
-    primary: true
-    clusterWide: true
-    rules:
-      - apiGroups: ["coordination.k8s.io"]
-        resources: ["leases"]
-        verbs: ["get", "list", "watch", "create", "update"]
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:

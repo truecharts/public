@@ -1,32 +1,28 @@
-- op: add
-  path: /cluster/proxy/extraArgs
-  value:
-    "metrics-bind-address": "0.0.0.0:10249"
-- op: add
-  path: /cluster/controllerManager/extraArgs
-  value:
-    "bind-address": "0.0.0.0"
-
-- op: add
-  path: /cluster/scheduler/extraArgs
-  value:
-    "bind-address": "0.0.0.0"
-- op: replace
-  path: /cluster/apiServer/admissionControl
-  value:
+machine:
+  features:
+    kubernetesTalosAPIAccess:
+      enabled: true
+      allowedRoles:
+        - os:admin
+      allowedKubernetesNamespaces:
+        - system-upgrade
+cluster:
+  controllerManager:
+    extraArgs:
+      bind-address: 0.0.0.0
+  proxy:
+    extraArgs:
+      metrics-bind-address: 0.0.0.0:10249
+  apiServer:
+    extraArgs:
+      enable-aggregator-routing: "true"
+      feature-gates: MutatingAdmissionPolicy=true
+      runtime-config: admissionregistration.k8s.io/v1alpha1=true
+    admissionControl:
       - name: PodSecurity
         configuration:
-          apiVersion: pod-security.admission.config.k8s.io/v1alpha1
-          defaults:
-            audit: restricted
-            audit-version: latest
-            enforce: baseline
-            enforce-version: latest
-            warn: restricted
-            warn-version: latest
           exemptions:
             namespaces:
-              - kube-system
               - metallb
               - metallb-config
               - topolvm-system
@@ -37,14 +33,23 @@
               - snapshot-controller
               - volsync
               - flux-system
-            runtimeClasses: []
-            usernames: []
-          kind: PodSecurityConfiguration
-- op: add
-  path: /machine/features/kubernetesTalosAPIAccess
-  value:
-    enabled: true
-    allowedRoles:
-      - os:admin
-    allowedKubernetesNamespaces:
-      - system-upgrade
+  scheduler:
+    extraArgs:
+      bind-address: 0.0.0.0
+    config:
+      apiVersion: kubescheduler.config.k8s.io/v1
+      kind: KubeSchedulerConfiguration
+      profiles:
+        - pluginConfig:
+            - args:
+                defaultConstraints:
+                  - maxSkew: 1
+                    topologyKey: kubernetes.io/hostname
+                    whenUnsatisfiable: ScheduleAnyway
+                defaultingType: List
+              name: PodTopologySpread
+          plugins:
+            score:
+              disabled:
+                - name: ImageLocality
+          schedulerName: default-scheduler

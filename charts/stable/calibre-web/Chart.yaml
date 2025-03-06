@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.6.23
+appVersion: 0.6.24
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/janeczku/calibre-web
   - https://github.com/truecharts/charts/tree/master/charts/stable/calibre-web
 type: application
-version: 20.4.0
+version: 20.5.7

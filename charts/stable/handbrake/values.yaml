@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jlesage/handbrake
-  tag: v24.12.1@sha256:aa9786d715b0957f6960fad2e98f4781d934f71b18621cc116072db56e49b8aa
+  tag: v25.02.3@sha256:a38454f9cd97786846b21ddb7e1b5363bade4a9dedd329b9a8c18f2b76b14608
   pullPolicy: IfNotPresent
 service:
   main:
@@ -25,6 +25,7 @@ handbrake:
   AUTOMATED_CONVERSION_FORMAT: "mp4"
   AUTOMATED_CONVERSION_KEEP_SOURCE: true
   AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "ignore"
+  DARK_MODE: false
 configmap:
   handbrake:
     enabled: true
@@ -38,6 +39,7 @@ configmap:
       AUTOMATED_CONVERSION_PRESET: "{{ .Values.handbrake.AUTOMATED_CONVERSION_PRESET }}"
       AUTOMATED_CONVERSION_FORMAT: "{{ .Values.handbrake.AUTOMATED_CONVERSION_FORMAT }}"
       AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "{{ .Values.handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION }}"
+      DARK_MODE: '{{ ternary "1" "0" .Values.handbrake.DARK_MODE }}'
 persistence:
   config:
     enabled: true

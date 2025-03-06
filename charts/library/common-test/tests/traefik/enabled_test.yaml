@@ -1,0 +1,171 @@
+suite: middlewares force enable test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should enable middleware when listed under global.traefik.commonMiddlewares
+    set:
+      global:
+        traefik:
+          commonMiddlewares:
+            - name: some-middleware
+      ingressMiddlewares:
+        traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
+          some-middleware:
+            enabled: false
+            type: buffering
+            data:
+              foo: bar
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: chart-example.local
+          integrations:
+            traefik:
+              enabled: true
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &middlewareDoc 1
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-some-middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should not enable middleware when listed under global.traefik.commonMiddlewares if there is no ingress
+    set:
+      global:
+        traefik:
+          commonMiddlewares:
+            - name: some-middleware
+      ingressMiddlewares:
+        traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
+          some-middleware:
+            enabled: false
+            type: buffering
+            data:
+              foo: bar
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: should enable middleware when listed under ingress.traefik.chartMiddlewares
+    set:
+      ingressMiddlewares:
+        traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
+          some-chart-middleware:
+            enabled: false
+            type: buffering
+            data:
+              foo: bar
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              chartMiddlewares:
+                - name: some-chart-middleware
+          hosts:
+            - host: chart-example.local
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &middlewareDoc 1
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-some-chart-middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should enable middleware when listed under ingress.traefik.middlewares
+    set:
+      ingressMiddlewares:
+        traefik:
+          some-unused-middleware:
+            enabled: false
+            type: compress
+          some-user-middleware:
+            enabled: false
+            type: buffering
+            data:
+              foo: bar
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            my-port:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - name: some-user-middleware
+          hosts:
+            - host: chart-example.local
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &middlewareDoc 1
+        isKind:
+          of: Middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-some-user-middleware
+      - documentIndex: *middlewareDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace

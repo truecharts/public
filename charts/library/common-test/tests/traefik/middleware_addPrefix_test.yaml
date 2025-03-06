@@ -7,12 +7,13 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: add-prefix
-          data:
-            prefix: some-prefix
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: add-prefix
+            data:
+              prefix: some-prefix
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -26,12 +27,13 @@ tests:
 
   - it: should fail with missing prefix
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: add-prefix
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: add-prefix
+            data:
+              foo: bar
     asserts:
       - failedTemplate:
           errorMessage: Middleware (add-prefix) - Expected [prefix] to be set

@@ -7,27 +7,28 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-geoblock
-          data:
-            api: https://api.geoblock.org/v2/geoblock
-            allowLocalRequests: true
-            logLocalRequests: true
-            logAllowedRequests: true
-            logApiRequests: true
-            apiTimeoutMs: 1000
-            cacheSize: 1000
-            forceMonthlyUpdate: true
-            allowUnknownCountries: true
-            unknownCountryApiResponse: some-value
-            blackListMode: true
-            silentStartUp: true
-            addCountryHeader: true
-            countries:
-              - some-country
-              - some-other-country
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-geoblock
+            data:
+              api: https://api.geoblock.org/v2/geoblock
+              allowLocalRequests: true
+              logLocalRequests: true
+              logAllowedRequests: true
+              logApiRequests: true
+              apiTimeoutMs: 1000
+              cacheSize: 1000
+              forceMonthlyUpdate: true
+              allowUnknownCountries: true
+              unknownCountryApiResponse: some-value
+              blackListMode: true
+              silentStartUp: true
+              addCountryHeader: true
+              countries:
+                - some-country
+                - some-other-country
     asserts:
       - documentIndex: &middlewareDoc 0
         equal:
@@ -54,16 +55,17 @@ tests:
 
   - it: should pass with pluginName set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-geoblock
-          data:
-            pluginName: traefik-geoblock-test
-            api: https://api.geoblock.org/v2/geoblock
-            countries:
-              - some-country
-              - some-other-country
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-geoblock
+            data:
+              pluginName: traefik-geoblock-test
+              api: https://api.geoblock.org/v2/geoblock
+              countries:
+                - some-country
+                - some-other-country
     asserts:
       - documentIndex: *middlewareDoc
         equal:
@@ -78,24 +80,26 @@ tests:
 
   - it: should fail with missing api
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-geoblock
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-geoblock
+            data:
+              foo: bar
     asserts:
       - failedTemplate:
           errorMessage: Middleware (plugin-geoblock) - Expected [api] to be set
 
   - it: should fail with missing countries
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: plugin-geoblock
-          data:
-            api: https://api.geoblock.org/v2/geoblock
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: plugin-geoblock
+            data:
+              api: https://api.geoblock.org/v2/geoblock
     asserts:
       - failedTemplate:
           errorMessage: Middleware (plugin-geoblock) - Expected [countries] to be set

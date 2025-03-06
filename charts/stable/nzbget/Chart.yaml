@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.5.0
+appVersion: 24.6.0
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,8 @@ maintainers:
 name: nzbget
 sources:
   - https://ghcr.io/elfhosted/nzbget
+  - https://github.com/nzbgetcom/nzbget
   - https://github.com/truecharts/charts/tree/master/charts/stable/nzbget
   - https://nzbget.net/
 type: application
-version: 24.4.0
+version: 24.6.2

@@ -1,0 +1,53 @@
+image:
+  repository: ghcr.io/elfhosted/comet
+  pullPolicy: IfNotPresent
+  tag: v2.2.0@sha256:1dd38debb2d0296a4dc952bad0717d4d25d94e0b77698c9daaab8406a1c29132
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+        targetPort: 8000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            comet__Database__ConnectionString: '{{ printf "Host=%s;Port=5432;Database=%s;Username=%s;Password=%s" (.Values.cnpg.main.creds.host | trimAll "\"") .Values.cnpg.main.database .Values.cnpg.main.user .Values.cnpg.main.creds.password }}'
+            ADDON_ID: comet.selfhosted.org
+            ADDON_NAME: Comet | Selfhosted
+            ZILEAN_URL: None
+            ZILEAN_TAKE_FIRST: 500
+            INDEXER_MANAGER_TYPE: None
+            INDEXER_MANAGER_TIMEOUT: "30"
+            # INDEXER_MANAGER_URL: http://jackett:9117
+            # INDEXER_MANAGER_API_KEY:
+            # INDEXER_MANAGER_INDEXERS: '["bitsearch","eztv","thepiratebay","therarbg","yts"]'
+            GET_TORRENT_TIMEOUT: "5"
+            # DEBRID_PROXY_URL: http://127.0.0.1:1080
+            FASTAPI_WORKERS: "1"
+            SCRAPE_TORRENTIO: "False"
+            DATABASE_TYPE: postgresql
+            DATABASE_URL: '{{ printf "%s:%s@%s:5432" .Values.cnpg.main.user  .Values.cnpg.main.creds.password (.Values.cnpg.main.creds.host | trimAll "\"") }}'
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  cache:
+    enabled: true
+    type: emptyDir
+    mountPath: "/.cache"
+
+cnpg:
+  main:
+    enabled: true
+    user: comet
+    database: comet
+
+portal:
+  open:
+    enabled: true

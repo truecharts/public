@@ -1,6 +1,6 @@
 image:
   repository: docker.io/duplicati/duplicati
-  tag: latest@sha256:97b8ef7bcaa095793ef9f39049851f987860a8c832aaf67ef977ff398f9e996e
+  tag: latest@sha256:c6a2efddd86bdaf7c6927ea5c807986df7c0395581d061595db4884db2783ac5
   pullPolicy: IfNotPresent
 service:
   main:
@@ -23,7 +23,11 @@ workload:
             startup:
               type: http
               path: /
-          env: {}
+          env:
+            DUPLICATI__WEBSERVICE_PASSWORD: "SuperSecretPassword"
+            # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+            # DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+
 persistence:
   config:
     enabled: true

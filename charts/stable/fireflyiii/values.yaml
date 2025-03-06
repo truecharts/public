@@ -1,13 +1,12 @@
 image:
   repository: docker.io/fireflyiii/core
   pullPolicy: IfNotPresent
-  tag: version-6.1.21@sha256:da3d4042c887ca4abfe69ea2858dcd41d2da62f98bb91345def53b08361d0f34
+  tag: version-6.2.9@sha256:b368f3ba77a34314da1e4925a1450f2f9cfaa5a173ef12683af2940223d7a428
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+    runAsUser: 33
+    runAsGroup: 33
 workload:
   main:
     podSpec:
@@ -15,11 +14,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/login"
+              path: "/healthcheck"
             readiness:
-              path: "/login"
+              path: "/healthcheck"
             startup:
-              path: "/login"
+              path: "/healthcheck"
           env:
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
             DB_DATABASE: "{{ .Values.cnpg.main.database }}"
@@ -65,6 +64,8 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
+  varrun:
+    enabled: false
 cronjob:
   schedule: "0 3 * * *"
   annotations: {}

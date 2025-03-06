@@ -1,6 +1,14 @@
 ---
 title: adv test
 ---
+
+:::caution[Advanced Commands]
+
+Commands in this section are advanced and aren't covered by support.
+Proceed at your own risk!
+
+:::
+
 ## clustertool adv test
 
 tests specific code for developer usages

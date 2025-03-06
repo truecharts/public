@@ -1,4 +1,4 @@
-FROM alpine:3.21.0@sha256:21dc6063fd678b478f57c0e13f47560d0ea4eeba26dfc947b2a4f81f686b9f45
+FROM alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c
 
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
@@ -14,7 +14,7 @@ WORKDIR /app
 
 # hadolint ignore=DL3018
 RUN \
-  apk update && apk add --no-cache jq nano ca-certificates bash util-linux coreutils grep procps \
+  apk update && apk add --no-cache jq nano ca-certificates bash util-linux coreutils grep procps git\
   && addgroup apps -g 568 \
   && adduser apps -u 568 -g 568 -D -S -H \
   && mkdir -p /config \

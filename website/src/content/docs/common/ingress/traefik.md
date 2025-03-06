@@ -29,9 +29,9 @@ Enables or Disables the traefik integration
 | ---------- | -------------------------------------------- |
 | Key        | `ingress.$name.integrations.traefik.enabled` |
 | Type       | `bool`                                       |
-| Required   | ✅                                           |
-| Helm `tpl` | ❌                                           |
-| Default    | `true`                                       |
+| Required   | ❌                                            |
+| Helm `tpl` | ❌                                            |
+| Default    | `false`                                      |
 
 Example
 
@@ -53,33 +53,9 @@ Define the entrypoints for this traefik integration
 | ---------- | ------------------------------------------------ |
 | Key        | `ingress.$name.integrations.traefik.entrypoints` |
 | Type       | `list`                                           |
-| Required   | ❌                                               |
-| Helm `tpl` | ❌                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ❌                                                |
 | Default    | `["websecure"]`                                  |
-
----
-
-## `enableFixedMiddlewares`
-
-Enable or disable the [fixedMiddlewares](/common/global#traefikfixedmiddlewares)
-
-|            |                                                                          |
-| ---------- | ------------------------------------------------------------------------ |
-| Key        | `ingress.$name.integrations.traefik.enableFixedMiddlewares`              |
-| Type       | `bool`                                                                   |
-| Required   | ❌                                                                       |
-| Helm `tpl` | ❌                                                                       |
-| Default    | `true`                                                                   |
-
-Example
-
-```yaml
-ingress:
-  ingress-name:
-    integrations:
-      traefik:
-        enableFixedMiddlewares: true
-```
 
 ---
 
@@ -99,8 +75,8 @@ It does that both with this set OR when [entrypoints](/common/ingress/traefik#en
 | ---------- | --------------------------------------------- |
 | Key        | `ingress.$name.integrations.traefik.forceTLS` |
 | Type       | `bool`                                        |
-| Required   | ❌                                            |
-| Helm `tpl` | ❌                                            |
+| Required   | ❌                                             |
+| Helm `tpl` | ❌                                             |
 | Default    | `true`                                        |
 
 Example
@@ -115,134 +91,16 @@ ingress:
 
 ---
 
-## `allowCors`
-
-Allow CORS on this ingress
-
-:::note
-
-Relaxes some security settings to allow CORS requests.
-
-Specifically, it uses [these middlewares](/common/global#traefikallowcorsmiddlewares)
-instead of the [fixedMiddlewares](/common/global#traefikfixedmiddlewares)
-
-:::
-
-|            |                                                |
-| ---------- | ---------------------------------------------- |
-| Key        | `ingress.$name.integrations.traefik.allowCors` |
-| Type       | `bool`                                         |
-| Required   | ❌                                             |
-| Helm `tpl` | ❌                                             |
-| Default    | `false`                                        |
-
-Example
-
-```yaml
-ingress:
-  ingress-name:
-    integrations:
-      traefik:
-        allowCors: true
-```
-
----
-
-## `fixedMiddlewares`
-
-Override the fixed middlewares for this traefik integration
-
-|            |                                                                    |
-| ---------- | ------------------------------------------------------------------ |
-| Key        | `ingress.$name.integrations.traefik.fixedMiddlewares`              |
-| Type       | `list` of `map`                                                    |
-| Required   | ❌                                                                 |
-| Helm `tpl` | ❌                                                                 |
-| Default    | See default [here](/common/global#traefikfixedmiddlewares) |
-
-Example
-
-```yaml
-ingress:
-  ingress-name:
-    integrations:
-      traefik:
-        fixedMiddlewares:
-          - name: chain-basic
-            namespace: ""
-```
-
----
-
-### `fixedMiddlewares[].name`
-
-The name of the middleware
-
-|            |                                                              |
-| ---------- | ------------------------------------------------------------ |
-| Key        | `ingress.$name.integrations.traefik.fixedMiddlewares[].name` |
-| Type       | `string`                                                     |
-| Required   | ❌                                                           |
-| Helm `tpl` | ❌                                                           |
-| Default    | `""`                                                         |
-
-Example
-
-```yaml
-ingress:
-  ingress-name:
-    integrations:
-      traefik:
-        fixedMiddlewares:
-          - name: chain-basic
-            namespace: ""
-```
-
----
-
-### `fixedMiddlewares[].namespace`
-
-The namespace of the middleware
-
-:::tip
-
-If not defined, helm will do a lookup and try to find the namespace of the middleware.
-If more than one namespaces are found, it will throw an error.
-
-:::
-
-|            |                                                                   |
-| ---------- | ----------------------------------------------------------------- |
-| Key        | `ingress.$name.integrations.traefik.fixedMiddlewares[].namespace` |
-| Type       | `string`                                                          |
-| Required   | ❌                                                                |
-| Helm `tpl` | ❌                                                                |
-| Default    | `""`                                                              |
-
-Example
-
-```yaml
-ingress:
-  ingress-name:
-    integrations:
-      traefik:
-        fixedMiddlewares:
-          - name: chain-basic
-            namespace: ""
-```
-
----
-
 ## `middlewares`
 
-Override the middlewares for this traefik integration
+The middlewares for this traefik integration
 
 |            |                                                  |
 | ---------- | ------------------------------------------------ |
 | Key        | `ingress.$name.integrations.traefik.middlewares` |
 | Type       | `list` of `map`                                  |
-| Required   | ❌                                               |
-| Helm `tpl` | ❌                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ❌                                                |
 | Default    | `[]`                                             |
 
 Example
@@ -267,8 +125,8 @@ The name of the middleware
 | ---------- | ------------------------------------------------------- |
 | Key        | `ingress.$name.integrations.traefik.middlewares[].name` |
 | Type       | `string`                                                |
-| Required   | ❌                                                      |
-| Helm `tpl` | ❌                                                      |
+| Required   | ❌                                                       |
+| Helm `tpl` | ❌                                                       |
 | Default    | `""`                                                    |
 
 Example
@@ -291,8 +149,7 @@ The namespace of the middleware
 
 :::tip
 
-If not defined, helm will do a lookup and try to find the namespace of the middleware.
-If more than one namespaces are found, it will throw an error.
+If not defined, the current namespace will be used.
 
 :::
 
@@ -300,8 +157,8 @@ If more than one namespaces are found, it will throw an error.
 | ---------- | ------------------------------------------------------------ |
 | Key        | `ingress.$name.integrations.traefik.middlewares[].namespace` |
 | Type       | `string`                                                     |
-| Required   | ❌                                                           |
-| Helm `tpl` | ❌                                                           |
+| Required   | ❌                                                            |
+| Helm `tpl` | ❌                                                            |
 | Default    | `""`                                                         |
 
 Example
@@ -318,6 +175,58 @@ ingress:
 
 ---
 
+### `middlewares[].expandObjectName`
+
+Whether to expand the middleware name
+
+|            |                                                                     |
+| ---------- | ------------------------------------------------------------------- |
+| Key        | `ingress.$name.integrations.traefik.middlewares[].expandObjectName` |
+| Type       | `bool`                                                              |
+| Required   | ❌                                                                   |
+| Helm `tpl` | ❌                                                                   |
+| Default    | `true`                                                              |
+
+Example
+
+```yaml
+ingress:
+  ingress-name:
+    integrations:
+      traefik:
+        middlewares:
+          - name: my-middleware
+            expandObjectName: false
+```
+
+---
+
+## `chartMiddlewares`
+
+Same as [middlewares](#middlewares) but meant to be used by the chart developer
+to define some custom middleware specific to this ingress.
+
+|            |                                                       |
+| ---------- | ----------------------------------------------------- |
+| Key        | `ingress.$name.integrations.traefik.chartMiddlewares` |
+| Type       | `list` of `map`                                       |
+| Required   | ❌                                                     |
+| Helm `tpl` | ❌                                                     |
+| Default    | `[]`                                                  |
+
+Example
+
+```yaml
+ingress:
+  ingress-name:
+    integrations:
+      traefik:
+        chartMiddlewares:
+          - name: my-middleware
+```
+
+---
+
 ## Full Examples
 
 ```yaml
@@ -328,13 +237,11 @@ ingress:
         enabled: true
         entrypoints:
           - websecure
-        enableFixedMiddlewares: true
         forceTLS: true
-        allowCors: false
-        fixedMiddlewares:
-          - name: chain-basic
-            namespace: ""
         middlewares:
           - name: my-middleware
             namespace: ""
+            expandObjectName: false
+        chartMiddlewares:
+          - name: my-middleware
 ```

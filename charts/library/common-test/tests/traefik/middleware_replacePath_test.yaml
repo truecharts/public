@@ -7,12 +7,13 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: replace-path
-          data:
-            path: /some-path
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: replace-path
+            data:
+              path: /some-path
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -26,12 +27,13 @@ tests:
 
   - it: should fail with missing path
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: replace-path
-          data:
-            foo: bar
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: replace-path
+            data:
+              foo: bar
     asserts:
       - failedTemplate:
           errorMessage: Middleware (replace-path) - Expected [path] to be set

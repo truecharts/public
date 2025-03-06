@@ -4,161 +4,68 @@ title: Installation Guide
 
 ## App Installation
 
-### Networking
-
-If you are wanting to use ingress, its probably better to use clusterIP instead
-
-- We changed the UDP and TCP port to match the Mullvad ports allocated, your VPN provider might require something else
-
-![!Networking: qbittorrent](./img/networking.png)
-
-<br />
-
 ### Storage
 
 #### Configuration
 
-The setup is default
+ - The chart is set up with a default PVC that holds the application's configuration files.
+ - The recommended backup solution is to use VolSync.
 
-![!Storage: NZBGet](./img/storage_config.png)
+#### Additional Storage
 
-<br />
+It is recommended to place the NFS share within the same dataset to optimize performance. This ensures that moving or copying files between directories happens instantly at the filesystem level, avoiding unnecessary read/write operations. As a result, the process is significantly faster and reduces disk wear, improving overall system efficiency.
 
-#### Media - Destination Folders
+##### Media
 
-- Media is so that Radarr will have a location to place files once they're completed
-- This will be the folder Radarr places files for plex to then parse through.
+- The media destination folder is where Radarr stores completed downloads.
+- This folder serves as the source for e.g. Plex or Kodi to scan media files.
 
-![!Storage: NZBGet](./img/storage_data_media.png)
+##### Downloads
 
-<br />
+- This is the location where Radarr looks for completed downloads.
+- It is the same location where clients such as NZBGet, SABnzbd, qBittorrent, or Syncthing save their completed movie files.
+- We reccomend to keep the mount points consistent across all applications. If the mount points differ, you will need to configure a `Remote Path Mapping`, which adds extra complexity and may lead to issues with file handling.
 
-#### Backups
-
-- '/config/Backups' is the location Radarr places its automatic and manual backups
-- We created a separate dataset meant for backups, specifically to have an easy way to restore a backup, in the event the application is wrongly deleted, or removed, corrupt, whatever
-
-![!Storage: NZBGet](./img/storage_data_backups.png)
-
-<br />
-
-#### NZB
-
-- This is obviously the location Radarr will look for completed NZB files
-- Its also the location NZBGet saves its completed movie files
-
-![!Storage: NZBGet](./img/storage_data_nzb.png)
-
-<br />
-
-#### Bittorrent
-
-- This is the location Radarr will look for completed qBittorrent files
-- Its also the location qBittorrent saves its completed movie files
-
-![!Storage: NZBGet](./img/storage_data_qbit.png)
-
-<br />
-
-#### Syncthing
-
-- This is the location Radarr will look for completed Syncthing files
-- Its also the location Syncthing saves its completed movie files
-
-![!Storage: NZBGet](./img/storage_data_syncthing.png)
-
-<br />
+```yaml
+persistence:
+  media:
+    enabled: true
+    type: nfs
+    path: ${NFS_PATH}
+    server: ${SERVER_IP}
+    mountPath: /media
+```
 
 ## In-App Configuration
 
-For Radarr, We specifically just follow the [TRaSH Guides for Radarr](https://trash-guides.info/Radarr/) setup.
+- For general configuration guidance, we recommend to follow the [TRaSH guides for Radarr](https://trash-guides.info/Radarr/).
+- When linking Radarr to a download client, use the internal domain name of the respective download client.
+  - General guidance on linking applications can be found on our website: [Linking Apps](/guides/linking-apps)
+    </br>
+    ![!Internal linking: SABnzbd](./img/sab_internal_link.png)
 
-- It clearly details how to setup custom profiles to ensure you are grabbing the latest and greatest media. We have been using it for months now and have not had an issue.
 
-<br />
+## Advanced Configuration
 
-Thank Goodness for IBRACORP, We thought We would have to make a video myself covering this topic. However, it seems they got most of everything We would have covered.
+### VolSync Backup considerations
 
-![type:video](https://www.youtube.com/embed/DCxU3Vzaz6k)
+To reduce potential costs (e.g., for an S3 storage provider), it makes sense to exclude certain folders from being backed up by VolSync.
+- Depending on the library size, the folder **/config/MediaConver** can contain a significant amount of data.
+  - This folder does not store any configuration and will be recreated during a library scan.
+- Another way to reduce backup size is to exclude the **/config/Backups** folder from being backed up.
+  - Since VolSync already backs up all configuration files, there is no need to include the application's internal backups.
 
-## qbittorrent Integration
+As of now, VolSync does not provide a way to exclude specific folders from backups. The only way to achieve the same effect is to mount these folders to a separate PVC, NFS share, or another external storage location, ensuring they are not included in the primary PVC backup process.
+Keep in mind that if a folder is moved to a different PVC or storage location, any existing data in the original PVC will not be deleted automatically. As a result, the backup size will not be reduced unless you manually remove the previously stored data.
+However, this does not apply to fresh installations, as the folder will not contain any pre-existing data in the primary PVC.
 
-### Mountpoints
-
-Its important to keep your mountpoints for each of the applications the same. Otherwise you will need to setup a `remote path`
-
-- They may be slightly different, but as long as they have the same root directory it will be fine.
-
-<br />
-
-#### Radarrs Storage Settings
-
-I set it to a sub directory of `/qbitvpn` though since `/qbitvpn/complete/movies` is the only directory Radarr needs to see, since it only needs to see movies that are completed
-![!Storage: NZBGet](./img/qbit_radarr_storage.png)
-
-#### qBittorrents Storage Settings
-
-![!Storage: NZBGet](./img/qbit_storage.png)
-
-<br />
-
-### Linking Radarr to qBittorrent
-
-![!Storage: NZBGet](./img/qbit_radarr_client.png)
-
-#### Explanation
-
-??? Radarr "Explanation"
-
-    | Name                 | Value                                                | Reason                                                                                                                                                                                                    |
-    |------------------    |--------------------------------------------------    |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
-    | Name                 | qbitvpn                                              | Doesn't matter what you call it, just call it something memorable                                                                                                                                         |
-    | Host                 | qbitvpn-qbittorrent.ix-qbitvpn.svc.cluster.local     | You will need to generate a different DNS name if your app name is not `qbitvpn` Generate a new name with [ Truecharts Guide ]( https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/ )     |
-    | Port                 | 10095                                                | This is the default port, but if you changed it then its  [ the first port listed under networking for qbittorrent  ](https://heavysetup.info/applications/qbittorrent/installation/#networking )         |
-    | Username             | NULL                                                 | You can leave this empty if you followed  [WEBGUI guide](https://heavysetup.info/applications/qbittorrent/in-app/#webgui )                                                                                |
-    | Password             | NULL                                                 | You can leave this empty if you followed  [WEBGUI guide](https://heavysetup.info/applications/qbittorrent/in-app/#webgui )                                                                                |
-    | Category             | movies                                               | We want my completed torrents to be moved to a folder in `completed/movies` once their done                                                                                                                |
-    | Remove Completed     | False                                                | We do not want to delete my torrents before their done seeding                                                                                                                                             |
-
-<br />
-
-## NZBGet Integration
-
-### Mountpoints
-
-Its important to keep your mountpoints for each of the applications the same. Otherwise you will need to setup a `remote path`
-
-- They may be slightly different, but as long as they have the same root directory it will be fine.
-
-<br />
-
-#### Radarrs Storage Settings
-
-![!Storage: NZBGet](./img/nzbget_radarr_storage.png)
-
-#### NZBGet Storage Settings
-
-![!Storage: NZBGet](./img/nzbget_storage.png)
-
-<br />
-
-### Linking Radarr to NZBGet
-
-![!Storage: NZBGet](./img/nzbget_radarr_client.png)
-
-#### Explanation
-
-??? Radarr "Explanation"
-
-    | Name                 | Value                                  | Reason                                                                                                                                                                                                   |
-    |------------------    |------------------------------------    |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
-    | Name                 | NZBGet                                 | Doesn't matter what you call it, just call it something memorable                                                                                                                                        |
-    | Host                 | nzbget.ix-nzbget.svc.cluster.local     | You will need to generate a different DNS name if your app name is not `nzbget` Generate a new name with [ Truecharts Guide ]( https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/ )     |
-    | Port                 | 6789                                   | This is the default port, but if you changed it then its  [ the only port listed under networking for NZBGet  ](https://heavysetup.info/applications/nzbget/installation/#networking )                   |
-    | Username             | nzbget                                 | Default is `nzbget` but its under your security settings in nzbget                                                                                                                                       |
-    | Password             | NULL                                   | This is whatever you set during the [NZBGet in app security](https://heavysetup.info/applications/nzbget/in-app/#security ) setup                                                                        |
-    | Category             | Movies                                 | We want my completed nzbs to be moved to a folder in `completed/Movies` once their done                                                                                                                   |
-    | Remove Completed     | True                                   | You can't seed nzbs, so there's no point in keeping them                                                                                                                                                 |
-    | Remove Failed        | True                                   | No reason to keep failed articles                                                                                                                                                                        |
-
-<br />
+Example configuration for **/config/MediaConver**:
+```yaml
+persistence:
+  covers:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config/MediaCover
+```

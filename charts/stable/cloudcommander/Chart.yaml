@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: 18.5.1
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,7 @@ maintainers:
     url: https://truecharts.org
 name: cloudcommander
 sources:
+  - https://ghcr.io/coderaiser/cloudcmd
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloudcommander
-  - https://hub.docker.com/r/coderaiser/cloudcmd
 type: application
-version: 7.4.0
+version: 7.5.3

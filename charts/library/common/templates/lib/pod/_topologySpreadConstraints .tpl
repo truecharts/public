@@ -24,7 +24,7 @@ objectData: The object data to be used to render the Pod.
   {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultSpread }}
 - maxSkew: 1
   whenUnsatisfiable: ScheduleAnyway
-  topologyKey: "kubernetes.io/hostname"
+  topologyKey: {{ default "kubernetes.io/hostname" $rootCtx.Values.global.fallbackDefaults.topologyKey }}
   labelSelector:
     matchLabels:
       {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | indent 6 }}

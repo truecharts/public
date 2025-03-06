@@ -2,17 +2,7 @@
 title: Democratic-CSI
 ---
 
-
-:::caution[Work In Progress]
-
-This program, all its features and its general design, are all a Work-In-Progress. It is not done and not widely available.
-
-All code and docs are considered Pre-Beta drafts
-
-:::
-
 Democratic CSI is a multi-platform CSI, mostly using either local or network (NFS/iSCSI) based storage.
-
 
 ## Values
 
@@ -20,7 +10,6 @@ Their Helm-Chart is available at: https://democratic-csi.github.io/charts/
 All below examples, are based on their Helm-Chart
 
 ### NFS
-
 
 ```yaml
 csiDriver:
@@ -40,6 +29,7 @@ storageClasses:
     node-stage-secret:
     node-publish-secret:
     controller-expand-secret:
+
 # if you want to use snapshots
 volumeSnapshotClasses:
 - name: nfs-snapshot
@@ -138,7 +128,6 @@ driver:
 
 Due to flaws in TrueNAS SCALE, this script needs to run each day est. 20min after volsync cycle to clear stuck jobs. (Truenas Cronjob)
 
-
 ```python
 from datetime import datetime, timedelta, timezone
 from truenas_api_client import Client
@@ -206,7 +195,6 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
 
 ## Other references
 

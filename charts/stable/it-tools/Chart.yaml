@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.5.13
+appVersion: 2024.10.22
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -28,8 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: it-tools
 sources:
+  - https://ghcr.io/corentinth/it-tools
   - https://github.com/CorentinTh/it-tools
   - https://github.com/truecharts/charts/tree/master/charts/stable/it-tools
-  - https://hub.docker.com/r/corentinth/it-tools
 type: application
-version: 7.4.0
+version: 7.6.0

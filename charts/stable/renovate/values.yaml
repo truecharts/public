@@ -1,0 +1,75 @@
+image:
+  repository: docker.io/renovate/renovate
+  pullPolicy: IfNotPresent
+  tag: 39.185.1
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: CronJob
+    schedule: "0 0,6,12,18 * * *"
+    concurrencyPolicy: Forbid
+    failedJobsHistoryLimit: 2
+    parallelism: 1
+    activeDeadlineSeconds: 7200
+    podSpec:
+      restartPolicy: OnFailure
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            GITHUB_COM_TOKEN: '${GITHUB_PAT}'
+            # You can set RENOVATE_AUTODISCOVER to true to run Renovate on all repos you have push access to
+            RENOVATE_AUTODISCOVER: 'false'
+            RENOVATE_TOKEN: '${GITHUB_PAT}'
+            RENOVATE_CONFIG_FILE: /config/renovate-config.js
+            LOG_LEVEL: debug
+            RENOVATE_CACHE_DIR: /tmp/renovate/cache
+
+configmap:
+  config:
+    enabled: true
+    data:
+      renovate-config.js: |-
+        {
+          "repositories": ["truecharts/public"],
+          "dryRun" : "full"
+        }
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  renovate:
+    enabled: true
+    mountPath: /tmp/renovate
+  renovate-repos:
+    enabled: true
+    mountPath: /tmp/renovate/repos
+  renovate-cache:
+    enabled: true
+    mountPath: /tmp/renovate/cache
+  configmap-vol:
+    enabled: true
+    type: configmap
+    objectName: config
+    defaultMode: "0777"
+    mountPath: /config/
+    items:
+      - key: renovate-config.js
+        path: renovate-config.js
+
+portal:
+  open:
+    enabled: false

@@ -11,13 +11,11 @@ Inspired by Kubernetes DNS, Kubernetes' cluster-internal DNS server, ExternalDNS
 ### Prerequisites (required for Support on TrueCharts Discord)
 
 - Traefik
-- Clusterissuer / Cert-manager installed (vital if exposed externally)
-
-Please follow the [Getting Started](/ guide on the [Truecharts](https://truecharts.org) website.
+- Clusterissuer / Cert-manager deployed
 
 ## Installation instructions
 
-This guide will cover 2 scenarios, `Cloudflare` and `Pi-Hole` / `Pihole`, for more external DNS record providers, see [External-DNS Docs](https://github.com/kubernetes-sigs/external-dns/tree/master/docs/tutorials).
+This guide will cover 2 scenarios, `Cloudflare` and `Pi-hole`. For more external DNS record providers, see [External-DNS Docs](https://github.com/kubernetes-sigs/external-dns/tree/master/docs/tutorials).
 
 ### Cloudflare
 
@@ -25,51 +23,91 @@ These instructions taken from [external-dns cloudflare tutorial](https://github.
 
 #### Step 1
 
-Enter `CF_API_TOKEN` (preferred) or `CF_API_EMAIL`/`CF_API_KEY`
-
-![Cloudflare API Token](./img/Cloudflare-API-token.png)
+Set the env. `CF_API_TOKEN` (preferred) or `CF_API_EMAIL`/`CF_API_KEY`. <br>
+When using API Token authentication, the token should be granted Zone Read, DNS Edit privileges, and access to All zones.
 
 #### Step 2
 
-Enter preferences for Logs and DNS updates (I suggest >5m to prevent log spam) and select `cloudflare` as provider and select sources. I find `ingress` and `service` covers everything. If you want to filter by multiple domains add your `Domain Filter Entry`
+- Enter preferences for Logs and DNS updates (Suggested >5m to prevent log spam)
+- Set `cloudflare` as provider
+- set sources `ingress` and `service` should covers everything.
+- If you want to filter by multiple domains add your `domainFilters`
+- Recommend using `noop` for `registry` and leaving the rest as default,
+- You can add DNS Zone filters `zoneidFilters` as necessary as well
 
-![Cloudflare App Config 1](./img/Cloudflare-App-Config-1.png)
+For more details of all option, see upstream docs of external-dns.
 
-I recommend using `noop` for `Registry Type` and leaving the rest as default, can add DNS Zone filters as necessary as well (see upstream/cloudflare docs).
-
-![Cloudflare App Config 2](./img/Cloudflare-App-Config-2.png)
+```yaml
+externaldns:
+  logLevel: "info"
+  logFormat: "text"
+  interval: "60m"
+  provider: "cloudflare"
+  sources:
+    - "service"
+    - "ingress"
+  domainFilters:
+    - "${BASE_DOMAIN}"
+  zoneidFilters: []
+  cloudflareProxied: ""
+  registry: "noop"
+  policy: "upsert-only"  # would prevent ExternalDNS from deleting any records, omit to enable full synchronization
+```
 
 #### Step 3
 
 Verify it works, check the logs for updates to DNS records
 
-```shell
-2023-11-07 09:36:07.165596-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Instantiating new Kubernetes client"
-2023-11-07 09:36:07.165633-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Using inCluster-config based on serviceaccount-token"
-2023-11-07 09:36:07.165850-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"
-2023-11-07 09:36:08.958946-05:00time="2023-11-07T09:36:08-05:00" level=info msg="Changing record." action=CREATE record=seafile.DOMAIN.com ttl=1 type=A zone=d959ce24eb85d78a7f527b6150446335
+```bash
+time="2025-03-02T17:19:28+01:00" level=info msg="Instantiating new Kubernetes client"
+time="2025-03-02T17:19:28+01:00" level=info msg="Using inCluster-config based on serviceaccount-token"
+time="2025-03-02T17:19:28+01:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"
+time="2025-03-02T17:19:31+01:00" level=info msg="Changing record." action=CREATE record=chart1.domain.tld ttl=1 type=A zone=f8d01e5d4a8927a99d2e2655edcc40fc
+time="2025-03-02T17:19:32+01:00" level=info msg="Changing record." action=CREATE record=chart2.domain.tld ttl=1 type=A zone=f8d01e5d4a8927a99d2e2655edcc40fc
+time="2025-03-02T17:19:33+01:00" level=info msg="Changing record." action=CREATE record=chart3.domain.tld ttl=1 type=A zone=f8d01e5d4a8927a99d2e2655edcc40fc
 ```
 
 If this works, you'll see DNS entries inside Cloudflare's DNS page.
 
 ### PiHole
 
+:::danger[Temporally broken]
+
+Because of API changes in Pi-hole v6 this is temporally broken.
+More info: https://github.com/kubernetes-sigs/external-dns/issues/5113
+
+:::
+
 #### Step 1
 
-Ignore Provider Credentials, and skip straight to `App Configuration` and select `pihole`, add domain filters as necessary
+- Set `pihole` as provider
+- set sources `ingress` and `service` should covers everything
+- Recommend using `noop` for `registry`
+- Set PiHole Server Address `piholeServer` and PiHole Server Password `piholePassword`
 
-![PiHole App Config 1](./img/PiHole-Config-1.png)
-
-Change to `noop` for `Registry Type` and add `PiHole Server Address` (default is `http://pihole.ix-pihole.svc.cluster.local:9089`) and `PiHole Server Password`
-
-![PiHole App Config 2](./img/PiHole-Config-2.png)
+```yaml
+    externaldns:
+      logLevel: "info"
+      logFormat: "text"
+      interval: "60m"
+      provider: "pihole"
+      sources:
+        - "service"
+        - "ingress"
+      domainFilters: []
+      zoneidFilters: []
+      registry: "noop"
+      policy: "upsert-only"  # would prevent ExternalDNS from deleting any records, omit to enable full synchronization
+      piholeServer: "http://pihole.pihole.svc.cluster.local:8089"
+      piholePassword: "DitIsSuperGeheim"
+```
 
 #### Step 2
 
 Verify logs from `External-DNS` to see if it connects and updates `PiHole`
 
-```shell
-d:false IBMCloudConfigFile:/etc/kubernetes/ibmcloud.json TencentCloudConfigFile:/etc/kubernetes/tencent-cloud.json TencentCloudZoneType: PiholeServer:http://pihole.ix-pihole.svc.cluster.local:9089 PiholePassword:****** PiholeTLSInsecureSkipVerify:false PluralCluster: PluralProvider:}"
+```bash
+... PiholeServer:http://pihole.ix-pihole.svc.cluster.local:9089 PiholePassword:****** PiholeTLSInsecureSkipVerify:false PluralCluster: PluralProvider:}"
 2023-11-07 10:29:07.801555-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Instantiating new Kubernetes client"
 2023-11-07 10:29:07.801568-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Using inCluster-config based on serviceaccount-token"
 2023-11-07 10:29:07.801861-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"
@@ -80,5 +118,3 @@ d:false IBMCloudConfigFile:/etc/kubernetes/ibmcloud.json TencentCloudConfigFile:
 Check `PiHole` GUI for A records under `Local DNS`
 
 ![PiHole-GUI](./img/PiHole-GUI.png)
-
-Enjoy!

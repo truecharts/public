@@ -7,15 +7,16 @@ release:
 tests:
   - it: should pass with all set
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: chain
-          data:
-            middlewares:
-              - name: some-name
-                expandObjectName: false
-              - name: some-other-name
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: chain
+            data:
+              middlewares:
+                - name: some-name
+                  expandObjectName: false
+                - name: some-other-name
     asserts:
       - documentIndex: &middlewareDoc 0
         isKind:
@@ -31,12 +32,13 @@ tests:
 
   - it: should fail with missing middlewares
     set:
-      middlewares:
-        my-middleware1:
-          enabled: true
-          type: chain
-          data:
-            middlewares: []
+      ingressMiddlewares:
+        traefik:
+          my-middleware1:
+            enabled: true
+            type: chain
+            data:
+              middlewares: []
     asserts:
       - failedTemplate:
           errorMessage: Middleware (chain) - Expected [middlewares] to be set

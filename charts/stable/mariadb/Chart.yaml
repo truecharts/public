@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 11.6.2
+appVersion: 11.7.2
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -31,10 +31,10 @@ maintainers:
     url: https://truecharts.org
 name: mariadb
 sources:
+  - https://gallery.ecr.aws/bitnami/mariadb
   - https://github.com/bitnami/bitnami-docker-mariadb
   - https://github.com/prometheus/mysqld_exporter
   - https://github.com/truecharts/charts/tree/master/charts/stable/mariadb
-  - https://hub.docker.com/r/bitnami/mariadb
   - https://mariadb.org
 type: application
-version: 15.7.0
+version: 15.9.0

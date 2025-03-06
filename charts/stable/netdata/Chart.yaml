@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.1.1
+appVersion: 2.2.6
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,6 +31,6 @@ name: netdata
 sources:
   - https://github.com/netdata
   - https://github.com/truecharts/charts/tree/master/charts/stable/netdata
-  - https://hub.docker.com/r/netdata/netdata
+  - https://quay.io/netdata/netdata
 type: application
-version: 12.1.1
+version: 12.3.6

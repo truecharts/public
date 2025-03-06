@@ -6,10 +6,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2023.10.20
+appVersion: 2025.3.5
 dependencies:
   - name: common
-    version: 25.3.1
+    version: 25.4.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,13 +32,13 @@ name: jupyter
 sources:
   - https://github.com/jupyter/docker-stacks
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://hub.docker.com/r/jupyter/all-spark-notebook
-  - https://hub.docker.com/r/jupyter/base-notebook
-  - https://hub.docker.com/r/jupyter/datascience-notebook
-  - https://hub.docker.com/r/jupyter/minimal-notebook
-  - https://hub.docker.com/r/jupyter/pyspark-notebook
-  - https://hub.docker.com/r/jupyter/r-notebook
-  - https://hub.docker.com/r/jupyter/scipy-notebook
-  - https://hub.docker.com/r/jupyter/tensorflow-notebook
+  - https://quay.io/jupyter/all-spark-notebook
+  - https://quay.io/jupyter/base-notebook
+  - https://quay.io/jupyter/datascience-notebook
+  - https://quay.io/jupyter/minimal-notebook
+  - https://quay.io/jupyter/pyspark-notebook
+  - https://quay.io/jupyter/r-notebook
+  - https://quay.io/jupyter/scipy-notebook
+  - https://quay.io/jupyter/tensorflow-notebook
 type: application
-version: 10.4.0
+version: 11.8.8
