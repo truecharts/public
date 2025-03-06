@@ -33,6 +33,9 @@ options](https://docs.paperless-ngx.com/configuration/#consume_config) for more 
 This guide will only describe the Paperless-ngx specific options required to set up importing documents from a network
 share. Please refer to your NAS documentation.
 
+In addition to adding the NFS share to the Paperless-ngx application we need to configure polling for the import folder.
+The NFS Share do not support the default polling model Paperless-ngx uses.
+
 ## Example Values for Paperless-ngx
 
 ```yaml
@@ -48,6 +51,7 @@ workload:
             PAPERLESS_ADMIN_MAIL: "admin@admin.com"
             PAPERLESS_OCR_LANGUAGE: "eng"
             PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"
+            PAPERLESS_CONSUMER_POLLING: 120
 persistence:
   consume:
     type: nfs
