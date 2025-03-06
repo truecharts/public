@@ -34,7 +34,7 @@ workload:
             - configMapRef:
                 name: collabora-config
           securityContext:
-            runAsUser: 100
+            runAsUser: 1001
             runAsGroup: 102
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
