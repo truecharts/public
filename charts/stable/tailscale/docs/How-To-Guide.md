@@ -3,7 +3,6 @@ title: How-To
 ---
 
 This is a quick how-to or setup-guide to use Tailscale on Talos.
-This can be applied to other systems but this specific guide is Talos on TrueNAS specific with the prerequisites.
 
 :::caution
 
