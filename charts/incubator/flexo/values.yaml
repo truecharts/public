@@ -1,15 +1,8 @@
 image:
   pullPolicy: IfNotPresent
-  repository: nroi/flexo
+  repository: docker.io/nroi/flexo
   tag: 1.6.9@sha256:850061e57c6d0acdee618be70ba4c58149137980852aaaf917bcde885e5ad65a
 
-resources:
-  limits:
-    cpu: 1000m
-    memory: 1Gi
-  requests:
-    cpu: 10m
-    memory: 64Mi
 service:
   main:
     ports:
@@ -25,27 +18,9 @@ persistence:
     mountPath: "/var/cache/flexo"
 workload:
   main:
-    primary: true
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: true
-              path: "/metrics"
-              port: 7878
-              spec:
-                initialDelaySeconds: 10
-            readiness:
-              enabled: true
-              type: tcp
-              spec:
-                initialDelaySeconds: 10
-            startup:
-              type: tcp
-              port: 7878
-              spec:
-                initialDelaySeconds: 60
           env:
             RUST_BACKTRACE: "1"
             FLEXO_LISTEN_IP_ADDRESS: "0.0.0.0"
