@@ -9,7 +9,7 @@ We highly recommend to setup [authelia](/charts/premium/authelia/docs/Setup-Guid
 
 :::
 
-This app makes it possible to have a layer of security in front of your publicly exposed apps.
+This chart makes it possible to have a layer of security in front of your publicly exposed charts.
 It supports Google, OIDC, and generic OAuth2.
 Please read the [GitHub README of the original project](https://github.com/thomseddon/traefik-forward-auth) for your
 authentication options.
@@ -23,7 +23,7 @@ protecting portals that you would access through a browser.
 
 ## A standard setup (auth host mode)
 
-This method will add a middleware to the traefik instance with Google authentication which then you can apply on any apps
+This method will add a middleware to the traefik instance with Google authentication which then you can apply on any charts
 with either subdomain or path prefix Ingress rules.
 The example domain will be `https://example.com` which should be substituted to your externally accessible domain name.
 
@@ -112,9 +112,9 @@ middlewares:
       trustForwardHeader: true
 ```
 
-### Applying the middleware on apps
+### Applying the middleware on charts
 
-To actually use the forward authentication, you have to add it to either a chain or by itself to existing app Ingresses.
+To actually use the forward authentication, you have to add it to either a chain or by itself to existing charts Ingresses.
 
 ```yaml
 ingress:
@@ -130,9 +130,9 @@ ingress:
             namespace: traefik
 ```
 
-### Per-app whitelist
+### Per-chart whitelist
 
-In case you need per-app whitelists, you have two options: set up multiple instances of traefik-forward-auth (cumbersome) or
+In case you need per-chart whitelists, you have two options: set up multiple instances of traefik-forward-auth (cumbersome) or
 use custom rules. Consult the readme of the original project how to set them.
 
 ### Testing
