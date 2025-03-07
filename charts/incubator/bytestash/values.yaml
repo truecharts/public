@@ -1,0 +1,42 @@
+image:
+  repository: ghcr.io/jordan-dalby/ByteStash
+  tag: 1.5.7
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data/snippets"
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            BASE_PATH: ""
+            JWT_SECRET: "bytestash JWT secret"
+            TOKEN_EXPIRY: "24h"
+            ALLOW_NEW_ACCOUNTS: "false"
+            DEBUG: "false"
+            DISABLE_ACCOUNTS: "false"
+            DISABLE_INTERNAL_ACCOUNTS: "false"
+            OIDC_ENABLED: "false"
+            OIDC_DISPLAY_NAME: ""
+            OIDC_ISSUER_URL: ""
+            OIDC_CLIENT_ID: ""
+            OIDC_CLIENT_SECRET: ""
+            OIDC_SCOPES: ""
