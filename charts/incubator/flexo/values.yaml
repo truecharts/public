@@ -29,4 +29,4 @@ workload:
               path: "/metrics"
           env:
             FLEXO_LISTEN_IP_ADDRESS: "0.0.0.0"
-            FLEXO_PORT: {{ .Values.service.main.ports.main.port }
+            FLEXO_PORT: "{{ .Values.service.main.ports.main.port }}"
