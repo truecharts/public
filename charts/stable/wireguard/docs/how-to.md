@@ -35,3 +35,20 @@ wg:
       AllowedIPs = 0.0.0.0/0
       Endpoint = wg.example:51820
 ```
+<br>
+
+## External config file example
+Example `/mnt/pool/vpn.conf` (Name can be any name. eg `wg0.conf`, `x-site.conf`, etc)
+Example config content:
+
+```toml
+[Interface]
+Address = 10.0.0.1/24
+ListenPort = 51820
+PrivateKey = PRIVATE_KEY
+
+[Peer]
+PublicKey = PUBLIC_KEY
+AllowedIPs = 0.0.0.0/0
+Endpoint = wg.example:51820
+```
