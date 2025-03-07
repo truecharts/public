@@ -47,12 +47,28 @@ LISTEN 127.0.0.1 3493
 LISTEN 0.0.0.0 3493
 ```
 
-## WebNUT Installation
+## WebNUT Deployment of the Chart
 
-- Set `UPS User` to the username defined for the `Monitor User`.
-- Set `UPS Password` to the password defined for the `Monitor Password`.
-- Set `UPS Host` to the local IP of your server.
-- Set `UPS Port` to `3493` which is typically the default port.
+Configure via environment variables
+- Set `UPS_HOST` to the local IP of your server.
+- Set `UPS_PORT` to `3493` which is typically the default port.
+- Set `UPS_USER` to the username defined for the `Monitor User`.
+- Set `UPS_PASSWORD` to the password defined for the `Monitor Password`.
+
+In order to access the webGUI, you will **need** to add `ingress` otherwise it will refuse to connect.
+
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UPS_HOST: "127.0.0.1"
+            UPS_PORT: 3493
+            UPS_USER: monuser
+            UPS_PASSWORD: secret
+```
 
 In order to access the webGUI, you will **need** to add `ingress` otherwise it will refuse to connect.
 
