@@ -11,12 +11,12 @@ webImage:
 authImage:
   repository: docker.io/kubernetesui/dashboard-auth
   pullPolicy: IfNotPresent
-  tag: 1.2.3@sha256:af2a00ac93d53ad9f5d7673605c8d56e76ff241baeda416762a6762fcaf62ba0
+  tag: 1.2.4@sha256:a8bdc56cd7efa13cd1fa21d9212b4570cadfc4c3a7df224ec0491d8f3384cd99
 
 apiImage:
   repository: docker.io/kubernetesui/dashboard-api
   pullPolicy: IfNotPresent
-  tag: 1.10.3@sha256:4683ae1731e22d174dc4d1a97df896372fbba12509bf8574e7d78ce3b4b7cde8
+  tag: 1.11.1@sha256:bd66b67ac9b830f1d529c603ee85609f8e05f76993d807a14be1ae0b72459134
 
 scraperImage:
   repository: docker.io/kubernetesui/dashboard-metrics-scraper

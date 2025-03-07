@@ -5,7 +5,7 @@ image:
 nginxImage:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.27.4@sha256:76fb15abad2b5d5f71c5c0de087c364050eb318255797bf855990e36cea24a1c
+  tag: 1.27.4@sha256:7a76302625f26fd9ea82da99c0e14c5f4def3a839b21e4138acdcbefc790219f
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -17,11 +17,11 @@ hpbImage:
 clamavImage:
   repository: docker.io/clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.2@sha256:2f7de5b7e7ac68345d533aaee24c6ba93363bfaaa60584786224c5777de78956
+  tag: 1.4.2@sha256:9962849432a172948ad3a9f84727a494d2ee8c3818117f291829a55286b3620a
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
-  tag: 24.04.12.4.1@sha256:580ae484f914582cc24d13803a37c33820434a11aed105a922ffd079c5adcfd0
+  tag: 24.04.13.1.1@sha256:0398c25fa8e787d6a4480ef30ffac5a9e13943945e8c2484b331c53855bb928f
 
 nextcloud:
   # Initial Credentials
@@ -305,8 +305,8 @@ workload:
           resources:
             excludeExtra: true
           securityContext:
-            runAsUser: 100
-            runAsGroup: 102
+            runAsUser: 1001
+            runAsGroup: 1001
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
             capabilities:
