@@ -2,8 +2,7 @@
 title: How-To
 ---
 
-This is a quick how-to or setup-guide to use Zerotier using on your TrueNAS box.
-This can be applied to other systems but this specific guide is SCALE specific with the prerequisites.
+This is a quick how-to or setup-guide to use Zerotier.
 
 ## Requirements
 
@@ -12,46 +11,63 @@ This can be applied to other systems but this specific guide is SCALE specific w
 
 ## Prerequisites (LAN access only)
 
-For proper access to your local network (LAN), this chart requires two `sysctl` values set on your TrueNAS or system.
-For TrueNAS SCALE the way to change these values are inside `System Settings` then `Advanced`.
-On that screen you add the following two values:
-
-- `net.ipv4.ip_forward`
-- `net.ipv4.conf.all.src_valid_mark`
-
-Set them to `1` and `Enabled`
-
-![sysctl](./img/Sysctl.png)
-
-Also prepare your Zerotier Network ID for your setup, easy to create and copy at [https://my.zerotier.com](https://my.zerotier.com)
+Prepare your Zerotier Network ID for your setup, easy to create and copy at [https://my.zerotier.com](https://my.zerotier.com)
 
 ![Zerotier Network ID](./img/Network-ID.png)
 
 ## Zerotier Chart Setup
 
-Ideally name your chart `Zerotier` but you can use any name here and leave defaults for Step 2
+Ideally name your chart `zerotier`.
 
 ### Global Pod Options
+:::danger[hostNetwork]
 
-This section is hidden by default for TrueNAS SCALE but if you wish to use `Host-Networking` or create an interface inside TrueNAS SCALE (`zerotier creates a network interface`)
+Host-Network is not recommended and cause side effects. Usage is not supported.
 
-- Click `Expert - Pod Options`
-- Click the checkbox for `Host-Networking` if it isn't enabled
+:::
 
-### App Configuration
+If you wish to use `Host-Networking` or create an interface (`zerotier creates a network interface`)
+
+```yaml
+podOptions:
+  hostNetwork: true
+```
+
+### Chart Configuration
+
+Configuration can be done via the following environment variables:
 
 - `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
 - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 - `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 
-![How-To-Step-2](./img/How-To-Step-2.png)
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ZEROTIER_API_SECRET: ""
+            ZEROTIER_IDENTITY_PUBLIC: ""
+            ZEROTIER_IDENTITY_SECRET: ""
+```
 
 ### Extra Args
 
 If you wish to automatically join a specific Zerotier Network upon startup simply enter the `Network-ID` in this space.
 **Note** This is not required for the chart to run and may not always work.
 
-![How-To-Step-1](./img/How-To-Step-1.png)
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args: arg
+          extraArgs:
+            - extraArg
+```
 
 ### Networking and Services
 
