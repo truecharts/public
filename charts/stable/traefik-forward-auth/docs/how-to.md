@@ -140,4 +140,4 @@ use custom rules. Consult the readme of the original project how to set them.
 Opening your URL should result in being redirected to Google authentication. Subsequent checks if the auth is working can be
 made by opening an incognito window.
 
-![signin](.\img\sign_in.png)
+![signin](./img/sign_in.png)
