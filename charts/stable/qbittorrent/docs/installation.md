@@ -38,7 +38,7 @@ Add an `loadBalancerIP` to the `main` service or configure an Ingress if you pre
 
 :::
 
-An loadBalancer IP must assigned to the `Listening` port. Standard configures as port `6881` 
+An loadBalancer IP must assigned to the `Listening` port. Standard configures as port `6881`
 
 ```yaml
 service:

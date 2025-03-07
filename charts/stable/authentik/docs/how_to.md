@@ -49,7 +49,7 @@ authentik:
   credentials:
     email: info@domain.com
     password: secretpassword
-``` 
+```
 
 ## Authentik GUI Setup
 
@@ -74,7 +74,7 @@ Default username is `akadmin` and password is whatever you entered in the chart 
 ![New-User-1](./img/New-User-1.png)
 ![New-User-2](./img/New-User-2.png)
 
-- Set the users password 
+- Set the users password
 
 ![New-User-3](./img/New-User-3.png)
 
@@ -95,7 +95,7 @@ The example uses `https://sonarr.domain.com/`, make sure your app is reachable a
 
 ![New-Application-2](./img/New-Application-2.png)
 
-4. 
+4.
 - Configure Proxy Provider by select `Forward auth (single application)` and fill your `External host`.
 - Select the preffered `Authorization flow`
 - When you scroll down you can enable `Send HTTP-Basic Authentication` under `Authentication settings` and complete the correct keys for your service here. Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support. More information upstream [here](https://docs.goauthentik.io/docs/add-secure-apps/providers/proxy/header_authentication). In this how_to we don't use this.
@@ -116,7 +116,7 @@ The example uses `https://sonarr.domain.com/`, make sure your app is reachable a
 
 :::note
 
-This is not further tested during creation of this HOW-TO, feel free to complete. 
+This is not further tested during creation of this HOW-TO, feel free to complete.
 
 :::
 
@@ -168,7 +168,7 @@ middlewares:
 # - X-authentik-meta-provider
 # - X-authentik-meta-app
 # - X-authentik-meta-version
-``` 
+```
 
 ## Add Traefik forwardAuth to Charts
 

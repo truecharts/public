@@ -20,4 +20,3 @@ qbitportforward:
   QBT_USERNAME: "admin"
   QBT_PASSWORD: "adminadmin"
 ```
-

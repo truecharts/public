@@ -75,7 +75,7 @@ This guide will only describe the Paperless-ngx specific options required to set
 Once you have set up ForwardAuth in your Traefik installation, configure ForwardAuth in Paperless-ngx as follows:
 
   - Add the following environment variables in the values for paperless.
-  - Enter `PAPERLESS_ENABLE_HTTP_REMOTE_USER` and set its value to true, and 
+  - Enter `PAPERLESS_ENABLE_HTTP_REMOTE_USER` and set its value to true, and
   - `PAPERLESS_LOGOUT_REDIRECT_URL` and your logout URL (`https://auth.mydomain.com/logout` as per the above guide's example domain) in the second box.
 
 This will reconfigure and restart Paperless-ngx. Authentication to

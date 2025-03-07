@@ -60,7 +60,7 @@ In Tailscale Portal on DNS, Namespace section add a new custom nameserver using 
 ```yaml
 tailscale:
   authkey: MY_PRIVATE_AUTHKEY
-  accept_dns: true 
+  accept_dns: true
   routes: 192.168.1.0/24 # LAN Example
   advertise_as_exit_node: true
   hostname: "MyHostname"
