@@ -1,12 +1,13 @@
 image:
-  repository: ghcr.io/jordan-dalby/ByteStash
-  tag: 1.5.7
+  repository: ghcr.io/jordan-dalby/bytestash
+  tag: 1.5.7@sha256:fa58bbc2fc5864ea600b92bb9d95a443d49fc92c6a9c7143fc4c1df8f45c4505
   pullPolicy: IfNotPresent
 service:
   main:
     ports:
       main:
         port: 5000
+        protocol: http
 persistence:
   data:
     enabled: true
@@ -19,13 +20,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-            readiness:
-              type: http
-            startup:
-              type: http
           env:
             BASE_PATH: ""
             JWT_SECRET: "bytestash JWT secret"
