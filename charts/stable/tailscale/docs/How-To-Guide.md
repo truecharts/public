@@ -12,14 +12,25 @@ This guide doesn't cover using Tailscale with individual applications. While the
 
 ## Requirements
 
+### Tailscale 
 - Tailscale Account (Free accounts available at [Tailscale's Official website](https://www.tailscale.com))
-- Tailscale Truecharts Chart
 - Tailscale DNS setup for Talos Cluster Domain
-
 
 Generate a Tailscale Auth Key for your setup, easy to generate on the page below
 
 ![tailscale-auth-key](./img/How-To-Image-1.png)
+
+### Sysctl
+:::note[sysctl]
+
+This part is not needed for CLustertool setup with TalosOS.
+
+:::
+At some OS's it is required to set two `sysctl` values for proper acces to your local network (LAN). Check your OS documentation how this needs to be done.
+```
+net.ipv4.ip_forward = 1
+net.ipv4.conf.all.src_valid_mark = 1 
+```
 
 ## Tailscale Chart Setup
 
