@@ -34,6 +34,35 @@ Some examples are:
 - Monica
 - Recipes
 
+## Inotify Issues
+
+Linux has a limited count of "open" or "read" files, that you might need to increase as follows:
+
+- `fs.inotify.max_user_watches = 524288`
+- `fs.inotify.max_user_instances = 512`
+
+Clustertool already includes these sysctl values by default.
+
+## Date-Time Issues
+
+Any modern operating system can have issues with time and date synchronization. However, accurate date time is absolutely crucial for a lot of applications, HTTPS/TLS, backup and synchronization of databases.
+
+Fortunately you can often easily check this on Linux using the command:
+
+```bash
+date
+```
+
+If the time/date does match then proceed to run the following commands:
+
+```bash
+sudo systemctl stop ntp && sudo ntpd -gq && sudo systemctl start ntp && date
+```
+
+The command will stop NTP, sync the clock with NTP server, start the NTP service and print the date afterwards.
+
+_If the output of the "date" command matches the current local time for your system, then the time issue is resolved. However, if the output does not match, repeat the above steps until the system clock is properly synchronized._
+
 ## Can I use another Load Balancer in front of Traefik?
 
 Technically, yes, you can. But keep in mind this is out of our support scope.
