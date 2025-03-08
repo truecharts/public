@@ -15,7 +15,7 @@ If you have not already done so add the operator train to TrueCharts [as outline
 
 1. Run this in the system shell as **root**: <br />
    `k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete4`
-2. Install [cert-manager](/charts/system/cert-manager/) from the operators train.
+2. Install cert-manager from the operators train.
 3. Update [clusterissuer](/charts/premium/clusterissuer/) to the latest version of (2.0.1+).
 
 - If you are already on the latest version perform an empty edit of clusterissuer (Edit app and save without making any changes).
