@@ -11,8 +11,8 @@ Feel free to open a thread in the appropiate Channel in our Discord server.
 
 ## Prerequisites
 
-- Having your GPU isolated
-- Passed the GPU to your Talos Machine
+- Having your GPU isolated when using a VM
+- Passed the GPU to your Talos Machine when using a VM
 
 ## Extensions
 
