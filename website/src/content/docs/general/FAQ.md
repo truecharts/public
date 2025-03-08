@@ -62,9 +62,9 @@ If you'd like to create a guide for the website, please submit a PR as demonstra
 
 ## I would like another application to be added, how do I do this?
 
-There are two ways to do this:
+Build the chart yourself (or have someone build it for you) and request to have it added to the project via a Github PR. You can check the **#development** channel of our [Discord](/s/discord) and create a thread if you'd like information about this.
 
-2. Build the chart yourself (or have someone build it for you) and request to have it added to the project via a Github PR. You can check the **#development** channel of our [Discord](/s/discord) and create a thread if you'd like information about this.
+An easy way to build your own chart is to use our `app-template` which provides an empty chart which you can use on your local cluster to build your own helm-chart.
 
 The exception to the above are more complex Kubernetes ecosystem changes e.g. Kubernetes extensions, new metrics opens, databases, etc. You're still free to discuss these in the **#development** channel of our Discord linked above.
 
