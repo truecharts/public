@@ -22,7 +22,7 @@ Install the following charts if not already installed:
 
 - [Cert-Manager](#cert-manager)
 - [Cloudnative-PG](#cloudnative-pg)
-- [Prometheus CRDs](#prometheus-crds)
+- [Prometheus](#prometheus)
 
 ---
 
