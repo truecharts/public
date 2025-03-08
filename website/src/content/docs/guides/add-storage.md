@@ -15,11 +15,23 @@ For PVC storage to function correctly, it's important to already have a storageC
 To setup persistence, add the following section to your values.yaml manually and adapt as needed:
 
 ```yaml
+// values.yaml
 persistence:
   config:
     enabled: true
-    type: PVC
-  mountPath: /mystorage
+    type: pvc
+    mountPath: /mystorage
+```
+
+```yaml   
+// values.yaml
+persistence:
+  config:
+    enabled: true
+    type: nfs
+    path: /mnt/data/media
+    mountPath: /media
+    server: 192.168.0.100
 ```
 
 In some cases an ingress might already been partly defined. That means you should append the information as you need it, but not touch, for example, the mountPath.
