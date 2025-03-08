@@ -44,7 +44,7 @@ Therefore we require certain Charts to be installed. Below you will find example
 ### Cert-Manager
 
 Cert-Manager is used  together with our clusterissuer to create SSL certificates for ingress.
-The chart installation can be found [here](https://cert-manager.io/docs/installation/helm/)
+The chart installation can be found [here](https://cert-manager.io/docs/installation/helm/).
 
 Example configuration:
 
@@ -61,7 +61,7 @@ enableCertificateOwnerRef: true
 ### Cloudnative-PG
 
 Cloudnative-PG is used for Postgres databases in many of our charts.
-The chart can be found [here](https://cloudnative-pg.io/charts/)
+The chart can be found [here](https://cloudnative-pg.io/charts/).
 
 Example configuration:
 
