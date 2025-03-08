@@ -12,7 +12,7 @@ The following must be specified and updated in your Helm Release file.
 
 ### Optional Environment Settings:
 The following may be left at the default setting, OR you may override in your Helm Release file dependent on your requirements.
-- `BASE_PATH`: write /bIytestash for a domain such as my.domain/bytestash, leave blank in every other case
+- `BASE_PATH`: write /bytestash for a domain such as my.domain/bytestash, leave blank in every other case
 - `TOKEN_EXPIRY`: How long the token lasts Default is 24 hrs.
 - `ALLOW_NEW_ACCOUNTS`: Will the instance allow new new accounts to be created. The Default is to allow new account creation.
 - `DEBUG`: Enable to turn on logging, in most instances leave disabled

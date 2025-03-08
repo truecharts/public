@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.5.7
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ByteStash is a self-hosted web application designed to store, organise, and manage your code snippets efficiently. With support for creating, editing, and filtering snippets, ByteStash helps you keep track of your code in one secure place.
-home: https://truecharts.org/charts/incubator/bytestash
+home: https://truecharts.org/charts/stable/bytestash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bytestash.webp
 keywords:
   - bytestash
@@ -33,6 +33,6 @@ name: bytestash
 sources:
   - https://ghcr.io/jordan-dalby/bytestash
   - https://github.com/jordan-dalby/ByteStash
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/bytestash
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bytestash
 type: application
-version: 0.0.1
+version: 1.0.0
