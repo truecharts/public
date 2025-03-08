@@ -14,13 +14,14 @@ Feel free to open a thread in the appropiate Channel in our Discord server.
 - Having your GPU isolated when using a VM
 - Passed the GPU to your Talos Machine when using a VM
 
-## Extensions
+## Extensions for Talhelper/Clustertool
 
 :::caution[Charts]
 
-This guide assumes you are using Clustertool for your talos cluster. The steps may differ otherwise.
+This Section assumes you are using Clustertool or Talhelper for your talos cluster. The steps may differ otherwise.
 
 :::
+
 
 Its important to add the following Extensions to your `talconfig.yaml` for bootstrap:
 
