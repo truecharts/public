@@ -92,7 +92,7 @@ We generally advice to run the full kube-prometheus-stack but as it is quite res
 crds:
   enabled: true
 prometheusOperator:
-  enabled: true
+  enabled: false
 ## Everything down here, explicitly disables everything BUT the operator itself
 global:
   rbac:
