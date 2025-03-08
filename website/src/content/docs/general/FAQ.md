@@ -153,7 +153,10 @@ kubectl delete statefulset nextcloud-redis -n nextcloud
 
 Once deleted you can attempt the update (or if you were already updated to latest versions, then edit and save without any changes).
 
-## Operator-Related Errors
+## Operator-Related
+
+Truecharts charts usually require a certain set of "operators" to properly work and function. Usually missing operators will lead to errors.
+All required and recommended operators are listed in our [quick-start guide](/guides/)
 
 ### "monitoring.coreos.com/v1" ensure CRDs are installed first
 
