@@ -32,7 +32,7 @@ The MetalLB operator is only required for users of MetalLB, anyone who does not 
 The Prometheus operator is required for the use of app metrics. Its installation is recommended.
 
 1. Run this in the system shell as **root**: `k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete3`
-2. Install [prometheus-operator](/charts/system/prometheus-operator/) from the operators train.
+2. Install prometheus-operator from the operators train. (Deprecated 2025)
 
 ## CNPG
 
