@@ -38,7 +38,7 @@ Most important details to configure:
 - Set `authHost` to `auth.example.com`.
 - Add your email to `whitelist` as array.
 - Add your root domain to `cookieDomain`
-- Set the `clientId` and `clientSecret` to the ones presented on the developer console. 
+- Set the `clientId` and `clientSecret` to the ones presented on the developer console.
 - `prompt` needs to be set empty.
 - As it is a stateless program, it doesn't need any special permissions or storage.
 
@@ -121,7 +121,7 @@ ingress:
   main:
     enabled: true
     hosts:
-      - host: chart.${DOMAIN} 
+      - host: chart.${DOMAIN}
     integrations:
       traefik:
         enabled: true

@@ -39,7 +39,7 @@ Seafile uses Block storage so files/folders uploaded to Seafile aren't visible b
 
 By default WebDAV is disabled by default, as per [upstream docs](https://manual.seafile.com/extension/webdav/). Here's some simple instructions to modify your `seafdav.conf` to enable WebDAV if you wish to use it with Traefik.
 
- **Option 1:** 
+ **Option 1:**
 - Enter Seafile Pod Shell
 - Use the CLI to enter the Seafile WebDAV (`seafdav.conf`) config file
 - Use vi commands to edit the `Enabled` to `true` and change the share name as desired (default is `/seafdav`).

@@ -32,7 +32,7 @@ workload:
 
 ### Mount USB Devices
 
-- Passthrough your USB device to your cluster node. 
+- Passthrough your USB device to your cluster node.
 - Add a persistence configuration for your USB device
 - Best practice is to do by ID as per below, in this example we use `/dev/serial/by-id/usb-ithead_SONOFF`
 
@@ -43,4 +43,3 @@ persistence:
     type: device
     hostPath: /dev/serial/by-id/usb-ithead_SONOFF
 ```
-

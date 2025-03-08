@@ -46,7 +46,7 @@ addons:
           certificateIssuer: cloudflare
         traefik:
           enabled: true
-```                  
+```
 
 ## Check the application
 
@@ -73,7 +73,7 @@ For example `redmine_theme_farend_bleuclair`:
       ```
 - and set it back to true.
 
-For example `PurpleMine2`:   
+For example `PurpleMine2`:
 - Open integrated terminal in `redmine\themes`
 - `wget https://github.com/mrliptontea/PurpleMine2/archive/master.zip`
 - Install extension `VSCode Archive` in codeserver
