@@ -231,10 +231,10 @@ The following shows an example on how to add the GPU to a chart. Depending on th
 ```yaml
 resources:
     limits:
-        nvidia.com/gpu: 1
+      nvidia.com/gpu: 1
 workload:
     main:
-        podSpec:
+      podSpec:
         runtimeClassName: "nvidia"
 ```
 
