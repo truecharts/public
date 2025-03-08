@@ -34,6 +34,12 @@ A variety of new guides have been added to the TrueCharts documentation, making 
   - Troubleshooting: A troubleshooting guide designed to help users resolve common issues.
   - NVIDIA and Intel GPUs: Guides for utilizing NVIDIA and Intel GPUs within the Talos Kubernetes enviroment.
 
+## Common 2025 refactors ongoing
+
+Meanwhile we're hard at work finishing up the major reworks that will be the new breaking common-chart revision, new known as "Common 2025" and ensuring this future update will go smoothly for all our users and charts
+
+Currently, users can expect a complete rework of our Ingress, Traefik and Addon systems.
+Offering complete compatibility with different ingress providers and a more flexible backend for addons. Allowing both end-user customization and future expansion of both Ingress and Addon systems.
 ## Community Contributions Welcome
 
 As always, the continued growth and success of TrueCharts rely heavily on the support and contributions of the community. The project thrives thanks to the efforts of developers, documenters, and users who collaborate to improve and expand the ecosystem. Whether it's contributing new Helm charts, enhancing documentation, or providing feedback, your involvement helps shape the future of TrueCharts.
