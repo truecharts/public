@@ -12,8 +12,6 @@ service:
 persistence:
   data:
     enabled: true
-    type: "emptyDir"
-    size: 10Gi
     mountPath: "/var/cache/flexo"
 workload:
   main:
