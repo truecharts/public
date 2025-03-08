@@ -155,6 +155,14 @@ Once deleted you can attempt the update (or if you were already updated to lates
 
 ## Operator-Related Errors
 
+### "monitoring.coreos.com/v1" ensure CRDs are installed first
+
+`[EFAULT] Failed to update App: Error: UPGRADE FAILED: unable to build kubernetes objects from current release manifest: resource mapping not found for name: "APPNAME" namespace: "APPNAME" from "": no matches for kind "PodMonitor" in version "monitoring.coreos.com/v1" ensure CRDs are installed first`
+
+The solution:
+
+- Install `kube-prometheus-stack` first, then go back and install the app you were trying to install
+
 #### addresspools.metallb.io
 
 `[EFAULT] Failed to install App: Error: INSTALLATION FAILED: rendered manifests contain a resource that already exists. Unable to continue with install: CustomResourceDefinition "addresspools.metallb.io" in namespace "" exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key "meta.helm.sh/release-name": must be set to "metallb"; annotation validation error: missing key "meta.helm.sh/release-namespace": must be set to "ix-metallb"`
