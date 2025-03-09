@@ -61,7 +61,7 @@ enableCertificateOwnerRef: true
 ### Cloudnative-PG
 
 Cloudnative-PG is used for Postgres databases in many of our charts.
-The chart can be found [here](https://cloudnative-pg.io/charts/).
+The chart can be found [here](https://github.com/cloudnative-pg/charts). 
 
 Example configuration:
 
