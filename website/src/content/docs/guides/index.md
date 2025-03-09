@@ -86,7 +86,7 @@ grafana:
   defaultDashboardsEnabled: true
 ```
 
-We generally advice to run the full kube-prometheus-stack but as it is quite resource intensive you can run the minimum requirement which only requires to add the CRDs and Operator. This can be done like this:
+We generally advice to run the full kube-prometheus-stack but as it is quite resource intensive you can run the minimum requirement which only requires to add the CRDs. This can be done like this:
 
 ```yaml
 crds:
