@@ -23,7 +23,7 @@ persistence:
     mountPath: /mystorage
 ```
 
-```yaml   
+```yaml
 // values.yaml
 persistence:
   config:

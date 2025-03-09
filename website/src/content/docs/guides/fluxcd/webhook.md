@@ -4,7 +4,7 @@ title: FluxCD Webhook
 
 :::warning
 
-This guide isnt covered by the Support Policy and is considered more advanced. 
+This guide isnt covered by the Support Policy and is considered more advanced.
 If you face issues feel free to open a thread in the appropiate Channel in our Discord server.
 
 :::
@@ -23,7 +23,7 @@ If you face issues feel free to open a thread in the appropiate Channel in our D
 - Add the necessary kustomization to the `webhooks` folder for the github directory
 - Next we will need 3 files inside the github folder:
   ```yaml
-    // receiver.yaml 
+    // receiver.yaml
 
     apiVersion: notification.toolkit.fluxcd.io/v1
     kind: Receiver
@@ -106,7 +106,7 @@ If you face issues feel free to open a thread in the appropiate Channel in our D
 
 ## Get Receiver URL:
 
-After pushing the changes to your cluster and waiting for reconcile. 
+After pushing the changes to your cluster and waiting for reconcile.
 Run the following command to get your receiver url:
 
 ```bash

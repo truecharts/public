@@ -74,7 +74,7 @@ crds:
 
 ### Prometheus
 
-Kube-promotheus-stack is used for metrics. 
+Kube-promotheus-stack is used for metrics.
 The chart can be found [here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 
 As we provide our own grafana with included dashboard. We recommend to disable grafana in the kube-prometheus-stack:

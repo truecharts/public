@@ -7,7 +7,7 @@ This is a quick how-to or setup-guide to have a local Wireguard server.
 ## Requirements
 
 Domain name (can be free using DuckDNS or any DDNS) that has your current WAN IP, WAN IP not recommended unless you have a static IP.
-  
+
 :::caution[Domain and Reverse Proxy]
 The domain you use should not be behind a reverse proxy, such as Cloudflare Proxy (disable the proxy on the subdomain on the Cloudflare dashboard. The default is Proxied (orange cloud), set to DNS only (grey cloud)), as it won't accurately represent your real WAN IP. To address this, consider creating a subdomain dedicated to Wireguard and disabling the reverse proxy for that specific subdomain only.
 :::
@@ -25,7 +25,7 @@ This part is not needed for CLustertool setup with TalosOS.
 At some OS's it is required to set two `sysctl` values for proper acces to your local network (LAN). Check your OS documentation how this needs to be done.
 ```
 net.ipv4.ip_forward = 1
-net.ipv4.conf.all.src_valid_mark = 1 
+net.ipv4.conf.all.src_valid_mark = 1
 ```
 
 ### Firewall rules
@@ -39,13 +39,13 @@ This chart needs to privileged rights. Add the following label to your namespace
 ```yaml
 labels:
   pod-security.kubernetes.io/enforce: privileged
-``` 
+```
 ### Configure your .Values
 
 Set an IP to your Wireguard UDP servive.
 The default port for the Wireguard UDP service is `51820` and it needs to be accessible outside your network in order for the Wireguard tunnel to work. Therefore if you change this port make sure you change the port on your Firewall as well.
 
-```yaml    
+```yaml
 service:
   vpn:
     loadBalancerIP: ${WG_EASY_IP}

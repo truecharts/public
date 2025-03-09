@@ -27,7 +27,7 @@ This part is not needed for CLustertool setup with TalosOS.
 At some OS's it is required to set two `sysctl` values for proper acces to your local network (LAN). Check your OS documentation how this needs to be done.
 ```
 net.ipv4.ip_forward = 1
-net.ipv4.conf.all.src_valid_mark = 1 
+net.ipv4.conf.all.src_valid_mark = 1
 ```
 
 ## Zerotier Chart Setup

@@ -15,7 +15,7 @@ As part of an effort to streamline and refine the project, TrueCharts has offici
 
 ## Expansion to Stable Charts
 
-In a significant update, TrueCharts has moved 15 charts from the incubator to the stable train, ensuring they are now fully ready-to-use. Additionally, the community has added 5 completely new charts to the stable train, expanding the selection of reliable and robust options available to users. 
+In a significant update, TrueCharts has moved 15 charts from the incubator to the stable train, ensuring they are now fully ready-to-use. Additionally, the community has added 5 completely new charts to the stable train, expanding the selection of reliable and robust options available to users.
 
 ## Documentation Overhaul
 
