@@ -4,6 +4,12 @@ title: How-To
 
 This is a quick how-to or setup-guide to have a local Wireguard server.
 
+:::note[routing]
+
+The best is to have all routing done by a router, including things like VPN routing. Deploy this chart only if you don't have another option.
+
+:::
+
 ## Requirements
 
 Domain name (can be free using DuckDNS or any DDNS) that has your current WAN IP, WAN IP not recommended unless you have a static IP.
@@ -19,7 +25,7 @@ The domain you use should not be behind a reverse proxy, such as Cloudflare Prox
 ### Sysctl
 :::note[sysctl]
 
-This part is not needed for CLustertool setup with TalosOS.
+This part is not needed for Clustertool setup with TalosOS.
 
 :::
 At some OS's it is required to set two `sysctl` values for proper acces to your local network (LAN). Check your OS documentation how this needs to be done.
@@ -95,11 +101,19 @@ If you're creating multiple users setting up Ingress for the Portal/GUI page is 
 There's a few options in the upstream container that aren't present by default in this chart that can be added as environment values. Please refer to the [upstream](https://github.com/weejewel/wg-easy) documentation as necessary and add those ENV VARS at your discretion without any support.
 
 ## Important note for users with Clustertool Setup and WG_Easy
-Access Applications running on your Talos Cluster from outside your LAN via WG_Easy, will not work with a standard CLustertool Settup.
-This can be made to work with some `Cilium` modifications.
+:::warning[Cilium changes]
 
-> TO BE ADDED TO THIS MANUAL
+Do this changes at your own risk. Those are not covered by Truecharts Support.
 
+:::
+
+Access Applications running on your Talos Cluster from outside your LAN via WG_Easy, will not work with a standard Clustertool Setup.
+This can be made to work with a `Cilium` modification. Add the following to your Cilium deployment `.Values`:
+
+```yaml
+socketLB:
+  hostNamespaceOnly: true
+```
 
 ## Support
 
