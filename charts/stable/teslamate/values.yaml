@@ -46,7 +46,7 @@ configmap:
   datasource:
     enabled: true
     labels:
-      grafana_datasources: "1"
+      grafana_datasource: "1"
     data:
       datasourceteslamatepsql.yaml: |-
         apiVersion: 1
