@@ -20,10 +20,6 @@ Clusters created using Clustertool come pre-packed with most of these charts pre
 
 Install the following charts if not already installed:
 
-- [Prerequisites](#prerequisites)
-- [Required Charts for most Truecharts Charts](#required-charts-for-most-truecharts-charts)
-- [Recommended Charts](#recommended-charts)
-- [Upstream Operators](#upstream-operators)
   - [Cert-Manager](#cert-manager)
   - [Cloudnative-PG](#cloudnative-pg)
   - [Prometheus](#prometheus)
