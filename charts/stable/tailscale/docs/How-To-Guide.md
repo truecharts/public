@@ -40,12 +40,12 @@ Ideally use `tailscale` but you can use any name here.
 
 ### App Configuration
 
-- `Auth Key`: The key you received from tailscale in prerequisites above
+- `Auth Key`: Required - The key you received from tailscale in prerequisites above
+- `Hostname`: Required - Please specify a specific hostname for use inside Tailscale. This is required to have a persistant machine name appear in the Tailscale portal. Values.yaml has been updated to set hostname to truecharts-tailscale to avoid the state not persisting for those to do not set this field. Without it, the default setting would use the tailscale kubernetes podname as the hostname, creatimg additional machines in the Tailscale portal over time. (Passes `--hostname HOSTNAME` to `Extra args`)
 - `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
 - `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, ie your LAN.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
-- `Hostname` You can specify a specific hostname for use inside Tailscale. This is recommended as otherwise it will utilise the tailscale kubernetes podname as the machine name in the console, over time when the chart is upgraded it will add additional machines into Tailscale portal. (Passes `--hostname HOSTNAME` to `Extra args`)
 - `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `Extra args`)
 
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
