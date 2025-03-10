@@ -20,9 +20,13 @@ Clusters created using Clustertool come pre-packed with most of these charts pre
 
 Install the following charts if not already installed:
 
-- [Cert-Manager](#cert-manager)
-- [Cloudnative-PG](#cloudnative-pg)
-- [Prometheus](#prometheus)
+- [Prerequisites](#prerequisites)
+- [Required Charts for most Truecharts Charts](#required-charts-for-most-truecharts-charts)
+- [Recommended Charts](#recommended-charts)
+- [Upstream Operators](#upstream-operators)
+  - [Cert-Manager](#cert-manager)
+  - [Cloudnative-PG](#cloudnative-pg)
+  - [Prometheus](#prometheus)
 
 ---
 
@@ -61,7 +65,7 @@ enableCertificateOwnerRef: true
 ### Cloudnative-PG
 
 Cloudnative-PG is used for Postgres databases in many of our charts.
-The chart can be found [here](https://github.com/cloudnative-pg/charts). 
+The chart can be found [here](https://github.com/cloudnative-pg/charts).
 
 Example configuration:
 
@@ -77,13 +81,21 @@ crds:
 Kube-promotheus-stack is used for metrics.
 The chart can be found [here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
 
-As we provide our own grafana with included dashboard. We recommend to disable grafana in the kube-prometheus-stack:
+As we provide our own grafana with included dashboard. We recommend to disable grafana and add a few tweaks in the kube-prometheus-stack:
 
 ```yaml
 grafana:
   enabled: false
   forceDeployDashboards: true
   defaultDashboardsEnabled: true
+  forceDeployDatasources: true
+crds:
+  enabled: true
+  upgradeJob:
+    enabled: true
+    forceConflicts: true
+alertmanager:
+  enabled: false
 ```
 
 We generally advice to run the full kube-prometheus-stack but as it is quite resource intensive you can run the minimum requirement which only requires to add the CRDs. This can be done like this:
