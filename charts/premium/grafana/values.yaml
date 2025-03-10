@@ -20,7 +20,7 @@ service:
 workload:
   main:
     replicas: 1
-    strategy: RollingUpdate
+    strategy: Recreate
     podSpec:
       containers:
         main:
