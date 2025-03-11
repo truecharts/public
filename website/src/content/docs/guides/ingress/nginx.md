@@ -141,6 +141,13 @@ annotations:
   nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
 ```
 
+### IP Whitelist:
+
+```
+annotations:
+  nginx.ingress.kubernetes.io/whitelist-source-range: 49.36.X.X/32
+```
+
 ### Themepark
 
 ```
