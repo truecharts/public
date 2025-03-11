@@ -534,6 +534,9 @@ ingressMiddlewares:
 ingress:
   main:
     required: true
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        rewrite ^/\.well-known/(card|cal)dav$ /remote.php/dav/ permanent;
     integrations:
       traefik:
         chartMiddlewares:
