@@ -90,8 +90,33 @@ crds:
   upgradeJob:
     enabled: true
     forceConflicts: true
+cleanPrometheusOperatorObjectNames: true
 alertmanager:
   enabled: false
+kubeProxy:
+  enabled: false
+kubeEtcd:
+  service:
+    selector:
+      component: kube-apiserver # etcd runs on control plane nodes
+prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    probeSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+    scrapeConfigSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    enableAdminAPI: true
+    walCompression: true
+    enableFeatures:
+      - memory-snapshot-on-shutdown
+    retention: 14d
+    retentionSize: 50GB
+    resources:
+      requests:
+        cpu: 100m
+      limits:
+        memory: 2000Mi
 ```
 
 We generally advice to run the full kube-prometheus-stack but as it is quite resource intensive you can run the minimum requirement which only requires to add the CRDs. This can be done like this:
@@ -99,6 +124,9 @@ We generally advice to run the full kube-prometheus-stack but as it is quite res
 ```yaml
 crds:
   enabled: true
+  upgradeJob:
+    enabled: true
+    forceConflicts: true
 prometheusOperator:
   enabled: false
 ## Everything down here, explicitly disables everything BUT the operator itself
@@ -117,8 +145,9 @@ alertmanager:
   enabled: false
 grafana:
   enabled: false
-  forceDeployDashboards: false
-  defaultDashboardsEnabled: false
+  forceDeployDashboards: true
+  defaultDashboardsEnabled: true
+  forceDeployDatasources: true
 kubernetesServiceMonitors:
   enabled: true
 kubeApiServer:
