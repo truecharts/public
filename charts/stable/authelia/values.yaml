@@ -39,7 +39,14 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+  authelia-configfile:
+    enabled: true
+    mountPath: /configuration.yaml
+    subPath: configuration.yaml
+    readOnly: true
+    type: configmap
+    objectName: authelia-configfile
 
 cnpg:
   main:

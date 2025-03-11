@@ -13,16 +13,11 @@
 {{- $_ := set $authConfig.server "port" .Values.service.main.ports.main.port -}}
 {{- $_ := set $authConfig.storage.postgres "host" .Values.cnpg.main.creds.host -}}
 {{- $_ := set $authConfig.session.redis "host" .Values.redis.creds.plain  -}}
-{{- if not (hasKey $authConfig.file "path") -}}{{- $_ := set $authConfig.file "path" "/config/users_database.yml" -}}{{- end -}}
+{{- $_ := set $authConfig.file "path" "/config/users_database.yml" -}}
 
-{{- $_ := set .Values.secret "authelia-configfile" (dict "enabled" true "data" $authConfig) -}}
-{{- $_ := set .Values.persistence "authelia-configfile" (dict
+{{- $_ := set .Values.secret "authelia-configfile" (dict
     "enabled" true
-    "mountPath" "/configuration.yaml"
-    "subPath" "configuration.yaml"
-    "readOnly" true
-    "type" "configmap"
-    "objectName" "authelia-configfile"
+    "data" (dict "configuration.yaml" $authConfig)
 ) -}}
 
 {{/* Render the templates */}}
