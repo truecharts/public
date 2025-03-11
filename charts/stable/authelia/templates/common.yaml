@@ -10,10 +10,10 @@
 {{- if not (hasKey $authConfig "session") -}}{{- $_ := set $authConfig "session" dict -}}{{- end -}}
 {{- if not (hasKey $authConfig.session "redis") -}}{{- $_ := set $authConfig.redis "session" dict -}}{{- end -}}
 
+{{- $_ := set $authConfig.file "path" "/config/users_database.yml" -}}
 {{- $_ := set $authConfig.server "port" .Values.service.main.ports.main.port -}}
 {{- $_ := set $authConfig.storage.postgres "host" .Values.cnpg.main.creds.host -}}
 {{- $_ := set $authConfig.session.redis "host" .Values.redis.creds.plain  -}}
-{{- $_ := set $authConfig.file "path" "/config/users_database.yml" -}}
 
 {{- $_ := set .Values.secret "authelia-configfile" (dict
     "enabled" true
