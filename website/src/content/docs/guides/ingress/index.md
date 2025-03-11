@@ -1,5 +1,5 @@
 ---
-title: Adding Ingress
+title: Ingress
 ---
 
 ## What is ingress?
