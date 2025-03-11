@@ -35,7 +35,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 - We offer support for all ClusterTool functions, except those under `adv` and `charts`
 - If you deviate from default configurations significantly, we cannot guarantee a bootstrap will work and support will be limited on a case-by-case basis.
 - We do provide support for issues regarding talconfig.yaml, as long as ClusterTool is used for the deployment.
-- We do provide *basic* assistance with [Talos OS](../guides/talos/), when deployed or maintained through ClusterTool (upgrades, config changes etc)
+- We do provide *basic* assistance with [Talos OS](/guides/talos/), when deployed or maintained through ClusterTool (upgrades, config changes etc)
 - We do provide support for FluxCD setup and layout, as long as ClusterTool is used for the deployment.
 - We *only* provide support for the latest version of ClusterTool. Please ensure you are utilizing the latest version before requesting support.
 
@@ -47,7 +47,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 ## Helm Chart Support Policy
 
 - We offer support for all features available in our helm-charts, including all options in the common-chart.
-- We offer [basic documentation](../guides/helm/) and support for installing, upgrading and editing our Helm-Charts using Helm.
+- We offer [basic documentation](/guides/) and support for installing, upgrading and editing our Helm-Charts using Helm.
 - We do not support external secret management outside of values.yaml
 - We offer support for all our charts trains, except `incubator`, `dev`, and `test`.
 - We cannot guarantee special characters will work flawlessly in any field.
@@ -61,7 +61,7 @@ Some [(common-chart)](../common/) features might not work correctly with all cha
 ## FluxCD Support Policy
 
 - We offer support for our Helm-Charts values in FluxCD as outlined in Helm Chart Support.
-- We offer [basic documentation](../guides/fluxcd/) and support on how to create a `helm-release` file, to deploy our helm-charts on Flux.
+- We offer [basic documentation](/guides/fluxcd/) and support on how to create a `helm-release` file, to deploy our helm-charts on Flux.
 - To be eligible for FluxCD support your repository must be public.
 - All information being provided *must* be un-encrypted. You can obfuscate any sensitive information as needed.
 
