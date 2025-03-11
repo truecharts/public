@@ -59,7 +59,7 @@ spec:
             enabled: false
           certManager:
             enabled: true
-            certificateIssuer: domain-1-le-prod
+            certificateIssuer: le-prod
         hosts:
           - host: jackett.${DOMAIN_1}
             paths:
