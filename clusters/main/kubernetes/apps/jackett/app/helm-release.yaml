@@ -54,6 +54,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         integrations:
           traefik:
             enabled: false

@@ -222,6 +222,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         primary: true
         targetSelector:
           dynmap: dynmap
