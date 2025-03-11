@@ -129,10 +129,10 @@ crds:
     forceConflicts: true
 prometheusOperator:
   enabled: false
-## Everything down here, explicitly disables everything BUT the operator itself
+## Everything down here, explicitly disables everything except CRDs and grafana dashboards
 global:
   rbac:
-    create: true
+    create: false
 defaultRules:
   create: false
 windowsMonitoring:
