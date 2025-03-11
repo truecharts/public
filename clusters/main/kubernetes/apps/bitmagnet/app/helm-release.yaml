@@ -53,12 +53,7 @@ spec:
         enabled: true
         integrations:
           traefik:
-            enabled: true
-            middlewares:
-              - name: local
-                namespace: traefik
-              - name: bouncer
-                namespace: traefik
+            enabled: false
           certManager:
             enabled: true
             certificateIssuer: domain-1-le-prod
