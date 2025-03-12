@@ -1,0 +1,94 @@
+image:
+  repository: ghcr.io/authelia/authelia
+  pullPolicy: IfNotPresent
+  tag: 4.38.19@sha256:46021dc20efdcc5cdc38a29e3050b8835429a155ae6215388ed3b793a02eb0ab
+
+# Raw Authelia configuration
+# Replace it with your configuration
+authelia:
+  authentication_backend:
+    file:
+      path: /config/users.yaml
+  notifier:
+    filesystem:
+      filename: /config/notification.txt
+  access_control:
+    default_policy: one_factor
+  session:
+    cookies:
+      - domain: example.com
+        authelia_url: https://example.com
+
+workload:
+  main:
+    replicas: 2
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          env:
+            # Update the following secrets with your own values
+            AUTHELIA_SESSION_SECRET: some-secret-replace-me
+            AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: some-secret-replace-me
+            AUTHELIA_STORAGE_ENCRYPTION_KEY: some-secret-replace-me
+            # Don't change the following envs
+            X_AUTHELIA_CONFIG: "{{ .Values.persistence.configfile.mountPath }}"
+            AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
+            AUTHELIA_SERVER_ADDRESS: "tcp://:{{ .Values.service.main.ports.main.port }}/"
+            AUTHELIA_STORAGE_POSTGRES_ADDRESS: "tcp://{{ .Values.cnpg.main.creds.host }}:{{ .Values.cnpg.main.creds.port }}"
+            AUTHELIA_STORAGE_POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            AUTHELIA_STORAGE_POSTGRES_USERNAME: "{{ .Values.cnpg.main.user }}"
+            AUTHELIA_STORAGE_POSTGRES_PASSWORD: '{{ .Values.cnpg.main.creds.password | trimAll "\"" }}'
+            AUTHELIA_SESSION_REDIS_HOST: '{{ .Values.redis.creds.plain | trimAll "\"" }}'
+            AUTHELIA_SESSION_REDIS_PORT: "{{ .Values.redis.service.main.ports.main.port }}"
+            AUTHELIA_SESSION_REDIS_DATABASE_INDEX: "0"
+            AUTHELIA_SESSION_REDIS_PASSWORD: '{{ .Values.redis.creds.redisPassword | trimAll "\"" }}'
+
+          probes:
+            liveness:
+              type: http
+              path: "/api/health"
+            readiness:
+              type: http
+              path: "/api/health"
+            startup:
+              type: http
+              path: "/api/health"
+service:
+  main:
+    ports:
+      main:
+        port: 9091
+
+secret:
+  authelia-configfile:
+    enabled: true
+    data:
+      configuration.yaml: |
+        {{- $.Values.authelia | toYaml | nindent 2 }}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  configfile:
+    enabled: true
+    mountPath: /configuration.yaml
+    subPath: configuration.yaml
+    readOnly: true
+    type: secret
+    objectName: authelia-configfile
+
+cnpg:
+  main:
+    enabled: true
+    user: authelia
+    database: authelia
+
+redis:
+  enabled: true
+  includeCommon: true
+
+portal:
+  open:
+    enabled: true

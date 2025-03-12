@@ -5,7 +5,7 @@ description: A How To Guide for Traefik Forward Auth
 
 :::note
 
-We highly recommend to setup [authelia](/charts/premium/authelia/setup-guide)) instead.
+We highly recommend to setup [authelia](/charts/stable/authelia/setup-guide) instead.
 
 :::
 
