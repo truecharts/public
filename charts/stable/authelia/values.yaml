@@ -19,12 +19,6 @@ authelia:
       - domain: example.com
         authelia_url: https://example.com
 
-secret:
-  authelia-configfile:
-    enabled: true
-    data:
-      configuration.yaml: |
-        {{- $.Values.authelia | toYaml | nindent 2 }}
 workload:
   main:
     replicas: 2
@@ -37,6 +31,11 @@ workload:
           args:
             - --config=/configuration.yaml
           env:
+            # Update the following secrets with your own values
+            AUTHELIA_SESSION_SECRET: some-secret-replace-me
+            AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: some-secret-replace-me
+            AUTHELIA_STORAGE_ENCRYPTION_KEY: some-secret-replace-me
+            # Don't change the following envs
             X_AUTHELIA_CONFIG: /configuration.yaml
             AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
             AUTHELIA_SERVER_ADDRESS: "tcp://:{{ .Values.service.main.ports.main.port }}/"
@@ -49,10 +48,6 @@ workload:
             AUTHELIA_SESSION_REDIS_DATABASE_INDEX: "0"
             AUTHELIA_SESSION_REDIS_PASSWORD: '{{ .Values.redis.creds.redisPassword | trimAll "\"" }}'
 
-            # Update the following secrets with your own values
-            AUTHELIA_SESSION_SECRET: some-secret-replace-me
-            AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: some-secret-replace-me
-            AUTHELIA_STORAGE_ENCRYPTION_KEY: some-secret-replace-me
           probes:
             liveness:
               type: http
@@ -68,6 +63,13 @@ service:
     ports:
       main:
         port: 9091
+
+secret:
+  authelia-configfile:
+    enabled: true
+    data:
+      configuration.yaml: |
+        {{- $.Values.authelia | toYaml | nindent 2 }}
 
 persistence:
   config:
