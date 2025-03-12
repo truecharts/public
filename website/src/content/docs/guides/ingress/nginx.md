@@ -15,7 +15,7 @@ Please note the IP variables that need to be set to your specific configuration 
 
 #### Internal
 
-```
+```yaml
     controller:
       replicaCount: 2
       service:
@@ -66,7 +66,7 @@ Please note the IP variables that need to be set to your specific configuration 
 
 #### External
 
-```
+```yaml
 
   values:
     controller:
@@ -124,33 +124,39 @@ You can set charts to use either of them by specifying either:
 or
 `ingressClassName: external`
 
-
 ## Annotations Examples
 
 Here we will showcase some annotations you can use to customise your NGINX ingress behavior
+
+### Redirect to Https
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+```
 
 ### Auth
 
 For Authelia, Authentik and more
 
-```
+```yaml
 annotations:
   nginx.ingress.kubernetes.io/auth-method: 'GET'
-  nginx.ingress.kubernetes.io/auth-url: 'http://authelia.default.svc.cluster.local/api/authz/auth-request'
-  nginx.ingress.kubernetes.io/auth-signin: 'https://auth.example.com?rm=$request_method'
+  nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
+  nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_1}?rm=$request_method'
   nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
 ```
 
-### IP Whitelist:
+### IP Whitelist
 
-```
+```yaml
 annotations:
   nginx.ingress.kubernetes.io/whitelist-source-range: 49.36.X.X/32
 ```
 
 ### Themepark
 
-```
+```yaml
 annotations:
   nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header Accept-Encoding "";
@@ -159,4 +165,12 @@ annotations:
       '<link rel="stylesheet" type="text/css" href="https://gilbn.github.io/theme.park/CSS/themes/APP_NAME/THEME.css">
       </head>';
       sub_filter_once on;
+```
+
+### Redirect-Regex
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/configuration-snippet: |
+    rewrite ^/$ /admin permanent;
 ```
