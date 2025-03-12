@@ -39,7 +39,7 @@ workload:
             AUTHELIA_STORAGE_POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
             AUTHELIA_STORAGE_POSTGRES_USERNAME: "{{ .Values.cnpg.main.user }}"
             AUTHELIA_STORAGE_POSTGRES_PASSWORD: '{{ .Values.cnpg.main.creds.password | trimAll "\"" }}'
-            AUTHELIA_SESSION_REDIS_HOST: "{{ .Values.redis.creds.plain }}"
+            AUTHELIA_SESSION_REDIS_HOST: '{{ .Values.redis.creds.plain | trimAll "\"" }}'
             AUTHELIA_SESSION_REDIS_PORT: "{{ .Values.redis.service.main.ports.main.port }}"
             AUTHELIA_SESSION_REDIS_DATABASE_INDEX: "0"
             AUTHELIA_SESSION_REDIS_PASSWORD: '{{ .Values.redis.creds.redisPassword | trimAll "\"" }}'
@@ -85,8 +85,6 @@ cnpg:
     user: authelia
     database: authelia
 
-# Enabled redis
-# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
   includeCommon: true
