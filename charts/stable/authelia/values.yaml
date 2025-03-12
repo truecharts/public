@@ -26,10 +26,6 @@ workload:
     podSpec:
       containers:
         main:
-          command:
-            - authelia
-          args:
-            - --config=/configuration.yaml
           env:
             # Update the following secrets with your own values
             AUTHELIA_SESSION_SECRET: some-secret-replace-me
