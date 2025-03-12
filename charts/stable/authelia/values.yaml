@@ -4,6 +4,7 @@ image:
   tag: 4.38.19@sha256:46021dc20efdcc5cdc38a29e3050b8835429a155ae6215388ed3b793a02eb0ab
 
 # Raw Authelia configuration
+# Replace it with your configuration
 authelia:
   authentication_backend:
     file:
@@ -22,7 +23,6 @@ secret:
   authelia-configfile:
     enabled: true
     data:
-      # Replace below with your config
       configuration.yaml: |
         {{- $.Values.authelia | toYaml | nindent 2 }}
 workload:
