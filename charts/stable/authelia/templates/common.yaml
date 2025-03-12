@@ -1,24 +1,2 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.v1.common.loader.init" . }}
-
-{{- $authConfig := .Values.authelia | default dict -}}
-
-{{- if not (hasKey $authConfig "file") -}}{{- $_ := set $authConfig "file" dict -}}{{- end -}}
-{{- if not (hasKey $authConfig "server") -}}{{- $_ := set $authConfig "server" dict -}}{{- end -}}
-{{- if not (hasKey $authConfig "storage") -}}{{- $_ := set $authConfig "storage" dict -}}{{- end -}}
-{{- if not (hasKey $authConfig.storage "postgres") -}}{{- $_ := set $authConfig.storage "postgres" dict -}}{{- end -}}
-{{- if not (hasKey $authConfig "session") -}}{{- $_ := set $authConfig "session" dict -}}{{- end -}}
-{{- if not (hasKey $authConfig.session "redis") -}}{{- $_ := set $authConfig.redis "session" dict -}}{{- end -}}
-
-{{- $_ := set $authConfig.file "path" "/config/users_database.yml" -}}
-{{- $_ := set $authConfig.server "port" .Values.service.main.ports.main.port -}}
-{{- $_ := set $authConfig.storage.postgres "host" .Values.cnpg.main.creds.host -}}
-{{- $_ := set $authConfig.session.redis "host" .Values.redis.creds.plain  -}}
-
-{{- $_ := set .Values.secret "authelia-configfile" (dict
-    "enabled" true
-    "data" (dict "configuration.yaml" $authConfig)
-) -}}
-
-{{/* Render the templates */}}
-{{ include "tc.v1.common.loader.apply" . }}
+{{- include "tc.v1.common.loader.all" . }}

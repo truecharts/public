@@ -4,7 +4,14 @@ image:
   tag: 4.38.19@sha256:46021dc20efdcc5cdc38a29e3050b8835429a155ae6215388ed3b793a02eb0ab
 
 # Raw Authelia configuration
-authelia: {}
+secret:
+  authelia-configfile:
+    enabled: true
+    data:
+      configuration.yaml: |
+        ###############################################################
+        ##                  Place your config below                  ##
+        ###############################################################
 
 workload:
   main:
@@ -17,9 +24,16 @@ workload:
             - authelia
           args:
             - --config=/configuration.yaml
-          envFrom:
-            - configMapRef:
-                name: authelia-paths
+          env:
+            AUTHELIA_AUTHENTICATION_BACKEND_FILE_PATH: "/config/users_database.yml"
+            AUTHELIA_SERVER_ADDRESS: "tcp://:{{ .Values.service.main.ports.main.port }}/"
+            AUTHELIA_STORAGE_POSTGRES_ADDRESS: "tcp://{{ .Values.cnpg.main.creds.host }}:{{ .Values.cnpg.main.creds.port }}"
+            AUTHELIA_STORAGE_POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            AUTHELIA_STORAGE_POSTGRES_USERNAME: "{{ .Values.cnpg.main.user }}"
+            AUTHELIA_STORAGE_POSTGRES_PASSWORD: "{{ .Values.cnpg.main.password }}"
+            AUTHELIA_SESSION_REDIS_HOST: "{{ .Values.redis.creds.plain }}"
+            AUTHELIA_SESSION_REDIS_PORT: "{{ .Values.redis.service.main.ports.main.port }}"
+
           probes:
             liveness:
               type: http
