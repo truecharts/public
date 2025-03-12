@@ -24,55 +24,57 @@ LLDAP is a `stable` train chart and therefore isn't supported at the same level 
 
 ```yaml
 // values.yaml
-# your domain
-domain: example.com
-# autehlia ingress url
-default_redirection_url: https://auth.example.com
-authentication_backend:
-  # lldap setup
-  ldap:
-    enabled: true
-    implementation: custom
-    # if name is not lldap update as needed
-    url: ldap://lldap-ldap.lldap.svc.cluster.local:3890
-    # replace with your domain
-    base_dn: DC=example,DC=com
-    username_attribute: uid
-    additional_users_dn: ou=people
-    users_filter: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
-    additional_groups_dn: ou=groups
-    groups_filter: (member={dn})
-    group_name_attribute: cn
-    mail_attribute: mail
-    display_name_attribute: displayName
-    # user with lldap_password_manager group
-    user: uid=manager,ou=people,dc=example,dc=com
-    # above user password in plain text
-    plain_password: somepassword
-  file:
-    enabled: false
-notifier:
-  # smtp setup (example is gmail)
-  smtp:
-    enabled: true
-    host: smtp.gmail.com
-    port: 587
-    # gmail email address (username)
-    username: email@gmail.com
-    # use a google app password if using gmail
-    plain_password: somepassword
-    # email address to show as sender
-    sender: no-reply@example.com
-  filesystem:
-    enabled: false
-access_control:
-  rules:
-    # basic rule for one factor (username/password) login for users in the admin group
-    - domain:
-      - "*.example.com"
-      - example.com
-      policy: one_factor
-      subject: "group:admin"
+# All configuration options should be put under this. Supports all upstream options
+authelia:
+  # your domain
+  domain: example.com
+  # autehlia ingress url
+  default_redirection_url: https://auth.example.com
+  authentication_backend:
+    # lldap setup
+    ldap:
+      enabled: true
+      implementation: custom
+      # if name is not lldap update as needed
+      url: ldap://lldap-ldap.lldap.svc.cluster.local:3890
+      # replace with your domain
+      base_dn: DC=example,DC=com
+      username_attribute: uid
+      additional_users_dn: ou=people
+      users_filter: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
+      additional_groups_dn: ou=groups
+      groups_filter: (member={dn})
+      group_name_attribute: cn
+      mail_attribute: mail
+      display_name_attribute: displayName
+      # user with lldap_password_manager group
+      user: uid=manager,ou=people,dc=example,dc=com
+      # above user password in plain text
+      plain_password: somepassword
+    file:
+      enabled: false
+  notifier:
+    # smtp setup (example is gmail)
+    smtp:
+      enabled: true
+      host: smtp.gmail.com
+      port: 587
+      # gmail email address (username)
+      username: email@gmail.com
+      # use a google app password if using gmail
+      plain_password: somepassword
+      # email address to show as sender
+      sender: no-reply@example.com
+    filesystem:
+      enabled: false
+  access_control:
+    rules:
+      # basic rule for one factor (username/password) login for users in the admin group
+      - domain:
+        - "*.example.com"
+        - example.com
+        policy: one_factor
+        subject: "group:admin"
 ```
 
 Please see [Authelia Rules](./authelia-rules) for more advanced rules.
@@ -87,8 +89,6 @@ ingress:
   main:
     enabled: true
     integrations:
-      traefik:
-        enabled: true
       certManager:
         enabled: true
         certificateIssuer: domain-0-le-prod
@@ -99,8 +99,6 @@ ingress:
 ## Traefik ForwardAuth Setup
 
 - This part is straight forward as long as you have a working `Traefik` install.
-
-- The following is added to `Traefik` `values.yaml`,
 
 ```yaml
 // values.yaml
@@ -138,6 +136,19 @@ ingress:
         certificateIssuer: domain-0-le-prod
     hosts:
       - host: radarr.example.com
+```
+
+## Nginx-Ingress Annotations
+
+- These annotations need to be added to each chart you want to use auth with:
+
+```yaml
+// values.yaml
+annotations:
+  nginx.ingress.kubernetes.io/auth-method: 'GET'
+  nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
+  nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
+  nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
 ```
 
 ### References
