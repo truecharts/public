@@ -5,7 +5,7 @@ title: Traefik
 ## Setup
 
 For Traefik you will need to install the upstream traefik chart.
-Our advised solution for Traefik is to nót differentiate between internal and external. Instead we advice using an IP-Whitelist or use tunneling to limit
+Our advised solution for Traefik is to not differentiate between internal and external. Instead we advice using an IP-Whitelist or use tunneling to limit
 access for some domains to local.
 
 ### Example values
