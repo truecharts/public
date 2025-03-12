@@ -213,11 +213,11 @@ spec:
        enabled: false
     resources:
        limits:
-         cpu: 10000m
-         memory: 14Gi
+         cpu: 8000m
+         memory: 20Gi
        requests:
-         cpu: 2000m
-         memory: 6Gi
+         cpu: 1000m
+         memory: 8Gi
 
     ingress:
       main:
