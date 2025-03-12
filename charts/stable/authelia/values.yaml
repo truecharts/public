@@ -32,7 +32,7 @@ workload:
             AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: some-secret-replace-me
             AUTHELIA_STORAGE_ENCRYPTION_KEY: some-secret-replace-me
             # Don't change the following envs
-            X_AUTHELIA_CONFIG: /configuration.yaml
+            X_AUTHELIA_CONFIG: "{{ .Values.persistence.configfile.mountPath }}"
             AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
             AUTHELIA_SERVER_ADDRESS: "tcp://:{{ .Values.service.main.ports.main.port }}/"
             AUTHELIA_STORAGE_POSTGRES_ADDRESS: "tcp://{{ .Values.cnpg.main.creds.host }}:{{ .Values.cnpg.main.creds.port }}"
@@ -71,7 +71,7 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-  authelia-configfile:
+  configfile:
     enabled: true
     mountPath: /configuration.yaml
     subPath: configuration.yaml
