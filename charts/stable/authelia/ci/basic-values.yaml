@@ -6,3 +6,10 @@ ingress:
         paths:
           - path: /
             pathType: Prefix
+authelia:
+  authentication_backend:
+    file:
+      path: /config/users.yaml
+  notifier:
+    filesystem:
+      filename: /config/notification.txt
