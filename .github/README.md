@@ -71,7 +71,7 @@ To contact the TrueCharts project:
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-268-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-269-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -428,6 +428,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://resume.dougchimento.com/"><img src="https://avatars.githubusercontent.com/u/976425?v=4?s=100" width="100px;" alt="Douglas Chimento"/><br /><sub><b>Douglas Chimento</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=dougEfresh" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://itconstruct.com.au"><img src="https://avatars.githubusercontent.com/u/555142?v=4?s=100" width="100px;" alt="Addison McDermid"/><br /><sub><b>Addison McDermid</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=itconstruct" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://jaelgareau.com"><img src="https://avatars.githubusercontent.com/u/20613592?v=4?s=100" width="100px;" alt="Jaël Gareau"/><br /><sub><b>Jaël Gareau</b></sub></a><br /><a href="https://github.com/truecharts/public/commits?author=jaja360" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
