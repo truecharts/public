@@ -2,8 +2,8 @@
 
 # Define variables
 TRASHGUIDES_REPO="https://github.com/TRaSH-Guides/Guides.git"
-TRASHGUIDES_DIR="/trashguides"
-CHARTS_DIR="/charts"
+TRASHGUIDES_DIR="trashguides"
+CHARTS_DIR="charts"
 
 # Clone or update TRaSH-Guides repo
 if [ -d "$TRASHGUIDES_DIR" ]; then
