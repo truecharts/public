@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.5
+    version: 15.6.6
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/shlink
   - https://hub.docker.com/r/shlinkio/shlink
 type: application
-version: 16.14.9
+version: 16.14.10
