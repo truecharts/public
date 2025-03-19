@@ -7,6 +7,11 @@ workload:
   main:
     podSpec:
       automountServiceAccountToken: true
+      containers:
+        main:
+          env:
+            # Set this to your host (example: home.mydomain.com)
+            HOMEPAGE_ALLOWED_HOSTS: "localhost"
       initContainers:
         init-config:
           enabled: true
