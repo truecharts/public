@@ -13,8 +13,8 @@ TRASHGUIDES_DIR="trashguides"
 CHARTS_DIR="charts"
 
 # Header and Footer content
-HEADER=":::caution\nThese guides are supplied 'as-is' and not covered by our support ticket system.\n:::\n"
-FOOTER=":::info\nAll credits go towards: https://trash-guides.info\n:::"
+HEADER=":::caution\nThese guides are supplied 'as-is' and not covered by our support ticket system.\n:::\n\n:::info\nAll credits go towards: https://trash-guides.info\nfor more info and guides, please check them out!:::"
+FOOTER=""
 
 echo "Starting script..."
 
@@ -58,6 +58,22 @@ for chart_path in ${CHARTS_DIR}/*/*; do
 
                     # Add the footer at the end of the file
                     echo -e "$FOOTER" >> "$md_file"
+                fi
+            done
+
+            # Remove the first line from any index.md files and add the header and footer
+            for sh_file in "$target_dir"/*.sh; do
+                if [ -f "$sh_file" ]; then
+                    # Add the header at the beginning of the file
+                    rm -rf "$sh_file"
+                fi
+            done
+
+            # Remove the first line from any index.md files and add the header and footer
+            for py_file in "$target_dir"/*.py; do
+                if [ -f "$py_file" ]; then
+                    # Add the header at the beginning of the file
+                    rm -rf "$py_file"
                 fi
             done
 
