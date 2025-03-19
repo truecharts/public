@@ -2,7 +2,7 @@
 title: FluxCD Webhook
 ---
 
-:::warning
+:::caution[Disclaimer]
 
 This guide isnt covered by the Support Policy and is considered more advanced.
 If you face issues feel free to open a thread in the appropiate Channel in our Discord server.
@@ -22,6 +22,7 @@ If you face issues feel free to open a thread in the appropiate Channel in our D
 - Add a subfolder called `github`
 - Add the necessary kustomization to the `webhooks` folder for the github directory
 - Next we will need 3 files inside the github folder:
+
   ```yaml
     // receiver.yaml
 
@@ -100,11 +101,12 @@ If you face issues feel free to open a thread in the appropiate Channel in our D
   TOKEN=$(head -c 12 /dev/urandom | shasum | cut -d ' ' -f1)
   echo $TOKEN
   ```
+
 - Replace `YOURSECRETKEY` with your generated Webhook Token
 - Make sure to run `clustertool encrypt` to encrypt your files
 - Push changes to your cluster before continuing
 
-## Get Receiver URL:
+## Get Receiver URL
 
 After pushing the changes to your cluster and waiting for reconcile.
 Run the following command to get your receiver url:
@@ -121,10 +123,11 @@ Output should look something like this:
 
 NAME     READY   STATUS
 github-receiver   True    Receiver initialised with URL: /hook/bed6d00b5555b1603e1f59b94d7fdbca58089cb5663633fb83f2815dc626d92b
-
 ```
+
 Next you will have to add your domain and subdomain to it.
 Example
+
 ```yaml
 https://flux-webhook.mydomain.com/hook/bed6d00b5555b1603e1f59b94d7fdbca58089cb5663633fb83f2815dc626d92b
 ```
