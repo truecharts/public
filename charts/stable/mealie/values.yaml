@@ -88,6 +88,14 @@ persistence:
       main:
         main:
           mountPath: /app/data
+  nltk:
+    enabled: true
+    type: emptyDir
+    size: 5Gi
+    targetSelector:
+      main:
+        main:
+          mountPath: /nltk_data
 cnpg:
   main:
     enabled: true
