@@ -9,7 +9,7 @@ shopt -s dotglob
 
 # Define paths
 TRASHGUIDES_REPO="https://github.com/TRaSH-Guides/Guides.git"
-TRASHGUIDES_DIR="trashguides"
+TRASHGUIDES_DIR="temp/trashguides"
 CHARTS_DIR="charts"
 
 # Header and Footer content
@@ -47,22 +47,19 @@ for chart_path in ${CHARTS_DIR}/*/*; do
             echo "Copying contents of $matching_folder to $target_dir"
             cp -r "${matching_folder}/." "$target_dir"
 
-            # Remove the first line from any index.md files and add the header and footer
-            for md_file in "$target_dir"/*.md; do
-                if [ -f "$md_file" ]; then
-                    # Remove the first line of the file (using a more compatible approach)
-                    sed -i '' '1d' "$md_file"  # macOS/BSD sed syntax
+find "$target_dir" -type f -name "*.md" | while read -r md_file; do
+    # Remove the first line of the file
+    sed -i '' '1d' "$md_file"  # macOS/BSD sed syntax
 
-                    # Add the header at the beginning of the file
-                    echo -e "$HEADER" | cat - "$md_file" > temp && mv temp "$md_file"
+    # Add the header at the beginning of the file
+    echo -e "$HEADER" | cat - "$md_file" > temp && mv temp "$md_file"
 
-                    # Add the footer at the end of the file
-                    echo -e "$FOOTER" >> "$md_file"
-                fi
-            done
+    # Add the footer at the end of the file
+    echo -e "$FOOTER" >> "$md_file"
+done
 
             # Remove the first line from any index.md files and add the header and footer
-            for sh_file in "$target_dir"/*.sh; do
+            find "$target_dir" -type f -name "*.sh" | while read -r sh_file; do
                 if [ -f "$sh_file" ]; then
                     # Add the header at the beginning of the file
                     rm -rf "$sh_file"
@@ -70,7 +67,7 @@ for chart_path in ${CHARTS_DIR}/*/*; do
             done
 
             # Remove the first line from any index.md files and add the header and footer
-            for py_file in "$target_dir"/*.py; do
+            find "$target_dir" -type f -name "*.py" | while read -r py_file; do
                 if [ -f "$py_file" ]; then
                     # Add the header at the beginning of the file
                     rm -rf "$py_file"
