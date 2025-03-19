@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/mealie-recipes/mealie
-  tag: v2.7.1@sha256:708e9ffb843bafdcebf46ee35bb45d1b003518e8c204483a1da039b4076ef980
+  tag: v2.8.0@sha256:63aef46d90975d9cf9c0fdb9399fc2fe36acd222e1db6be99c504b9ccdbee967
   pullPolicy: IfNotPresent
 mealie:
   frontend:
@@ -88,6 +88,14 @@ persistence:
       main:
         main:
           mountPath: /app/data
+  nltk:
+    enabled: true
+    type: emptyDir
+    size: 5Gi
+    targetSelector:
+      main:
+        main:
+          mountPath: /nltk_data
 cnpg:
   main:
     enabled: true
