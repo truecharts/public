@@ -14,13 +14,7 @@
   {{/* Enable Machine Learning Service */}}
   {{- $_ := set .Values.service.machinelearning "enabled" true -}}
   {{/* Render Machine Learning Workload */}}
-  {{/* TODO Refactor, tmp fix to allow assigning GPU */}}
-  {{- $mlResources := .Values.workload.machinelearning.podSpec.containers.machinelearning.resources -}}
-
   {{- $_ := set .Values.workload "machinelearning" (include "immich.machinelearning" . | fromYaml) -}}
-  {{/* TODO Refactor, tmp fix to allow assigning GPU */}}
-  {{- $_ := set .Values.workload.machinelearning.podSpec.containers.machinelearning "resources" $mlResources -}}
-
 {{- else -}}
   {{/* Disable Machine Learning Service */}}
   {{- $_ := set .Values.service.machinelearning "enabled" false -}}
