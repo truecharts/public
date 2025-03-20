@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.20.1.9773
+appVersion: 5.20.2.9777
 dependencies:
   - name: common
     version: 25.4.10
@@ -30,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: radarr
 sources:
+  - https://ghcr.io/home-operations/radarr
   - https://ghcr.io/onedr0p/exportarr
-  - https://ghcr.io/onedr0p/radarr
   - https://github.com/Radarr/Radarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
 type: application
