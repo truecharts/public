@@ -34,7 +34,8 @@ workload:
           env:
             DEFAULT_PORT: "{{ .Values.service.main.ports.main.port }}"
             DEFAULT_SSL_PORT: "{{ .Values.service.sslport.ports.sslport.port }}"
-            BACKUP_VERSIONS_TO_KEEP: 5 # Default is 5
+            # Default is 5
+            BACKUP_VERSIONS_TO_KEEP: 5
             POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
             POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
             POSTGRES_PASSWORD:
