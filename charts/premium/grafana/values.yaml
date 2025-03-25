@@ -237,6 +237,21 @@ configmap:
           domain: "{{ if (and .Values.ingress.main.enabled .Values.ingress.main.hosts) }}{{ .Values.ingress.main.hosts | first }}{{ else }}''{{ end }}"
       ldap.toml: |-
         # nope
+  # Some included dashboards, which can be enabled when prefered
+  dashboard_certmanager:
+    enabled: false
+    labels:
+      grafana_dashboard: "1"
+    data:
+      dashboard_certmanager.json: >-
+        {{ .Files.Get "dashboard_certmanager.json" | indent 8 }}
+  dashboard_traefik:
+    enabled: false
+    labels:
+      grafana_dashboard: "1"
+    data:
+      dashboard_traefik.json: >-
+        {{ .Files.Get "dashboard_traefik.json" | indent 8 }}
 
 persistence:
   config:
