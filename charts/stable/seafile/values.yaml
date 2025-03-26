@@ -1,6 +1,6 @@
 image:
   repository: docker.io/seafileltd/seafile-mc
-  tag: 12.0.10@sha256:eee85e8d6f14c3edc7485bf6c9f099a4b01a11dd2357b04b66bde1dc2cebad33
+  tag: 12.0.11@sha256:4ab87f4b7fd9a712f614386c3362049d1701161e07e0f88681fdddcc3e543680
   pullPolicy: IfNotPresent
 service:
   main:
@@ -21,12 +21,14 @@ workload:
       containers:
         main:
           env:
+            CACHE_PROVIDER: memcached
             DB_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             DB_ROOT_PASSWD: "{{ .Values.mariadb.rootPassword }}"
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             SEAFILE_SERVER_LETSENCRYPT: false
             SEAFILE_SERVER_HOSTNAME: ""
             INIT_SEAFILE_ADMIN_EMAIL: me@example.com
@@ -41,6 +43,7 @@ configmap:
     enabled: true
     data:
       env: |
+        CACHE_PROVIDER= memcached
         TIME_ZONE={{ .Values.TZ }}
         JWT_PRIVATE_KEY={{ .Values.workload.main.podSpec.containers.main.env.JWT_PRIVATE_KEY }}
         SEAFILE_SERVER_PROTOCOL=http

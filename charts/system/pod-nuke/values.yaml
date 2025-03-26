@@ -1,0 +1,50 @@
+image:
+  repository: tccr.io/tccr/pod-nuke
+  pullPolicy: IfNotPresent
+  tag: v0.0.2
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    replicas: 2
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+portal:
+  open:
+    enabled: false
+
+podOptions:
+  automountServiceAccountToken: true
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [""]
+        resources: ["nodes"]
+        verbs: ["get", "list"]
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "delete"]
