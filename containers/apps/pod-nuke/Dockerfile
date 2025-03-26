@@ -1,4 +1,4 @@
-FROM tccr.io/tccr/alpine:v3.21.3@sha256:8ae22cc7c6f2dbc803e2d7e8aff41496d72a3ec4c2527501baac5f94360ed20a
+FROM tccr.io/truecharts/kubectl
 
 ARG TARGETPLATFORM
 ARG VERSION
