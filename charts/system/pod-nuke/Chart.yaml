@@ -6,7 +6,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: 0.0.1
+appVersion: 0.0.2
 dependencies:
   - name: common
     version: 25.4.10
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/containers/tree/master/apps/pod-nuke
   - https://pod-nuke.universe.tf
 type: application
-version: 0.0.2
+version: 0.0.3
