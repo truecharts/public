@@ -6,7 +6,7 @@ ARG VERSION
 # hadolint ignore=DL3002
 USER root
 
-COPY ./containers/apps/pod_nuke/includes/pod_nuke.sh /scripts/pod_nuke.sh
+COPY ./containers/apps/pod-nuke/includes/pod_nuke.sh /scripts/pod_nuke.sh
 
 # hadolint ignore=DL3018,DL4006
 RUN apk update && apk add --no-cache bash \
