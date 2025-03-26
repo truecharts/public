@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.15"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Watches for failed nodes and force-removes any pods on them after a timer runes out
+home: https://truecharts.org/charts/system/pod-nuke
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pod-nuke.webp
+keywords:
+  - pod-nuke
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pod-nuke
+sources:
+  - https://github.com/pod-nuke/pod-nuke
+  - https://github.com/truecharts/charts/tree/master/charts/system/pod-nuke
+  - https://github.com/truecharts/containers/tree/master/apps/pod-nuke
+  - https://pod-nuke.universe.tf
+type: application
+version: 2.3.1
