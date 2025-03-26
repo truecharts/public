@@ -12,6 +12,7 @@ service:
 
 workload:
   main:
+    replicas: 2
     podSpec:
       containers:
         main:
