@@ -21,12 +21,14 @@ workload:
       containers:
         main:
           env:
+            CACHE_PROVIDER: memcached
             DB_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             DB_ROOT_PASSWD: "{{ .Values.mariadb.rootPassword }}"
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             SEAFILE_SERVER_LETSENCRYPT: false
             SEAFILE_SERVER_HOSTNAME: ""
             INIT_SEAFILE_ADMIN_EMAIL: me@example.com
@@ -41,6 +43,7 @@ configmap:
     enabled: true
     data:
       env: |
+        CACHE_PROVIDER= memcached
         TIME_ZONE={{ .Values.TZ }}
         JWT_PRIVATE_KEY={{ .Values.workload.main.podSpec.containers.main.env.JWT_PRIVATE_KEY }}
         SEAFILE_SERVER_PROTOCOL=http
