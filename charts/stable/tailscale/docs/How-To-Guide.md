@@ -54,7 +54,8 @@ since we consider these advanced features and these may/not be compatible with e
 ## Namespace Privileges Required for Talos Cluster
 
 In your namespace.yaml file add
-```labels:
+```
+labels:
     pod-security.kubernetes.io/enforce: privileged
 ```
 
