@@ -1,0 +1,53 @@
+image:
+  repository: ghcr.io/carlreid/streammaster
+  pullPolicy: IfNotPresent
+  tag: 0.11.3@sha256:55b7f5e4aa9a1f94bb640010e6a3ed50619d2fcef25a7024a18e4db2d84d5789
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 7095
+  sslport:
+    enabled: true
+    ports:
+      sslport:
+        enabled: true
+        port: 7096
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  logos:
+    enabled: true
+    mountPath: "/config/tv-logos"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEFAULT_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DEFAULT_SSL_PORT: "{{ .Values.service.sslport.ports.sslport.port }}"
+            # Default is 5
+            BACKUP_VERSIONS_TO_KEEP: 5
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+cnpg:
+  main:
+    enabled: true
+    user: streammaster
+    database: streammaster
