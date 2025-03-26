@@ -1,4 +1,4 @@
-FROM tccr.io/truecharts/kubectl
+FROM tccr.io/truecharts/kubectl@sha256:3ba63d6e0ebb66143e41271974acb84f629b6a9d68fd69702da829246bb77fca
 
 ARG TARGETPLATFORM
 ARG VERSION
