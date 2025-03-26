@@ -128,7 +128,7 @@ spegel:
   # -- Registries for which mirror configuration will be created.
   ## NOTE: If using Talos, Talos does NOT fall-back to the main url for talos containers
   ## Include main url in mirror list in that case!
-  registries:
+  mirroredRegistries:
     - https://cgr.dev
     - https://docker.io
     - https://ghcr.io
@@ -141,7 +141,7 @@ spegel:
     - https://tccr.io
     - https://factory.talos.dev
   # -- Additional target mirror registries other than Spegel.
-  additionalMirrorRegistries: []
+  additionalMirrorTargets: []
   # -- Max ammount of mirrors to attempt.
   mirrorResolveRetries: 3
   # -- Max duration spent finding a mirror.
