@@ -72,7 +72,7 @@ workload:
               secretKeyRef:
                 name: hoarder-secrets
                 key: MEILI_MASTER_KEY           
-            BROWSER_WEB_URL: '{{ printf "http://%v-chrome:9222" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
+            BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
             # You almost never want to change the value of the DATA_DIR variable.
             # If you want to mount a custom directory, change the volume mapping above instead.
             DATA_DIR: /data  # DON'T CHANGE THIS
