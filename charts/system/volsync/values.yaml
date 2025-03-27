@@ -456,7 +456,7 @@ rbac:
           - update
 configmap:
   # Some included dashboards, which can be enabled when prefered
-  dashboard_volsync:
+  dashboard-volsync:
     enabled: true
     labels:
       grafana_dashboard: "1"
