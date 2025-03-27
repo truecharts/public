@@ -67,20 +67,20 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-              MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.targetPort }}'
-              MEILI_MASTER_KEY:
-                secretKeyRef:
-                  name: hoarder-secrets
-                  key: MEILI_MASTER_KEY           
-              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:9222" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
-              # You almost never want to change the value of the DATA_DIR variable.
-              # If you want to mount a custom directory, change the volume mapping above instead.
-              DATA_DIR: /data # DON'T CHANGE THIS
-              NEXTAUTH_URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
-              NEXTAUTH_SECRET:
-                secretKeyRef:
-                  name: hoarder-secrets
-                  key: NEXTAUTH_SECRET          
+            MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.targetPort }}'
+            MEILI_MASTER_KEY:
+              secretKeyRef:
+                name: hoarder-secrets
+                key: MEILI_MASTER_KEY           
+            BROWSER_WEB_URL: '{{ printf "http://%v-chrome:9222" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
+            # You almost never want to change the value of the DATA_DIR variable.
+            # If you want to mount a custom directory, change the volume mapping above instead.
+            DATA_DIR: /data  # DON'T CHANGE THIS
+            NEXTAUTH_URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            NEXTAUTH_SECRET:
+              secretKeyRef:
+                name: hoarder-secrets
+                key: NEXTAUTH_SECRET          
 
   meilisearch:
     enabled: true
@@ -109,11 +109,11 @@ workload:
               type: tcp
               port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
           env:
-              MEILI_MASTER_KEY:
-                secretKeyRef:
-                  name: hoarder-secrets
-                  key: MEILI_MASTER_KEY
-              MEILI_NO_ANALYTICS: true
+            MEILI_MASTER_KEY:
+              secretKeyRef:
+                name: hoarder-secrets
+                key: MEILI_MASTER_KEY
+            MEILI_NO_ANALYTICS: true
   chrome:
     enabled: true
     type: Deployment
