@@ -238,21 +238,21 @@ configmap:
       ldap.toml: |-
         # nope
   # Some included dashboards, which can be enabled when prefered
-  dashboard_certmanager:
+  dashboard-certmanager:
     enabled: true
     labels:
       grafana_dashboard: "1"
     data:
       dashboard_certmanager.json: >-
         {{ .Files.Get "dashboard_certmanager.json" | indent 8 }}
-  dashboard_traefik:
+  dashboard-traefik:
     enabled: false
     labels:
       grafana_dashboard: "1"
     data:
       dashboard_traefik.json: >-
         {{ .Files.Get "dashboard_traefik.json" | indent 8 }}
-  dashboard_nginx:
+  dashboard-nginx:
     enabled: false
     labels:
       grafana_dashboard: "1"
