@@ -89,6 +89,7 @@ workload:
       containers:
         meilisearch:
           enabled: true
+          primary: true
           imageSelector: meiliImage
           resources:
             excludeExtra: true
@@ -120,6 +121,7 @@ workload:
       containers:
         chrome:
           enabled: true
+          primary: true
           imageSelector: chromeImage
           resources:
             excludeExtra: true
