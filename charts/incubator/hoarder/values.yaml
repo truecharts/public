@@ -116,7 +116,7 @@ workload:
     type: Deployment
     podSpec:
       containers:
-        meilisearch:
+        chrome:
           enabled: true
           imageSelector: chromeImage
           resources:
