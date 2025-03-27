@@ -4,25 +4,25 @@ import type { StarlightBlogAuthor } from "starlight-blog/schema";
 export const authors: Record<string, StarlightBlogAuthor> = {
   ornias: {
     name: "Kjeld Schouten",
-    title: "Maintainer & Founder of TrueCharts",
+    title: "Ops and R&D Lead",
     url: "https://github.com/privatepuffin",
     picture: "https://avatars.githubusercontent.com/u/7613738?v=4",
   },
   privatepuffin: {
     name: "Kjeld Schouten",
-    title: "Maintainer & Founder of TrueCharts",
+    title: "Ops and R&D Lead",
     url: "https://github.com/privatepuffin",
     picture: "https://avatars.githubusercontent.com/u/7613738?v=4",
   },
   stavros: {
     name: "Stavros Kois",
-    title: "Core Contributor & Maintainer of TrueCharts",
+    title: "Common Lead",
     url: "https://github.com/stavros-k",
     picture: "https://avatars.githubusercontent.com/u/47820033?v=4",
   },
   kqmaverick: {
     name: "Anthony Scaffidi",
-    title: "Support Team",
+    title: "Support Lead",
     url: "https://github.com/kqmaverick",
     picture: "https://avatars.githubusercontent.com/u/121722567?v=4",
   },
@@ -34,7 +34,7 @@ export const authors: Record<string, StarlightBlogAuthor> = {
   },
   jagrbombs: {
     name: "Steven McElligott",
-    title: "Head Moderator",
+    title: "Community Lead",
     url: "https://github.com/stevenmcelligott",
     picture: "https://avatars.githubusercontent.com/u/89483932?v=4",
   },
@@ -46,13 +46,13 @@ export const authors: Record<string, StarlightBlogAuthor> = {
   },
   bitpushr: {
     name: "bitpushr",
-    title: "Docs Maintainer",
+    title: "Former Docs Maintainer",
     url: "https://github.com/bitpushr",
     picture: "https://avatars.githubusercontent.com/u/91350598?v=4",
   },
   alfi0812: {
     name: "Alfi0812",
-    title: "Docs Maintainer",
+    title: "Community Development Lead",
     url: "https://github.com/alfi0812",
     picture: "https://avatars.githubusercontent.com/u/43101280?v=4",
   },
