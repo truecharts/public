@@ -257,7 +257,7 @@ configmap:
     labels:
       grafana_dashboard: "1"
     data:
-      dashboard_traefik.json: >-
+      dashboard_nginx.json: >-
         {{ .Files.Get "dashboard_nginx.json" | indent 8 }}
 persistence:
   config:
