@@ -11,6 +11,10 @@ meiliImage:
   pullPolicy: IfNotPresent
   tag: v1.13.3@sha256:bed3fb650e62da53145777204891159242f6ea4ce69e215b36223af4aa64a0ae
 
+hoarder:
+  nextauth_secret: super_random_string
+  meili_master_key: another_random_string
+
 securityContext:
   container:
     runAsNonRoot: false
@@ -68,20 +72,13 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.targetPort }}'
-            MEILI_MASTER_KEY:
-              secretKeyRef:
-                name: hoarder-secrets
-                key: MEILI_MASTER_KEY           
+            MEILI_MASTER_KEY: "{{ .Values.hoarder.meili_master_key }}"           
             BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
             # You almost never want to change the value of the DATA_DIR variable.
             # If you want to mount a custom directory, change the volume mapping above instead.
             DATA_DIR: /data  # DON'T CHANGE THIS
             NEXTAUTH_URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
-            NEXTAUTH_SECRET:
-              secretKeyRef:
-                name: hoarder-secrets
-                key: NEXTAUTH_SECRET          
-
+            NEXTAUTH_SECRET: "{{ .Values.hoarder.nextauth_secret }}" 
   meilisearch:
     enabled: true
     type: Deployment
@@ -109,10 +106,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
           env:
-            MEILI_MASTER_KEY:
-              secretKeyRef:
-                name: hoarder-secrets
-                key: MEILI_MASTER_KEY
+            MEILI_MASTER_KEY: "{{ .Values.hoarder.meili_master_key }}"
             MEILI_NO_ANALYTICS: true
   chrome:
     enabled: true
