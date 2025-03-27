@@ -142,8 +142,8 @@ workload:
               type: tcp
               port: "{{ .Values.service.chrome.ports.chrome.port }}"
           securityContext:
-              container:
-                privileged: True
+            container:
+              privileged: true
 
 persistence:
   data:
