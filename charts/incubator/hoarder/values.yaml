@@ -142,8 +142,15 @@ workload:
               type: tcp
               port: "{{ .Values.service.chrome.ports.chrome.port }}"
           securityContext:
-            container:
-              privileged: true
+            privileged: true
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
+                - MKNOD              
 
 persistence:
   data:
