@@ -70,11 +70,11 @@ workload:
                 secretKeyRef:
                   name: hoarder-secrets
                   key: MEILI_MASTER_KEY                 
-              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
+              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:9222" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
               # You almost never want to change the value of the DATA_DIR variable.
               # If you want to mount a custom directory, change the volume mapping above instead.
               DATA_DIR: /data # DON'T CHANGE THIS
-              NEXTAUTH_URL:
+              NEXTAUTH_URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
               NEXTAUTH_SECRET:
                 secretKeyRef:
                   name: hoarder-secrets
@@ -107,9 +107,9 @@ workload:
               port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
           env:
               MEILI_MASTER_KEY:
-                secretKeyRef:
-                  name: hoarder-secrets
-                  key: MEILI_MASTER_KEY 
+              secretKeyRef:
+                name: hoarder-secrets
+                key: MEILI_MASTER_KEY 
               MEILI_NO_ANALYTICS: true
   chrome:
     enabled: true
@@ -136,7 +136,6 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.chrome.ports.chrome.port }}"
-
 
 persistence:
   data:
