@@ -63,12 +63,12 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-              MEILI_ADDR: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.port }}'
+              MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.port }}'
               MEILI_MASTER_KEY:
                 secretKeyRef:
                   name: hoarder-secrets
                   key: MEILI_MASTER_KEY                 
-              BROWSER_WEB_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.port }}'
+              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.port }}'
               # You almost never want to change the value of the DATA_DIR variable.
               # If you want to mount a custom directory, change the volume mapping above instead.
               DATA_DIR: /data # DON'T CHANGE THIS
