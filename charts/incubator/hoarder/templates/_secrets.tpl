@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "hoarder.secrets" -}}
-{{- $secretName := (printf "%s-ollama-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-hoarder-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $secretKey := randAlphaNum 64 -}}
 {{- $meiliKey := randAlphaNum 64 -}}
