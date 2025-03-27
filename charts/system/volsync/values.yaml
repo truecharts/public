@@ -454,3 +454,12 @@ rbac:
           - get
           - patch
           - update
+configmap:
+  # Some included dashboards, which can be enabled when prefered
+  dashboard_volsync:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      dashboard_volsync.json: >-
+        {{ .Files.Get "dashboard_volsync.json" | indent 8 }}
