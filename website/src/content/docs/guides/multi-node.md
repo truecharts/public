@@ -1,5 +1,5 @@
 ---
-title: Multi Node Cluster Node Failure
+title: Fix pods stuck terminating after node failure
 ---
 
 
