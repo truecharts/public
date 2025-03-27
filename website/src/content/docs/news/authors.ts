@@ -51,7 +51,7 @@ export const authors: Record<string, StarlightBlogAuthor> = {
     picture: "https://avatars.githubusercontent.com/u/91350598?v=4",
   },
   alfi0812: {
-    name: "Alfi0812",
+    name: "Alfred Göppel",
     title: "Community Development Lead",
     url: "https://github.com/alfi0812",
     picture: "https://avatars.githubusercontent.com/u/43101280?v=4",
