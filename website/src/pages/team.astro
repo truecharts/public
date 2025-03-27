@@ -1,0 +1,55 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import CardGrid from "../components/CardGrid.astro";
+import MultiIcons from "../components/multi-icons/MultiIcons.astro";
+import { Card } from "@astrojs/starlight/components";
+import { Icon } from "@astrojs/starlight/components";
+import { AnimatedHeroValue } from "../components/CustomHero.astro";
+
+const listItemClass =
+  "flex flex-row items-center gap-0 space-y-0 hover:scale-110 duration-1000 group";
+const iconName = "approve-check-circle";
+const iconClass = "mr-2 group-hover:animate-ping";
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Meet the Team",
+    description: "Your Source for Awesome Helm-Charts!",
+    template: "splash",
+    banner: {
+      content:
+        '<a class="no-underline font-bold hover:underline" target="_blank" href="https://opencollective.com/truecharts">TrueCharts and OpenSource can only exist with your continued support</a>',
+    },
+    hero: {
+      tagline: "",
+      actions: []
+    },
+  }}
+>
+  <div class="text-center">
+    <div
+      class="text-4xl max-md:text-2xl max-sm:text-xl font-extrabold border-b-4 border-tc-primary inline-block mb-10"
+    >
+      Work-In-Progress
+    </div>
+  </div>
+  <CardGrid stagger>
+    <Card title="MrPuffin" icon="pencil">
+      TBD
+    </Card>
+    <Card title="Stavros" icon="pencil">
+      TBD
+    </Card>
+    <Card title="Alfi" icon="pencil">
+      TBD
+    </Card>
+    <Card title="Jagrbombs" icon="pencil">
+      TBD
+    </Card>
+    <Card title="kqmaverick" icon="pencil">
+      TBD
+    </Card>
+
+  </CardGrid>
+</StarlightPage>
