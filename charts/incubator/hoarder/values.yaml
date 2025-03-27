@@ -32,6 +32,7 @@ service:
         enabled: true
         protocol: http
         port: 7700
+        targetPort: 7700        
   chrome:
     enabled: true
     ports:
@@ -39,6 +40,7 @@ service:
         enabled: true
         protocol: http
         port: 9222
+        targetPort: 9222        
 
 workload:
   main:
@@ -63,12 +65,12 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-              MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.port }}'
+              MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.targetPort }}'
               MEILI_MASTER_KEY:
                 secretKeyRef:
                   name: hoarder-secrets
                   key: MEILI_MASTER_KEY                 
-              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.port }}'
+              BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
               # You almost never want to change the value of the DATA_DIR variable.
               # If you want to mount a custom directory, change the volume mapping above instead.
               DATA_DIR: /data # DON'T CHANGE THIS
