@@ -252,7 +252,13 @@ configmap:
     data:
       dashboard_traefik.json: >-
         {{ .Files.Get "dashboard_traefik.json" | indent 8 }}
-
+  dashboard_nginx:
+    enabled: false
+    labels:
+      grafana_dashboard: "1"
+    data:
+      dashboard_traefik.json: >-
+        {{ .Files.Get "dashboard_nginx.json" | indent 8 }}
 persistence:
   config:
     enabled: true
