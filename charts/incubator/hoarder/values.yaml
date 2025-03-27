@@ -44,6 +44,7 @@ service:
 
 workload:
   main:
+    primary: true
     podSpec:
       containers:
         main:
