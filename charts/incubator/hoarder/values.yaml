@@ -126,12 +126,12 @@ workload:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.chrome.ports.chrome.port }}"
+              port: "{{ .Values.service.chrome.ports.chrome.targetPort }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.chrome.ports.chrome.port }}"
+              port: "{{ .Values.service.chrome.ports.chrome.targetPort }}"
             startup:
               enabled: true
               type: tcp
