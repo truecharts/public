@@ -145,12 +145,9 @@ workload:
             privileged: true
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
-           #  capabilities:
-           #   add:
-           #     - CHOWN
-           #     - FOWNER
-           #     - SYS_CHROOT
-           #     - MKNOD              
+            capabilities:
+              add:
+                - SYS_ADMIN       
 
 persistence:
   data:
