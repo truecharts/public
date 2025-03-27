@@ -3,6 +3,7 @@
 {{- $secretName := (printf "%s-ollama-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $secretKey := randAlphaNum 64 -}}
+{{- $meiliKey := randAlphaNum 64 -}}
 
  {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
    {{- $secretKey = index .data "NEXTAUTH_SECRET" | b64dec -}}
