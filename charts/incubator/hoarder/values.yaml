@@ -154,6 +154,8 @@ persistence:
       meilisearch:
         meilisearch:
           mountPath: "/meili_data"
+  varrun:
+    enabled: false
 
 portal:
   open:
