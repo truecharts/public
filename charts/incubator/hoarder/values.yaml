@@ -156,7 +156,8 @@ persistence:
           mountPath: "/meili_data"
   varrun:
     enabled: false
-
+  devshm:
+    enabled: false
 portal:
   open:
     enabled: true
