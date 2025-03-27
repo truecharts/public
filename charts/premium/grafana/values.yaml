@@ -239,7 +239,7 @@ configmap:
         # nope
   # Some included dashboards, which can be enabled when prefered
   dashboard_certmanager:
-    enabled: false
+    enabled: true
     labels:
       grafana_dashboard: "1"
     data:
