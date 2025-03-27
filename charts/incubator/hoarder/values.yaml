@@ -28,14 +28,14 @@ service:
   meilisearch:
     enabled: true
     ports:
-      api:
+      meilisearch:
         enabled: true
         protocol: http
         port: 7700
   chrome:
     enabled: true
     ports:
-      api:
+      chrome:
         enabled: true
         protocol: http
         port: 9222
