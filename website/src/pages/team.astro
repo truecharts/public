@@ -37,7 +37,7 @@ const iconClass = "mr-2 group-hover:animate-ping";
   <CardGrid stagger>
     <Card title="Kjeld Schouten" icon="pencil">
       <a
-        class="link-no-deco hover:scale-110 flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
         href="https://github.com/privatepuffin"
         data-astro-prefetch="load"
       >
@@ -46,31 +46,41 @@ const iconClass = "mr-2 group-hover:animate-ping";
             name="github"
           />
       </a>
+      <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/181665085700308993"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
         <hr>
         <b>Ops and R&D Lead</b><br>
         <i> "MrPuffin"</i>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>CI-CD</p>
+          <p>CI/CD Maintainer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>R&D</p>
+          <p>Research and Development </p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>(dev-)ops</p>
+          <p>(dev-)ops Maintainer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Technology implementation</p>
+          <p>Technology Implementation</p>
         </li>
       </ul>
       <br>
       <hr>
 
             <a
-        class="link-no-deco hover:scale-110 flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
         href="https://github.com/privatepuffin/cluster"
         data-astro-prefetch="load"
       >
@@ -78,16 +88,36 @@ const iconClass = "mr-2 group-hover:animate-ping";
       </a>
     </Card>
     <Card title="Stavros Kois" icon="pencil">
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/stavros-k"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/152554242169765889"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
         <hr>
         <b>Common Lead</b><br>
-        <i>"StavrosK"</i>
+        <i>"stavros-k"</i>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Common Code</p>
+          <p>Common Code Maintainer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Common QA</p>
+          <p>Common Quality Assurance</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
@@ -95,51 +125,134 @@ const iconClass = "mr-2 group-hover:animate-ping";
         </li>
     </Card>
     <Card title="Alfred Göppel" icon="pencil">
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/alfi0812"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/209056319905202176"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
         <hr>
         <b>Community Development Lead</b><br>
         <i>"Alfi0812"</i>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Maintain the Charts</p>
+          <p>Charts Maintainer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Maintain the Docs</p>
+          <p>Docs Maintainer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Review of community supplied code</p>
+          <p>Community Code Reviewer</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Implement Community Feedback</p>
+          <p>Community Feedback Implementation</p>
         </li>
+      </ul>
+      <br>
+      <hr>
+
+            <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://github.com/alfi0812/talos-cluster"
+        data-astro-prefetch="load"
+      >
+      <b>-> Public Kubernetes Cluster</b>
+      </a>
+
     </Card>
     <Card title="Steven McElligott" icon="pencil">
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/stevenmcelligott"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/668209408521666570"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
         <hr>
         <b>Community Lead</b><br>
-        <i>"Jagrbombs"</i>
+        <i>"JagrBombs"</i>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Head-moderator</p>
+          <p>Head-Moderator</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Community Feedback aggragation</p>
+          <p>Community Feedback Aggragation</p>
         </li>
     </Card>
     <Card title="Anthony Scaffidi" icon="pencil">
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/kqmaverick"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/406430079724290058"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
         <hr>
         <b>Support Lead</b><br>
         <i>"kqmaverick"</i>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Coordinating support livechats</p>
+          <p>Livechat Support Coordination</p>
         </li>
         <li class={listItemClass}>
           <Icon name={iconName} class={iconClass} />
-          <p>Ensuring reoccuring issues get added to the docs</p>
+          <p>Documentation of Recurring Issues</p>
         </li>
+      </ul>
+      <br>
+      <hr>
+
+            <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://github.com/kqmaverick/cluster"
+        data-astro-prefetch="load"
+      >
+      <b>-> Public Kubernetes Cluster</b>
+      </a>
     </Card>
 
   </CardGrid>
@@ -148,30 +261,163 @@ const iconClass = "mr-2 group-hover:animate-ping";
     <div
       class="text-4xl max-md:text-2xl max-sm:text-xl font-extrabold border-b-4 border-tc-primary inline-block mb-10"
     >
-      Support Volunteers - Work-In-Progress
+      Support Volunteers
     </div>
   </div>
   <CardGrid stagger>
     <Card title="Xstar97TheNoob" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/xstar97"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/395071499712593930"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
+      <br>
+      <hr>
+
+            <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://github.com/xstar97/cluster"
+        data-astro-prefetch="load"
+      >
+      <b>-> Public Kubernetes Cluster</b>
+      </a>
     </Card>
     <Card title="Kenny.ch" icon="pencil">
-      TBD
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/862567797799256090"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
     <Card title="tuxsudo" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/tuxpizza"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/1076961357699756072"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
     <Card title="bakayuki" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/baka-yuki"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/157716495852371970"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
     <Card title="maverickd1" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/MaverickD650"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/303464911604809729"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
     <Card title="zasx" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/ZasX"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/211084331592974338"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
     <Card title="nightshaman" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/nightshaman"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/530126179928244224"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
     </Card>
   </CardGrid>
 
@@ -179,22 +425,121 @@ const iconClass = "mr-2 group-hover:animate-ping";
     <div
       class="text-4xl max-md:text-2xl max-sm:text-xl font-extrabold border-b-4 border-tc-primary inline-block mb-10"
     >
-      Moderators - Work-In-Progress
+      Moderators
     </div>
   </div>
   <CardGrid stagger>
     <Card title="Six-Shooter" icon="pencil">
-      - Minecraft server co-host
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/six-shooter"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/242026765529251840"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
+      <hr>
+      <li class={listItemClass}>
+        <Icon name={iconName} class={iconClass} />
+        <p>Minecraft server co-host</p>
+      </li>
     </Card>
     <Card title="shadofall" icon="pencil">
-      TBD
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/shadofall"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/843232559835906069"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
+      <hr>
+      <li class={listItemClass}>
+        <Icon name={iconName} class={iconClass} />
+        <p>Moderator</p>
+      </li>
     </Card>
     <Card title="HeavyBullets" icon="pencil">
-      - Previously TrueNAS Migration Lead
-      - Former Developer of Heavyscript
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/Heavybullets8"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/705529086197628930"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
+      <hr>
+      <li class={listItemClass}>
+        <Icon name={iconName} class={iconClass} />
+        <p>Previously TrueNAS Migration Lead</p>
+      </li>
+      <li class={listItemClass}>
+        <Icon name={iconName} class={iconClass} />
+        <p>Former Developer of Heavyscript</p>
+      </li>
     </Card>
     <Card title="kofeyh" icon="pencil">
-      - Former Support Lead
+      <a
+      class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+      href="https://github.com/kofeyh"
+      data-astro-prefetch="load"
+    >
+        <Icon
+          class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+          name="github"
+        />
+    </a>
+    <a
+        class="link-no-deco hover:scale-110 inline-flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href="https://discordapp.com/users/144353138516688896"
+        data-astro-prefetch="load"
+      >
+          <Icon
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            name="discord"
+          />
+      </a>
+      <hr>
+      <li class={listItemClass}>
+        <Icon name={iconName} class={iconClass} />
+        <p>Former Support Lead</p>
+      </li>
     </Card>
 
   </CardGrid>
