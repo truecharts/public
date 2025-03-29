@@ -18,3 +18,4 @@ Below is a list of personal clusters maintained by our staff members. These can 
 | **kqmaverick** | [Cluster](https://github.com/kqmaverick/cluster) |
 | **PrivatePuffin** | [Cluster](https://github.com/PrivatePuffin/cluster) |
 | **Xstar97TheNoob** | [Cluster](https://github.com/xstar97/cluster) |
+| **Boemeltrein** | [Cluster](https://github.com/Boemeltrein/TalosCluster) |
