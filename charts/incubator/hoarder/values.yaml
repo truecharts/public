@@ -1,0 +1,171 @@
+image:
+  repository: ghcr.io/hoarder-app/hoarder
+  pullPolicy: IfNotPresent
+  tag: 0.23.0@sha256:d8b746f6d4d3a7d159804b5d4785869a42aff0f3f07d3b493cc16a423ad2d43a
+chromeImage:
+  repository: ghcr.io/zenika/alpine-chrome
+  pullPolicy: IfNotPresent
+  tag: 124@sha256:1a0046448e0bb6c275c88f86e01faf0de62b02ec8572901256ada0a8c08be23f
+meiliImage:
+  repository: docker.io/getmeili/meilisearch
+  pullPolicy: IfNotPresent
+  tag: v1.13.3@sha256:bed3fb650e62da53145777204891159242f6ea4ce69e215b36223af4aa64a0ae
+
+hoarder:
+  nextauth_secret: super_random_string
+  meili_master_key: another_random_string
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10687
+        targetPort: 3000
+  meilisearch:
+    enabled: true
+    ports:
+      meilisearch:
+        enabled: true
+        protocol: http
+        port: 7700
+        targetPort: 7700        
+  chrome:
+    enabled: true
+    ports:
+      chrome:
+        enabled: true
+        protocol: http
+        port: 9222
+        targetPort: 9222        
+
+workload:
+  main:
+    primary: true
+    podSpec:
+      containers:
+        main:
+          primary: true
+          enabled: true
+          imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            MEILI_ADDR: '{{ printf "http://%v-meilisearch:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.meilisearch.ports.meilisearch.targetPort }}'
+            MEILI_MASTER_KEY: "{{ .Values.hoarder.meili_master_key }}"           
+            BROWSER_WEB_URL: '{{ printf "http://%v-chrome:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.chrome.ports.chrome.targetPort }}'
+            # You almost never want to change the value of the DATA_DIR variable.
+            # If you want to mount a custom directory, change the volume mapping above instead.
+            DATA_DIR: /data  # DON'T CHANGE THIS
+            NEXTAUTH_URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            NEXTAUTH_SECRET: "{{ .Values.hoarder.nextauth_secret }}" 
+  meilisearch:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        meilisearch:
+          enabled: true
+          primary: true
+          imageSelector: meiliImage
+          resources:
+            excludeExtra: true
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.meilisearch.ports.meilisearch.port }}"
+          env:
+            MEILI_MASTER_KEY: "{{ .Values.hoarder.meili_master_key }}"
+            MEILI_NO_ANALYTICS: true
+  chrome:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        chrome:
+          enabled: true
+          primary: true
+          args:
+            - --no-sandbox
+            - --disable-gpu
+            - --disable-dev-shm-usage
+            - --remote-debugging-address=0.0.0.0
+            - --remote-debugging-port=9222
+            - --hide-scrollbars
+          imageSelector: chromeImage
+          resources:
+            excludeExtra: true
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.chrome.ports.chrome.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.chrome.ports.chrome.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.chrome.ports.chrome.port }}"
+          securityContext:
+            privileged: true
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - SYS_ADMIN       
+
+persistence:
+  data:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/data"
+  meili-data:
+    enabled: true
+    targetSelector:
+      meilisearch:
+        meilisearch:
+          mountPath: "/meili_data"
+  varrun:
+    enabled: false
+  devshm:
+    enabled: false
+portal:
+  open:
+    enabled: true
