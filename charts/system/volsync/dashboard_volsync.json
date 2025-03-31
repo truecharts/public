@@ -805,6 +805,24 @@
     "templating": {
       "list": [
         {
+          "current": {
+            "selected": false,
+            "text": "Prometheus",
+            "value": "Prometheus"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "multi": false,
+          "name": "DS_PROMETHEUS",
+          "label": "datasource",
+          "options": [],
+          "query": "prometheus",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "type": "datasource"
+        },
+        {
           "allValue": ".*",
           "current": {},
           "datasource": {
@@ -857,7 +875,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "definition": "label_values(volsync_sync_duration_seconds,namespace)",
-          "hide": 2,
+          "hide": 0,
           "includeAll": false,
           "multi": false,
           "name": "volsyncNamespace",
@@ -880,8 +898,8 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "definition": "label_values(volsync_sync_duration_seconds,pod)",
-          "hide": 2,
-          "includeAll": false,
+          "hide": 0,
+          "includeAll": true,
           "multi": false,
           "name": "volsyncPod",
           "options": [],
@@ -905,7 +923,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "VolSync Dashboard",
-    "uid": "cdp5agkgn4yrkc",
+    "uid": "cdp5agkgn4yrkc-truecharts",
     "version": 1,
     "weekStart": ""
   }
