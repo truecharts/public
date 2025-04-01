@@ -15,14 +15,14 @@ service:
 portal:
   open:
     enabled: true
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 workload:
   main:
     podSpec:
       containers:
         main:
           env:
-            NUT_HOST: "localhost"
-            NUT_PORT: 3493
-            USERNAME: ""
-            PASSWORD: ""
             WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
