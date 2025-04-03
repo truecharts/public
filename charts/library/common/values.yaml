@@ -202,6 +202,11 @@ service:
     ## Optional to set shared key manually, otherwise set to namespace
     #     sharedKey: ""
     #
+    #   cilium:
+    #     enabled: false
+    ## Optional to set shared key manually, otherwise ignored (namespace sharing)
+    #     sharedKey: ""
+    #
     #   traefik:
     #     enabled: false
     enabled: true
