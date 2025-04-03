@@ -1,0 +1,85 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nginx-internal
+  namespace: nginx-internal
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: 'ingress-nginx'
+      version: 4.12.1
+      sourceRef:
+        kind: HelmRepository
+        name: 'ingress-nginx'
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      replicaCount: 2
+      service:
+        externalTrafficPolicy: Local
+        annotations:
+          # TODO: Maybe play with this
+          # internal-dns.alpha.kubernetes.io/hostname: internal.${DOMAIN_0}
+          metallb.io/ip-allocated-from-pool: main
+          metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
+          metallb.universe.tf/ip-allocated-from-pool: main
+          "lbipam.cilium.io/ips": ${NGINX_INTERNAL_IP}
+      ingressClassByName: true
+      watchIngressWithoutClass: true
+      ingressClassResource:
+        name: internal
+        default: true
+        controllerValue: k8s.io/internal
+      config:
+        allow-snippet-annotations: true
+        annotations-risk-level: Critical
+        client-body-buffer-size: 100M
+        client-body-timeout: 120
+        client-header-timeout: 120
+        enable-brotli: "true"
+        enable-ocsp: "true"
+        enable-real-ip: "true"
+        force-ssl-redirect: "true"
+        hide-headers: Server,X-Powered-By
+        hsts-max-age: "31449600"
+        keep-alive-requests: 10000
+        keep-alive: 120
+        proxy-body-size: 0
+        proxy-buffer-size: 16k
+        ssl-protocols: TLSv1.3 TLSv1.2
+        use-forwarded-headers: "true"
+      metrics:
+        enabled: true
+        # serviceMonitor:
+        #   enabled: true
+        #   namespaceSelector:
+        #     any: true
+      extraArgs:
+        default-ssl-certificate: "clusterissuer/certificate-issuer-domain-0-wildcard"
+        publish-status-address: ${NGINX_INTERNAL_IP}
+      terminationGracePeriodSeconds: 120
+      publishService:
+        enabled: false
+      resources:
+        requests:
+          cpu: 100m
+        limits:
+          memory: 500Mi
+    defaultBackend:
+      enabled: false

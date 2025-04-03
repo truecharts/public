@@ -30,7 +30,7 @@ spec:
       operator: Exists
       effect: NoSchedule
   upgrade:
-    image: ghcr.io/jfroy/tnu:0.3.0
+    image: ghcr.io/jfroy/tnu:0.4.1
     envs:
       - name: NODE
         valueFrom:
