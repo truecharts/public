@@ -57,6 +57,13 @@ objectData: The service data, that will be used to render the Service object.
     {{- $svcType = "ClusterIP" -}}
   {{- end -}}
   {{- $_ := set $objectData "type" $svcType  }}
+
+  {{- if eq $objectData.type "LoadBalancer" -}}
+    {{- include "tc.v1.common.lib.service.integration.metallb" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- end -}}
+  {{- if $hasHTTPSPort -}}
+    {{- include "tc.v1.common.lib.service.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- end -}}
 ---
 apiVersion: v1
 kind: Service
@@ -70,12 +77,6 @@ metadata:
     {{- . | nindent 4 }}
   {{- end -}}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
-  {{- if eq $objectData.type "LoadBalancer" -}}
-    {{- include "tc.v1.common.lib.service.metalLBAnnotations" (dict "rootCtx" $rootCtx "objectData" $objectData "annotations" $annotations) -}}
-  {{- end -}}
-  {{- if $hasHTTPSPort -}}
-    {{- include "tc.v1.common.lib.service.traefikAnnotations" (dict "rootCtx" $rootCtx "annotations" $annotations) -}}
-  {{- end -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
