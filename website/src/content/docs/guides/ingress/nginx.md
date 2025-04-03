@@ -25,6 +25,7 @@ Please note the IP variables that need to be set to your specific configuration 
           metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
           metallb.universe.tf/ip-allocated-from-pool: main
       ingressClassByName: true
+      watchIngressWithoutClass: true
       ingressClassResource:
         name: internal
         default: true
@@ -78,6 +79,7 @@ Please note the IP variables that need to be set to your specific configuration 
           metallb.io/loadBalancerIPs: ${NGINX_EXTERNAL_IP}
           metallb.universe.tf/ip-allocated-from-pool: main
       ingressClassByName: true
+      watchIngressWithoutClass: false
       ingressClassResource:
         name: external
         default: false
