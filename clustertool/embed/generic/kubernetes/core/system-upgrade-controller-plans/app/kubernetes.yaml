@@ -4,6 +4,7 @@ apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: kubernetes
+  namespace: system-upgrade
 spec:
   version: ${KUBERNETES_VERSION}
   serviceAccountName: system-upgrade
