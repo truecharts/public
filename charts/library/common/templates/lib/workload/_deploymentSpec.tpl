@@ -10,7 +10,8 @@ objectData:
 {{- define "tc.v1.common.lib.workload.deploymentSpec" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{- $strategy := $objectData.strategy | default "Recreate" -}}
+  {{ include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- $strategy := $objectData.strategy -}}
   {{- $replicas := 1 -}}
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
