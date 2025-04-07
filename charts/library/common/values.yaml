@@ -458,12 +458,12 @@ notes:
       {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
       {{- if eq $expandName "true" -}}
         {{/* Expand the name of the service if expandName resolves to true */}}
-        {{- $objectName = $fullname -}}
+        {{- $service = $fullname -}}
       {{- end -}}
 
       {{- if and (eq $expandName "true") (not $service.primary) -}}
         {{/* If the service is not primary append its name to fullname */}}
-        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
+        {{- $service = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
       {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $service "caller" "Notes")) }}
@@ -475,7 +475,7 @@ notes:
                     "name" $name "caller" "Notes"
                     "key" "port")) -}}
       {{- if eq $enabledP "true" -}}
-    - {{ $objectName }}.{{$namespace}}.svc.cluster.local:{{ $p.port }}
+    - {{ $service }}.{{$namespace}}.svc.cluster.local:{{ $p.port }}
       {{- end }}
       {{- end -}}
     {{- end }}
