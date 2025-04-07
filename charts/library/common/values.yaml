@@ -433,12 +433,12 @@ notes:
       {{- end -}}
     {{- end }}
 
-    {{- if .Chart.dependencies }}
+    {{- if .Chart.Dependencies }}
     ## Dependencies for {{ .Chart.Name }}
 
-    {{- range .Chart.dependencies }}
-    - Chart: {{ .repository }}/{{ .name }}
-      Version: {{ .version }}
+    {{- range .Chart.Dependencies }}
+    - Chart: {{ .Repository }}/{{ .Name }}
+      Version: {{ .Version }}
     {{- end -}}
     {{- end -}}
 
