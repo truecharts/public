@@ -56,10 +56,10 @@
                     "key" "port")) -}}
       {{- if eq $enabledP "true" -}}
       {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
-      {{- $internalUrl := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
-      {{- $newUrls := list $internalUrl }}
-      {{- $Urls := append $.Values.chartContext.internalUrl $newUrls }}
-      {{- $_ := set $.Values.chartContext "internalUrl" $Urls -}}
+      {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
+      {{- $newUrls := list $internalUrls }}
+      {{- $Urls := append $.Values.chartContext.internalUrls $newUrls }}
+      {{- $_ := set $.Values.chartContext "internalUrls" $Urls -}}
 
       {{- end }}
       {{- end -}}
