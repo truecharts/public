@@ -23,10 +23,7 @@ jobs:
             **/go.sum
       # - name: Install Syft
       #   run: sudo curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-      - run:  |
-          cd ./clustertool
-          go mod tidy
-          cd ..
+
       - uses: goreleaser/goreleaser-action@9c156ee8a17a598857849441385a2041ef570552 # v6
         with:
           args: release --clean
