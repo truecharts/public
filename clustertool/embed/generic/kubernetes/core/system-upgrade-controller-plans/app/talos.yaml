@@ -3,6 +3,7 @@ apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: talos
+  namespace: system-upgrade
 spec:
   version: ${TALOS_VERSION}
   serviceAccountName: system-upgrade
@@ -30,7 +31,7 @@ spec:
       operator: Exists
       effect: NoSchedule
   upgrade:
-    image: ghcr.io/jfroy/tnu:0.3.0
+    image: ghcr.io/jfroy/tnu:0.4.1
     envs:
       - name: NODE
         valueFrom:
