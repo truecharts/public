@@ -56,10 +56,13 @@ global:
     # -- Define a postgresql version for CNPG
     # will be used for all CNPG objects
     # Can be overruled per CNPG objects
-    pgVersion: 16
+
     # -- Define a topologyKey for default topologySpreadConstraints
     # Will be used when defaultSpread: true
     topologyKey: kubernetes.io/hostname
+    cnpg:
+      pgVersion: 16
+      skipEmptyWalArchiveCheck: true
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true
@@ -1092,6 +1095,9 @@ cnpg:
 
       # set to true on single-node clusters to allow PVCs to be kept on instance restart
       singleNode: false
+
+      ## set to configure the skipEmptyWalArchiveCheck annotation
+      # skipEmptyWalArchiveCheck: true
       # # -- storage size for the data pvc's
       # # Follows the same spec as .Values.Persistence type=PVC
       # storage:

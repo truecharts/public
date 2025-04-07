@@ -24,7 +24,7 @@
     {{- if eq $enabled "true" -}}
 
       {{/* Handle version string */}}
-      {{- $pgVersion := ($objectData.pgVersion | default $.Values.global.fallbackDefaults.pgVersion) | toString -}}
+      {{- $pgVersion := ($objectData.pgVersion | default $.Values.global.fallbackDefaults.cnpg.pgVersion) | toString -}}
 
       {{/* Set the updated pgVersion version to objectData */}}
       {{- $_ := set $objectData "pgVersion" $pgVersion -}}
