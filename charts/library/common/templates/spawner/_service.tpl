@@ -59,6 +59,7 @@
       {{- $internalUrl := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
       {{- $newUrls := list $internalUrl }}
       {{- $Urls := append $.Values.chartContext.internalUrl $newUrls }}
+      {{- $_ := set $.Values.chartContext "internalUrl" $Urls -}}
 
       {{- end }}
       {{- end -}}
