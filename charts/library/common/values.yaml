@@ -460,20 +460,6 @@ notes:
 ##
 ####
 
-# -- Defines the portals for which config needs to be generated
-portal:
-  open:
-    enabled: false
-    override:
-      protocol:
-      host:
-      port:
-    path: ""
-    targetSelector:
-      ingress: ""
-      service: ""
-      port: ""
-
 # -- Set by "open" portal, used for some applications internally.
 APPURL: ""
 
