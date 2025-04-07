@@ -433,6 +433,47 @@ notes:
       {{- end -}}
     {{- end }}
 
+    ## Connecting Internally
+    You can reach this chart inside your cluster, using the following service URLS:
+
+    {{- if $.Values.service }}
+    {{- range $name, $service := .Values.service -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $service
+                    "name" $name "caller" "Notes"
+                    "key" "service")) -}}
+    {{- if eq $enabled "true" -}}
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                      "rootCtx" $ "objectData" $objectData
+                      "name" $name "caller" "Notes"
+                      "key" "service")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{/* Expand the name of the service if expandName resolves to true */}}
+        {{- $objectName = $fullname -}}
+      {{- end -}}
+
+      {{- if and (eq $expandName "true") (not $objectData.primary) -}}
+        {{/* If the service is not primary append its name to fullname */}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
+      {{- end -}}
+
+      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $service "caller" "Notes")) }}
+
+
+      {{- range $p := $service.ports }}
+      {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $p
+                    "name" $name "caller" "Notes"
+                    "key" "port")) -}}
+      {{- if eq $enabledP "true" -}}
+    - {{ $objectName }}.{{$namespace}}.svc.cluster.local:{{ $p.port }}
+      {{- end }}
+      {{- end -}}
+    {{- end }}
+    {{- end }}
+    {{- end }}
+
     ## Sources for {{ .Chart.Name }}
 
     {{- range .Chart.Sources }}
