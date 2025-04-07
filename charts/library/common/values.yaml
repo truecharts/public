@@ -433,6 +433,15 @@ notes:
       {{- end -}}
     {{- end }}
 
+    {{ if .Chart.Dependencies }}
+    ## Dependencies for {{ .Chart.Name }}
+
+    {{- range .Chart.Dependencies }}
+    - Chart: {{ .Repository }}/{{ .Name }}
+      Version: {{ .Version }}
+    {{- end }}
+    {{- end }}
+
     ## Sources for {{ .Chart.Name }}
 
     {{- range .Chart.Sources }}
