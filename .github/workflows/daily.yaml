@@ -34,6 +34,29 @@ jobs:
           sudo apt-get -y update
           sudo apt-get -y install webp
 
+      - name: Install ./clustertool
+        shell: bash
+        run: |
+          VERSION="1.0.4"
+          FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
+          URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
+          DEST_DIR="./clustertool-bin"
+
+          # Create destination directory if it doesn't exist
+          mkdir -p "$DEST_DIR"
+
+          # Download the archive
+          curl -L -o "$FILENAME" "$URL"
+
+          # Extract the archive
+          tar -xzf "$FILENAME"
+
+          # Move the binary
+          mv clustertool "$DEST_DIR/"
+
+          # Clean up
+          rm "$FILENAME"
+
       - name: Transcode icons to webp
         shell: bash
         run: |
@@ -75,7 +98,7 @@ jobs:
       - name: Fix Chart.yaml
         shell: bash
         run: |
-           ./charttool genmeta
+           ./clustertool-bin charts genmeta
 
       - name: Ensure Go Mod Tidy
         run:  |
