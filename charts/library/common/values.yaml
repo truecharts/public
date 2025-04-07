@@ -433,10 +433,10 @@ notes:
       {{- end -}}
     {{- end }}
 
-    {{- if $.Chart.dependencies }}
-    ## Dependencies for {{ $.Chart.Name }}
+    {{- if .Chart.dependencies }}
+    ## Dependencies for {{ .Chart.Name }}
 
-    {{- range $.Chart.dependencies }}
+    {{- range .Chart.dependencies }}
     - Chart: {{ .repository }}/{{ .name }}
       Version: {{ .version }}
     {{- end -}}
