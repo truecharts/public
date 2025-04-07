@@ -442,17 +442,11 @@ notes:
     {{- end }}
 
 
-    {{- if .Values.service }}
+    {{- if .Values.chartContext.internalUrls }}
     ## Connecting Internally
     You can reach this chart inside your cluster, using the following service URLS:
-    {{- range $name, $service := .Values.service -}}
-    {{- if $service.ports }}
-    {{- range $portName, $port := $service.ports -}}
-    {{- if $port.internalURL }}
-    - {{ $port.internalURL }}
-    {{- end }}
-    {{- end }}
-    {{- end }}
+    {{- range := .Values.chartContext.internalUrls -}}
+    - .
     {{- end }}
     {{- end }}
 
