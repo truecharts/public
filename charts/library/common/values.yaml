@@ -441,10 +441,10 @@ notes:
     {{- end }}
     {{- end }}
 
+
+    {{- if .Values.service }}
     ## Connecting Internally
     You can reach this chart inside your cluster, using the following service URLS:
-
-    {{- if $.Values.service }}
     {{- range $name, $service := .Values.service -}}
     {{- if $service.ports }}
     {{- range $portName, $port := $service.ports -}}
