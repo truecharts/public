@@ -24,7 +24,7 @@
 
   {{/* Catch update related issues */}}
   {{- if .Values.addons.vpn -}}
-    {{- fail (printf "Your current Common-Chart version does not support [.Values.addons.vpn] please use [.Values.addons.tailscale] or [.Values.addons.gluetun] instead" }}
+    {{- fail (printf "Your current Common-Chart version does not support [.Values.addons.vpn] please use [.Values.addons.tailscale] or [.Values.addons.gluetun] instead") }}
   {{- end -}}
 
 {{- end -}}
