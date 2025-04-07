@@ -45,6 +45,7 @@ workload:
             - --logtostderr=true
             - "--tls-min-version=VersionTLS12"
             - --v=0
+            - --ignore-paths=/metrics
           resources:
             limits:
               cpu: 500m
@@ -75,6 +76,9 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+        scheme: https
+        tlsConfig:
+          insecureSkipVerify: true
     targetSelector: metrics
 
 # -- Options for the main traefik service, where the entrypoints traffic comes from

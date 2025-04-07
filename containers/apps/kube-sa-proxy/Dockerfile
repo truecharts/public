@@ -1,5 +1,5 @@
 # Stage 1 - Build the Go application
-FROM golang:1.24.1-alpine@sha256:43c094ad24b6ac0546c62193baeb3e6e49ce14d3250845d166c77c25f64b0386 AS builder
+FROM golang:1.24.2-alpine@sha256:7772cb5322baa875edd74705556d08f0eeca7b9c4b5367754ce3f2f00041ccee AS builder
 
 # Install necessary build dependencies
 RUN apk --no-cache add --update gcc musl-dev

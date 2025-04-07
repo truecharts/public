@@ -4,7 +4,7 @@ annotations:
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.15"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.0.1
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Configuration management tool for Radarr/Sonarr that automates importing and version control of custom formats and quality profiles.
-home: https://truecharts.org/charts/incubator/profilarr
+home: https://truecharts.org/charts/stable/profilarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/profilarr.webp
 keywords:
   - profilarr
@@ -30,7 +30,7 @@ maintainers:
 name: profilarr
 sources:
   - https://github.com/Dictionarry-Hub/profilarr
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/profilarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/profilarr
   - https://hub.docker.com/r/santiagosayshey/profilarr
 type: application
-version: 0.0.1
+version: 1.0.0

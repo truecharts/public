@@ -65,10 +65,17 @@ spec:
                 pathType: Prefix
     cnpg:
       main:
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "true"
+        mode: recovery
+        cluster:
+          storage:
+            size: "256Gi"
+          walStorage:
+            size: "256Gi"
         backups:
-          enabled: false
+          enabled: true
           credentials: s3
-
         recovery:
-          method: object_store
+          enabled: true
           credentials: s3
