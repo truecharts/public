@@ -34,6 +34,31 @@ jobs:
           sudo apt-get -y update
           sudo apt-get -y install webp
 
+      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5
+        with:
+          go-version: stable
+          cache: true
+          cache-dependency-path: |
+            **/go.mod
+            **/go.sum
+
+      - name: Install ./clustertool
+        shell: bash
+        run: |
+          VERSION="2.0.0-BETA-4"
+          FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
+          URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
+
+          mkdir -p temp
+          cd temp
+          # Download the archive
+          curl -L -o "$FILENAME" "$URL"
+
+          # Extract the archive
+          tar -xzf "$FILENAME"
+
+          cd ..
+
       - name: Transcode icons to webp
         shell: bash
         run: |
@@ -75,7 +100,7 @@ jobs:
       - name: Fix Chart.yaml
         shell: bash
         run: |
-           ./charttool genmeta
+           ./temp/clustertool charts genmeta
 
       - name: Ensure Go Mod Tidy
         run:  |
