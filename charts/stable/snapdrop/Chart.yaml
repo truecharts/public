@@ -1,35 +1,35 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 home: https://truecharts.org/charts/stable/snapdrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapdrop.webp
 keywords:
-  - snapdrop
+    - snapdrop
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: snapdrop
 sources:
-  - https://fleet.linuxserver.io/image?name=linuxserver/snapdrop
-  - https://github.com/linuxserver/docker-snapdrop
-  - https://github.com/truecharts/charts/tree/master/charts/stable/snapdrop
+    - https://fleet.linuxserver.io/image?name=linuxserver/snapdrop
+    - https://github.com/linuxserver/docker-snapdrop
+    - https://github.com/truecharts/charts/tree/master/charts/stable/snapdrop
 type: application
 version: 11.5.3

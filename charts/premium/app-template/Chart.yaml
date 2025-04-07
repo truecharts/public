@@ -1,34 +1,34 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: custom
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: premium
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: custom
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: premium
 apiVersion: v2
 appVersion: 0.21.1155
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: Advanced Template to create your own TrueCharts-based Charts
 home: https://truecharts.org/charts/premium/app-template
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/app-template.webp
 keywords:
-  - custom
+    - custom
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: app-template
 sources:
-  - https://ghcr.io/linuxserver/jackett
-  - https://github.com/truecharts/charts/tree/master/charts/premium/app-template
+    - https://ghcr.io/linuxserver/jackett
+    - https://github.com/truecharts/charts/tree/master/charts/premium/app-template
 type: application
 version: 14.5.3

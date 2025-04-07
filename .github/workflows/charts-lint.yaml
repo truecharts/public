@@ -105,7 +105,7 @@ jobs:
           charts_path: "./"
         run: |
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
-          ./charttool deps ${CHANGED}
+          ./clustertool-bin deps ${CHANGED}
 
       - name: Run Chart Linting
         continue-on-error: true

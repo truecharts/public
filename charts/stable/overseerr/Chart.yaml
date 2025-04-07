@@ -1,38 +1,38 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.34.0
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services such as Sonarr, Radarr and Plex!
 home: https://truecharts.org/charts/stable/overseerr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/overseerr.webp
 keywords:
-  - overseerr
-  - plex
-  - sonarr
-  - radarr
+    - overseerr
+    - plex
+    - sonarr
+    - radarr
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: overseerr
 sources:
-  - https://ghcr.io/sct/overseerr
-  - https://github.com/sct/overseerr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
+    - https://ghcr.io/sct/overseerr
+    - https://github.com/sct/overseerr
+    - https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
 type: application
 version: 15.6.0
