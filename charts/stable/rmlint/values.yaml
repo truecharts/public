@@ -9,9 +9,7 @@ persistence:
   searchlocation:
     enabled: true
     mountPath: /root
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

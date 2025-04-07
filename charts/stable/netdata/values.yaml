@@ -121,9 +121,7 @@ persistence:
     type: configmap
     objectName: configs
     targetSelectAll: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

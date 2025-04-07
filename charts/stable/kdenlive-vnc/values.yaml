@@ -6,9 +6,7 @@ persistence:
   content:
     enabled: true
     mountPath: /sharedContent
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

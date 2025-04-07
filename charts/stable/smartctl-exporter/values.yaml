@@ -61,9 +61,7 @@ metrics:
     endpoints:
       - port: main
         path: "{{ .Values.smartctl.metricsEndpoint }}"
-portal:
-  open:
-    enabled: false
+
 smartctl:
   metricsEndpoint: "/metrics"
   pollInterval: "60s"

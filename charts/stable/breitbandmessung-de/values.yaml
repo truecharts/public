@@ -9,9 +9,7 @@ persistence:
   messurementlogs:
     enabled: true
     mountPath: /export/
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

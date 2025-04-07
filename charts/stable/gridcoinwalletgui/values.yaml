@@ -9,9 +9,7 @@ persistence:
   boincdatadir:
     enabled: true
     mountPath: /var/lib/boinc-client/
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -9,9 +9,7 @@ persistence:
   data:
     enabled: true
     mountPath: /root/mango
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

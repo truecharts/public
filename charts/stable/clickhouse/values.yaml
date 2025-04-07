@@ -64,6 +64,3 @@ secret:
     enabled: true
     data:
       clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
-portal:
-  open:
-    enabled: false

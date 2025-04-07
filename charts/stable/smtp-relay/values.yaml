@@ -51,7 +51,3 @@ workload:
             SMARTHOST_USER: "{{ .Values.smtprelay.generic.user }}"
             SMARTHOST_PASSWORD: "{{ .Values.smtprelay.generic.pass }}"
             SMARTHOST_ALIASES: '{{ join " : " .Values.smtprelay.generic.aliases }}'
-
-portal:
-  open:
-    enabled: false

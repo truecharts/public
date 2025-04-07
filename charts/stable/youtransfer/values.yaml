@@ -16,9 +16,7 @@ service:
         port: 5000
         protocol: tcp
         targetPort: 5000
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

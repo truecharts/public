@@ -9,9 +9,7 @@ persistence:
   data:
     enabled: true
     mountPath: /var/lib/dav/data
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

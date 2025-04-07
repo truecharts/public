@@ -20,9 +20,7 @@ persistence:
     enabled: true
     mountPath: "/usr/src/app/store"
 
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

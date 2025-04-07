@@ -13,9 +13,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/app/keystore"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

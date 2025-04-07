@@ -22,9 +22,7 @@ persistence:
   media:
     enabled: true
     mountPath: "/medialibrary"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

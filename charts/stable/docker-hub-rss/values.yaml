@@ -3,9 +3,7 @@ image:
   repository: docker.io/theconnman/docker-hub-rss
   tag: latest@sha256:e5568126ae3228659bb0fcd721099fd68e64c8d1f514bbcf749aab468d19a946
 persistence: {}
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

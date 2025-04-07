@@ -9,9 +9,7 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /home/steam/core-keeper-dedicated
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

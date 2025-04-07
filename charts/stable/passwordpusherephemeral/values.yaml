@@ -3,9 +3,7 @@ image:
   repository: docker.io/pglombardo/pwpush-ephemeral
   tag: latest@sha256:f91277bf2220ab61c84e2cfde108fafbc1bf2cd29f071b89909d29c9dd166a3c
 persistence: {}
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

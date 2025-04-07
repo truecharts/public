@@ -6,9 +6,7 @@ persistence:
   appdata:
     enabled: true
     mountPath: /usr/share/pwm
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

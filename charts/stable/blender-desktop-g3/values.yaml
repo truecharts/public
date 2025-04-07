@@ -9,9 +9,7 @@ persistence:
   storageprojects:
     enabled: true
     mountPath: /srv/projects
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -15,9 +15,7 @@ persistence:
   redis-data:
     enabled: true
     mountPath: "/var/lib/redis"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

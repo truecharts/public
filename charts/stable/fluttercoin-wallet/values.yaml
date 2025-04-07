@@ -6,9 +6,7 @@ persistence:
   datapath:
     enabled: true
     mountPath: /fluttercoin
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
