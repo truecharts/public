@@ -438,7 +438,7 @@ notes:
 
     {{- range .Chart.dependencies }}
     - Chart: {{ .repository }}/{{ .name }}
-      Version: {{ . version }}
+      Version: {{ .version }}
     {{- end -}}
     {{- end -}}
 
