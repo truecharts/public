@@ -60,7 +60,7 @@
                 "key" "port")) -}}
   {{- if eq $enabledP "true" -}}
     
-    {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
+    {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $port.port) }}
     {{- $allUrls = append $allUrls $internalUrls }}  # Collect the new URLs in $allUrls
   {{- end }}
 {{- end }}
