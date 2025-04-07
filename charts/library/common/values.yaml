@@ -429,6 +429,15 @@ notes:
     - {{ toYaml .Values.chartContext.appUrl }}
     {{- end }}
 
+    {{ if .Chart.Dependencies }}
+    ## Dependencies for {{ .Chart.Name }}
+
+    {{- range .Chart.Dependencies }}
+    - Chart: {{ .Repository }}/{{ .Name }}
+      Version: {{ .Version }}
+    {{- end }}
+    {{- end }}
+
     ## Sources for {{ .Chart.Name }}
 
     {{- range .Chart.Sources }}
