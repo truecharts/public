@@ -20,6 +20,8 @@
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $service) -}}
+      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
+
 
       {{/* Init object name */}}
       {{- $objectName := $name -}}
@@ -51,13 +53,13 @@
       {{- $_ := set $objectData "shortName" $name -}}
 
 
-{{- range $p := $service.ports }}
+{{- range $port := $objectData.ports }}
   {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
-                "rootCtx" $ "objectData" $p
-                "name" $name "caller" "Notes"
+                "rootCtx" $ "objectData" $port
+                "name" $name "caller" "service"
                 "key" "port")) -}}
   {{- if eq $enabledP "true" -}}
-    {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
+    
     {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
     {{- $allUrls = append $allUrls $internalUrls }}  # Collect the new URLs in $allUrls
   {{- end }}
