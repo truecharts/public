@@ -47,7 +47,8 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.14.4
+          - v3.14.0
+          - v3.17.2
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -85,7 +86,8 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.14.4
+          - v3.14.0
+          - v3.17.2
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -131,8 +133,8 @@ jobs:
           - v1.29
         # We test the latest k3s version and the lowest supported by either the oldest supported SCALE or FluxCD release
         helm-version:
-          - v3.12.1
-          - v3.14.4
+          - v3.14.0
+          - v3.17.2
         values:
           - basic-values.yaml
           - configmap-values.yaml
