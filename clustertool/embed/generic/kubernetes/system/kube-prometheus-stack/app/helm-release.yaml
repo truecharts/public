@@ -58,7 +58,7 @@ spec:
         enableFeatures:
           - memory-snapshot-on-shutdown
         # Prometheus metrics retention time in PV
-        retention: 24h
+        retention: 14d
         retentionSize: 50GB
         # External labels to add to any time series or
         # alerts when communicating with external systems
@@ -66,10 +66,11 @@ spec:
           cluster: cluster_main
           env: prod
         # High availability
-        replicas: 2
+        replicas: 1
         resources:
           requests:
             cpu: 100m
+            memory: 500Mi
           limits:
             memory: 2000Mi
         # storageSpec:
