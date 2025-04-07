@@ -65,6 +65,7 @@ jobs:
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
           URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
 
+          mkdir -p temp
           cd temp
           # Download the archive
           curl -L -o "$FILENAME" "$URL"
