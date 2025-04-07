@@ -57,7 +57,9 @@
       {{- if eq $enabledP "true" -}}
       {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
       {{- $internalUrl := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
-      {{- $_ := set $p "internalUrl" $internalUrl -}}
+      {{- $newUrls := list $internalUrl }}
+      {{- $Urls := append $.Values.chartContext.internalUrl $newUrls }}
+
       {{- end }}
       {{- end -}}
 
