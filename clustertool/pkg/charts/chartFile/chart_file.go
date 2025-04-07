@@ -15,7 +15,7 @@ import (
 
 const (
     minHelmVersion     = "3.14"
-    maxHelmVersion     = "3.16"
+    maxHelmVersion     = "3.17"
     kubeVersion        = ">=1.24.0-0"
     apiVersion         = "v2"
     chartType          = "application"
@@ -26,7 +26,7 @@ const (
     defaultAppVersion  = "unknown"
     defaultDescription = "No description provided."
     defaultHome        = "https://truecharts.org"
-    defaultIcon        = "https://github.com/truecharts/website/blob/main/static/svg/logo.svg"
+    defaultIcon        = "https://github.com/truecharts/public/blob/main/website/static/svg/logo.svg"
 )
 
 var validate *validator.Validate

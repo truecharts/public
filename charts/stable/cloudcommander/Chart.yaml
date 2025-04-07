@@ -1,36 +1,36 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: Tools-Utilities
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
 apiVersion: v2
 appVersion: 18.5.1
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: |
-  [b]CloudCommander[/b] is a simple web file browser with a built in text editor and archive compress/extract abilities.[br/]
+    [b]CloudCommander[/b] is a simple web file browser with a built in text editor and archive compress/extract abilities.[br/]
 home: https://truecharts.org/charts/stable/cloudcommander
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudcommander.webp
 keywords:
-  - cloudcommander
-  - Tools-Utilities
+    - cloudcommander
+    - Tools-Utilities
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: cloudcommander
 sources:
-  - https://ghcr.io/coderaiser/cloudcmd
-  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudcommander
+    - https://ghcr.io/coderaiser/cloudcmd
+    - https://github.com/truecharts/charts/tree/master/charts/stable/cloudcommander
 type: application
 version: 7.5.3

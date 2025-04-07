@@ -1,36 +1,36 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: GameServers
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: 'This Chart will download and install Neverwinter Nights: Enhanced Edition and run it (by default this Chart has a MariaDB and Redis Server integrated).'
 home: https://truecharts.org/charts/stable/neverwinternights-ee
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/neverwinternights-ee.webp
 keywords:
-  - neverwinternights-ee
-  - GameServers
+    - neverwinternights-ee
+    - GameServers
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: neverwinternights-ee
 sources:
-  - https://ghcr.io/ich777/nwnee-server
-  - https://github.com/truecharts/charts/tree/master/charts/stable/neverwinternights-ee
-  - https://www.beamdog.com/games/neverwinter-nights-enhanced/
+    - https://ghcr.io/ich777/nwnee-server
+    - https://github.com/truecharts/charts/tree/master/charts/stable/neverwinternights-ee
+    - https://www.beamdog.com/games/neverwinter-nights-enhanced/
 type: application
 version: 7.5.1

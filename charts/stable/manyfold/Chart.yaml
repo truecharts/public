@@ -1,42 +1,42 @@
 annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.106.0
 dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 15.6.7
-    repository: oci://tccr.io/truecharts
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 15.6.7
+      repository: oci://tccr.io/truecharts
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 deprecated: false
 description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
 home: https://truecharts.org/charts/stable/manyfold
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/manyfold.webp
 keywords:
-  - manyfold
-  - media
+    - manyfold
+    - media
 kubeVersion: '>=1.24.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 name: manyfold
 sources:
-  - https://ghcr.io/manyfold3d/manyfold
-  - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
+    - https://ghcr.io/manyfold3d/manyfold
+    - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
 type: application
 version: 2.5.1
