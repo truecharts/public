@@ -1,44 +1,45 @@
-annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2025.4.4
-dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-deprecated: false
-description: Jupyter a web based IDE
-home: https://truecharts.org/charts/stable/jupyter
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.webp
-keywords:
-  - Jupyter
-  - Notebook
-  - Lab
-kubeVersion: '>=1.24.0-0'
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-name: jupyter
-sources:
-  - https://github.com/jupyter/docker-stacks
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://quay.io/jupyter/all-spark-notebook
-  - https://quay.io/jupyter/base-notebook
-  - https://quay.io/jupyter/datascience-notebook
-  - https://quay.io/jupyter/minimal-notebook
-  - https://quay.io/jupyter/pyspark-notebook
-  - https://quay.io/jupyter/r-notebook
-  - https://quay.io/jupyter/scipy-notebook
-  - https://quay.io/jupyter/tensorflow-notebook
-type: application
-version: 11.16.32
+  annotations:
+      max_scale_version: 24.04.1
+      min_scale_version: 24.04.0
+      truecharts.org/category: Cloud
+      truecharts.org/max_helm_version: "3.16"
+      truecharts.org/min_helm_version: "3.14"
+      truecharts.org/train: stable
+  apiVersion: v2
+  appVersion: 2025.4.4
+  dependencies:
+      - name: common
+        version: 25.4.10
+        repository: oci://tccr.io/truecharts
+        condition: ""
+        alias: ""
+        tags: []
+        import-values: []
+  deprecated: false
+  description: Jupyter a web based IDE
+  home: https://truecharts.org/charts/stable/jupyter
+  icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.webp
+  keywords:
+      - Jupyter
+      - Notebook
+      - Lab
+  kubeVersion: '>=1.24.0-0'
+  maintainers:
+      - name: TrueCharts
+        email: info@truecharts.org
+        url: https://truecharts.org
+  name: jupyter
+  sources:
+      - https://github.com/jupyter/docker-stacks
+      - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
+      - https://quay.io/jupyter/all-spark-notebook
+      - https://quay.io/jupyter/base-notebook
+      - https://quay.io/jupyter/datascience-notebook
+      - https://quay.io/jupyter/minimal-notebook
+      - https://quay.io/jupyter/pyspark-notebook
+      - https://quay.io/jupyter/r-notebook
+      - https://quay.io/jupyter/scipy-notebook
+      - https://quay.io/jupyter/tensorflow-notebook
+  type: application
+  version: 11.16.32
+

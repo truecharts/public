@@ -1,36 +1,37 @@
-annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
-apiVersion: v2
-appVersion: 1.3.152.2
-dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-deprecated: false
-description: This is the multi-platform Docker image for My Media for Alexa - https://www.mymediaalexa.com .
-home: https://truecharts.org/charts/stable/mymediaforalexa
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mymediaforalexa.webp
-keywords:
-  - media
-  - alexa
-kubeVersion: '>=1.24.0-0'
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-name: mymediaforalexa
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mymediaforalexa
-  - https://hub.docker.com/r/bizmodeller/mymediaforalexa
-  - https://www.mymediaalexa.com/home/docker#dockerhub
-type: application
-version: 10.5.3
+  annotations:
+      max_scale_version: 24.04.1
+      min_scale_version: 24.04.0
+      truecharts.org/category: media
+      truecharts.org/max_helm_version: "3.16"
+      truecharts.org/min_helm_version: "3.14"
+      truecharts.org/train: stable
+  apiVersion: v2
+  appVersion: 1.3.152.2
+  dependencies:
+      - name: common
+        version: 25.4.10
+        repository: oci://tccr.io/truecharts
+        condition: ""
+        alias: ""
+        tags: []
+        import-values: []
+  deprecated: false
+  description: This is the multi-platform Docker image for My Media for Alexa - https://www.mymediaalexa.com .
+  home: https://truecharts.org/charts/stable/mymediaforalexa
+  icon: https://truecharts.org/img/hotlink-ok/chart-icons/mymediaforalexa.webp
+  keywords:
+      - media
+      - alexa
+  kubeVersion: '>=1.24.0-0'
+  maintainers:
+      - name: TrueCharts
+        email: info@truecharts.org
+        url: https://truecharts.org
+  name: mymediaforalexa
+  sources:
+      - https://github.com/truecharts/charts/tree/master/charts/stable/mymediaforalexa
+      - https://hub.docker.com/r/bizmodeller/mymediaforalexa
+      - https://www.mymediaalexa.com/home/docker#dockerhub
+  type: application
+  version: 10.5.3
+

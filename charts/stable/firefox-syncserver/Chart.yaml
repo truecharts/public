@@ -1,38 +1,39 @@
-annotations:
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.15"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
-apiVersion: v2
-appVersion: 1.8.0
-dependencies:
-  - name: common
-    version: 25.4.10
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-deprecated: false
-description: This is an all-in-one package for running a self-hosted Firefox Sync server.
-home: https://truecharts.org/charts/stable/firefox-syncserver
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox-syncserver.webp
-keywords:
-  - server
-  - sync
-  - syncserver
-  - firefox
-kubeVersion: '>=1.24.0-0'
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-name: firefox-syncserver
-sources:
-  - https://ghcr.io/crazy-max/firefox-syncserver
-  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
-  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
-type: application
-version: 19.5.1
+  annotations:
+      max_scale_version: 24.04.1
+      min_scale_version: 24.04.0
+      truecharts.org/category: media
+      truecharts.org/max_helm_version: "3.16"
+      truecharts.org/min_helm_version: "3.14"
+      truecharts.org/train: stable
+  apiVersion: v2
+  appVersion: 1.8.0
+  dependencies:
+      - name: common
+        version: 25.4.10
+        repository: oci://tccr.io/truecharts
+        condition: ""
+        alias: ""
+        tags: []
+        import-values: []
+  deprecated: false
+  description: This is an all-in-one package for running a self-hosted Firefox Sync server.
+  home: https://truecharts.org/charts/stable/firefox-syncserver
+  icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox-syncserver.webp
+  keywords:
+      - server
+      - sync
+      - syncserver
+      - firefox
+  kubeVersion: '>=1.24.0-0'
+  maintainers:
+      - name: TrueCharts
+        email: info@truecharts.org
+        url: https://truecharts.org
+  name: firefox-syncserver
+  sources:
+      - https://ghcr.io/crazy-max/firefox-syncserver
+      - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
+      - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
+  type: application
+  version: 19.5.1
+
