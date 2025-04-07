@@ -64,28 +64,21 @@ jobs:
           VERSION="1.0.4"
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
           URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
-          DEST_DIR="./clustertool-bin"
 
-          # Create destination directory if it doesn't exist
-          mkdir -p "$DEST_DIR"
-
+          cd temp
           # Download the archive
           curl -L -o "$FILENAME" "$URL"
 
           # Extract the archive
           tar -xzf "$FILENAME"
 
-          # Move the binary
-          mv clustertool "$DEST_DIR/"
-
-          # Clean up
-          rm "$FILENAME"
+          cd ..
 
       - name: Get Changelog Format Version
         shell: bash
         if: github.event_name == 'push'
         run: |
-          ver=$(./clustertool-bin charts genchangelog format-version)
+          ver=$(./temp/clustertool charts genchangelog format-version)
           rev="1"
           key="changelog-format-$ver-rev-$rev"
           echo "Cache Key is: $key"
@@ -119,7 +112,7 @@ jobs:
             gunzip "$JSON_FILE.gz" --force # Force overwrite if file already exists
           fi
 
-          ./clustertool-bin charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
+          ./temp/clustertool charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
           gzip "$JSON_FILE" --best
 
       - name: Fix Pre-Commit issues
@@ -183,7 +176,7 @@ jobs:
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
           mkdir -p website/src/assets || echo "assets path already exists, continuing..."
 
-          ./clustertool-bin charts genchartlist ./charts
+          ./temp/clustertool charts genchartlist ./charts
           mv charts.json website/src/assets/charts.json
 
           echo "Copying changelogs to docs"
