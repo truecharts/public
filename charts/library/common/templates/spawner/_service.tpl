@@ -49,6 +49,18 @@
       {{- $_ := set $objectData "name" $objectName -}}
       {{- $_ := set $objectData "shortName" $name -}}
 
+      {{- range $p := $objectData.ports }}
+      {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $p
+                    "name" $name "caller" "Notes"
+                    "key" "port")) -}}
+      {{- if eq $enabledP "true" -}}
+      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
+      {{- $internalUrl := (printf "%s.%s.svc.cluster.local:%s" objectName $namespace $p.port)
+      {{- $_ := set $service "internalUrl" $internalUrl -}}
+      {{- end }}
+      {{- end -}}
+
       {{/* Call class to create the object */}}
       {{- include "tc.v1.common.class.service" (dict "rootCtx" $ "objectData" $objectData) -}}
 
