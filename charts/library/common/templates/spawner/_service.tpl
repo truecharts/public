@@ -22,7 +22,6 @@
       {{- $objectData := (mustDeepCopy $service) -}}
       {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
 
-
       {{/* Init object name */}}
       {{- $objectName := $name -}}
 
@@ -52,30 +51,27 @@
       {{- $_ := set $objectData "name" $objectName -}}
       {{- $_ := set $objectData "shortName" $name -}}
 
-
-{{- range $port := $objectData.ports }}
-  {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
-                "rootCtx" $ "objectData" $port
-                "name" $name "caller" "service"
-                "key" "port")) -}}
-  {{- if eq $enabledP "true" -}}
-    
-    {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $port.port) }}
-    {{- $allUrls = append $allUrls $internalUrls }}  # Collect the new URLs in $allUrls
-  {{- end }}
-{{- end }}
-
-
+      {{/* Now iterate over the ports in the service */}}
+      {{- range $port := $objectData.ports }}
+        {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
+                      "rootCtx" $ "objectData" $port
+                      "name" $name "caller" "service"
+                      "key" "port")) -}}
+        {{- if eq $enabledP "true" -}}
+          
+          {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $port.port) }}
+          {{- $allUrls = append $allUrls $internalUrls }}  # Collect the new URLs in $allUrls
+        {{- end }}
+      {{- end }}
 
       {{- end }}
-      {{- end -}}
-
-      {{/* Call class to create the object */}}
-      {{- include "tc.v1.common.class.service" (dict "rootCtx" $ "objectData" $objectData) -}}
-
     {{- end -}}
 
+    {{/* Call class to create the object */}}
+    {{- include "tc.v1.common.class.service" (dict "rootCtx" $ "objectData" $objectData) -}}
+
   {{- end -}}
+
 {{- $_ := set $.Values.chartContext "internalUrls" $allUrls -}}  # Update internalUrls after the loop
 
 {{- end -}}
