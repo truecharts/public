@@ -461,7 +461,7 @@ notes:
         {{- $objectName = $fullname -}}
       {{- end -}}
 
-      {{- if and (eq $expandName "true") (not $objectData.primary) -}}
+      {{- if and (eq $expandName "true") (not $service.primary) -}}
         {{/* If the service is not primary append its name to fullname */}}
         {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
