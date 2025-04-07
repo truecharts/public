@@ -444,7 +444,7 @@ notes:
                     "key" "service")) -}}
     {{- if eq $enabled "true" -}}
       {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-                      "rootCtx" $ "objectData" $objectData
+                      "rootCtx" $ "objectData" $service
                       "name" $name "caller" "Notes"
                       "key" "service")) -}}
 
