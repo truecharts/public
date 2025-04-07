@@ -12,9 +12,7 @@ persistence:
   token:
     enabled: true
     mountPath: /serverdata/.klei/DoNotStarveTogether
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

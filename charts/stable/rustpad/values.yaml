@@ -6,9 +6,7 @@ persistence:
   storagedatabase:
     enabled: true
     mountPath: /persist
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

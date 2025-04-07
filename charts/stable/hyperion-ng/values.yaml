@@ -33,9 +33,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/root/.hyperion"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

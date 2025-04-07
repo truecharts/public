@@ -3,9 +3,7 @@ image:
   repository: docker.io/mikenye/tar1090
   tag: latest@sha256:ade674257b89b64068045cb0b4de04f6e14136d7dc95df42ee83d6ef7738e750
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

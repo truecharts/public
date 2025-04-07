@@ -9,9 +9,7 @@ persistence:
   path2:
     enabled: true
     mountPath: /root/.gnupg
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

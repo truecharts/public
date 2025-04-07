@@ -12,9 +12,7 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

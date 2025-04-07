@@ -27,9 +27,7 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""
-portal:
-  open:
-    enabled: false
+
 workload:
   main:
     podSpec:

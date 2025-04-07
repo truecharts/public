@@ -89,9 +89,7 @@ persistence:
   ffmpeg:
     enabled: true
     mountPath: "/agent/ffmpeg6"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

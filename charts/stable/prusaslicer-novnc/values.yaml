@@ -16,9 +16,7 @@ service:
         port: 16080
         protocol: http
         targetPort: 8080
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

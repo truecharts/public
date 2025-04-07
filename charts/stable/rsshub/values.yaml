@@ -22,9 +22,7 @@ additionalContainers:
     ports:
       - containerPort: 3000
         name: main
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

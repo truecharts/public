@@ -9,9 +9,7 @@ persistence:
   hostpath1:
     enabled: true
     mountPath: /app/Downloads
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

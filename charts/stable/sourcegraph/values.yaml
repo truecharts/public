@@ -9,9 +9,7 @@ persistence:
   configstoragepath:
     enabled: true
     mountPath: /etc/sourcegraph
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

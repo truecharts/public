@@ -15,9 +15,7 @@ persistence:
   content:
     enabled: true
     mountPath: "/home/koyomi/lanraragi/content"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

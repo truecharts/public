@@ -32,9 +32,7 @@ persistence:
     mountPath: "/sync"
   varrun:
     enabled: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

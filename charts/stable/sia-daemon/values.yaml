@@ -6,9 +6,7 @@ persistence:
   datadirectory:
     enabled: true
     mountPath: /sia-data
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
