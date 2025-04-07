@@ -20,7 +20,7 @@
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $service) -}}
-      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
+      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $service "caller" "Service")) }}
 
       {{/* Init object name */}}
       {{- $objectName := $name -}}
