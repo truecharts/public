@@ -8,6 +8,7 @@
 
   {{/* Primary validation for enabled service. */}}
   {{- include "tc.v1.common.lib.service.primaryValidation" $ -}}
+  {{- $allUrls := $.Values.chartContext.internalUrls | default (list) }}  # Initialize with existing URLs or an empty list
 
   {{- range $name, $service := .Values.service -}}
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
@@ -49,17 +50,20 @@
       {{- $_ := set $objectData "name" $objectName -}}
       {{- $_ := set $objectData "shortName" $name -}}
 
-      {{- range $p := $service.ports }}
-      {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
-                    "rootCtx" $ "objectData" $p
-                    "name" $name "caller" "Notes"
-                    "key" "port")) -}}
-      {{- if eq $enabledP "true" -}}
-      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
-      {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
-      {{- $newUrls := list $internalUrls }}
-      {{- $Urls := append $.Values.chartContext.internalUrls $newUrls }}
-      {{- $_ := set $.Values.chartContext "internalUrls" $Urls -}}
+
+{{- range $p := $service.ports }}
+  {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
+                "rootCtx" $ "objectData" $p
+                "name" $name "caller" "Notes"
+                "key" "port")) -}}
+  {{- if eq $enabledP "true" -}}
+    {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Service")) }}
+    {{- $internalUrls := (printf "%s.%s.svc.cluster.local:%s" $objectName $namespace $p.port) }}
+    {{- $allUrls = append $allUrls $internalUrls }}  # Collect the new URLs in $allUrls
+  {{- end }}
+{{- end }}
+
+
 
       {{- end }}
       {{- end -}}
@@ -70,5 +74,6 @@
     {{- end -}}
 
   {{- end -}}
+{{- $_ := set $.Values.chartContext "internalUrls" $allUrls -}}  # Update internalUrls after the loop
 
 {{- end -}}
