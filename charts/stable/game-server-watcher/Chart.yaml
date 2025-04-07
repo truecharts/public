@@ -1,38 +1,37 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: monitor
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 3.1.22
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: A simple discord/telegram/slack bot to monitor your game servers and players in style.
-  home: https://truecharts.org/charts/stable/game-server-watcher
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/game-server-watcher.webp
-  keywords:
-      - game-server-watcher
-      - monitoring
-      - bots
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: game-server-watcher
-  sources:
-      - https://ghcr.io/a-sync/game-server-watcher
-      - https://github.com/a-sync/game-server-watcher
-      - https://github.com/truecharts/charts/tree/master/charts/stable/game-server-watcher
-  type: application
-  version: 3.5.1
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: monitor
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.1.22
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: A simple discord/telegram/slack bot to monitor your game servers and players in style.
+home: https://truecharts.org/charts/stable/game-server-watcher
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/game-server-watcher.webp
+keywords:
+    - game-server-watcher
+    - monitoring
+    - bots
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: game-server-watcher
+sources:
+    - https://ghcr.io/a-sync/game-server-watcher
+    - https://github.com/a-sync/game-server-watcher
+    - https://github.com/truecharts/charts/tree/master/charts/stable/game-server-watcher
+type: application
+version: 3.5.1

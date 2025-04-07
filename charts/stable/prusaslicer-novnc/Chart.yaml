@@ -1,38 +1,37 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: home-automation
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: latest
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
-  home: https://truecharts.org/charts/stable/prusaslicer-novnc
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/prusaslicer-novnc.webp
-  keywords:
-      - prusaslicer-novnc
-      - home-automation
-      - Productivity
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: prusaslicer-novnc
-  sources:
-      - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
-      - https://hub.docker.com/r/mikeah/prusaslicer-novnc
-      - https://www.prusa3d.com/prusaslicer/
-  type: application
-  version: 10.5.1
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: home-automation
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
+home: https://truecharts.org/charts/stable/prusaslicer-novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prusaslicer-novnc.webp
+keywords:
+    - prusaslicer-novnc
+    - home-automation
+    - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: prusaslicer-novnc
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
+    - https://hub.docker.com/r/mikeah/prusaslicer-novnc
+    - https://www.prusa3d.com/prusaslicer/
+type: application
+version: 10.5.1

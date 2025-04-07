@@ -1,35 +1,34 @@
-  annotations:
-      truecharts.org/category: metrics
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 4.3.0.8
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: Glances is a monitoring software
-  home: https://truecharts.org/charts/stable/glances
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/glances.webp
-  keywords:
-      - metrics
-      - glances
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: glances
-  sources:
-      - https://github.com/nicolargo/glances
-      - https://github.com/truecharts/charts/tree/master/charts/stable/glances
-      - https://hub.docker.com/r/nicolargo/glances
-  type: application
-  version: 1.0.0
-
+annotations:
+    truecharts.org/category: metrics
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.3.0.8
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: Glances is a monitoring software
+home: https://truecharts.org/charts/stable/glances
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/glances.webp
+keywords:
+    - metrics
+    - glances
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: glances
+sources:
+    - https://github.com/nicolargo/glances
+    - https://github.com/truecharts/charts/tree/master/charts/stable/glances
+    - https://hub.docker.com/r/nicolargo/glances
+type: application
+version: 1.0.0

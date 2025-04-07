@@ -1,33 +1,32 @@
-  annotations:
-      truecharts.org/category: security
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 39.234.0
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: renovate self-hosted
-  home: https://truecharts.org/charts/stable/renovate
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/renovate.webp
-  keywords:
-      - renovate
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: renovate
-  sources:
-      - https://github.com/truecharts/charts/tree/master/charts/stable/renovate
-      - https://hub.docker.com/r/renovate/renovate
-  type: application
-  version: 1.26.1
-
+annotations:
+    truecharts.org/category: security
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 39.234.0
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: renovate self-hosted
+home: https://truecharts.org/charts/stable/renovate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/renovate.webp
+keywords:
+    - renovate
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: renovate
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/renovate
+    - https://hub.docker.com/r/renovate/renovate
+type: application
+version: 1.26.1

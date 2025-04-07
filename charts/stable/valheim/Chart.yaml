@@ -1,36 +1,35 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: media
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: latest
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: Valheim dedicated gameserver with automatic update and world backup support
-  home: https://truecharts.org/charts/stable/valheim
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/valheim.webp
-  keywords:
-      - valheim
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: valheim
-  sources:
-      - https://ghcr.io/lloesche/valheim-server
-      - https://github.com/lloesche/valheim-server-docker
-      - https://github.com/truecharts/charts/tree/master/charts/stable/valheim
-  type: application
-  version: 12.5.2
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: Valheim dedicated gameserver with automatic update and world backup support
+home: https://truecharts.org/charts/stable/valheim
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/valheim.webp
+keywords:
+    - valheim
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: valheim
+sources:
+    - https://ghcr.io/lloesche/valheim-server
+    - https://github.com/lloesche/valheim-server-docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/valheim
+type: application
+version: 12.5.2

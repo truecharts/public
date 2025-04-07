@@ -1,38 +1,37 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: media
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 5.0.4
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: qBittorrent is a cross-platform free and open-source BitTorrent client
-  home: https://truecharts.org/charts/stable/qbittorrent
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.webp
-  keywords:
-      - qbittorrent
-      - torrrent
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: qbittorrent
-  sources:
-      - https://ghcr.io/home-operations/qbittorrent
-      - https://github.com/qbittorrent/qBittorrent
-      - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
-      - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
-  type: application
-  version: 22.4.9
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 5.0.4
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: qBittorrent is a cross-platform free and open-source BitTorrent client
+home: https://truecharts.org/charts/stable/qbittorrent
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.webp
+keywords:
+    - qbittorrent
+    - torrrent
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: qbittorrent
+sources:
+    - https://ghcr.io/home-operations/qbittorrent
+    - https://github.com/qbittorrent/qBittorrent
+    - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
+    - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
+type: application
+version: 22.4.9

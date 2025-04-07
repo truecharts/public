@@ -1,38 +1,37 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: media
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 1.4.2
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: Plex to AniList Sync.
-  home: https://truecharts.org/charts/stable/plexanisync
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexanisync.webp
-  keywords:
-      - plexanisync
-      - media
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: plexanisync
-  sources:
-      - https://ghcr.io/rickdb/plexanisync
-      - https://github.com/RickDB/PlexAniSync
-      - https://github.com/RickDB/PlexAniSync/pkgs/container/plexanisync
-      - https://github.com/truecharts/charts/tree/master/charts/stable/plexanisync
-  type: application
-  version: 8.5.1
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.4.2
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: Plex to AniList Sync.
+home: https://truecharts.org/charts/stable/plexanisync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexanisync.webp
+keywords:
+    - plexanisync
+    - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: plexanisync
+sources:
+    - https://ghcr.io/rickdb/plexanisync
+    - https://github.com/RickDB/PlexAniSync
+    - https://github.com/RickDB/PlexAniSync/pkgs/container/plexanisync
+    - https://github.com/truecharts/charts/tree/master/charts/stable/plexanisync
+type: application
+version: 8.5.1

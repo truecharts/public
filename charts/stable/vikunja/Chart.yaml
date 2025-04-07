@@ -1,43 +1,42 @@
-  annotations:
-      max_scale_version: 24.04.1
-      min_scale_version: 24.04.0
-      truecharts.org/category: productivity
-      truecharts.org/max_helm_version: "3.16"
-      truecharts.org/min_helm_version: "3.14"
-      truecharts.org/train: stable
-  apiVersion: v2
-  appVersion: 0.24.6
-  dependencies:
-      - name: common
-        version: 25.4.10
-        repository: oci://tccr.io/truecharts
-        condition: ""
-        alias: ""
-        tags: []
-        import-values: []
-      - name: redis
-        version: 15.6.7
-        repository: oci://tccr.io/truecharts
-        condition: redis.enabled
-        alias: ""
-        tags: []
-        import-values: []
-  deprecated: false
-  description: The to-do app to organize your life.
-  home: https://truecharts.org/charts/stable/vikunja
-  icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.webp
-  keywords:
-      - vikunja
-  kubeVersion: '>=1.24.0-0'
-  maintainers:
-      - name: TrueCharts
-        email: info@truecharts.org
-        url: https://truecharts.org
-  name: vikunja
-  sources:
-      - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-      - https://hub.docker.com/r/vikunja/vikunja
-      - https://vikunja.io/docs
-  type: application
-  version: 15.10.8
-
+annotations:
+    max_scale_version: 24.04.1
+    min_scale_version: 24.04.0
+    truecharts.org/category: productivity
+    truecharts.org/max_helm_version: "3.17"
+    truecharts.org/min_helm_version: "3.14"
+    truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.24.6
+dependencies:
+    - name: common
+      version: 25.4.10
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 15.6.7
+      repository: oci://tccr.io/truecharts
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
+deprecated: false
+description: The to-do app to organize your life.
+home: https://truecharts.org/charts/stable/vikunja
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.webp
+keywords:
+    - vikunja
+kubeVersion: '>=1.24.0-0'
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+name: vikunja
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
+    - https://hub.docker.com/r/vikunja/vikunja
+    - https://vikunja.io/docs
+type: application
+version: 15.10.8
