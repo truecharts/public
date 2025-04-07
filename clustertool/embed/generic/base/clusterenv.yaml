@@ -8,8 +8,10 @@ MASTER1IP: 192.168.20.210
 GATEWAY: 192.168.20.1
 # Defines the ip range metallb is allowed to use
 METALLB_RANGE: 192.168.20.211-192.168.20.219
-# IP Traefik will use for externally exposing ingress-resources (NOT its dashboard)
-TRAEFIK_IP: 192.168.20.211
+# IP NGINX will use for exposing ingress-resources. Internal refers to LAN-only NGINX ingress, dont port-forward at router
+NGINX_INTERNAL_IP: 192.168.20.221
+# IP NGINX will use for exposing ingress-resources. Internal refers to LAN-and-WAN NGINX ingress, DO port-forward at router
+NGINX_EXTERNAL_IP: 192.168.20.222
 # IP Blocky DNS will be exposed on
 BLOCKY_IP: 192.168.20.212
 # Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use

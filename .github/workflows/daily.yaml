@@ -77,6 +77,12 @@ jobs:
         run: |
            ./charttool genmeta
 
+      - name: Ensure Go Mod Tidy
+        run:  |
+          cd ./clustertool
+          go mod tidy
+          cd ..
+
       - name: Cleanup
         run: |
           rm -rf changes.json

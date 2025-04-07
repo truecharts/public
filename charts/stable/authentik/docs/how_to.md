@@ -2,85 +2,139 @@
 title: How-To
 ---
 
-This is a quick how-to or setup guide to use Authentik with TrueNAS SCALE and setup a simple Proxy Provider with `traefik` using the Embedded Outpost to use as a Traefik `forwardauth`. This guide was created with Authentik `2022.10.0` and will be updated if things dramatically change.
-This can be applied to other systems but this specific guide has been tested and created on TrueNAS SCALE and isn't guaranteed to work with any other configs.
-
-## Requirements
-
-- Authentik TrueCharts Chart
-- Traefik Truecharts Chart
+This is a quick how-to or setup guide to use Authentik and setup a simple Proxy Provider with `traefik` using the Embedded Outpost to use as a Traefik `forwardauth`. <br>
+This guide is created with Authentik `2025.2.1`.
 
 ## Prerequisites
 
-This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider and have through the configuration listen in our [Quick-Start guides]. Please ensure that you can access your domain properly with Ingress before attempting any further steps.
+This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider. Please ensure that you can access your domain properly with Ingress before attempting any further steps.
 
 ## Authentik Chart Setup
 
 :::note
 
-The `Authentik` chart has many options, which may enhance or break your chart depending on your setup and are beyond the scope of this guide
+The `Authentik` chart has many options, which may enhance or break your chart depending on your setup and are beyond the scope of this guide.
 
 :::
 
-### Container Configuration
+### Chart Values
 
-All of the defaults are fine to start off, you must choose a password, however `ingress` must be set if you wish to use `authentik` with `traefik`.
-
-**Ingress Example**
+All of the defaults are fine to start off, only the `.Values` you need to set are password and the ingress settings.
 
 :::note
 
-Note that the `*.domain.com` host config is only needed if you want to use `Forward auth (single application)` in `authentik`.
+Note that the `*.domain.com` host config is only needed if you want to use `Forward auth (single application)` in `Authentik`.
 
 :::
 
-![Ingress-Auth](./img/Ingress-Auth.png)
+```yaml
+// .Values
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: auth.domain.com
+      - host: "*.domain.com"
+        paths:
+          - path: /outpost.goauthentik.io
+            pathType: Prefix
+    integrations:
+      traefik:
+        enabled: true
+      certManager:
+        enabled: true
+        certificateIssuer: domain-0-le-prod
+
+authentik:
+  credentials:
+    email: info@domain.com
+    password: secretpassword
+```
 
 ## Authentik GUI Setup
 
-Default username is `akadmin` and password is whatever you entered in the initial setup.
+:::note
+
+During testing it is adviced to use Incognito browser windows.
+
+:::
+
+- Browse to `https://auth.domain.com`
+
+Default username is `akadmin` and password is whatever you entered in the chart .Values.
 
 - Once logged in enter the Admin Interface
 
 ![Applications-Screen](./img/Applications-Screen.png)
 
-### Create Application
+### Create an User
 
-- First step is to create an Application for use with `authentik`
+- Create an user or more
 
-![Create-Application](./img/Create-Applications.png)
+![New-User-1](./img/New-User-1.png)
+![New-User-2](./img/New-User-2.png)
 
-- Specific the `Name` and `Slug` and then choose `Create Provider`
+- Set the users password
 
-![Create-Applications-2](./img/Create-Applications-2.png)
+![New-User-3](./img/New-User-3.png)
 
-- Choose a new provider `Proxy Provider`.
+### Create Application based upon subdomain-level access control `Forward auth (single application)`
 
-![New-Provider-1](./img/New-Provider-1.png)
+If you want to use subdomain-level access control, you have to make per subdomain a Provider and an Application.
+The example uses `https://sonarr.domain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
 
-- The simplest is to give it a name and use `Forward auth (domain level)`. Once there you enter the `main ingress` URL you use to access `authentik` and the `cookie domain` as the main domain you use.
+1. First step is to create an Application for use with `authentik`.
 
-![New-Provider-2](./img/New-Provider-2.png)
+![Create-Application](./img/Create-Application.png)
 
-- If you want to use subdomain-level access control, select `Forward auth (single application)` and enter the URL you have chosen for your apps' ingress.
-- The example uses `https://application.domain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
-- You can set HTTP-Basic Authentication Attributes under `Authentication settings` for your service here.
-  - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support.
-  - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
+2. Specific the `Name` and `Slug` and press `Next`.
 
-![New-Provider-3](./img/New-Provider-3.png)
+![New-Application-1](./img/New-Application-1.png)
 
-- Once done use that new `Provider` you created
+3. Choose a Provider `Proxy Provider` and press `Next`.
 
-![Create-Applications-3](./img/Create-Applications-3.png)
+![New-Application-2](./img/New-Application-2.png)
 
-### Choose Provider
+4.
+- Configure Proxy Provider by select `Forward auth (single application)` and fill your `External host`.
+- Select the preffered `Authorization flow`
+- When you scroll down you can enable `Send HTTP-Basic Authentication` under `Authentication settings` and complete the correct keys for your service here. Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support. More information upstream [here](https://docs.goauthentik.io/docs/add-secure-apps/providers/proxy/header_authentication). In this how_to we don't use this.
+- press `Next`
+
+![New-Application-2](./img/New-Application-3.png)
+
+5. Choose `Bind existing policy/group/user` to assign an user(s), which are allowed to access. If you assign nothing all users are allowed to access. Press Save Binding
+
+![New-Application-4](./img/New-Application-4.png)
+
+6. Review the Application and submit.
+
+![New-Application-5](./img/New-Application-5.png)
+
+
+### Create Application based upon domain access control `Forward auth (domain level)`
+
+:::note
+
+This is not further tested during creation of this HOW-TO, feel free to complete.
+
+:::
+
+- If you want no controll per sub domain. You can choose at step 4 above `Forward auth (domain level)`.
+- Once there you enter the `main ingress` URL you use to access `authentik` and the `cookie domain` as the main domain you use.
+- Call it for example as Application name `All` and as provider name `Provider Domain`.
+
+![New-Application-Domain](./img/New-Application-Domain.png)
+
+### Review Provider
 
 If everything was done properly above, you should have the Provider you created assigned to your Application
 
 ![Providers](./img/Providers.png)
 
-### Use Embedded Outpost
+### Set Embedded Outpost
+
+- Go to `Outposts` and check directly the healthcheck.
 
 ![Outposts](./img/Outposts.png)
 
@@ -88,56 +142,49 @@ If everything was done properly above, you should have the Provider you created 
 
 ![Update-Outposts](./img/Update-Outpost.png)
 
-- Name your `Outpost` and choose the `Application` you wish to use with `authentik`. Click `Update` and verify it's usage with the Healthcheck below.
-
-![Verify-Outpost](./img/Verify-Outpost.png)
-
 ## Traefik ForwardAuth Setup
 
 Once `authentik` is setup and running, you must create a `forwardAuth` inside `Traefik` in order to use authentication with Traefik. For my purposes `auth` is what I used but as long as you remember it you're fine.
 
-![Traefik-forwardAuth](./img/Traefik-forwardAuth.png)
+```yaml
+middlewares:
+  forwardAuth:
+    - name: auth
+      address: http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/traefik
+      authResponseHeaders:
+        - X-authentik-username
+        - X-authentik-groups
+        - X-authentik-email
+        - X-authentik-name
+        # - authorization      # According to previous how_to to pass the HTTP-Basic headers from `authentik` to you application  (NOT TESTED)
+      trustForwardHeader: true
 
-:::note
-
-The main thing about this screen is to use the internal DNS name for simplicity
-
-- I have successfully used an `authentik` instance on a difference host together with `external-service` using this URL:
-  - `https://authentik-external-service.ix-authentik.svc.cluster.local:9443/outpost.goauthentik.io/auth/traefik`
-- Use `heavyscript dns -a` to get the internal DNS name for your `authentik` instance in that case.
-- I suggest using the `https` endpoint and port because it is what worked for me.
-
-:::
-
-```shell
-http://authentik-http.ix-authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/traefik
+## Other Available authResponseHeaders according upstream documentation: https://docs.goauthentik.io/docs/add-secure-apps/providers/proxy/server_traefik
+# - X-authentik-entitlements
+# - X-authentik-uid
+# - X-authentik-jwt
+# - X-authentik-meta-jwks
+# - X-authentik-meta-outpost
+# - X-authentik-meta-provider
+# - X-authentik-meta-app
+# - X-authentik-meta-version
 ```
 
-**Double-check the DNS name and port.**
-
-There's also a list of `authResponseHeaders` inside `authentik` listed for use with `Traefik`, so in case you need them here they are.
-
-- `X-authentik-username`
-- `X-authentik-groups`
-- `X-authentik-email`
-- `X-authentik-name`
-- `X-authentik-uid`
-- `X-authentik-jwt`
-- `X-authentik-meta-jwks`
-- `X-authentik-meta-outpost`
-- `X-authentik-meta-provider`
-- `X-authentik-meta-app`
-- `X-authentik-meta-version`
-
-Add the `authorization` header to pass the HTTP-Basic headers from `authentik` to you application.
-
-### Add Traefik forwardAuth to Charts
+## Add Traefik forwardAuth to Charts
 
 - Once that is done all you need to add the `middleware` to your Charts under the `Ingress section`, as in my case it's called `auth`.
 
-![Traefik-Middleware](./img/Traefik-Middleware.png)
-
-And that's it.
+```yaml
+ingress:
+  main:
+    enabled: true
+    integrations:
+      traefik:
+        enabled: true
+        middlewares:
+          - name: auth
+            namespace: traefik
+```
 
 ## Verification it works
 

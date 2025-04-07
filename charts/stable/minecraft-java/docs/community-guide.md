@@ -2,42 +2,78 @@
 title: Minecraft Java Community Guide
 ---
 
-⚠️ **Warning This guide contains information that uses Advanced/Expert settings. As a result this will be outside the scope of support!** ⚠️
-
----
-
 ## Running Multiple MC-Java Servers
 
-You can easily run Multiple MC Servers. You simply need to change the external ports, Be sure to use an unused port. There is no need to change the Minecraft port or RCON port in the server.properties
+You can easily deploy Multiple MC Servers charts. You simply need to change have different IP adresses. Ports can be kept the standard port or when you prefered for both MC Servers a different port. This is depending of your way to route the traffic via your router.
 
 MC Server 1
 
-![mc-server1](./img/mc-server1.png)
+```yaml
+service:
+  main:
+    type: LoadBalancer
+    loadBalancerIP: ${MCServer1}
+        enabled: true
+    ports:
+      main:
+        port: 25565  #standard MC port
+```
 
 MC Server 2
 
-![mc-server2](./img/mc-server2.png)
+```yaml
+service:
+  main:
+    type: LoadBalancer
+    loadBalancerIP: ${MCServer2}
+    enabled: true
+    ports:
+      main:
+        port: 25566  #different MC port
+```
+
+Another option the run multiple MC servers is to use the chart `minecraft-router`. When using this chart you can keep the service type on CLusterIP and keep the standard ports. This chart will redirect to your CLuster Domain Names.
 
 ## Plugins DIR
 
-To easily get Plugins in to your MC server since PVC's are in use for the config storage you can add a host path storage for either /mods or /plugins depending on what your server needs like so
+To easily get Plugins in to your MC server since PVC's are in use for the config storage you can add a NFS path storage for either /mods or /plugins depending on what your server needs.
 
-![mc-plugins](./img/mc-plugins.png)
-
-This will give you an easy folder to drop the plugins in and they will then sync to /data/plugins or /data/mods , you will/may need to shell in to the app to periodically clean up old versions
+This will give you an easy folder to drop the plugins in and they will then sync to /data/plugins or /data/mods, how to add extra storage you can check the common docs.
+You will/may need to shell in to the pod to periodically clean up old versions or add a codeserver extension.
 
 ## Plugins/mods that need additional ports
 
-Using Dynmap as an example Under network and Services Check Show Expert config (remember the warning at the top?)
+Using plugins which needs an additional port, you need to configure an extra service. You can do this with loadBalancer and an IP or define with an Ingress.
+This is an example with Bluemap with an Ingress.
 
-Click Configure add Manual Custom Services and fill out like so also adding Configure additional service ports
+```yaml
+service:
+  bluemap:
+    enabled: true
+    type: LoadBalancer            # Optional - when not use ingress
+    loadBalancerIP: ${BluemapIP}  # Optional - when not use ingress
+    ports:
+      bluemap:
+        enabled: true
+        protocol: tcp
+        port: 8100
 
-![mc-modports1](./img/mc-modports1.png)
+ingress:
+  bluemap:
+    enabled: true
+    primary: true
+    targetSelector:
+      bluemap: bluemap
+    hosts:
+      -  host: ${MINECRAFT_URL}
+    integrations:
+      traefik:
+        enabled: true
+      certManager:
+        enabled: true
+        certificateIssuer: ${ISSUER}
+```
 
-For the second server instance the setup is about the same one minor difference is the need to change the port for dynmap in the container to a new port and configure like so (note this could of just been my system being silly due to my tests and not rebooting)
+Bluemap Web working
 
-![mc-modports2](./img/mc-modports2.png)
-
-Dynmap Web working
-
-![dynmap](./img/dynmap.png)
+![Bluemap](./img/bluemap.png)

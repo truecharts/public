@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: bitmagnet
-      version: 3.6.1
+      version: 3.7.1
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -51,17 +51,13 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         integrations:
           traefik:
-            enabled: true
-            middlewares:
-              - name: local
-                namespace: traefik
-              - name: bouncer
-                namespace: traefik
+            enabled: false
           certManager:
             enabled: true
-            certificateIssuer: domain-1-le-prod
+            certificateIssuer: le-prod
         hosts:
           - host: bitmagnet.${DOMAIN_1}
             paths:
@@ -69,10 +65,17 @@ spec:
                 pathType: Prefix
     cnpg:
       main:
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "true"
+        mode: recovery
+        cluster:
+          storage:
+            size: "256Gi"
+          walStorage:
+            size: "256Gi"
         backups:
-          enabled: false
+          enabled: true
           credentials: s3
-
         recovery:
-          method: object_store
+          enabled: true
           credentials: s3

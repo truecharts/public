@@ -8,10 +8,10 @@ spec:
   chart:
     spec:
       chart: cloudnative-pg
-      version: 8.2.0
+      version: 0.23.2
       sourceRef:
         kind: HelmRepository
-        name: truecharts
+        name: cloudnative-pg
         namespace: flux-system
       interval: 5m
   install:
@@ -24,3 +24,10 @@ spec:
     remediation:
       retries: 3
   values:
+    crds:
+      create: true
+    replicaCount: 2
+    # monitoring:
+    #   podMonitorEnabled: false
+    #   grafanaDashboard:
+    #     create: true

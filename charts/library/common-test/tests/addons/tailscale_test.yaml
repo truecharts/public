@@ -1,0 +1,282 @@
+suite: addon tailscale
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: addon enabled should pass
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      addons:
+        tailscale:
+          enabled: true
+          container:
+            env:
+              TS_AUTH_KEY: something
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec
+          content:
+            automountServiceAccountToken: true
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_KEY
+            value: something
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1].securityContext
+          content:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: tailscalestate
+            emptyDir: {}
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false
+
+  - it: addon enabled should pass with userspace to false
+    set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      addons:
+        tailscale:
+          enabled: true
+          container:
+            env:
+              TS_AUTH_KEY: something
+              TS_USERSPACE: false
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_KEY
+            value: something
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1].securityContext
+          content:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+
+  - it: addon enabled should pass with state set to hostpath
+    set:
+      persistence:
+        tailscalestate:
+          type: hostPath
+          hostPath: /test
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      addons:
+        tailscale:
+          enabled: true
+          container:
+            env:
+              TS_AUTH_KEY: something
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: tailscalestate
+            hostPath:
+              path: /test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false

@@ -26,9 +26,9 @@ objectData: The object data to be used to render the Pod.
   {{- $deviceAdded := false -}}
   {{- $hostUsers := false -}}
   {{- $hostUserPersistence := (list "configmap" "secret" "emptyDir" "downwardAPI" "projected") -}}
-  {{- $podSelected := false -}}
 
   {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
+    {{- $podSelected := false -}}
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                   "rootCtx" $rootCtx "objectData" $persistenceValues
                   "name" $persistenceName "caller" "Pod Security Context"
@@ -40,7 +40,7 @@ objectData: The object data to be used to render the Pod.
         {{- if mustHas $objectData.shortName ($persistenceValues.targetSelector | keys) -}}
           {{- $podSelected = true -}}
         {{- end -}}
-      {{- else if $objectData.podPrimary -}}
+      {{- else if $objectData.primary -}}
         {{- $podSelected = true -}}
       {{- end -}}
     {{- end -}}

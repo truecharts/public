@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/speedtest-tracker
   pullPolicy: IfNotPresent
-  tag: 1.2.5@sha256:99a771d9b80dd4f077b88e2832fba73cf495a6cf994cf3317bc275b17f4b1129
+  tag: 1.3.0@sha256:07d117722cb55d61166602eb61dafccb48fd338129b0ee38ce9c3458d4602d7e
 service:
   main:
     ports:
@@ -83,7 +83,7 @@ workload:
             MAIL_PORT: 465
             MAIL_USERNAME: ""
             MAIL_PASSWORD: ""
-            MAIL_ENCRYPTION: "SSL"
+            MAIL_SCHEME: "SSL"
             MAIL_FROM_ADDRESS: ""
             MAIL_FROM_NAME: "Speedtest Tracker"
             TELEGRAM_BOT_TOKEN: ""

@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/spegel-org/spegel
   pullPolicy: IfNotPresent
-  tag: v0.0.30
+  tag: v0.1.1
 
 securityContext:
   container:
@@ -70,7 +70,7 @@ configmap:
     labels:
       grafana_dashboard: "1"
     data:
-      traefik.json: >-
+      spegel.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
 
 podOptions:
@@ -128,7 +128,7 @@ spegel:
   # -- Registries for which mirror configuration will be created.
   ## NOTE: If using Talos, Talos does NOT fall-back to the main url for talos containers
   ## Include main url in mirror list in that case!
-  registries:
+  mirroredRegistries:
     - https://cgr.dev
     - https://docker.io
     - https://ghcr.io
@@ -141,7 +141,7 @@ spegel:
     - https://tccr.io
     - https://factory.talos.dev
   # -- Additional target mirror registries other than Spegel.
-  additionalMirrorRegistries: []
+  additionalMirrorTargets: []
   # -- Max ammount of mirrors to attempt.
   mirrorResolveRetries: 3
   # -- Max duration spent finding a mirror.
@@ -161,7 +161,7 @@ spegel:
   # -- When true latest tags will be resolved to digests.
   resolveLatestTag: true
   # -- When true existing mirror configuration will be appended to instead of replaced.
-  appendMirrors: true
+  prependExisting: true
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:

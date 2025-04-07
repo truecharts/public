@@ -3,7 +3,6 @@ title: How-To
 ---
 
 This is a quick how-to or setup-guide to use Tailscale on Talos.
-This can be applied to other systems but this specific guide is Talos on TrueNAS specific with the prerequisites.
 
 :::caution
 
@@ -13,26 +12,25 @@ This guide doesn't cover using Tailscale with individual applications. While the
 
 ## Requirements
 
+### Tailscale
 - Tailscale Account (Free accounts available at [Tailscale's Official website](https://www.tailscale.com))
-- Tailscale Truecharts Chart
 - Tailscale DNS setup for Talos Cluster Domain
 
-## Prerequisites (LAN access only)
-
-For proper access to your local network (LAN), this chart requires two `sysctl` values set on your TrueNAS or system.
-For TrueNAS SCALE the way to change these values are inside `System Settings` then `Advanced`.
-On that screen you add the following two values:
-
-- `net.ipv4.ip_forward`
-- `net.ipv4.conf.all.src_valid_mark`
-
-Set them to `1` and `Enabled`
-
-![sysctl](./img/Sysctl.png)
-
-Also prepare your Tailscale Auth Key for your setup, easy to generate on the page below
+Generate a Tailscale Auth Key for your setup, easy to generate on the page below
 
 ![tailscale-auth-key](./img/How-To-Image-1.png)
+
+### Sysctl
+:::note[sysctl]
+
+This part is not needed for CLustertool setup with TalosOS.
+
+:::
+At some OS's it is required to set two `sysctl` values for proper acces to your local network (LAN). Check your OS documentation how this needs to be done.
+```
+net.ipv4.ip_forward = 1
+net.ipv4.conf.all.src_valid_mark = 1
+```
 
 ## Tailscale Chart Setup
 
@@ -42,50 +40,26 @@ Ideally use `tailscale` but you can use any name here.
 
 ### App Configuration
 
-- `Auth Key`: The key you received from tailscale in prerequisites above
-- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. This needs to be _unchecked_ if you need to give Tailscale full access to all the features inside TrueNAS SCALE (not just GUI/SMB, but RSYNC, PING and directly connect to other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
+- `Auth Key`: Required - The key you received from tailscale in prerequisites above
+- `Hostname`: Required - Please specify a specific hostname for use inside Tailscale. This is required to have a persistant machine name appear in the Tailscale portal. Values.yaml has been updated to set hostname to truecharts-tailscale to avoid the state not persisting for those to do not set this field. Without it, the default setting would use the tailscale kubernetes podname as the hostname, creatimg additional machines in the Tailscale portal over time. (Passes `--hostname HOSTNAME` to `Extra args`)
+- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
-- `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example. Required if you want to access APPS over Tailscale using TrueNASIP:Port from any Tailscale connected client.
+- `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, ie your LAN.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
-- `Hostname` You can specify a specific hostname for use inside Tailscale (see image below). (Passes `--hostname HOSTNAME` to `Extra args`)
 - `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `Extra args`)
 
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
 
-**Hostname example**
-
-![hostname-example](./img/Hostname.png)
-
 ## Namespace Privileges Required for Talos Cluster
 
 In your namespace.yaml file add
-```labels:
+```
+labels:
     pod-security.kubernetes.io/enforce: privileged
 ```
 
 to allow this Chart to run with privileged permissions.
-
-### Networking and Services
-
-The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
-
-### Storage and Persistence
-
-Highly recommended to leave it as specified in the Charts values.yaml file.
-
-### Ingress
-
-Shouldn't need to enable this.
-
-### Security and Permissions
-
-Should be left as is, unless you know what you are doing!
-
-### Resources and Devices
-
-You can set custom resources for CPU/RAM, but defaults should be work fine in most cases
-Defaults are 4 vCores and 8G RAM.
 
 ### Tailscale DNS Setup
 
@@ -93,15 +67,13 @@ In Tailscale Portal on DNS, Namespace section add a new custom nameserver using 
 
 ![tailscale-nameserver](./img/tailscale-nameserver.png)
 
-### Addons
+### Working Values Example
 
-Shouldn't need to enable any.
-
-## Support
-
-- You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
-- If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
-
----
-
-All Rights Reserved - The TrueCharts Project
+```yaml
+tailscale:
+  authkey: MY_PRIVATE_AUTHKEY
+  accept_dns: true
+  routes: 192.168.1.0/24 # LAN Example
+  advertise_as_exit_node: true
+  hostname: "MyHostname"
+```

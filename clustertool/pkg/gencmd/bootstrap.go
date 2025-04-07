@@ -96,8 +96,7 @@ func RunBootstrap(args []string) {
         // Pulled directly from upstream, due to this being very complex and important
         {filepath.Join(helper.ClusterPath, "/kubernetes/kube-system/cilium/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/kube-system/kubelet-csr-approver/app"), false, true},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/traefik-crds/app"), false, false},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/prometheus-operator/app"), false, false},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/system/kube-prometheus-stack/app"), false, false},
     }
 
     fluxhandler.InstallCharts(baseCharts, HelmRepos, true)
@@ -154,7 +153,6 @@ func RunBootstrap(args []string) {
     prioCharts := []fluxhandler.HelmChart{
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/spegel/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/cert-manager/app"), false, false},
-        {filepath.Join(helper.ClusterPath, "/kubernetes/system/kyverno/app"), false, false},
         {filepath.Join(helper.ClusterPath, "/kubernetes/system/kubernetes-reflector/app"), false, false},
     }
     fluxhandler.InstallCharts(prioCharts, HelmRepos, false)
@@ -205,7 +203,8 @@ func RunBootstrap(args []string) {
 
     log.Info().Msg("Bootstrap: Installing included applications")
     postCharts := []fluxhandler.HelmChart{
-        {filepath.Join(helper.ClusterPath, "/kubernetes/core/traefik/app"), false, true},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/networking/nginx-internal/app"), false, true},
+        {filepath.Join(helper.ClusterPath, "/kubernetes/networking/nginx-external/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/core/blocky/app"), false, true},
         {filepath.Join(helper.ClusterPath, "/kubernetes/apps/kubernetes-dashboard/app"), false, true},
     }

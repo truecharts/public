@@ -2,12 +2,26 @@
 title: Installation Notes
 ---
 
-To use this to protect multiple apps setup the traefik middleware "modsecurity".
+To use this to protect multiple apps setup the traefik middleware "modsecurity" in the Traefik Chart `.Values`.
 
-- Name
-- ModSecurity Url
-- timeout Millis
-- maxBody Size
+```yaml
+middlewares:
+  modsecurity:
+    - name: modsecurity
+      modSecurityUrl: http://modsecurity-crs-modsecurity-crs.svc.cluster.local:8081
+      timeoutMillis: 1000
+      maxBodySize: 1024
+```
 
-If you do not plan to use traefik or only want to protect a single app, just add a custom variable "BACKEND" in Extra Environment Variables.
-The value can be `<http://ip:port>` or `<http://$NAME.ix-$NAME.svc.cluster.local:PORT>`.
+If you do not plan to use traefik or only want to protect a single app, just add a variable "BACKEND" in the Environment Variables.
+The value can be `<http://ip:port>` or `<http://modsecurity-crs-modsecurity-crs.svc.cluster.local:8081>`.
+
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BACKEND: "http://ip:port"
+```

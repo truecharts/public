@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/nextcloud:30.0.6-fpm@sha256:35816840281aa2fa2d5630d981ce32c72388f5e885d9ea1be43b38c76ab95d42
+FROM public.ecr.aws/docker/library/nextcloud:31.0.2-fpm@sha256:e9470fa0b94460bfda4bb741484513fc3a5757b0b30877176c0d0e7c8727b398
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL4006
 RUN set -ex; \
     \

@@ -1,22 +1,22 @@
 image:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1@sha256:56f535c53c66921f8d7d6efb272d2829da942a7cf5c4b3fa07ee3ada5d2d1822
+  tag: 2025.4.0@sha256:ebd8e1308013c320168f436076dc5e854172be0131dd89c8406c5a4b6bc3da0a
   pullPolicy: Always
 j21Image:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java21@sha256:56f535c53c66921f8d7d6efb272d2829da942a7cf5c4b3fa07ee3ada5d2d1822
+  tag: 2025.4.0-java21@sha256:ebd8e1308013c320168f436076dc5e854172be0131dd89c8406c5a4b6bc3da0a
   pullPolicy: Always
 j21graalvmImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java21-graalvm@sha256:e9539e5a09e485d638d3d7389590c6c667431a688c0ffe21df08035f1ec85744
+  tag: 2025.4.0-java21-graalvm@sha256:c9bbecae66b9038812f64bed4f562bd4b69ae9f863d25c88b39b7ff84a8e478e
   pullPolicy: Always
 j21alpineImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java21-alpine@sha256:57e319c15e9fee63f61029a65a33acc3de85118b21a2b4bb29f351cf4a915027
+  tag: 2025.4.0-java21-alpine@sha256:6465bf5a90599229d7fd5ed42fd567a103ee32ca4740249c36ca3b63e69f1f25
   pullPolicy: Always
 j17Image:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java17@sha256:3f5997c0d5691768a36c0e0ebb7fbbdad71e3931d8349cff3453aa18d02cf9ae
+  tag: 2025.4.0-java17@sha256:a27daa6e470f7d5f8fd483690ae00c24859f7c5ac4bd12be8e9d82ac4181790d
   pullPolicy: Always
 j17jdkImage:
   repository: ghcr.io/itzg/minecraft-server
@@ -24,27 +24,27 @@ j17jdkImage:
   pullPolicy: Always
 j17graalvmImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java17-graalvm@sha256:0aea130a48f88436575e7d3f3f67aee1d5a7a1c08da93a0b7bc9cb348bd7a418
+  tag: 2025.4.0-java17-graalvm@sha256:e0c2d1738ec4fbd4970f9be4b90e9fac08f1e71240fb3359af2d40d287a29fd9
   pullPolicy: Always
 j17alpineImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java17-alpine@sha256:b06431567caf69e95a446b661a2560aba454c48f3a98b74820002821563b3d12
+  tag: 2025.4.0-java17-alpine@sha256:76dec8e773b3b74642d89e5be7b203df530dffcc0dc5a372db9f932ae9d92cb9
   pullPolicy: Always
 j11Image:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java11@sha256:9bc54938d26db0924d283b97e94b8cd327a3c41eab175bb60775d16a25e80be0
+  tag: 2025.4.0-java11@sha256:d3d0468c09aac4245c359b25dfb7f1bd301d400cf1b49ec927ce8168d92ffddc
   pullPolicy: Always
 j8Image:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java8@sha256:340b3e1f0ba417561de1f73148769700fe982b9efc1c298922ceb85737337eed
+  tag: 2025.4.0-java8@sha256:60fe81ac770f7687f6f6ac9d9de06277e2e2528d909ba4fde47b55abb062ff60
   pullPolicy: Always
 j8graalvmImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java8-graalvm-ce@sha256:98753067d065f368aa1a8c2d9df6a117955ee8535719ac29b6c77442b267b74a
+  tag: 2025.4.0-java8-graalvm-ce@sha256:aed6c5e046495df8680010a4f9bd0a2e16ce3d7f0a7eb2da0ca05df05767ea49
   pullPolicy: Always
 j8jdkImage:
   repository: ghcr.io/itzg/minecraft-server
-  tag: 2025.2.1-java8-jdk@sha256:029e4169037b0ceb495a2cb28e8f9437979c0e5f9bff9b87ee85fa7899bc0fcc
+  tag: 2025.4.0-java8-jdk@sha256:f63deb8bb01ea12407c05d931cb87e2f2b6ed660ece4b101e2c49b45f0ef5a5f
   pullPolicy: Always
 j8alpineImage:
   repository: ghcr.io/itzg/minecraft-server
@@ -52,7 +52,7 @@ j8alpineImage:
   pullPolicy: Always
 mcBackupImage:
   repository: docker.io/itzg/mc-backup
-  tag: latest@sha256:c62972a87294f94a98e5d941441da8020cf86af887c5dabe9ab0ee43109a495f
+  tag: latest@sha256:0e5e26f1e76530ed9464b69fe0f3eaf9eb7c5d6ceea4908a635393063d843dcf
   pullPolicy: Always
 
 service:

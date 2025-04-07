@@ -14,7 +14,7 @@
   {{- if or (not .name) (not (mustRegexMatch "^[a-z0-9]+(-[a-z0-9]+)*$" .name)) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
   {{- end -}}
-  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" -}}
+  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" "webhook" -}}
   {{- if not (mustHas .type $validTypes) -}}
     {{- fail (printf "Expected ACME type to be one of [%s], but got [%s]" (join ", " $validTypes) .type) -}}
   {{- end -}}
@@ -101,6 +101,16 @@ spec:
           accountSecretRef:
             name: {{ $issuerSecretName }}
             key: acmednsJson
+      {{- else if eq .type "webhook" }}
+        webhook:
+          groupName: {{ .groupName }}
+          solverName: {{ .solverName }}
+          {{- if .config }}
+          config:
+            {{- range $configkey, $configvalue := .config }}
+            {{ $configkey }}: {{ $configvalue }}
+            {{- end }}
+          {{- end }}
       {{- end -}}
     {{- end }}
 ---

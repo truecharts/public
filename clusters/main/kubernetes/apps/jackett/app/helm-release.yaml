@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: jackett
-      version: 23.3.29
+      version: 23.3.65
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -54,17 +54,13 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         integrations:
           traefik:
-            enabled: true
-            middlewares:
-              - name: local
-                namespace: traefik
-              - name: bouncer
-                namespace: traefik
+            enabled: false
           certManager:
             enabled: true
-            certificateIssuer: domain-1-le-prod
+            certificateIssuer: le-prod
         hosts:
           - host: jackett.${DOMAIN_1}
             paths:

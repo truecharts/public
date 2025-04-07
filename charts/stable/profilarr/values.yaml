@@ -1,0 +1,18 @@
+image:
+  repository: docker.io/santiagosayshey/profilarr
+  pullPolicy: IfNotPresent
+  tag: v1.0.1@sha256:16ea5790e612889e02e297094ae0b0d605c5770511a7564d6a43e663cafebf26
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 6868
+        port: 6868
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true

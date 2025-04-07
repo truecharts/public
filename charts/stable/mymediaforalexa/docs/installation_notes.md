@@ -2,7 +2,7 @@
 title: Installation Notes
 ---
 
-- Set `medialibrary` to Host Path(Simple) and mount it to your music library.
+- Set `persistence.media` to for example a NFS Share. Which contain your music library.
 
 - Go through the setup and sign in with your amazon account.
 

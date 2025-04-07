@@ -4,9 +4,9 @@ title: Important Notes
 
 ## Credentials
 
-On first run, cloudreve will generate an admin user and print the email and password to the app logs. It will look something like this:
+On first run, Cloudreve will generate an admin user and print the email and password to the logs. It will look something like this:
 
-```
+```bash
    ___ _                 _
   / __\ | ___  _   _  __| |_ __ _____   _____
  / /  | |/ _ \| | | |/ _  | '__/ _ \ \ / / _ \
@@ -28,21 +28,19 @@ On first run, cloudreve will generate an admin user and print the email and pass
 [Info]    2024-01-22 03:27:06 Listening to ":5212"
 ```
 
-To retrieve the password in TrueNAS SCALE, wait for the app to finish deploying and then navigate to the `Workload` card and click the `View Logs` icon.
-
 ## Aria2
 
-To use cloudreve with aria2, install the [TrueCharts aria2 app](/charts/stable/aria2/). The installation dialog will ask for a RPC Secret, which should be a securely generated string that will be copied to cloudreve later. See below for an example.
+To use Cloudreve with Aria2, deploy the [TrueCharts Aria2 chart](/charts/stable/aria2/). This chart needs an env. 'RPC_SECRET', which should be a securely generated string that will be copied to Cloudreve later. See below for an example.
 
-Once aria2 is installed, open cloudreve's webpage and navigate to the Dashboard (Click on profile icon in top right corner -> Dashboard). In the dashboard, select `Nodes` and then click the edit icon beside `Master (Local Machine)`. In the edit dialog, click `Enable` and then fill out the settings:
+Once Aria2 is deployed, open Cloudreve's webpage and navigate to the Dashboard (Click on profile icon in top right corner -> Dashboard). In the Dashboard, select `Nodes` and then click the edit icon beside `Master (Local Machine)`. In the edit dialog, click `Enable` and then fill out the settings:
 
-- RPC Server: find with `heavyscript dns`, and read about internal DNS [here](/.
-- RPC Secret: Set the shared secret here. Must also be set in the Aria2 app.
-- Absolute Path: Set this to a custom persistent mount that you've created for this cloudreve app, and have also mounted to Aria2.
+- RPC Server: Preferred to use Cluster DNS name. Most lickely: 'cloudreve.cloudreve.svc.cluster.local:5212'. More about internal cluster DNS can be found in the common documentation.
+- RPC Secret: Set the shared secret here. Must also be set in the Aria2 chart.
+- Absolute Path: Set this to a custom persistence mount that you've created for this cloudreve chart and have also mounted to Aria2.
 
 ### Example RPC Secrete Generation
 
-Below is an example of one way to generate the RPC Secret value. If you do not have a computer with openssl installed, you can use the shell (`System Settings` -> `Shell`) in TrueNAS SCALE. Copy the resulting value by highlighting it and pressing `Ctrl+Insert`.
+Below is an example of one way to generate the RPC Secret value, which can be copy paste in a terminal which have openssl installed.
 
 ```
 $ openssl rand -hex 32

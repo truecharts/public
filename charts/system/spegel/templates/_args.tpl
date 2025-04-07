@@ -4,22 +4,22 @@
     - configuration
     - --log-level={{ .Values.spegel.logLevel }}
     - --containerd-registry-config-path={{ .Values.spegel.containerdRegistryConfigPath }}
-    {{- with .Values.spegel.registries }}
-    - --registries
+    {{- with .Values.spegel.mirroredRegistries }}
+    - --mirrored-registries
     {{- range . }}
     - {{ . | quote }}
     {{- end }}
     {{- end }}
-    - --mirror-registries
+    - --mirror-targets
     - http://$(NODE_IP):{{ .Values.service.main.ports.main.hostPort }}
     - http://$(NODE_IP):{{ .Values.service.main.ports.main.nodePort }}
-    {{- with .Values.spegel.additionalMirrorRegistries }}
+    {{- with .Values.spegel.additionalMirrorTargets }}
     {{- range . }}
     - {{ . | quote }}
     {{- end }}
     {{- end }}
     - --resolve-tags={{ .Values.spegel.resolveTags }}
-    - --append-mirrors={{ .Values.spegel.appendMirrors }}
+    - --prepend-existing={{ .Values.spegel.prependExisting }}
 {{- end -}}
 {{- define "spegel.args.main" -}}
   args:
@@ -31,7 +31,7 @@
   - --router-addr=:{{ .Values.service.router.ports.router.port }}
   - --metrics-addr=:{{ .Values.service.metrics.ports.metrics.port}}
   {{- with .Values.spegel.registries }}
-  - --registries
+  - --mirrored-registries
   {{- range . }}
   - {{ . | quote }}
   {{- end }}

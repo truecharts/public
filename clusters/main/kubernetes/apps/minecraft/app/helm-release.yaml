@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: minecraft-java
-      version: 22.12.11
+      version: 22.34.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -213,15 +213,16 @@ spec:
        enabled: false
     resources:
        limits:
-         cpu: 10000m
-         memory: 14Gi
+         cpu: 8000m
+         memory: 25Gi
        requests:
-         cpu: 2000m
-         memory: 6Gi
+         cpu: 1000m
+         memory: 8Gi
 
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         primary: true
         targetSelector:
           dynmap: dynmap
@@ -230,6 +231,6 @@ spec:
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: domain-1-le-prod
+            certificateIssuer: le-prod
           traefik:
-            enabled: true
+            enabled: false

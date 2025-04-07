@@ -8,11 +8,20 @@ You can download a `.zim` file from [here](https://wiki.kiwix.org/wiki/Content)
 
 ## ZIM Files
 
-For 1 `.zim` file:
+### For 1 `.zim` file:
 
-- Enter the download link in the `DOWNLOAD` field box. You have to remove the link afterwards,
-  otherwise it will keep re-downloading the file on each start.
+- Add a download link with an env. `DOWNLOAD`. You have to remove the link afterwards, otherwise it will keep re-downloading the file on each deployment.
 
-For 1 or more `.zim` files:
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
+```
 
-- Mount `Data Storage` to a Host Path, and place your `.zim` files there.
+### For 1 or more `.zim` files:
+
+- `/Data` is included in the chart as persistence storage, connect this for example to a NFS share and place your `.zim` files there. More information about persistence storage can be found in the common documentation.

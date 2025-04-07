@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v30.0.0@sha256:c798f0b8cbae4951e128f76f1be48dbeed326a0be857c6a566a4e24be838ae78
+  tag: v31.0.2@sha256:bef972db87b961533b11a3016c507b395f3533b38cf601174a22215dc34b5df9
 nginxImage:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.27.4@sha256:840f33319fb642e32a15a1772400e017e1175891c98afdff3a47871c925cb0e9
+  tag: 1.27.4@sha256:7f5f11aecd21f0f95267396b8e0fb839312368fdaa51b15199d28f03d91ccdc3
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -17,11 +17,11 @@ hpbImage:
 clamavImage:
   repository: docker.io/clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.2@sha256:607b6da62d7151c1509b2182b152a14bd5532c409fe78bc124b2659aa9e18d2c
+  tag: 1.4.2@sha256:dd5da3bad15392ef36f2aff3f8ab8c41e933fcc4598f511c3918603aff477ab3
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
-  tag: 24.04.12.4.1@sha256:580ae484f914582cc24d13803a37c33820434a11aed105a922ffd079c5adcfd0
+  tag: 24.04.13.2.1@sha256:01dc4ab83977edf0f2eb35c07973ac267ebccf4917d3311efa9b9e336709f608
 
 nextcloud:
   # Initial Credentials
@@ -305,8 +305,8 @@ workload:
           resources:
             excludeExtra: true
           securityContext:
-            runAsUser: 100
-            runAsGroup: 102
+            runAsUser: 1001
+            runAsGroup: 1001
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
             capabilities:
@@ -534,6 +534,9 @@ ingressMiddlewares:
 ingress:
   main:
     required: true
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        rewrite ^/\.well-known/(card|cal)dav$ /remote.php/dav/ permanent;
     integrations:
       traefik:
         chartMiddlewares:

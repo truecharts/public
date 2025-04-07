@@ -1,7 +1,7 @@
 image:
   repository: quay.io/backube/volsync
   pullPolicy: IfNotPresent
-  tag: 0.11.0@sha256:23d90939bf7fe1d049828a3514ee3321c139ceb3549becf25af09d4333c9a1d4
+  tag: 0.12.1@sha256:2dd1ef4251b3a5881ab9289dce481de3fe30da7fc8da5e4dfed2d562964c888a
 proxyImage:
   repository: quay.io/brancz/kube-rbac-proxy
   pullPolicy: IfNotPresent
@@ -45,6 +45,7 @@ workload:
             - --logtostderr=true
             - "--tls-min-version=VersionTLS12"
             - --v=0
+            - --ignore-paths=/metrics
           resources:
             limits:
               cpu: 500m
@@ -75,6 +76,9 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+        scheme: https
+        tlsConfig:
+          insecureSkipVerify: true
     targetSelector: metrics
 
 # -- Options for the main traefik service, where the entrypoints traffic comes from
@@ -454,3 +458,12 @@ rbac:
           - get
           - patch
           - update
+configmap:
+  # Some included dashboards, which can be enabled when prefered
+  dashboard-volsync:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      dashboard_volsync.json: >-
+        {{ .Files.Get "dashboard_volsync.json" | indent 8 }}

@@ -9,6 +9,7 @@ securityContext:
     runAsGroup: 0
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+    privileged: true
     capabilities:
       add:
         - NET_ADMIN
