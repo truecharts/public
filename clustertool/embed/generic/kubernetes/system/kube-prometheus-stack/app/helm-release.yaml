@@ -58,7 +58,7 @@ spec:
         enableFeatures:
           - memory-snapshot-on-shutdown
         # Prometheus metrics retention time in PV
-        retention: 24h
+        retention: 14d
         retentionSize: 50GB
         # External labels to add to any time series or
         # alerts when communicating with external systems
