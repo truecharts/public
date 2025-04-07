@@ -52,7 +52,7 @@
       {{- $_ := set $objectData "shortName" $name -}}
 
       {{/* Now iterate over the ports in the service */}}
-      {{- range $port := $objectData.ports }}
+      {{- range $port := $service }}
         {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
                       "rootCtx" $ "objectData" $port
                       "name" $name "caller" "service"
