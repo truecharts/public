@@ -452,7 +452,7 @@ notes:
                       "rootCtx" $ "objectData" $service
                       "name" $name "caller" "Notes"
                       "key" "service")) -}}
-
+      {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
       {{- if eq $expandName "true" -}}
         {{/* Expand the name of the service if expandName resolves to true */}}
         {{- $objectName = $fullname -}}
