@@ -446,38 +446,12 @@ notes:
 
     {{- if $.Values.service }}
     {{- range $name, $service := .Values.service -}}
-    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                    "rootCtx" $ "objectData" $service
-                    "name" $name "caller" "Notes"
-                    "key" "service")) -}}
-    {{- if eq $enabled "true" -}}
-      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-                      "rootCtx" $ "objectData" $service
-                      "name" $name "caller" "Notes"
-                      "key" "service")) -}}
-      {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-      {{- if eq $expandName "true" -}}
-        {{/* Expand the name of the service if expandName resolves to true */}}
-        {{- $service = $fullname -}}
-      {{- end -}}
-
-      {{- if and (eq $expandName "true") (not $service.primary) -}}
-        {{/* If the service is not primary append its name to fullname */}}
-        {{- $service = (printf "%s-%s" $fullname $name) -}}
-      {{- end -}}
-
-      {{ $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $service "caller" "Notes")) }}
-
-
-      {{- range $p := $service.ports }}
-      {{- $enabledP := (include "tc.v1.common.lib.util.enabled" (dict
-                    "rootCtx" $ "objectData" $p
-                    "name" $name "caller" "Notes"
-                    "key" "port")) -}}
-      {{- if eq $enabledP "true" -}}
-    - {{ $service }}.{{$namespace}}.svc.cluster.local:{{ $p.port }}
-      {{- end }}
-      {{- end -}}
+    {{- if $service.ports }}
+    {{- range $portName, $port := $service.ports -}}
+    {{- if $port.internalURL }}
+    - {{ $port.internalURL }}
+    {{- end }}
+    {{- end }}
     {{- end }}
     {{- end }}
     {{- end }}
