@@ -93,6 +93,3 @@ secret:
     data:
       mongodb-password: '{{ ( .Values.password | default "empty" ) }}'
       mongodb-root-password: '{{ ( .Values.rootPassword | default "empty" ) }}'
-portal:
-  open:
-    enabled: false

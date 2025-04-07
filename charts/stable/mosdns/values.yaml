@@ -17,9 +17,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/etc/mosdns"
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

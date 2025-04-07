@@ -6,9 +6,7 @@ persistence:
   blockhainstorage:
     enabled: true
     mountPath: /bitcoin/.bitcoin
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

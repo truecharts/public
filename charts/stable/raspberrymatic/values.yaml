@@ -22,9 +22,7 @@ persistence:
     hostPath: /sys
     mountPath: /sys
     type: hostPath
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

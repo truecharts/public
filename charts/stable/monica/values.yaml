@@ -17,9 +17,7 @@ mariadb:
   includeCommon: true
   mariadbUsername: monica
   mariadbDatabase: monica
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

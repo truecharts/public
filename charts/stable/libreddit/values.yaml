@@ -33,9 +33,7 @@ configmap:
       LIBREDDIT_DEFAULT_USE_HLS: '{{ ternary "on" "off" .Values.libreddit.use_hls }}'
       LIBREDDIT_DEFAULT_HIDE_HLS_NOTIFICATION: '{{ ternary "on" "off" .Values.libreddit.hide_hls_notification }}'
       LIBREDDIT_DEFAULT_AUTOPLAY_VIDEOS: '{{ ternary "on" "off" .Values.libreddit.autoplay_videos }}'
-portal:
-  open:
-    enabled: true
+
 workload:
   main:
     podSpec:

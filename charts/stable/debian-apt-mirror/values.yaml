@@ -12,9 +12,7 @@ persistence:
   base:
     enabled: true
     mountPath: /debian-mirror
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -18,9 +18,7 @@ persistence:
   tvshows:
     enabled: true
     mountPath: "/media/tvshows"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

@@ -9,9 +9,7 @@ service:
         port: 10585
         protocol: http
         targetPort: 6543
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

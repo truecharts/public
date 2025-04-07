@@ -9,9 +9,7 @@ persistence:
   specific:
     enabled: true
     mountPath: /var/www/baikal/Specific
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -6,9 +6,7 @@ persistence:
   chronograf:
     enabled: true
     mountPath: /var/lib/chronograf
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

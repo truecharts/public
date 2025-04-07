@@ -54,9 +54,7 @@ persistence:
   work:
     enabled: true
     mountPath: /opt/tplink/EAPController/work
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

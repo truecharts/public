@@ -83,7 +83,7 @@ image:
   tag: v1.11.0@sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab
 
 chartContext:
-  APPURL: ""
+  appUrl: ""
   podCIDR: ""
   svcCIDR: ""
 
@@ -423,14 +423,10 @@ notes:
     # Thank you for installing {{ .Chart.Name }} by TrueCharts.
   # custom: "{{ toYaml $.Values }}"
   custom: |
-    {{- if .Values.portal }}
+    {{- if .Values.chartContext.appUrl }}
     ## Connecting externally
-    You can use this Chart by opening one of the following links in your browser:
-      {{- range $p := $.Values.portal }}
-      {{- if and $p.enabled $p.rendered }}
-    - {{ toYaml $p.rendered.url }}
-      {{- end }}
-      {{- end -}}
+    You can use this Chart by opening the following links in your browser:
+    - {{ toYaml .Values.chartContext.appUrl }}
     {{- end }}
 
     {{ if .Chart.Dependencies }}
@@ -468,23 +464,6 @@ notes:
 ## TrueCharts Specific Root Objects
 ##
 ####
-
-# -- Defines the portals for which config needs to be generated
-portal:
-  open:
-    enabled: false
-    override:
-      protocol:
-      host:
-      port:
-    path: ""
-    targetSelector:
-      ingress: ""
-      service: ""
-      port: ""
-
-# -- Set by "open" portal, used for some applications internally.
-APPURL: ""
 
 gluetunImage:
   repository: tccr.io/tccr/gluetun

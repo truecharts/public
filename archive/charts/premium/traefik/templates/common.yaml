@@ -12,13 +12,5 @@
 {{- include "traefik.ingressRoute" . }}
 {{- include "traefik.ingressClass" . }}
 
-{{- with .Values.ingress -}}
-  {{- with .main -}}
-    {{- if .enabled  -}}
-      {{- $_ := set $.Values.portal.open.override "protocol" "https" -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

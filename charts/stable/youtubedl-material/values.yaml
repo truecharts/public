@@ -30,9 +30,7 @@ mongodb:
   # DB name seems to be hardcoded in their app
   mongodbUsername: ytdl_material
   mongodbDatabase: ytdl_material
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

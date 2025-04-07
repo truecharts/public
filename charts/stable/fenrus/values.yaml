@@ -9,9 +9,7 @@ persistence:
   images:
     enabled: true
     mountPath: /app/wwwroot/images
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

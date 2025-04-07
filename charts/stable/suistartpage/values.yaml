@@ -6,9 +6,7 @@ persistence:
   appdata:
     enabled: true
     mountPath: /usr/share/nginx/html
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

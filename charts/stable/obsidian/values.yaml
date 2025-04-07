@@ -9,9 +9,7 @@ persistence:
   vaults:
     enabled: true
     mountPath: /vaults
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
