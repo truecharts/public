@@ -72,7 +72,11 @@ func HelmPull(repo string, name string, version string, dest string, silent bool
     client.Settings = settings
     client.RepoURL = repo
     client.Version = version
-    client.DestDir = filepath.Join(helper.HelmCache, dest)
+    if dest != "" {
+        client.DestDir = dest
+    } else {
+        client.DestDir = helper.HelmCache
+    }
 
     // Create cache directory
     if err := os.MkdirAll(client.DestDir, os.ModePerm); err != nil {
