@@ -116,22 +116,28 @@ func fetchDependency(repo string, repoDir string, name string, version string, r
         return fmt.Errorf("❌ Failed to download or verify dependency: %s", err)
     }
 
-    log.Info().Msg("✅ Dependency downloaded")
+    if _, err := os.Stat(destPath); err == nil {
+        log.Info().Msgf("✅ Dependency downloaded into %s", repoCacheDir)
+    } else {
+        return fmt.Errorf("❌ Dependency should be downloaded but is missing from cache folder: %s", destPath)
+    }
 
     return nil
 }
 
 // copyDependency copies a dependency from the cache to the chart folder
 func copyDependency(chartFolder string, repo string, repoDir string, name string, version string) error {
-    log.Info().Msg("📝 Copying dependency")
 
     targetChartsFolder := path.Join(chartFolder, "charts")
+    srcPath := path.Join(helper.HelmCache, repoDir, fmt.Sprintf("%s-%s.tgz", name, version))
+    destPath := path.Join(targetChartsFolder, fmt.Sprintf("%s-%s.tgz", name, version))
+
+    log.Info().Msgf("📝 Copying dependency %s from cache: %s", name, srcPath)
+
     if err := os.MkdirAll(targetChartsFolder, os.ModePerm); err != nil {
         return fmt.Errorf("❌ Failed to create charts directory: %s", err)
     }
 
-    srcPath := path.Join(helper.HelmCache, repoDir, fmt.Sprintf("%s-%s.tgz", name, version))
-    destPath := path.Join(targetChartsFolder, fmt.Sprintf("%s-%s.tgz", name, version))
     if err := helper.CopyFile(srcPath, destPath, false); err != nil {
         return fmt.Errorf("❌ Failed to copy dependency: %s", err)
     }
