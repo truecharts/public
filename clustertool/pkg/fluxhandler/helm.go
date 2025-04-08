@@ -99,12 +99,7 @@ func HelmPull(repo string, name string, version string, dest string, silent bool
         updateHelmRepo(repoName, repo, silent)
         repo = repoName
     } else {
-        link := repo
-        if !strings.HasSuffix(repo, "/") {
-            link += "/"
-        }
-        link += name
-        client.RepoURL = ""
+        link = repo + "/" + name
         client.RepoURL = ""
     }
 
