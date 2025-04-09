@@ -27,9 +27,8 @@ const (
     defaultDescription = "No description provided."
     defaultHome        = "https://truecharts.org"
     defaultIcon        = "https://github.com/truecharts/public/blob/main/website/static/svg/logo.svg"
-    supportUrl         = `|
-        - name: support
-          url: https://discord.com/invite/tVsPTHWTtr`
+    supportUrl         = `- name: support
+url: https://discord.com/invite/tVsPTHWTtr`
 )
 
 var validate *validator.Validate
