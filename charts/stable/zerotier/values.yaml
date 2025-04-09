@@ -20,9 +20,7 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

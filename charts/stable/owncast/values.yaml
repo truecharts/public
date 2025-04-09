@@ -20,9 +20,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/app/data"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

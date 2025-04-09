@@ -22,9 +22,7 @@ service:
         enabled: true
         port: "{{ .Values.service.main.ports.main.port }}"
         protocol: udp
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     runAsNonRoot: false

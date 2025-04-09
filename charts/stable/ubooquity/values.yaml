@@ -30,9 +30,7 @@ persistence:
   files:
     enabled: true
     mountPath: "/files"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

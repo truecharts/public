@@ -6,9 +6,7 @@ persistence:
   homedirectory:
     enabled: true
     mountPath: /debian
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -9,9 +9,7 @@ persistence:
   storageimages:
     enabled: true
     mountPath: /images
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

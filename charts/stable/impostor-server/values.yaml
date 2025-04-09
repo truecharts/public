@@ -13,9 +13,7 @@ service:
         protocol: udp
         port: 22023
         targetPort: 22023
-portal:
-  open:
-    enabled: true
+
 workload:
   main:
     podSpec:

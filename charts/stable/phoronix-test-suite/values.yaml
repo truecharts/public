@@ -9,9 +9,7 @@ persistence:
   results:
     enabled: true
     mountPath: /var/lib/phoronix-test-suite/test-results
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

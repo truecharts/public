@@ -6,9 +6,7 @@ persistence:
   acestreamcache:
     enabled: true
     mountPath: /srv/acestream/.ACEStream
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

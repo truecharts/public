@@ -1,40 +1,44 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.2.31
+appVersion: 1.2.32
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: M3U Proxy for Plex DVR and Emby/Jellyfin Live TV. Based on xTeVe.
 home: https://truecharts.org/charts/stable/threadfin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/threadfin.webp
 keywords:
-    - threadfin
-    - xteve
-    - iptv
-    - plex
-    - emby
-    - jellyfin
+  - threadfin
+  - xteve
+  - iptv
+  - plex
+  - emby
+  - jellyfin
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: threadfin
 sources:
-    - https://github.com/Threadfin/Threadfin
-    - https://github.com/truecharts/charts/tree/master/charts/stable/threadfin
-    - https://hub.docker.com/r/fyb3roptik/threadfin
+  - https://github.com/Threadfin/Threadfin
+  - https://github.com/truecharts/charts/tree/master/charts/stable/threadfin
+  - https://hub.docker.com/r/fyb3roptik/threadfin
 type: application
-version: 1.1.4
+version: 1.1.5
+

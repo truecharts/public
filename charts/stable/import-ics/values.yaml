@@ -9,9 +9,7 @@ persistence:
   icsexportfolder:
     enabled: true
     mountPath: /import_ics/ical_export
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

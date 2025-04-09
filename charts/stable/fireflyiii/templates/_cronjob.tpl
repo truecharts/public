@@ -27,6 +27,4 @@ podSpec:
             name: firefly-secrets
             key: STATIC_CRON_TOKEN
 
-
-
 {{- end -}}

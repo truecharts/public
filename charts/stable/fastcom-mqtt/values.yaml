@@ -3,9 +3,7 @@ image:
   repository: docker.io/simonjenny/fastcom-mqtt
   tag: latest@sha256:1687c72cc75372e8786a0e401d545c8b47588b7f33d99bf6af724f125453a234
 persistence: {}
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

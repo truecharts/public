@@ -6,9 +6,7 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /starmade
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

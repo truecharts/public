@@ -1,37 +1,40 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: minecraft
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: minecraft
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.26.0
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
 home: https://truecharts.org/charts/stable/minecraft-router
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-router.webp
 keywords:
-    - minecraft-router
-    - mc-router
-    - minecraft
+  - minecraft-router
+  - mc-router
+  - minecraft
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: minecraft-router
 sources:
-    - https://github.com/itzg/mc-router
-    - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-router
-    - https://hub.docker.com/r/itzg/mc-router
+  - https://github.com/itzg/mc-router
+  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-router
+  - https://hub.docker.com/r/itzg/mc-router
 type: application
 version: 1.6.0

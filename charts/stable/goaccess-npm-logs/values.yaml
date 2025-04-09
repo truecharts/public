@@ -7,9 +7,7 @@ persistence:
     enabled: true
     mountPath: /opt/log
     readOnly: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -9,9 +9,7 @@ persistence:
   nginx:
     enabled: true
     mountPath: /etc/nginx/external
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

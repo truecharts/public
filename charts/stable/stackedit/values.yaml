@@ -3,9 +3,7 @@ image:
   repository: docker.io/qmcgaw/stackedit
   tag: latest@sha256:c74120b91fd0ce0d5fae45af1a47b963e75dfeb95f4d080448e01bc80b73416a
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

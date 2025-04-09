@@ -25,9 +25,7 @@ persistence:
     mountPath: /opt
   varrun:
     enabled: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

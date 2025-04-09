@@ -1,37 +1,40 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: "farmOS is a web-based application for farm management, planning, and record keeping. It is developed by a community of volunteers and aims to provide a standard platform for farmers, developers, and researchers to build upon.\r"
 home: https://truecharts.org/charts/stable/farmos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/farmos.webp
 keywords:
-    - farmos
-    - Productivity
-    - Tools-Utilities
+  - farmos
+  - Productivity
+  - Tools-Utilities
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: farmos
 sources:
-    - https://github.com/farmOS/farmOS
-    - https://github.com/truecharts/charts/tree/master/charts/stable/farmos
-    - https://hub.docker.com/r/farmos/farmos
+  - https://github.com/farmOS/farmOS
+  - https://github.com/truecharts/charts/tree/master/charts/stable/farmos
+  - https://hub.docker.com/r/farmos/farmos
 type: application
 version: 7.5.4

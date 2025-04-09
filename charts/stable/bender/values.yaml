@@ -8,9 +8,7 @@ persistence:
   config:
     enabled: true
     mountPath: /app/static
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

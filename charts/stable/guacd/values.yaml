@@ -8,9 +8,7 @@ service:
       main:
         targetPort: 4822
         port: 4822
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

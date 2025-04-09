@@ -6,9 +6,7 @@ persistence:
   config:
     enabled: true
     mountPath: /opt/_timetagger
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

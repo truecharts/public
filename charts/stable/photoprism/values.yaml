@@ -26,9 +26,7 @@ mariadb:
   enabled: true
   mariadbUsername: photoprism
   mariadbDatabase: photoprism
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

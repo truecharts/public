@@ -40,7 +40,3 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             DEFAULT: "{{ .Values.mcrouter.default }}"
             MAPPING: '{{ join "," .Values.mcrouter.mappings }}'
-
-portal:
-  open:
-    enabled: false

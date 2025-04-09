@@ -12,9 +12,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/ql/data"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

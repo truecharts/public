@@ -12,9 +12,7 @@ persistence:
   fsmsaves:
     enabled: true
     mountPath: /opt/factorio/saves
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

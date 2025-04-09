@@ -38,9 +38,7 @@ persistence:
     subPath: enable-console-logging.sh
     type: configmap
     objectName: init
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

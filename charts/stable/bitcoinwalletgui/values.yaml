@@ -6,9 +6,7 @@ persistence:
   bitcoinblockchainpath:
     enabled: true
     mountPath: /headless/.bitcoin/
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

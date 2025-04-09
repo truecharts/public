@@ -9,9 +9,7 @@ persistence:
   config:
     enabled: true
     mountPath: /var/run/ts3server
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

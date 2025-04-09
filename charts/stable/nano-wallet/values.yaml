@@ -11,9 +11,7 @@ service:
 persistence:
   varrun:
     enabled: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

@@ -9,9 +9,7 @@ persistence:
   songkongconfig:
     enabled: true
     mountPath: /songkong
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

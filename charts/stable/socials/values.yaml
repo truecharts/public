@@ -6,9 +6,7 @@ persistence:
   socials:
     enabled: true
     mountPath: /app/people
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

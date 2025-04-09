@@ -3,9 +3,7 @@ image:
   repository: docker.io/cooleye72/xmrig
   tag: "6.21"
 persistence: {}
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

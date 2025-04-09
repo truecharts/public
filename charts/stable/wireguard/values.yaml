@@ -28,9 +28,7 @@ service:
         port: 51821
         targetPort: 51820
         protocol: udp
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     runAsNonRoot: false

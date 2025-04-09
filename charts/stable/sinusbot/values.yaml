@@ -9,9 +9,7 @@ persistence:
   scriptspath:
     enabled: true
     mountPath: /opt/sinusbot/scripts
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

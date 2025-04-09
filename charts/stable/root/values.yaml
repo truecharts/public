@@ -6,9 +6,7 @@ persistence:
   appdata:
     enabled: true
     mountPath: /appdata
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

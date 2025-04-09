@@ -18,9 +18,7 @@ persistence:
   btbackup:
     enabled: true
     mountPath: "/BT_backup"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

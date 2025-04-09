@@ -10,9 +10,7 @@ persistence:
     enabled: true
     mountPath: /opt/pics
     readOnly: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

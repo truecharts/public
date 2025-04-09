@@ -6,9 +6,7 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

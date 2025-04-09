@@ -39,9 +39,7 @@ persistence:
     mountPath: /backups
   varrun:
     enabled: false
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

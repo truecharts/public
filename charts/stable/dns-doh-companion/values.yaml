@@ -3,9 +3,7 @@ image:
   repository: docker.io/testdasi/simple-dns-doh
   tag: latest@sha256:1c9d67c62362c497440e0a77f61b2a7737f395a5819d8959f3062c243d2687fd
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

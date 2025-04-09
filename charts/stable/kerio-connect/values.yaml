@@ -6,9 +6,7 @@ persistence:
   kerio-connect:
     enabled: true
     mountPath: /backup
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

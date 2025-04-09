@@ -12,9 +12,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/www/assets"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsUser: 1000

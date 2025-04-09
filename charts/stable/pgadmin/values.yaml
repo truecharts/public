@@ -12,9 +12,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/lib/pgadmin"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: true

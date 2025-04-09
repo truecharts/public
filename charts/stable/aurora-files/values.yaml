@@ -3,9 +3,7 @@ image:
   repository: docker.io/afterlogic/docker-aurora-files
   tag: latest@sha256:a2e90f9608fbb683dfd719b9a5fafc17d19ddc9b26c23c5dbf92e76b60636615
 persistence: {}
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

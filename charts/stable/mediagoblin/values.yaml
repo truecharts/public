@@ -6,9 +6,7 @@ persistence:
   appdata:
     enabled: true
     mountPath: /var/lib/mediagoblin
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

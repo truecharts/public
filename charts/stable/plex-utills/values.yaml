@@ -19,9 +19,7 @@ persistence:
   plexlibrary:
     enabled: true
     mountPath: /films
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

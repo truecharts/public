@@ -9,9 +9,7 @@ persistence:
   workspace:
     enabled: true
     mountPath: /home/rstudio/workspace
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

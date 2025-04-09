@@ -12,9 +12,7 @@ persistence:
   thumbs:
     enabled: true
     mountPath: /thumbnails
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

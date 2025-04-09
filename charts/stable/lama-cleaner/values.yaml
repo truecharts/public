@@ -28,9 +28,7 @@ persistence:
   huggingface:
     enabled: true
     mountPath: /root/.cache/huggingface
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

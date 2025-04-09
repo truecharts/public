@@ -1,7 +1,7 @@
 image:
   repository: docker.io/cyfershepard/jellystat
   pullPolicy: IfNotPresent
-  tag: latest@sha256:246ad02061b783f110709c075cc9417556f5252adcb9c1aa27a5257903d33171
+  tag: latest@sha256:3e38e469144dce5c984938b51d0e6276c087b713e9a3b6a3a1e43272ce4f905f
 securityContext:
   container:
     runAsNonRoot: false
@@ -62,6 +62,3 @@ cnpg:
     # static name
     user: jfstat
     database: jfstat
-portal:
-  open:
-    enabled: true

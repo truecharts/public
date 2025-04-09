@@ -3,9 +3,7 @@ image:
   repository: docker.io/barnybbb/adb-hass-androidtv
   tag: latest@sha256:060b7f9171ec32138f9f484fbed8169e88c1d8522e8800d164516f9a8805c38c
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

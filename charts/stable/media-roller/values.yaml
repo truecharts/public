@@ -6,9 +6,7 @@ persistence:
   download:
     enabled: true
     mountPath: /download
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

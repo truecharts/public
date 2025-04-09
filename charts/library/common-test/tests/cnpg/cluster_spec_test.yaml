@@ -147,7 +147,8 @@ tests:
         tag: "15.6"
       global:
         fallbackDefaults:
-          pgVersion: 15
+          cnpg:
+            pgVersion: 15
           vctAccessModes:
             - ReadWriteMany
             - ReadWriteOnce

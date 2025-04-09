@@ -1,6 +1,6 @@
 image:
   repository: docker.io/mbentley/omada-controller
-  tag: 5.15@sha256:64f989f988da833ff73d34729153b85caa7eadccc316d69c4eb38e8f95f4ff39
+  tag: 5.15@sha256:46a17a029827903573ed17d95ee5cce9bf4287cdce8fcec43ef363c25b5fc4a2
   pullPolicy: IfNotPresent
 service:
   main:
@@ -54,9 +54,7 @@ persistence:
   work:
     enabled: true
     mountPath: /opt/tplink/EAPController/work
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

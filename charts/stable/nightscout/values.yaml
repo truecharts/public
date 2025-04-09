@@ -3,9 +3,7 @@ image:
   repository: docker.io/nightscout/cgm-remote-monitor-travis
   tag: latest@sha256:3ace874753e834b9c9b8a242df67f86329b04a3a48584452ae45207bfbfdb271
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

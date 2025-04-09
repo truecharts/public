@@ -25,9 +25,7 @@ service:
       main:
         enabled: false
         port: 9999
-portal:
-  open:
-    enabled: false
+
 operator:
   cert-manager:
     namespace: cert-manager

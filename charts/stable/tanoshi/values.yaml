@@ -6,9 +6,7 @@ persistence:
   directoryconfig:
     enabled: true
     mountPath: /tanoshi
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

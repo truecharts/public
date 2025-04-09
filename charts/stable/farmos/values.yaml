@@ -6,9 +6,7 @@ persistence:
   sitesdirectory:
     enabled: true
     mountPath: /var/www/html/sites
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

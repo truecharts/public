@@ -20,9 +20,7 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

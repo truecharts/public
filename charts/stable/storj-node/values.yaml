@@ -31,9 +31,7 @@ persistence:
   storage:
     enabled: true
     mountPath: "/app/config"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

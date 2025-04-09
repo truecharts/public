@@ -11,9 +11,7 @@ persistence:
   datapath:
     enabled: true
     mountPath: /var/cache/zoneminder
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

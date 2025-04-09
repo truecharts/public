@@ -63,9 +63,7 @@ persistence:
   output:
     enabled: true
     mountPath: "/output"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

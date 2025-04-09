@@ -16,9 +16,7 @@ persistence:
   tmp:
     enabled: true
     mountPath: /app/data/tmp
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

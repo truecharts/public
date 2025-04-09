@@ -13,9 +13,7 @@ service:
         port: 4200
         protocol: http
         targetPort: 4200
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

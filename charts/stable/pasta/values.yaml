@@ -9,9 +9,7 @@ service:
         port: 10302
         protocol: http
         targetPort: 80
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

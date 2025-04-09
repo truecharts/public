@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/linuxserver/resilio-sync
-  tag: 3.0.3@sha256:5b652f963e72f5fd7a0fb90246bb2a6459b41e8df7c63d37acba3b48a5a3e491
+  tag: 3.0.3@sha256:725506d76e9a4db11d4e413cce21a159ef133957b81ad0ab551770f05d863a64
   pullPolicy: IfNotPresent
 service:
   main:
@@ -32,9 +32,7 @@ persistence:
     mountPath: "/sync"
   varrun:
     enabled: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

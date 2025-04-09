@@ -24,9 +24,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/data"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

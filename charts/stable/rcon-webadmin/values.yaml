@@ -34,9 +34,7 @@ persistence:
   db:
     enabled: true
     mountPath: /opt/rcon-web-admin/db
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

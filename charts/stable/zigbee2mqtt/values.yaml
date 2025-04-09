@@ -12,9 +12,7 @@ persistence:
     enabled: true
     mountPath: "/data"
     targetSelectAll: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

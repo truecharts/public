@@ -28,9 +28,7 @@ service:
 operator:
   metallb:
     namespace: metallb
-portal:
-  open:
-    enabled: false
+
 ipAddressPools: []
 #   - name: example
 #     autoAssign: true

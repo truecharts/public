@@ -22,9 +22,7 @@ persistence:
   repos:
     enabled: true
     mountPath: /repos
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

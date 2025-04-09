@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/ix-ai/smtp
   pullPolicy: IfNotPresent
-  tag: v0.7.5@sha256:1343c9b4ae17a89749cfa702a6736dd532fdc02f732aae5086844a80f469da8d
+  tag: v0.7.6@sha256:2de999bee1fecf58ff5783fd51b92ef74ed3e0ca6c493bd5547b7ceff5ca6099
 
 securityContext:
   container:
@@ -51,7 +51,3 @@ workload:
             SMARTHOST_USER: "{{ .Values.smtprelay.generic.user }}"
             SMARTHOST_PASSWORD: "{{ .Values.smtprelay.generic.pass }}"
             SMARTHOST_ALIASES: '{{ join " : " .Values.smtprelay.generic.aliases }}'
-
-portal:
-  open:
-    enabled: false

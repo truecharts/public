@@ -6,9 +6,7 @@ persistence:
   config:
     enabled: true
     mountPath: /state
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

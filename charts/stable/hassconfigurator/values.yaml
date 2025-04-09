@@ -9,9 +9,7 @@ persistence:
   hass-config:
     enabled: true
     mountPath: /hass-config
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

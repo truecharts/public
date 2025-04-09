@@ -8,9 +8,7 @@ service:
       main:
         port: 10040
         targetPort: 3000
-portal:
-  open:
-    enabled: true
+
 workload:
   main:
     podSpec:

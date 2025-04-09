@@ -1,38 +1,41 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Open source alternative front-end to YouTube.
 home: https://truecharts.org/charts/stable/invidious
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/invidious.webp
 keywords:
-    - invidious
-    - youtube
-    - media
+  - invidious
+  - youtube
+  - media
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: invidious
 sources:
-    - https://docs.invidious.io/installation/#docker
-    - https://github.com/iv-org/invidious
-    - https://github.com/truecharts/charts/tree/master/charts/stable/invidious
-    - https://quay.io/invidious/invidious
+  - https://docs.invidious.io/installation/#docker
+  - https://github.com/iv-org/invidious
+  - https://github.com/truecharts/charts/tree/master/charts/stable/invidious
+  - https://quay.io/invidious/invidious
 type: application
 version: 11.5.3

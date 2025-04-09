@@ -16,9 +16,7 @@ persistence:
   custom:
     enabled: true
     mountPath: /usr/src/app/public/custom
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

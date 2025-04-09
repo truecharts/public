@@ -27,6 +27,8 @@ const (
     defaultDescription = "No description provided."
     defaultHome        = "https://truecharts.org"
     defaultIcon        = "https://github.com/truecharts/public/blob/main/website/static/svg/logo.svg"
+    supportUrl         = `- name: support
+url: https://discord.com/invite/tVsPTHWTtr`
 )
 
 var validate *validator.Validate
@@ -132,6 +134,7 @@ func (h *HelmChart) setDefaultValues() {
     h.setAnnotation("truecharts.org/category", defaultCategory, false)
     h.setAnnotation("truecharts.org/min_helm_version", minHelmVersion, true)
     h.setAnnotation("truecharts.org/max_helm_version", maxHelmVersion, true)
+    h.setAnnotation("artifacthub.io/links", supportUrl, true)
 
     // Set default values for other fields as needed
 }

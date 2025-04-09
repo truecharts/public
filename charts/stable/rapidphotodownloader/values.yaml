@@ -12,9 +12,7 @@ persistence:
   sourcefolder:
     enabled: true
     mountPath: /media/source
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

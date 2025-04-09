@@ -15,9 +15,7 @@ persistence:
   importspath:
     enabled: true
     mountPath: /files/imports
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

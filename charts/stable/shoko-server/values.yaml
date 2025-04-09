@@ -13,9 +13,7 @@ persistence:
   appdata:
     enabled: true
     mountPath: /home/shoko/.shoko/
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

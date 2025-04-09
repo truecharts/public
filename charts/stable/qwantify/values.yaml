@@ -6,9 +6,7 @@ persistence:
   games:
     enabled: true
     mountPath: /games
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

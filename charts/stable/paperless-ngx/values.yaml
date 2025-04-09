@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
   pullPolicy: IfNotPresent
-  tag: 2.14.7@sha256:2a6d9f6461ad7e8335f5b2123a173b9e6002fda209af8a66483b0c00629569ab
+  tag: 2.15.0@sha256:c47e30419416169858cade025fe44ff20bc191bc6fdbd7535b20bd767423fcdd
 service:
   main:
     ports:
@@ -29,9 +29,7 @@ cnpg:
     enabled: true
     user: paperless-ng
     database: paperless-ng
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

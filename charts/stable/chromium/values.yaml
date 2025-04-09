@@ -6,9 +6,7 @@ persistence:
   datadir:
     enabled: true
     mountPath: /chrome
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -12,9 +12,7 @@ persistence:
   hostpath2:
     enabled: true
     mountPath: /source/static/pdf/
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

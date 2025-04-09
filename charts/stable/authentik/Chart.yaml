@@ -1,47 +1,51 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: authentication
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: authentication
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2025.2.3
+appVersion: 2025.2.4
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 15.6.7
-      repository: oci://tccr.io/truecharts
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
 keywords:
-    - authentik
+  - authentik
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: authentik
 sources:
-    - https://ghcr.io/goauthentik/ldap
-    - https://ghcr.io/goauthentik/proxy
-    - https://ghcr.io/goauthentik/radius
-    - https://ghcr.io/goauthentik/server
-    - https://ghcr.io/maxmind/geoipupdate
-    - https://github.com/goauthentik/authentik
-    - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-    - https://goauthentik.io/docs/
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/maxmind/geoipupdate
+  - https://github.com/goauthentik/authentik
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://goauthentik.io/docs/
 type: application
-version: 31.0.14
+version: 31.0.18
+

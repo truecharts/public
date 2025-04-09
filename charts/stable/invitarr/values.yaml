@@ -6,9 +6,7 @@ persistence:
   config:
     enabled: true
     mountPath: /app/app/config
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

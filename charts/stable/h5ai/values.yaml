@@ -10,9 +10,7 @@ persistence:
     enabled: true
     mountPath: /h5ai
     readOnly: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
