@@ -19,8 +19,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/usr/src/app/store"
-
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
