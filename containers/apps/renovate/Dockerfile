@@ -4,6 +4,7 @@ FROM docker.io/renovate/renovate:39.234.0-full
 ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
+ARG TEST
 
 # Download and set up the clustertool binary
 RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \

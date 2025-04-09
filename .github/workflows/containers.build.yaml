@@ -302,17 +302,19 @@ jobs:
           cosign verify quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/public/.github/workflows/containers.build.yaml@refs/heads/master
 
       - name: Generate SBOM
+        id: generate_sbom
         if: github.event_name != 'pull_request'
+        continue-on-error: true
         run: |
           syft "quay.io/tccr/${{ matrix.container }}:v${{ steps.prep.outputs.version }}@${{ steps.push.outputs.digest }}" -o spdx-json=${{ matrix.container }}-sbom-spdx.json
 
       - name: Attach SBOM to image
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.generate_sbom.outcome == 'success'
         run: |
           cosign attest --predicate ${{ matrix.container }}-sbom-spdx.json --type spdx "quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}" -y
 
       - name: Verify SBOM attestation
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.generate_sbom.outcome == 'success'
         run: |
           cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
 
