@@ -1,38 +1,41 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Network-Other
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Anope is a set of IRC Services designed for flexibility and ease of use.
 home: https://truecharts.org/charts/stable/anope
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anope.webp
 keywords:
-    - anope
-    - Network-Other
-    - Productivity
-    - Tools-Utilities
+  - anope
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: anope
 sources:
-    - https://ghcr.io/ich777/anope
-    - https://github.com/truecharts/charts/tree/master/charts/stable/anope
-    - https://thelounge.chat/
+  - https://ghcr.io/ich777/anope
+  - https://github.com/truecharts/charts/tree/master/charts/stable/anope
+  - https://thelounge.chat/
 type: application
 version: 7.5.1
