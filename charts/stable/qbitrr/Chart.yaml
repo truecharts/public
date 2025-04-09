@@ -1,37 +1,40 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Downloaders
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Downloaders
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 4.10.20
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: A simple script to monitor qBit and communicate with Radarr and Sonarr.
 home: https://truecharts.org/charts/stable/qbitrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitrr.webp
 keywords:
-    - qbitrr
-    - Downloaders
-    - MediaApp-Other
+  - qbitrr
+  - Downloaders
+  - MediaApp-Other
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: qbitrr
 sources:
-    - https://github.com/Feramance/Qbitrr
-    - https://github.com/truecharts/charts/tree/master/charts/stable/qbitrr
-    - https://hub.docker.com/r/feramance/qbitrr
+  - https://github.com/Feramance/Qbitrr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qbitrr
+  - https://hub.docker.com/r/feramance/qbitrr
 type: application
 version: 6.8.9
