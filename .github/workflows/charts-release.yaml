@@ -79,7 +79,7 @@ jobs:
         shell: bash
         if: github.event_name == 'push'
         run: |
-          ver=$(./temp/clustertool charts genchangelog format-version)
+          ver="1"
           rev="1"
           key="changelog-format-$ver-rev-$rev"
           echo "Cache Key is: $key"
