@@ -1,44 +1,48 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: metrics
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 1.3.0
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 15.6.7
-      repository: oci://tccr.io/truecharts
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
-home: https://truecharts.org/charts/stable/speedtest-tracker
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.webp
-keywords:
-    - speedtest
-    - speedtest-tracker
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: speedtest-tracker
-sources:
-    - https://ghcr.io/linuxserver/speedtest-tracker
-    - https://github.com/alexjustesen/speedtest-tracker
-    - https://github.com/linuxserver/docker-speedtest-tracker
-    - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
-type: application
-version: 6.7.3
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: metrics
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 1.3.0
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+- Alias: ""
+  Condition: redis.enabled
+  ImportValues: null
+  Name: redis
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 15.6.7
+Deprecated: false
+Description: Speedtest Tracker is a self-hosted internet performance tracking application
+  that runs speedtest checks against Ookla's Speedtest service.
+Home: https://truecharts.org/charts/stable/speedtest-tracker
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.webp
+Keywords:
+- speedtest
+- speedtest-tracker
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: speedtest-tracker
+Sources:
+- https://ghcr.io/linuxserver/speedtest-tracker
+- https://github.com/alexjustesen/speedtest-tracker
+- https://github.com/linuxserver/docker-speedtest-tracker
+- https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
+Type: application
+Version: 6.7.3

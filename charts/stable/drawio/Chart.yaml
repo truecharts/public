@@ -1,35 +1,38 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 26.2.8
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Drawio is free online diagram software.
-home: https://truecharts.org/charts/stable/drawio
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/drawio.webp
-keywords:
-    - drawio
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: drawio
-sources:
-    - https://github.com/jgraph/drawio
-    - https://github.com/truecharts/charts/tree/master/charts/stable/drawio
-    - https://hub.docker.com/r/jgraph/drawio
-type: application
-version: 14.4.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 26.2.8
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Drawio is free online diagram software.
+Home: https://truecharts.org/charts/stable/drawio
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/drawio.webp
+Keywords:
+- drawio
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: drawio
+Sources:
+- https://github.com/jgraph/drawio
+- https://github.com/truecharts/charts/tree/master/charts/stable/drawio
+- https://hub.docker.com/r/jgraph/drawio
+Type: application
+Version: 14.4.1

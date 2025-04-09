@@ -1,39 +1,42 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Zoneminder is the top Linux video camera security and surveillance solution.
-home: https://truecharts.org/charts/stable/zoneminder
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/zoneminder.webp
-keywords:
-    - zoneminder
-    - home
-    - automation
-    - cctv
-    - utilities
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: zoneminder
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/zoneminder
-    - https://hub.docker.com/r/dlandon/zoneminder.unraid
-    - https://zoneminder.com/
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Zoneminder is the top Linux video camera security and surveillance solution.
+Home: https://truecharts.org/charts/stable/zoneminder
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/zoneminder.webp
+Keywords:
+- zoneminder
+- home
+- automation
+- cctv
+- utilities
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: zoneminder
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/zoneminder
+- https://hub.docker.com/r/dlandon/zoneminder.unraid
+- https://zoneminder.com/
+Type: application
+Version: 7.5.1

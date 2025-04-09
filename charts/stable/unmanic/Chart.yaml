@@ -1,35 +1,38 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 0.2.8
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Unmanic is a simple tool for optimising your file library.
-home: https://truecharts.org/charts/stable/unmanic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.webp
-keywords:
-    - media
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: unmanic
-sources:
-    - https://github.com/Unmanic/unmanic
-    - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
-    - https://hub.docker.com/r/josh5/unmanic
-type: application
-version: 12.5.2
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 0.2.8
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Unmanic is a simple tool for optimising your file library.
+Home: https://truecharts.org/charts/stable/unmanic
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.webp
+Keywords:
+- media
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: unmanic
+Sources:
+- https://github.com/Unmanic/unmanic
+- https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
+- https://hub.docker.com/r/josh5/unmanic
+Type: application
+Version: 12.5.2

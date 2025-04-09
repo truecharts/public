@@ -1,35 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Other
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 3.2.5
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Google Photos Sync downloads your Google Photos to the local file system. It will backup all the photos the user uploaded to Google Photos, but also the album information and additional Google Photos 'Creations' (animations, panoramas, movies, effects and collages).
-home: https://truecharts.org/charts/stable/googlephotossync
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/googlephotossync.webp
-keywords:
-    - googlephotossync
-    - Other
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: googlephotossync
-sources:
-    - https://ghcr.io/gilesknap/gphotos-sync
-    - https://github.com/truecharts/charts/tree/master/charts/stable/googlephotossync
-type: application
-version: 8.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 3.2.5
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Google Photos Sync downloads your Google Photos to the local file system.
+  It will backup all the photos the user uploaded to Google Photos, but also the album
+  information and additional Google Photos 'Creations' (animations, panoramas, movies,
+  effects and collages).
+Home: https://truecharts.org/charts/stable/googlephotossync
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/googlephotossync.webp
+Keywords:
+- googlephotossync
+- Other
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: googlephotossync
+Sources:
+- https://ghcr.io/gilesknap/gphotos-sync
+- https://github.com/truecharts/charts/tree/master/charts/stable/googlephotossync
+Type: application
+Version: 8.5.1

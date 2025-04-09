@@ -1,37 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 1.4.2
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: ClamAV is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
-home: https://truecharts.org/charts/stable/clamav
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/clamav.webp
-keywords:
-    - clamav
-    - antivirus
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: clamav
-sources:
-    - https://docs.clamav.net/
-    - https://github.com/Cisco-Talos/clamav
-    - https://github.com/truecharts/charts/tree/master/charts/stable/clamav
-    - https://hub.docker.com/r/clamav/clamav
-type: application
-version: 12.6.10
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 1.4.2
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: ClamAV is an open source antivirus engine for detecting trojans, viruses,
+  malware & other malicious threats.
+Home: https://truecharts.org/charts/stable/clamav
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/clamav.webp
+Keywords:
+- clamav
+- antivirus
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: clamav
+Sources:
+- https://docs.clamav.net/
+- https://github.com/Cisco-Talos/clamav
+- https://github.com/truecharts/charts/tree/master/charts/stable/clamav
+- https://hub.docker.com/r/clamav/clamav
+Type: application
+Version: 12.6.10

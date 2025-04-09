@@ -1,37 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2025.2.26
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A lightweight NodeJS server that emulates the iOS HomeKit API
-home: https://truecharts.org/charts/stable/homebridge
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebridge.webp
-keywords:
-    - homebridge
-    - homekit
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: homebridge
-sources:
-    - https://github.com/oznu/docker-homebridge
-    - https://github.com/truecharts/charts/tree/master/charts/stable/homebridge
-    - https://homebridge.io/
-    - https://hub.docker.com/r/homebridge/homebridge
-type: application
-version: 10.1.2
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2025.2.26
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A lightweight NodeJS server that emulates the iOS HomeKit API
+Home: https://truecharts.org/charts/stable/homebridge
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebridge.webp
+Keywords:
+- homebridge
+- homekit
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: homebridge
+Sources:
+- https://github.com/oznu/docker-homebridge
+- https://github.com/truecharts/charts/tree/master/charts/stable/homebridge
+- https://homebridge.io/
+- https://hub.docker.com/r/homebridge/homebridge
+Type: application
+Version: 10.1.2

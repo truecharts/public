@@ -1,37 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: monitor
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2.19.0
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A discord bot that monitors your game server and tracks the live data of your game servers.
-home: https://truecharts.org/charts/stable/discordgsm
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/discordgsm.webp
-keywords:
-    - discordgsm
-    - game-server
-    - monitor
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: discordgsm
-sources:
-    - https://github.com/DiscordGSM/GameServerMonitor
-    - https://github.com/truecharts/charts/tree/master/charts/stable/discordgsm
-    - https://hub.docker.com/r/discordgsm/discord-game-server-monitor
-type: application
-version: 9.7.0
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: monitor
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2.19.0
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A discord bot that monitors your game server and tracks the live data
+  of your game servers.
+Home: https://truecharts.org/charts/stable/discordgsm
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/discordgsm.webp
+Keywords:
+- discordgsm
+- game-server
+- monitor
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: discordgsm
+Sources:
+- https://github.com/DiscordGSM/GameServerMonitor
+- https://github.com/truecharts/charts/tree/master/charts/stable/discordgsm
+- https://hub.docker.com/r/discordgsm/discord-game-server-monitor
+Type: application
+Version: 9.7.0

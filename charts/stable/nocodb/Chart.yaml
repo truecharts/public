@@ -1,42 +1,45 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 0.262.5
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 15.6.7
-      repository: oci://tccr.io/truecharts
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
-home: https://truecharts.org/charts/stable/nocodb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.webp
-keywords:
-    - nocodb
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: nocodb
-sources:
-    - https://github.com/nocodb/nocodb
-    - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
-    - https://hub.docker.com/r/nocodb/nocodb
-type: application
-version: 15.20.6
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 0.262.5
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+- Alias: ""
+  Condition: redis.enabled
+  ImportValues: null
+  Name: redis
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 15.6.7
+Deprecated: false
+Description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
+Home: https://truecharts.org/charts/stable/nocodb
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.webp
+Keywords:
+- nocodb
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: nocodb
+Sources:
+- https://github.com/nocodb/nocodb
+- https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
+- https://hub.docker.com/r/nocodb/nocodb
+Type: application
+Version: 15.20.6

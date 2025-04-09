@@ -1,37 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: operators
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: system
-apiVersion: v2
-appVersion: 1.1.9
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Watches for empty disk to setup with LVM for use with TopoLVM
-home: https://truecharts.org/charts/system/lvm-disk-watcher
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lvm-disk-watcher.webp
-keywords:
-    - lvm-disk-watcher
-    - loadbalancer
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: lvm-disk-watcher
-sources:
-    - https://github.com/lvm-disk-watcher/lvm-disk-watcher
-    - https://github.com/truecharts/charts/tree/master/charts/system/lvm-disk-watcher
-    - https://github.com/truecharts/containers/tree/master/apps/lvm-disk-watcher
-    - https://lvm-disk-watcher.universe.tf
-type: application
-version: 2.3.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: system
+AppVersion: 1.1.9
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Watches for empty disk to setup with LVM for use with TopoLVM
+Home: https://truecharts.org/charts/system/lvm-disk-watcher
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/lvm-disk-watcher.webp
+Keywords:
+- lvm-disk-watcher
+- loadbalancer
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: lvm-disk-watcher
+Sources:
+- https://github.com/lvm-disk-watcher/lvm-disk-watcher
+- https://github.com/truecharts/charts/tree/master/charts/system/lvm-disk-watcher
+- https://github.com/truecharts/containers/tree/master/apps/lvm-disk-watcher
+- https://lvm-disk-watcher.universe.tf
+Type: application
+Version: 2.3.1

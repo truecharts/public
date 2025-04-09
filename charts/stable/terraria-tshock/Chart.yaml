@@ -1,36 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: GameServers
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: tshock
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: SteamCMD Terraria and the TShock MOD.
-home: https://truecharts.org/charts/stable/terraria-tshock
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/terraria-tshock.webp
-keywords:
-    - terraria-tshock
-    - GameServers
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: terraria-tshock
-sources:
-    - https://ghcr.io/ich777/terrariaserver
-    - https://github.com/truecharts/charts/tree/master/charts/stable/terraria-tshock
-    - https://tshock.co/
-type: application
-version: 8.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: tshock
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: SteamCMD Terraria and the TShock MOD.
+Home: https://truecharts.org/charts/stable/terraria-tshock
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/terraria-tshock.webp
+Keywords:
+- terraria-tshock
+- GameServers
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: terraria-tshock
+Sources:
+- https://ghcr.io/ich777/terrariaserver
+- https://github.com/truecharts/charts/tree/master/charts/stable/terraria-tshock
+- https://tshock.co/
+Type: application
+Version: 8.5.1

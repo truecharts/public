@@ -1,35 +1,38 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 1.0.16
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Expose all events from an Amcrest device to an MQTT broker
-home: https://truecharts.org/charts/stable/amcrest2mqtt
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/amcrest2mqtt.webp
-keywords:
-    - amcrest2mqtt
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: amcrest2mqtt
-sources:
-    - https://github.com/dchesterton/amcrest2mqtt
-    - https://github.com/truecharts/charts/tree/master/charts/stable/amcrest2mqtt
-    - https://hub.docker.com/r/dchesterton/amcrest2mqtt
-type: application
-version: 13.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 1.0.16
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Expose all events from an Amcrest device to an MQTT broker
+Home: https://truecharts.org/charts/stable/amcrest2mqtt
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/amcrest2mqtt.webp
+Keywords:
+- amcrest2mqtt
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: amcrest2mqtt
+Sources:
+- https://github.com/dchesterton/amcrest2mqtt
+- https://github.com/truecharts/charts/tree/master/charts/stable/amcrest2mqtt
+- https://hub.docker.com/r/dchesterton/amcrest2mqtt
+Type: application
+Version: 13.5.1

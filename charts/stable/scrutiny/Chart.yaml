@@ -1,34 +1,38 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 0.8.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution.
-home: https://truecharts.org/charts/stable/scrutiny
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/scrutiny.webp
-keywords:
-    - scrutiny
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: scrutiny
-sources:
-    - https://ghcr.io/analogj/scrutiny
-    - https://github.com/truecharts/charts/tree/master/charts/stable/scrutiny
-type: application
-version: 12.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 0.8.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive
+  Health Dashboard & Monitoring solution.
+Home: https://truecharts.org/charts/stable/scrutiny
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/scrutiny.webp
+Keywords:
+- scrutiny
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: scrutiny
+Sources:
+- https://ghcr.io/analogj/scrutiny
+- https://github.com/truecharts/charts/tree/master/charts/stable/scrutiny
+Type: application
+Version: 12.5.1

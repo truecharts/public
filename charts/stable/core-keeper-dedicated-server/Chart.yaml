@@ -1,36 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: GameServers
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Chart file for the new Core Keeper dedicated server running from SteamCMD. (No account etc needed)
-home: https://truecharts.org/charts/stable/core-keeper-dedicated-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/core-keeper-dedicated-server.webp
-keywords:
-    - core-keeper-dedicated-server
-    - GameServers
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: core-keeper-dedicated-server
-sources:
-    - https://github.com/escapingnetwork/core-keeper-dedicated/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/core-keeper-dedicated-server
-    - https://hub.docker.com/r/escaping/core-keeper-dedicated
-type: application
-version: 7.5.4
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Chart file for the new Core Keeper dedicated server running from SteamCMD.
+  (No account etc needed)
+Home: https://truecharts.org/charts/stable/core-keeper-dedicated-server
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/core-keeper-dedicated-server.webp
+Keywords:
+- core-keeper-dedicated-server
+- GameServers
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: core-keeper-dedicated-server
+Sources:
+- https://github.com/escapingnetwork/core-keeper-dedicated/
+- https://github.com/truecharts/charts/tree/master/charts/stable/core-keeper-dedicated-server
+- https://hub.docker.com/r/escaping/core-keeper-dedicated
+Type: application
+Version: 7.5.4

@@ -1,37 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: database
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 7.4.2
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: includeCommon
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Open source, advanced key-value store.
-home: https://truecharts.org/charts/stable/redis
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.webp
-keywords:
-    - redis
-    - keyvalue
-    - database
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: redis
-sources:
-    - https://gallery.ecr.aws/bitnami/redis
-    - https://github.com/bitnami/bitnami-docker-redis
-    - https://github.com/truecharts/charts/tree/master/charts/stable/redis
-type: application
-version: 15.6.7
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 7.4.2
+Dependencies:
+- Alias: ""
+  Condition: includeCommon
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Open source, advanced key-value store.
+Home: https://truecharts.org/charts/stable/redis
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.webp
+Keywords:
+- redis
+- keyvalue
+- database
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: redis
+Sources:
+- https://gallery.ecr.aws/bitnami/redis
+- https://github.com/bitnami/bitnami-docker-redis
+- https://github.com/truecharts/charts/tree/master/charts/stable/redis
+Type: application
+Version: 15.6.7

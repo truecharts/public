@@ -1,38 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 4.9.0.43
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Emby Server is a home media server
-home: https://truecharts.org/charts/stable/emby
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby.webp
-keywords:
-    - jellyfin
-    - plex
-    - emby
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: emby
-sources:
-    - https://ghcr.io/elfhosted/emby
-    - https://github.com/linuxserver/docker-emby.git
-    - https://github.com/truecharts/charts/tree/master/charts/stable/emby
-    - https://hub.docker.com/r/alpine/socat
-type: application
-version: 22.4.25
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 4.9.0.43
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Emby Server is a home media server
+Home: https://truecharts.org/charts/stable/emby
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby.webp
+Keywords:
+- jellyfin
+- plex
+- emby
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: emby
+Sources:
+- https://ghcr.io/elfhosted/emby
+- https://github.com/linuxserver/docker-emby.git
+- https://github.com/truecharts/charts/tree/master/charts/stable/emby
+- https://hub.docker.com/r/alpine/socat
+Type: application
+Version: 22.4.25

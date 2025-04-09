@@ -1,38 +1,42 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: duplicates
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 25.03.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Czkawka is a simple, fast and free app to remove unnecessary files from your computer.
-home: https://truecharts.org/charts/stable/czkawka
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/czkawka.webp
-keywords:
-    - duplicates
-    - file management
-    - czkawka
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: czkawka
-sources:
-    - https://github.com/jlesage/docker-czkawka
-    - https://github.com/qarmin/czkawka
-    - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
-    - https://hub.docker.com/r/jlesage/czkawka
-type: application
-version: 12.1.0
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: duplicates
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 25.03.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Czkawka is a simple, fast and free app to remove unnecessary files from
+  your computer.
+Home: https://truecharts.org/charts/stable/czkawka
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/czkawka.webp
+Keywords:
+- duplicates
+- file management
+- czkawka
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: czkawka
+Sources:
+- https://github.com/jlesage/docker-czkawka
+- https://github.com/qarmin/czkawka
+- https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
+- https://hub.docker.com/r/jlesage/czkawka
+Type: application
+Version: 12.1.0

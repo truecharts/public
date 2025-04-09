@@ -1,36 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2.3.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Flame is self-hosted start page for your server. Easily manage your apps and bookmarks with built-in editors.
-home: https://truecharts.org/charts/stable/flame
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/flame.webp
-keywords:
-    - flame
-    - dashboard
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: flame
-sources:
-    - https://github.com/pawelmalak/flame
-    - https://github.com/truecharts/charts/tree/master/charts/stable/flame
-    - https://hub.docker.com/r/pawelmalak/flame
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2.3.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Flame is self-hosted start page for your server. Easily manage your apps
+  and bookmarks with built-in editors.
+Home: https://truecharts.org/charts/stable/flame
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/flame.webp
+Keywords:
+- flame
+- dashboard
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: flame
+Sources:
+- https://github.com/pawelmalak/flame
+- https://github.com/truecharts/charts/tree/master/charts/stable/flame
+- https://hub.docker.com/r/pawelmalak/flame
+Type: application
+Version: 7.5.1

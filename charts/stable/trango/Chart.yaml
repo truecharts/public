@@ -1,37 +1,45 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Network-Other
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Trango self-hosted is a calling and file sharing solution that works over LAN (local area networks). It does not need to involve the internet for calling or file sharing. Ideal for offices, hotels, houses, restaurants, and any space where people use the same Public IP address or the same Wi-Fi network. The package comes with a discovery server and a web app that can be deployed on the local machine and can be accessed from anywhere in the network.
-home: https://truecharts.org/charts/stable/trango
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/trango.webp
-keywords:
-    - trango
-    - Network-Other
-    - Tools-Utilities
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: trango
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/trango
-    - https://hub.docker.com/r/tak786/trango-self-hosted
-    - https://trango.io/
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Trango self-hosted is a calling and file sharing solution that works
+  over LAN (local area networks). It does not need to involve the internet for calling
+  or file sharing. Ideal for offices, hotels, houses, restaurants, and any space where
+  people use the same Public IP address or the same Wi-Fi network. The package comes
+  with a discovery server and a web app that can be deployed on the local machine
+  and can be accessed from anywhere in the network.
+Home: https://truecharts.org/charts/stable/trango
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/trango.webp
+Keywords:
+- trango
+- Network-Other
+- Tools-Utilities
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: trango
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/trango
+- https://hub.docker.com/r/tak786/trango-self-hosted
+- https://trango.io/
+Type: application
+Version: 7.5.1

@@ -1,36 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: "Valetudo-RE companion service for generating PNG maps.\r"
-home: https://truecharts.org/charts/stable/valetudo-mapper
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/valetudo-mapper.webp
-keywords:
-    - valetudo-mapper
-    - Tools-Utilities
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: valetudo-mapper
-sources:
-    - https://github.com/rand256/valetudo-mapper
-    - https://github.com/truecharts/charts/tree/master/charts/stable/valetudo-mapper
-    - https://hub.docker.com/r/rand256/valetudo-mapper
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: "Valetudo-RE companion service for generating PNG maps.\r"
+Home: https://truecharts.org/charts/stable/valetudo-mapper
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/valetudo-mapper.webp
+Keywords:
+- valetudo-mapper
+- Tools-Utilities
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: valetudo-mapper
+Sources:
+- https://github.com/rand256/valetudo-mapper
+- https://github.com/truecharts/charts/tree/master/charts/stable/valetudo-mapper
+- https://hub.docker.com/r/rand256/valetudo-mapper
+Type: application
+Version: 7.5.1

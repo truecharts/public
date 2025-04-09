@@ -1,41 +1,45 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: incubator
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2.3.3
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 15.9.0
-      repository: oci://tccr.io/truecharts
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Fleet provides an online web interface which displays a set of maintained images from one or more owned repositories.
-home: https://truecharts.org/charts/stable/fleet
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/fleet.webp
-keywords:
-    - fleet
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: fleet
-sources:
-    - https://ghcr.io/linuxserver/fleet
-    - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
-type: application
-version: 14.13.3
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2.3.3
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+- Alias: ""
+  Condition: mariadb.enabled
+  ImportValues: null
+  Name: mariadb
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 15.9.0
+Deprecated: false
+Description: Fleet provides an online web interface which displays a set of maintained
+  images from one or more owned repositories.
+Home: https://truecharts.org/charts/stable/fleet
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/fleet.webp
+Keywords:
+- fleet
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: fleet
+Sources:
+- https://ghcr.io/linuxserver/fleet
+- https://github.com/truecharts/charts/tree/master/charts/stable/fleet
+Type: application
+Version: 14.13.3

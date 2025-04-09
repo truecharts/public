@@ -1,35 +1,38 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: networking
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 3.21.3
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Allow external services to be used like Apps.
-home: https://truecharts.org/charts/stable/external-service
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp
-keywords:
-    - external-service
-    - reverse-proxy
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: external-service
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/external-service
-    - https://hub.docker.com/_/alpine
-type: application
-version: 15.6.2
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 3.21.3
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Allow external services to be used like Apps.
+Home: https://truecharts.org/charts/stable/external-service
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-service.webp
+Keywords:
+- external-service
+- reverse-proxy
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: external-service
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/external-service
+- https://hub.docker.com/_/alpine
+Type: application
+Version: 15.6.2

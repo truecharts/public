@@ -1,37 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Network-Messenger
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Creates a simple webpage for Slack invite signups
-home: https://truecharts.org/charts/stable/slack-invite
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/slack-invite.webp
-keywords:
-    - slack-invite
-    - Network-Messenger
-    - Productivity
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: slack-invite
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/slack-invite
-    - https://hub.docker.com/r/ninthwalker/slack-invite
-    - httpss://github.com/ninthwalker/slack-invite
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Network-Messenger
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Creates a simple webpage for Slack invite signups
+Home: https://truecharts.org/charts/stable/slack-invite
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/slack-invite.webp
+Keywords:
+- slack-invite
+- Network-Messenger
+- Productivity
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: slack-invite
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/slack-invite
+- https://hub.docker.com/r/ninthwalker/slack-invite
+- httpss://github.com/ninthwalker/slack-invite
+Type: application
+Version: 7.5.1

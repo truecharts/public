@@ -1,38 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: KitchenOwl is a smart self-hosted grocery list and recipe manager.
-home: https://truecharts.org/charts/stable/kitchenowl
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitchenowl.webp
-keywords:
-    - recipes
-    - kitchen
-    - grocery
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: kitchenowl
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
-    - https://hub.docker.com/r/tombursch/kitchenowl
-    - https://hub.docker.com/r/tombursch/kitchenowl-web
-    - https://tombursch.github.io/kitchenowl
-type: application
-version: 11.5.3
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: KitchenOwl is a smart self-hosted grocery list and recipe manager.
+Home: https://truecharts.org/charts/stable/kitchenowl
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitchenowl.webp
+Keywords:
+- recipes
+- kitchen
+- grocery
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: kitchenowl
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
+- https://hub.docker.com/r/tombursch/kitchenowl
+- https://hub.docker.com/r/tombursch/kitchenowl-web
+- https://tombursch.github.io/kitchenowl
+Type: application
+Version: 11.5.3

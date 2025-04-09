@@ -1,38 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: bookmarks
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: ArchiveBox is an open-source, self-hosted internet archiving solution.
-home: https://truecharts.org/charts/stable/archivebox
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/archivebox.webp
-keywords:
-    - archivebox
-    - archiving
-    - digipres
-    - backup
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: archivebox
-sources:
-    - https://github.com/ArchiveBox/ArchiveBox
-    - https://github.com/truecharts/charts/tree/master/charts/stable/archivebox
-    - https://hub.docker.com/r/archivebox/archivebox
-type: application
-version: 4.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: bookmarks
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: ArchiveBox is an open-source, self-hosted internet archiving solution.
+Home: https://truecharts.org/charts/stable/archivebox
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/archivebox.webp
+Keywords:
+- archivebox
+- archiving
+- digipres
+- backup
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: archivebox
+Sources:
+- https://github.com/ArchiveBox/ArchiveBox
+- https://github.com/truecharts/charts/tree/master/charts/stable/archivebox
+- https://hub.docker.com/r/archivebox/archivebox
+Type: application
+Version: 4.5.1

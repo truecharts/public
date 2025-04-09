@@ -1,38 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: download-tools
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 4.0.6
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: fast, easy, and free BitTorrent client.
-home: https://truecharts.org/charts/stable/transmission
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.webp
-keywords:
-    - transmission
-    - torrent
-    - usenet
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: transmission
-sources:
-    - https://github.com/linuxserver/docker-transmission
-    - https://github.com/transmission/transmission
-    - https://github.com/truecharts/charts/tree/master/charts/stable/transmission
-    - https://hub.docker.com/r/linuxserver/transmission
-type: application
-version: 23.0.7
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: download-tools
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 4.0.6
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: fast, easy, and free BitTorrent client.
+Home: https://truecharts.org/charts/stable/transmission
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.webp
+Keywords:
+- transmission
+- torrent
+- usenet
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: transmission
+Sources:
+- https://github.com/linuxserver/docker-transmission
+- https://github.com/transmission/transmission
+- https://github.com/truecharts/charts/tree/master/charts/stable/transmission
+- https://hub.docker.com/r/linuxserver/transmission
+Type: application
+Version: 23.0.7

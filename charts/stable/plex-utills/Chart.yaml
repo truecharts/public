@@ -1,37 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A utility to help manage your library.
-home: https://truecharts.org/charts/stable/plex-utills
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-utills.webp
-keywords:
-    - plex-utills
-    - Tools-Utilities
-    - MediaApp-Other
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: plex-utills
-sources:
-    - https://github.com/jkirkcaldy/plex-utills
-    - https://github.com/truecharts/charts/tree/master/charts/stable/plex-utills
-    - https://hub.docker.com/r/jkirkcaldy/plex-utills
-type: application
-version: 10.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A utility to help manage your library.
+Home: https://truecharts.org/charts/stable/plex-utills
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-utills.webp
+Keywords:
+- plex-utills
+- Tools-Utilities
+- MediaApp-Other
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: plex-utills
+Sources:
+- https://github.com/jkirkcaldy/plex-utills
+- https://github.com/truecharts/charts/tree/master/charts/stable/plex-utills
+- https://hub.docker.com/r/jkirkcaldy/plex-utills
+Type: application
+Version: 10.5.1

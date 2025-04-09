@@ -1,35 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2021.1.0
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Meshroom is a free, open-source 3D Reconstruction Software based on the AliceVision Photogrammetric Computer Vision framework.
-home: https://truecharts.org/charts/stable/meshroom
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshroom.webp
-keywords:
-    - meshroom
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: meshroom
-sources:
-    - https://github.com/alicevision/meshroom
-    - https://github.com/truecharts/charts/tree/master/charts/stable/meshroom
-    - https://hub.docker.com/r/alicevision/meshroom
-type: application
-version: 11.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2021.1.0
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Meshroom is a free, open-source 3D Reconstruction Software based on the
+  AliceVision Photogrammetric Computer Vision framework.
+Home: https://truecharts.org/charts/stable/meshroom
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshroom.webp
+Keywords:
+- meshroom
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: meshroom
+Sources:
+- https://github.com/alicevision/meshroom
+- https://github.com/truecharts/charts/tree/master/charts/stable/meshroom
+- https://hub.docker.com/r/alicevision/meshroom
+Type: application
+Version: 11.5.1

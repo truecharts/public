@@ -1,36 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: games
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 5.27.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A server software for Minecraft Bedrock Edition in PHP.
-home: https://truecharts.org/charts/stable/pocketmine-mp
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/pocketmine-mp.webp
-keywords:
-    - pocketmine-mp
-    - minecraft
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: pocketmine-mp
-sources:
-    - https://ghcr.io/pmmp/pocketmine-mp
-    - https://github.com/pmmp/PocketMine-MP
-    - https://github.com/truecharts/charts/tree/master/charts/stable/pocketmine-mp
-type: application
-version: 5.15.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 5.27.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A server software for Minecraft Bedrock Edition in PHP.
+Home: https://truecharts.org/charts/stable/pocketmine-mp
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pocketmine-mp.webp
+Keywords:
+- pocketmine-mp
+- minecraft
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: pocketmine-mp
+Sources:
+- https://ghcr.io/pmmp/pocketmine-mp
+- https://github.com/pmmp/PocketMine-MP
+- https://github.com/truecharts/charts/tree/master/charts/stable/pocketmine-mp
+Type: application
+Version: 5.15.1

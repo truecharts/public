@@ -1,36 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 2.0.0
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Docker registry v2 command line client and repo listing generator with security checks.
-home: https://truecharts.org/charts/stable/reg
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.webp
-keywords:
-    - reg
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: reg
-sources:
-    - https://github.com/genuinetools/reg
-    - https://github.com/k8s-at-home/container-images/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/reg
-    - https://hub.docker.com/_/registry
-type: application
-version: 15.5.2
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 2.0.0
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Docker registry v2 command line client and repo listing generator with
+  security checks.
+Home: https://truecharts.org/charts/stable/reg
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.webp
+Keywords:
+- reg
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: reg
+Sources:
+- https://github.com/genuinetools/reg
+- https://github.com/k8s-at-home/container-images/
+- https://github.com/truecharts/charts/tree/master/charts/stable/reg
+- https://hub.docker.com/_/registry
+Type: application
+Version: 15.5.2

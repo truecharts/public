@@ -1,36 +1,40 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: cloud
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 6.9.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Automatically obtain your public network IPv4 or IPv6 address and resolve it to the corresponding domain name service
-home: https://truecharts.org/charts/stable/ddns-go
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-go.webp
-keywords:
-    - ddns-go
-    - ddns
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: ddns-go
-sources:
-    - https://github.com/jeessy2/ddns-go
-    - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-go
-    - https://hub.docker.com/r/jeessy/ddns-go
-type: application
-version: 12.8.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: cloud
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 6.9.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Automatically obtain your public network IPv4 or IPv6 address and resolve
+  it to the corresponding domain name service
+Home: https://truecharts.org/charts/stable/ddns-go
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-go.webp
+Keywords:
+- ddns-go
+- ddns
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: ddns-go
+Sources:
+- https://github.com/jeessy2/ddns-go
+- https://github.com/truecharts/charts/tree/master/charts/stable/ddns-go
+- https://hub.docker.com/r/jeessy/ddns-go
+Type: application
+Version: 12.8.1

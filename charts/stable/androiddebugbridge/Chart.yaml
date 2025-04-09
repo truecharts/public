@@ -1,35 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: home-automation
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Control AndroidTV/FireTV devices through ADB from the Home Assistant Core Chart.
-home: https://truecharts.org/charts/stable/androiddebugbridge
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/androiddebugbridge.webp
-keywords:
-    - androiddebugbridge
-    - home-automation
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: androiddebugbridge
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/androiddebugbridge
-    - https://hub.docker.com/r/barnybbb/adb-hass-androidtv
-type: application
-version: 7.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: home-automation
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Control AndroidTV/FireTV devices through ADB from the Home Assistant
+  Core Chart.
+Home: https://truecharts.org/charts/stable/androiddebugbridge
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/androiddebugbridge.webp
+Keywords:
+- androiddebugbridge
+- home-automation
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: androiddebugbridge
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/androiddebugbridge
+- https://hub.docker.com/r/barnybbb/adb-hass-androidtv
+Type: application
+Version: 7.5.1

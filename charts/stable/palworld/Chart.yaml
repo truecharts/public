@@ -1,36 +1,39 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: GameServers
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: palworld
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A custom SteamCMD chart that runs Palworld.
-home: https://truecharts.org/charts/stable/palworld
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/palworld.webp
-keywords:
-    - palworld
-    - GameServers
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: palworld
-sources:
-    - https://ghcr.io/ich777/steamcmd
-    - https://github.com/ich777/docker-steamcmd-server/tree/palworld
-    - https://github.com/truecharts/charts/tree/master/charts/stable/palworld
-type: application
-version: 5.3.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: palworld
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A custom SteamCMD chart that runs Palworld.
+Home: https://truecharts.org/charts/stable/palworld
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/palworld.webp
+Keywords:
+- palworld
+- GameServers
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: palworld
+Sources:
+- https://ghcr.io/ich777/steamcmd
+- https://github.com/ich777/docker-steamcmd-server/tree/palworld
+- https://github.com/truecharts/charts/tree/master/charts/stable/palworld
+Type: application
+Version: 5.3.1

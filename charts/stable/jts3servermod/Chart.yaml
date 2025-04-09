@@ -1,39 +1,42 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 20240301.0.0
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: JTS3ServerMod by Stefan1200
-home: https://truecharts.org/charts/stable/jts3servermod
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/jts3servermod.webp
-keywords:
-    - teamspeak
-    - jts3servermod
-    - teamspeak-bot
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: jts3servermod
-sources:
-    - https://ghcr.io/galexrt/jts3servermod
-    - https://github.com/galexrt/container-jts3servermod
-    - https://github.com/truecharts/charts/tree/master/charts/stable/jts3servermod
-    - https://www.stefan1200.de/documentation/jts3servermod/readme.html
-    - https://www.stefan1200.de/forum/index.php?PHPSESSID=r0m44032akt9jk7903ru9ejv2f&topic=2.0
-type: application
-version: 3.5.1
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 20240301.0.0
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: JTS3ServerMod by Stefan1200
+Home: https://truecharts.org/charts/stable/jts3servermod
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/jts3servermod.webp
+Keywords:
+- teamspeak
+- jts3servermod
+- teamspeak-bot
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: jts3servermod
+Sources:
+- https://ghcr.io/galexrt/jts3servermod
+- https://github.com/galexrt/container-jts3servermod
+- https://github.com/truecharts/charts/tree/master/charts/stable/jts3servermod
+- https://www.stefan1200.de/documentation/jts3servermod/readme.html
+- https://www.stefan1200.de/forum/index.php?PHPSESSID=r0m44032akt9jk7903ru9ejv2f&topic=2.0
+Type: application
+Version: 3.5.1

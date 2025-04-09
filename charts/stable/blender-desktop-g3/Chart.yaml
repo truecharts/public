@@ -1,39 +1,43 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: latest
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing and 2D/3D drawing
-home: https://truecharts.org/charts/stable/blender-desktop-g3
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender-desktop-g3.webp
-keywords:
-    - blender-desktop-g3
-    - Productivity
-    - Tools-Utilities
-    - MediaApp-Photos
-    - MediaApp-Other
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: blender-desktop-g3
-sources:
-    - https://github.com/accetto/headless-drawing-g3/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/blender-desktop-g3
-    - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-blender-g3
-type: application
-version: 7.5.4
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: latest
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing
+  and 2D/3D drawing
+Home: https://truecharts.org/charts/stable/blender-desktop-g3
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender-desktop-g3.webp
+Keywords:
+- blender-desktop-g3
+- Productivity
+- Tools-Utilities
+- MediaApp-Photos
+- MediaApp-Other
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: blender-desktop-g3
+Sources:
+- https://github.com/accetto/headless-drawing-g3/
+- https://github.com/truecharts/charts/tree/master/charts/stable/blender-desktop-g3
+- https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-blender-g3
+Type: application
+Version: 7.5.4

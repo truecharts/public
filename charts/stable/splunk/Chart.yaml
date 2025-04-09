@@ -1,37 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 9.4.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com
-home: https://truecharts.org/charts/stable/splunk
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.webp
-keywords:
-    - splunk
-    - Tools-Utilities
-    - Network-Management
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: splunk
-sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/splunk
-    - https://hub.docker.com/r/splunk/splunk
-    - https://splunk.github.io/docker-splunk
-type: application
-version: 10.0.0
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 9.4.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based
+  on Alpine Linux - https://www.splunk.com
+Home: https://truecharts.org/charts/stable/splunk
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.webp
+Keywords:
+- splunk
+- Tools-Utilities
+- Network-Management
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: splunk
+Sources:
+- https://github.com/truecharts/charts/tree/master/charts/stable/splunk
+- https://hub.docker.com/r/splunk/splunk
+- https://splunk.github.io/docker-splunk
+Type: application
+Version: 10.0.0

@@ -1,37 +1,41 @@
-annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
-apiVersion: v2
-appVersion: 7.4.1
-dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-deprecated: false
-description: A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
-home: https://truecharts.org/charts/stable/recyclarr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/recyclarr.webp
-keywords:
-    - recyclarr
-    - Tools-Utilities
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: recyclarr
-sources:
-    - https://ghcr.io/recyclarr/recyclarr
-    - https://github.com/recyclarr/recyclarr
-    - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
-    - https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr
-type: application
-version: 12.8.2
+APIVersion: v2
+Annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+AppVersion: 7.4.1
+Dependencies:
+- Alias: ""
+  Condition: ""
+  ImportValues: null
+  Name: common
+  Repository: oci://tccr.io/truecharts
+  Tags: []
+  Version: 25.4.10
+Deprecated: false
+Description: A command-line application that will automatically synchronize recommended
+  settings from TRaSH guides to your Sonarr/Radarr instances.
+Home: https://truecharts.org/charts/stable/recyclarr
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/recyclarr.webp
+Keywords:
+- recyclarr
+- Tools-Utilities
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: recyclarr
+Sources:
+- https://ghcr.io/recyclarr/recyclarr
+- https://github.com/recyclarr/recyclarr
+- https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
+- https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr
+Type: application
+Version: 12.8.2

@@ -1,51 +1,51 @@
-annotations:
-    artifacthub.io/category: integration-delivery
-    artifacthub.io/license: BUSL-1.1
-    artifacthub.io/links: |
-        - name: support
-          url: https://discord.com/invite/tVsPTHWTtr
-    truecharts.org/category: unsorted
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: library
-apiVersion: v2
-appVersion: 1.11.0
-dependencies: []
-deprecated: false
-description: Function library for TrueCharts
-home: https://truecharts.org/charts/library/common
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/common.webp
-keywords:
-    - truecharts
-    - library-chart
-    - common
-kubeVersion: '>=1.24.0-0'
-maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
-name: common
-sources:
-    - https://ghcr.io/cloudnative-pg/postgis
-    - https://ghcr.io/cloudnative-pg/postgresql
-    - https://ghcr.io/tensorchord/cloudnative-pgvecto.rs
-    - https://ghcr.io/traefik/whoami
-    - https://github.com/truecharts/charts/tree/master/charts/library/common
-    - https://github.com/truecharts/containers/tree/master/apps/alpine
-    - https://github.com/truecharts/containers/tree/master/apps/code-server
-    - https://github.com/truecharts/containers/tree/master/apps/db-wait-mariadb
-    - https://github.com/truecharts/containers/tree/master/apps/db-wait-mongodb
-    - https://github.com/truecharts/containers/tree/master/apps/db-wait-postgres
-    - https://github.com/truecharts/containers/tree/master/apps/db-wait-redis
-    - https://github.com/truecharts/containers/tree/master/apps/gluetun
-    - https://github.com/truecharts/containers/tree/master/apps/kubectl
-    - https://github.com/truecharts/containers/tree/master/apps/netshoot
-    - https://github.com/truecharts/containers/tree/master/apps/openvpn-client
-    - https://github.com/truecharts/containers/tree/master/apps/scratch
-    - https://github.com/truecharts/containers/tree/master/apps/tailscale
-    - https://github.com/truecharts/containers/tree/master/apps/wget
-    - https://github.com/truecharts/containers/tree/master/apps/wireguard
-    - https://hub.docker.com/_/
-    - https://hub.docker.com/r/mikefarah/yq
-type: library
-version: 28.0.0
+APIVersion: v2
+Annotations:
+  artifacthub.io/category: integration-delivery
+  artifacthub.io/license: BUSL-1.1
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: unsorted
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: library
+AppVersion: 1.11.0
+Dependencies: []
+Deprecated: false
+Description: Function library for TrueCharts
+Home: https://truecharts.org/charts/library/common
+Icon: https://truecharts.org/img/hotlink-ok/chart-icons/common.webp
+Keywords:
+- truecharts
+- library-chart
+- common
+KubeVersion: '>=1.24.0-0'
+Maintainers:
+- Email: info@truecharts.org
+  Name: TrueCharts
+  URL: https://truecharts.org
+Name: common
+Sources:
+- https://ghcr.io/cloudnative-pg/postgis
+- https://ghcr.io/cloudnative-pg/postgresql
+- https://ghcr.io/tensorchord/cloudnative-pgvecto.rs
+- https://ghcr.io/traefik/whoami
+- https://github.com/truecharts/charts/tree/master/charts/library/common
+- https://github.com/truecharts/containers/tree/master/apps/alpine
+- https://github.com/truecharts/containers/tree/master/apps/code-server
+- https://github.com/truecharts/containers/tree/master/apps/db-wait-mariadb
+- https://github.com/truecharts/containers/tree/master/apps/db-wait-mongodb
+- https://github.com/truecharts/containers/tree/master/apps/db-wait-postgres
+- https://github.com/truecharts/containers/tree/master/apps/db-wait-redis
+- https://github.com/truecharts/containers/tree/master/apps/gluetun
+- https://github.com/truecharts/containers/tree/master/apps/kubectl
+- https://github.com/truecharts/containers/tree/master/apps/netshoot
+- https://github.com/truecharts/containers/tree/master/apps/openvpn-client
+- https://github.com/truecharts/containers/tree/master/apps/scratch
+- https://github.com/truecharts/containers/tree/master/apps/tailscale
+- https://github.com/truecharts/containers/tree/master/apps/wget
+- https://github.com/truecharts/containers/tree/master/apps/wireguard
+- https://hub.docker.com/_/
+- https://hub.docker.com/r/mikefarah/yq
+Type: library
+Version: 28.0.0
