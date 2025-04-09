@@ -1,48 +1,51 @@
 annotations:
-    truecharts.org/category: productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.10.0
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 15.9.0
-      repository: oci://tccr.io/truecharts
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 15.6.7
-      repository: oci://tccr.io/truecharts
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 15.9.0
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Plant-it is a self-hosted gardening companion app.
 home: https://truecharts.org/charts/stable/plant-it
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plant-it.webp
 keywords:
-    - plant
-    - plant-it
+  - plant
+  - plant-it
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: plant-it
 sources:
-    - https://github.com/MDeLuise/plant-it
-    - https://github.com/truecharts/charts/tree/master/charts/stable/plant-it
-    - https://hub.docker.com/r/msdeluise/plant-it-server
+  - https://github.com/MDeLuise/plant-it
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plant-it
+  - https://hub.docker.com/r/msdeluise/plant-it-server
 type: application
 version: 2.1.2
