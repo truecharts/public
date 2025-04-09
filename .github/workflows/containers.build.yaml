@@ -316,7 +316,7 @@ jobs:
       - name: Verify SBOM attestation
         if: github.event_name != 'pull_request' && steps.generate_sbom.outcome == 'success'
         run: |
-          cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+          cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }}  --type https://spdx.dev/Document --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/public/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
 
       - name: Generate provenance
         id: gen-prov
@@ -346,7 +346,7 @@ jobs:
         if: github.event_name != 'pull_request'
         id: verf-prov
         run: |
-          cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --type slsaprovenance --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/containers/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
+          cosign verify-attestation quay.io/tccr/${{ matrix.container }}@${{ steps.push.outputs.digest }} --type slsaprovenance --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity=https://github.com/truecharts/public/.github/workflows/containers.build.yaml@refs/heads/master | jq '.payload |= @base64d | .payload | fromjson'
         env:
           COSIGN_EXPERIMENTAL: 1
 
