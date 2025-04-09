@@ -1,34 +1,37 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: incubator
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: incubator
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2021.12.16
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Nano-wallet is a digital payment protocol designed to be accessible and lightweight.
 home: https://truecharts.org/charts/stable/nano-wallet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nano-wallet.webp
 keywords:
-    - nano-wallet
+  - nano-wallet
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: nano-wallet
 sources:
-    - https://ghcr.io/linuxserver/nano-wallet
-    - https://github.com/truecharts/charts/tree/master/charts/stable/nano-wallet
+  - https://ghcr.io/linuxserver/nano-wallet
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nano-wallet
 type: application
 version: 11.5.1
