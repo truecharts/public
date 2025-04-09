@@ -60,7 +60,7 @@ jobs:
       - name: Install ./clustertool
         shell: bash
         run: |
-          VERSION="2.0.0-BETA-4"
+          VERSION="2.0.0-BETA-10"
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
           URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
 
@@ -122,7 +122,7 @@ jobs:
           charts_path: "./"
         run: |
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
-          ./temp/clustertool deps ${CHANGED}
+          ./temp/clustertool charts deps ${CHANGED}
 
       - name: Run Chart Linting
         continue-on-error: true
