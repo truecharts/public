@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: productivity
@@ -9,7 +13,7 @@ apiVersion: v2
 appVersion: 0.14.2
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -46,4 +50,4 @@ sources:
     - https://hub.docker.com/r/victorrds/etesync
     - https://www.etesync.com/
 type: application
-version: 11.12.8
+version: 12.0.0

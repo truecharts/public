@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/SCALE-support: "false"
@@ -10,7 +14,7 @@ apiVersion: v2
 appVersion: 8.2.1
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -40,4 +44,4 @@ sources:
     - https://github.com/snapshot-controller/snapshot-controller-helm-chart
     - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
 type: application
-version: 3.7.3
+version: 4.0.0

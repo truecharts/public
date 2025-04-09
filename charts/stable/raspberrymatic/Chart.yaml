@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/SCALE-support: "false"
@@ -10,7 +14,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -35,4 +39,4 @@ sources:
     - https://github.com/jens-maus/RaspberryMatic/pkgs/container/raspberrymatic
     - https://github.com/truecharts/charts/tree/master/charts/stable/raspberrymatic
 type: application
-version: 7.5.3
+version: 8.0.0

@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: utilities
@@ -9,7 +13,7 @@ apiVersion: v2
 appVersion: 1.4.2
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -34,4 +38,4 @@ sources:
     - https://github.com/truecharts/charts/tree/master/charts/stable/clamav
     - https://hub.docker.com/r/clamav/clamav
 type: application
-version: 12.6.10
+version: 13.0.0

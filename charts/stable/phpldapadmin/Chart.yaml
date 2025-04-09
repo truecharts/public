@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: management
@@ -9,7 +13,7 @@ apiVersion: v2
 appVersion: 0.9.0
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -34,4 +38,4 @@ sources:
     - https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
     - https://hub.docker.com/r/osixia/phpldapadmin
 type: application
-version: 15.5.1
+version: 16.0.0

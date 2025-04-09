@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     truecharts.org/category: security
     truecharts.org/max_helm_version: "3.17"
     truecharts.org/min_helm_version: "3.14"
@@ -7,7 +11,7 @@ apiVersion: v2
 appVersion: 3.4.0
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -29,4 +33,4 @@ sources:
     - https://ghcr.io/elfhosted/zilean
     - https://github.com/truecharts/charts/tree/master/charts/stable/zilean
 type: application
-version: 2.0.1
+version: 3.0.0

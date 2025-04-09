@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: GIT
@@ -9,7 +13,7 @@ apiVersion: v2
 appVersion: 1.23.6
 dependencies:
     - name: common
-      version: 25.4.10
+      version: 27.1.4
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
@@ -45,4 +49,4 @@ sources:
     - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
     - https://hub.docker.com/r/gitea/gitea
 type: application
-version: 20.12.14
+version: 21.0.0
