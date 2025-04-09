@@ -96,8 +96,6 @@ jobs:
             ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
             ${{ env.CHANGELOG_CACHE_KEY }}-
 
-
-
       - name: Generate Changelog
         shell: bash
         if: github.event_name == 'push'
