@@ -4,7 +4,7 @@ import (
     "bytes"
     "io"
 
-    "gopkg.in/yaml.v3"
+    "sigs.k8s.io/yaml"
 )
 
 // Encoder is a custom encoder for YAML that writes to an io.Writer.
