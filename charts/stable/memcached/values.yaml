@@ -11,8 +11,6 @@ service:
         port: 11211
         protocol: tcp
         targetPort: 11211
-
-
 configmap:
   dashboard:
     enabled: true
