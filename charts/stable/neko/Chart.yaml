@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: media
@@ -6,7 +10,7 @@ annotations:
     truecharts.org/min_helm_version: "3.14"
     truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.9.0
+appVersion: 3.0.3
 dependencies:
     - name: common
       version: 25.4.10
@@ -42,4 +46,4 @@ sources:
     - https://github.com/m1k1o/neko
     - https://github.com/truecharts/charts/tree/master/charts/stable/neko
 type: application
-version: 8.6.0
+version: 9.0.0
