@@ -1,44 +1,47 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: database
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mongodb
-      version: 15.3.8
-      repository: oci://tccr.io/truecharts
-      condition: mongodb.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 15.3.8
+    repository: oci://tccr.io/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
 home: https://truecharts.org/charts/stable/mongo-express
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.webp
 keywords:
-    - mongo
-    - mongodb
-    - database
+  - mongo
+  - mongodb
+  - database
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: mongo-express
 sources:
-    - https://gallery.ecr.aws/docker/library/mongo-express
-    - https://github.com/mongo-express/mongo-express
-    - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+  - https://gallery.ecr.aws/docker/library/mongo-express
+  - https://github.com/mongo-express/mongo-express
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
 type: application
 version: 8.11.8
