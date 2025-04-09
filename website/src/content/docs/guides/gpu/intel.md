@@ -83,7 +83,7 @@ spec:
       version: 0.32.0
       sourceRef:
         kind: HelmRepository
-        name: intel
+        name: home-ops-mirror
         namespace: flux-system
   install:
     crds: CreateReplace
@@ -126,7 +126,7 @@ spec:
       version: 0.32.0
       sourceRef:
         kind: HelmRepository
-        name: intel
+        name: home-ops-mirror
         namespace: flux-system
   install:
     remediation:
