@@ -4,6 +4,8 @@ FROM docker.io/renovate/renovate:39.238.0-full@sha256:93001356fe33c0c641dc00b88a
 ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
+ARG TEST
+
 
 
 # Download and set up the clustertool binary
