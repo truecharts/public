@@ -25,11 +25,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/api/v1/heartbeat"
+              path: "heartbeat"
             readiness:
-              path: "/api/v1/heartbeat"
+              path: "/heartbeat"
             startup:
-              path: "/api/v1/heartbeat"
+              path: "/heartbeat"
           env:
             IS_PERSISTENT: true
 
