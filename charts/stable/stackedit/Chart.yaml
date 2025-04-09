@@ -1,37 +1,40 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: StackEdits Markdown syntax highlighting is unique. The refined text formatting of the editor helps you visualize the final rendering of your files.
 home: https://truecharts.org/charts/stable/stackedit
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stackedit.webp
 keywords:
-    - stackedit
-    - Productivity
-    - Tools-Utilities
+  - stackedit
+  - Productivity
+  - Tools-Utilities
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: stackedit
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/stackedit
-    - https://hub.docker.com/r/qmcgaw/stackedit
-    - https://stackedit.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/stackedit
+  - https://hub.docker.com/r/qmcgaw/stackedit
+  - https://stackedit.io/
 type: application
 version: 7.5.1
