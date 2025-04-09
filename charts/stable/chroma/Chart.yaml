@@ -1,4 +1,8 @@
 annotations:
+    artifacthub.io/links: |-
+        |
+                - name: support
+                  url: https://discord.com/invite/tVsPTHWTtr
     max_scale_version: 24.04.1
     min_scale_version: 24.04.0
     truecharts.org/category: AI
@@ -6,7 +10,7 @@ annotations:
     truecharts.org/min_helm_version: "3.14"
     truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.6.3
+appVersion: 1.0.3
 dependencies:
     - name: common
       version: 25.4.10
@@ -34,4 +38,4 @@ sources:
     - https://github.com/chroma-core/chroma
     - https://github.com/truecharts/charts/tree/master/charts/stable/chroma
 type: application
-version: 4.6.1
+version: 5.0.0
