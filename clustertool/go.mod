@@ -24,7 +24,7 @@ require (
     github.com/spf13/cobra v1.9.1
     golang.org/x/crypto v0.37.0
     gopkg.in/yaml.v3 v3.0.1
-    helm.sh/helm/v3 v3.17.2
+    helm.sh/helm/v3 v3.17.3
     k8s.io/api v0.32.3
     k8s.io/apimachinery v0.32.3
     k8s.io/client-go v0.32.3
