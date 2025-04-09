@@ -56,10 +56,13 @@ global:
     # -- Define a postgresql version for CNPG
     # will be used for all CNPG objects
     # Can be overruled per CNPG objects
-    pgVersion: 16
+
     # -- Define a topologyKey for default topologySpreadConstraints
     # Will be used when defaultSpread: true
     topologyKey: kubernetes.io/hostname
+    cnpg:
+      pgVersion: 16
+      skipEmptyWalArchiveCheck: true
   traefik:
     commonMiddlewares:
       - name: tc-basic-secure-headers
@@ -78,7 +81,7 @@ image:
   tag: v1.11.0@sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab
 
 chartContext:
-  APPURL: ""
+  appUrl: ""
   podCIDR: ""
   svcCIDR: ""
 
@@ -432,14 +435,19 @@ notes:
     # Thank you for installing {{ .Chart.Name }} by TrueCharts.
   # custom: "{{ toYaml $.Values }}"
   custom: |
-    {{- if .Values.portal }}
+    {{- if .Values.chartContext.appUrl }}
     ## Connecting externally
-    You can use this Chart by opening one of the following links in your browser:
-      {{- range $p := $.Values.portal }}
-      {{- if and $p.enabled $p.rendered }}
-    - {{ toYaml $p.rendered.url }}
-      {{- end }}
-      {{- end -}}
+    You can use this Chart by opening the following links in your browser:
+    - {{ toYaml .Values.chartContext.appUrl }}
+    {{- end }}
+
+    {{ if .Chart.Dependencies }}
+    ## Dependencies for {{ .Chart.Name }}
+
+    {{- range .Chart.Dependencies }}
+    - Chart: {{ .Repository }}/{{ .Name }}
+      Version: {{ .Version }}
+    {{- end }}
     {{- end }}
 
     ## Sources for {{ .Chart.Name }}
@@ -468,23 +476,6 @@ notes:
 ## TrueCharts Specific Root Objects
 ##
 ####
-
-# -- Defines the portals for which config needs to be generated
-portal:
-  open:
-    enabled: false
-    override:
-      protocol:
-      host:
-      port:
-    path: ""
-    targetSelector:
-      ingress: ""
-      service: ""
-      port: ""
-
-# -- Set by "open" portal, used for some applications internally.
-APPURL: ""
 
 gluetunImage:
   repository: tccr.io/tccr/gluetun
@@ -1072,6 +1063,9 @@ cnpg:
 
       # set to true on single-node clusters to allow PVCs to be kept on instance restart
       singleNode: false
+
+      ## set to configure the skipEmptyWalArchiveCheck annotation
+      # skipEmptyWalArchiveCheck: true
       # # -- storage size for the data pvc's
       # # Follows the same spec as .Values.Persistence type=PVC
       # storage:

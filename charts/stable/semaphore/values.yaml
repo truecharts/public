@@ -1,6 +1,6 @@
 image:
   repository: docker.io/semaphoreui/semaphore
-  tag: v2.13.7@sha256:7c2233217e98e353a1161263ed8436d76dfad6ee1e768f1ff1dd068fa36f932e
+  tag: v2.13.12@sha256:b288618e44e37f3d10b9202eec06a6bd7c452d6d86295f97193987e49619665e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -72,7 +72,3 @@ cnpg:
     enabled: true
     user: semaphore
     database: semaphore
-
-portal:
-  open:
-    enabled: true

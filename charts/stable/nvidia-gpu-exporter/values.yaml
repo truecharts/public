@@ -79,9 +79,7 @@ metrics:
     endpoints:
       - port: main
         path: "{{ .Values.metricsEndpoint }}"
-portal:
-  open:
-    enabled: false
+
 metricsEndpoint: "/metrics"
 logs:
   general:

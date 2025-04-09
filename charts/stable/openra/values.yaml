@@ -3,9 +3,7 @@ image:
   repository: docker.io/rmoriz/openra
   tag: latest@sha256:81a3a76c915122109c22469fbec28175c23644ca7f2879a21a82467979f95f56
 persistence: {}
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

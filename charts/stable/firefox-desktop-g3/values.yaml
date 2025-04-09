@@ -1,14 +1,12 @@
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/accetto/ubuntu-vnc-xfce-firefox-g3
-  tag: latest@sha256:cc4626a87d1240776c0e7f5d3c977e52eae1eebbfc55827d0dba8abe2652e079
+  tag: latest@sha256:6ebd18ff8640f0813f3e729ed9015e30b1301b0ab7928dba8c1fbe25b7e9ccc4
 persistence:
   internalshare:
     enabled: true
     mountPath: /UNRAID_SHARE
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

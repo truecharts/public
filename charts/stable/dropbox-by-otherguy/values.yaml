@@ -9,9 +9,7 @@ persistence:
   dropboxuserfiles:
     enabled: true
     mountPath: /opt/dropbox/Dropbox
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -12,9 +12,7 @@ persistence:
   watchfolder:
     enabled: true
     mountPath: /watch
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -16,9 +16,7 @@ redis:
   enabled: true
   includeCommon: true
   redisUsername: "default"
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     runAsNonRoot: false

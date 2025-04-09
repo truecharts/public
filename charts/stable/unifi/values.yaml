@@ -68,9 +68,7 @@ persistence:
   certs:
     enabled: true
     mountPath: "/usr/lib/unifi/cert"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

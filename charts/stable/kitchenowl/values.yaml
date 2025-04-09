@@ -41,10 +41,6 @@ persistence:
         main:
           mountPath: /data
 
-portal:
-  open:
-    enabled: true
-
 securityContext:
   container:
     readOnlyRootFilesystem: false

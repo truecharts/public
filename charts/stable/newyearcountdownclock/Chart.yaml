@@ -1,37 +1,40 @@
 annotations:
-    max_scale_version: 24.04.1
-    min_scale_version: 24.04.0
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.17"
-    truecharts.org/min_helm_version: "3.14"
-    truecharts.org/train: stable
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
-    - name: common
-      version: 25.4.10
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Self Hosted, self contained New Year Countdown clock
 home: https://truecharts.org/charts/stable/newyearcountdownclock
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/newyearcountdownclock.webp
 keywords:
-    - newyearcountdownclock
-    - Tools-Utilities
-    - Other
+  - newyearcountdownclock
+  - Tools-Utilities
+  - Other
 kubeVersion: '>=1.24.0-0'
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 name: newyearcountdownclock
 sources:
-    - https://github.com/modem7/Docker-NewYearCountdown
-    - https://github.com/truecharts/charts/tree/master/charts/stable/newyearcountdownclock
-    - https://hub.docker.com/r/modem7/newyearcountdown
+  - https://github.com/modem7/Docker-NewYearCountdown
+  - https://github.com/truecharts/charts/tree/master/charts/stable/newyearcountdownclock
+  - https://hub.docker.com/r/modem7/newyearcountdown
 type: application
 version: 7.5.2

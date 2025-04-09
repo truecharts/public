@@ -1,7 +1,7 @@
 image:
   repository: public.ecr.aws/bitnami/solr
   pullPolicy: IfNotPresent
-  tag: 9.8.1@sha256:67323aeb9709c276b70c61656da6f94c568c3b18071aa9714fb1bf2d85015b1a
+  tag: 9.8.1@sha256:610bcb98009e4482b589358c2301cf969d477da41e9d9efe79640b875b581b8a
 
 includeCommon: true
 workload:
@@ -105,6 +105,3 @@ solrUsername: "test"
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
 password: "PLACEHOLDERPASSWORD"
-portal:
-  open:
-    enabled: true

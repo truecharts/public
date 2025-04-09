@@ -6,9 +6,7 @@ persistence:
   datadir:
     enabled: true
     mountPath: /urbanterror
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

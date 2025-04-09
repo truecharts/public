@@ -9,9 +9,7 @@ persistence:
   datapath:
     enabled: true
     mountPath: /mnt/user
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

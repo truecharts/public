@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/ddclient
   pullPolicy: IfNotPresent
-  tag: 4.0.0@sha256:4b75981ba8de3bfabaf928f1398478bef1dbc8f2d71771d7daa7d9e08f075916
+  tag: 4.0.0@sha256:a34caeb677ae090d0cee013650bd5c2c7d2e69b45ff6c4acebb0726c3455a688
 securityContext:
   container:
     runAsNonRoot: false
@@ -31,6 +31,3 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-portal:
-  open:
-    enabled: false

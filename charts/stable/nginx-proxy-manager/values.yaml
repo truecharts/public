@@ -39,9 +39,7 @@ mariadb:
   includeCommon: true
   mariadbUsername: npm
   mariadbDatabase: npm
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false

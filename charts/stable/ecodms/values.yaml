@@ -15,9 +15,7 @@ persistence:
   scaninputpath:
     enabled: true
     mountPath: /srv/scaninput
-portal:
-  open:
-    enabled: false
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

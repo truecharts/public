@@ -8,9 +8,7 @@ service:
       main:
         port: 10094
         targetPort: 8080
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

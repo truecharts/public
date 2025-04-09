@@ -41,9 +41,7 @@ persistence:
     subPath: 10-patch.sh
     readOnly: true
     defaultMode: "0755"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

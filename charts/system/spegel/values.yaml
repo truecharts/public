@@ -94,10 +94,6 @@ metrics:
       - port: metrics
     targetSelector: metrics
 
-portal:
-  open:
-    enabled: false
-
 persistence:
   containerd-sock:
     enabled: true

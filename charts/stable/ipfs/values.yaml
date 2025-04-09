@@ -44,9 +44,7 @@ persistence:
   ipns:
     enabled: true
     mountPath: "/ipns"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
