@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A super-sexy voice interface for the Plex HTPC.
-Home: https://truecharts.org/charts/stable/flextv
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/flextv.webp
-Keywords:
-- flextv
-- MediaApp
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: flextv
-Sources:
-- https://github.com/d8ahazard/FlexTV
-- https://github.com/truecharts/charts/tree/master/charts/stable/flextv
-- https://hub.docker.com/r/jcreynolds/flextv
-- https://registry.hub.docker.com/r/jcreynolds/flextv/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A super-sexy voice interface for the Plex HTPC.
+home: https://truecharts.org/charts/stable/flextv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flextv.webp
+keywords:
+  - flextv
+  - MediaApp
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flextv
+sources:
+  - https://github.com/d8ahazard/FlexTV
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flextv
+  - https://hub.docker.com/r/jcreynolds/flextv
+  - https://registry.hub.docker.com/r/jcreynolds/flextv/
+type: application
+version: 7.5.1

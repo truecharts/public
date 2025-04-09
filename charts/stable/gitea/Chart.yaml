@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,43 +8,44 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.23.6
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: memcached.enabled
-  ImportValues: null
-  Name: memcached
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 14.5.8
-Deprecated: false
-Description: Self hosted GIT repositories
-Home: https://truecharts.org/charts/stable/gitea
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.webp
-Keywords:
-- git
-- issue tracker
-- code review
-- wiki
-- gitea
-- gogs
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: gitea
-Sources:
-- https://gitea.com/gitea/helm-chart
-- https://github.com/go-gitea/gitea
-- https://github.com/truecharts/charts/tree/master/charts/stable/gitea
-- https://hub.docker.com/r/gitea/gitea
-Type: application
-Version: 20.12.14
+apiVersion: v2
+appVersion: 1.23.6
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: memcached
+    version: 14.5.8
+    repository: oci://tccr.io/truecharts
+    condition: memcached.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Self hosted GIT repositories
+home: https://truecharts.org/charts/stable/gitea
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.webp
+keywords:
+  - git
+  - issue tracker
+  - code review
+  - wiki
+  - gitea
+  - gogs
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: gitea
+sources:
+  - https://gitea.com/gitea/helm-chart
+  - https://github.com/go-gitea/gitea
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+  - https://hub.docker.com/r/gitea/gitea
+type: application
+version: 20.12.14

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Automatically backup github repositories on schedule. Allows for custom
-  configuration.
-Home: https://truecharts.org/charts/stable/llalon-github-backup
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/llalon-github-backup.webp
-Keywords:
-- llalon-github-backup
-- Backup
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: llalon-github-backup
-Sources:
-- https://github.com/abusesa/github-backup
-- https://github.com/truecharts/charts/tree/master/charts/stable/llalon-github-backup
-- https://hub.docker.com/r/llalon/github-backup
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Automatically backup github repositories on schedule. Allows for custom configuration.
+home: https://truecharts.org/charts/stable/llalon-github-backup
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/llalon-github-backup.webp
+keywords:
+  - llalon-github-backup
+  - Backup
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: llalon-github-backup
+sources:
+  - https://github.com/abusesa/github-backup
+  - https://github.com/truecharts/charts/tree/master/charts/stable/llalon-github-backup
+  - https://hub.docker.com/r/llalon/github-backup
+type: application
+version: 7.5.1

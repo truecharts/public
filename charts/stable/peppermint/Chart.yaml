@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: An open source ticket management & help desk solution.
-Home: https://truecharts.org/charts/stable/peppermint
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/peppermint.webp
-Keywords:
-- peppermint
-- tickets
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: peppermint
-Sources:
-- https://github.com/Peppermint-Lab/peppermint
-- https://github.com/truecharts/charts/tree/master/charts/stable/peppermint
-- https://hub.docker.com/r/pepperlabs/peppermint
-Type: application
-Version: 3.0.0
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An open source ticket management & help desk solution.
+home: https://truecharts.org/charts/stable/peppermint
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/peppermint.webp
+keywords:
+  - peppermint
+  - tickets
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: peppermint
+sources:
+  - https://github.com/Peppermint-Lab/peppermint
+  - https://github.com/truecharts/charts/tree/master/charts/stable/peppermint
+  - https://hub.docker.com/r/pepperlabs/peppermint
+type: application
+version: 3.0.0

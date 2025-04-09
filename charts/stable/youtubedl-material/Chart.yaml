@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,37 +8,38 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2024.10.01
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: mongodb.enabled
-  ImportValues: null
-  Name: mongodb
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.3.8
-Deprecated: false
-Description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
-Home: https://truecharts.org/charts/stable/youtubedl-material
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.webp
-Keywords:
-- youtube
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: youtubedl-material
-Sources:
-- https://ghcr.io/tzahi12345/youtubedl-material
-- https://github.com/Tzahi12345/YoutubeDL-Material
-- https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
-Type: application
-Version: 12.11.8
+apiVersion: v2
+appVersion: 2024.10.01
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 15.3.8
+    repository: oci://tccr.io/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
+home: https://truecharts.org/charts/stable/youtubedl-material
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.webp
+keywords:
+  - youtube
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: youtubedl-material
+sources:
+  - https://ghcr.io/tzahi12345/youtubedl-material
+  - https://github.com/Tzahi12345/YoutubeDL-Material
+  - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
+type: application
+version: 12.11.8

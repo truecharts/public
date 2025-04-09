@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: An extensible, high performant & paralleled Minecraft proxy server.
-Home: https://truecharts.org/charts/stable/minecraft-gate
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-gate.webp
-Keywords:
-- minecraft-gate
-- proxy
-- minecraft
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: minecraft-gate
-Sources:
-- https://ghcr.io/minekube/gate
-- https://github.com/minekube/gate
-- https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-gate
-Type: application
-Version: 1.3.4
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An extensible, high performant & paralleled Minecraft proxy server.
+home: https://truecharts.org/charts/stable/minecraft-gate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-gate.webp
+keywords:
+  - minecraft-gate
+  - proxy
+  - minecraft
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: minecraft-gate
+sources:
+  - https://ghcr.io/minekube/gate
+  - https://github.com/minekube/gate
+  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-gate
+type: application
+version: 1.3.4

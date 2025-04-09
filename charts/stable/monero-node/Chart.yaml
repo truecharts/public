@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.18.4.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Chart to run a monero full network node
-Home: https://truecharts.org/charts/stable/monero-node
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/monero-node.webp
-Keywords:
-- monero-node
-- Crypto
-- Tools-Utilities
-- Network-Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: monero-node
-Sources:
-- https://ghcr.io/sethforprivacy/simple-monerod
-- https://github.com/kannix/monero-full-node
-- https://github.com/truecharts/charts/tree/master/charts/stable/monero-node
-Type: application
-Version: 8.5.4
+apiVersion: v2
+appVersion: 0.18.4.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Chart to run a monero full network node
+home: https://truecharts.org/charts/stable/monero-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/monero-node.webp
+keywords:
+  - monero-node
+  - Crypto
+  - Tools-Utilities
+  - Network-Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: monero-node
+sources:
+  - https://ghcr.io/sethforprivacy/simple-monerod
+  - https://github.com/kannix/monero-full-node
+  - https://github.com/truecharts/charts/tree/master/charts/stable/monero-node
+type: application
+version: 8.5.4

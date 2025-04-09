@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: unturned
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Unturned SteamCMD
-Home: https://truecharts.org/charts/stable/unturned
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/unturned.webp
-Keywords:
-- unturned
-- GameServers
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: unturned
-Sources:
-- https://ghcr.io/ich777/steamcmd
-- https://github.com/ich777/docker-steamcmd-server/tree/unturned
-- https://github.com/truecharts/charts/tree/master/charts/stable/unturned
-Type: application
-Version: 8.5.1
+apiVersion: v2
+appVersion: unturned
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Unturned SteamCMD
+home: https://truecharts.org/charts/stable/unturned
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unturned.webp
+keywords:
+  - unturned
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: unturned
+sources:
+  - https://ghcr.io/ich777/steamcmd
+  - https://github.com/ich777/docker-steamcmd-server/tree/unturned
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unturned
+type: application
+version: 8.5.1

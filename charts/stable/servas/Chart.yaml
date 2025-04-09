@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,38 +8,39 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.5.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: mariadb.enabled
-  ImportValues: null
-  Name: mariadb
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.9.0
-Deprecated: false
-Description: A self-hosted bookmark management tool.
-Home: https://truecharts.org/charts/stable/servas
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.webp
-Keywords:
-- servas
-- bookmarks
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: servas
-Sources:
-- https://github.com/beromir/Servas
-- https://github.com/truecharts/charts/tree/master/charts/stable/servas
-- https://hub.docker.com/r/beromir/servas
-Type: application
-Version: 6.16.1
+apiVersion: v2
+appVersion: 0.5.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 15.9.0
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self-hosted bookmark management tool.
+home: https://truecharts.org/charts/stable/servas
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.webp
+keywords:
+  - servas
+  - bookmarks
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: servas
+sources:
+  - https://github.com/beromir/Servas
+  - https://github.com/truecharts/charts/tree/master/charts/stable/servas
+  - https://hub.docker.com/r/beromir/servas
+type: application
+version: 6.16.1

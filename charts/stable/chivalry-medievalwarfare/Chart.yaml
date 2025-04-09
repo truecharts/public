@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: chialrymw
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: 'This Chart will download and install SteamCMD. It will also install
-  Chivalry: Medieval Warfare and run it.'
-Home: https://truecharts.org/charts/stable/chivalry-medievalwarfare
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/chivalry-medievalwarfare.webp
-Keywords:
-- chivalry-medievalwarfare
-- GameServers
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: chivalry-medievalwarfare
-Sources:
-- https://ghcr.io/ich777/steamcmd
-- https://github.com/truecharts/charts/tree/master/charts/stable/chivalry-medievalwarfare
-- https://www.steampowered.com/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: chialrymw
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: 'This Chart will download and install SteamCMD. It will also install Chivalry: Medieval Warfare and run it.'
+home: https://truecharts.org/charts/stable/chivalry-medievalwarfare
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/chivalry-medievalwarfare.webp
+keywords:
+  - chivalry-medievalwarfare
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: chivalry-medievalwarfare
+sources:
+  - https://ghcr.io/ich777/steamcmd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chivalry-medievalwarfare
+  - https://www.steampowered.com/
+type: application
+version: 7.5.1

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 25.1.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: ErsatzTV configuring and streaming custom live channels using your media
-  library.
-Home: https://truecharts.org/charts/stable/ersatztv
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.webp
-Keywords:
-- ersatztv
-- media
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: ersatztv
-Sources:
-- https://github.com/jasongdove/ErsatzTV
-- https://github.com/truecharts/charts/tree/master/charts/stable/ersatztv
-- https://hub.docker.com/r/jasongdove/ersatztv
-Type: application
-Version: 8.1.1
+apiVersion: v2
+appVersion: 25.1.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: ErsatzTV configuring and streaming custom live channels using your media library.
+home: https://truecharts.org/charts/stable/ersatztv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.webp
+keywords:
+  - ersatztv
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ersatztv
+sources:
+  - https://github.com/jasongdove/ErsatzTV
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ersatztv
+  - https://hub.docker.com/r/jasongdove/ersatztv
+type: application
+version: 8.1.1

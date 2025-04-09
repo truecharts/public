@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,30 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 5.17.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Automated service health dashboard
-Home: https://truecharts.org/charts/stable/gatus
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/gatus.webp
-Keywords:
-- gatus
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: gatus
-Sources:
-- https://github.com/TwiN/gatus
-- https://github.com/truecharts/charts/tree/master/charts/stable/gatus
-- https://hub.docker.com/r/twinproduction/gatus
-Type: application
-Version: 1.1.0
+apiVersion: v2
+appVersion: 5.17.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Automated service health dashboard
+home: https://truecharts.org/charts/stable/gatus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gatus.webp
+keywords:
+  - gatus
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: gatus
+sources:
+  - https://github.com/TwiN/gatus
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gatus
+  - https://hub.docker.com/r/twinproduction/gatus
+type: application
+version: 1.1.0

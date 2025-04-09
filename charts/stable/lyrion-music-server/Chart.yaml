@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 9.1.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Lyrion Music Server is a platform for home/office audio streaming.
-Home: https://truecharts.org/charts/stable/lyrion-music-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/lyrion-music-server.webp
-Keywords:
-- lyrion-music-server
-- logitech-media-server
-- squeezebox
-- audio
-- streaming
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: lyrion-music-server
-Sources:
-- https://github.com/LMS-Community/slimserver
-- https://github.com/truecharts/charts/tree/master/charts/stable/lyrion-music-server
-- https://hub.docker.com/r/lmscommunity/lyrionmusicserver
-Type: application
-Version: 4.0.12
+apiVersion: v2
+appVersion: 9.1.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Lyrion Music Server is a platform for home/office audio streaming.
+home: https://truecharts.org/charts/stable/lyrion-music-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lyrion-music-server.webp
+keywords:
+  - lyrion-music-server
+  - logitech-media-server
+  - squeezebox
+  - audio
+  - streaming
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lyrion-music-server
+sources:
+  - https://github.com/LMS-Community/slimserver
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lyrion-music-server
+  - https://hub.docker.com/r/lmscommunity/lyrionmusicserver
+type: application
+version: 4.0.12

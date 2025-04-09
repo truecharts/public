@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Not everyone, especially people new to Linux and Unraid, know what a
-  command that they type i will actually do.
-Home: https://truecharts.org/charts/stable/explainshell
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/explainshell.webp
-Keywords:
-- explainshell
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: explainshell
-Sources:
-- https://github.com/idank/explainshell
-- https://github.com/truecharts/charts/tree/master/charts/stable/explainshell
-- https://hub.docker.com/r/spaceinvaderone/explainshell
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Not everyone, especially people new to Linux and Unraid, know what a command that they type i will actually do.
+home: https://truecharts.org/charts/stable/explainshell
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/explainshell.webp
+keywords:
+  - explainshell
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: explainshell
+sources:
+  - https://github.com/idank/explainshell
+  - https://github.com/truecharts/charts/tree/master/charts/stable/explainshell
+  - https://hub.docker.com/r/spaceinvaderone/explainshell
+type: application
+version: 7.5.1

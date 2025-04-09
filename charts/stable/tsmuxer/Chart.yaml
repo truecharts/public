@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 25.02.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: tsMuxer is a Transport Stream muxer.
-Home: https://truecharts.org/charts/stable/tsmuxer
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsmuxer.webp
-Keywords:
-- media
-- tsmuxer
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: tsmuxer
-Sources:
-- https://github.com/jlesage/docker-tsmuxer
-- https://github.com/truecharts/charts/tree/master/charts/stable/tsmuxer
-- https://hub.docker.com/r/jlesage/tsmuxer
-Type: application
-Version: 12.0.0
+apiVersion: v2
+appVersion: 25.02.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: tsMuxer is a Transport Stream muxer.
+home: https://truecharts.org/charts/stable/tsmuxer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsmuxer.webp
+keywords:
+  - media
+  - tsmuxer
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tsmuxer
+sources:
+  - https://github.com/jlesage/docker-tsmuxer
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tsmuxer
+  - https://hub.docker.com/r/jlesage/tsmuxer
+type: application
+version: 12.0.0

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -7,31 +6,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: library
-AppVersion: unknown
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: file://../common/
-  Tags: []
-  Version: '*'
-Deprecated: false
-Description: Helper chart to test different use cases of the common library
-Home: https://truecharts.org/charts/library/common-test
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
-Keywords:
-- common-test
-- truecharts
-- common
-- test
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: common-test
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/library/common-test
-Type: application
-Version: 1.0.0
+apiVersion: v2
+appVersion: unknown
+dependencies:
+  - name: common
+    version: '*'
+    repository: file://../common/
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Helper chart to test different use cases of the common library
+home: https://truecharts.org/charts/library/common-test
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/common-test.webp
+keywords:
+  - common-test
+  - truecharts
+  - common
+  - test
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: common-test
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/library/common-test
+type: application
+version: 1.0.0

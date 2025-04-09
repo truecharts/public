@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,38 +8,39 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.7.11
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: mariadb.enabled
-  ImportValues: null
-  Name: mariadb
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.9.0
-Deprecated: false
-Description: A game ROM manager using multiple sources to identify and provide metadata.
-Home: https://truecharts.org/charts/stable/gaseous-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaseous-server.webp
-Keywords:
-- gaseous-server
-- rom-manager
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: gaseous-server
-Sources:
-- https://github.com/gaseous-project/gaseous-server
-- https://github.com/truecharts/charts/tree/master/charts/stable/gaseous-server
-- https://hub.docker.com/r/gaseousgames/gaseousserver
-Type: application
-Version: 3.13.1
+apiVersion: v2
+appVersion: 1.7.11
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 15.9.0
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A game ROM manager using multiple sources to identify and provide metadata.
+home: https://truecharts.org/charts/stable/gaseous-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaseous-server.webp
+keywords:
+  - gaseous-server
+  - rom-manager
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: gaseous-server
+sources:
+  - https://github.com/gaseous-project/gaseous-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gaseous-server
+  - https://hub.docker.com/r/gaseousgames/gaseousserver
+type: application
+version: 3.13.1

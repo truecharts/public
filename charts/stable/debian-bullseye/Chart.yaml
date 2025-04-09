@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: This Chart is a full Debian Bullseye Xfce4 Desktop environment with a
-  noVNC webGUI and all the basic tools pre-installed.
-Home: https://truecharts.org/charts/stable/debian-bullseye
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-bullseye.webp
-Keywords:
-- debian-bullseye
-- Productivity
-- Tools-System
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: debian-bullseye
-Sources:
-- https://ghcr.io/ich777/debian-bullseye
-- https://github.com/truecharts/charts/tree/master/charts/stable/debian-bullseye
-- https://www.debian.org/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart is a full Debian Bullseye Xfce4 Desktop environment with a noVNC webGUI and all the basic tools pre-installed.
+home: https://truecharts.org/charts/stable/debian-bullseye
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-bullseye.webp
+keywords:
+  - debian-bullseye
+  - Productivity
+  - Tools-System
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: debian-bullseye
+sources:
+  - https://ghcr.io/ich777/debian-bullseye
+  - https://github.com/truecharts/charts/tree/master/charts/stable/debian-bullseye
+  - https://www.debian.org/
+type: application
+version: 7.5.1

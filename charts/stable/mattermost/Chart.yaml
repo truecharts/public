@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 9.6.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Mattermost is an open source platform for secure collaboration across
-  the entire software development lifecycle.
-Home: https://truecharts.org/charts/stable/mattermost
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.webp
-Keywords:
-- team
-- mattermost
-- development
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: mattermost
-Sources:
-- https://github.com/mattermost/docker
-- https://github.com/mattermost/mattermost-server
-- https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
-- https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
-Type: application
-Version: 14.5.1
+apiVersion: v2
+appVersion: 9.6.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
+home: https://truecharts.org/charts/stable/mattermost
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.webp
+keywords:
+  - team
+  - mattermost
+  - development
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mattermost
+sources:
+  - https://github.com/mattermost/docker
+  - https://github.com/mattermost/mattermost-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
+  - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
+type: application
+version: 14.5.1

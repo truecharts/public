@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,39 +8,39 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 3.5.0.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Radicale is a small but powerful CalDAV (calendars, to-do lists) and
-  CardDAV (contacts) server.
-Home: https://truecharts.org/charts/stable/radicale
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/radicale.webp
-Keywords:
-- radicale
-- CalDAV
-- CardDAV
-- calendars
-- contacts
-- tasks
-- to-do
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: radicale
-Sources:
-- https://github.com/Kozea/Radicale
-- https://github.com/tomsquest/docker-radicale
-- https://github.com/truecharts/charts/tree/master/charts/stable/radicale
-- https://hub.docker.com/r/tomsquest/docker-radicale
-- https://radicale.org/
-Type: application
-Version: 7.8.0
+apiVersion: v2
+appVersion: 3.5.0.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Radicale is a small but powerful CalDAV (calendars, to-do lists) and CardDAV (contacts) server.
+home: https://truecharts.org/charts/stable/radicale
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/radicale.webp
+keywords:
+  - radicale
+  - CalDAV
+  - CardDAV
+  - calendars
+  - contacts
+  - tasks
+  - to-do
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: radicale
+sources:
+  - https://github.com/Kozea/Radicale
+  - https://github.com/tomsquest/docker-radicale
+  - https://github.com/truecharts/charts/tree/master/charts/stable/radicale
+  - https://hub.docker.com/r/tomsquest/docker-radicale
+  - https://radicale.org/
+type: application
+version: 7.8.0

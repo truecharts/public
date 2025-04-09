@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,35 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.5.7
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: ByteStash is a self-hosted web application designed to store, organise,
-  and manage your code snippets efficiently. With support for creating, editing, and
-  filtering snippets, ByteStash helps you keep track of your code in one secure place.
-Home: https://truecharts.org/charts/stable/bytestash
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/bytestash.webp
-Keywords:
-- bytestash
-- Productivity
-- Tools-Utilities
-- code
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: bytestash
-Sources:
-- https://ghcr.io/jordan-dalby/bytestash
-- https://github.com/jordan-dalby/ByteStash
-- https://github.com/truecharts/charts/tree/master/charts/stable/bytestash
-Type: application
-Version: 1.0.0
+apiVersion: v2
+appVersion: 1.5.7
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: ByteStash is a self-hosted web application designed to store, organise, and manage your code snippets efficiently. With support for creating, editing, and filtering snippets, ByteStash helps you keep track of your code in one secure place.
+home: https://truecharts.org/charts/stable/bytestash
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bytestash.webp
+keywords:
+  - bytestash
+  - Productivity
+  - Tools-Utilities
+  - code
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bytestash
+sources:
+  - https://ghcr.io/jordan-dalby/bytestash
+  - https://github.com/jordan-dalby/ByteStash
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bytestash
+type: application
+version: 1.0.0

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Track what you have read, what you are reading and what you want to read.
-Home: https://truecharts.org/charts/stable/jelu
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/jelu.webp
-Keywords:
-- jelu
-- MediaApp-Books
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: jelu
-Sources:
-- https://github.com/bayang/jelu
-- https://github.com/truecharts/charts/tree/master/charts/stable/jelu
-- https://hub.docker.com/r/wabayang/jelu
-Type: application
-Version: 7.5.5
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Track what you have read, what you are reading and what you want to read.
+home: https://truecharts.org/charts/stable/jelu
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jelu.webp
+keywords:
+  - jelu
+  - MediaApp-Books
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: jelu
+sources:
+  - https://github.com/bayang/jelu
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jelu
+  - https://hub.docker.com/r/wabayang/jelu
+type: application
+version: 7.5.5

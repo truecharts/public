@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,38 +8,39 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.131.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: High performance self-hosted photo and video backup solution.
-Home: https://truecharts.org/charts/stable/immich
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.webp
-Keywords:
-- photos
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: immich
-Sources:
-- https://ghcr.io/immich-app/immich-machine-learning
-- https://ghcr.io/immich-app/immich-server
-- https://github.com/immich-app/immich
-- https://github.com/truecharts/charts/tree/master/charts/stable/immich
-Type: application
-Version: 17.54.1
+apiVersion: v2
+appVersion: 1.131.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: High performance self-hosted photo and video backup solution.
+home: https://truecharts.org/charts/stable/immich
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.webp
+keywords:
+  - photos
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: immich
+sources:
+  - https://ghcr.io/immich-app/immich-machine-learning
+  - https://ghcr.io/immich-app/immich-server
+  - https://github.com/immich-app/immich
+  - https://github.com/truecharts/charts/tree/master/charts/stable/immich
+type: application
+version: 17.54.1

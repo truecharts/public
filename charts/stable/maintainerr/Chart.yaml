@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.13.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Looks and smells like Overseerr, does the opposite. Maintenance tool
-  for the Plex ecosystem.
-Home: https://truecharts.org/charts/stable/maintainerr
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/maintainerr.webp
-Keywords:
-- maintainerr
-- media
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: maintainerr
-Sources:
-- https://github.com/jorenn92/Maintainerr
-- https://github.com/truecharts/charts/tree/master/charts/stable/maintainerr
-- https://hub.docker.com/r/jorenn92/maintainerr
-Type: application
-Version: 4.16.0
+apiVersion: v2
+appVersion: 2.13.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Looks and smells like Overseerr, does the opposite. Maintenance tool for the Plex ecosystem.
+home: https://truecharts.org/charts/stable/maintainerr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/maintainerr.webp
+keywords:
+  - maintainerr
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: maintainerr
+sources:
+  - https://github.com/jorenn92/Maintainerr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/maintainerr
+  - https://hub.docker.com/r/jorenn92/maintainerr
+type: application
+version: 4.16.0

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,45 +8,45 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.14.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts,
-  calendars, tasks and notes.
-Home: https://truecharts.org/charts/stable/etesync
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/etesync.webp
-Keywords:
-- etesync
-- sync
-- contacts
-- calendars
-- tasks
-- notes
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: etesync
-Sources:
-- https://github.com/etesync
-- https://github.com/truecharts/charts/tree/master/charts/stable/etesync
-- https://github.com/victor-rds/docker-etebase
-- https://hub.docker.com/r/victorrds/etesync
-- https://www.etesync.com/
-Type: application
-Version: 11.12.8
+apiVersion: v2
+appVersion: 0.14.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
+home: https://truecharts.org/charts/stable/etesync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/etesync.webp
+keywords:
+  - etesync
+  - sync
+  - contacts
+  - calendars
+  - tasks
+  - notes
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: etesync
+sources:
+  - https://github.com/etesync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/etesync
+  - https://github.com/victor-rds/docker-etebase
+  - https://hub.docker.com/r/victorrds/etesync
+  - https://www.etesync.com/
+type: application
+version: 11.12.8

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: TvhProxy is a small flask app to proxy requests between Plex Media Server
-  and Tvheadend.You have to run this Chart Chart as a seperate IP Address.
-Home: https://truecharts.org/charts/stable/tvhproxy
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvhproxy.webp
-Keywords:
-- tvhproxy
-- MediaApp-Video
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: tvhproxy
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/tvhproxy
-- https://hub.docker.com/r/chvb/docker-tvhproxy
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: TvhProxy is a small flask app to proxy requests between Plex Media Server and Tvheadend.You have to run this Chart Chart as a seperate IP Address.
+home: https://truecharts.org/charts/stable/tvhproxy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvhproxy.webp
+keywords:
+  - tvhproxy
+  - MediaApp-Video
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tvhproxy
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tvhproxy
+  - https://hub.docker.com/r/chvb/docker-tvhproxy
+type: application
+version: 7.5.1

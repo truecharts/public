@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A discord bot that allows you to play old nintendo games with your friends
-  over chat.
-Home: https://truecharts.org/charts/stable/retrobot
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/retrobot.webp
-Keywords:
-- retrobot
-- emulator
-- discord
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: retrobot
-Sources:
-- https://github.com/rossimo/retrobot
-- https://github.com/truecharts/charts/tree/master/charts/stable/retrobot
-- https://hub.docker.com/r/rossimo/retrobot
-Type: application
-Version: 10.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A discord bot that allows you to play old nintendo games with your friends over chat.
+home: https://truecharts.org/charts/stable/retrobot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/retrobot.webp
+keywords:
+  - retrobot
+  - emulator
+  - discord
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: retrobot
+sources:
+  - https://github.com/rossimo/retrobot
+  - https://github.com/truecharts/charts/tree/master/charts/stable/retrobot
+  - https://hub.docker.com/r/rossimo/retrobot
+type: application
+version: 10.5.1

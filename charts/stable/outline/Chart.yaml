@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,39 +8,39 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.82.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: A fast, collaborative, knowledge base for your team built using React
-  and Node.js.
-Home: https://truecharts.org/charts/stable/outline
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/outline.webp
-Keywords:
-- outline
-- knowledge
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: outline
-Sources:
-- https://github.com/outline/outline
-- https://github.com/truecharts/charts/tree/master/charts/stable/outline
-- https://hub.docker.com/r/outlinewiki/outline
-Type: application
-Version: 14.17.3
+apiVersion: v2
+appVersion: 0.82.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A fast, collaborative, knowledge base for your team built using React and Node.js.
+home: https://truecharts.org/charts/stable/outline
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/outline.webp
+keywords:
+  - outline
+  - knowledge
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: outline
+sources:
+  - https://github.com/outline/outline
+  - https://github.com/truecharts/charts/tree/master/charts/stable/outline
+  - https://hub.docker.com/r/outlinewiki/outline
+type: application
+version: 14.17.3

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Search Engine Position Tracking App.
-Home: https://truecharts.org/charts/stable/serpbear
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/serpbear.webp
-Keywords:
-- serpbear
-- metrics
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: serpbear
-Sources:
-- https://github.com/towfiqi/serpbear
-- https://github.com/truecharts/charts/tree/master/charts/stable/serpbear
-- https://hub.docker.com/r/towfiqi/serpbear
-Type: application
-Version: 5.5.2
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Search Engine Position Tracking App.
+home: https://truecharts.org/charts/stable/serpbear
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/serpbear.webp
+keywords:
+  - serpbear
+  - metrics
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: serpbear
+sources:
+  - https://github.com/towfiqi/serpbear
+  - https://github.com/truecharts/charts/tree/master/charts/stable/serpbear
+  - https://hub.docker.com/r/towfiqi/serpbear
+type: application
+version: 5.5.2

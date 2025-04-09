@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: system
-AppVersion: 0.12.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: volsync is a storage backup and synchronisation tool.
-Home: https://truecharts.org/charts/system/volsync
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/volsync.webp
-Keywords:
-- volsync
-- ingress
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: volsync
-Sources:
-- https://github.com/backube/helm-charts
-- https://github.com/backube/volsync
-- https://github.com/truecharts/charts/tree/master/charts/system/volsync
-- https://quay.io/backube/volsync
-- https://quay.io/brancz/kube-rbac-proxy
-- https://volsync.readthedocs.io/
-Type: application
-Version: 2.11.1
+apiVersion: v2
+appVersion: 0.12.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: volsync is a storage backup and synchronisation tool.
+home: https://truecharts.org/charts/system/volsync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/volsync.webp
+keywords:
+  - volsync
+  - ingress
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: volsync
+sources:
+  - https://github.com/backube/helm-charts
+  - https://github.com/backube/volsync
+  - https://github.com/truecharts/charts/tree/master/charts/system/volsync
+  - https://quay.io/backube/volsync
+  - https://quay.io/brancz/kube-rbac-proxy
+  - https://volsync.readthedocs.io/
+type: application
+version: 2.11.1

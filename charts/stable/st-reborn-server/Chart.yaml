@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.7.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Skyrim Together Reborn server files.
-Home: https://truecharts.org/charts/stable/st-reborn-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/st-reborn-server.webp
-Keywords:
-- st-reborn-server
-- gameserver
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: st-reborn-server
-Sources:
-- https://github.com/tiltedphoques/TiltedEvolution
-- https://github.com/truecharts/charts/tree/master/charts/stable/st-reborn-server
-- https://hub.docker.com/r/tiltedphoques/st-reborn-server
-Type: application
-Version: 7.6.1
+apiVersion: v2
+appVersion: 1.7.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Skyrim Together Reborn server files.
+home: https://truecharts.org/charts/stable/st-reborn-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/st-reborn-server.webp
+keywords:
+  - st-reborn-server
+  - gameserver
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: st-reborn-server
+sources:
+  - https://github.com/tiltedphoques/TiltedEvolution
+  - https://github.com/truecharts/charts/tree/master/charts/stable/st-reborn-server
+  - https://hub.docker.com/r/tiltedphoques/st-reborn-server
+type: application
+version: 7.6.1

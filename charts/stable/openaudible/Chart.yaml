@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,30 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: All your audiobooks in one place
-Home: https://truecharts.org/charts/stable/openaudible
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/openaudible.webp
-Keywords:
-- audible
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: openaudible
-Sources:
-- https://github.com/openaudible/openaudible_docker
-- https://github.com/truecharts/charts/tree/master/charts/stable/openaudible
-- https://hub.docker.com/r/openaudible/openaudible
-Type: application
-Version: 7.5.2
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: All your audiobooks in one place
+home: https://truecharts.org/charts/stable/openaudible
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openaudible.webp
+keywords:
+  - audible
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openaudible
+sources:
+  - https://github.com/openaudible/openaudible_docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openaudible
+  - https://hub.docker.com/r/openaudible/openaudible
+type: application
+version: 7.5.2

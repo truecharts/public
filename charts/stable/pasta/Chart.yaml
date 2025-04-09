@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.6.6
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: PASTA - Audio and Subtitle Track Changer for Plex
-Home: https://truecharts.org/charts/stable/pasta
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pasta.webp
-Keywords:
-- pasta
-- MediaApp-Other
-- Tools-Utilities
-- Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pasta
-Sources:
-- https://github.com/cglatot/pasta
-- https://github.com/truecharts/charts/tree/master/charts/stable/pasta
-- https://hub.docker.com/r/cglatot/pasta
-Type: application
-Version: 10.5.2
+apiVersion: v2
+appVersion: 1.6.6
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: PASTA - Audio and Subtitle Track Changer for Plex
+home: https://truecharts.org/charts/stable/pasta
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pasta.webp
+keywords:
+  - pasta
+  - MediaApp-Other
+  - Tools-Utilities
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pasta
+sources:
+  - https://github.com/cglatot/pasta
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pasta
+  - https://hub.docker.com/r/cglatot/pasta
+type: application
+version: 10.5.2

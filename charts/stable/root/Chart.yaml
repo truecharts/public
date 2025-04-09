@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: ROOT is a framework for data processing, born at CERN, at the heart of
-  the research on high-energy physics. Every day, thousands of physicists use ROOT
-  applications to analyze their data or to perform simulations.
-Home: https://truecharts.org/charts/stable/root
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/root.webp
-Keywords:
-- root
-- Productivity
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: root
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/root
-- https://hub.docker.com/r/bgameiro/arch-cern-root
-- https://root.cern/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: ROOT is a framework for data processing, born at CERN, at the heart of the research on high-energy physics. Every day, thousands of physicists use ROOT applications to analyze their data or to perform simulations.
+home: https://truecharts.org/charts/stable/root
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/root.webp
+keywords:
+  - root
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: root
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/root
+  - https://hub.docker.com/r/bgameiro/arch-cern-root
+  - https://root.cern/
+type: application
+version: 7.5.1

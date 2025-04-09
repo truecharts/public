@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -10,37 +9,38 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: system
-AppVersion: 8.2.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: |
+apiVersion: v2
+appVersion: 8.2.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
   Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
   this chart is meant for cases where it is not.
   Also deploys the Snapshot Validation Webhook and configures your cluster to validate every `VolumeSnapshot` and
   `VolumeSnapshotContent` resource by sending it to the webhook.
-Home: https://truecharts.org/charts/system/snapshot-controller
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapshot-controller.webp
-Keywords:
-- storage
-- snapshot
-- validation
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: snapshot-controller
-Sources:
-- https://github.com/kubernetes-csi/external-snapshotter/
-- https://github.com/snapshot-controller/snapshot-controller
-- https://github.com/snapshot-controller/snapshot-controller-helm-chart
-- https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
-Type: application
-Version: 3.7.3
+home: https://truecharts.org/charts/system/snapshot-controller
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapshot-controller.webp
+keywords:
+  - storage
+  - snapshot
+  - validation
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: snapshot-controller
+sources:
+  - https://github.com/kubernetes-csi/external-snapshotter/
+  - https://github.com/snapshot-controller/snapshot-controller
+  - https://github.com/snapshot-controller/snapshot-controller-helm-chart
+  - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
+type: application
+version: 3.7.3

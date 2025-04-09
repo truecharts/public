@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,30 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2024.10.22
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Useful tools for developer and people working in IT.
-Home: https://truecharts.org/charts/stable/it-tools
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/it-tools.webp
-Keywords:
-- it-tools
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: it-tools
-Sources:
-- https://ghcr.io/corentinth/it-tools
-- https://github.com/CorentinTh/it-tools
-- https://github.com/truecharts/charts/tree/master/charts/stable/it-tools
-Type: application
-Version: 7.6.0
+apiVersion: v2
+appVersion: 2024.10.22
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Useful tools for developer and people working in IT.
+home: https://truecharts.org/charts/stable/it-tools
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/it-tools.webp
+keywords:
+  - it-tools
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: it-tools
+sources:
+  - https://ghcr.io/corentinth/it-tools
+  - https://github.com/CorentinTh/it-tools
+  - https://github.com/truecharts/charts/tree/master/charts/stable/it-tools
+type: application
+version: 7.6.0

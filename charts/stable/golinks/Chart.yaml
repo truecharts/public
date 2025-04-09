@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,36 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 154c581
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A web app that allows you to create smart bookmarks, commands and aliases
-  by pointing your web browser's default search engine at a running instance.
-Home: https://truecharts.org/charts/stable/golinks
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.webp
-Keywords:
-- search
-- browser
-- bookmarks
-- smart-bookmarks
-- golinks
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: golinks
-Sources:
-- https://ghcr.io/nicholaswilde/golinks
-- https://github.com/nicholaswilde/docker-golinks
-- https://github.com/prologic/golinks
-- https://github.com/truecharts/charts/tree/master/charts/stable/golinks
-Type: application
-Version: 13.5.1
+apiVersion: v2
+appVersion: 154c581
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
+home: https://truecharts.org/charts/stable/golinks
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.webp
+keywords:
+  - search
+  - browser
+  - bookmarks
+  - smart-bookmarks
+  - golinks
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: golinks
+sources:
+  - https://ghcr.io/nicholaswilde/golinks
+  - https://github.com/nicholaswilde/docker-golinks
+  - https://github.com/prologic/golinks
+  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
+type: application
+version: 13.5.1

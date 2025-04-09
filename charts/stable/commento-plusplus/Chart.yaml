@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.8.7
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Commento++ is a free, open source, fast & lightweight comments box that
-  you can embed in your static website instead of Disqus.
-Home: https://truecharts.org/charts/stable/commento-plusplus
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/commento-plusplus.webp
-Keywords:
-- commento
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: commento-plusplus
-Sources:
-- https://github.com/souramoo/commentoplusplus
-- https://github.com/truecharts/charts/tree/master/charts/stable/commento-plusplus
-- https://hub.docker.com/r/caroga/commentoplusplus
-Type: application
-Version: 13.5.1
+apiVersion: v2
+appVersion: 1.8.7
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Commento++ is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
+home: https://truecharts.org/charts/stable/commento-plusplus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/commento-plusplus.webp
+keywords:
+  - commento
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: commento-plusplus
+sources:
+  - https://github.com/souramoo/commentoplusplus
+  - https://github.com/truecharts/charts/tree/master/charts/stable/commento-plusplus
+  - https://hub.docker.com/r/caroga/commentoplusplus
+type: application
+version: 13.5.1

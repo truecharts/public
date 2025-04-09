@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.7.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Synchronize AdGuardHome config to replica instances.
-Home: https://truecharts.org/charts/stable/adguardhome-sync
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.webp
-Keywords:
-- adguardhome-sync
-- Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: adguardhome-sync
-Sources:
-- https://ghcr.io/bakito/adguardhome-sync
-- https://github.com/bakito/adguardhome-sync/
-- https://github.com/truecharts/charts/tree/master/charts/stable/adguardhome-sync
-Type: application
-Version: 8.6.2
+apiVersion: v2
+appVersion: 0.7.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Synchronize AdGuardHome config to replica instances.
+home: https://truecharts.org/charts/stable/adguardhome-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.webp
+keywords:
+  - adguardhome-sync
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: adguardhome-sync
+sources:
+  - https://ghcr.io/bakito/adguardhome-sync
+  - https://github.com/bakito/adguardhome-sync/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/adguardhome-sync
+type: application
+version: 8.6.2

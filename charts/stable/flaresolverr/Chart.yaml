@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 3.3.21
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: FlareSolverr is a proxy server to bypass Cloudflare protection
-Home: https://truecharts.org/charts/stable/flaresolverr
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/flaresolverr.webp
-Keywords:
-- flaresolverr
-- proxy
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: flaresolverr
-Sources:
-- https://ghcr.io/flaresolverr/flaresolverr
-- https://github.com/FlareSolverr/FlareSolverr
-- https://github.com/truecharts/charts/tree/master/charts/stable/flaresolverr
-Type: application
-Version: 15.5.1
+apiVersion: v2
+appVersion: 3.3.21
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: FlareSolverr is a proxy server to bypass Cloudflare protection
+home: https://truecharts.org/charts/stable/flaresolverr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flaresolverr.webp
+keywords:
+  - flaresolverr
+  - proxy
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flaresolverr
+sources:
+  - https://ghcr.io/flaresolverr/flaresolverr
+  - https://github.com/FlareSolverr/FlareSolverr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flaresolverr
+type: application
+version: 15.5.1

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,43 +8,43 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2025.2.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: Authentik is an open-source Identity Provider focused on flexibility
-  and versatility.
-Home: https://truecharts.org/charts/stable/authentik
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
-Keywords:
-- authentik
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: authentik
-Sources:
-- https://ghcr.io/goauthentik/ldap
-- https://ghcr.io/goauthentik/proxy
-- https://ghcr.io/goauthentik/radius
-- https://ghcr.io/goauthentik/server
-- https://ghcr.io/maxmind/geoipupdate
-- https://github.com/goauthentik/authentik
-- https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-- https://goauthentik.io/docs/
-Type: application
-Version: 31.0.14
+apiVersion: v2
+appVersion: 2025.2.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
+home: https://truecharts.org/charts/stable/authentik
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
+keywords:
+  - authentik
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: authentik
+sources:
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/maxmind/geoipupdate
+  - https://github.com/goauthentik/authentik
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://goauthentik.io/docs/
+type: application
+version: 31.0.14

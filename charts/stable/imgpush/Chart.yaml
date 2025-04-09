@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,36 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Minimalist Self-hosted Image Service for user submitted images in your
-  app (e.g. avatars).
-Home: https://truecharts.org/charts/stable/imgpush
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.webp
-Keywords:
-- imgpush
-- Cloud
-- Tools-Utilities
-- MediaServer-Photos
-- Network-Web
-- Network-FTP
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: imgpush
-Sources:
-- https://github.com/hauxir/imgpush
-- https://github.com/truecharts/charts/tree/master/charts/stable/imgpush
-- https://hub.docker.com/r/hauxir/imgpush
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Minimalist Self-hosted Image Service for user submitted images in your app (e.g. avatars).
+home: https://truecharts.org/charts/stable/imgpush
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.webp
+keywords:
+  - imgpush
+  - Cloud
+  - Tools-Utilities
+  - MediaServer-Photos
+  - Network-Web
+  - Network-FTP
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: imgpush
+sources:
+  - https://github.com/hauxir/imgpush
+  - https://github.com/truecharts/charts/tree/master/charts/stable/imgpush
+  - https://hub.docker.com/r/hauxir/imgpush
+type: application
+version: 7.5.1

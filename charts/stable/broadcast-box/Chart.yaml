@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Easily broadcast/stream to others with sub-second latency
-Home: https://truecharts.org/charts/stable/broadcast-box
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/broadcast-box.webp
-Keywords:
-- broadcast-box
-- broadcast
-- stream
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: broadcast-box
-Sources:
-- https://github.com/Glimesh/broadcast-box
-- https://github.com/truecharts/charts/tree/master/charts/stable/broadcast-box
-- https://hub.docker.com/r/seaduboi/broadcast-box
-Type: application
-Version: 1.0.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Easily broadcast/stream to others with sub-second latency
+home: https://truecharts.org/charts/stable/broadcast-box
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/broadcast-box.webp
+keywords:
+  - broadcast-box
+  - broadcast
+  - stream
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: broadcast-box
+sources:
+  - https://github.com/Glimesh/broadcast-box
+  - https://github.com/truecharts/charts/tree/master/charts/stable/broadcast-box
+  - https://hub.docker.com/r/seaduboi/broadcast-box
+type: application
+version: 1.0.1

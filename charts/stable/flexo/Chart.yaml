@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.6.9
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Arch linux pacman cache proxy server
-Home: https://truecharts.org/charts/stable/flexo
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/flexo.webp
-Keywords:
-- flexo
-- linux
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: flexo
-Sources:
-- https://github.com/nroi/flexo
-- https://github.com/truecharts/charts/tree/master/charts/stable/flexo
-- https://hub.docker.com/r/nroi/flexo
-Type: application
-Version: 1.0.0
+apiVersion: v2
+appVersion: 1.6.9
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Arch linux pacman cache proxy server
+home: https://truecharts.org/charts/stable/flexo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flexo.webp
+keywords:
+  - flexo
+  - linux
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flexo
+sources:
+  - https://github.com/nroi/flexo
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flexo
+  - https://hub.docker.com/r/nroi/flexo
+type: application
+version: 1.0.0

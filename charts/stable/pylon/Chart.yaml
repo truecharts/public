@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,29 +8,30 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.10.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Pylon is a web based integrated development environment.
-Home: https://truecharts.org/charts/stable/pylon
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pylon.webp
-Keywords:
-- pylon
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pylon
-Sources:
-- https://ghcr.io/linuxserver/pylon
-- https://github.com/truecharts/charts/tree/master/charts/stable/pylon
-Type: application
-Version: 11.5.7
+apiVersion: v2
+appVersion: 2.10.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Pylon is a web based integrated development environment.
+home: https://truecharts.org/charts/stable/pylon
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pylon.webp
+keywords:
+  - pylon
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pylon
+sources:
+  - https://ghcr.io/linuxserver/pylon
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pylon
+type: application
+version: 11.5.7

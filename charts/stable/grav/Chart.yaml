@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.7.48
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A Fast, Simple, and Flexible, file-based Web-platform.
-Home: https://truecharts.org/charts/stable/grav
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/grav.webp
-Keywords:
-- grav
-- web
-- platform
-- file
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: grav
-Sources:
-- https://ghcr.io/linuxserver/grav
-- https://github.com/getgrav/grav/
-- https://github.com/linuxserver/docker-grav
-- https://github.com/truecharts/charts/tree/master/charts/stable/grav
-Type: application
-Version: 13.5.8
+apiVersion: v2
+appVersion: 1.7.48
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Fast, Simple, and Flexible, file-based Web-platform.
+home: https://truecharts.org/charts/stable/grav
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grav.webp
+keywords:
+  - grav
+  - web
+  - platform
+  - file
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: grav
+sources:
+  - https://ghcr.io/linuxserver/grav
+  - https://github.com/getgrav/grav/
+  - https://github.com/linuxserver/docker-grav
+  - https://github.com/truecharts/charts/tree/master/charts/stable/grav
+type: application
+version: 13.5.8

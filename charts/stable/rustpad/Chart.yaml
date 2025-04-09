@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Rustpad is an efficient and minimal open-source collaborative text editor
-  based on the operational transformation algorithm. It lets users collaborate in
-  real time while writing code in their browser. Rustpad is completely self-hosted
-  and fits in a tiny Chart, no database required.
-Home: https://truecharts.org/charts/stable/rustpad
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustpad.webp
-Keywords:
-- rustpad
-- Cloud
-- Productivity
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: rustpad
-Sources:
-- https://github.com/ekzhang/rustpad
-- https://github.com/truecharts/charts/tree/master/charts/stable/rustpad
-- https://hub.docker.com/r/ekzhang/rustpad
-Type: application
-Version: 7.5.2
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Rustpad is an efficient and minimal open-source collaborative text editor based on the operational transformation algorithm. It lets users collaborate in real time while writing code in their browser. Rustpad is completely self-hosted and fits in a tiny Chart, no database required.
+home: https://truecharts.org/charts/stable/rustpad
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustpad.webp
+keywords:
+  - rustpad
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rustpad
+sources:
+  - https://github.com/ekzhang/rustpad
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rustpad
+  - https://hub.docker.com/r/ekzhang/rustpad
+type: application
+version: 7.5.2

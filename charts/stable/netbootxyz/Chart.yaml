@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.7.5
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Your favorite operating systems in one place!
-Home: https://truecharts.org/charts/stable/netbootxyz
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbootxyz.webp
-Keywords:
-- netbootxyz
-- pxe
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: netbootxyz
-Sources:
-- https://ghcr.io/netbootxyz/netbootxyz
-- https://github.com/netbootxyz/netboot.xyz
-- https://github.com/truecharts/charts/tree/master/charts/stable/netbootxyz
-Type: application
-Version: 6.5.3
+apiVersion: v2
+appVersion: 0.7.5
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Your favorite operating systems in one place!
+home: https://truecharts.org/charts/stable/netbootxyz
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbootxyz.webp
+keywords:
+  - netbootxyz
+  - pxe
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: netbootxyz
+sources:
+  - https://ghcr.io/netbootxyz/netbootxyz
+  - https://github.com/netbootxyz/netboot.xyz
+  - https://github.com/truecharts/charts/tree/master/charts/stable/netbootxyz
+type: application
+version: 6.5.3

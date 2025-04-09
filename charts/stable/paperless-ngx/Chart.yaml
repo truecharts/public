@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,42 +8,42 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.14.7
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: Paperless-ngx is an application by Daniel Quinn and contributors that
-  indexes your scanned documents.
-Home: https://truecharts.org/charts/stable/paperless-ngx
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.webp
-Keywords:
-- paperless-ng
-- paperless-ngx
-- documents
-- paper
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: paperless-ngx
-Sources:
-- https://ghcr.io/paperless-ngx/paperless-ngx
-- https://github.com/paperless-ngx/paperless-ngx
-- https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
-- https://paperless-ngx.readthedocs.io/en/latest/
-Type: application
-Version: 9.17.10
+apiVersion: v2
+appVersion: 2.14.7
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
+home: https://truecharts.org/charts/stable/paperless-ngx
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.webp
+keywords:
+  - paperless-ng
+  - paperless-ngx
+  - documents
+  - paper
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: paperless-ngx
+sources:
+  - https://ghcr.io/paperless-ngx/paperless-ngx
+  - https://github.com/paperless-ngx/paperless-ngx
+  - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
+  - https://paperless-ngx.readthedocs.io/en/latest/
+type: application
+version: 9.17.10

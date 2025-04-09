@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,35 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 6.2.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: FileShelter is a self-hosted software that allows you to easily share
-  files over the Internet. Just upload one or more files and get an URL back!
-Home: https://truecharts.org/charts/stable/fileshelter
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.webp
-Keywords:
-- fileshelter
-- Cloud
-- Tools-Utilities
-- Network-Web
-- Network-FTP
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: fileshelter
-Sources:
-- https://github.com/epoupon/fileshelter
-- https://github.com/truecharts/charts/tree/master/charts/stable/fileshelter
-- https://hub.docker.com/r/epoupon/fileshelter
-Type: application
-Version: 8.5.1
+apiVersion: v2
+appVersion: 6.2.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: FileShelter is a self-hosted software that allows you to easily share files over the Internet. Just upload one or more files and get an URL back!
+home: https://truecharts.org/charts/stable/fileshelter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.webp
+keywords:
+  - fileshelter
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+  - Network-FTP
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fileshelter
+sources:
+  - https://github.com/epoupon/fileshelter
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fileshelter
+  - https://hub.docker.com/r/epoupon/fileshelter
+type: application
+version: 8.5.1

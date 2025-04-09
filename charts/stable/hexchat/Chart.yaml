@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,37 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: HexChat is an IRC client based on XChat, but unlike XChat it’s completely
-  free for both Windows and Unix-like systems. Since XChat is open source, it’s perfectly
-  legal. For more info. HexChat was originally called XChat-WDK which in turn was
-  a successor of freakschat.
-Home: https://truecharts.org/charts/stable/hexchat
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/hexchat.webp
-Keywords:
-- hexchat
-- Productivity
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: hexchat
-Sources:
-- https://github.com/binhex/documentation
-- https://github.com/truecharts/charts/tree/master/charts/stable/hexchat
-- https://hexchat.github.io/
-- https://quay.io/binhex/arch-hexchat
-- https://registry.hub.docker.com/r/binhex/arch-hexchat/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: HexChat is an IRC client based on XChat, but unlike XChat it’s completely free for both Windows and Unix-like systems. Since XChat is open source, it’s perfectly legal. For more info. HexChat was originally called XChat-WDK which in turn was a successor of freakschat.
+home: https://truecharts.org/charts/stable/hexchat
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hexchat.webp
+keywords:
+  - hexchat
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hexchat
+sources:
+  - https://github.com/binhex/documentation
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hexchat
+  - https://hexchat.github.io/
+  - https://quay.io/binhex/arch-hexchat
+  - https://registry.hub.docker.com/r/binhex/arch-hexchat/
+type: application
+version: 7.5.1

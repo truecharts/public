@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.2.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: The open source VNC client
-Home: https://truecharts.org/charts/stable/novnc
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.webp
-Keywords:
-- novnc
-- vnc
-- remote
-- desktop
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: novnc
-Sources:
-- https://ghcr.io/nicholaswilde/novnc
-- https://github.com/truecharts/charts/tree/master/charts/stable/novnc
-- https://novnc.com/
-Type: application
-Version: 12.5.1
+apiVersion: v2
+appVersion: 1.2.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The open source VNC client
+home: https://truecharts.org/charts/stable/novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.webp
+keywords:
+  - novnc
+  - vnc
+  - remote
+  - desktop
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: novnc
+sources:
+  - https://ghcr.io/nicholaswilde/novnc
+  - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
+  - https://novnc.com/
+type: application
+version: 12.5.1

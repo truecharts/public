@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 4.4.7
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Crafty Controller is a Minecraft Server Control Panel / Launcher.
-Home: https://truecharts.org/charts/stable/crafty-4
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/crafty-4.webp
-Keywords:
-- crafty-4
-- GameServers
-- Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: crafty-4
-Sources:
-- https://craftycontrol.com/
-- https://github.com/truecharts/charts/tree/master/charts/stable/crafty-4
-- https://gitlab.com/crafty-controller/crafty-4
-Type: application
-Version: 9.5.1
+apiVersion: v2
+appVersion: 4.4.7
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Crafty Controller is a Minecraft Server Control Panel / Launcher.
+home: https://truecharts.org/charts/stable/crafty-4
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/crafty-4.webp
+keywords:
+  - crafty-4
+  - GameServers
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: crafty-4
+sources:
+  - https://craftycontrol.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/crafty-4
+  - https://gitlab.com/crafty-controller/crafty-4
+type: application
+version: 9.5.1

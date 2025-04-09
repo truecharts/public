@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,42 +8,42 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: premium
-AppVersion: 0.25.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network
-  written in Go
-Home: https://truecharts.org/charts/premium/blocky
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.webp
-Keywords:
-- dns
-- blocky
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: blocky
-Sources:
-- https://0xerr0r.github.io/blocky/
-- https://github.com/0xERR0R/blocky
-- https://github.com/Mozart409/blocky-frontend
-- https://github.com/truecharts/charts/tree/master/charts/premium/blocky
-- https://hub.docker.com/r/spx01/blocky
-- https://quay.io/oriedge/k8s_gateway
-Type: application
-Version: 16.13.14
+apiVersion: v2
+appVersion: 0.25.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
+home: https://truecharts.org/charts/premium/blocky
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.webp
+keywords:
+  - dns
+  - blocky
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: blocky
+sources:
+  - https://0xerr0r.github.io/blocky/
+  - https://github.com/0xERR0R/blocky
+  - https://github.com/Mozart409/blocky-frontend
+  - https://github.com/truecharts/charts/tree/master/charts/premium/blocky
+  - https://hub.docker.com/r/spx01/blocky
+  - https://quay.io/oriedge/k8s_gateway
+type: application
+version: 16.13.14

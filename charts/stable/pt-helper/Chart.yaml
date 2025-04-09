@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A tool that can automatically download free seeds and delete them after
-  the free time expires.
-Home: https://truecharts.org/charts/stable/pt-helper
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pt-helper.webp
-Keywords:
-- pt-helper
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pt-helper
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/pt-helper
-- https://hub.docker.com/r/crazyq/pt_helper
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A tool that can automatically download free seeds and delete them after the free time expires.
+home: https://truecharts.org/charts/stable/pt-helper
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pt-helper.webp
+keywords:
+  - pt-helper
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pt-helper
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pt-helper
+  - https://hub.docker.com/r/crazyq/pt_helper
+type: application
+version: 7.5.1

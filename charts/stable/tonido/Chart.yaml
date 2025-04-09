@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Tonido Server allows you to access all your files on your computer from
-  a web browser, smartphone, tablet or even DLNA enabled devices. No setup necessary.
-Home: https://truecharts.org/charts/stable/tonido
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/tonido.webp
-Keywords:
-- tonido
-- Cloud
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: tonido
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/tonido
-- https://hub.docker.com/r/captinsano/tonido
-- https://registry.hub.docker.com/r/captinsano/tonido/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Tonido Server allows you to access all your files on your computer from a web browser, smartphone, tablet or even DLNA enabled devices. No setup necessary.
+home: https://truecharts.org/charts/stable/tonido
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tonido.webp
+keywords:
+  - tonido
+  - Cloud
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tonido
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tonido
+  - https://hub.docker.com/r/captinsano/tonido
+  - https://registry.hub.docker.com/r/captinsano/tonido/
+type: application
+version: 7.5.1

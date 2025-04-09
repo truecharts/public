@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,37 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.0.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: |
+apiVersion: v2
+appVersion: 2.0.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
   Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/
-Home: https://truecharts.org/charts/stable/dockerregistry
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockerregistry.webp
-Keywords:
-- dockerregistry
-- Cloud
-- Network-Management
-- Productivity
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: dockerregistry
-Sources:
-- https://github.com/distribution/distribution
-- https://github.com/truecharts/charts/tree/master/charts/stable/dockerregistry
-- https://hub.docker.com/_/registry
-- https://registry.hub.docker.com/_/registry/
-Type: application
-Version: 7.5.2
+home: https://truecharts.org/charts/stable/dockerregistry
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockerregistry.webp
+keywords:
+  - dockerregistry
+  - Cloud
+  - Network-Management
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dockerregistry
+sources:
+  - https://github.com/distribution/distribution
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dockerregistry
+  - https://hub.docker.com/_/registry
+  - https://registry.hub.docker.com/_/registry/
+type: application
+version: 7.5.2

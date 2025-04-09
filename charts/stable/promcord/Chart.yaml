@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Discord bot that provides metrics from a Discord server
-Home: https://truecharts.org/charts/stable/promcord
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/promcord.webp
-Keywords:
-- promcord
-- discord
-- metrics
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: promcord
-Sources:
-- https://github.com/nimarion/promcord
-- https://github.com/truecharts/charts/tree/master/charts/stable/promcord
-- https://hub.docker.com/r/biospheere/promcord
-Type: application
-Version: 13.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Discord bot that provides metrics from a Discord server
+home: https://truecharts.org/charts/stable/promcord
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/promcord.webp
+keywords:
+  - promcord
+  - discord
+  - metrics
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: promcord
+sources:
+  - https://github.com/nimarion/promcord
+  - https://github.com/truecharts/charts/tree/master/charts/stable/promcord
+  - https://hub.docker.com/r/biospheere/promcord
+type: application
+version: 13.5.1

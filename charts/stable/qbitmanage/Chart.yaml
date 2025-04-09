@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 4.2.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: This tool will help manage tedious tasks in qBittorrent and automate
-  them. Tag, categorize, remove orphaned data, remove unregistered torrents and much
-  much more.
-Home: https://truecharts.org/charts/stable/qbitmanage
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitmanage.webp
-Keywords:
-- qbitmanage
-- Downloaders
-- MediaApp-Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: qbitmanage
-Sources:
-- https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
-- https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
-- https://hub.docker.com/r/bobokun/qbit_manage
-Type: application
-Version: 10.6.1
+apiVersion: v2
+appVersion: 4.2.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
+home: https://truecharts.org/charts/stable/qbitmanage
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitmanage.webp
+keywords:
+  - qbitmanage
+  - Downloaders
+  - MediaApp-Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qbitmanage
+sources:
+  - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
+  - https://hub.docker.com/r/bobokun/qbit_manage
+type: application
+version: 10.6.1

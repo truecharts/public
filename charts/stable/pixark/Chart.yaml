@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: pixark
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: This Chart will download and install SteamCMD. It will also install PIXARK
-  and run it (a normal server startup of PIXARK can take a long time!).
-Home: https://truecharts.org/charts/stable/pixark
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixark.webp
-Keywords:
-- pixark
-- GameServers
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pixark
-Sources:
-- https://ghcr.io/ich777/steamcmd
-- https://github.com/truecharts/charts/tree/master/charts/stable/pixark
-- https://pixark.snail.com/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: pixark
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install SteamCMD. It will also install PIXARK and run it (a normal server startup of PIXARK can take a long time!).
+home: https://truecharts.org/charts/stable/pixark
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixark.webp
+keywords:
+  - pixark
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pixark
+sources:
+  - https://ghcr.io/ich777/steamcmd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pixark
+  - https://pixark.snail.com/
+type: application
+version: 7.5.1

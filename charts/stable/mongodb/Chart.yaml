@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 8.0.6
-Dependencies:
-- Alias: ""
-  Condition: includeCommon
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Fast, reliable, scalable, and easy to use open-source no-sql database
-  system.
-Home: https://truecharts.org/charts/stable/mongodb
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.webp
-Keywords:
-- mongodb
-- database
-- nosql
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: mongodb
-Sources:
-- https://gallery.ecr.aws/bitnami/mongodb
-- https://github.com/bitnami/bitnami-docker-mongodb
-- https://github.com/truecharts/charts/tree/master/charts/stable/mongodb
-- https://www.mongodb.com
-Type: application
-Version: 15.3.8
+apiVersion: v2
+appVersion: 8.0.6
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: includeCommon
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
+home: https://truecharts.org/charts/stable/mongodb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.webp
+keywords:
+  - mongodb
+  - database
+  - nosql
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mongodb
+sources:
+  - https://gallery.ecr.aws/bitnami/mongodb
+  - https://github.com/bitnami/bitnami-docker-mongodb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongodb
+  - https://www.mongodb.com
+type: application
+version: 15.3.8

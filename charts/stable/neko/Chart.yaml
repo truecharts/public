@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,40 +8,41 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.9.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A self hosted virtual browser that runs in Chart
-Home: https://truecharts.org/charts/stable/neko
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.webp
-Keywords:
-- neko
-- video
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: neko
-Sources:
-- https://ghcr.io/m1k1o/neko/brave
-- https://ghcr.io/m1k1o/neko/chromium
-- https://ghcr.io/m1k1o/neko/firefox
-- https://ghcr.io/m1k1o/neko/google-chrome
-- https://ghcr.io/m1k1o/neko/microsoft-edge
-- https://ghcr.io/m1k1o/neko/remmina
-- https://ghcr.io/m1k1o/neko/tor-browser
-- https://ghcr.io/m1k1o/neko/vivaldi
-- https://ghcr.io/m1k1o/neko/vlc
-- https://ghcr.io/m1k1o/neko/xfce
-- https://github.com/m1k1o/neko
-- https://github.com/truecharts/charts/tree/master/charts/stable/neko
-Type: application
-Version: 8.6.0
+apiVersion: v2
+appVersion: 2.9.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A self hosted virtual browser that runs in Chart
+home: https://truecharts.org/charts/stable/neko
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.webp
+keywords:
+  - neko
+  - video
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: neko
+sources:
+  - https://ghcr.io/m1k1o/neko/brave
+  - https://ghcr.io/m1k1o/neko/chromium
+  - https://ghcr.io/m1k1o/neko/firefox
+  - https://ghcr.io/m1k1o/neko/google-chrome
+  - https://ghcr.io/m1k1o/neko/microsoft-edge
+  - https://ghcr.io/m1k1o/neko/remmina
+  - https://ghcr.io/m1k1o/neko/tor-browser
+  - https://ghcr.io/m1k1o/neko/vivaldi
+  - https://ghcr.io/m1k1o/neko/vlc
+  - https://ghcr.io/m1k1o/neko/xfce
+  - https://github.com/m1k1o/neko
+  - https://github.com/truecharts/charts/tree/master/charts/stable/neko
+type: application
+version: 8.6.0

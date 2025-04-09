@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.14.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Collect your UniFi controller data and report it to an InfluxDB instance,
-  or export it for Prometheus collection.
-Home: https://truecharts.org/charts/stable/unpoller
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.webp
-Keywords:
-- unifi
-- unifi-poller
-- metrics
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: unpoller
-Sources:
-- https://ghcr.io/unpoller/unpoller
-- https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
-- https://github.com/unifi-poller/unifi-poller
-Type: application
-Version: 12.8.1
+apiVersion: v2
+appVersion: 2.14.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
+home: https://truecharts.org/charts/stable/unpoller
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.webp
+keywords:
+  - unifi
+  - unifi-poller
+  - metrics
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: unpoller
+sources:
+  - https://ghcr.io/unpoller/unpoller
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
+  - https://github.com/unifi-poller/unifi-poller
+type: application
+version: 12.8.1

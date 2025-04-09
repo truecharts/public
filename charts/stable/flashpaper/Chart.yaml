@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,37 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: master
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: One-time encrypted password/secret sharing
-Home: https://truecharts.org/charts/stable/flashpaper
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/flashpaper.webp
-Keywords:
-- flashpaper
-- Cloud
-- Productivity
-- Security
-- Tools-Utilities
-- Network-Web
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: flashpaper
-Sources:
-- https://ghcr.io/andrewpaglusch/flashpaper
-- https://github.com/AndrewPaglusch/FlashPaper
-- https://github.com/andrewpaglusch/FlashPaper/pkgs/container/flashpaper
-- https://github.com/truecharts/charts/tree/master/charts/stable/flashpaper
-Type: application
-Version: 4.0.0
+apiVersion: v2
+appVersion: master
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: One-time encrypted password/secret sharing
+home: https://truecharts.org/charts/stable/flashpaper
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flashpaper.webp
+keywords:
+  - flashpaper
+  - Cloud
+  - Productivity
+  - Security
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: flashpaper
+sources:
+  - https://ghcr.io/andrewpaglusch/flashpaper
+  - https://github.com/AndrewPaglusch/FlashPaper
+  - https://github.com/andrewpaglusch/FlashPaper/pkgs/container/flashpaper
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flashpaper
+type: application
+version: 4.0.0

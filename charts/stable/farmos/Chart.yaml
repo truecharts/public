@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: "farmOS is a web-based application for farm management, planning, and
-  record keeping. It is developed by a community of volunteers and aims to provide
-  a standard platform for farmers, developers, and researchers to build upon.\r"
-Home: https://truecharts.org/charts/stable/farmos
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/farmos.webp
-Keywords:
-- farmos
-- Productivity
-- Tools-Utilities
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: farmos
-Sources:
-- https://github.com/farmOS/farmOS
-- https://github.com/truecharts/charts/tree/master/charts/stable/farmos
-- https://hub.docker.com/r/farmos/farmos
-Type: application
-Version: 7.5.4
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "farmOS is a web-based application for farm management, planning, and record keeping. It is developed by a community of volunteers and aims to provide a standard platform for farmers, developers, and researchers to build upon.\r"
+home: https://truecharts.org/charts/stable/farmos
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/farmos.webp
+keywords:
+  - farmos
+  - Productivity
+  - Tools-Utilities
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: farmos
+sources:
+  - https://github.com/farmOS/farmOS
+  - https://github.com/truecharts/charts/tree/master/charts/stable/farmos
+  - https://hub.docker.com/r/farmos/farmos
+type: application
+version: 7.5.4

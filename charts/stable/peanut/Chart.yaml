@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 5.6.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A Tiny Dashboard for Network UPS Tools.
-Home: https://truecharts.org/charts/stable/peanut
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/peanut.webp
-Keywords:
-- peanut
-- ups
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: peanut
-Sources:
-- https://github.com/Brandawg93/PeaNUT
-- https://github.com/truecharts/charts/tree/master/charts/stable/peanut
-- https://hub.docker.com/r/brandawg93/peanut
-Type: application
-Version: 7.0.0
+apiVersion: v2
+appVersion: 5.6.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Tiny Dashboard for Network UPS Tools.
+home: https://truecharts.org/charts/stable/peanut
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/peanut.webp
+keywords:
+  - peanut
+  - ups
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: peanut
+sources:
+  - https://github.com/Brandawg93/PeaNUT
+  - https://github.com/truecharts/charts/tree/master/charts/stable/peanut
+  - https://hub.docker.com/r/brandawg93/peanut
+type: application
+version: 7.0.0

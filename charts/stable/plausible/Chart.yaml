@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,42 +8,42 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.0.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: clickhouse.enabled
-  ImportValues: null
-  Name: clickhouse
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.2.1
-Deprecated: false
-Description: Plausible is lightweight and open source web analytics. No cookies and
-  fully compliant with GDPR, CCPA and PECR.
-Home: https://truecharts.org/charts/stable/plausible
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.webp
-Keywords:
-- plausible
-- analytics
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: plausible
-Sources:
-- https://github.com/plausible/analytics
-- https://github.com/plausible/hosting
-- https://github.com/truecharts/charts/tree/master/charts/stable/plausible
-- https://hub.docker.com/r/plausible/analytics
-- https://plausible.io/
-- https://plausible.io/docs/self-hosting
-Type: application
-Version: 13.2.1
+apiVersion: v2
+appVersion: 2.0.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: clickhouse
+    version: 15.2.1
+    repository: oci://tccr.io/truecharts
+    condition: clickhouse.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
+home: https://truecharts.org/charts/stable/plausible
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.webp
+keywords:
+  - plausible
+  - analytics
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plausible
+sources:
+  - https://github.com/plausible/analytics
+  - https://github.com/plausible/hosting
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
+  - https://hub.docker.com/r/plausible/analytics
+  - https://plausible.io/
+  - https://plausible.io/docs/self-hosting
+type: application
+version: 13.2.1

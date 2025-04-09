@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,37 +8,38 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.106.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
-Home: https://truecharts.org/charts/stable/manyfold
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/manyfold.webp
-Keywords:
-- manyfold
-- media
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: manyfold
-Sources:
-- https://ghcr.io/manyfold3d/manyfold
-- https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
-Type: application
-Version: 2.5.1
+apiVersion: v2
+appVersion: 0.106.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
+home: https://truecharts.org/charts/stable/manyfold
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/manyfold.webp
+keywords:
+  - manyfold
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: manyfold
+sources:
+  - https://ghcr.io/manyfold3d/manyfold
+  - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
+type: application
+version: 2.5.1

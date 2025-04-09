@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,35 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.34.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Overseerr is a free and open source software application for managing
-  requests for your media library. It integrates with your existing services such
-  as Sonarr, Radarr and Plex!
-Home: https://truecharts.org/charts/stable/overseerr
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/overseerr.webp
-Keywords:
-- overseerr
-- plex
-- sonarr
-- radarr
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: overseerr
-Sources:
-- https://ghcr.io/sct/overseerr
-- https://github.com/sct/overseerr
-- https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
-Type: application
-Version: 15.6.0
+apiVersion: v2
+appVersion: 1.34.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services such as Sonarr, Radarr and Plex!
+home: https://truecharts.org/charts/stable/overseerr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/overseerr.webp
+keywords:
+  - overseerr
+  - plex
+  - sonarr
+  - radarr
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: overseerr
+sources:
+  - https://ghcr.io/sct/overseerr
+  - https://github.com/sct/overseerr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
+type: application
+version: 15.6.0

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.2.7
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Miniflux is a minimalist and opinionated feed reader.
-Home: https://truecharts.org/charts/stable/miniflux
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/miniflux.webp
-Keywords:
-- miniflux
-- rss
-- news
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: miniflux
-Sources:
-- https://github.com/miniflux/v2
-- https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
-- https://quay.io/miniflux/miniflux
-Type: application
-Version: 16.6.3
+apiVersion: v2
+appVersion: 2.2.7
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Miniflux is a minimalist and opinionated feed reader.
+home: https://truecharts.org/charts/stable/miniflux
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/miniflux.webp
+keywords:
+  - miniflux
+  - rss
+  - news
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: miniflux
+sources:
+  - https://github.com/miniflux/v2
+  - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
+  - https://quay.io/miniflux/miniflux
+type: application
+version: 16.6.3

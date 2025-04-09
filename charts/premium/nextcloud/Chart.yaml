@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,48 +8,48 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: premium
-AppVersion: 31.0.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-Deprecated: false
-Description: A private cloud server that puts the control and security of your own
-  data back into your hands.
-Home: https://truecharts.org/charts/premium/nextcloud
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.webp
-Keywords:
-- nextcloud
-- storage
-- http
-- web
-- php
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: nextcloud
-Sources:
-- https://github.com/nextcloud/docker
-- https://github.com/nextcloud/helm
-- https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
-- https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
-- https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
-- https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
-- https://hub.docker.com/r/clamav/clamav
-- https://hub.docker.com/r/collabora/code
-- https://hub.docker.com/r/nginxinc/nginx-unprivileged
-Type: application
-Version: 33.0.2
+apiVersion: v2
+appVersion: 31.0.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A private cloud server that puts the control and security of your own data back into your hands.
+home: https://truecharts.org/charts/premium/nextcloud
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.webp
+keywords:
+  - nextcloud
+  - storage
+  - http
+  - web
+  - php
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nextcloud
+sources:
+  - https://github.com/nextcloud/docker
+  - https://github.com/nextcloud/helm
+  - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
+  - https://hub.docker.com/r/clamav/clamav
+  - https://hub.docker.com/r/collabora/code
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
+type: application
+version: 33.0.2

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Print a neat little card with your WiFi info and stick it on the fridge.
-Home: https://truecharts.org/charts/stable/wifi-card
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/wifi-card.webp
-Keywords:
-- wifi-card
-- Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: wifi-card
-Sources:
-- https://github.com/bndw/wifi-card
-- https://github.com/truecharts/charts/tree/master/charts/stable/wifi-card
-- https://hub.docker.com/r/bndw/wifi-card
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Print a neat little card with your WiFi info and stick it on the fridge.
+home: https://truecharts.org/charts/stable/wifi-card
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wifi-card.webp
+keywords:
+  - wifi-card
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wifi-card
+sources:
+  - https://github.com/bndw/wifi-card
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wifi-card
+  - https://hub.docker.com/r/bndw/wifi-card
+type: application
+version: 7.5.1

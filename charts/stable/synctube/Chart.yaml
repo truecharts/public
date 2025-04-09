@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,37 +8,37 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Synchronized video viewing with chat and other features. Lightweight
-  modern implementation and very easy way to run locally.
-Home: https://truecharts.org/charts/stable/synctube
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/synctube.webp
-Keywords:
-- synctube
-- Cloud
-- Productivity
-- Tools-Utilities
-- MediaApp-Video
-- MediaServer-Video
-- Network-Web
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: synctube
-Sources:
-- https://github.com/RblSb/SyncTube
-- https://github.com/truecharts/charts/tree/master/charts/stable/synctube
-- https://hub.docker.com/r/littlestache/synctube
-Type: application
-Version: 9.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Synchronized video viewing with chat and other features. Lightweight modern implementation and very easy way to run locally.
+home: https://truecharts.org/charts/stable/synctube
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/synctube.webp
+keywords:
+  - synctube
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Video
+  - MediaServer-Video
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: synctube
+sources:
+  - https://github.com/RblSb/SyncTube
+  - https://github.com/truecharts/charts/tree/master/charts/stable/synctube
+  - https://hub.docker.com/r/littlestache/synctube
+type: application
+version: 9.5.1

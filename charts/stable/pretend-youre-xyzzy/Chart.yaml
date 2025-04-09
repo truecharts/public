@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 4.0.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: pretend-youre-xyzzy, a cards against humanity clone
-Home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.webp
-Keywords:
-- pretend-youre-xyzzy
-- cards
-- against
-- humanity
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pretend-youre-xyzzy
-Sources:
-- https://github.com/ajanata/PretendYoureXyzzy
-- https://github.com/emcniece/DockerYourXyzzy
-- https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
-- https://hub.docker.com/r/emcniece/dockeryourxyzzy
-Type: application
-Version: 15.5.1
+apiVersion: v2
+appVersion: 4.0.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: pretend-youre-xyzzy, a cards against humanity clone
+home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.webp
+keywords:
+  - pretend-youre-xyzzy
+  - cards
+  - against
+  - humanity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pretend-youre-xyzzy
+sources:
+  - https://github.com/ajanata/PretendYoureXyzzy
+  - https://github.com/emcniece/DockerYourXyzzy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
+  - https://hub.docker.com/r/emcniece/dockeryourxyzzy
+type: application
+version: 15.5.1

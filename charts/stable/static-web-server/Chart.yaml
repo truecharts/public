@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.36.1
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A cross-platform, high-performance and asynchronous web server for static
-  files-serving.
-Home: https://truecharts.org/charts/stable/static-web-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/static-web-server.webp
-Keywords:
-- web-server
-- apache
-- rust
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: static-web-server
-Sources:
-- https://ghcr.io/static-web-server/static-web-server
-- https://github.com/static-web-server/static-web-server
-- https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
-- https://static-web-server.net
-Type: application
-Version: 6.10.1
+apiVersion: v2
+appVersion: 2.36.1
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A cross-platform, high-performance and asynchronous web server for static files-serving.
+home: https://truecharts.org/charts/stable/static-web-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/static-web-server.webp
+keywords:
+  - web-server
+  - apache
+  - rust
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: static-web-server
+sources:
+  - https://ghcr.io/static-web-server/static-web-server
+  - https://github.com/static-web-server/static-web-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
+  - https://static-web-server.net
+type: application
+version: 6.10.1

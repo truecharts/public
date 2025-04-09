@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: No description provide.
-Home: https://truecharts.org/charts/stable/fsm
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/fsm.webp
-Keywords:
-- fsm
-- Other
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: fsm
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/fsm
-- https://hub.docker.com/r/ofsm/ofsm
-- https://registry.hub.docker.com/r/ofsm/ofsm
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: No description provide.
+home: https://truecharts.org/charts/stable/fsm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fsm.webp
+keywords:
+  - fsm
+  - Other
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fsm
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fsm
+  - https://hub.docker.com/r/ofsm/ofsm
+  - https://registry.hub.docker.com/r/ofsm/ofsm
+type: application
+version: 7.5.1

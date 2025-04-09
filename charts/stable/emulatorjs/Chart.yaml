@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,30 +8,30 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.9.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Emulatorjs - In browser web based emulation portable to nearly any device
-  for many retro consoles.
-Home: https://truecharts.org/charts/stable/emulatorjs
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.webp
-Keywords:
-- emulatorjs
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: emulatorjs
-Sources:
-- https://ghcr.io/linuxserver/emulatorjs
-- https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
-Type: application
-Version: 11.5.10
+apiVersion: v2
+appVersion: 1.9.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Emulatorjs - In browser web based emulation portable to nearly any device for many retro consoles.
+home: https://truecharts.org/charts/stable/emulatorjs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.webp
+keywords:
+  - emulatorjs
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: emulatorjs
+sources:
+  - https://ghcr.io/linuxserver/emulatorjs
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
+type: application
+version: 11.5.10

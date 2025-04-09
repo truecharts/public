@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: '*BETA* Fotosho is a photo gallery for your home server. Organize your
-  photos into albums internally and view as a slideshow. Free and open source. Does
-  not require a database. Does not move, copy or modify your photos.'
-Home: https://truecharts.org/charts/stable/fotosho
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/fotosho.webp
-Keywords:
-- fotosho
-- MediaApp-Photos
-- MediaServer-Photos
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: fotosho
-Sources:
-- https://github.com/advplyr/fotosho
-- https://github.com/truecharts/charts/tree/master/charts/stable/fotosho
-- https://hub.docker.com/r/advplyr/fotosho
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: '*BETA* Fotosho is a photo gallery for your home server. Organize your photos into albums internally and view as a slideshow. Free and open source. Does not require a database. Does not move, copy or modify your photos.'
+home: https://truecharts.org/charts/stable/fotosho
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fotosho.webp
+keywords:
+  - fotosho
+  - MediaApp-Photos
+  - MediaServer-Photos
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fotosho
+sources:
+  - https://github.com/advplyr/fotosho
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fotosho
+  - https://hub.docker.com/r/advplyr/fotosho
+type: application
+version: 7.5.1

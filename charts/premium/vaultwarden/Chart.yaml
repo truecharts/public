@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,37 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: premium
-AppVersion: 1.33.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Unofficial Bitwarden compatible server written in Rust
-Home: https://truecharts.org/charts/premium/vaultwarden
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.webp
-Keywords:
-- bitwarden
-- bitwardenrs
-- bitwarden_rs
-- vaultwarden
-- password
-- rust
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: vaultwarden
-Sources:
-- https://ghcr.io/timshel/vaultwarden
-- https://github.com/dani-garcia/vaultwarden
-- https://github.com/truecharts/charts/tree/master/charts/premium/vaultwarden
-- https://quay.io/vaultwarden/server
-Type: application
-Version: 28.8.3
+apiVersion: v2
+appVersion: 1.33.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Unofficial Bitwarden compatible server written in Rust
+home: https://truecharts.org/charts/premium/vaultwarden
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.webp
+keywords:
+  - bitwarden
+  - bitwardenrs
+  - bitwarden_rs
+  - vaultwarden
+  - password
+  - rust
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: vaultwarden
+sources:
+  - https://ghcr.io/timshel/vaultwarden
+  - https://github.com/dani-garcia/vaultwarden
+  - https://github.com/truecharts/charts/tree/master/charts/premium/vaultwarden
+  - https://quay.io/vaultwarden/server
+type: application
+version: 28.8.3

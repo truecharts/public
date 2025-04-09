@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: premium
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A network load-balancer implementation for Kubernetes using standard
-  routing protocols
-Home: https://truecharts.org/charts/premium/metallb-config
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.webp
-Keywords:
-- metallb
-- loadbalancer
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: metallb-config
-Sources:
-- https://github.com/metallb/metallb
-- https://github.com/truecharts/charts/tree/master/charts/premium/metallb-config
-- https://hub.docker.com/_/hello-world
-- https://metallb.io
-Type: application
-Version: 8.5.3
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A network load-balancer implementation for Kubernetes using standard routing protocols
+home: https://truecharts.org/charts/premium/metallb-config
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.webp
+keywords:
+  - metallb
+  - loadbalancer
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: metallb-config
+sources:
+  - https://github.com/metallb/metallb
+  - https://github.com/truecharts/charts/tree/master/charts/premium/metallb-config
+  - https://hub.docker.com/_/hello-world
+  - https://metallb.io
+type: application
+version: 8.5.3

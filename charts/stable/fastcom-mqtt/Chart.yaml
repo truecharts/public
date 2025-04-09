@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: |
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
   Chart Chart with Fast.com CLI sending data directly to MQTT Broker
-Home: https://truecharts.org/charts/stable/fastcom-mqtt
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/fastcom-mqtt.webp
-Keywords:
-- fastcom-mqtt
-- home-automation
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: fastcom-mqtt
-Sources:
-- https://github.com/simonjenny/fastcom-mqtt
-- https://github.com/truecharts/charts/tree/master/charts/stable/fastcom-mqtt
-- https://hub.docker.com/r/simonjenny/fastcom-mqtt
-Type: application
-Version: 7.5.1
+home: https://truecharts.org/charts/stable/fastcom-mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fastcom-mqtt.webp
+keywords:
+  - fastcom-mqtt
+  - home-automation
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fastcom-mqtt
+sources:
+  - https://github.com/simonjenny/fastcom-mqtt
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fastcom-mqtt
+  - https://hub.docker.com/r/simonjenny/fastcom-mqtt
+type: application
+version: 7.5.1

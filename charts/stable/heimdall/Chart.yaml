@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,30 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.6.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: An Application dashboard and launcher
-Home: https://truecharts.org/charts/stable/heimdall
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/heimdall.webp
-Keywords:
-- heimdall
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: heimdall
-Sources:
-- https://fleet.linuxserver.io/image?name=linuxserver/heimdall
-- https://github.com/linuxserver/Heimdall/
-- https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
-Type: application
-Version: 23.4.9
+apiVersion: v2
+appVersion: 2.6.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An Application dashboard and launcher
+home: https://truecharts.org/charts/stable/heimdall
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/heimdall.webp
+keywords:
+  - heimdall
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: heimdall
+sources:
+  - https://fleet.linuxserver.io/image?name=linuxserver/heimdall
+  - https://github.com/linuxserver/Heimdall/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
+type: application
+version: 23.4.9

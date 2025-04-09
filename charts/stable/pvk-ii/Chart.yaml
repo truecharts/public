@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: pkii
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: This Chart will download and install SteamCMD. It will also install Pirates,
-  Vikings &amp; Knights 2 and run it.
-Home: https://truecharts.org/charts/stable/pvk-ii
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/pvk-ii.webp
-Keywords:
-- pvk-ii
-- GameServers
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: pvk-ii
-Sources:
-- https://ghcr.io/ich777/steamcmd
-- https://github.com/truecharts/charts/tree/master/charts/stable/pvk-ii
-- https://www.steampowered.com/
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: pkii
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install SteamCMD. It will also install Pirates, Vikings &amp; Knights 2 and run it.
+home: https://truecharts.org/charts/stable/pvk-ii
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pvk-ii.webp
+keywords:
+  - pvk-ii
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pvk-ii
+sources:
+  - https://ghcr.io/ich777/steamcmd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pvk-ii
+  - https://www.steampowered.com/
+type: application
+version: 7.5.1

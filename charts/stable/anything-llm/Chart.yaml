@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Open-source ChatGPT experience for LLMs, embedders, and vector databases.
-Home: https://truecharts.org/charts/stable/anything-llm
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/anything-llm.webp
-Keywords:
-- anything-llm
-- ai
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: anything-llm
-Sources:
-- https://ghcr.io/mintplex-labs/anything-llm
-- https://github.com/Mintplex-Labs/anything-llm
-- https://github.com/truecharts/charts/tree/master/charts/stable/anything-llm
-Type: application
-Version: 3.5.20
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Open-source ChatGPT experience for LLMs, embedders, and vector databases.
+home: https://truecharts.org/charts/stable/anything-llm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/anything-llm.webp
+keywords:
+  - anything-llm
+  - ai
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: anything-llm
+sources:
+  - https://ghcr.io/mintplex-labs/anything-llm
+  - https://github.com/Mintplex-Labs/anything-llm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/anything-llm
+type: application
+version: 3.5.20

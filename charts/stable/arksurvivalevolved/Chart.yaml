@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: arkse
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A custom SteamCMD chart that runs ArkSE.
-Home: https://truecharts.org/charts/stable/arksurvivalevolved
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/arksurvivalevolved.webp
-Keywords:
-- arksurvivalevolved
-- arkse
-- GameServers
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: arksurvivalevolved
-Sources:
-- https://ghcr.io/ich777/steamcmd
-- https://github.com/ich777/docker-steamcmd-server/tree/arkse
-- https://github.com/truecharts/charts/tree/master/charts/stable/arksurvivalevolved
-Type: application
-Version: 9.5.1
+apiVersion: v2
+appVersion: arkse
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A custom SteamCMD chart that runs ArkSE.
+home: https://truecharts.org/charts/stable/arksurvivalevolved
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/arksurvivalevolved.webp
+keywords:
+  - arksurvivalevolved
+  - arkse
+  - GameServers
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: arksurvivalevolved
+sources:
+  - https://ghcr.io/ich777/steamcmd
+  - https://github.com/ich777/docker-steamcmd-server/tree/arkse
+  - https://github.com/truecharts/charts/tree/master/charts/stable/arksurvivalevolved
+type: application
+version: 9.5.1

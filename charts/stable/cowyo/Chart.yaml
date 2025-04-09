@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: cowyo is a self-contained wiki server that makes jotting notes easy and
-  fast. The most important feature here is simplicity. Other features include versioning,
-  page locking, self-destructing messages, encryption, and listifying.
-Home: https://truecharts.org/charts/stable/cowyo
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/cowyo.webp
-Keywords:
-- cowyo
-- Cloud
-- Productivity
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: cowyo
-Sources:
-- https://github.com/schollz/cowyo
-- https://github.com/truecharts/charts/tree/master/charts/stable/cowyo
-- https://hub.docker.com/r/schollz/cowyo
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: cowyo is a self-contained wiki server that makes jotting notes easy and fast. The most important feature here is simplicity. Other features include versioning, page locking, self-destructing messages, encryption, and listifying.
+home: https://truecharts.org/charts/stable/cowyo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cowyo.webp
+keywords:
+  - cowyo
+  - Cloud
+  - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cowyo
+sources:
+  - https://github.com/schollz/cowyo
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cowyo
+  - https://hub.docker.com/r/schollz/cowyo
+type: application
+version: 7.5.1

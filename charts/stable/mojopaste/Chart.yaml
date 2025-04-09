@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,36 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Mojopaste is a pastebin application. There's about one million of these
-  out there, but if you have the need to run something internally at work or you just
-  fancy having your own pastebin, this is your application.
-Home: https://truecharts.org/charts/stable/mojopaste
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/mojopaste.webp
-Keywords:
-- mojopaste
-- Cloud
-- Productivity
-- Tools-Utilities
-- Network-Web
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: mojopaste
-Sources:
-- https://github.com/jhthorsen/app-mojopaste
-- https://github.com/truecharts/charts/tree/master/charts/stable/mojopaste
-- https://hub.docker.com/r/jhthorsen/mojopaste
-Type: application
-Version: 7.5.1
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Mojopaste is a pastebin application. There's about one million of these out there, but if you have the need to run something internally at work or you just fancy having your own pastebin, this is your application.
+home: https://truecharts.org/charts/stable/mojopaste
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mojopaste.webp
+keywords:
+  - mojopaste
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mojopaste
+sources:
+  - https://github.com/jhthorsen/app-mojopaste
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mojopaste
+  - https://hub.docker.com/r/jhthorsen/mojopaste
+type: application
+version: 7.5.1

@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: main
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A web-based tool for processing images and converting documents with
-  a simple interface.
-Home: https://truecharts.org/charts/stable/reubah
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/reubah.webp
-Keywords:
-- reubah
-- image-processor
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: reubah
-Sources:
-- https://ghcr.io/dendianugerah/reubah
-- https://github.com/dendianugerah/reubah
-- https://github.com/truecharts/charts/tree/master/charts/stable/reubah
-Type: application
-Version: 1.3.1
+apiVersion: v2
+appVersion: main
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A web-based tool for processing images and converting documents with a simple interface.
+home: https://truecharts.org/charts/stable/reubah
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/reubah.webp
+keywords:
+  - reubah
+  - image-processor
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: reubah
+sources:
+  - https://ghcr.io/dendianugerah/reubah
+  - https://github.com/dendianugerah/reubah
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reubah
+type: application
+version: 1.3.1

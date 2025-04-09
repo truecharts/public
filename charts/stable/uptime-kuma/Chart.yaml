@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.23.16
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A fancy self-hosted monitoring tool
-Home: https://truecharts.org/charts/stable/uptime-kuma
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptime-kuma.webp
-Keywords:
-- monitoring
-- uptime
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: uptime-kuma
-Sources:
-- https://github.com/louislam/uptime-kuma
-- https://github.com/truecharts/charts/tree/master/charts/stable/uptime-kuma
-- https://hub.docker.com/r/louislam/uptime-kuma
-Type: application
-Version: 12.5.1
+apiVersion: v2
+appVersion: 1.23.16
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A fancy self-hosted monitoring tool
+home: https://truecharts.org/charts/stable/uptime-kuma
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptime-kuma.webp
+keywords:
+  - monitoring
+  - uptime
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: uptime-kuma
+sources:
+  - https://github.com/louislam/uptime-kuma
+  - https://github.com/truecharts/charts/tree/master/charts/stable/uptime-kuma
+  - https://hub.docker.com/r/louislam/uptime-kuma
+type: application
+version: 12.5.1

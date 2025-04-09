@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,35 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.29.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: deCONZ is an easy to use control software, with which you can set up
-  and control Zigbee networks of any size without further programming effort.
-Home: https://truecharts.org/charts/stable/deconz
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.webp
-Keywords:
-- deconz
-- home-automation
-- zigbee
-- conbee
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: deconz
-Sources:
-- https://github.com/dresden-elektronik/deconz-rest-plugin
-- https://github.com/marthoc/docker-deconz
-- https://github.com/truecharts/charts/tree/master/charts/stable/deconz
-- https://hub.docker.com/r/deconzcommunity/deconz
-Type: application
-Version: 17.7.3
+apiVersion: v2
+appVersion: 2.29.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
+home: https://truecharts.org/charts/stable/deconz
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.webp
+keywords:
+  - deconz
+  - home-automation
+  - zigbee
+  - conbee
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: deconz
+sources:
+  - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
+  - https://hub.docker.com/r/deconzcommunity/deconz
+type: application
+version: 17.7.3

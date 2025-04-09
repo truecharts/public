@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,34 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 25.02.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: HandBrake is a tool for converting video from nearly any format to a
-  selection of modern, widely supported codecs.
-Home: https://truecharts.org/charts/stable/handbrake
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/handbrake.webp
-Keywords:
-- handbrake
-- encode
-- media
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: handbrake
-Sources:
-- https://github.com/jlesage/docker-handbrake
-- https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
-- https://handbrake.fr/
-- https://hub.docker.com/r/jlesage/handbrake
-Type: application
-Version: 24.0.1
+apiVersion: v2
+appVersion: 25.02.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
+home: https://truecharts.org/charts/stable/handbrake
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/handbrake.webp
+keywords:
+  - handbrake
+  - encode
+  - media
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: handbrake
+sources:
+  - https://github.com/jlesage/docker-handbrake
+  - https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
+  - https://handbrake.fr/
+  - https://hub.docker.com/r/jlesage/handbrake
+type: application
+version: 24.0.1

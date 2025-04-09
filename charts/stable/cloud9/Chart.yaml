@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,34 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.29.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A complete web based IDE with terminal access
-Home: https://truecharts.org/charts/stable/cloud9
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloud9.webp
-Keywords:
-- cloud9
-- ide
-- terminal
-- web
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: cloud9
-Sources:
-- https://aws.amazon.com/cloud9/
-- https://ghcr.io/linuxserver/cloud9
-- https://github.com/c9/core
-- https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
-Type: application
-Version: 13.5.1
+apiVersion: v2
+appVersion: 1.29.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A complete web based IDE with terminal access
+home: https://truecharts.org/charts/stable/cloud9
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloud9.webp
+keywords:
+  - cloud9
+  - ide
+  - terminal
+  - web
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cloud9
+sources:
+  - https://aws.amazon.com/cloud9/
+  - https://ghcr.io/linuxserver/cloud9
+  - https://github.com/c9/core
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
+type: application
+version: 13.5.1

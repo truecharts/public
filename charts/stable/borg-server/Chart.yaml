@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.6.8
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A borg Backup server
-Home: https://truecharts.org/charts/stable/borg-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/borg-server.webp
-Keywords:
-- borg-server
-- backup
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: borg-server
-Sources:
-- https://ghcr.io/anotherstranger/borg-server
-- https://github.com/AnotherStranger/docker-borg-backup
-- https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
-Type: application
-Version: 6.7.3
+apiVersion: v2
+appVersion: 2.6.8
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A borg Backup server
+home: https://truecharts.org/charts/stable/borg-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/borg-server.webp
+keywords:
+  - borg-server
+  - backup
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: borg-server
+sources:
+  - https://ghcr.io/anotherstranger/borg-server
+  - https://github.com/AnotherStranger/docker-borg-backup
+  - https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
+type: application
+version: 6.7.3

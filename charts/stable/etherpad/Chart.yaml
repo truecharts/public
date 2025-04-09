@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,35 +8,35 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.8.14
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A real-time collaborative editor scalable to thousands of simultaneous
-  real time users.
-Home: https://truecharts.org/charts/stable/etherpad
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.webp
-Keywords:
-- etherpad
-- editor
-- notepad
-- pad
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: etherpad
-Sources:
-- https://etherpad.org/
-- https://ghcr.io/nicholaswilde/etherpad
-- https://github.com/ether/etherpad-lite
-- https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
-Type: application
-Version: 18.5.1
+apiVersion: v2
+appVersion: 1.8.14
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A real-time collaborative editor scalable to thousands of simultaneous real time users.
+home: https://truecharts.org/charts/stable/etherpad
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.webp
+keywords:
+  - etherpad
+  - editor
+  - notepad
+  - pad
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: etherpad
+sources:
+  - https://etherpad.org/
+  - https://ghcr.io/nicholaswilde/etherpad
+  - https://github.com/ether/etherpad-lite
+  - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
+type: application
+version: 18.5.1

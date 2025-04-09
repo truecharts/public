@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: system
-AppVersion: 0.32.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: The Intel GPU plugin facilitates offloading the processing of computation
-  intensive workloads to GPU hardware.
-Home: https://truecharts.org/charts/system/intel-gpu-plugin
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/intel-gpu-plugin.webp
-Keywords:
-- intel-gpu-plugin
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: intel-gpu-plugin
-Sources:
-- https://github.com/intel
-- https://github.com/truecharts/charts/tree/master/charts/system/intel-gpu-plugin
-- https://hub.docker.com/r/intel/intel-gpu-plugin
-Type: application
-Version: 0.6.0
+apiVersion: v2
+appVersion: 0.32.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The Intel GPU plugin facilitates offloading the processing of computation intensive workloads to GPU hardware.
+home: https://truecharts.org/charts/system/intel-gpu-plugin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/intel-gpu-plugin.webp
+keywords:
+  - intel-gpu-plugin
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: intel-gpu-plugin
+sources:
+  - https://github.com/intel
+  - https://github.com/truecharts/charts/tree/master/charts/system/intel-gpu-plugin
+  - https://hub.docker.com/r/intel/intel-gpu-plugin
+type: application
+version: 0.6.0

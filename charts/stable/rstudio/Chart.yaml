@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,32 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 4.4.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Integrated development environment for R, a programming language for
-  statistical computing and graphics.
-Home: https://truecharts.org/charts/stable/rstudio
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.webp
-Keywords:
-- rstudio
-- Productivity
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: rstudio
-Sources:
-- https://ghcr.io/rocker-org/rstudio
-- https://github.com/rocker-org/rocker-versioned2
-- https://github.com/truecharts/charts/tree/master/charts/stable/rstudio
-Type: application
-Version: 8.5.3
+apiVersion: v2
+appVersion: 4.4.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Integrated development environment for R, a programming language for statistical computing and graphics.
+home: https://truecharts.org/charts/stable/rstudio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.webp
+keywords:
+  - rstudio
+  - Productivity
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rstudio
+sources:
+  - https://ghcr.io/rocker-org/rstudio
+  - https://github.com/rocker-org/rocker-versioned2
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rstudio
+type: application
+version: 8.5.3

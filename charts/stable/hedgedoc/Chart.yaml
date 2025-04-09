@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,29 +8,30 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 1.10.2
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: HedgeDoc lets you create real-time collaborative markdown notes.
-Home: https://truecharts.org/charts/stable/hedgedoc
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/hedgedoc.webp
-Keywords:
-- hedgedoc
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: hedgedoc
-Sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/hedgedoc
-- https://quay.io/hedgedoc/hedgedoc
-Type: application
-Version: 14.6.4
+apiVersion: v2
+appVersion: 1.10.2
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: HedgeDoc lets you create real-time collaborative markdown notes.
+home: https://truecharts.org/charts/stable/hedgedoc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hedgedoc.webp
+keywords:
+  - hedgedoc
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: hedgedoc
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hedgedoc
+  - https://quay.io/hedgedoc/hedgedoc
+type: application
+version: 14.6.4

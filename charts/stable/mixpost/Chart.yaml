@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -7,47 +6,48 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.1.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-- Alias: ""
-  Condition: redis.enabled
-  ImportValues: null
-  Name: redis
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.6.7
-- Alias: ""
-  Condition: mariadb.enabled
-  ImportValues: null
-  Name: mariadb
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 15.9.0
-Deprecated: false
-Description: Mixpost it's the coolest Self hosted social media management software.
-Home: https://truecharts.org/charts/stable/mixpost
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/mixpost.webp
-Keywords:
-- mixpost
-- twitter
-- facebook
-- socialmedia
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: mixpost
-Sources:
-- https://github.com/inovector/mixpost
-- https://github.com/truecharts/charts/tree/master/charts/stable/mixpost
-- https://hub.docker.com/r/inovector/mixpost
-Type: application
-Version: 3.1.4
+apiVersion: v2
+appVersion: 2.1.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 15.6.7
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 15.9.0
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Mixpost it's the coolest Self hosted social media management software.
+home: https://truecharts.org/charts/stable/mixpost
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mixpost.webp
+keywords:
+  - mixpost
+  - twitter
+  - facebook
+  - socialmedia
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mixpost
+sources:
+  - https://github.com/inovector/mixpost
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mixpost
+  - https://hub.docker.com/r/inovector/mixpost
+type: application
+version: 3.1.4

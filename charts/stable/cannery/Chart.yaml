@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.9.14
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: The self-hosted firearm tracker website.
-Home: https://truecharts.org/charts/stable/cannery
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/cannery.webp
-Keywords:
-- cannery
-- asset-tracker
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: cannery
-Sources:
-- https://gitea.bubbletea.dev/shibao/cannery
-- https://github.com/truecharts/charts/tree/master/charts/stable/cannery
-- https://hub.docker.com/r/shibaobun/cannery
-Type: application
-Version: 1.0.1
+apiVersion: v2
+appVersion: 0.9.14
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The self-hosted firearm tracker website.
+home: https://truecharts.org/charts/stable/cannery
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cannery.webp
+keywords:
+  - cannery
+  - asset-tracker
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cannery
+sources:
+  - https://gitea.bubbletea.dev/shibao/cannery
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cannery
+  - https://hub.docker.com/r/shibaobun/cannery
+type: application
+version: 1.0.1

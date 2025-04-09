@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,33 +8,33 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: latest
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: Full desktop environments in many popular flavors for Alpine, Ubuntu,
-  Arch, and Fedora accessible via RDP.
-Home: https://truecharts.org/charts/stable/rdesktop
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.webp
-Keywords:
-- rdesktop
-- desktops
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: rdesktop
-Sources:
-- https://fleet.linuxserver.io/image?name=linuxserver/rdesktop
-- https://github.com/linuxserver/docker-rdesktop#readme
-- https://github.com/orgs/linuxserver/packages/container/package/rdesktop
-- https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
-Type: application
-Version: 10.5.232
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Full desktop environments in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
+home: https://truecharts.org/charts/stable/rdesktop
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.webp
+keywords:
+  - rdesktop
+  - desktops
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rdesktop
+sources:
+  - https://fleet.linuxserver.io/image?name=linuxserver/rdesktop
+  - https://github.com/linuxserver/docker-rdesktop#readme
+  - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
+type: application
+version: 10.5.232

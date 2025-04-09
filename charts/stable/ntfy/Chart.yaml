@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,31 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 2.11.0
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: ntfy is a simple HTTP-based pub-sub notification service. It allows you
-  to send notifications to your phone or desktop via scripts from any computer.
-Home: https://truecharts.org/charts/stable/ntfy
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/ntfy.webp
-Keywords:
-- ntfy
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: ntfy
-Sources:
-- https://github.com/binwiederhier/ntfy/
-- https://github.com/truecharts/charts/tree/master/charts/stable/ntfy
-- https://hub.docker.com/r/binwiederhier/ntfy
-Type: application
-Version: 11.5.1
+apiVersion: v2
+appVersion: 2.11.0
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: ntfy is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer.
+home: https://truecharts.org/charts/stable/ntfy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ntfy.webp
+keywords:
+  - ntfy
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ntfy
+sources:
+  - https://github.com/binwiederhier/ntfy/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ntfy
+  - https://hub.docker.com/r/binwiederhier/ntfy
+type: application
+version: 11.5.1

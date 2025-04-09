@@ -1,5 +1,4 @@
-APIVersion: v2
-Annotations:
+annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
@@ -9,31 +8,32 @@ Annotations:
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
-AppVersion: 0.4.3
-Dependencies:
-- Alias: ""
-  Condition: ""
-  ImportValues: null
-  Name: common
-  Repository: oci://tccr.io/truecharts
-  Tags: []
-  Version: 25.4.10
-Deprecated: false
-Description: A superlight rust written social server.
-Home: https://truecharts.org/charts/stable/vocechat-server
-Icon: https://truecharts.org/img/hotlink-ok/chart-icons/vocechat-server.webp
-Keywords:
-- vocechat-server
-- social
-KubeVersion: '>=1.24.0-0'
-Maintainers:
-- Email: info@truecharts.org
-  Name: TrueCharts
-  URL: https://truecharts.org
-Name: vocechat-server
-Sources:
-- https://github.com/Privoce/vocechat-server-rust
-- https://github.com/truecharts/charts/tree/master/charts/stable/vocechat-server
-- https://hub.docker.com/r/privoce/vocechat-server
-Type: application
-Version: 5.6.4
+apiVersion: v2
+appVersion: 0.4.3
+dependencies:
+  - name: common
+    version: 25.4.10
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A superlight rust written social server.
+home: https://truecharts.org/charts/stable/vocechat-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vocechat-server.webp
+keywords:
+  - vocechat-server
+  - social
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: vocechat-server
+sources:
+  - https://github.com/Privoce/vocechat-server-rust
+  - https://github.com/truecharts/charts/tree/master/charts/stable/vocechat-server
+  - https://hub.docker.com/r/privoce/vocechat-server
+type: application
+version: 5.6.4
