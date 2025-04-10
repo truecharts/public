@@ -10,8 +10,9 @@ tags:
 ## New Clustertool v2 Launches with NGINX Backend and Major Upgrades
 
 The highly anticipated Clustertool v2 is officially released, bringing a host of improvements and a fundamental architectural shift:
-a full move to an NGINX backend.
-Designed for improved performance, cleaner configuration, and upstream alignment,
+- a full move to an NGINX backend.
+- Designed for improved performance, cleaner configuration, and upstream alignment,
+
 Clustertool v2 is a significant step forward for Kubernetes-based cluster management.
 
 ## What’s New in Clustertool v2?
