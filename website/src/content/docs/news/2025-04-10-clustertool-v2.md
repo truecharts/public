@@ -89,7 +89,11 @@ Clusters upgrading to v2 will need to account for several changes:
 With v2, Clustertool is now also being adopted internally as a replacement for the legacy ChartTool,
 which was previously used to test and release charts but its code was never released publicly.
 
+## Special Thanks
 
+Thank to the home-operations team for providing and maintaining their [OCI mirror](https://github.com/home-operations/charts-mirror) 🎉
+
+This ensures every one of us, can fully use the power of OCI-backed Helm-charts in our clusters!
   
 ## Important Notice for SCALE Users
 
