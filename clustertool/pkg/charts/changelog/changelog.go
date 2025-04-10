@@ -144,7 +144,8 @@ func (o *ChangelogOptions) Generate() error {
 
         if err := processCommit(c); err != nil {
             log.Error().Err(err).Msgf("Error processing commit: %s", c.Hash.String())
-            return err
+            // TODO check if we shouldn't fail on a failed commit
+            // return err
         }
 
         currentStatus.mu.Lock()
