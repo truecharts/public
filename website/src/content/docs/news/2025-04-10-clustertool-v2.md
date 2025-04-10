@@ -89,12 +89,6 @@ Clusters upgrading to v2 will need to account for several changes:
 With v2, Clustertool is now also being adopted internally as a replacement for the legacy ChartTool,
 which was previously used for CI-driven Helm chart testing but never released publicly.
 
-The new Clustertool setup integrates seamlessly into internal pipelines, offering:
-
-- Automated chart linting and validation
-- Cluster spin-up for integration tests
-- Support for upstream and OCI-based charts
-- Better reproducibility across environments
 
   
 ## Important Notice for SCALE Users
