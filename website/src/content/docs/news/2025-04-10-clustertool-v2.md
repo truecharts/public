@@ -19,6 +19,7 @@ Clustertool v2 is a significant step forward for Kubernetes-based cluster manage
 The latest version comes with a comprehensive set of changes aimed at making the system more maintainable and future-ready. Key updates include:
 
 - ✅ Migration to NGINX as the default ingress controller
+- 📦 Inclusion of kube-prometheus-stack for metrics
 - 📦 Upstream integration of many system charts
 - 🧹 Indentation and formatting cleanups across configuration files
 - 📥 Adoption of OCI Mirrors for chart management, boosting speed and reliability
