@@ -1,7 +1,7 @@
 ---
 slug: "news/clustertool-v2"
 title: "Clustertool v2"
-authors: [alfi0812]
+authors: [alfi0812, privatepuffin]
 date: 2025-04-10
 tags:
   - "2025"
