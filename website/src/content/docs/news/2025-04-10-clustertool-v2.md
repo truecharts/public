@@ -83,6 +83,20 @@ Clusters upgrading to v2 will need to account for several changes:
 - 🧪 Upstream Chart Migrations:
   - Charts such as CloudNativePG, Cert-Manager, and Kube-Prometheus-Stack are now managed upstream
   - 🧭 Check the [Quick Start Guide](/guides/) for integration examples
+
+## Clustertool as a CI Platform for Chart Testing
+
+With v2, Clustertool is now also being adopted internally as a replacement for the legacy ChartTool,
+which was previously used for CI-driven Helm chart testing but never released publicly.
+
+The new Clustertool setup integrates seamlessly into internal pipelines, offering:
+
+- Automated chart linting and validation
+- Cluster spin-up for integration tests
+- Support for upstream and OCI-based charts
+- Better reproducibility across environments
+
+This move simplifies the CI ecosystem and ensures Clustertool becomes the single point of truth for cluster testing workflows going forward.
   
 ## Important Notice for SCALE Users
 
