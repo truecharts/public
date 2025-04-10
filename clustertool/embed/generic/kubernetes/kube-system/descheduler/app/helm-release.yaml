@@ -6,14 +6,14 @@ metadata:
 spec:
   interval: 15m
   chart:
-      spec:
-        chart: descheduler
-        version: 0.32.2
-        sourceRef:
-          kind: HelmRepository
-          name: home-ops-mirror
-          namespace: flux-system
-        interval: 15m
+    spec:
+      chart: descheduler
+      version: 0.32.2
+      sourceRef:
+        kind: HelmRepository
+        name: home-ops-mirror
+        namespace: flux-system
+      interval: 15m
   timeout: 20m
   maxHistory: 3
   install:
