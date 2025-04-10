@@ -87,7 +87,7 @@ Clusters upgrading to v2 will need to account for several changes:
 ## Clustertool as a CI Platform for Chart Testing
 
 With v2, Clustertool is now also being adopted internally as a replacement for the legacy ChartTool,
-which was previously used for CI-driven Helm chart testing but never released publicly.
+which was previously used to test and release charts but its code was never released publicly.
 
 
   
