@@ -70,7 +70,6 @@ Clusters upgrading to v2 will need to account for several changes:
   - Please compare your [Repositories](https://github.com/truecharts/public/tree/master/clustertool/embed/generic/root/repositories/helm) with this template.
   - Charts such as Cilium, Metrics Server, Node-Feature-Discovery, Longhorn, Metallb, and OpenEBS are now
     pulled via an OCI mirror
-  - Thanks to the home-operations team for providing and maintaining the [OCI mirror](https://github.com/home-operations/charts-mirror) 🎉
 - 🔥 Traefik Removal:
   - Both Traefik and traefik-crds are no longer included and need to be removed
   - [Ingress configurations](/guides/ingress/nginx/) now require annotation updates to work with NGINX
