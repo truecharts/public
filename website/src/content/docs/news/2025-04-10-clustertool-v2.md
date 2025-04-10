@@ -7,6 +7,12 @@ tags:
   - "2025"
 ---
 
+Just one year ago, we were fully dedicated to building TrueNAS SCALE Apps and where forced to move forward to greener pastures. Now, only a year later we've moved to being fully compatible with nearly every kubernetes platform out there, while still offering a staggering amount of Helm Charts.
+
+After long consideration, we've decided to stop providing forks/mirrors of complicated charts such as Traefik, Prometheus and so forth. With SCALE gone, we simply don't need to anymore and users are free to directly consume the upstream charts instead!
+
+This has also allowed us to complete reevaluate which software we're using to back the ClusterTool defaults. And hence, ClusterTool V2 is born!
+
 ## New Clustertool v2 Launches with NGINX Backend and Major Upgrades
 
 The highly anticipated Clustertool v2 is officially released, bringing a host of improvements and a fundamental architectural shift:
