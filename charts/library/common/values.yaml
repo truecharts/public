@@ -545,12 +545,12 @@ postgres16Image:
 
 postgresPostgis15Image:
   repository: ghcr.io/cloudnative-pg/postgis
-  tag: "15-3.4"
+  tag: "17-3.4"
   pullPolicy: IfNotPresent
 
 postgresPostgis16Image:
   repository: ghcr.io/cloudnative-pg/postgis
-  tag: "16-3.4"
+  tag: "17-3.4"
   pullPolicy: IfNotPresent
 
 postgresVectors15Image:
