@@ -21,7 +21,6 @@ service:
   annotations:
     metallb.io/ip-allocated-from-pool: main
     metallb.io/loadBalancerIPs: ${TRAEFIK_IP}
-    metallb.universe.tf/ip-allocated-from-pool: main
   spec:
     externalTrafficPolicy: Local
 logs:
