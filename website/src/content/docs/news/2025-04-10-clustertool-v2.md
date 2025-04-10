@@ -96,7 +96,6 @@ The new Clustertool setup integrates seamlessly into internal pipelines, offerin
 - Support for upstream and OCI-based charts
 - Better reproducibility across environments
 
-This move simplifies the CI ecosystem and ensures Clustertool becomes the single point of truth for cluster testing workflows going forward.
   
 ## Important Notice for SCALE Users
 
