@@ -98,6 +98,7 @@ func (o *ChangelogOptions) Generate() error {
     log.Info().Msgf("Found [%d] active charts in [%s]", len(activeCharts.items), time.Since(start))
 
     // Load existing json file
+    log.Info().Msgf("Loading json %s", o.JSONOutputPath)
     if err := changedData.LoadFromFile(o.JSONOutputPath); err != nil {
         return fmt.Errorf("failed to load existing json file, maybe it is not matching the current structure: %w", err)
     }
@@ -158,6 +159,7 @@ func (o *ChangelogOptions) Generate() error {
     if err := mergeStagingToCurrent(); err != nil {
         return err
     }
+    log.Info().Msgf("Writhing json to %s", o.JSONOutputPath)
     if err := changedData.WriteToFile(o.JSONOutputPath); err != nil {
         return fmt.Errorf("error writing json new file: %s", err)
     }
@@ -171,7 +173,7 @@ func (o *ChangelogOptions) Generate() error {
 // and we add the commits from stagingData to the nearest next version in changelogData
 func mergeStagingToCurrent() error {
     start := time.Now()
-    log.Info().Msgf("Merging staging to current", )
+    log.Info().Msgf("Merging staging to current")
     changedData.mu.Lock()
     defer changedData.mu.Unlock()
 

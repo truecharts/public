@@ -112,7 +112,16 @@ jobs:
           fi
 
           ./temp/clustertool charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
-          gzip "$JSON_FILE" --best
+
+          # TODO: Test remove later
+          echo "temp content:"
+          ls ./temp/
+          echo ""
+          echo "rootcontent"
+          ls ./
+          echo ""
+
+          gzip "$JSON_FILE" --best || echo "Compression failed, ignoring..."
 
       - name: Fix Pre-Commit issues
         shell: bash
