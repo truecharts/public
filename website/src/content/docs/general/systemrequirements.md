@@ -4,15 +4,9 @@ sidebar:
   order: 3
 ---
 
-Below are our recommended and supported system requirements for running TrueCharts Charts inside a Talos VM atop a TrueNAS SCALE or other hypervisor (Proxmox, UnRaid, etc.) host system. These are early, preliminary system requirements and will likely change in the future as we gather feedback from more migrated users.
+Below are our recommended and supported system requirements for running TrueCharts Charts inside either a VM or bare-metal machine
 
 See [below](/general/systemrequirements/#best-effort-cpu-recommendations) for additional information.
-
-:::note
-
-Whilst system requirements for Talos on bare metal are inherently much lower due to much less overhead compared to running in a Virtual Machine, we do **not** currently support running Talos as a bare-metal OS
-
-:::
 
 ## Recommended System Specifications for Master-only Nodes
 
@@ -20,9 +14,10 @@ Systems complying with these specifications are suitable for deployment as a mas
 
 **CPU:** 4 *Physical* Cores, suitable for deployment on ARM environments such as a Raspberry Pi v4, v5, etc.
 
-**RAM:** 8GB or more
+**RAM:** 8GB, preferably 16GB or more
 
 **Storage:** SSD or alternatively a high-end, write-durable SD card such as a Samsung Pro Plus or Pro Ultimate, SanDisk Extreme Pro or High/Max Endurance and equivalents.
+
 
 ## Minimum System Specifications
 
@@ -30,20 +25,15 @@ Systems complying with these minimum specifications will be able to run **some**
 
 **CPU:** 6 *Physical* Cores of AMD Ryzen or Intel 8th Gen Core or better families
 
-- 4 Cores allocated to the Talos VM
-- 2 Cores remaining for the host system, e.g. SCALE
+* for VMs: dedicated 2 Cores remaining for the host system, e.g. SCALE or Proxmox
 
-**RAM:** 24GB or more
-
-- Minimum 16GB allocated to Talos VM
+**RAM:** 16GB or more
 
 **GPU:** None
 
-**VM Disk Storage:** HDD
+**Disk Storage:** enterprise-grade SSD of 500Gb
 
-- 1x sparsely allocated disk of minimum 500GB size
-
-*The disk has to be either an enterprise-grade SSD (preferably NVMe) or a ZFS zvol/dataset with sync set to *disabled*
+*The disk has to be either an enterprise-grade SSD (preferably NVMe) or a sparsely allocated ZFS zvol/dataset with sync set to *disabled*
 
 
 ### Example Minimum Spec System
@@ -52,7 +42,7 @@ Systems complying with these minimum specifications will be able to run **some**
 
 **RAM:** 32GB
 
-**VM Disk Storage:** 1TB HDD
+**VM Disk Storage:** 1TB SSD
 
 **GPU:** Intel iGPU
 
@@ -62,20 +52,13 @@ Systems complying with these recommended specifications will likely be able to r
 
 **CPU:** 8+ *Physical* Cores of AMD Ryzen or Intel 8th Gen Core or better families
 
-- 6+ Cores allocated to the Talos VM
-- 2+ Cores remaining for the host system, e.g. SCALE
-
 **RAM:** 48GB or more
-
-- 32GB or more allocated to Talos VM
 
 **GPU:** Intel iGPU, or dedicated Nvidia GPU (AMD GPUs **may** work but are not guaranteed)
 
-**VM Disk Storage:** SSD
+**VM Disk Storage:** enterprise-grade SSD of 1TB
 
-- 1x sparsely allocated disk of minimum 1TB size
-
-*The disk has to be either an enterprise-grade SSD (preferably NVMe) or a ZFS zvol/dataset with sync set to *disabled*
+*The disk has to be either an enterprise-grade SSD (preferably NVMe) or a sparsely allocated ZFS zvol/dataset with sync set to *disabled*
 
 ### Example Recommended Spec System
 
@@ -91,7 +74,7 @@ Systems complying with these recommended specifications will likely be able to r
 
 ### VM Creation Instructions
 
-On the left of this page in the sidebar, under this page and in the `virtual-machines` section, you will see links to creating the Talos VM on various types of host systems including TrueNAS SCALE, Proxmox and more.
+You can find the VM install instructions [here](https://truecharts.org/clustertool/virtual-machines/truenas-scale/)
 
 ### Best Effort CPU Recommendations
 

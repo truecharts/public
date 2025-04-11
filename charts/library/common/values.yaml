@@ -128,11 +128,11 @@ securityContext:
 # Can be overruled per container
 resources:
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 2000m
+    memory: 2Gi
   requests:
-    cpu: 10m
-    memory: 50Mi
+    cpu: 100m
+    memory: 200Mi
 
 containerOptions:
   NVIDIA_CAPS:
