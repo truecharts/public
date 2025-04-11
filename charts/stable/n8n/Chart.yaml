@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.7
+    version: 15.6.8
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -44,5 +44,5 @@ sources:
   - https://github.com/n8n-io/n8n
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
 type: application
-version: 15.48.0
+version: 15.48.1
 

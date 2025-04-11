@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.7
+    version: 15.6.8
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -42,5 +42,5 @@ sources:
   - https://hub.docker.com/r/vikunja/vikunja
   - https://vikunja.io/docs
 type: application
-version: 15.10.8
+version: 15.10.9
 

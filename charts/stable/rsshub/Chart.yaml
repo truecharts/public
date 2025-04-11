@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.7
+    version: 15.6.8
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -45,5 +45,5 @@ sources:
   - https://hub.docker.com/r/browserless/chrome
   - https://hub.docker.com/r/diygod/rsshub
 type: application
-version: 14.11.46
+version: 14.11.47
 
