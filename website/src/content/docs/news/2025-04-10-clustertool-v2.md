@@ -100,7 +100,7 @@ which was previously used to test and release charts but its code was never rele
 Thank to the home-operations team for providing and maintaining their [OCI mirror](https://github.com/home-operations/charts-mirror) 🎉
 
 This ensures every one of us, can fully use the power of OCI-backed Helm-charts in our clusters!
-  
+
 ## Important Notice for SCALE Users
 
 Starting with v2, Clustertool will no longer include any tooling or support for SCALE exports, conversions,
