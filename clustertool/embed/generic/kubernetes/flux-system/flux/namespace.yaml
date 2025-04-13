@@ -2,7 +2,6 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-    name: flux-system
-    labels:
-        pod-security.kubernetes.io/enforce: privileged
-        topolvm.io/webhook: ignore
+  name: flux-system
+  labels:
+    pod-security.kubernetes.io/enforce: privileged

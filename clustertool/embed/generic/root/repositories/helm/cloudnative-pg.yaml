@@ -6,5 +6,6 @@ metadata:
   name: cloudnative-pg
   namespace: flux-system
 spec:
+  type: oci
   interval: 2h
-  url: https://cloudnative-pg.github.io/charts
+  url: oci://ghcr.io/cloudnative-pg/charts

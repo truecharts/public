@@ -14,7 +14,7 @@ podSpec:
         {{- if  .Values.plextraktsync.task }}
         - {{ .Values.plextraktsync.task }}
         {{- else }}
-        - sync --sync=all
+        - sync
         {{- end }}
       probes:
         liveness:

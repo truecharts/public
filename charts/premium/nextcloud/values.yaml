@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v31.0.2@sha256:bef972db87b961533b11a3016c507b395f3533b38cf601174a22215dc34b5df9
+  tag: v31.0.2@sha256:3b258d54c912385ec009b7d624366464bb8c5c72caab5a1f88985a6669dbca27
 nginxImage:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.27.4@sha256:7f5f11aecd21f0f95267396b8e0fb839312368fdaa51b15199d28f03d91ccdc3
+  tag: 1.27.4@sha256:8df8fee6cabcd54c545a8a28a41d04a80cdcedb28c30c068e512f5a56aee4de4
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -17,11 +17,11 @@ hpbImage:
 clamavImage:
   repository: docker.io/clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.2@sha256:dd5da3bad15392ef36f2aff3f8ab8c41e933fcc4598f511c3918603aff477ab3
+  tag: 1.4.2@sha256:c996a6d1f12225d5ee225d0953696b7c1b7415e170d2455a8ea8b6a0ca3d5fc4
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
-  tag: 24.04.13.2.1@sha256:01dc4ab83977edf0f2eb35c07973ac267ebccf4917d3311efa9b9e336709f608
+  tag: 24.04.13.3.1@sha256:c918662331cbd13b28ef2f7d2d7d91055948adfcadaff21c687cbbbe08258729
 
 nextcloud:
   # Initial Credentials
@@ -518,7 +518,6 @@ redis:
   enabled: true
   includeCommon: true
   username: default
-
 
 ingressMiddlewares:
   traefik:

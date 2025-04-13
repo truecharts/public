@@ -61,7 +61,7 @@ jobs:
       - name: Install ./clustertool
         shell: bash
         run: |
-          VERSION="2.0.0-BETA-10"
+          VERSION="2.0.0-BETA-17"
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
           URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
 
@@ -79,7 +79,7 @@ jobs:
         shell: bash
         if: github.event_name == 'push'
         run: |
-          ver=$(./temp/clustertool charts genchangelog format-version)
+          ver="1"
           rev="1"
           key="changelog-format-$ver-rev-$rev"
           echo "Cache Key is: $key"
@@ -95,8 +95,6 @@ jobs:
           restore-keys: |
             ${{ env.CHANGELOG_CACHE_KEY }}-${{ hashFiles('**/Chart.yaml') }}
             ${{ env.CHANGELOG_CACHE_KEY }}-
-
-
 
       - name: Generate Changelog
         shell: bash
@@ -114,7 +112,16 @@ jobs:
           fi
 
           ./temp/clustertool charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
-          gzip "$JSON_FILE" --best
+
+          # TODO: Test remove later
+          echo "temp content:"
+          ls ./temp/
+          echo ""
+          echo "rootcontent"
+          ls ./
+          echo ""
+
+          gzip "$JSON_FILE" --best || echo "Compression failed, ignoring..."
 
       - name: Fix Pre-Commit issues
         shell: bash

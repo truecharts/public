@@ -1,6 +1,6 @@
 image:
   repository: docker.io/docuseal/docuseal
-  tag: 1.9.7@sha256:082d68ea5fde2d6b7d33504e90e94046e6093907c554b182aa6d81fe94cd8333
+  tag: 1.9.8@sha256:505cbb4d3b6c39d820a9c22dc5796a7b23046a3554a476c000a71ecf0b4acca0
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -41,8 +41,6 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
-
 
 cnpg:
   main:

@@ -9,7 +9,7 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.14.7
+appVersion: 2.15.1
 dependencies:
   - name: common
     version: 25.4.10
@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.7
+    version: 15.6.8
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -46,4 +46,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://paperless-ngx.readthedocs.io/en/latest/
 type: application
-version: 9.17.10
+version: 9.18.2
+

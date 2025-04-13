@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/chroma-core/chroma
   pullPolicy: IfNotPresent
-  tag: 0.6.3@sha256:e0e78dc7609a599b63c99753442c7d01b1d3d369ce0e3bf3e0540536fec4fa7a
+  tag: 1.0.4@sha256:94227fc91f8bc5358ff72f8474375905e05b7c2dc8e7ec400aaeee70cc7f0348
 
 securityContext:
   container:
@@ -25,11 +25,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/api/v1/heartbeat"
+              path: "/api/v2/heartbeat"
             readiness:
-              path: "/api/v1/heartbeat"
+              path: "/api/v2/heartbeat"
             startup:
-              path: "/api/v1/heartbeat"
+              path: "/api/v2/heartbeat"
           env:
             IS_PERSISTENT: true
 

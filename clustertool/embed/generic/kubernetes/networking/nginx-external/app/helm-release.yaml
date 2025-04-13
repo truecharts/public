@@ -13,7 +13,7 @@ spec:
       version: 4.12.1
       sourceRef:
         kind: HelmRepository
-        name: ingress-nginx
+        name: home-ops-mirror
         namespace: flux-system
       interval: 15m
   timeout: 20m
@@ -38,8 +38,6 @@ spec:
           # internal-dns.alpha.kubernetes.io/hostname: external.${DOMAIN_0}
           metallb.io/ip-allocated-from-pool: main
           metallb.io/loadBalancerIPs: ${NGINX_EXTERNAL_IP}
-          metallb.universe.tf/ip-allocated-from-pool: main
-          "lbipam.cilium.io/ips": ${NGINX_EXTERNAL_IP}
       ingressClassByName: true
       watchIngressWithoutClass: false
       ingressClassResource:
