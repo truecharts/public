@@ -13,7 +13,7 @@ Feel free to open a thread in the appropiate Channel in our Discord server.
 
 - Having your GPU isolated when using a VM
 - Passed the GPU to your Talos Machine when using a VM
-- Node Feature Discovery
+- Node Feature Discovery added to your cluster
 
 ## Extensions for Talhelper/Clustertool
 
