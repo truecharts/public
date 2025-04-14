@@ -152,54 +152,23 @@ annotations:
 When using Authentik, take care to configure the service as follows. 
 
 ```yaml
-ingress:
-  main:
-    enabled: true
-    primary: true
-    ingressClassName: external
-    annotations:
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    integrations:
-      traefik:
-        enabled: false
-      certManager:
-        enabled: true
-        certificateIssuer: "letsencrypt"
-    hosts:
-      - host: "auth.${DOMAIN_1}"
-  proxy:
-    enabled: true
-    advanced: false
-    ingressClassName: external
-    integrations:
-      traefik:
-        enabled: false
-      certManager:
-        certificateIssuer: "letsencrypt"
-        enabled: true
-    tls: []
-    hosts:
-      - host: "auth-proxy.${DOMAIN_1}"
+annotations:
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 ```
 
 For domain-level forward auth, you must configure the embedded outpost first (please refer to
-Authentik's docs). The basic steps are to create a provider and application, then enable the embedded outpost for your newly created application.
+[Authentik's docs](https://truecharts.org/charts/stable/authentik/how_to/)). The basic steps are to create a provider and application, then enable the embedded outpost for your newly created application.
 
 Once that has been done, configure each service you wish to place behind Authentik as follows:
 
 ```yaml
-ingress:
-  main:
-    enabled: true
-    primary: true
-    ingressClassName: internal
-    annotations:
-      nginx.ingress.kubernetes.io/auth-url: http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/nginx
-      nginx.ingress.kubernetes.io/auth-signin: https://auth.${DOMAIN_1}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
-      nginx.ingress.kubernetes.io/auth-response-headers: Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
-      nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
+annotations:
+  nginx.ingress.kubernetes.io/auth-url: http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/nginx
+  nginx.ingress.kubernetes.io/auth-signin: https://auth.${DOMAIN_1}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
+  nginx.ingress.kubernetes.io/auth-response-headers: Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
+  nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
 ```
 
 ### IP Whitelist
