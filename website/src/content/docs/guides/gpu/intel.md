@@ -53,11 +53,12 @@ Add the following repo to your cluster if using fluxcd:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: intel
+  name: home-ops-mirror
   namespace: flux-system
 spec:
+  type: oci
   interval: 2h
-  url: https://intel.github.io/helm-charts
+  url: oci://ghcr.io/home-operations/charts-mirror
 
 ```
 

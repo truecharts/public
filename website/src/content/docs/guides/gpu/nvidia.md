@@ -172,10 +172,10 @@ spec:
         spec:
             # renovate: registryUrl=https://charts.truechartsoci.org
             chart: nvidia-device-plugin
-            version:  0.17.0
+            version:  0.17.1
             sourceRef:
                 kind: HelmRepository
-                name: nvdp
+                name: home-ops-mirror
                 namespace: flux-system
             interval: 5m
     install:
@@ -213,15 +213,17 @@ Don't forget to add the required repository `nvdp.yaml` into the `repositories/h
 
 ```yaml
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/helmrepository_v1.json
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: nvdp
+  name: home-ops-mirror
   namespace: flux-system
 spec:
-  interval: 1h
-  url: https://nvidia.github.io/k8s-device-plugin
-  timeout: 3m
+  type: oci
+  interval: 2h
+  url: oci://ghcr.io/home-operations/charts-mirror
+
 ```
 
 ## Example of GPU Assignment
