@@ -25,7 +25,7 @@ Systems complying with these minimum specifications will be able to run **some**
 
 **CPU:** 6 *Physical* Cores of AMD Ryzen or Intel 8th Gen Core or better families
 
-* for VMs: dedicated 2 Cores remaining for the host system, e.g. SCALE or Proxmox
+* for VMs: dedicated 1 Core (2 Threads) remaining for the host system, e.g. SCALE or Proxmox
 
 **RAM:** 16GB or more
 
@@ -50,7 +50,9 @@ Systems complying with these minimum specifications will be able to run **some**
 
 Systems complying with these recommended specifications will likely be able to run any Chart we offer, and likely many at the same time, depending on system load and the specific Charts in deployment.
 
-**CPU:** 8+ *Physical* Cores of AMD Ryzen or Intel 8th Gen Core or better families
+**CPU:** 7+ *Physical* Cores of AMD Ryzen or Intel 8th Gen Core or better families
+
+* for VMs: dedicated 1 Core (2 Threads) remaining for the host system, e.g. SCALE or Proxmox
 
 **RAM:** 48GB or more
 
