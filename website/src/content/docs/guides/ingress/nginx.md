@@ -137,7 +137,7 @@ annotations:
 
 ### Auth
 
-For Authelia, Authentik and more
+#### Authelia
 
 ```yaml
 annotations:
@@ -145,6 +145,30 @@ annotations:
   nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
   nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_1}?rm=$request_method'
   nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
+```
+
+#### Authentik
+
+When using Authentik, take care to configure the service as follows. 
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+```
+
+For domain-level forward auth, you must configure the embedded outpost first (please refer to
+[Authentik's docs](https://truecharts.org/charts/stable/authentik/how_to/)). The basic steps are to create a provider and application, then enable the embedded outpost for your newly created application.
+
+Once that has been done, configure each service you wish to place behind Authentik as follows:
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/auth-url: http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/nginx
+  nginx.ingress.kubernetes.io/auth-signin: https://auth.${DOMAIN_1}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
+  nginx.ingress.kubernetes.io/auth-response-headers: Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
+  nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
 ```
 
 ### IP Whitelist
