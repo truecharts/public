@@ -81,7 +81,7 @@ tests:
             name: emptyDir-vol
             emptyDir:
               medium: Memory
-              sizeLimit: 8Gi
+              sizeLimit: 2Gi
 
   - it: should pass with emptyDir volume with size set
     set:
