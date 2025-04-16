@@ -2,6 +2,7 @@
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
 
+  {{- $_ := set $objectData "integrations" ($objectData.integrations | default dict) -}}
   {{- $traefik := $objectData.integrations.traefik -}}
 
   {{- if $traefik.enabled -}}

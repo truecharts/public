@@ -2,6 +2,7 @@
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
 
+  {{- $_ := set $objectData "integrations" ($objectData.integrations | default dict) -}}
   {{- $metallb := $objectData.integrations.metallb -}}
 
   {{- if $metallb.enabled -}}
