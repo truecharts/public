@@ -29,5 +29,6 @@
         {{- $_ := set set $objectData.annotations "lbipam.cilium.io/ips" (join "," $ips) -}}
       {{- end -}}
 
+    {{- end -}}
   {{- end -}}
 {{- end -}}

@@ -8,5 +8,4 @@
     {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/service.serversscheme" "https" -}}
   {{- end -}}
 
-  {{- end -}}
 {{- end -}}
