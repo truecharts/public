@@ -81,7 +81,7 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-24.04
     env:
-      helmUnitVersion: 0.7.1
+      helmUnitVersion: 0.8.1
     strategy:
       fail-fast: false
       matrix:

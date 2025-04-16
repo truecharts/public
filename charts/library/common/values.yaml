@@ -63,12 +63,7 @@ global:
     cnpg:
       pgVersion: 16
       skipEmptyWalArchiveCheck: true
-  metallb:
-    # -- Adds metalLB annotations to services
-    addServiceAnnotations: true
   traefik:
-    # -- Adds traefik annotations to services (when needed)
-    addServiceAnnotations: true
     commonMiddlewares:
       - name: tc-basic-secure-headers
   # -- Minimum nodePort value
@@ -203,6 +198,20 @@ diagnosticMode:
 # -- (docs/service/README.md)
 service:
   main:
+    ##  Integration stuff
+    # integration:
+    #   metallb:
+    #     enabled: false
+    ## Optional to set shared key manually, otherwise set to namespace
+    #     sharedKey: ""
+    #
+    #   cilium:
+    #     enabled: false
+    ## Optional to set shared key manually, otherwise ignored (namespace sharing)
+    #     sharedKey: ""
+    #
+    #   traefik:
+    #     enabled: false
     enabled: true
     primary: true
     ports:

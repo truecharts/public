@@ -42,11 +42,11 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should override the default limits
     set:
@@ -89,8 +89,8 @@ tests:
                 nvidia.com/gpu: 1
                 some-resource: 1
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should override the default limits from top level
     set:
@@ -134,8 +134,8 @@ tests:
                 memory: 4Gi
                 some-other-resource: 2
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should override the default limits.cpu
     set:
@@ -169,10 +169,10 @@ tests:
             resources:
               limits:
                 cpu: 2000m
-                memory: 8Gi
+                memory: 1500Mi
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should override the default limits.memory
     set:
@@ -205,11 +205,11 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
+                cpu: 1000m
                 memory: 4Gi
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should not render limits.cpu
     set:
@@ -242,10 +242,10 @@ tests:
           content:
             resources:
               limits:
-                memory: 8Gi
+                memory: 1500Mi
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should not render limits.memory
     set:
@@ -278,10 +278,10 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
+                cpu: 1000m
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
 
   - it: should override the default requests
     set:
@@ -315,8 +315,8 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
               requests:
                 cpu: 200m
                 memory: 1Gi
@@ -352,11 +352,11 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
               requests:
                 cpu: 200m
-                memory: 50Mi
+                memory: 250Mi
 
   - it: should override the default requests.memory
     set:
@@ -389,10 +389,10 @@ tests:
           content:
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
               requests:
-                cpu: 10m
+                cpu: 100m
                 memory: 1Gi
 
   - it: should not add extra resources on "wait" containers and on excluded containers
@@ -451,11 +451,11 @@ tests:
           path: spec.resources
           value:
             limits:
-              cpu: 4000m
-              memory: 8Gi
+              cpu: 1000m
+              memory: 1500Mi
             requests:
-              cpu: 10m
-              memory: 50Mi
+              cpu: 100m
+              memory: 250Mi
       - documentIndex: &deploymentDoc 8
         isKind:
           of: Deployment
@@ -469,12 +469,12 @@ tests:
             name: test-release-name-common-test
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
                 nvidia.com/gpu: 1
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.spec.containers[1]
@@ -482,11 +482,11 @@ tests:
             name: test-release-name-common-test-my-container
             resources:
               limits:
-                cpu: 4000m
-                memory: 8Gi
+                cpu: 1000m
+                memory: 1500Mi
               requests:
-                cpu: 10m
-                memory: 50Mi
+                cpu: 100m
+                memory: 250Mi
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.spec.initContainers[0]
@@ -609,7 +609,7 @@ tests:
       image: *image
       resources:
         requests:
-          cpu: 10m
+          cpu: 100m
           memory: ""
       workload:
         workload-name1:
@@ -632,8 +632,8 @@ tests:
       image: *image
       resources:
         requests:
-          cpu: 10MB
-          memory: 50Mi
+          cpu: 100MB
+          memory: 250Mi
       workload:
         workload-name1:
           enabled: true
@@ -648,18 +648,18 @@ tests:
                 probes: *probes
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected [resources.requests.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [10MB]
+          errorMessage: Container - Expected [resources.requests.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [100MB]
 
   - it: should fail with invalid format in limits.cpu
     set:
       image: *image
       resources:
         requests:
-          cpu: 10m
-          memory: 50Mi
+          cpu: 100m
+          memory: 250Mi
         limits:
-          cpu: 10MB
-          memory: 8Gi
+          cpu: 100MB
+          memory: 1500Mi
       workload:
         workload-name1:
           enabled: true
@@ -674,18 +674,18 @@ tests:
                 probes: *probes
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected [resources.limits.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [10MB]
+          errorMessage: Container - Expected [resources.limits.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [100MB]
 
   - it: should fail with invalid format in requests.memory
     set:
       image: *image
       resources:
         requests:
-          cpu: 10m
+          cpu: 100m
           memory: 50MB
         limits:
-          cpu: 4000m
-          memory: 8Gi
+          cpu: 1000m
+          memory: 1500Mi
       workload:
         workload-name1:
           enabled: true
@@ -707,10 +707,10 @@ tests:
       image: *image
       resources:
         requests:
-          cpu: 10m
-          memory: 50Mi
+          cpu: 100m
+          memory: 250Mi
         limits:
-          cpu: 4000m
+          cpu: 1000m
           memory: 8GB
       workload:
         workload-name1:
