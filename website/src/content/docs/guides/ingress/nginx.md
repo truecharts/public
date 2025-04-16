@@ -149,7 +149,7 @@ annotations:
 
 #### Authentik
 
-When using Authentik, take care to configure the service as follows. 
+When using Authentik, take care to configure the service as follows.
 
 ```yaml
 annotations:
