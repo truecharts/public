@@ -8,14 +8,15 @@ MASTER1IP: 192.168.20.210
 GATEWAY: 192.168.20.1
 # Defines the ip range metallb is allowed to use
 METALLB_RANGE: 192.168.20.211-192.168.20.219
+##  IP's for NGINX, BLOCKY and DASHBOARD. Has to be within METALLB_RANGE and not in use
 # IP NGINX will use for exposing ingress-resources. Internal refers to LAN-only NGINX ingress, dont port-forward at router
-NGINX_INTERNAL_IP: 192.168.20.221
+NGINX_INTERNAL_IP: 192.168.20.211
 # IP NGINX will use for exposing ingress-resources. Internal refers to LAN-and-WAN NGINX ingress, DO port-forward at router
-NGINX_EXTERNAL_IP: 192.168.20.222
+NGINX_EXTERNAL_IP: 192.168.20.212
 # IP Blocky DNS will be exposed on
-BLOCKY_IP: 192.168.20.212
-# Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use
-DASHBOARD_IP: 192.168.20.213
+BLOCKY_IP: 192.168.20.213
+# Sets the Kubernetes Dashboard IP
+DASHBOARD_IP: 192.168.20.214
 ## Configures Traefik, ClusterIssuer and Blocky for said domain, using these credentials
 # domain is the base/highest level of your domain, so without subdomain, example: truecharts.org, not somesite.truecharts.org
 # To disable, please see the comments in their respective helm-values.yaml files!

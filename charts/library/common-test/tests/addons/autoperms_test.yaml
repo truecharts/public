@@ -176,7 +176,7 @@ tests:
             name: tmp
             emptyDir:
               medium: Memory
-              sizeLimit: 8Gi
+              sizeLimit: 1500Mi
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts
@@ -367,19 +367,19 @@ tests:
           path: spec.template.spec.containers[0].resources
           value:
             requests:
-              cpu: 10m
-              memory: 50Mi
+              cpu: 100m
+              memory: 250Mi
             limits:
-              cpu: 4000m
-              memory: 8Gi
+              cpu: 1000m
+              memory: 1500Mi
               nvidia.com/gpu: 1
       - documentIndex: *jobDoc
         equal:
           path: spec.template.spec.containers[0].resources
           value:
             requests:
-              cpu: 10m
-              memory: 50Mi
+              cpu: 100m
+              memory: 250Mi
             limits:
               cpu: 2000m
               memory: 2Gi

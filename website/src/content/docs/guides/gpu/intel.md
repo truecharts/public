@@ -13,6 +13,7 @@ Feel free to open a thread in the appropiate Channel in our Discord server.
 
 - Having your GPU isolated when using a VM
 - Passed the GPU to your Talos Machine when using a VM
+- Node Feature Discovery added to your cluster
 
 ## Extensions for Talhelper/Clustertool
 
@@ -21,7 +22,6 @@ Feel free to open a thread in the appropiate Channel in our Discord server.
 This Section assumes you are using Clustertool or Talhelper for your talos cluster. The steps may differ otherwise.
 
 :::
-
 
 Its important to add the following Extensions to your `talconfig.yaml` for bootstrap:
 
@@ -53,11 +53,12 @@ Add the following repo to your cluster if using fluxcd:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: intel
+  name: home-ops-mirror
   namespace: flux-system
 spec:
+  type: oci
   interval: 2h
-  url: https://intel.github.io/helm-charts
+  url: oci://ghcr.io/home-operations/charts-mirror
 
 ```
 
