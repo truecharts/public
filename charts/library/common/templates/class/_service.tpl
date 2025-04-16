@@ -57,14 +57,14 @@ objectData: The service data, that will be used to render the Service object.
   {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $svcType = "ClusterIP" -}}
   {{- end -}}
-  {{- $_ := set $objectData "type" $svcType  }}
+  {{- $_ := set $objectData "type" $svcType -}}
 
   {{- if eq $objectData.type "LoadBalancer" -}}
     {{- include "tc.v1.common.lib.service.integration.metallb" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- end -}}
   {{- if $hasHTTPSPort -}}
     {{- include "tc.v1.common.lib.service.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- end -}}
+  {{- end }}
 ---
 apiVersion: v1
 kind: Service
@@ -106,12 +106,12 @@ spec:
       {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $podValues.shortName) | trim | nindent 4 -}}
     {{- end }}
   {{- end -}}
+
   {{- if eq $objectData.type "ExternalIP" -}}
     {{- $useSlice := true -}}
     {{- if kindIs "bool" $objectData.useSlice -}}
       {{- $useSlice = $objectData.useSlice -}}
     {{- end -}}
-
     {{- if $useSlice -}}
       {{- include "tc.v1.common.class.endpointSlice" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 0 }}
     {{- else -}}
