@@ -12,6 +12,7 @@
     {{- if $metallb.sharedKey -}}
       {{- $sharedKey = $metallb.sharedKey -}}
     {{- end -}}
+
     {{/* If externalTrafficPolicy is not set or is not Local, add the shared key as annotation */}}
     {{- if ne $objectData.externalTrafficPolicy "Local" -}}
       {{- $_ := set $objectData.annotations "metallb.io/allow-shared-ip" $sharedKey -}}
@@ -25,14 +26,12 @@
     {{- end -}}
 
     {{/* Handle loadBalancerIPs (multiple) */}}
-    {{- if $objectData.loadBalancerIPs -}}
-      {{- range $ip := $objectData.loadBalancerIPs -}}
-        {{- $ips = mustAppend $ips (tpl $ip $rootCtx) -}}
-      {{- end -}}
+    {{- range $ip := $objectData.loadBalancerIPs -}}
+      {{- $ips = mustAppend $ips (tpl $ip $rootCtx) -}}
     {{- end -}}
 
     {{- if $ips -}}
-      {{- $_ := set set $objectData.annotations "metallb.io/loadBalancerIPs" (join "," $ips) -}}
+      {{- $_ := set $objectData.annotations "metallb.io/loadBalancerIPs" (join "," $ips) -}}
     {{- end -}}
 
   {{- end -}}

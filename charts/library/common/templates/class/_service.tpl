@@ -61,6 +61,7 @@ objectData: The service data, that will be used to render the Service object.
 
   {{- if eq $objectData.type "LoadBalancer" -}}
     {{- include "tc.v1.common.lib.service.integration.metallb" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+    {{- include "tc.v1.common.lib.service.integration.cilium" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- end -}}
   {{- if $hasHTTPSPort -}}
     {{- include "tc.v1.common.lib.service.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
