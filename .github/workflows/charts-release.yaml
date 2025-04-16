@@ -61,7 +61,7 @@ jobs:
       - name: Install ./clustertool
         shell: bash
         run: |
-          VERSION="2.0.0-BETA-10"
+          VERSION="2.0.0-BETA-17"
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
           URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
 
@@ -112,7 +112,16 @@ jobs:
           fi
 
           ./temp/clustertool charts genchangelog "$REPO_PATH" "$TEMPLATE_PATH" "$OUTPUT_DIR"
-          gzip "$JSON_FILE" --best
+
+          # TODO: Test remove later
+          echo "temp content:"
+          ls ./temp/
+          echo ""
+          echo "rootcontent"
+          ls ./
+          echo ""
+
+          gzip "$JSON_FILE" --best || echo "Compression failed, ignoring..."
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -243,7 +252,7 @@ jobs:
 
       - name: Setup Node
         if: needs.check_changes.outputs.changes_detected == 'true' && needs.check_changes.outputs.changes_detected == 'true'
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: ./website/.nvmrc
 

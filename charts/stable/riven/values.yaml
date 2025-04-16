@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/elfhosted/riven
   pullPolicy: IfNotPresent
-  tag: v0.21.18@sha256:a3dc73edaf4f510de5d1f4b05ae5b19c798af957d007e7f93680aa161c9b26ba
+  tag: v0.21.19@sha256:89b51038244790d5942dbb5fb81bcf99c9500869cec0b1ab8ac38c2f20af8a60
 
 frontendImage:
   repository: ghcr.io/elfhosted/riven-frontend
@@ -104,7 +104,6 @@ cnpg:
     enabled: true
     user: riven
     database: riven
-
 
 ingress:
   main:
