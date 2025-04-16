@@ -2,10 +2,13 @@
 # This is to have common test cases without getting affected
 # by any default values.
 
-global:
-  createTCNamespace: false
-  traefik:
-    commonMiddlewares: []
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
 
 workload:
   main:
