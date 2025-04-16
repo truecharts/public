@@ -2,6 +2,10 @@
 # This is to have common test cases without getting affected
 # by any default values.
 
+global:
+  traefik:
+    commonMiddlewares: []
+
 resources:
   limits:
     cpu: 4000m
