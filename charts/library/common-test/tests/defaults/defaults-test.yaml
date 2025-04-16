@@ -90,21 +90,21 @@ tests:
               - name: devshm
                 emptyDir:
                   medium: Memory
-                  sizeLimit: 8Gi
+                  sizeLimit: 1500Mi
               - name: shared
                 emptyDir: {}
               - name: tmp
                 emptyDir:
                   medium: Memory
-                  sizeLimit: 8Gi
+                  sizeLimit: 1500Mi
               - name: varlogs
                 emptyDir:
                   medium: Memory
-                  sizeLimit: 8Gi
+                  sizeLimit: 1500Mi
               - name: varrun
                 emptyDir:
                   medium: Memory
-                  sizeLimit: 8Gi
+                  sizeLimit: 1500Mi
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.spec.containers[0]

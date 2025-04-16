@@ -339,19 +339,17 @@ func setDocker() {
     // Assuming this is part of your function
     if helper.TalEnv["DOCKERHUB_USER"] != "" && helper.TalEnv["DOCKERHUB_PASSWORD"] != "" {
         // Prepare the content to append
-        configContent := fmt.Sprintf(`# Add Dockerhub Login
-- op: add
-  path: /machine/registries/config
-  value:
-    registry-1.docker.io:
-      auth:
-        username: "%s"
-        password: "%s"
-    docker.io:
-      auth:
-        username: "%s"
-        password: "%s"
-    `, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
+        configContent := fmt.Sprintf(`
+    # Add Dockerhub Login
+    config
+      registry-1.docker.io:
+        auth:
+          username: "%s"
+          password: "%s"
+      docker.io:
+        auth:
+          username: "%s"
+          password: "%s"`, helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"], helper.TalEnv["DOCKERHUB_USER"], helper.TalEnv["DOCKERHUB_PASSWORD"])
 
         // Open the file in append mode or create it if it doesn't exist
         file, err := os.OpenFile(filepath.Join(helper.ClusterPath+"/talos/patches", "all.yaml"), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)

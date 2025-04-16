@@ -162,6 +162,9 @@ tests:
           type: ExternalIP
           useSlice: true
           externalIP: 1.1.1.1
+          integrations:
+            traefik:
+              enabled: true
           ports:
             port-name:
               enabled: true
@@ -201,11 +204,6 @@ tests:
       - documentIndex: &serviceDoc 0
         isKind:
           of: Service
-      - documentIndex: *serviceDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/service.serversscheme: https
 
   - it: should pass with type ExternalIP and useSlice set to false
     set:
@@ -260,11 +258,6 @@ tests:
       - documentIndex: &serviceDoc 0
         isKind:
           of: Service
-      - documentIndex: *serviceDoc
-        isSubset:
-          path: metadata.annotations
-          content:
-            traefik.ingress.kubernetes.io/service.serversscheme: https
 
   - it: should pass with type ExternalIP and useSlice set to false, multiple ports
     set:

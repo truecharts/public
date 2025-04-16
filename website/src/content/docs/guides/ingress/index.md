@@ -19,6 +19,7 @@ To setup ingress, add the following minimal section to the values.yaml manually,
 ingress:
   main:
     enabled: true
+    ingressClassName: internal
     hosts:
       - host: chart-example.local
 ```
@@ -29,9 +30,12 @@ This can be expanded by adding "integrations" with cert-manager, and/or homepage
 ingress:
   main:
     enabled: true
+    ingressClassName: internal
     hosts:
       - host: chart-example.local
     integrations:
+      traefik:
+        enabled: false
       certManager:
         enabled: false
         certificateIssuer: ""
