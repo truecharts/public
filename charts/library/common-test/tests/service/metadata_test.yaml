@@ -121,19 +121,19 @@ tests:
           path: metadata.namespace
           value: test-release-namespace
 
-  - it: should pass with service type LoadBalancer, with https port and metallb.addServiceAnnotations/Traefik true
+  - it: should pass with service type LoadBalancer, with https port and metallb and traefik integrations enabled
     set:
-      global:
-        metallb:
-          addServiceAnnotations: true
-        traefik:
-          addServiceAnnotations: true
       proto: https
       service:
         my-service1:
           enabled: true
           primary: true
           type: LoadBalancer
+          integrations:
+            metallb:
+              enabled: true
+            traefik:
+              enabled: true
           ports:
             port-name:
               enabled: true
@@ -159,14 +159,14 @@ tests:
 
   - it: should add metallb shared ip annotation without externalTrafficPolicy
     set:
-      global:
-        metallb:
-          addServiceAnnotations: true
       service:
         my-service1:
           enabled: true
           primary: true
           type: LoadBalancer
+          integrations:
+            metallb:
+              enabled: true
           ports:
             port-name:
               enabled: true
@@ -190,15 +190,15 @@ tests:
 
   - it: should add metallb shared ip annotation with externalTrafficPolicy set to Cluster
     set:
-      global:
-        metallb:
-          addServiceAnnotations: true
       service:
         my-service1:
           enabled: true
           primary: true
           type: LoadBalancer
           externalTrafficPolicy: Cluster
+          integrations:
+            metallb:
+              enabled: true
           ports:
             port-name:
               enabled: true
@@ -222,14 +222,14 @@ tests:
 
   - it: should NOT add metallb shared ip annotation with externalTrafficPolicy set to Local
     set:
-      global:
-        metallb:
-          addServiceAnnotations: true
       service:
         my-service1:
           enabled: true
           primary: true
           type: LoadBalancer
+          integrations:
+            metallb:
+              enabled: true
           externalTrafficPolicy: Local
           ports:
             port-name:
