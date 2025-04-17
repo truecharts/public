@@ -195,6 +195,24 @@ TZ: UTC
 diagnosticMode:
   enabled: false
 
+# -- Easy Vertical pod autoscaler
+vpa:
+  main:
+    enabled: false
+    targetSelector: []
+    # updatePolicy:
+    #   updateMode: auto
+    resourcePolicy:
+      containerPolicies:
+      - containerName: '*'
+        minAllowed:
+          cpu: 50m
+          memory: 50Mi
+        maxAllowed:
+          cpu: 8000m
+          memory: 20Gi
+        controlledResources: ["cpu", "memory"]
+
 # -- (docs/service/README.md)
 service:
   main:
