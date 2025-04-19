@@ -43,3 +43,11 @@ persistence:
   metadata:
     enabled: true
     mountPath: /metadata
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 750Mi
+  requests:
+    cpu: 50m
+    memory: 125Mi

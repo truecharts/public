@@ -538,3 +538,11 @@ ingress:
       traefik:
         chartMiddlewares:
           - nextcloud-redirect
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+  requests:
+    cpu: 200m
+    memory: 500Mi
