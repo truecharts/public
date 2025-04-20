@@ -10,6 +10,9 @@ cluster:
   controllerManager:
     extraArgs:
       bind-address: 0.0.0.0
+  etcd:
+    extraArgs:
+      listen-metrics-urls: http://0.0.0.0:2381
   proxy:
     extraArgs:
       metrics-bind-address: 0.0.0.0:10249
