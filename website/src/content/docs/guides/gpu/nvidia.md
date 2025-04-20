@@ -170,7 +170,6 @@ spec:
     interval: 5m
     chart:
         spec:
-            # renovate: registryUrl=https://charts.truechartsoci.org
             chart: nvidia-device-plugin
             version:  0.17.1
             sourceRef:

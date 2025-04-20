@@ -38,7 +38,7 @@ spec:
       version: 21.5.7
       sourceRef:
         kind: HelmRepository
-        name: truechartsoci
+        name: truecharts
         namespace: flux-system
       interval: 15m
   timeout: 20m
