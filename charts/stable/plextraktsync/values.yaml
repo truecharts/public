@@ -22,11 +22,6 @@ plextraktsync:
   task: ""
   schedule: "0 */6 * * *"
 
-cronjob:
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
-
 workload:
   main:
     podSpec:
@@ -41,8 +36,36 @@ workload:
               enabled: false
             startup:
               enabled: false
+  plextraktsync-cron:
+    enabled: "{{ .Values.plextraktsync.cron_enabled }}"
+    type: CronJob
+    schedule: "{{ .Values.plextraktsync.schedule }}"
+    podSpec:
+      restartPolicy: Never
+      containers:
+        cron:
+          primary: true
+          enabled: true
+          imageSelector: "image"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          args:
+            - {{ .Values.plextraktsync.task }}
 
 persistence:
   config:
     enabled: true
     mountPath: /app/config
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html
+      plextraktsync-cron:
+        cron:
+          mountPath: /var/www/html
+
