@@ -17,7 +17,7 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # required for Credentials for IGDB
             TWITCH_CLIENT_ID: "fake_client_id"
-            TWITCH_APP_ACCESS_TOKEN: "fake_access_token"
+            TWITCH_CLIENT_SECRET: "fake_access_secret"
 persistence:
   database:
     enabled: true
