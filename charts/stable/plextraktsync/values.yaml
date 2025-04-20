@@ -55,7 +55,7 @@ workload:
             startup:
               enabled: false
           args:
-            - {{ .Values.plextraktsync.task }}
+            - "{{ .Values.plextraktsync.task }}"
 
 persistence:
   config:
