@@ -61,7 +61,7 @@ tests:
           updatePolicy: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Vertical Pod Autoscaler - Expected [updatePolicy] to be a dictionary, but got [string]
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.updatePolicy] to be a dictionary, but got [string]
 
   - it: should fail with updatePolicy.updateMode not valid
     set:
@@ -154,3 +154,167 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Vertical Pod Autoscaler - Value [some-change-requirement] on [vpa.vpa-name.updatePolicy.evictionRequirements.0.changeRequirement] is not valid. Must be one of [TargetHigherThanRequests, TargetLowerThanRequests]
+
+  - it: should fail with resourcePolicy.containerPolicies not a list
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies: not-a-list
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value on [vpa.vpa-name.resourcePolicy.containerPolicies] must be a list, but got [string]
+
+  - it: should fail with resourcePolicy.containerPolicies item not a dict
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - item
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0] to be a dictionary, but got [string]
+
+  - it: should fail with invalid resourcePolicy.containerPolicies.#.containerName
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.containerName] is not valid. Must be one of [*]
+
+  - it: should fail with invalid resourcePolicy.containerPolicies.#.mode
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.mode] is not valid. Must be one of [Auto, Off]
+
+  - it: should fail with resourcePolicy.containerPolicies.controlledResources not a list
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                controlledResources: not-a-list
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0.controlledResources] to be a list, but got [string]
+
+  - it: should fail with invalid item in resourcePolicy.containerPolicies.#.controlledResources
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                controlledResources:
+                  - invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.controlledResources.0] is not valid. Must be one of [cpu, memory]
+
+  - it: should fail with invalid value in resourcePolicy.containerPolicies.#.controlledValues
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                controlledValues: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.controlledValues] is not valid. Must be one of [RequestsAndLimits, RequestsOnly]
+
+  - it: should fail with invalid cpu in minAllowed
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                minAllowed:
+                  cpu: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0.minAllowed.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [invalid]
+
+  - it: should fail with invalid memory in minAllowed
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                minAllowed:
+                  cpu: 1
+                  memory: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0.minAllowed.memory] to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [invalid]
+
+  - it: should fail with invalid cpu in maxAllowed
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                maxAllowed:
+                  cpu: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0.maxAllowed.cpu] to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [invalid]
+
+  - it: should fail with invalid memory in maxAllowed
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                maxAllowed:
+                  cpu: 1000m
+                  memory: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [vpa.vpa-name.resourcePolicy.containerPolicies.0.maxAllowed.memory] to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [invalid]
