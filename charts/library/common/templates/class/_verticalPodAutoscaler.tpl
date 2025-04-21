@@ -7,7 +7,7 @@ using the common library.
   {{- $objectData := .objectData -}}
 
 ---
-apiVersion: {{ include "tc.v1.common.capabilities.vpa.apiVersion" $ }}
+apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
   name: {{ $objectData.name }}
@@ -23,12 +23,12 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  scaleTargetRef:
+  targetRef:
     apiVersion: apps/v1
     kind: {{ $objectData.workload.type }}
     name: {{ $objectData.name }}
   updatePolicy:
-    updateMode: {{ $objectData.updatePolicy.updateMode | default "auto" }}
+    updateMode: {{ $objectData.updatePolicy.updateMode | default "Auto" }}
   resourcePolicy:
     containerPolicies: {{- toYaml $objectData.resourcePolicy.containerPolicies | nindent 4 }}
 
