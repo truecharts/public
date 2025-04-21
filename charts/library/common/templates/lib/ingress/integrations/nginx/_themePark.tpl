@@ -9,8 +9,8 @@
     "proxy_set_header Accept-Encoding \"\";"
     "sub_filter"
     "'</head>'"
-    (printf "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">" $theme.css)
-    "</head>";
+    (printf "'<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">" $theme.css)
+    "</head>';"
     "sub_filter_once on;"
   ) -}}
 

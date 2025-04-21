@@ -3,7 +3,6 @@
   {{- $whiteList := .whiteList -}}
 
   {{- if $whiteList -}}
-    {{- $whiteList =  -}}
     {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/whitelist-source-range" (join "," $whiteList) -}}
   {{- end -}}
 {{- end -}}
