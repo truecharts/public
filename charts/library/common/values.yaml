@@ -670,7 +670,7 @@ ingress:
         themepark:
           enabled: false
           css: ""
-        ipWhitelist: ""
+        ipWhitelist: []
         auth:
           # empty to disable, options: "authentik" or "authelia"
           type: ""
@@ -679,7 +679,7 @@ ingress:
           # External (ingress) Domain name to reach the auth provider, excluding http(s)
           externalHost: ""
           # Optional: override default response headers
-          responseHeaders: ""
+          responseHeaders: []
       homepage:
         enabled: false
         # Default: chart name
