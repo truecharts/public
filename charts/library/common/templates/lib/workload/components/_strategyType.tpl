@@ -18,9 +18,9 @@ objectData:
   {{- end -}}
 
   {{- $volsRWO := list -}}
-  {{- range $name, $persistence := .Values.persistence }}
+  {{- range $name, $persistence := $rootCtx.Values.persistence }}
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                "rootCtx" $rootCtx "objectData" $persistenceValues
+                "rootCtx" $rootCtx "objectData" $persistence
                 "name" $name "caller" "Volumes"
                 "key" "persistence")) -}}
 
@@ -34,8 +34,8 @@ objectData:
           "objectData" $persistence "caller" "Volumes") | fromYamlArray
       -}}
 
-      {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
-      {{- if not $hasRWO -}}{{- continue -}}{{- end -}}
+      {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) -}}
+      {{- if ne $hasRWO "true" -}}{{- continue -}}{{- end -}}
       {{- $volsRWO = mustAppend $volsRWO $name -}}
     {{- end -}}
   {{- end -}}
@@ -66,5 +66,5 @@ objectData:
   {{- end -}}
 
   {{/* Update strategy */}}
-  {{- set $objectData.strategy $strategy -}}
+  {{- $_ := set $objectData "strategy" $strategy -}}
 {{- end -}}
