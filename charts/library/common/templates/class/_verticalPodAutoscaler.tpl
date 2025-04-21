@@ -6,6 +6,8 @@ using the common library.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
+  {{- $_ := set $objectData "updatePolicy" ($objectData.updatePolicy | default dict) -}}
+  {{- $_ := set $objectData "resourcePolicy" ($objectData.resourcePolicy | default dict) }}
 ---
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
@@ -16,7 +18,7 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{- end -}}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
@@ -29,8 +31,15 @@ spec:
     name: {{ $objectData.name }}
   updatePolicy:
     updateMode: {{ $objectData.updatePolicy.updateMode | default "Auto" }}
-  resourcePolicy:
-    containerPolicies: {{- toYaml $objectData.resourcePolicy.containerPolicies | nindent 4 }}
-
+    {{- with $objectData.updatePolicy.minReplicas }}
+    minReplicas: {{ . }}
+    {{- end -}}
+    {{- if $objectData.updatePolicy.evictionRequirements }}
+    evictionRequirements:
+      {{- range $req := $objectData.updatePolicy.evictionRequirements }}
+      - resources: {{ $req.resources | toJson }}
+        changeRequirement: {{ $req.changeRequirement }}
+      {{- end }}
+    {{- end -}}
 
 {{- end -}}
