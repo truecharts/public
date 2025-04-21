@@ -9,8 +9,8 @@ objectData:
 {{- define "tc.v1.common.lib.workload.daemonsetSpec" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{ include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- $strategy := $objectData.strategy }}
+  {{- include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- $strategy := $objectData.strategy -}}
 revisionHistoryLimit: {{ $objectData.revisionHistoryLimit | default 3 }}
 updateStrategy:
   type: {{ $strategy }}

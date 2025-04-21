@@ -1,4 +1,3 @@
-{{/* Deployment Spec */}}
 {{/* Call this template:
 {{ include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
 rootCtx: The root context of the chart.
@@ -14,7 +13,9 @@ objectData:
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
   {{- end -}}
-    {{- set $objectData.strategy $strategy }}
+
+  {{- set $objectData.strategy $strategy }}
+
   {{- if gt $replicas 1 -}}
     {{- set $objectData.strategy $strategy }}
   {{- else -}}
@@ -23,29 +24,26 @@ objectData:
                   "rootCtx" $rootCtx "objectData" $persistenceValues
                   "name" $name "caller" "Volumes"
                   "key" "persistence")) -}}
-      {{- if (eq $enabled "true") -}}
-        {{- $type := ($persistence.type | default $rootCtx.Values.global.fallbackDefaults.persistenceType) -}}
 
-        {{- $typesWithAccessMode := (list "pvc") -}}
-        {{- if (mustHas $type $typesWithAccessMode) -}}
-          {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx
-             "objectData" $persistence "caller" "Volumes") | fromYamlArray
+      {{- if (ne $enabled "true") -}}{{- continue -}}{{- end -}}
+
+      {{- $type := ($persistence.type | default $rootCtx.Values.global.fallbackDefaults.persistenceType) -}}
+      {{- $typesWithAccessMode := (list "pvc") -}}
+
+      {{- if (mustHas $type $typesWithAccessMode) -}}
+        {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx
+            "objectData" $persistence "caller" "Volumes") | fromYamlArray
+        -}}
+
+        {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
+
+        {{- if $hasRWO -}}
+          {{- set $objectData.strategy "Recreate" }}
+          {{- include "add.warning" (dict "rootCtx" $rootCtx "warn" (printf
+            "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] with a single replica and an strategy of [%s]. This is not stable, defaulting to [Recreate] strategy" $name $strategy))
           -}}
-
-          {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
-
-          {{- if $hasRWO -}}
-            {{- set $objectData.strategy "Recreate" }}
-            {{- include "add.warning" (dict "rootCtx" $rootCtx
-                "warn" (printf "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] with a single replica and an strategy of [%s]. This is not stable, defaulting to [Recreate] strategy" $name $strategy))
-            -}}
-          {{- end }}
-        {{- end }}
-
-      {{- end }}
-    {{- end }}
-
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
-
-
 {{- end -}}

@@ -11,7 +11,7 @@ objectData:
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
   {{ include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- $strategy := $objectData.strategy }}
+  {{- $strategy := $objectData.strategy -}}
   {{- $replicas := 1 -}}
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}

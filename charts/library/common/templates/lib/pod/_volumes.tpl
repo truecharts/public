@@ -98,7 +98,6 @@ objectData: The object data to be used to render the Pod.
 
     {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
 
-
     {{- if $hasRWO -}}
       {{- if eq $objectData.type "DaemonSet" -}}
         {{- fail "Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]" -}}
@@ -107,7 +106,6 @@ objectData: The object data to be used to render the Pod.
         {{- include "add.warning" (dict "rootCtx" $rootCtx
             "warn" (printf "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] when on a [Deployment] with more than 1 replica" $name))
         -}}
-
       {{- end -}}
     {{- end -}}
 
