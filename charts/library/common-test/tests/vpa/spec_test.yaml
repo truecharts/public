@@ -1,0 +1,181 @@
+suite: vpa spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create vpa
+    set:
+      workload: &workload
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      vpa:
+        vpa-name:
+          enabled: true
+    asserts:
+      - documentIndex: &vpaDoc 1
+        isKind:
+          of: VerticalPodAutoscaler
+      - documentIndex: *vpaDoc
+        isAPIVersion:
+          of: autoscaling.k8s.io/v1
+      - documentIndex: *vpaDoc
+        isSubset:
+          path: spec
+          content:
+            targetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: test-release-name-common-test
+            updatePolicy:
+              updateMode: Auto
+
+  - it: should create vpa with targetSelector
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name-2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      vpa:
+        vpa-name:
+          enabled: true
+          targetSelector:
+            - workload-name-2
+    asserts:
+      - hasDocuments:
+          count: 3 # 2 Deployments, 1 VPA
+      - documentIndex: &vpaDoc 2
+        isKind:
+          of: VerticalPodAutoscaler
+      - documentIndex: *vpaDoc
+        isAPIVersion:
+          of: autoscaling.k8s.io/v1
+      - documentIndex: *vpaDoc
+        isSubset:
+          path: spec
+          content:
+            targetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: test-release-name-common-test-workload-name-2
+            updatePolicy:
+              updateMode: Auto
+
+  - it: should create vpa with options
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            minReplicas: 2
+            evictionRequirements:
+              - resources: ["cpu"]
+                changeRequirement: TargetHigherThanRequests
+              - resources: ["memory"]
+                changeRequirement: TargetLowerThanRequests
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                controlledResources: ["cpu", "memory"]
+                controlledValues: RequestsAndLimits
+                minAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+                maxAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+    asserts:
+      - documentIndex: &vpaDoc 1
+        isKind:
+          of: VerticalPodAutoscaler
+      - documentIndex: *vpaDoc
+        isAPIVersion:
+          of: autoscaling.k8s.io/v1
+      - documentIndex: *vpaDoc
+        equal:
+          path: spec.updatePolicy
+          value:
+            updateMode: Auto
+            minReplicas: 2
+            evictionRequirements:
+              - changeRequirement: TargetHigherThanRequests
+                resources: ["cpu"]
+              - changeRequirement: TargetLowerThanRequests
+                resources: ["memory"]
+      - documentIndex: *vpaDoc
+        equal:
+          path: spec.resourcePolicy
+          value:
+            containerPolicies:
+              - containerName: "*"
+                mode: Auto
+                controlledResources: ["cpu", "memory"]
+                controlledValues: RequestsAndLimits
+                minAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+                maxAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+  - it: should create vpa with containerPolicies options ignored when mode is Off
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            minReplicas: 2
+            evictionRequirements:
+              - resources: ["cpu"]
+                changeRequirement: TargetHigherThanRequests
+              - resources: ["memory"]
+                changeRequirement: TargetLowerThanRequests
+          resourcePolicy:
+            containerPolicies:
+              - containerName: "*"
+                mode: "Off"
+                controlledResources: ["cpu", "memory"]
+                controlledValues: RequestsAndLimits
+                minAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+                maxAllowed:
+                  cpu: 1000m
+                  memory: 1000Mi
+    asserts:
+      - documentIndex: &vpaDoc 1
+        isKind:
+          of: VerticalPodAutoscaler
+      - documentIndex: *vpaDoc
+        isAPIVersion:
+          of: autoscaling.k8s.io/v1
+      - documentIndex: *vpaDoc
+        equal:
+          path: spec.updatePolicy
+          value:
+            updateMode: Auto
+            minReplicas: 2
+            evictionRequirements:
+              - changeRequirement: TargetHigherThanRequests
+                resources: ["cpu"]
+              - changeRequirement: TargetLowerThanRequests
+                resources: ["memory"]
+      - documentIndex: *vpaDoc
+        equal:
+          path: spec.resourcePolicy
+          value:
+            containerPolicies:
+              - containerName: "*"
+                mode: "Off"

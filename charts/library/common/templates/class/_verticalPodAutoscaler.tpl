@@ -39,7 +39,39 @@ spec:
       {{- range $req := $objectData.updatePolicy.evictionRequirements }}
       - resources: {{ $req.resources | toJson }}
         changeRequirement: {{ $req.changeRequirement }}
-      {{- end }}
+      {{- end -}}
     {{- end -}}
+  {{- if and $objectData.resourcePolicy $objectData.resourcePolicy.containerPolicies }}
+  resourcePolicy:
+    containerPolicies:
+    {{- range $cPol := $objectData.resourcePolicy.containerPolicies }}
+      - containerName: {{ $cPol.containerName | quote }}
+        mode: {{ $cPol.mode }}
+        {{- if eq $cPol.mode "Off" -}}{{- continue -}}{{- end }}
+        controlledValues: {{ $cPol.controlledValues | default "RequestsAndLimits" }}
+      {{- if $cPol.controlledResources }}
+        controlledResources: {{ $cPol.controlledResources | toJson }}
+      {{- end -}}
+      {{- with $cPol.minAllowed -}}
+        {{- include "tc.v1.common.class.vpa.resources" (dict "item" "minAllowed" "resources" $cPol.minAllowed) | nindent 8 -}}
+      {{- end -}}
+      {{- with $cPol.maxAllowed -}}
+        {{- include "tc.v1.common.class.vpa.resources" (dict "item" "maxAllowed" "resources" $cPol.maxAllowed) | nindent 8 -}}
+      {{- end -}}
 
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.vpa.resources" -}}
+  {{- $item := .item -}}
+  {{- $resources := .resources -}}
+
+  {{ $item }}:
+    {{- with $resources.cpu }}
+    cpu: {{ . }}
+    {{- end -}}
+    {{- with $resources.memory }}
+    memory: {{ . }}
+    {{- end -}}
 {{- end -}}
