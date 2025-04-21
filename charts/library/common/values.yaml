@@ -453,9 +453,10 @@ notes:
 
     {{- if .Values.chartContext.internalUrls }}
     ## Connecting Internally
+
     You can reach this chart inside your cluster, using the following service URLS:
-    {{- range := .Values.chartContext.internalUrls -}}
-    - .
+    {{- range $url := .Values.chartContext.internalUrls -}}
+    - {{ $url }}
     {{- end }}
     {{- end }}
 
