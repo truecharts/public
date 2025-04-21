@@ -1,5 +1,5 @@
 {{/*
-This template serves as a blueprint for horizontal pod autoscaler objects that are created
+This template serves as a blueprint for vertical pod autoscaler objects that are created
 using the common library.
 */}}
 {{- define "tc.v1.common.class.vpa" -}}
