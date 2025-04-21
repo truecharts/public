@@ -96,15 +96,9 @@ objectData: The object data to be used to render the Pod.
         "objectData" $persistence "caller" "Volumes") | fromYamlArray
     -}}
 
-    {{- $hasRWO := false -}}
-    {{- range $m := $modes -}}
-      {{- if eq $m "ReadWriteOnce" -}}
-        {{- $hasRWO = true -}}
-        {{- break -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) -}}
 
-    {{- if $hasRWO -}}
+    {{- if eq $hasRWO "true" -}}
       {{- if eq $objectData.type "DaemonSet" -}}
         {{- fail "Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]" -}}
 
@@ -116,4 +110,16 @@ objectData: The object data to be used to render the Pod.
     {{- end -}}
 
   {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.volumes.hasRWO" -}}
+  {{- $modes := .modes -}}
+  {{- $hasRWO := false -}}
+  {{- range $m := $modes -}}
+    {{- if eq $m "ReadWriteOnce" -}}
+      {{- $hasRWO = true -}}
+      {{- break -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $hasRWO -}}
 {{- end -}}
