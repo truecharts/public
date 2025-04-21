@@ -1,0 +1,153 @@
+suite: pvc strategy type test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should leave strategy as defined with non RWO accessModes and single replica
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          podSpec: {}
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          accessModes:
+            - ReadWriteMany
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.strategy.type
+          value: RollingUpdate
+      - documentIndex: &pvcDoc 1
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *pvcDoc
+        equal:
+          path: spec.accessModes
+          value:
+            - ReadWriteMany
+  - it: should set strategy to Recreate with RWO accessModes and single replica
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          podSpec: {}
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          accessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.strategy.type
+          value: Recreate
+      - documentIndex: &pvcDoc 1
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *pvcDoc
+        equal:
+          path: spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce
+  - it: should leave strategy as defined with non RWO accessModes and multiple replica
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          replicas: 2
+          strategy: RollingUpdate
+          podSpec: {}
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          accessModes:
+            - ReadWriteMany
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.strategy.type
+          value: RollingUpdate
+      - documentIndex: &pvcDoc 1
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *pvcDoc
+        equal:
+          path: spec.accessModes
+          value:
+            - ReadWriteMany
+  - it: should leave strategy as defined with RWO accessModes and multiple replica
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          replicas: 2
+          strategy: RollingUpdate
+          podSpec: {}
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          accessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.strategy.type
+          value: RollingUpdate
+      - documentIndex: &pvcDoc 1
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *pvcDoc
+        equal:
+          path: spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce

@@ -16,6 +16,7 @@ objectData:
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
   {{- end -}}
+  {{- $replicas = $replicas | int -}}
 
   {{- $volsRWO := list -}}
   {{- range $name, $persistence := $rootCtx.Values.persistence }}
