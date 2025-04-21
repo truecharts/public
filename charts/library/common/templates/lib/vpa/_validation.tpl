@@ -62,8 +62,7 @@
         {{- fail (printf "Vertical Pod Autoscaler - Expected [vpa.%s.resourcePolicy.containerPolicies.%d] to be a dictionary, but got [%s]" $objectData.vpaName $idx (kindOf $cPol)) -}}
       {{- end -}}
 
-      {{/* TODO: Populate container names */}}
-      {{- $validContainers := (list "*") -}}
+      {{- $validContainers := mustAppend $objectData.containerNames "*" -}}
       {{- if not (mustHas $cPol.containerName $validContainers) -}}
         {{- fail (printf "Vertical Pod Autoscaler - Value [%s] on [vpa.%s.resourcePolicy.containerPolicies.%d.containerName] is not valid. Must be one of [%s]" $cPol.containerName $objectData.vpaName $idx (join ", " $validContainers)) -}}
       {{- end -}}

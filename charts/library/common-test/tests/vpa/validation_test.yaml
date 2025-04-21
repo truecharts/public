@@ -182,7 +182,26 @@ tests:
 
   - it: should fail with invalid resourcePolicy.containerPolicies.#.containerName
     set:
-      workload: *workload
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              some-container:
+                enabled: true
+                primary: true
+                probes: &probes
+                  readiness:
+                    enabled: false
+                  liveness:
+                    enabled: false
+                  startup:
+                    enabled: false
+              some-other-container:
+                enabled: true
+                probes: *probes
       vpa:
         vpa-name:
           enabled: true
@@ -191,7 +210,7 @@ tests:
               - containerName: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.containerName] is not valid. Must be one of [*]
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.resourcePolicy.containerPolicies.0.containerName] is not valid. Must be one of [some-container, some-other-container, *]
 
   - it: should fail with invalid resourcePolicy.containerPolicies.#.mode
     set:
