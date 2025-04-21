@@ -60,11 +60,10 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /app/config
     targetSelector:
       main:
         main:
-          mountPath: /var/www/html
+          mountPath: /app/config
       plextraktsync-cron:
         cron:
-          mountPath: /var/www/html
+          mountPath: /app/config
