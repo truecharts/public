@@ -22,8 +22,3 @@
 {{- define "tc.v1.common.capabilities.hpa.apiVersion" -}}
   {{- print "autoscaling/v2" -}}
 {{- end -}}
-
-{{/* Return the appropriate apiVersion for VerticalPodAutoscaler aka VPA*/}}
-{{- define "tc.v1.common.capabilities.vpa.apiVersion" -}}
-  {{- print "autoscaling.k8s.io/v1" -}}
-{{- end -}}
