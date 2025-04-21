@@ -8,7 +8,8 @@
 
   {{/* Primary validation for enabled service. */}}
   {{- include "tc.v1.common.lib.service.primaryValidation" $ -}}
-  {{- $allUrls := $.Values.chartContext.internalUrls | default list -}}  # Initialize with existing URLs or an empty list
+  {{/* Initialize with existing URLs or an empty list */}}
+  {{- $allUrls := $.Values.chartContext.internalUrls | default list -}}
 
   {{- range $name, $service := .Values.service -}}
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
