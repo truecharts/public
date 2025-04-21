@@ -16,7 +16,7 @@
                     "name" $name "caller" "Service"
                     "key" "service")) -}}
 
-    {{- if eq $enabled "false" -}}{{- continue -}}{{- end -}}
+    {{- if ne $enabled "true" -}}{{- continue -}}{{- end -}}
 
     {{/* Create a copy of the configmap */}}
     {{- $objectData := (mustDeepCopy $service) -}}
