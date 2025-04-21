@@ -41,5 +41,37 @@ spec:
         changeRequirement: {{ $req.changeRequirement }}
       {{- end }}
     {{- end -}}
+  {{- if and $objectData.resourcePolicy $objectData.resourcePolicy.containerPolicies }}
+  resourcePolicy:
+    containerPolicies:
+      {{- range $cPol := $objectData.resourcePolicy.containerPolicies }}
+      - containerName: {{ $cPol.containerName | default "*" }}
+        mode: {{ $cPol.mode }}
 
+        {{- if eq $cPol.mode "Off" -}}{{- continue -}}{{- end }}
+
+        controlledValues: {{ $cPol.controlledValues | default "RequestsAndLimits" }}
+        {{- if $cPol.controlledResources }}
+        controllerResources: {{ $cPol.controlledResources | toJson }}
+        {{- end -}}
+        {{- with $cPol.minAllowed }}
+        minAllowed:
+          {{- if .cpu }}
+          cpu: {{ .cpu }}
+          {{- end -}}
+          {{- if .memory }}
+          memory: {{ .memory }}
+          {{- end -}}
+        {{- end -}}
+        {{- with $cPol.maxAllowed }}
+        maxAllowed:
+          {{- if .cpu }}
+          cpu: {{ .cpu }}
+          {{- end -}}
+          {{- if .memory }}
+          memory: {{ .memory }}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+  {{- end -}}
 {{- end -}}
