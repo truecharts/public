@@ -49,6 +49,7 @@ objectData: The object data to be used to render the Ingress.
 
   {{- include "tc.v1.common.lib.ingress.integration.certManager" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- include "tc.v1.common.lib.ingress.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- include "tc.v1.common.lib.ingress.integration.nginx" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- if ne $ingressClassName "tc-stopped" -}}{{/* If is stopped, dont render homepage annotations */}}
     {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- end }}

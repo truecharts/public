@@ -1,0 +1,252 @@
+suite: ingress - nginx metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with ipWhiteList annotations from nginx
+    set:
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations:
+            nginx:
+              enabled: true
+              ipWhitelist:
+                - 10.0.0.0/8
+                - 192.168.0.0/16
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            nginx.ingress.kubernetes.io/whitelist-source-range: 10.0.0.0/8,192.168.0.0/16
+
+  - it: should pass with ingress created with themePark annotations from nginx
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          integrations:
+            nginx:
+              enabled: true
+              themePark:
+                enabled: true
+                css: https://example.com/theme.css
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            nginx.ingress.kubernetes.io/configuration-snippet: |-
+              proxy_set_header Accept-Encoding "";
+              sub_filter
+              '</head>'
+              '<link rel="stylesheet" type="text/css" href="https://example.com/theme.css">
+              </head>';
+              sub_filter_once on;
+
+  - it: should pass with ingress created with authentik annotations from nginx
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authentik
+                internalHost: internal.host
+                externalHost: external.host
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            nginx.ingress.kubernetes.io/auth-method: GET
+            nginx.ingress.kubernetes.io/auth-response-headers: Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
+            nginx.ingress.kubernetes.io/auth-signin: https://external.host/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
+            nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
+            nginx.ingress.kubernetes.io/auth-url: http://internal.host/outpost.goauthentik.io/auth/nginx
+            nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+  - it: should pass with ingress created with authelia annotations from nginx
+    set:
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authelia
+                internalHost: internal.host
+                externalHost: external.host
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            nginx.ingress.kubernetes.io/auth-method: GET
+            nginx.ingress.kubernetes.io/auth-signin: https://external.host?rm=$request_method
+            nginx.ingress.kubernetes.io/auth-url: http://internal.host/api/verify
+
+  # Failures
+
+  - it: should fail with ipWhitelist not a slice
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              ipWhitelist: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.ipWhitelist] to be a [slice], but got [string]
+
+  - it: should fail with auth.type not a valid type
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: "invalid"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.auth.type] to be one of [authentik, authelia], but got [invalid]
+
+  - it: should fail with auth.type set to authentik but no auth.internalHost
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authentik
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.auth.internalHost] and [integrations.nginx.auth.externalHost] to be set
+
+  - it: should fail with auth.type set to authentik but no auth.externalHost
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authentik
+                internalHost: internal.host
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.auth.internalHost] and [integrations.nginx.auth.externalHost] to be set
+
+  - it: should fail with auth.type set to authelia but no auth.internalHost
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authelia
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.auth.internalHost] and [integrations.nginx.auth.externalHost] to be set
+
+  - it: should fail with auth.type set to authelia but no auth.externalHost
+    set:
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            nginx:
+              enabled: true
+              auth:
+                type: authelia
+                internalHost: internal.host
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.nginx.auth.internalHost] and [integrations.nginx.auth.externalHost] to be set

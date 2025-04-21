@@ -665,6 +665,21 @@ ingress:
         #     # Optional, by default will try to
         #     # "lookup" the namespace based on the name
         #     namespace: ""
+      nginx:
+        enabled: false
+        themepark:
+          enabled: false
+          css: ""
+        ipWhitelist: []
+        auth:
+          # empty to disable, options: "authentik" or "authelia"
+          type: ""
+          # Internal Domain name + port to reach the auth provider, excluding http(s)
+          internalHost: ""
+          # External (ingress) Domain name to reach the auth provider, excluding http(s)
+          externalHost: ""
+          # Optional: override default response headers
+          responseHeaders: []
       homepage:
         enabled: false
         # Default: chart name
