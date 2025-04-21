@@ -141,6 +141,13 @@ workload:
         main:
           enabled: true
           primary: true
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 3000Mi
+            requests:
+              cpu: 200m
+              memory: 500Mi
           envFrom:
             - configMapRef:
                 name: nextcloud-config
@@ -303,6 +310,12 @@ workload:
           enabled: true
           imageSelector: collaboraImage
           resources:
+            limits:
+              cpu: 2000m
+              memory: 3000Mi
+            requests:
+              cpu: 200m
+              memory: 500Mi
             excludeExtra: true
           securityContext:
             runAsUser: 1001
@@ -539,10 +552,4 @@ ingress:
         chartMiddlewares:
           - nextcloud-redirect
 
-resources:
-  limits:
-    cpu: 2000m
-    memory: 3000Mi
-  requests:
-    cpu: 200m
-    memory: 500Mi
+
