@@ -14,11 +14,7 @@ objectData:
     {{- $replicas = $objectData.replicas -}}
   {{- end -}}
 
-  {{- set $objectData.strategy $strategy }}
-
-  {{- if gt $replicas 1 -}}
-    {{- set $objectData.strategy $strategy }}
-  {{- else -}}
+  {{- if eq $replicas 1 -}}
     {{- range $name, $persistence := .Values.persistence }}
       {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                   "rootCtx" $rootCtx "objectData" $persistenceValues
@@ -38,7 +34,7 @@ objectData:
         {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
 
         {{- if $hasRWO -}}
-          {{- set $objectData.strategy "Recreate" }}
+          {{- $strategy = "Recreate" -}}
           {{- include "add.warning" (dict "rootCtx" $rootCtx "warn" (printf
             "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] with a single replica and an strategy of [%s]. This is not stable, defaulting to [Recreate] strategy" $name $strategy))
           -}}
@@ -46,4 +42,6 @@ objectData:
       {{- end -}}
     {{- end -}}
   {{- end -}}
+
+  {{- set $objectData.strategy $strategy -}}
 {{- end -}}
