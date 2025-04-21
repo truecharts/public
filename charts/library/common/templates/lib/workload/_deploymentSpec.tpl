@@ -10,8 +10,10 @@ objectData:
 {{- define "tc.v1.common.lib.workload.deploymentSpec" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{- include "tc.v1.common.lib.workload.components.strategyType" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- $strategy := $objectData.strategy -}}
+  {{- include "tc.v1.common.lib.workload.components.strategyType" (dict
+    "rootCtx" $rootCtx "objectData" $objectData
+    "defaultStrategy" "Recreate" "resource" "Deployment"
+  ) -}}
   {{- $replicas := 1 -}}
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
@@ -22,7 +24,7 @@ objectData:
 replicas: {{ $replicas }}
 revisionHistoryLimit: {{ $objectData.revisionHistoryLimit | default 3 }}
 strategy:
-  type: {{ $strategy }}
+  type: {{ $objectData.strategy }}
   {{- if and (eq $objectData.strategy "RollingUpdate") $objectData.rollingUpdate -}}
     {{ if (or (hasKey $objectData.rollingUpdate "maxUnavailable") (hasKey $objectData.rollingUpdate "maxSurge")) }}
   rollingUpdate:

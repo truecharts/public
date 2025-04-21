@@ -8,40 +8,62 @@ objectData:
 {{- define "tc.v1.common.lib.workload.components.strategyType" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{- $strategy := $objectData.strategy | default "Recreate" -}}
+  {{- $defaultStrategy := .defaultStrategy -}}
+  {{- $resource := .resource -}}
+  {{- $strategy := $objectData.strategy | default $defaultStrategy -}}
+
   {{- $replicas := 1 -}}
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
   {{- end -}}
 
-  {{- if eq $replicas 1 -}}
-    {{- range $name, $persistence := .Values.persistence }}
-      {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
-                  "rootCtx" $rootCtx "objectData" $persistenceValues
-                  "name" $name "caller" "Volumes"
-                  "key" "persistence")) -}}
+  {{- $volsRWO := list -}}
+  {{- range $name, $persistence := .Values.persistence }}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                "rootCtx" $rootCtx "objectData" $persistenceValues
+                "name" $name "caller" "Volumes"
+                "key" "persistence")) -}}
 
-      {{- if (ne $enabled "true") -}}{{- continue -}}{{- end -}}
+    {{- if (ne $enabled "true") -}}{{- continue -}}{{- end -}}
 
-      {{- $type := ($persistence.type | default $rootCtx.Values.global.fallbackDefaults.persistenceType) -}}
-      {{- $typesWithAccessMode := (list "pvc") -}}
+    {{- $type := ($persistence.type | default $rootCtx.Values.global.fallbackDefaults.persistenceType) -}}
+    {{- $typesWithAccessMode := (list "pvc") -}}
 
-      {{- if (mustHas $type $typesWithAccessMode) -}}
-        {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx
-            "objectData" $persistence "caller" "Volumes") | fromYamlArray
-        -}}
+    {{- if (mustHas $type $typesWithAccessMode) -}}
+      {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx
+          "objectData" $persistence "caller" "Volumes") | fromYamlArray
+      -}}
 
-        {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
+      {{- $hasRWO := include "tc.v1.common.lib.pod.volumes.hasRWO" (dict "modes" $modes) | toBool -}}
+      {{- if not $hasRWO -}}{{- continue -}}{{- end -}}
+      {{- $volsRWO = mustAppend $volsRWO $name -}}
+    {{- end -}}
+  {{- end -}}
 
-        {{- if $hasRWO -}}
-          {{- $strategy = "Recreate" -}}
+  {{/* If there are any RWO vols, do some checks and add warnings */}}
+  {{- if gt (len $volsRWO) 0 -}}
+    {{/* RWO + replicas > 1 is a no-no */}}
+    {{- if gt $replicas 1 -}}
+      {{/* Should we hard fail or just warn here? */}}
+      {{- fail (printf "Following volumes [%s] are set to [ReadWriteOnce] but there are more 1 replica. This is not allowed" (join "," $volsRWO)) -}}
+    {{- else -}}
+      {{/* DaemonSets and StatefulSets can have RWO with 1 replica under their supported strategies (OnDelete, RollingUpdate) */}}
+
+      {{- if eq $resource "Deployment" -}}
+
+        {{/* On Deployments with single replicas, warn if strategy is not recreate */}}
+        {{- if eq $strategy "Recreate" -}}
           {{- include "add.warning" (dict "rootCtx" $rootCtx "warn" (printf
-            "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] with a single replica and an strategy of [%s]. This is not stable, defaulting to [Recreate] strategy" $name $strategy))
-          -}}
+            "WARNING: The [accessModes] on volume(s) [%s] is set to [ReadWriteOnce] with a single replica and an strategy of [%s]. %s"
+            (join "," $volsRWO) $strategy "This is not stable, defaulting to [Recreate] strategy"
+          )) -}}
         {{- end -}}
+        {{- $strategy = "Recreate" -}}
+
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
+  {{/* Update strategy */}}
   {{- set $objectData.strategy $strategy -}}
 {{- end -}}
