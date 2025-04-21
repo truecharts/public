@@ -34,6 +34,43 @@ tests:
             updatePolicy:
               updateMode: Auto
 
+  - it: should create vpa with targetSelector
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name-2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      vpa:
+        vpa-name:
+          enabled: true
+          targetSelector:
+            - workload-name-2
+    asserts:
+      - hasDocuments:
+          count: 3 # 2 Deployments, 1 VPA
+      - documentIndex: &vpaDoc 2
+        isKind:
+          of: VerticalPodAutoscaler
+      - documentIndex: *vpaDoc
+        isAPIVersion:
+          of: autoscaling.k8s.io/v1
+      - documentIndex: *vpaDoc
+        isSubset:
+          path: spec
+          content:
+            targetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: test-release-name-common-test-workload-name-2
+            updatePolicy:
+              updateMode: Auto
+
   - it: should create vpa with options
     set:
       workload: *workload

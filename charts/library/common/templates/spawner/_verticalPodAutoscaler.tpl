@@ -57,7 +57,7 @@
       {{/* Short name is the one that defined on the chart, used on selectors */}}
       {{- $_ := set $objectData "shortName" $workloadName -}}
 
-      {{- if or (not $objectData.targetSelector) (hasKey $objectData.targetSelector $workloadName) -}}
+      {{- if or (not $objectData.targetSelector) (mustHas $workloadName $objectData.targetSelector) -}}
         {{/* Call class to create the object */}}
         {{- $types := (list "Deployment" "StatefulSet" "DaemonSet") -}}
         {{- if (mustHas $objectData.workload.type $types) -}}
