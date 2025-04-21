@@ -44,6 +44,12 @@ service:
     ports:
       main:
         port: 10029
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: tandoor
 persistence:
   media:
     enabled: true
