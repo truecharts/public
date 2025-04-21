@@ -14,7 +14,11 @@
     {{- if ne $enabledVPA "true" -}}{{- continue -}}{{- end -}}
 
     {{- $objectData := (mustDeepCopy $vpa) -}}
-    {{- range $workloadName, $workload := .Values.workload -}}
+    {{- $_ := set $objectData "vpaName" $name -}}
+    {{- include "tc.v1.common.lib.vpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
+    {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $name) -}}
+
+    {{- range $workloadName, $workload := $.Values.workload -}}
 
       {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                       "rootCtx" $ "objectData" $workload
@@ -28,7 +32,7 @@
 
       {{/* Generate the name of the vpa */}}
       {{- $objectName := $fullname -}}
-      {{- if not $objectData.primary -}}
+      {{- if not $objectData.workload.primary -}}
         {{- $objectName = printf "%s-%s" $fullname $workloadName -}}
       {{- end -}}
 
@@ -42,7 +46,7 @@
       {{/* Short name is the one that defined on the chart, used on selectors */}}
       {{- $_ := set $objectData "shortName" $workloadName -}}
 
-      {{- if or (not $objectData.targetSelector) (hasKey $objectData.targetSelector $workloadName) -}}
+      {{- if or (not $objectData.targetSelector) (mustHas $objectData.targetSelector $workloadName) -}}
         {{/* Call class to create the object */}}
         {{- $types := (list "Deployment" "StatefulSet" "DaemonSet") -}}
         {{- if (mustHas $objectData.workload.type $types) -}}
@@ -51,5 +55,5 @@
       {{- end -}}
 
     {{- end -}}
-
+  {{- end -}}
 {{- end -}}
