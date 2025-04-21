@@ -10,7 +10,10 @@ objectData:
 {{- define "tc.v1.common.lib.workload.statefulsetSpec" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{- $strategy := $objectData.strategy | default "RollingUpdate" -}}
+  {{- include "tc.v1.common.lib.workload.components.strategyType" (dict
+    "rootCtx" $rootCtx "objectData" $objectData
+    "defaultStrategy" "RollingUpdate" "resource" "StatefulSet"
+  ) -}}
   {{- $replicas := 1 -}}
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
@@ -22,7 +25,7 @@ replicas: {{ $replicas }}
 revisionHistoryLimit: {{ $objectData.revisionHistoryLimit | default 3 }}
 serviceName: {{ $objectData.name }}
 updateStrategy:
-  type: {{ $strategy }}
+  type: {{ $objectData.strategy }}
   {{- if and (eq $objectData.strategy "RollingUpdate") $objectData.rollingUpdate -}}
     {{- if (or (hasKey $objectData.rollingUpdate "maxUnavailable") (hasKey $objectData.rollingUpdate "partition")) }}
   rollingUpdate:
