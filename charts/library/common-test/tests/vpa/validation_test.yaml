@@ -154,7 +154,6 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Vertical Pod Autoscaler - Value [some-change-requirement] on [vpa.vpa-name.updatePolicy.evictionRequirements.0.changeRequirement] is not valid. Must be one of [TargetHigherThanRequests, TargetLowerThanRequests]
-
   - it: should fail with resourcePolicy.containerPolicies not a list
     set:
       workload: *workload

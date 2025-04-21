@@ -47,3 +47,10 @@ workload:
             # User Defined
             ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
             PLEX_CLAIM: ""
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8000Mi
+  requests:
+    cpu: 500m
+    memory: 1000Mi            
