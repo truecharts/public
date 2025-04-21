@@ -25,7 +25,6 @@
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-snippet" "proxy_set_header X-Forwarded-Host $http_host;" -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/backend-protocol" "HTTPS" -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/force-ssl-redirect" "true" -}}
-  {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-method" "true" -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-url" (printf "http://%s/outpost.goauthentik.io/auth/nginx" $auth.internalHost) -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-signin" (printf "https://%s/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri" $auth.externalHost) -}}
 {{- end -}}

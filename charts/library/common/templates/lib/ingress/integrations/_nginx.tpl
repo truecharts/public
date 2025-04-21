@@ -12,16 +12,19 @@
     {{- end -}}
 
     {{/* themePark */}}
-    {{- if and $nginx.themepark $nginx.themePark.enabled -}}
+    {{- if and $nginx.themePark $nginx.themePark.enabled -}}
       {{- include "tc.v1.common.lib.ingress.integration.nginx.themePark" (dict "objectData" $objectData "themePark" $nginx.themePark) -}}
     {{- end -}}
 
     {{/* Auth */}}
+    {{- $validAuthTypes := (list "authentik" "authelia") -}}
     {{- if and $nginx.auth $nginx.auth.type -}}
       {{- if eq $nginx.auth.type "authentik" -}}
         {{- include "tc.v1.common.lib.ingress.integration.nginx.auth.authentik" (dict "objectData" $objectData "auth" $nginx.auth) -}}
       {{- else if eq $nginx.auth.type "authelia" -}}
         {{- include "tc.v1.common.lib.ingress.integration.nginx.auth.authelia" (dict "objectData" $objectData "auth" $nginx.auth) -}}
+      {{- else -}}
+        {{- fail (printf "Ingress - Expected [integrations.nginx.auth.type] to be one of [%s], but got [%s]" (join ", " $validAuthTypes) $nginx.auth.type) -}}
       {{- end -}}
     {{- end -}}
 
