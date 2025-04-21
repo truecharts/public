@@ -44,8 +44,9 @@ objectData:
   {{- if gt (len $volsRWO) 0 -}}
     {{/* RWO + replicas > 1 is a no-no */}}
     {{- if gt $replicas 1 -}}
-      {{/* Should we hard fail or just warn here? */}}
-      {{- fail (printf "Following volumes [%s] are set to [ReadWriteOnce] but there are more 1 replica. This is not allowed" (join "," $volsRWO)) -}}
+      {{- include "add.warning" (dict "rootCtx" $rootCtx "warn" (printf
+          "WARNING: The [accessModes] on volume(s) [%s] is set to [ReadWriteOnce] with a more than 1 replica. This is not stables" (join "," $volsRWO)
+        )) -}}
     {{- else -}}
       {{/* DaemonSets and StatefulSets can have RWO with 1 replica under their supported strategies (OnDelete, RollingUpdate) */}}
 
