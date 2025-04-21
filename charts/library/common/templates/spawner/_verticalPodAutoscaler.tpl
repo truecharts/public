@@ -15,17 +15,28 @@
 
     {{- $objectData := (mustDeepCopy $vpa) -}}
     {{- $_ := set $objectData "vpaName" $name -}}
-    {{- include "tc.v1.common.lib.vpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
     {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $name) -}}
 
     {{- range $workloadName, $workload := $.Values.workload -}}
 
       {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                       "rootCtx" $ "objectData" $workload
-                      "name" $name "caller" "vpa"
+                      "name" $name "caller" "Vertical Pod Autoscaler"
                       "key" "workload")) -}}
 
       {{- if ne $enabled "true" -}}{{- continue -}}{{- end -}}
+
+      {{- $containerNames := list -}}
+      {{- range $cName, $c := $workload.podSpec.containers -}}
+        {{- $enabledContainer := (include "tc.v1.common.lib.util.enabled" (dict
+                        "rootCtx" $ "objectData" $c
+                        "name" $cName "caller" "Vertical Pod Autoscaler"
+                        "key" "workload.podSpec.containers")) -}}
+        {{- if ne $enabledContainer "true" -}}{{- continue -}}{{- end -}}
+        {{- $containerNames = mustAppend $containerNames $cName -}}
+      {{- end -}}
+      {{- $_ := set $objectData "containerNames" $containerNames -}}
+      {{- include "tc.v1.common.lib.vpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
 
       {{/* Create a copy of the workload */}}
       {{- $_ := set $objectData "workload" (mustDeepCopy $workload) -}}
