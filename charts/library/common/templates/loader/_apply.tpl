@@ -73,4 +73,7 @@
   {{/* Render Cert-Manager Certificates(s) */}}
   {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
 
+  {{/* Render Vertical Pod Autoscaler */}}
+  {{ include "tc.v1.common.spawner.vpa" . | nindent 0 -}}
+
 {{- end -}}

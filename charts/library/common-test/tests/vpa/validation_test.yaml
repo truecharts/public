@@ -1,0 +1,156 @@
+suite: vpa validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      workload: &workload
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      vpa:
+        ? other-vertical-pod-autoscale-name-super-long-name-that-is-longer-than-63-characters
+        : enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [other-vertical-pod-autoscale-name-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      workload: *workload
+      vpa:
+        _other-vpa-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [_other-vpa-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [labels] to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [annotations] to be a dictionary, but got [string]
+
+  - it: should fail with updatePolicy not a dict
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Expected [updatePolicy] to be a dictionary, but got [string]
+
+  - it: should fail with updatePolicy.updateMode not valid
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            updateMode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [invalid] on [vpa.vpa-name.updatePolicy.updateMode] is not valid. Must be one of [Auto, Off, Initial, Recreate]
+
+  - it: should fail with updatePolicy.minReplicas not a number
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            minReplicas: "some-number"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [some-number] on [vpa.vpa-name.updatePolicy.minReplicas] must be greater than 0.
+
+  - it: should fail with updatePolicy.minReplicas not a positive number
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            minReplicas: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [-1] on [vpa.vpa-name.updatePolicy.minReplicas] must be greater than 0.
+
+  - it: should fail with evictionRequirements not a list
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            evictionRequirements: "not a list"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value on [vpa.vpa-name.updatePolicy.evictionRequirements] must be a list, but got [string]
+
+  - it: should fail with evictionRequirements.resources not a list
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            evictionRequirements:
+              - resources: "not a list"
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value on [vpa.vpa-name.updatePolicy.evictionRequirements.0.resources] must be a list, but got [string]
+
+  - it: should fail with evictionRequirements.resources.0 not a valid resource
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            evictionRequirements:
+              - resources:
+                  - cpu
+                  - memory
+                  - some-resource
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [some-resource] on [vpa.vpa-name.updatePolicy.evictionRequirements.0.resources.2] is not valid. Must be one of [cpu, memory]
+
+  - it: should fail with evictionRequirements.changeRequirement not a valid change requirement
+    set:
+      workload: *workload
+      vpa:
+        vpa-name:
+          enabled: true
+          updatePolicy:
+            evictionRequirements:
+              - resources:
+                  - cpu
+                changeRequirement: some-change-requirement
+    asserts:
+      - failedTemplate:
+          errorMessage: Vertical Pod Autoscaler - Value [some-change-requirement] on [vpa.vpa-name.updatePolicy.evictionRequirements.0.changeRequirement] is not valid. Must be one of [TargetHigherThanRequests, TargetLowerThanRequests]
