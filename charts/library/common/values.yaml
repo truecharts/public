@@ -814,6 +814,29 @@ storageClass: {}
 #     volumeBindingMode: Immediate
 #     mountOptions: []
 
+# # -- create networkpolicy on demand
+networkpolicy:
+  main:
+    enabled: false
+    ### Defaults to targeting all pods in this chart
+    ## (optional) Custom podselector
+    # podSelector:
+    #   matchLabels:
+    ## (optional) select a specific pod from chart
+    # targetSelector: thisPod
+    ## Target all pods in this namespace
+    targetAllPods: false
+
+    ## (optional) explicitly define policyType
+    ## Defaults to egress or ingress depending on which one is set.
+    # policyType: ["egress"]
+
+    ## Automatically sets policyType when filled out
+    ingress: {}
+
+    ## Automatically sets policyType when filled out
+    egress: {}
+
 metrics:
   main:
     enabled: false
