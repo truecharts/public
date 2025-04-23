@@ -9,7 +9,7 @@ Simply put, they specify reverse proxy configuration for a special reverse proxy
 
 ## Requirements
 
-Before setting up ingress, we advise you to have an ingress controller already set-up. Our recommended ingress controller is [Traefik](https://github.com/traefik/traefik).
+Before setting up ingress, we advise you to have an ingress controller already set-up. Our recommended ingress controller is [Nginx](https://kubernetes.github.io/ingress-nginx/).
 
 ## How to Setup
 
