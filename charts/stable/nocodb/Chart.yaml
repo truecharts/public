@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.10
+    version: 15.6.11
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -42,5 +42,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://hub.docker.com/r/nocodb/nocodb
 type: application
-version: 15.20.9
+version: 15.20.10
 
