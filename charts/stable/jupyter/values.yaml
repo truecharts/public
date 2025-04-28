@@ -1,11 +1,11 @@
 image:
   repository: quay.io/jupyter/base-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:9fb31d898d5fbaa60977c76bc8159e2f4b3c2e8c3f77d8d93eb3fbd5ab93820e
+  tag: 2025-04-28@sha256:fba13e0774e707bf94662041c46579fb7968e368d8617e76f1265ba0c0d67d89
 minimalImage:
   repository: quay.io/jupyter/minimal-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:ed864a540f7db886a298ddfb89668bd763b69fdac708a9aca72e006efa7241fc
+  tag: 2025-04-28@sha256:7346f54f9e24a32c5fd5c166a4882cb50c9f67aea260788eaab6dafb8014789d
 rImage:
   repository: quay.io/jupyter/r-notebook
   pullPolicy: IfNotPresent
@@ -13,11 +13,11 @@ rImage:
 scipyImage:
   repository: quay.io/jupyter/scipy-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:68bbdc1266a9cc1b01aba748fb74f1eb5cf835ff2da5352fa7a5b4556878f941
+  tag: 2025-04-28@sha256:3acbe26306d3acb997281b13c32e62281b2aedfbfb9cd9516d3f800d3c899f39
 tensorflowImage:
   repository: quay.io/jupyter/tensorflow-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:2e493212abe2f0865c707f8e1660c24859b2f260bb16e75b95b21389e5f81e7c
+  tag: 2025-04-28@sha256:e2e3a89342686b8cc175ece0e992e0a00e3e68c72ed1b282e42509a6a4d20027
 datascienceImage:
   repository: quay.io/jupyter/datascience-notebook
   pullPolicy: IfNotPresent
@@ -25,11 +25,11 @@ datascienceImage:
 pysparkImage:
   repository: quay.io/jupyter/pyspark-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:28c3781bb38387d8bf653429f964460059feae7fdd5ac43b80427749a0207556
+  tag: 2025-04-28@sha256:621895469000beacb11489ad4406d1d26bba00a902dbcab7a787fde9d244f165
 allsparkImage:
   repository: quay.io/jupyter/all-spark-notebook
   pullPolicy: IfNotPresent
-  tag: 2025-04-26@sha256:2f2d81aa09b1ba22c686534e2769d96dd7d53ca521642ccf211436eee238da9d
+  tag: 2025-04-28@sha256:beec73332629af5c149033b2e24da6f404f595ecaa1622b21745ed6609b9a1d4
 jupyter:
   jupyter_cmd: lab
   restartable: true
