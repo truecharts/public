@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/gethomepage/homepage
-  tag: v1.1.1@sha256:be49a60307fcce7909acdaf2f3b2f3d168a0468d62869bf72d380625dde91fb9
+  tag: v1.1.2@sha256:4d7e7d9bb04a5db64547c5db9b88ed0f74d2105d0fa67a111af8b264fc4bb1ec
   pullPolicy: IfNotPresent
 
 workload:
@@ -188,7 +188,6 @@ persistence:
     readOnly: true
     type: "configmap"
     objectName: config
-
 
 serviceAccount:
   main:
