@@ -20,7 +20,7 @@ require (
 	github.com/knadh/koanf/v2 v2.2.0
 	github.com/leaanthony/debme v1.2.1
 	github.com/rs/zerolog v1.33.0
-	github.com/siderolabs/talos/pkg/machinery v1.10.0
+	github.com/siderolabs/talos/pkg/machinery v1.11.0-alpha.0
 	github.com/spf13/cobra v1.9.1
 	golang.org/x/crypto v0.37.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -238,7 +238,7 @@ require (
 	github.com/siderolabs/crypto v0.5.1 // indirect
 	github.com/siderolabs/gen v0.8.0 // indirect
 	github.com/siderolabs/go-pointer v1.0.1 // indirect
-	github.com/siderolabs/image-factory v0.6.9 // indirect
+	github.com/siderolabs/image-factory v0.7.0 // indirect
 	github.com/siderolabs/net v0.4.0 // indirect
 	github.com/siderolabs/protoenc v0.2.2 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
