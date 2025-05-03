@@ -254,7 +254,7 @@ Otherwise it will reset your talos-vm during next restart.
 Your talos-cluster should now be bootstrapped and you should be able to add your first charts.
 Deploying a chart can be done for example via Flux, the following steps needs to be taken.
 
-- Create a `helm-release.yaml` and `namespace.yaml` files in `clusters/main/kubernetes/apps/appnamehere/app/`. How to setup those files scroll to your clustertool files and read [FluxCD Basics](/guides/fluxcd/).
+- Create a `helm-release.yaml` and `namespace.yaml` files in `clusters/main/kubernetes/apps/appnamehere/app/`. How to setup those files you can check the other clustertool files as example and read [FluxCD Basics](/guides/fluxcd/).
 
 - Run `clustertool genconfig`. This will creates the `kustomization.yaml` and `ks.yaml` files.
 
