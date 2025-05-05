@@ -63,8 +63,8 @@ workload:
             ## Free RealEstate
             ARKCLUSTER: "true"
             am_arkopt_clusterid: "arkserver"
-            am_arkStagingDir: ""
-            am_arkAutoUpdateOnStart: false
+            am_arkStagingDir: "/ark/staging"
+            am_arkAutoUpdateOnStart: true
             am_ark_SessionName: "arkserver"
             am_serverMap: "TheIsland"
             am_ark_MaxPlayers: "10"
@@ -90,6 +90,9 @@ persistence:
   ark:
     enabled: true
     mountPath: /ark
+  staging:
+    enabled: true
+    mountPath: /ark/staging
   steamapps:
     enabled: true
     mountPath: /home/steam/.steam/steamapps
@@ -104,6 +107,10 @@ persistence:
     type: configmap
     objectName: gameinis
     mountPath: /arkconfig
+  crontab:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/spool/cron/crontabs/
 
 configmap:
   gameinis:
