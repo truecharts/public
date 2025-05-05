@@ -1,0 +1,127 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ark
+  namespace: ark
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: arksurvivalevolved
+      version: 10.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      s3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3PREFIX_TC}-ark"
+        accessKey: "${S3ID_TC}"
+        secretKey: "${S3KEY_TC}"
+        encrKey: "${S3KEY_TC}"
+
+    service:
+      main:
+        enabled: true
+        loadBalancerIP: ${ARK_IP}
+        type: LoadBalancer
+        # externalTrafficPolicy: Local
+        ports:
+          main:
+            enabled: true
+            port: 7777
+            protocol: udp
+          game:
+            enabled: true
+            port: 7778
+            # This should always be main +1
+            protocol: udp
+      query:
+        enabled: true
+        # loadBalancerIP: $ARK_IP}
+        # type: LoadBalancer
+        ports:
+          query:
+            enabled: true
+            protocol: udp
+            port: 27015
+      rcon:
+        enabled: true
+        # loadBalancerIP: ${ARK_IP}
+        # type: LoadBalancer
+        ports:
+          rcon:
+            enabled: true
+            protocol: tcp
+            port: 27020
+
+    workload:
+     main:
+       podSpec:
+         containers:
+           main:
+             env:
+               ## Free RealEstate
+               am_arkopt_clusterid: "TrueCharts-Ark"
+               am_arkStagingDir: ""
+               am_arkAutoUpdateOnStart: false
+               am_ark_SessionName: "TrueCharts"
+               am_serverMap: "Fjordur"
+               am_ark_MaxPlayers: "10"
+               am_ark_ServerPassword: ${ARK_PASSWORD}
+               am_ark_RCONEnabled: "True"
+               am_ark_ServerAdminPassword: ${ARK_RCONPASS}
+
+
+    persistence:
+      cluster:
+        volsync:
+           - name: b2
+             type: restic
+             credentials: s3
+             dest:
+               accessModes:
+                 - ReadWriteOnce
+               enabled: true
+             src:
+               enabled: true
+      save:
+        volsync:
+           - name: b2
+             type: restic
+             credentials: s3
+             dest:
+               accessModes:
+                 - ReadWriteOnce
+               enabled: true
+             src:
+               enabled: true
+
+    ark:
+      mods: []
+
+    resources:
+       limits:
+         cpu: 8000m
+         memory: 25Gi
+       requests:
+         cpu: 1000m
+         memory: 8Gi
