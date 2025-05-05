@@ -42,31 +42,29 @@ workload:
     podSpec:
       containers:
         main:
-        env:
-          ## DOnt touch
-          # arkmanager subtracts 1 from port by default
-          am_arkNoPortDecrement: "true"
-          am_arkGameIniFile: /arkconfig/Game.ini
-          am_arkGameUserSettingsIniFile: /arkconfig/GameUserSettings.ini
-          ARKSERVER_SHARED: "{{ $.Values.persistence.game.mountPath | quote }}"
-          am_ark_QueryPort: "{{ .Values.query.rcon.query.rcon.port }}"
-          am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
-          am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
-          am_ark_GameModIds: '{{ join "," .Values.ark.mods | quote }}'
+          env:
+            ## DOnt touch
+            # arkmanager subtracts 1 from port by default
+            am_arkNoPortDecrement: "true"
+            am_arkGameIniFile: /arkconfig/Game.ini
+            am_arkGameUserSettingsIniFile: /arkconfig/GameUserSettings.ini
+            ARKSERVER_SHARED: "{{ $.Values.persistence.game.mountPath | quote }}"
+            am_ark_QueryPort: "{{ .Values.service.query.ports.query.port }}"
+            am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
+            am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
+            am_ark_GameModIds: '{{ join "," .Values.ark.mods | quote }}'
 
-          ## Free RealEstate
-          ARKCLUSTER: "true"
-          am_arkopt_clusterid: "arkserver"
-          am_arkStagingDir: ""
-          am_arkAutoUpdateOnStart: false
-          am_ark_SessionName: "arkserver"
-          am_serverMap: "TheIsland"
-          am_ark_MaxPlayers: "10"
-          am_ark_ServerPassword: "password"
-          am_ark_RCONEnabled: "True"
-          am_ark_ServerAdminPassword: "123456789"
-
-
+            ## Free RealEstate
+            ARKCLUSTER: "true"
+            am_arkopt_clusterid: "arkserver"
+            am_arkStagingDir: ""
+            am_arkAutoUpdateOnStart: false
+            am_ark_SessionName: "arkserver"
+            am_serverMap: "TheIsland"
+            am_ark_MaxPlayers: "10"
+            am_ark_ServerPassword: "password"
+            am_ark_RCONEnabled: "True"
+            am_ark_ServerAdminPassword: "123456789"
 
           probes:
             liveness:
@@ -78,9 +76,7 @@ workload:
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
-          envFrom:
-            - secretRef:
-                name: "ark-secrets"
+
 persistence:
   game:
     enabled: true
