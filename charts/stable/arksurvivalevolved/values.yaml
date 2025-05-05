@@ -161,7 +161,7 @@ configmap:
         ServerCrosshair=True
         ServerForceNoHUD=False
         ServerHardcore=False
-        ServerPassword={{ default "" .server.password }}
+        ServerPassword=password
         ServerPVE=True
         ShowMapPlayerLocation=True
         TamedDinoDamageMultiplier=1.000000
@@ -188,16 +188,16 @@ configmap:
         PreventUploadDinos=False
         TribeLogDestroyedEnemyStructures=True
         TheMaxStructuresInRange=10500.000000
-        XPMultiplier={{ default 1 .server.xpMultiplier }}
+        XPMultiplier=1
         ActiveMods=
 
         [SessionSettings]
-        SessionName={{ .server.sessionName }}
+        SessionName=ArkServer
 
         [/Script/Engine.GameSession]
 
         [MessageOfTheDay]
-        Message={{ if .server.message }}{{ .server.message }}{{ else }}Welcome on ARK {{ .server.sessionName }}{{ end }}
+        Message=Welcome on ARK
         Duration=5
 
         [/Game/PrimalEarth/CoreBlueprints/TestGameMode.TestGameMode_C]
