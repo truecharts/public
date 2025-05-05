@@ -6,7 +6,7 @@ securityContext:
 #    runAsNonRoot: true
 #    readOnlyRootFilesystem: false
     runAsUser: 1001
-    runAsGroup: 1001
+    runAsGroup: 0
 service:
   main:
     enabled: true
