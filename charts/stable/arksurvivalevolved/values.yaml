@@ -1,13 +1,12 @@
 image:
-  pullPolicy: IfNotPresent
-  repository: ghcr.io/ich777/steamcmd
-  tag: arkse@sha256:ed49b692950ce7eb7cf8c1f3cf032aed22da7085b982d175e3ccd18b761d6ad1
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
+  repository: docker.io/drpsychick/arkserver
+  tag: latest-v1.6.62
+# securityContext:
+#  container:
+#    runAsNonRoot: true
+#    readOnlyRootFilesystem: false
+#    runAsUser: 0
+#    runAsGroup: 0
 service:
   main:
     enabled: true
@@ -36,29 +35,37 @@ service:
         protocol: tcp
         port: 27020
 ark:
-  # setting pass for rcon
-  srv_admin_pass: "123456789"
-  srv_password: ""
-  username: ""
-  password: ""
-  game_id: "376030"
-  rcon_enabled: true
-  game_params: []
-  game_params_extra: []
-  easy_game_extra_params:
-    server: true
-    log: true
-    crossplay: true
-  map: TheIsland
-  # Used only for SCALE GUI
-  custom_map: ""
-  server_name: ""
-  validate: false
+  mods: []
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          env:
+            ## DOnt touch
+            # arkmanager subtracts 1 from port by default
+            am_arkNoPortDecrement: "true"
+            am_arkGameIniFile: /arkconfig/Game.ini
+            am_arkGameUserSettingsIniFile: /arkconfig/GameUserSettings.ini
+            ARKSERVER_SHARED: "{{ $.Values.persistence.game.mountPath | quote }}"
+            am_ark_QueryPort: "{{ .Values.service.query.ports.query.port }}"
+            am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
+            am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
+            am_ark_GameModIds: '{{ join "," .Values.ark.mods | quote }}'
+
+            ## Free RealEstate
+            ARKCLUSTER: "true"
+            am_arkopt_clusterid: "arkserver"
+            am_arkStagingDir: ""
+            am_arkAutoUpdateOnStart: false
+            am_ark_SessionName: "arkserver"
+            am_serverMap: "TheIsland"
+            am_ark_MaxPlayers: "10"
+            am_ark_ServerPassword: "password"
+            am_ark_RCONEnabled: "True"
+            am_ark_ServerAdminPassword: "123456789"
+
           probes:
             liveness:
               type: tcp
@@ -69,13 +76,141 @@ workload:
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
-          envFrom:
-            - secretRef:
-                name: "ark-secrets"
+
 persistence:
-  steamcmd:
+  game:
     enabled: true
-    mountPath: /serverdata/steamcmd
-  serverfiles:
+    mountPath: /arkserver
+  cluster:
     enabled: true
-    mountPath: /serverdata/serverfiles
+    mountPath: /arkserver/ShooterGame/Saved/clusters
+  save:
+    enabled: true
+    mountPath: /arkserver/ShooterGame/Saved
+  gameinis:
+    enabled: true
+    type: configmap
+    objectName: gameinis
+    mountPath: /arkconfig
+  crontab:
+    enabled: true
+    type: configmap
+    objectName: gameinis
+    mountPath: /ark/config/crontab
+    items:
+      - key: "crontab"
+        path: "crontab"
+
+configmap:
+  gameinis:
+    enabled: true
+    data:
+      Engine.ini: |
+        # Engine.ini
+      Game.ini: |
+        [/Script/ShooterGame.ShooterGameMode]
+        bDisableStructurePlacementCollision=True
+        ## index:
+        ## 0: Health,
+        ## 1: Stamina,
+        ## 2: Torpidity,
+        ## 3: Oxygen,
+        ## 4: Food,
+        ## 5: Water,
+        ## 6: Temperature,
+        ## 7: Weight,
+        ## 8: MeleeDamageMultiplier,
+        ## 9: SpeedMultiplier,
+        ## 10: TemperatureFortitude,
+        ## 11: CraftingSpeedMultiplier
+        # PerLevelStatsMultiplier_Player[0]=2.0
+        # PerLevelStatsMultiplier_Player[4]=2.0
+        # PerLevelStatsMultiplier_Player[5]=2.0
+        # PerLevelStatsMultiplier_Player[7]=2.0
+        # PerLevelStatsMultiplier_DinoTamed[7]=2.0
+        # PerLevelStatsMultiplier_DinoWild[7]=1
+        ## https://board.nitrado.net/support-de-german-only/support-gameserver/ark-survival-evolved/103586/butgeschwindigkeit-wachstumsgeschwindigkeit/?s=6270aee8447cd08b702a7315fe1e47efe64afb1b#post681499
+        ## https://survivetheark.com/index.php?/forums/topic/200763-help-with-breedingimprinting-settings/
+        # MatingIntervalMultiplier=0.1
+        # BabyMatureSpeedMultiplier=25.0
+        # EggHatchSpeedMultiplier=15.0
+        # BabyCuddleIntervalMultiplier=0.1
+      GameUserSettings.ini: |
+        [/Script/ShooterGame.ShooterGameUserSettings]
+        Version=5
+        [ServerSettings]
+        AllowFlyerCarryPvE=True
+        AllowThirdPersonPlayer=True
+        AlwaysNotifyPlayerLeft=False
+        AutoSavePeriodMinutes=15.000000
+        ClampResourceHarvestDamage=False
+        DifficultyOffset=1.000000
+        OverrideOfficialDifficulty=5.000000
+        DisableStructureDecayPvE=False
+        DontAlwaysNotifyPlayerJoined=False
+        EnablePvPGamma=False
+        GlobalVoiceChat=False
+        KickIdlePlayersPeriod=2400.000000
+        NoTributeDownloads=False
+        ProximityChat=False
+        ProximityVoiceChat=False
+        PvEStructureDecayDestructionPeriod=0.000000
+        ServerCrosshair=True
+        ServerForceNoHUD=False
+        ServerHardcore=False
+        ServerPassword=password
+        ServerPVE=True
+        ShowMapPlayerLocation=True
+        TamedDinoDamageMultiplier=1.000000
+        TamedDinoResistanceMultiplier=1.000000
+        StructurePreventResourceRadiusMultiplier=1.000000
+        RaidDinoCharacterFoodDrainMultiplier=1.000000
+        PvEDinoDecayPeriodMultiplier=1.000000
+        PerPlatformMaxStructuresMultiplier=1.000000
+        ListenServerTetherDistanceMultiplier=1.000000
+        MaxTamedDinos=5000.000000
+        RCONServerGameLogBuffer=600.000000
+        AllowHitMarkers=True
+        TamingSpeedMultiplier=3.000000
+        AllowCaveBuildingPvE=True
+        AllowAnyoneBabyImprintCuddle=True
+        ShowFloatingDamageText=True
+        NonPermanentDiseases=True
+        HarvestAmountMultiplier=1.900000
+        PreventDownloadSurvivors=False
+        PreventDownloadItems=False
+        PreventDownloadDinos=False
+        PreventUploadSurvivors=False
+        PreventUploadItems=False
+        PreventUploadDinos=False
+        TribeLogDestroyedEnemyStructures=True
+        TheMaxStructuresInRange=10500.000000
+        XPMultiplier=1
+        ActiveMods=
+
+        [SessionSettings]
+        SessionName=ArkServer
+
+        [/Script/Engine.GameSession]
+
+        [MessageOfTheDay]
+        Message=Welcome on ARK
+        Duration=5
+
+        [/Game/PrimalEarth/CoreBlueprints/TestGameMode.TestGameMode_C]
+        bServerGameLogEnabled=True
+
+      crontab: |
+        ## Example of job definition:
+        ## .---------------- minute (0 - 59)
+        ## |  .------------- hour (0 - 23)
+        ## |  |  .---------- day of month (1 - 31)
+        ## |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+        ## |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+        ## |  |  |  |  |
+        ## *  *  *  *  * user-name  command to be executed
+
+        ## Examples for arkmanager:
+        # 0 * * * * arkmanager update --update-mods --warn --saveworld  # check for updates every hour
+        # */15 * * * * arkmanager saveworld && arkmanager backup        # backup every 15min
+        # 0 0 * * * arkmanager restart --warn --saveworld               # restart every day at midnight
