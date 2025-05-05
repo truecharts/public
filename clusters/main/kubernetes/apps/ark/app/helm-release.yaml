@@ -90,6 +90,17 @@ spec:
 
 
     persistence:
+      backup:
+        volsync:
+           - name: b2
+             type: restic
+             credentials: s3
+             dest:
+               accessModes:
+                 - ReadWriteOnce
+               enabled: true
+             src:
+               enabled: true
       cluster:
         volsync:
            - name: b2

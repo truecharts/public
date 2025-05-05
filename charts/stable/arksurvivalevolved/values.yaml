@@ -59,6 +59,7 @@ workload:
             am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
             am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
             am_ark_GameModIds: '{{ join "," .Values.ark.mods }}'
+            am_arkBackupPreUpdate: true
 
             ## Free RealEstate
             ARKCLUSTER: "true"
@@ -93,6 +94,9 @@ persistence:
   ark:
     enabled: true
     mountPath: /ark
+  backup:
+    enabled: true
+    mountPath: /ark/backup
   staging:
     enabled: true
     mountPath: /ark/staging
