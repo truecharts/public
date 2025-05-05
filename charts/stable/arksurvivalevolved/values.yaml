@@ -82,6 +82,9 @@ workload:
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              initialDelaySeconds: 20
+              periodSeconds: 10
+
 
 persistence:
   game:
