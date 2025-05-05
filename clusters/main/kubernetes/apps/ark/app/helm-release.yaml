@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: arksurvivalevolved
-      version: 10.0.0
+      version: 10.0.1
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -83,7 +83,7 @@ spec:
                am_arkopt_clusterid: "TrueCharts-Ark"
                am_arkStagingDir: ""
                am_arkAutoUpdateOnStart: false
-               am_ark_SessionName: "TrueCharts"
+               am_ark_SessionName: "TrueCharts-Ark"
                am_serverMap: "Fjordur"
                am_ark_MaxPlayers: "10"
                am_ark_ServerPassword: ${ARK_PASSWORD}

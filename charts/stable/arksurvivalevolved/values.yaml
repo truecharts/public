@@ -1,12 +1,12 @@
 image:
   repository: docker.io/drpsychick/arkserver
   tag: latest-v1.6.62
-# securityContext:
-#  container:
+securityContext:
+  container:
 #    runAsNonRoot: true
 #    readOnlyRootFilesystem: false
-#    runAsUser: 0
-#    runAsGroup: 0
+    runAsUser: 1001
+    runAsGroup: 1001
 service:
   main:
     enabled: true
@@ -81,6 +81,12 @@ persistence:
   game:
     enabled: true
     mountPath: /arkserver
+  ark:
+    enabled: true
+    mountPath: /ark
+  steamapps:
+    enabled: true
+    mountPath: /home/steam/.steam/steamapps
   cluster:
     enabled: true
     mountPath: /arkserver/ShooterGame/Saved/clusters
