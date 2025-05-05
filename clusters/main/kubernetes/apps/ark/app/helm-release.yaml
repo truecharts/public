@@ -56,8 +56,8 @@ spec:
             protocol: udp
       query:
         enabled: true
-        # loadBalancerIP: $ARK_IP}
-        # type: LoadBalancer
+        loadBalancerIP: ${ARK_IP}
+        type: LoadBalancer
         ports:
           query:
             enabled: true
