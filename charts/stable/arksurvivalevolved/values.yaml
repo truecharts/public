@@ -2,11 +2,17 @@ image:
   repository: docker.io/drpsychick/arkserver
   tag: latest-v1.6.62
 securityContext:
+  pod:
+    fsGroup: 1001
   container:
-#    runAsNonRoot: true
-#    readOnlyRootFilesystem: false
+    runAsNonRoot: false
     runAsUser: 1001
     runAsGroup: 0
+    privileged: false
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    capabilities:
+      drop: []
 service:
   main:
     enabled: true
@@ -48,11 +54,11 @@ workload:
             am_arkNoPortDecrement: "true"
             am_arkGameIniFile: /arkconfig/Game.ini
             am_arkGameUserSettingsIniFile: /arkconfig/GameUserSettings.ini
-            ARKSERVER_SHARED: "{{ $.Values.persistence.game.mountPath | quote }}"
+            ARKSERVER_SHARED: "{{ $.Values.persistence.game.mountPath }}"
             am_ark_QueryPort: "{{ .Values.service.query.ports.query.port }}"
             am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
             am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
-            am_ark_GameModIds: '{{ join "," .Values.ark.mods | quote }}'
+            am_ark_GameModIds: '{{ join "," .Values.ark.mods }}'
 
             ## Free RealEstate
             ARKCLUSTER: "true"
@@ -98,14 +104,6 @@ persistence:
     type: configmap
     objectName: gameinis
     mountPath: /arkconfig
-  crontab:
-    enabled: true
-    type: configmap
-    objectName: gameinis
-    mountPath: /ark/config/crontab
-    items:
-      - key: "crontab"
-        path: "crontab"
 
 configmap:
   gameinis:
@@ -205,18 +203,3 @@ configmap:
 
         [/Game/PrimalEarth/CoreBlueprints/TestGameMode.TestGameMode_C]
         bServerGameLogEnabled=True
-
-      crontab: |
-        ## Example of job definition:
-        ## .---------------- minute (0 - 59)
-        ## |  .------------- hour (0 - 23)
-        ## |  |  .---------- day of month (1 - 31)
-        ## |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-        ## |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-        ## |  |  |  |  |
-        ## *  *  *  *  * user-name  command to be executed
-
-        ## Examples for arkmanager:
-        # 0 * * * * arkmanager update --update-mods --warn --saveworld  # check for updates every hour
-        # */15 * * * * arkmanager saveworld && arkmanager backup        # backup every 15min
-        # 0 0 * * * arkmanager restart --warn --saveworld               # restart every day at midnight
