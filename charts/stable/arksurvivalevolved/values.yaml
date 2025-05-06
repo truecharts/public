@@ -82,11 +82,15 @@ workload:
             readiness:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              initialDelaySeconds: 60
+              periodSeconds: 20
+              failureThreshold: 60
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
-              initialDelaySeconds: 20
-              periodSeconds: 10
+              initialDelaySeconds: 60
+              periodSeconds: 20
+              failureThreshold: 60
 
 
 persistence:
