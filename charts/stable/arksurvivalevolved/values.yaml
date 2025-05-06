@@ -7,12 +7,14 @@ securityContext:
   container:
     runAsNonRoot: false
     runAsUser: 1001
-    runAsGroup: 0
+    runAsGroup: 1001
     privileged: false
-    readOnlyRootFilesystem: false
+    readOnlyRootFilesystem: true
     allowPrivilegeEscalation: true
     capabilities:
-      drop: []
+      drop: ["ALL"]
+      add: ["CHOWN", "FOWNER", "DAC_OVERRIDE", "SETGID", "SETUID"]
+
 service:
   main:
     enabled: true
