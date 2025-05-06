@@ -22,7 +22,7 @@ require (
 	github.com/rs/zerolog v1.33.0
 	github.com/siderolabs/talos/pkg/machinery v1.11.0-alpha.0
 	github.com/spf13/cobra v1.9.1
-	golang.org/x/crypto v0.37.0
+	golang.org/x/crypto v0.38.0
 	gopkg.in/yaml.v3 v3.0.1
 	helm.sh/helm/v3 v3.17.3
 	k8s.io/api v0.33.0
