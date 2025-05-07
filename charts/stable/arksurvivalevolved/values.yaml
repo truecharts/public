@@ -112,12 +112,9 @@ persistence:
   save:
     enabled: true
     mountPath: /arkserver/ShooterGame/Saved
-  Content:
+  shootergame:
     enabled: true
-    mountPath: /arkserver/ShooterGame/Content
-  Binaries:
-    enabled: true
-    mountPath: /arkserver/ShooterGame/Binaries
+    mountPath: /arkserver/ShooterGame
   gameinis:
     enabled: true
     type: configmap
