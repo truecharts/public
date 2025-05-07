@@ -71,6 +71,7 @@ workload:
             am_ark_ServerPassword: "password"
             am_ark_RCONEnabled: "True"
             am_ark_ServerAdminPassword: "123456789"
+            am_arkflag_USECACHE: "true"
 
           probes:
             liveness:
@@ -78,20 +79,20 @@ workload:
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
               spec:
                 initialDelaySeconds: 60
-                periodSeconds: 21
+                periodSeconds: 28
             readiness:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
               spec:
                 initialDelaySeconds: 60
-                periodSeconds: 20
+                periodSeconds: 26
                 failureThreshold: 6
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
               spec:
                 initialDelaySeconds: 60
-                periodSeconds: 18
+                periodSeconds: 25
 
 
 persistence:
