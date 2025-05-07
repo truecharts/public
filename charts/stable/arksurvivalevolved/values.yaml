@@ -5,15 +5,8 @@ securityContext:
   pod:
     fsGroup: 1001
   container:
-    runAsNonRoot: false
     runAsUser: 1001
     runAsGroup: 1001
-    privileged: false
-    readOnlyRootFilesystem: true
-    allowPrivilegeEscalation: true
-    capabilities:
-      drop: ["ALL"]
-      add: ["CHOWN", "FOWNER", "DAC_OVERRIDE", "SETGID", "SETUID"]
 
 service:
   main:
