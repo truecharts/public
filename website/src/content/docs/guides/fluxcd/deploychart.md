@@ -14,6 +14,12 @@ This guide will explain briefly how to deploy a chart on your brand new Clustert
 - So it will be like: `clusters/main/kubernetes/apps/librespeed/app/`
 - In this folder we will create two files, `helm-release.yaml` and `namespace.yaml`.  
 
+:::note[Folder Structure]
+
+You are not limited to only use the `clusters/main/kubernetes/apps` folder. You can make any folder with subfolders in `clusters/main/kubernetes/` to organize your charts. 
+
+:::
+
 ```yaml
 // namespace.yaml
 
@@ -24,7 +30,13 @@ metadata:
 ## Add this part when you need a privileged namespace
 #  labels:  
 #    pod-security.kubernetes.io/enforce: privileged
+
 ```
+:::warning[Privileged Namespace]
+
+Add the label for pod-security only when it is really needed. After deploying the chart and this part will be needed you will see this in your event logs. 
+
+:::
 
 ```yaml
 // helm-release.yaml
@@ -65,7 +77,13 @@ spec:
 
 ## Generate and deploy
 
+:::note[Kustomizations]
+
+When not using clustertool, you need to add the kustomizations yourself.
+
+:::
+
 - Run `clustertool genconfig`. This will creates `kustomization.yaml` and `ks.yaml` files.
 - Also this will update the `kustomization.yaml` in the folder above.
 - Push to git
-- Wait for flux to get it deployed. This can be taken up to 30 minutes. Another option you can do is run flux reconcile or configure a flux webhook.
+- Wait for flux to get it deployed. This can be taken up to 30 minutes. Another option you can do is run [flux reconcile](/guides/cheatsheet.md) or configure a flux [webhook](/guides/fluxcd/webhook.md).
