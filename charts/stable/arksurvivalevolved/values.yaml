@@ -129,7 +129,15 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /var/spool/cron/crontabs/
-
+  crontabfile:
+    enabled: true
+    type: configmap
+    objectName: gameinis
+    mountPath: /ark/config/crontab
+    subPath: crontab
+    items:
+      - key: "crontab"
+        path: "crontab"
 configmap:
   gameinis:
     enabled: true
@@ -228,3 +236,5 @@ configmap:
 
         [/Game/PrimalEarth/CoreBlueprints/TestGameMode.TestGameMode_C]
         bServerGameLogEnabled=True
+      crontab:
+        10 */8 * * * arkmanager saveworld && arkmanager backup
