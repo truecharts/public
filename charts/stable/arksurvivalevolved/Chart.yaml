@@ -9,7 +9,7 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.6.62
+appVersion: latest
 dependencies:
   - name: common
     version: 25.4.10
@@ -37,3 +37,4 @@ sources:
   - https://hub.docker.com/r/drpsychick/arkserver
 type: application
 version: 10.0.16
+
