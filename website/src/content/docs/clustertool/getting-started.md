@@ -252,4 +252,5 @@ Otherwise it will reset your talos-vm during next restart.
 :::
 
 Your talos-cluster should now be bootstrapped and you should be able to add your first charts.
-Have fun!
+
+Have fun with your cluster!

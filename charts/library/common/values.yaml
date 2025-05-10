@@ -517,12 +517,12 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.82.0@sha256:d1750edcac72b5854177d1747c257d2b404af67ca8cc4815e01555fc3e7b2385
+  tag: v1.82.5@sha256:1c2e055452e42e31662ebf48644ef63f5689ba5a132b1889f2f9567525e01599
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.99.3@sha256:9f37dfc2c12bf87ae6540e1b2630cb4ea6957d31df23c9d0d546227aa74021a5
+  tag: v4.99.4@sha256:b9f9a9e3946be788eb83682004dd0c6c6ba198ca9234886bf53d3f80ef7f0704
   pullPolicy: IfNotPresent
 
 alpineImage:
@@ -548,11 +548,11 @@ wgetImage:
 yqImage:
   pullPolicy: IfNotPresent
   repository: docker.io/mikefarah/yq
-  tag: 4.45.1@sha256:2c100efaca06e95ffe452cfe9bfc0048b493f0f3a072d5fe06f828c638d9462b
+  tag: 4.45.2@sha256:48f0bd428026b782dfae8e8e07e03b5b385bb957035963c5383ca4cea46d82d4
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:c85c459d3ca854d705b4aa8663a77752e62c8d33aa43d6a5e4455523f7eb53bd
+  tag: v1.1.0@sha256:56ad13b7ddad3a89bbd4e20f094bd8b5242ccc3312990614f0fe5592ab5f4928
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
@@ -562,12 +562,12 @@ mariadbClientImage:
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:910ade9977376cef26e6ee3b03939d74e295bb980e3c62ec8174bdd0b12af9af
+  tag: v1.1.0@sha256:c4ffaa0ecc30ae46aea04e9704406ff6bb8faf516b8f5696fc28244c53ffb016
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: v1.2.0@sha256:faee7b78290e6cadab8c27b55884a6bf7805fc32e4ae22cf94452cf87949fb2a
+  tag: v1.2.0@sha256:9a69802b7c48b4d390247b15c9798730a741054175b3e6534bda7d177b2ed454
   pullPolicy: IfNotPresent
 
 postgres15Image:
