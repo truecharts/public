@@ -1,4 +1,6 @@
 ---
+sidebar:
+  order: 1
 title: FluxCD Basics
 ---
 
