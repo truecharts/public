@@ -86,4 +86,4 @@ When not using clustertool, you need to add the kustomizations yourself.
 - Run `clustertool genconfig`. This will creates `kustomization.yaml` and `ks.yaml` files.
 - Also this will update the `kustomization.yaml` in the folder above.
 - Push to git
-- Wait for flux to get it deployed. This can be taken up to 30 minutes. Another option you can do is run [flux reconcile](/guides/cheatsheet.md) or configure a flux [webhook](/guides/fluxcd/webhook.md).
+- Wait for flux to get it deployed. This can be taken up to 30 minutes. Another option you can do is run [flux reconcile](/guides/cheatsheet) or configure a flux [webhook](/guides/fluxcd/webhook).
