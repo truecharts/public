@@ -1,4 +1,6 @@
 ---
+sidebar:
+  order: 2
 title: FluxCD Webhook
 ---
 

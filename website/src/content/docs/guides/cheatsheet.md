@@ -24,6 +24,12 @@ Show all Helm-Releases:
 flux get hr -A
 ```
 
+Reconcile your cluster:
+
+```bash
+flux reconcile source git cluster
+```
+
 Show all Flux objects which are not ready:
 
 ```bash
