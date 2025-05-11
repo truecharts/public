@@ -9,7 +9,7 @@ workload:
         main:
           env:
             ND_MUSICFOLDER: /music
-            ND_SCANSCHEDULE: "@every 15m"
+            ND_SCANNER_SCHEDULE: "@every 15m"
             ND_LOGLEVEL: info
             ND_SESSIONTIMEOUT: 24h
             ND_ENABLETRANSCODINGCONFIG: false
