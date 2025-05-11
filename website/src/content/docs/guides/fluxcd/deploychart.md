@@ -8,15 +8,15 @@ This guide will explain briefly how to deploy a chart on your brand new Clustert
 
 ## Create the files
 
-- Your charts can be placed in the folder `clusters/main/kubernetes/apps/`. 
+- Your charts can be placed in the folder `clusters/main/kubernetes/apps/`.
 - There will make a folder for your `chart` and inside that folder an `app` folder.
 - In this guide we will use as example `librespeed`
 - So it will be like: `clusters/main/kubernetes/apps/librespeed/app/`
-- In this folder we will create two files, `helm-release.yaml` and `namespace.yaml`.  
+- In this folder we will create two files, `helm-release.yaml` and `namespace.yaml`.
 
 :::note[Folder Structure]
 
-You are not limited to only use the `clusters/main/kubernetes/apps` folder. You can make any folder with subfolders in `clusters/main/kubernetes/` to organize your charts. 
+You are not limited to only use the `clusters/main/kubernetes/apps` folder. You can make any folder with subfolders in `clusters/main/kubernetes/` to organize your charts.
 
 :::
 
@@ -28,13 +28,13 @@ kind: Namespace
 metadata:
   name: librespeed
 ## Add this part when you need a privileged namespace
-#  labels:  
+#  labels:
 #    pod-security.kubernetes.io/enforce: privileged
 
 ```
 :::warning[Privileged Namespace]
 
-Add the label for pod-security only when it is really needed. After deploying the chart and this part will be needed you will see this in your event logs. 
+Add the label for pod-security only when it is really needed. After deploying the chart and this part will be needed you will see this in your event logs.
 
 :::
 
