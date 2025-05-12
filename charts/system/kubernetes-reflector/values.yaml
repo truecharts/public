@@ -53,16 +53,16 @@ workload:
           probes:
             liveness:
               type: http
-              path: /healthz
-              port: 25080
+              path: /health/ready
+              port: 8080
             readiness:
               type: http
-              path: /healthz
-              port: 25080
+              path: /health/ready
+              port: 8080
             startup:
               type: http
-              path: /healthz
-              port: 25080
+              path: /health/ready
+              port: 8080
 service:
   main:
     enabled: false
