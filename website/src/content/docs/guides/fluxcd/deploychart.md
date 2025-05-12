@@ -32,6 +32,7 @@ metadata:
 #    pod-security.kubernetes.io/enforce: privileged
 
 ```
+
 :::warning[Privileged Namespace]
 
 Add the label for pod-security only when it is really needed. After deploying the chart and this part will be needed you will see this in your event logs.
