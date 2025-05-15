@@ -43,6 +43,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 
 - We do not offer support for any component of kubernets that is not made by TrueCharts.
 - This includes charts by other parties or manually created kubernetes manifests and deployments.
+- We do not offer support for any version of kubernetes not listed below.
 
 ## Helm Chart Support Policy
 
@@ -51,6 +52,7 @@ We also offer free support via a support-ticketing system on Discord, according 
 - We do not support external secret management outside of values.yaml
 - We offer support for all our charts trains, except `incubator`, `dev`, and `test`.
 - We cannot guarantee special characters will work flawlessly in any field.
+- We do not offer support for any version of helm not listed below.
 
 :::note
 
@@ -85,8 +87,15 @@ For all issues not covered by support you can make a thread in an appropriate [D
 
 | Helm version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
-| 3.11 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
-| 3.12 - 3.14     | `master` | ✅                     | ✅                        | ✅                    |       |
+| 3.13 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
+| 3.14 - 3.17     | `master` | ✅                     | ✅                        | ✅                    |       |
+
+## Supported Kubernetes Versions
+
+| Helm version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
+| --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
+| 1.23 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
+| 1.24 - 1.32     | `master` | ✅                     | ✅                        | ✅                    |       |
 
 :::caution[China]
 
