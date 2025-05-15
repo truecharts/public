@@ -130,7 +130,8 @@ jobs:
         # We test the latest k3s version and the lowest supported by either the oldest supported SCALE or FluxCD release
         k3s-version:
           - v1.26
-          - v1.29
+          - v1.32
+          - latest
         # We test the latest k3s version and the lowest supported by either the oldest supported SCALE or FluxCD release
         helm-version:
           - v3.14.0
