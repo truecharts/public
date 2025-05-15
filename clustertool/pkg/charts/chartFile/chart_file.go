@@ -16,7 +16,7 @@ import (
 const (
     minHelmVersion     = "3.14"
     maxHelmVersion     = "3.17"
-    kubeVersion        = ">=1.24.0-0"
+    kubeVersion        = ">=1.24.0-0 <1.33.0-0"
     apiVersion         = "v2"
     chartType          = "application"
     maintainerName     = "TrueCharts"
