@@ -87,15 +87,16 @@ For all issues not covered by support you can make a thread in an appropriate [D
 
 | Helm version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
-| 3.13 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
+| 3.13 and prior  | `master` | ❌                     | ❌                        | ❌                    |       |
 | 3.14 - 3.17     | `master` | ✅                     | ✅                        | ✅                    |       |
 
 ## Supported Kubernetes Versions
 
 | Kube version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
-| 1.23 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
+| 1.23 and prior  | `master` | ❌                     | ❌                        | ❌                    |       |
 | 1.24 - 1.32     | `master` | ✅                     | ✅                        | ✅                    |       |
+| 1.33.0               | `master` | ✅                     | ❌                        | ✅                    |       |
 
 :::caution[China]
 
