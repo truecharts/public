@@ -92,7 +92,7 @@ For all issues not covered by support you can make a thread in an appropriate [D
 
 ## Supported Kubernetes Versions
 
-| Kubernetes version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
+| Kube version    | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes |
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
 | 1.23 and prior  | `master` | ✅                     | ❌                        | ❌                    |       |
 | 1.24 - 1.32     | `master` | ✅                     | ✅                        | ✅                    |       |
