@@ -71,19 +71,20 @@ If this works, you'll see DNS entries inside Cloudflare's DNS page.
 
 ### PiHole
 
-:::danger[Temporally broken]
-
-Because of API changes in Pi-hole v6 this is temporally broken.
-More info: https://github.com/kubernetes-sigs/external-dns/issues/5113
-
-:::
-
 #### Step 1
 
 - Set `pihole` as provider
 - set sources `ingress` and `service` should covers everything
 - Recommend using `noop` for `registry`
 - Set PiHole Server Address `piholeServer` and PiHole Server Password `piholePassword`
+- Set `piholeAPIVersion` depending on which version of PiHole you have installed i.e. 5 or 6
+
+:::caution[Future deprecation]
+
+The option for version 5 of the PiHole api will be deprecated in a future external dns release.
+More info: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
+
+:::
 
 ```yaml
     externaldns:
@@ -100,6 +101,7 @@ More info: https://github.com/kubernetes-sigs/external-dns/issues/5113
       policy: "upsert-only"  # would prevent ExternalDNS from deleting any records, omit to enable full synchronization
       piholeServer: "http://pihole.pihole.svc.cluster.local:8089"
       piholePassword: "DitIsSuperGeheim"
+      piholeAPIVersion: "6"
 ```
 
 #### Step 2

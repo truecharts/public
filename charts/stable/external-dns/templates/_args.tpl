@@ -45,4 +45,7 @@ args:
   {{- with .Values.externaldns.piholePassword }}
   - --pihole-password={{ . }}
   {{- end -}}
+  {{- with .Values.externaldns.piholeAPIVersion }}
+  - --pihole-api-version={{ . }}
+  {{- end -}}
 {{- end -}}
