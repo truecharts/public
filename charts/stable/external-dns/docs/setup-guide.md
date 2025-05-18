@@ -81,7 +81,7 @@ If this works, you'll see DNS entries inside Cloudflare's DNS page.
 
 :::caution[Future deprecation]
 
-The option for version 5 of the PiHole api will be deprecated in a future external dns release.
+The option for version 5 of the PiHole api will be deprecated in a future External DNS release.
 More info: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md
 
 :::
