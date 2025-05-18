@@ -522,7 +522,7 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.99.4@sha256:b9f9a9e3946be788eb83682004dd0c6c6ba198ca9234886bf53d3f80ef7f0704
+  tag: v4.100.1@sha256:d073a0a8911e8680cd851495517e8bc3a2737c542ec46f11d9bd63b7be6daafe
   pullPolicy: IfNotPresent
 
 alpineImage:
@@ -572,12 +572,12 @@ mongodbClientImage:
 
 postgres15Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "15.12"
+  tag: "15.13"
   pullPolicy: IfNotPresent
 
 postgres16Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "16.8"
+  tag: "16.9"
   pullPolicy: IfNotPresent
 
 postgresPostgis15Image:
