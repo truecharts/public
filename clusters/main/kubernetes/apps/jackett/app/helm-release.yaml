@@ -39,7 +39,7 @@ spec:
         encrKey: "${S3KEY_TC}"
 
     persistence:
-      config:
+     config:
         volsync:
           - name: s3
             type: restic
@@ -50,6 +50,12 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+     new:
+        enabled: true
+        mountPath: /new
+        type: nfs
+        server: 192.168.10.21
+        path: /mnt/tank/apps/minecraft/config
 
     ingress:
       main:
