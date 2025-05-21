@@ -70,7 +70,7 @@ spec:
            port: 8123
 
     mcbackup:
-     enabled: false
+     enabled: true
     podOptions:
       terminationGracePeriodSeconds: 120
     workload:
@@ -209,8 +209,20 @@ spec:
          main:
            main:
              mountPath: /data/dynmap/web
+       type: nfs
+       server: 192.168.10.21
+       path: /mnt/tank/apps/minecraft/dynmap
      backups:
-       enabled: false
+        enabled: true
+        type: nfs
+        server: 192.168.10.21
+        path: /mnt/tank/apps/minecraft/backups
+     new:
+        enabled: true
+        mountPath: /new
+        type: nfs
+        server: 192.168.10.21
+        path: /mnt/tank/apps/minecraft/config
     resources:
        limits:
          cpu: 8000m
