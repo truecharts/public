@@ -203,8 +203,6 @@ spec:
              readOnly: true
      dynmap:
        enabled: true
-       storageClass: ceph-nvme
-       size: 500Gi
        targetSelector:
          main:
            main:
