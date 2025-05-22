@@ -201,7 +201,7 @@ spec:
              mountPath: /data/dynmap/web
        type: nfs
        server: 192.168.10.21
-       path: /mnt/tank/apps/minecraft/data
+       path: /mnt/tank/apps/minecraft/dynmap
      backups:
         enabled: true
         type: nfs
@@ -209,11 +209,11 @@ spec:
         path: /mnt/tank/apps/minecraft/backups
     resources:
        limits:
-         cpu: 8000m
+         cpu: 4000m
          memory: 25Gi
        requests:
-         cpu: 1000m
-         memory: 8Gi
+         cpu: 500m
+         memory: 2Gi
 
     ingress:
       main:
