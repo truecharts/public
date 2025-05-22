@@ -181,18 +181,10 @@ spec:
 
     persistence:
      data:
-       volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              accessModes:
-                - ReadWriteOnce
-              enabled: true
-            src:
-              enabled: true
        enabled: true
-       size: 600Gi
+       type: nfs
+       server: 192.168.10.21
+       path: /mnt/tank/apps/minecraft/data
        targetSelector:
          main:
            main:
