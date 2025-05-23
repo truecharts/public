@@ -29,6 +29,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      stopAll: true
     credentials:
       s3:
         type: s3
