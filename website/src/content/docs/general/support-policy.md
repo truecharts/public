@@ -89,6 +89,7 @@ For all issues not covered by support you can make a thread in an appropriate [D
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
 | 3.13 and prior  | `master` | ❌                     | ❌                        | ❌                    |       |
 | 3.14 - 3.17     | `master` | ✅                     | ✅                        | ✅                    |       |
+| 3.18            | `master` | ❌                     | ❌                        | ❌                    | Bug indentifed on 3.18, we will not support until fixed in future Helm update. https://github.com/helm/helm/pull/30902 |
 
 ## Supported Kubernetes Versions
 
@@ -96,7 +97,7 @@ For all issues not covered by support you can make a thread in an appropriate [D
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
 | 1.23 and prior  | `master` | ❌                     | ❌                        | ❌                    |       |
 | 1.24 - 1.32     | `master` | ✅                     | ✅                        | ✅                    |       |
-| 1.33.0               | `master` | ✅                     | ❌                        | ✅                    |       |
+| 1.33.0          | `master` | ✅                     | ✅                        | ✅                    | Known issue with error "failed to set MOUNT_ATTR_IDMAP". Can be corrected by setting hostUsers to True. https://truecharts.org/common/podoptions/#hostusers |
 
 :::caution[China]
 
