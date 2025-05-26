@@ -30,6 +30,8 @@ If you face issues feel free to open a thread in the appropiate Channel in our D
 - Update the `kustomization.yaml` file in `flux-system` with `- capacitor`
 - Next we will need 3 files inside the capacitor folder:
 
+
+capacitor.yaml
 ```yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -49,6 +51,7 @@ spec:
     name: capacitor
 ```
 
+ingress.yaml
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -77,6 +80,7 @@ spec:
       secretName: capacitor-tls-0 # use what you have configured for your ingress
 ```
 
+kustomization.yaml
 ``` yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -87,8 +91,9 @@ resources:
 
 ## Add The Repository
 
-Go to your `Reponsitories/oci` directory
+Go to your `Reponsitories/oci` directory and create this file.
 
+capacitor-manifests.yaml
 ``` yaml
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
@@ -101,6 +106,8 @@ spec:
   ref:
     semver: ">=0.1.0"
 ```
+
+Update the kustomization.yaml in oci to include `- capacitor-manifests.yaml`
 
 ## Finishing Steps
 
