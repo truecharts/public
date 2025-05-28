@@ -89,7 +89,7 @@ For all issues not covered by support you can make a thread in an appropriate [D
 | --------------- | -------- | ---------------------- | ------------------------- | --------------------- | ----- |
 | 3.13 and prior  | `master` | ❌                     | ❌                        | ❌                    |       |
 | 3.14 - 3.17     | `master` | ✅                     | ✅                        | ✅                    |       |
-| 3.18            | `master` | ❌                     | ❌                        | ❌                    | Bug indentifed on 3.18, we will not support until fixed in future Helm update. https://github.com/helm/helm/pull/30902 |
+| 3.18.0           | `master` | ❌                     | ❌                        | ❌                    | Bug indentifed on 3.18.0, we cannot support this version. https://github.com/helm/helm/pull/30902 |
 
 ## Supported Kubernetes Versions
 
