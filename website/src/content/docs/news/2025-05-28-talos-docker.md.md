@@ -13,7 +13,7 @@ With the release of TrueNAS SCALE Fangtooth, iXsystems has officially switched i
 This transition has introduced several limitations, and VM support is now also labeled as experimental. Leaving users without a stable VM-solution on TrueNAS.
 
 Users have reported performance issues with the new Incus-based VM system,
-and some previously supported configurations—such as running Talos OS with Qemu-Guest-Agents — are no longer functional.
+and some previously supported configurations—such as running VMs with raw-file backed disks (making use of ZFS small-blocks special-vdevs) — are no longer functional.
 Currently, there are no official Talos options available for Incus, making it difficult for users to control the VM threw TrueNAS UI.
 
 In light of this, TrueCharts has reaffirmed its commitment to the TrueNAS community by releasing a new guide
