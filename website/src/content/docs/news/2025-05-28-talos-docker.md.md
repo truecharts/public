@@ -18,10 +18,9 @@ and some previously supported configurations—such as running VMs with raw-file
 Currently, there is no official Incus-Guest-Agent available on Talos, making it difficult for users to control the VM threw TrueNAS UI.
 
 Users have been requesting a Kubernetes solution within the iX-supported Apps/Instances system for quite some time.
-Traditional containerization approaches like LXC/LXD or FreeBSD jails were never viable options for us,
+Traditional containerization approaches like LXC/LXD or jails were never viable options for us,
 as they lack support for Talos and present significant management challenges.
-However, after careful testing and evaluation,
-we've concluded that integrating Talos in container form within the existing Docker Compose-based Apps system presents a compelling solution.
+However, after careful testing and evaluation, we've concluded that integrating Talos in container form within the existing Docker Compose-based Apps system presents a compelling solution.
 This approach enables users to run Kubernetes on TrueNAS SCALE without the added complexity of virtual machines or the maintenance burden of homegrown setups,
 striking a practical balance between performance, simplicity, and native integration.
 
