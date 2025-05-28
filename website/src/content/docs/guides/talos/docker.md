@@ -1,5 +1,5 @@
 ---
-title: Run Talos in a Dockerfile
+title: Talos as a Docker-Compose App
 ---
 
 :::caution[Disclaimer]
