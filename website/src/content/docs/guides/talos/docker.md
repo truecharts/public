@@ -102,8 +102,6 @@ machine:
 
 ## Modifications to your talhelper/clustertool talconfig
 
-
-
 ```yaml
 
 nodes:
