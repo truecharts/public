@@ -135,6 +135,14 @@ After Clustertool bootstrap, be sure to delete/comment-out:
 
 ## Further testing needed
 
+
+### ClusterTool compatibility
+
+The able has previously been tested with "normal" useage of `talosctl apply`, on machineconfigs created, and manually altered, using `clustertool genconfig`.
+Its not been validated for clustertool bootstrapping as of yet
+
+
+
 ### Intel GPU support
 
 We assume that doing the volume-forwards to the container like normal for adding intel GPUs to containers, would work fine.
