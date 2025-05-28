@@ -101,6 +101,7 @@ machine:
 ```
 
 ```yaml
+## Modifications to your talhelper/clustertool talconfig
 
 nodes:
     - hostname: k8s-control-0
@@ -116,4 +117,3 @@ nodes:
         - deviceSelector:
             hardwareAddr: "02:*"
 
-```
