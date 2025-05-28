@@ -95,21 +95,15 @@ networks:
 #### talconfig
 
 This modification for your talconfig, should allow for automatic selection of the container NIC.
+This is needed for each node defined
+
 
 
 ```yaml
 
 nodes:
     - hostname: talos-control-1
-      ipAddress: ${MASTER1IP}
-      controlPlane: true
-      nameservers:
-        - 192.168.10.21
-        - 1.1.1.1
-      installDiskSelector:
-        size:  ">= 100GB"
       networkInterfaces:
-        # suffix is the adapter mac adres.
         - deviceSelector:
             hardwareAddr: "02:*"
 ```
