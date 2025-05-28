@@ -19,7 +19,9 @@ Talos can be run as a docker container. This has a couple of downsides like:
 - Warning spam in container logs that it cant alter bpf related stuff
 - CEPH and such can hijack drives -> Be careful!
 
-## Dockerfile
+## Setup Instructions
+
+### Dockerfile
 
 Following you will find a dockerfile on how to run Talos as a docker container.
 
@@ -86,7 +88,33 @@ networks:
 
 ```
 
-## Modifications to your Machineconfig
+
+
+### Clustertool
+
+#### talconfig
+
+This modification for your talconfig, should allow for automatic selection of the container NIC.
+
+
+```yaml
+
+nodes:
+    - hostname: talos-control-1
+      ipAddress: ${MASTER1IP}
+      controlPlane: true
+      nameservers:
+        - 192.168.10.21
+        - 1.1.1.1
+      installDiskSelector:
+        size:  ">= 100GB"
+      networkInterfaces:
+        # suffix is the adapter mac adres.
+        - deviceSelector:
+            hardwareAddr: "02:*"
+```
+
+#### Machineconfig
 
 Running Talos inside a dockerfile requires some modifications to talos machine config:
 
@@ -100,21 +128,31 @@ machine:
 
 ```
 
-## Modifications to your talhelper/clustertool talconfig
+This either has to be done manually or in a patchfile.
 
-```yaml
+#### Other requirements
 
-nodes:
-    - hostname: k8s-control-0
-      ipAddress: ${MASTER1IP}
-      controlPlane: true
-      nameservers:
-        - 192.168.10.21
-        - 1.1.1.1
-      installDiskSelector:
-        size:  ">= 100GB"
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - deviceSelector:
-            hardwareAddr: "02:*"
-```
+After Clustertool bootstrap, be sure to delete/comment-out:
+
+- MetalLB
+- Longhorn
+
+
+
+## Further testing needed
+
+### Intel GPU support
+
+We assume that doing the volume-forwards to the container like normal for adding intel GPUs to containers, would work fine.
+But we've not tested this yet
+
+### OpenEBS ZFS-PV
+
+We assume that the included /dev/zfs forward is going to be enough to even setup OpenEBS ZFS-PV with access to the pool.
+But we've not officially tested this.
+
+
+
+
+
+
