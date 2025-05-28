@@ -14,6 +14,11 @@ TrueCharts is a comprehensive project that focuses on providing opinionated Helm
 
 We also offer free support via a support-ticketing system on Discord, according to the policy laid out in this document.
 
+## System Requirements
+
+Make sure your system fullfills atleast the [Minimum System Specifications
+](/general/systemrequirements) to be alligable for ticket support.
+
 ## Support Rules
 
 - If its covered by support as outlined below make a ticket in [⁠🎫・support](https://discord.com/channels/830763548678291466/936275413179723826).
