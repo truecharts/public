@@ -145,8 +145,3 @@ But we've not tested this yet
 We assume that the included /dev/zfs forward is going to be enough to even setup OpenEBS ZFS-PV with access to the pool.
 But we've not officially tested this.
 
-
-
-
-
-
