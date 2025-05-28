@@ -11,10 +11,10 @@ This guide is not covered by the Support Policy and some features wont work when
 Talos can be run as a docker container. This has a couple of downsides like:
 
 - No system-extensions
-- No reset
-- Dependance on host-kernel
-- No MetalLB
-- No Upgrade
+- No TalosCTL  reset -> restart  the containers and/or wipe container storage instead
+- Dependance on host-kernel -> host kernel might not be optimised for talos
+- No MetalLB -> use ServiceLB or node port instead
+- No TalosCTL Upgrade -> update the container instead
 - Nvidia GPU Assignment
 - Warning spam in container logs that it cant alter bpf related stuff
 - CEPH and such can hijack drives -> Be careful!
