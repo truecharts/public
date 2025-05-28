@@ -9,7 +9,7 @@ tags:
 
 ## TrueNAS Switches to Incus with Fangtooth Release — VM Support Now Experimental
 
-With the release of TrueNAS SCALE Fangtooth, iXsystems has officially switched its virtualization backend from LXC/LXD to Incus.
+With the release of TrueNAS SCALE Fangtooth, iXsystems has officially switched its virtualization backend from KVM to Incus.
 This transition has introduced several limitations, and VM support is now labeled as experimental.
 
 Users have reported performance issues with the new Incus-based VM system,
