@@ -4,7 +4,7 @@ title: Run Talos in a Dockerfile
 
 :::caution[Disclaimer]
 
-This guide isnt covered by the Support Policy and some features wont work when running Talos as a dockerfile.
+This guide is not covered by the Support Policy and some features wont work when running Talos as a dockerfile.
 
 :::
 
