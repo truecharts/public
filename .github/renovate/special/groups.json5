@@ -94,6 +94,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/m1k1o/neko"],
+      "groupName": "neko"
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["lscr.io/linuxserver/rdesktop"],
       "groupName": "rdesktop"
     },
