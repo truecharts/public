@@ -1,7 +1,7 @@
 image:
   repository: docker.io/acockburn/appdaemon
   pullPolicy: IfNotPresent
-  tag: 4.4.2@sha256:9619fc18bc53082ae2dc680e80f1bcb634c793a74b2114779df1b381ffa0736c
+  tag: 4.5.2@sha256:30b50d263ee8def2dd5591dae4e1fe51d81f88db078b794458330d111b4bfb83
 securityContext:
   container:
     runAsNonRoot: false
@@ -31,8 +31,8 @@ workload:
               type: http
               path: /
           env:
-            DASH_URL: "http://$HOSTNAME:5050"
-            HA_URL: ""
+            DASH_URL: "http://0.0.0.0:5050"
+            HA_URL: "ha-url"
             LATITUDE: 46
             LONGITUDE: -94
             ELEVATION: 1217
