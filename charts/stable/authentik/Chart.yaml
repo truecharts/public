@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.3
+    version: 16.0.4
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -47,5 +47,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
   - https://goauthentik.io/docs/
 type: application
-version: 32.0.7
+version: 32.0.8
 
