@@ -32,7 +32,7 @@ workload:
               path: /
           env:
             DASH_URL: "http://$HOSTNAME:5050"
-            HA_URL: ""
+            HA_URL: "ha-url"
             LATITUDE: 46
             LONGITUDE: -94
             ELEVATION: 1217
