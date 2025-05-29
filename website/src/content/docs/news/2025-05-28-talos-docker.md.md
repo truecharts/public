@@ -28,3 +28,5 @@ In light of this, We have reaffirmed our commitment to the TrueNAS community by 
 on how to run Talos as a Docker container inside SCALE Apps.
 This approach provides a practical alternative for those affected by the VM backend changes,
 allowing continued experimentation and development with Talos despite the Incus limitations.
+
+To get started with Talos as a Docker-Compose App following the following [this](/guides/talos/docker).
