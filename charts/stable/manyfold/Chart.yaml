@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.3
+    version: 16.0.4
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -43,4 +43,3 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
 type: application
 version: 3.2.0
-
