@@ -21,9 +21,9 @@ Talos can be run as a docker container. This has a couple of downsides like:
 
 ## Setup Instructions
 
-### Dockerfile
+### Docker Compose YAML
 
-Following you will find a dockerfile on how to run Talos as a docker container.
+Following you will find a `compose.yml` on how to run Talos as a docker container.
 
 ```yaml
 services:
