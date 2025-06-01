@@ -7,8 +7,6 @@ tags:
   - "2025"
 ---
 
-## TrueNAS Switches to Incus with Fangtooth Release — VM Support Now Experimental
-
 With the release of TrueNAS SCALE Fangtooth, iXsystems has officially switched its virtualization backend from KVM to Incus.
 This transition has introduced several limitations, and VM support is now also labeled as experimental, leaving users without a stable VM solution on TrueNAS.
 
