@@ -4,26 +4,26 @@ title: Talos as a Docker-Compose App
 
 :::caution[Disclaimer]
 
-This guide is not covered by the Support Policy and some features wont work when running Talos as a dockerfile.
+This guide is not covered by the Support Policy and some features won't work when running Talos as a dockerfile.
 
 :::
 
-Talos can be run as a docker container. This has a couple of downsides like:
+Talos can now be run as a docker container. This has a couple of downsides such as:
 
 - No system-extensions
 - No TalosCTL  reset -> restart  the containers and/or wipe container storage instead
-- Dependance on host-kernel -> host kernel might not be optimised for talos
+- Dependance on host-kernel -> host kernel might not be optimised for Talos
 - No MetalLB -> use ServiceLB or node port instead
 - No TalosCTL Upgrade -> update the container instead
 - Nvidia GPU Assignment
-- Warning spam in container logs that it cant alter bpf related stuff
+- Warning spam in container logs that it can't alter bpf-related stuff
 - CEPH and such can hijack drives -> Be careful!
 
 ## Setup Instructions
 
 ### Docker Compose YAML
 
-Following you will find a `compose.yml` on how to run Talos as a docker container.
+Below you will find a `compose.yml` on how to run Talos as a docker container.
 
 ```yaml
 services:
@@ -92,10 +92,10 @@ networks:
 
 ### Clustertool
 
-#### talconfig
+#### Talconfig
 
-This modification for your talconfig, should allow for automatic selection of the container NIC.
-This is needed for each node defined
+This modification for your talconfig should allow for automatic selection of the container NIC.
+This is needed for each node defined.
 
 
 
@@ -110,7 +110,7 @@ nodes:
 
 #### Machineconfig
 
-Running Talos inside a dockerfile requires some modifications to talos machine config:
+Running Talos inside a dockerfile requires some modifications to Talos' machine config:
 
 ```yaml
 
@@ -138,18 +138,15 @@ After Clustertool bootstrap, be sure to delete/comment-out:
 
 ### ClusterTool compatibility
 
-The able has previously been tested with "normal" useage of `talosctl apply`, on machineconfigs created, and manually altered, using `clustertool genconfig`.
-Its not been validated for clustertool bootstrapping as of yet
+The tool has previously been tested with "normal" usage of `talosctl apply` on machineconfigs created and manually altered using `clustertool genconfig`.
+It's not been validated for clustertool bootstrapping as yet.
 
 
 
 ### Intel GPU support
 
-We assume that doing the volume-forwards to the container like normal for adding intel GPUs to containers, would work fine.
-But we've not tested this yet
+We assume that doing the volume-forwards to the container like normal for adding intel GPUs to containers works fine, but we've not tested this yet.
 
 ### OpenEBS ZFS-PV
 
-We assume that the included /dev/zfs forward is going to be enough to even setup OpenEBS ZFS-PV with access to the pool.
-But we've not officially tested this.
-
+We assume that the included /dev/zfs forward is going to be enough to even setup OpenEBS ZFS-PV with access to the pool, but we've not officially tested this.
