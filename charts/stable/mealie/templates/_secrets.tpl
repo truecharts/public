@@ -35,7 +35,7 @@ api:
     POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
     POSTGRES_DB: {{ .Values.cnpg.main.database }}
     POSTGRES_SERVER: {{ .Values.cnpg.main.creds.host }}
-  {{-end}}
+  {{- end }}
     {{/* User Defined */}}
     {{/* General */}}
     ALLOW_SIGNUP: {{ $api.general.allow_signup | quote }}
