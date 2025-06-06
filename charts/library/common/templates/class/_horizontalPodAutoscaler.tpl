@@ -47,7 +47,6 @@ spec:
   {{- end -}}
 {{- end -}}
 
-
 {{- define "tc.v1.common.class.hpa.behavior" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
