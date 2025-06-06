@@ -172,19 +172,6 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
-  {{- if not (kindIs "map" $metric.pods) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods)) -}}
-  {{- end -}}
-
-  {{- if not (kindIs "map" $metric.pods.metric) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric)) -}}
-  {{- end -}}
-
-  {{- if or (not $metric.pods.metric.name) (not (kindIs "string" $metric.pods.metric.name)) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric.name)) -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.hpa.validation.metrics.metric.target" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric.pods "key" "pods" "idx" $idx) -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.object" -}}
@@ -192,20 +179,6 @@
   {{- $rootCtx := .rootCtx -}}
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
-
-  {{- if not (kindIs "map" $metric.object) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object)) -}}
-  {{- end -}}
-
-  {{- if not (kindIs "map" $metric.object.metric) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.metric] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.metric)) -}}
-  {{- end -}}
-
-  {{- if or (not $metric.object.metric.name) (not (kindIs "string" $metric.object.metric.name)) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.metric.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.metric.name)) -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.hpa.validation.metrics.metric.target" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric.object "key" "object" "idx" $idx) -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.external" -}}
@@ -214,19 +187,6 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
-  {{- if not (kindIs "map" $metric.external) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.external] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.external)) -}}
-  {{- end -}}
-
-  {{- if not (kindIs "map" $metric.external.metric) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.external.metric] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.external.metric)) -}}
-  {{- end -}}
-
-  {{- if or (not $metric.external.metric.name) (not (kindIs "string" $metric.external.metric.name)) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.external.metric.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.external.metric.name)) -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.hpa.validation.metrics.metric.target" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric.external "key" "external" "idx" $idx) -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.metric.target" -}}
