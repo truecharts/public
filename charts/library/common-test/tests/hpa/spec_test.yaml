@@ -12,7 +12,18 @@ tests:
           enabled: true
           primary: true
           type: Deployment
-          podSpec: {}
+          podSpec:
+            containers:
+              container-name:
+                enabled: true
+                primary: true
+                probes:
+                  readiness:
+                    enabled: false
+                  liveness:
+                    enabled: false
+                  startup:
+                    enabled: false
       hpa:
         hpa-name:
           enabled: true
@@ -113,6 +124,13 @@ tests:
                   type: AverageValue
                   averageValue: 1000m
                   value: 1000m
+            - type: ContainerResource
+              containerResource:
+                name: memory
+                container: container-name
+                target:
+                  type: Utilization
+                  averageUtilization: 80
     asserts:
       - documentIndex: &hpaDoc 1
         isKind:
@@ -170,3 +188,10 @@ tests:
                     type: AverageValue
                     averageValue: 1000m
                     value: 1000m
+              - type: ContainerResource
+                containerResource:
+                  name: memory
+                  container: container-name
+                  target:
+                    type: Utilization
+                    averageUtilization: 80

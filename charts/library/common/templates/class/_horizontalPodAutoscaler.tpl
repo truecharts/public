@@ -103,6 +103,26 @@ spec:
         {{- end -}}
 {{- end -}}
 
+
+{{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: ContainerResource
+    containerResource:
+      name: {{ .metric.containerResource.name }}
+      container: {{ .metric.containerResource.container}}
+      target:
+        type: {{ .metric.containerResource.target.type }}
+        {{- if eq .metric.containerResource.target.type "AverageValue" }}
+        averageValue: {{ .metric.containerResource.target.averageValue | quote }}
+        {{- else if eq .metric.containerResource.target.type "Utilization" }}
+        averageUtilization: {{ .metric.containerResource.target.averageUtilization }}
+        {{- end -}}
+        {{- with .metric.containerResource.target.value }}
+        value: {{ . | quote }}
+        {{- end -}}
+{{- end -}}
+
 {{- define "tc.v1.common.class.hpa.metrics.pods" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
@@ -134,14 +154,4 @@ spec:
         name: {{ .metric.external.metric.name }}
       target:
         type: {{ .metric.external.target.type }}
-{{- end -}}
-
-{{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
-  {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx }}
-  - type: ContainerResource
-    containerResource:
-      name: {{ .metric.containerResource.metric.name }}
-      target:
-        type: {{ .metric.containerResource.target.type }}
 {{- end -}}

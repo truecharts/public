@@ -25,7 +25,16 @@
                       "key" "workload")) -}}
 
       {{- if ne $enabled "true" -}}{{- continue -}}{{- end -}}
-
+      {{- $containerNames := list -}}
+      {{- range $cName, $c := $workload.podSpec.containers -}}
+        {{- $enabledContainer := (include "tc.v1.common.lib.util.enabled" (dict
+                        "rootCtx" $ "objectData" $c
+                        "name" $cName "caller" "Vertical Pod Autoscaler"
+                        "key" "workload.podSpec.containers")) -}}
+        {{- if ne $enabledContainer "true" -}}{{- continue -}}{{- end -}}
+        {{- $containerNames = mustAppend $containerNames $cName -}}
+      {{- end -}}
+      {{- $_ := set $objectData "containerNames" $containerNames -}}
       {{- include "tc.v1.common.lib.hpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
 
       {{/* Create a copy of the workload */}}
