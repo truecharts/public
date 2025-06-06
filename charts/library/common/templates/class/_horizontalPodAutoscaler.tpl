@@ -103,7 +103,6 @@ spec:
         {{- end -}}
 {{- end -}}
 
-
 {{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
