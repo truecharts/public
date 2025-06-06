@@ -22,7 +22,7 @@ data:
 {{- define "frigate.configVolume" -}}
 {{- $mountPath := "/dummy-config/config.yml" -}}
 {{- if .Values.frigateConfig }}
-  {{- $mountPath = "/config/config.yaml" -}}
+  {{- $mountPath = "/config/config.yml" -}}
 {{- end }}
 enabled: true
 type: configmap

@@ -16,6 +16,8 @@ import (
 const (
     minHelmVersion     = "3.14"
     maxHelmVersion     = "3.17"
+    minKubeVersion     = "1.24.0"
+    maxKubeVersion     = "1.32.0"
     kubeVersion        = ">=1.24.0-0"
     apiVersion         = "v2"
     chartType          = "application"
@@ -134,6 +136,8 @@ func (h *HelmChart) setDefaultValues() {
     h.setAnnotation("truecharts.org/category", defaultCategory, false)
     h.setAnnotation("truecharts.org/min_helm_version", minHelmVersion, true)
     h.setAnnotation("truecharts.org/max_helm_version", maxHelmVersion, true)
+    h.setAnnotation("truecharts.org/min_kubernetes_version", minKubeVersion, true)
+    h.setAnnotation("truecharts.org/max_kubernetes_version", maxKubeVersion, true)
     h.setAnnotation("artifacthub.io/links", supportUrl, true)
 
     // Set default values for other fields as needed

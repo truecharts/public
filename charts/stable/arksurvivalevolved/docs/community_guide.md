@@ -2,6 +2,8 @@
 title: Community Guide
 ---
 
+TBD: Needs redoing
+
 ## Credentials
 
 `Username` and `Password` is optional but recommended. You **_will_** need to disable Steam Guard.

@@ -9,7 +9,7 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: 7.1.217
+appVersion: 9.1.9
 dependencies:
   - name: common
     version: 25.4.10
@@ -35,9 +35,9 @@ maintainers:
     url: https://truecharts.org
 name: kubernetes-reflector
 sources:
+  - https://ghcr.io/emberstack/kubernetes-reflector
   - https://github.com/emberstack/kubernetes-reflector
   - https://github.com/truecharts/charts/tree/master/charts/system/kubernetes-reflector
-  - https://hub.docker.com/r/emberstack/kubernetes-reflector
 type: application
-version: 6.5.1
+version: 6.5.5
 

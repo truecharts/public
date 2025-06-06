@@ -61,7 +61,7 @@ func TalhelperGenConfig() error {
     genconfigDryRun := false
     genconfigOfflineMode := false
 
-    err := generate.GenerateConfig(TalConfig, genconfigDryRun, helper.TalosGenerated, helper.TalSecretFile, genconfigTalosMode, genconfigOfflineMode)
+    err := generate.GenerateConfig(TalConfig, genconfigDryRun, helper.TalosGenerated, helper.TalSecretFile, genconfigTalosMode, genconfigOfflineMode, false)
     if err != nil {
         log.Fatal().Err(err).Msgf("failed to generate talos config: %s", err)
     }

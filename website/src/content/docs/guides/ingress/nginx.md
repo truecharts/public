@@ -4,7 +4,7 @@ title: NGINX
 
 ## Setup
 
-For NGINX we will setup 2 ingress controllers: Internal and External.
+For NGINX we will deploy two ingress controllers: Internal and External.
 Where External is either forwarded by your router or, for example, a cloudflare tunnel.
 Internal, however, is not routed anywhere and is used as a safe default to just have charts reached from your internal network only.
 
@@ -16,105 +16,103 @@ Please note the IP variables that need to be set to your specific configuration 
 #### Internal
 
 ```yaml
-    controller:
-      replicaCount: 2
-      service:
-        externalTrafficPolicy: Local
-        annotations:
-          metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
-      ingressClassByName: true
-      watchIngressWithoutClass: true
-      ingressClassResource:
-        name: internal
-        default: true
-        controllerValue: k8s.io/internal
-      config:
-        allow-snippet-annotations: true
-        annotations-risk-level: Critical
-        client-body-buffer-size: 100M
-        client-body-timeout: 120
-        client-header-timeout: 120
-        enable-brotli: "true"
-        enable-ocsp: "true"
-        enable-real-ip: "true"
-        force-ssl-redirect: "true"
-        hide-headers: Server,X-Powered-By
-        hsts-max-age: "31449600"
-        keep-alive-requests: 10000
-        keep-alive: 120
-        proxy-body-size: 0
-        proxy-buffer-size: 16k
-        ssl-protocols: TLSv1.3 TLSv1.2
-        use-forwarded-headers: "true"
-      metrics:
-        enabled: true
-      extraArgs:
-        default-ssl-certificate: "clusterissuer/certificate-issuer-general-wildcard"
-        publish-status-address: ${NGINX_INTERNAL_IP}
-      terminationGracePeriodSeconds: 120
-      publishService:
-        enabled: false
-      resources:
-        requests:
-          cpu: 100m
-        limits:
-          memory: 500Mi
-    defaultBackend:
-      enabled: false
+controller:
+  replicaCount: 2
+  service:
+    externalTrafficPolicy: Local
+    annotations:
+      metallb.io/ip-allocated-from-pool: main
+      metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
+  ingressClassByName: true
+  watchIngressWithoutClass: true
+  ingressClassResource:
+    name: internal
+    default: true
+    controllerValue: k8s.io/internal
+  config:
+    allow-snippet-annotations: true
+    annotations-risk-level: Critical
+    client-body-buffer-size: 100M
+    client-body-timeout: 120
+    client-header-timeout: 120
+    enable-brotli: "true"
+    enable-ocsp: "true"
+    enable-real-ip: "true"
+    force-ssl-redirect: "true"
+    hide-headers: Server,X-Powered-By
+    hsts-max-age: "31449600"
+    keep-alive-requests: 10000
+    keep-alive: 120
+    proxy-body-size: 0
+    proxy-buffer-size: 16k
+    ssl-protocols: TLSv1.3 TLSv1.2
+    use-forwarded-headers: "true"
+  metrics:
+    enabled: true
+  extraArgs:
+    default-ssl-certificate: "clusterissuer/certificate-issuer-general-wildcard"
+    publish-status-address: ${NGINX_INTERNAL_IP}
+  terminationGracePeriodSeconds: 120
+  publishService:
+    enabled: false
+  resources:
+    requests:
+      cpu: 100m
+    limits:
+      memory: 500Mi
+defaultBackend:
+  enabled: false
 ```
 
 #### External
 
 ```yaml
-
-  values:
-    controller:
-      replicaCount: 2
-      service:
-        externalTrafficPolicy: Local
-        annotations:
-          metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: ${NGINX_EXTERNAL_IP}
-      ingressClassByName: true
-      watchIngressWithoutClass: false
-      ingressClassResource:
-        name: external
-        default: false
-        controllerValue: k8s.io/external
-      config:
-        allow-snippet-annotations: true
-        annotations-risk-level: Critical
-        client-body-buffer-size: 100M
-        client-body-timeout: 120
-        client-header-timeout: 120
-        enable-brotli: "true"
-        enable-ocsp: "true"
-        enable-real-ip: "true"
-        force-ssl-redirect: "true"
-        hide-headers: Server,X-Powered-By
-        hsts-max-age: "31449600"
-        keep-alive-requests: 10000
-        keep-alive: 120
-        proxy-body-size: 0
-        proxy-buffer-size: 16k
-        ssl-protocols: TLSv1.3 TLSv1.2
-        use-forwarded-headers: "true"
-      metrics:
-        enabled: true
-      extraArgs:
-        default-ssl-certificate: "clusterissuer/certificate-issuer-general-wildcard"
-        publish-status-address: ${NGINX_EXTERNAL_IP}
-      terminationGracePeriodSeconds: 120
-      publishService:
-        enabled: false
-      resources:
-        requests:
-          cpu: 100m
-        limits:
-          memory: 500Mi
-    defaultBackend:
-      enabled: false
+controller:
+  replicaCount: 2
+  service:
+    externalTrafficPolicy: Local
+    annotations:
+      metallb.io/ip-allocated-from-pool: main
+      metallb.io/loadBalancerIPs: ${NGINX_EXTERNAL_IP}
+  ingressClassByName: true
+  watchIngressWithoutClass: false
+  ingressClassResource:
+    name: external
+    default: false
+    controllerValue: k8s.io/external
+  config:
+    allow-snippet-annotations: true
+    annotations-risk-level: Critical
+    client-body-buffer-size: 100M
+    client-body-timeout: 120
+    client-header-timeout: 120
+    enable-brotli: "true"
+    enable-ocsp: "true"
+    enable-real-ip: "true"
+    force-ssl-redirect: "true"
+    hide-headers: Server,X-Powered-By
+    hsts-max-age: "31449600"
+    keep-alive-requests: 10000
+    keep-alive: 120
+    proxy-body-size: 0
+    proxy-buffer-size: 16k
+    ssl-protocols: TLSv1.3 TLSv1.2
+    use-forwarded-headers: "true"
+  metrics:
+    enabled: true
+  extraArgs:
+    default-ssl-certificate: "clusterissuer/certificate-issuer-general-wildcard"
+    publish-status-address: ${NGINX_EXTERNAL_IP}
+  terminationGracePeriodSeconds: 120
+  publishService:
+    enabled: false
+  resources:
+    requests:
+      cpu: 100m
+    limits:
+      memory: 500Mi
+defaultBackend:
+  enabled: false
 ```
 
 ### Using the IngressClasses
@@ -126,7 +124,7 @@ or
 
 ## Annotations Examples
 
-Here we will showcase some annotations you can use to customise your NGINX ingress behavior
+Here we will showcase some annotations you can use to customize your NGINX ingress behavior
 
 ### Redirect to Https
 
@@ -159,7 +157,8 @@ annotations:
 ```
 
 For domain-level forward auth, you must configure the embedded outpost first (please refer to
-[Authentik's docs](https://truecharts.org/charts/stable/authentik/how_to/)). The basic steps are to create a provider and application, then enable the embedded outpost for your newly created application.
+[Authentik's docs](https://truecharts.org/charts/stable/authentik/how_to/)). The basic steps are
+to create a provider and application, then enable the embedded outpost for your newly created application.
 
 Once that has been done, configure each service you wish to place behind Authentik as follows:
 

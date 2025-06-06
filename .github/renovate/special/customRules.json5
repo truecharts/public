@@ -16,6 +16,12 @@
       "matchPackagePatterns": ["placeholder"],
       "branchPrefix": "block-automerge-patch",
       "labels": ["type/minor", "unstable"]
+    },
+    {
+      "description": ["Block minio removal of UI (Dont Remove existing Features to make money off of users!)"],
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["quay.io/minio/minio"],
+      "dependencyDashboardApproval": true
     }
   ]
 }
