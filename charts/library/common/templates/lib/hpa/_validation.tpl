@@ -88,3 +88,6 @@
 
   {{- end -}}
 {{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics" -}}
+{{- end -}}
