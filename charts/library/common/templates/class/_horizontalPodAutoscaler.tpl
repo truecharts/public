@@ -88,48 +88,60 @@ spec:
 {{- define "tc.v1.common.class.hpa.metrics.resource" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
-
-  resource:
-    name: {{ .metric.resource.metric.name }}
-    target:
-      type: {{ .metric.resource.target.type }}
+  - type: Resource
+    resource:
+      name: {{ .metric.resource.name }}
+      target:
+        type: {{ .metric.resource.target.type }}
+        {{- if eq .metric.resource.target.type "AverageValue" }}
+        averageValue: {{ .metric.resource.target.averageValue | quote }}
+        {{- else if eq .metric.resource.target.type "Utilization" }}
+        averageUtilization: {{ .metric.resource.target.averageUtilization }}
+        {{- end -}}
+        {{- with .metric.resource.target.value }}
+        value: {{ . | quote }}
+        {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.pods" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
-  pods:
-    metric:
-      name: {{ .metric.pods.metric.name }}
-    target:
-      type: {{ .metric.pods.target.type }}
+  - type: Pods
+    pods:
+      metric:
+        name: {{ .metric.pods.metric.name }}
+      target:
+        type: {{ .metric.pods.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.object" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
-  object:
-    metric:
-      name: {{ .metric.object.metric.name }}
-    target:
-      type: {{ .metric.object.target.type }}
+  - type: Object
+    object:
+      metric:
+        name: {{ .metric.object.metric.name }}
+      target:
+        type: {{ .metric.object.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.external" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
-  external:
-    metric:
-      name: {{ .metric.external.metric.name }}
-    target:
-      type: {{ .metric.external.target.type }}
+  - type: External
+    external:
+      metric:
+        name: {{ .metric.external.metric.name }}
+      target:
+        type: {{ .metric.external.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx }}
-  containerResource:
-    name: {{ .metric.containerResource.metric.name }}
-    target:
-      type: {{ .metric.containerResource.target.type }}
+  - type: ContainerResource
+    containerResource:
+      name: {{ .metric.containerResource.metric.name }}
+      target:
+        type: {{ .metric.containerResource.target.type }}
 {{- end -}}

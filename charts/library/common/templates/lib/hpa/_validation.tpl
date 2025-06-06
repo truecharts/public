@@ -136,11 +136,36 @@
     {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource)) -}}
   {{- end -}}
 
-  {{- if or (not $metric.resource.name) (not (kindIs "string" $metric.resource.name)) -}}
-    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource.name)) -}}
+  {{- $validNames := list "cpu" "memory" -}}
+  {{- if not (mustHas $metric.resource.name $validNames) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.name] to be one of [%s], but got [%s]" $objectData.hpaName $idx (join ", " $validNames) $metric.resource.name) -}}
   {{- end -}}
 
-  {{- include "tc.v1.common.lib.hpa.validation.metrics.metric.target" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric.resource "key" "resource" "idx" $idx) -}}
+  {{- if not (kindIs "map" $metric.resource.target) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.target] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource.target)) -}}
+  {{- end -}}
+
+  {{- $validTargetTypes := list "AverageValue" "Utilization" -}}
+  {{- if not (mustHas $metric.resource.target.type $validTargetTypes) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.target.type] to be one of [%s], but got [%s]" $objectData.hpaName $idx (join ", " $validTargetTypes) $metric.resource.target.type) -}}
+  {{- end -}}
+
+  {{- if eq $metric.resource.target.type "AverageValue" -}}
+    {{- if not (mustHas (kindOf $metric.resource.target.averageValue) (list "int" "int64" "float64" "string")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.target.averageValue] to be an integer or string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource.target.averageValue)) -}}
+    {{- end -}}
+  {{- else if eq $metric.resource.target.type "Utilization" -}}
+    {{- if not (mustHas (kindOf $metric.resource.target.averageUtilization) (list "int" "int64" "float64")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.target.averageUtilization] to be an integer, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource.target.averageUtilization)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $metric.resource.target.value -}}
+    {{- if not (mustHas (kindOf $metric.resource.target.value) (list "int" "int64" "float64" "string")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.resource.target.value] to be an integer or string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.resource.target.value)) -}}
+    {{- end -}}
+  {{- end -}}
+
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.containerResource" -}}
@@ -237,5 +262,15 @@
   {{- $validTargetTypes := list "AverageValue" "Utilization" -}}
   {{- if not (mustHas $data.target.type $validTargetTypes) -}}
     {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.%s.target.type] to be one of [%s], but got [%s]" $objectData.hpaName $idx $key (join ", " $validTargetTypes) $data.target.type) -}}
+  {{- end -}}
+
+  {{- if eq $data.target.type "AverageValue" -}}
+    {{- if not (mustHas (kindOf $data.target.averageValue) (list "int" "int64" "float64" "string")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.%s.target.averageValue] to be an integer or string, but got [%s]" $objectData.hpaName $idx $key (kindOf $data.target.averageValue)) -}}
+    {{- end -}}
+  {{- else if eq $data.target.type "Utilization" -}}
+    {{- if not (mustHas (kindOf $data.target.averageUtilization) (list "int" "int64" "float64")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.%s.target.averageUtilization] to be an integer, but got [%s]" $objectData.hpaName $idx $key (kindOf $data.target.averageUtilization)) -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}

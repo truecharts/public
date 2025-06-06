@@ -93,6 +93,26 @@ tests:
                 - type: Percent
                   value: 20
                   periodSeconds: 60
+          metrics:
+            - type: Resource
+              resource:
+                name: cpu
+                target:
+                  type: Utilization
+                  averageUtilization: 80
+            - type: Resource
+              resource:
+                name: memory
+                target:
+                  type: Utilization
+                  averageUtilization: 80
+            - type: Resource
+              resource:
+                name: cpu
+                target:
+                  type: AverageValue
+                  averageValue: 1000m
+                  value: 1000m
     asserts:
       - documentIndex: &hpaDoc 1
         isKind:
@@ -126,3 +146,27 @@ tests:
                 - type: Percent
                   value: 20
                   periodSeconds: 60
+      - documentIndex: *hpaDoc
+        isSubset:
+          path: spec
+          content:
+            metrics:
+              - type: Resource
+                resource:
+                  name: cpu
+                  target:
+                    type: Utilization
+                    averageUtilization: 80
+              - type: Resource
+                resource:
+                  name: memory
+                  target:
+                    type: Utilization
+                    averageUtilization: 80
+              - type: Resource
+                resource:
+                  name: cpu
+                  target:
+                    type: AverageValue
+                    averageValue: 1000m
+                    value: 1000m
