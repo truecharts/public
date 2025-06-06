@@ -17,8 +17,3 @@
 {{- define "tc.v1.common.capabilities.networkpolicy.apiVersion" -}}
   {{- print "networking.k8s.io/v1" -}}
 {{- end -}}
-
-{{/* Return the appropriate apiVersion for HorizontalPodAutoscaler aka HPA*/}}
-{{- define "tc.v1.common.capabilities.hpa.apiVersion" -}}
-  {{- print "autoscaling/v2" -}}
-{{- end -}}
