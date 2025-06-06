@@ -73,14 +73,14 @@ spec:
   {{- range $idx, $metric := $objectData.metrics }}
     {{- if eq $metric.type "Resource" }}
       {{- include "tc.v1.common.class.hpa.metrics.resource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "ContainerResource" }}
+      {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
     {{- else if eq $metric.type "Pods" }}
       {{- include "tc.v1.common.class.hpa.metrics.pods" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
     {{- else if eq $metric.type "Object" }}
       {{- include "tc.v1.common.class.hpa.metrics.object" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
     {{- else if eq $metric.type "External" }}
       {{- include "tc.v1.common.class.hpa.metrics.external" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-    {{- else if eq $metric.type "ContainerResource" }}
-      {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
     {{- end -}}
   {{- end -}}
 {{- end -}}
