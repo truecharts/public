@@ -22,6 +22,6 @@ echo "🔨 Building common..."
 helm dependency update "$common_test_path"
 
 echo "🧪 Running tests..."
-helm unittest --update-snapshot -f "tests/hpa/*.yaml" "./$common_test_path" -v ./$common_test_path/unit-values.yaml
+helm unittest --update-snapshot -f "tests/*/*.yaml" "./$common_test_path" -v ./$common_test_path/unit-values.yaml
 
 cleanup

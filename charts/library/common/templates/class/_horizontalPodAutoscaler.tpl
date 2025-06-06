@@ -175,6 +175,18 @@ spec:
     external:
       metric:
         name: {{ .metric.external.metric.name }}
+        {{- if .metric.external.metric.selector }}
+        selector:
+          matchLabels:
+          {{- range $key, $value := .metric.external.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+          {{- end -}}
+        {{- end }}
       target:
         type: {{ .metric.external.target.type }}
+        {{- if eq .metric.external.target.type "Value" }}
+        value: {{ .metric.external.target.value | quote }}
+        {{- else if eq .metric.external.target.type "AverageValue" }}
+        averageValue: {{ .metric.external.target.averageValue | quote }}
+        {{- end -}}
 {{- end -}}

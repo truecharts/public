@@ -155,6 +155,16 @@ tests:
                   apiVersion: apps/v1
                   kind: Deployment
                   name: some-name
+            - type: External
+              external:
+                metric:
+                  name: external-metric
+                  selector:
+                    matchLabels:
+                      custom-label: custom-value
+                target:
+                  type: AverageValue
+                  averageValue: 1000m
     asserts:
       - documentIndex: &hpaDoc 1
         isKind:
@@ -243,3 +253,13 @@ tests:
                     apiVersion: apps/v1
                     kind: Deployment
                     name: some-name
+              - type: External
+                external:
+                  metric:
+                    name: external-metric
+                    selector:
+                      matchLabels:
+                        custom-label: custom-value
+                  target:
+                    type: AverageValue
+                    averageValue: 1000m
