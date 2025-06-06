@@ -29,10 +29,10 @@ spec:
   minReplicas: {{ $objectData.minReplicas }}
   maxReplicas: {{ $objectData.maxReplicas }}
 
-  {{- with $objectData.metrics }}
-  metrics:
-    {{- $objectData.metrics | toYaml | nindent 4 }}
-  {{- end -}}
+  # {{- with $objectData.metrics }}
+  # metrics:
+  #   {{- $objectData.metrics | toYaml | nindent 4 }}
+  # {{- end -}}
 
   {{- if $objectData.behavior }}
   behavior:
@@ -66,5 +66,55 @@ spec:
       periodSeconds: {{ $policy.periodSeconds }}
     {{- end }}
   {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+  {{- if $objectData.metrics }}
+  metrics:
+    {{- range $idx, $metric := $objectData.metrics }}
+      {{- if eq $metric.type "Resource" }}
+        {{- include "tc.v1.common.class.hpa.metrics.resource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+      {{- else if eq $metric.type "Pods" }}
+        {{- include "tc.v1.common.class.hpa.metrics.pods" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+      {{- else if eq $metric.type "Object" }}
+        {{- include "tc.v1.common.class.hpa.metrics.object" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+      {{- else if eq $metric.type "External" }}
+        {{- include "tc.v1.common.class.hpa.metrics.external" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+      {{- else if eq $metric.type "ContainerResource" }}
+        {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+      {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.resource" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.pods" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.object" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.external" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
 
 {{- end -}}

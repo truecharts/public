@@ -1,0 +1,128 @@
+suite: hpa spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create hpa
+    set:
+      workload: &workload
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      hpa:
+        hpa-name:
+          enabled: true
+    asserts:
+      - documentIndex: &hpaDoc 1
+        isKind:
+          of: HorizontalPodAutoscaler
+      - documentIndex: *hpaDoc
+        isAPIVersion:
+          of: autoscaling/v2
+      - documentIndex: *hpaDoc
+        isSubset:
+          path: spec
+          content:
+            scaleTargetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: test-release-name-common-test
+            minReplicas: 1
+            maxReplicas: 3
+
+  - it: should create hpa with targetSelector
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name-2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      hpa:
+        hpa-name:
+          enabled: true
+          targetSelector:
+            - workload-name-2
+    asserts:
+      - hasDocuments:
+          count: 3 # 2 Deployments, 1 HPA
+      - documentIndex: &hpaDoc 2
+        isKind:
+          of: HorizontalPodAutoscaler
+      - documentIndex: *hpaDoc
+        isAPIVersion:
+          of: autoscaling/v2
+      - documentIndex: *hpaDoc
+        isSubset:
+          path: spec
+          content:
+            scaleTargetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: test-release-name-common-test-workload-name-2
+            minReplicas: 1
+            maxReplicas: 3
+
+  - it: should create hpa with options
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          minReplicas: 50
+          maxReplicas: 100
+          behavior:
+            scaleUp:
+              stabilizationWindowSeconds: 50
+              policies:
+                - type: Pods
+                  value: 10
+                  periodSeconds: 60
+            scaleDown:
+              selectPolicy: Min
+              stabilizationWindowSeconds: 150
+              policies:
+                - type: Percent
+                  value: 20
+                  periodSeconds: 60
+    asserts:
+      - documentIndex: &hpaDoc 1
+        isKind:
+          of: HorizontalPodAutoscaler
+      - documentIndex: *hpaDoc
+        isAPIVersion:
+          of: autoscaling/v2
+      - documentIndex: *hpaDoc
+        equal:
+          path: spec.minReplicas
+          value: 50
+      - documentIndex: *hpaDoc
+        equal:
+          path: spec.maxReplicas
+          value: 100
+      - documentIndex: *hpaDoc
+        equal:
+          path: spec.behavior
+          value:
+            scaleUp:
+              selectPolicy: Max
+              stabilizationWindowSeconds: 50
+              policies:
+                - type: Pods
+                  value: 10
+                  periodSeconds: 60
+            scaleDown:
+              selectPolicy: Min
+              stabilizationWindowSeconds: 150
+              policies:
+                - type: Percent
+                  value: 20
+                  periodSeconds: 60
