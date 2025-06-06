@@ -306,7 +306,7 @@ workload:
 
 :::note
 
-Suggested is to use the top-level [serviceAccount](/common/serviceAccount/) key
+Suggested is to use the top-level [serviceAccount](/common/serviceaccount/) key
 to define the service account with `targetSelector`.
 
 Using this key here, is out of our support scope.
