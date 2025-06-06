@@ -87,6 +87,7 @@ spec:
         {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
       {{- end -}}
     {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.resource" -}}
