@@ -146,10 +146,26 @@ spec:
   {{- $rootCtx := .rootCtx }}
   - type: Object
     object:
-      metric:
-        name: {{ .metric.object.metric.name }}
       target:
         type: {{ .metric.object.target.type }}
+        {{- if eq .metric.object.target.type "Value" }}
+        value: {{ .metric.object.target.value | quote }}
+        {{- else if eq .metric.object.target.type "AverageValue" }}
+        averageValue: {{ .metric.object.target.averageValue | quote }}
+        {{- end }}
+      describedObject:
+        apiVersion: {{ .metric.object.describedObject.apiVersion }}
+        kind: {{ .metric.object.describedObject.kind }}
+        name: {{ .metric.object.describedObject.name }}
+      metric:
+        name: {{ .metric.object.metric.name }}
+        {{- if .metric.object.metric.selector }}
+        selector:
+          matchLabels:
+          {{- range $key, $value := .metric.object.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+          {{- end -}}
+        {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.external" -}}

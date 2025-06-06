@@ -761,3 +761,249 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric.selector.matchLabels.key] to be a string, but got [map]
+
+  - it: should fail with invalid object metric
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object: "not a valid object"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object] to be a map, but got [string]
+
+  - it: should fail with invalid object metric (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric: "not a valid metric"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.metric] to be a map, but got [string]
+  - it: should fail with invalid object metric name (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: 123
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.metric.name] to be a string, but got [float64]
+  - it: should fail with invalid object target (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target: "not a valid target"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.target] to be a map, but got [string]
+  - it: should fail with invalid object target type (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: "not a valid type"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.target.type] to be one of [AverageValue, Value], but got [not a valid type]
+  - it: should fail with invalid object target averageValue (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: AverageValue
+                  averageValue: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.target.averageValue] to be an integer or string, but got [map]
+  - it: should fail with invalid object target value (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: Value
+                  value: ["not an integer"]
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.target.value] to be an integer or string, but got [slice]
+  - it: should fail with invalid object metric selector (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                  selector: "not a valid selector"
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.metric.selector] to be a map, but got [string]
+  - it: should fail with invalid object metric selector matchLabels (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                  selector:
+                    matchLabels: "not a valid matchLabels"
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.metric.selector.matchLabels] to be a map, but got [string]
+  - it: should fail with invalid object metric selector matchLabels value (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                  selector:
+                    matchLabels:
+                      key: {}
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.metric.selector.matchLabels.key] to be a string, but got [map]
+  - it: should fail with invalid object describedObject (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+                describedObject: "not a valid describedObject"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.describedObject] to be a map, but got [string]
+
+  - it: should fail with invalid object describedObject name (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+                describedObject:
+                  apiVersion: apps/v1
+                  kind: Deployment
+                  name: 123
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.describedObject.name] to be a string, but got [float64]
+
+  - it: should fail with invalid object describedObject kind (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+                describedObject:
+                  name: some-name
+                  kind: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.describedObject.kind] to be a string, but got [float64]
+
+  - it: should fail with invalid object describedObject apiVersion (object metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+                describedObject:
+                  name: some-name
+                  kind: Deployment
+                  apiVersion: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.object.describedObject.apiVersion] to be a string, but got [float64]

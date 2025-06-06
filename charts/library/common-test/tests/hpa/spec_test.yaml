@@ -141,6 +141,20 @@ tests:
                 target:
                   type: AverageValue
                   averageValue: 1000m
+            - type: Object
+              object:
+                metric:
+                  name: object-metric
+                  selector:
+                    matchLabels:
+                      custom-label: custom-value
+                target:
+                  type: AverageValue
+                  averageValue: 1000m
+                describedObject:
+                  apiVersion: apps/v1
+                  kind: Deployment
+                  name: some-name
     asserts:
       - documentIndex: &hpaDoc 1
         isKind:
@@ -215,3 +229,17 @@ tests:
                   target:
                     type: AverageValue
                     averageValue: 1000m
+              - type: Object
+                object:
+                  metric:
+                    name: object-metric
+                    selector:
+                      matchLabels:
+                        custom-label: custom-value
+                  target:
+                    type: AverageValue
+                    averageValue: 1000m
+                  describedObject:
+                    apiVersion: apps/v1
+                    kind: Deployment
+                    name: some-name

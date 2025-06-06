@@ -231,7 +231,56 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
-  {{- fail "not implemented" -}}
+  {{- if not (kindIs "map" $metric.object) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object)) -}}
+  {{- end -}}
+
+  {{- if not (kindIs "map" $metric.object.metric) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.metric] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.metric)) -}}
+  {{- end -}}
+
+  {{- if or (not $metric.object.metric.name) (not (kindIs "string" $metric.object.metric.name)) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.metric.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.metric.name)) -}}
+  {{- end -}}
+
+  {{- if not (kindIs "map" $metric.object.target) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.target] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.target)) -}}
+  {{- end -}}
+
+  {{- $validTypes := list "AverageValue" "Value" -}}
+  {{- if not (mustHas $metric.object.target.type $validTypes) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.target.type] to be one of [%s], but got [%s]" $objectData.hpaName $idx (join ", " $validTypes) $metric.object.target.type) -}}
+  {{- end -}}
+
+  {{- if eq $metric.object.target.type "AverageValue" -}}
+    {{- if not (mustHas (kindOf $metric.object.target.averageValue) (list "int" "int64" "float64" "string")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.target.averageValue] to be an integer or string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.target.averageValue)) -}}
+    {{- end -}}
+  {{- else if eq $metric.object.target.type "Value" -}}
+    {{- if not (mustHas (kindOf $metric.object.target.value) (list "int" "int64" "float64" "string")) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.target.value] to be an integer or string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.target.value)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $metric.object.metric.selector -}}
+    {{- include "tc.v1.common.lib.hpa.validation.metric.selector" (dict "objectData" $objectData "rootCtx" $rootCtx "data" $metric.object "key" "object" "idx" $idx) -}}
+  {{- end -}}
+
+  {{- if not (kindIs "map" $metric.object.describedObject) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.describedObject] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.describedObject)) -}}
+  {{- end -}}
+
+  {{- if or (not $metric.object.describedObject.name) (not (kindIs "string" $metric.object.describedObject.name)) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.describedObject.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.describedObject.name)) -}}
+  {{- end -}}
+
+  {{- if or (not $metric.object.describedObject.kind) (not (kindIs "string" $metric.object.describedObject.kind)) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.describedObject.kind] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.describedObject.kind)) -}}
+  {{- end -}}
+
+  {{- if or (not $metric.object.describedObject.apiVersion) (not (kindIs "string" $metric.object.describedObject.apiVersion)) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.object.describedObject.apiVersion] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.object.describedObject.apiVersion)) -}}
+  {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.external" -}}
