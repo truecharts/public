@@ -172,6 +172,7 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
+  {{- fail "not implemented" -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.object" -}}
@@ -179,6 +180,8 @@
   {{- $rootCtx := .rootCtx -}}
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
+
+  {{- fail "not implemented" -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.external" -}}
@@ -187,6 +190,7 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
+  {{- fail "not implemented" -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.metric.target" -}}
