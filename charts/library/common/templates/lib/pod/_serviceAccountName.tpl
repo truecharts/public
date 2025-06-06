@@ -8,46 +8,56 @@ objectData: The object data to be used to render the Pod.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{/* Check if an override service account name is specified in podSpec */}}
-  {{- if and (hasKey $objectData "podSpec") (hasKey $objectData.podSpec "overrideServiceAccountName") -}}
-    {{- $objectData.podSpec.overrideServiceAccountName -}}
+  {{/* Check if an explicit service account name is specified in podSpec */}}
+  {{- with $objectData.podSpec.serviceAccountName -}}
+    {{- $objectName := tpl . $rootCtx -}}
+    {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+    {{- $objectName -}}
   {{- else -}}
-    {{- $saName := "default" -}}
-    {{- $saNameCount := 0 -}}
+    {{/* If not, use the auto-generated service account name */}}
+    {{- include "tc.v1.common.lib.pod.serviceAccountName.auto" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- end -}}
+{{- end -}}
 
-    {{- range $name, $serviceAccount := $rootCtx.Values.serviceAccount -}}
-      {{- $tempName := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
+{{- define "tc.v1.common.lib.pod.serviceAccountName.auto" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-      {{- if not $serviceAccount.primary -}}
-        {{- $tempName = (printf "%s-%s" $tempName $name) -}}
-      {{- end -}}
+  {{- $saName := "default" -}}
+  {{- $saNameCount := 0 -}}
 
-      {{- if $serviceAccount.enabled -}}
-        {{/* If targetSelectAll is true */}}
-        {{- if $serviceAccount.targetSelectAll -}}
-          {{- $saName = $tempName -}}
-          {{- $saNameCount = add1 $saNameCount -}}
+  {{- range $name, $serviceAccount := $rootCtx.Values.serviceAccount -}}
+    {{- $tempName := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
 
-        {{/* Else if targetSelector is a list */}}
-        {{- else if (kindIs "slice" $serviceAccount.targetSelector) -}}
-          {{- if (mustHas $objectData.shortName $serviceAccount.targetSelector) -}}
-            {{- $saName = $tempName -}}
-            {{- $saNameCount = add1 $saNameCount -}}
-          {{- end -}}
+    {{- if not $serviceAccount.primary -}}
+      {{- $tempName = (printf "%s-%s" $tempName $name) -}}
+    {{- end -}}
 
-        {{/* If not targetSelectAll or targetSelector, but is the primary pod */}}
-        {{- else if $objectData.primary -}}
+    {{- if $serviceAccount.enabled -}}
+      {{/* If targetSelectAll is true */}}
+      {{- if $serviceAccount.targetSelectAll -}}
+        {{- $saName = $tempName -}}
+        {{- $saNameCount = add1 $saNameCount -}}
+
+      {{/* Else if targetSelector is a list */}}
+      {{- else if (kindIs "slice" $serviceAccount.targetSelector) -}}
+        {{- if (mustHas $objectData.shortName $serviceAccount.targetSelector) -}}
           {{- $saName = $tempName -}}
           {{- $saNameCount = add1 $saNameCount -}}
         {{- end -}}
 
+      {{/* If not targetSelectAll or targetSelector, but is the primary pod */}}
+      {{- else if $objectData.primary -}}
+        {{- $saName = $tempName -}}
+        {{- $saNameCount = add1 $saNameCount -}}
       {{- end -}}
-    {{- end -}}
 
-    {{- if gt $saNameCount 1 -}}
-      {{- fail (printf "Expected at most 1 ServiceAccount to be assigned on a pod [%s]. But [%v] were assigned" $objectData.shortName $saNameCount) -}}
     {{- end -}}
-
-    {{- $saName -}}
   {{- end -}}
+
+  {{- if gt $saNameCount 1 -}}
+    {{- fail (printf "Expected at most 1 ServiceAccount to be assigned on a pod [%s]. But [%v] were assigned" $objectData.shortName $saNameCount) -}}
+  {{- end -}}
+
+  {{- $saName -}}
 {{- end -}}
