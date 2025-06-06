@@ -28,12 +28,10 @@ spec:
     name: {{ $objectData.name }}
   minReplicas: {{ $objectData.minReplicas }}
   maxReplicas: {{ $objectData.maxReplicas }}
-
-  # {{- with $objectData.metrics }}
-  # metrics:
-  #   {{- $objectData.metrics | toYaml | nindent 4 }}
-  # {{- end -}}
-
+  {{- if $objectData.metrics }}
+  metrics:
+    {{- include "tc.v1.common.class.hpa.metrics" (dict "objectData" $objectData "rootCtx" $rootCtx) | nindent 4 }}
+  {{- end -}}
   {{- if $objectData.behavior }}
   behavior:
     {{- if $objectData.behavior.scaleUp }}
@@ -72,50 +70,66 @@ spec:
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
 
-  {{- if $objectData.metrics }}
-  metrics:
-    {{- range $idx, $metric := $objectData.metrics }}
-      {{- if eq $metric.type "Resource" }}
-        {{- include "tc.v1.common.class.hpa.metrics.resource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-      {{- else if eq $metric.type "Pods" }}
-        {{- include "tc.v1.common.class.hpa.metrics.pods" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-      {{- else if eq $metric.type "Object" }}
-        {{- include "tc.v1.common.class.hpa.metrics.object" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-      {{- else if eq $metric.type "External" }}
-        {{- include "tc.v1.common.class.hpa.metrics.external" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-      {{- else if eq $metric.type "ContainerResource" }}
-        {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
-      {{- end -}}
+  {{- range $idx, $metric := $objectData.metrics }}
+    {{- if eq $metric.type "Resource" }}
+      {{- include "tc.v1.common.class.hpa.metrics.resource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "Pods" }}
+      {{- include "tc.v1.common.class.hpa.metrics.pods" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "Object" }}
+      {{- include "tc.v1.common.class.hpa.metrics.object" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "External" }}
+      {{- include "tc.v1.common.class.hpa.metrics.external" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "ContainerResource" }}
+      {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.resource" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
+  {{- $rootCtx := .rootCtx }}
 
+  resource:
+    name: {{ .metric.resource.metric.name }}
+    target:
+      type: {{ .metric.resource.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.pods" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
-
+  {{- $rootCtx := .rootCtx }}
+  pods:
+    metric:
+      name: {{ .metric.pods.metric.name }}
+    target:
+      type: {{ .metric.pods.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.object" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
-
+  {{- $rootCtx := .rootCtx }}
+  object:
+    metric:
+      name: {{ .metric.object.metric.name }}
+    target:
+      type: {{ .metric.object.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.external" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
-
+  {{- $rootCtx := .rootCtx }}
+  external:
+    metric:
+      name: {{ .metric.external.metric.name }}
+    target:
+      type: {{ .metric.external.target.type }}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
-
+  {{- $rootCtx := .rootCtx }}
+  containerResource:
+    name: {{ .metric.containerResource.metric.name }}
+    target:
+      type: {{ .metric.containerResource.target.type }}
 {{- end -}}
