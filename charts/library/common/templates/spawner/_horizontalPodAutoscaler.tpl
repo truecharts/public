@@ -6,16 +6,15 @@
 {{- define "tc.v1.common.spawner.hpa" -}}
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
   {{- range $name, $hpa := .Values.hpa -}}
-    {{- $enabledhpa := (include "tc.v1.common.lib.util.enabled" (dict
+    {{- $enabledHPA := (include "tc.v1.common.lib.util.enabled" (dict
                     "rootCtx" $ "objectData" $hpa
-                    "name" $name "caller" "horizontal Pod Autoscaler"
+                    "name" $name "caller" "Horizontal Pod Autoscaler"
                     "key" "hpa")) -}}
 
-    {{- if ne $enabledhpa "true" -}}{{- continue -}}{{- end -}}
+    {{- if ne $enabledHPA "true" -}}{{- continue -}}{{- end -}}
 
     {{- $objectData := (mustDeepCopy $hpa) -}}
     {{- $_ := set $objectData "hpaName" $name -}}
-    {{- include "tc.v1.common.lib.hpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
     {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $name) -}}
 
     {{- range $workloadName, $workload := $.Values.workload -}}
@@ -26,6 +25,8 @@
                       "key" "workload")) -}}
 
       {{- if ne $enabled "true" -}}{{- continue -}}{{- end -}}
+
+      {{- include "tc.v1.common.lib.hpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
 
       {{/* Create a copy of the workload */}}
       {{- $_ := set $objectData "workload" (mustDeepCopy $workload) -}}
@@ -53,6 +54,7 @@
           {{- include "tc.v1.common.class.hpa" (dict "rootCtx" $ "objectData" $objectData) -}}
         {{- end -}}
       {{- end -}}
+
     {{- end -}}
   {{- end -}}
 {{- end -}}
