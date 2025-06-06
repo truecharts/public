@@ -127,10 +127,18 @@ spec:
   {{- $rootCtx := .rootCtx }}
   - type: Pods
     pods:
+      target:
+        type: AverageValue
+        averageValue: {{ .metric.pods.target.averageValue | quote }}
       metric:
         name: {{ .metric.pods.metric.name }}
-      target:
-        type: {{ .metric.pods.target.type }}
+        {{- if .metric.pods.metric.selector }}
+        selector:
+          matchLabels:
+            {{- range $key, $value := .metric.pods.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+            {{- end -}}
+        {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.class.hpa.metrics.object" -}}

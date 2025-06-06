@@ -625,3 +625,139 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.containerResource.container] to be one of [container-name], but got [not a valid container]
+
+  - it: should fail with invalid pods metric
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods: "not a valid pods"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods] to be a map, but got [string]
+
+  - it: should fail with invalid pods metric metric (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric: "not a valid metric"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric] to be a map, but got [string]
+
+  - it: should fail with invalid pods metric name (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: 123
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric.name] to be a string, but got [float64]
+
+  - it: should fail with invalid pods target (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: pod-metric
+                target: "not a valid target"
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.target] to be a map, but got [string]
+
+  - it: should fail with invalid pods target averageValue (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: pod-metric
+                target:
+                  type: AverageValue
+                  averageValue: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.target.averageValue] to be an integer or string, but got [map]
+
+  - it: should fail with invalid pods metric selector (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: pod-metric
+                  selector: "not a valid selector"
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric.selector] to be a map, but got [string]
+
+  - it: should fail with invalid pods metric selector matchLabels (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: pod-metric
+                  selector:
+                    matchLabels: "not a valid matchLabels"
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric.selector.matchLabels] to be a map, but got [string]
+
+  - it: should fail with invalid pods metric selector matchLabels value (pods metric)
+    set:
+      workload: *workload
+      hpa:
+        hpa-name:
+          enabled: true
+          metrics:
+            - type: Pods
+              pods:
+                metric:
+                  name: pod-metric
+                  selector:
+                    matchLabels:
+                      key: {}
+                target:
+                  type: AverageValue
+                  averageValue: 100m
+    asserts:
+      - failedTemplate:
+          errorMessage: Horizontal Pod Autoscaler - Expected [hpa.hpa-name.metrics.0.pods.metric.selector.matchLabels.key] to be a string, but got [map]

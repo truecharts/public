@@ -131,6 +131,16 @@ tests:
                 target:
                   type: Utilization
                   averageUtilization: 80
+            - type: Pods
+              pods:
+                metric:
+                  name: custom-metric
+                  selector:
+                    matchLabels:
+                      custom-label: custom-value
+                target:
+                  type: AverageValue
+                  averageValue: 1000m
     asserts:
       - documentIndex: &hpaDoc 1
         isKind:
@@ -195,3 +205,13 @@ tests:
                   target:
                     type: Utilization
                     averageUtilization: 80
+              - type: Pods
+                pods:
+                  metric:
+                    name: custom-metric
+                    selector:
+                      matchLabels:
+                        custom-label: custom-value
+                  target:
+                    type: AverageValue
+                    averageValue: 1000m

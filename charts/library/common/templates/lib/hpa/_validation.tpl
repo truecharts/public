@@ -172,7 +172,46 @@
   {{- $metric := .metric -}}
   {{- $idx := .idx -}}
 
-  {{- fail "not implemented" -}}
+  {{- if not (kindIs "map" $metric.pods) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods)) -}}
+  {{- end -}}
+
+  {{- if not (kindIs "map" $metric.pods.metric) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric)) -}}
+  {{- end -}}
+
+  {{- if or (not $metric.pods.metric.name) (not (kindIs "string" $metric.pods.metric.name)) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.name] to be a string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric.name)) -}}
+  {{- end -}}
+
+  {{- if not (kindIs "map" $metric.pods.target) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.target] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.target)) -}}
+  {{- end -}}
+
+  {{- if not (mustHas (kindOf $metric.pods.target.averageValue) (list "int" "int64" "float64" "string")) -}}
+    {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.target.averageValue] to be an integer or string, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.target.averageValue)) -}}
+  {{- end -}}
+
+  {{- if $metric.pods.metric.selector -}}
+    {{- if not (kindIs "map" $metric.pods.metric.selector) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.selector] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric.selector)) -}}
+    {{- end -}}
+
+    {{- if not (kindIs "map" $metric.pods.metric.selector.matchLabels) -}}
+      {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.selector.matchLabels] to be a map, but got [%s]" $objectData.hpaName $idx (kindOf $metric.pods.metric.selector.matchLabels)) -}}
+    {{- end -}}
+
+    {{- range $k, $v := $metric.pods.metric.selector.matchLabels -}}
+      {{- if not (kindIs "string" $k) -}}
+        {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.selector.matchLabels] to have string keys, but got [%s]" $objectData.hpaName $idx (kindOf $k)) -}}
+      {{- end -}}
+
+      {{- if not (kindIs "string" $v) -}}
+        {{- fail (printf "Horizontal Pod Autoscaler - Expected [hpa.%s.metrics.%d.pods.metric.selector.matchLabels.%s] to be a string, but got [%s]" $objectData.hpaName $idx $k (kindOf $v)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
 {{- end -}}
 
 {{- define "tc.v1.common.lib.hpa.validation.metrics.object" -}}
