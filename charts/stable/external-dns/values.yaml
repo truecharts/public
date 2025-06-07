@@ -3,6 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.17.0@sha256:85eba2727b410c8f8093d641a4b1a29671878db94d525a70a4108d10ba8eef5f
 externaldns:
+  ingressClassName: ""
   logLevel: "info"
   logFormat: "text"
   interval: "1m"
