@@ -1,0 +1,63 @@
+suite: hpa name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct hpa name
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name-2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      hpa:
+        vpa-name:
+          enabled: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: &deploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-workload-name-2
+      - documentIndex: &hpaDoc 2
+        isKind:
+          of: HorizontalPodAutoscaler
+      - documentIndex: *hpaDoc
+        isAPIVersion:
+          of: autoscaling/v2
+      - documentIndex: *hpaDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: &otherHPADoc 3
+        isKind:
+          of: HorizontalPodAutoscaler
+      - documentIndex: *otherHPADoc
+        isAPIVersion:
+          of: autoscaling/v2
+      - documentIndex: *otherHPADoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-workload-name-2

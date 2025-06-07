@@ -213,6 +213,44 @@ vpa:
           memory: 20Gi
         controlledResources: ["cpu", "memory"]
 
+# -- Horizontal pod autoscaler
+hpa:
+  main:
+    enabled: false
+    targetSelector: []
+    # minReplicas: 1
+    # maxReplicas: 3
+
+    # metrics:                 # Optional, list of metric specs
+    #   - type: Resource       # Can be Resource, Pods, Object, External, or ContainerResource
+    #     resource:
+    #       name: cpu
+    #       target:
+    #         type: Utilization        # Or Value / AverageValue
+    #         averageUtilization: 50
+
+    #   - type: Resource
+    #     resource:
+    #       name: memory
+    #       target:
+    #         type: AverageValue
+    #         averageValue: 500Mi
+
+    # behavior:                # Optional: controls scaling behavior
+    #   scaleUp:
+    #     stabilizationWindowSeconds: 0
+    #     policies:
+    #       - type: Percent
+    #         value: 100
+    #         periodSeconds: 15
+    #   scaleDown:
+    #     stabilizationWindowSeconds: 300
+    #     policies:
+    #       - type: Pods
+    #         value: 4
+    #         periodSeconds: 60
+
+
 # -- (docs/service/README.md)
 service:
   main:
