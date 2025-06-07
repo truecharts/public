@@ -1,18 +1,17 @@
 image:
   repository: docker.io/drpsychick/arkserver
-  tag: latest-v1.6.62
+  tag: latest
 securityContext:
   pod:
     fsGroup: 1001
   container:
-    runAsNonRoot: false
+    capabilities:
+      add: ["AUDIT_WRITE", "CHOWN", "FOWNER", "DAC_OVERRIDE", "SETGID", "SETUID"]
     runAsUser: 1001
-    runAsGroup: 0
-    privileged: false
+    runAsGroup: 1001
+    runAsNonRoot: false
     readOnlyRootFilesystem: false
     allowPrivilegeEscalation: true
-    capabilities:
-      drop: []
 service:
   main:
     enabled: true
@@ -59,6 +58,7 @@ workload:
             am_ark_Port: "{{ .Values.service.main.ports.main.port }}"
             am_ark_RCONPort: "{{ .Values.service.rcon.ports.rcon.port }}"
             am_ark_GameModIds: '{{ join "," .Values.ark.mods }}'
+            am_arkBackupPreUpdate: true
 
             ## Free RealEstate
             ARKCLUSTER: "true"
@@ -71,17 +71,29 @@ workload:
             am_ark_ServerPassword: "password"
             am_ark_RCONEnabled: "True"
             am_ark_ServerAdminPassword: "123456789"
+            am_arkflag_USECACHE: "true"
 
           probes:
             liveness:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              spec:
+                initialDelaySeconds: 60
+                periodSeconds: 28
             readiness:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              spec:
+                initialDelaySeconds: 60
+                periodSeconds: 26
+                failureThreshold: 6
             startup:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              spec:
+                initialDelaySeconds: 60
+                periodSeconds: 25
+
 
 persistence:
   game:
@@ -90,6 +102,9 @@ persistence:
   ark:
     enabled: true
     mountPath: /ark
+  backup:
+    enabled: true
+    mountPath: /ark/backup
   staging:
     enabled: true
     mountPath: /ark/staging
@@ -102,6 +117,9 @@ persistence:
   save:
     enabled: true
     mountPath: /arkserver/ShooterGame/Saved
+  shootergame:
+    enabled: true
+    mountPath: /arkserver/ShooterGame
   gameinis:
     enabled: true
     type: configmap
@@ -111,7 +129,15 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /var/spool/cron/crontabs/
-
+  crontabfile:
+    enabled: true
+    type: configmap
+    objectName: gameinis
+    mountPath: /ark/config/crontab
+    subPath: crontab
+    items:
+      - key: "crontab"
+        path: "crontab"
 configmap:
   gameinis:
     enabled: true
@@ -210,3 +236,5 @@ configmap:
 
         [/Game/PrimalEarth/CoreBlueprints/TestGameMode.TestGameMode_C]
         bServerGameLogEnabled=True
+      crontab:
+        10 */8 * * * arkmanager saveworld && arkmanager backup

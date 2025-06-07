@@ -1,5 +1,8 @@
 {{- define "externaldns.args" -}}
 args:
+  {{- with .Values.externaldns.ingressClassName }}
+  - --ingress-class={{ . }}
+  {{- end -}}
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
   {{- end -}}
@@ -44,5 +47,8 @@ args:
   {{- end -}}
   {{- with .Values.externaldns.piholePassword }}
   - --pihole-password={{ . }}
+  {{- end -}}
+  {{- with .Values.externaldns.piholeAPIVersion }}
+  - --pihole-api-version={{ . }}
   {{- end -}}
 {{- end -}}

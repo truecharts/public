@@ -9,7 +9,7 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.263.0
+appVersion: 0.263.4
 dependencies:
   - name: common
     version: 25.4.10
@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 15.6.11
+    version: 16.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -42,5 +42,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://hub.docker.com/r/nocodb/nocodb
 type: application
-version: 15.21.0
+version: 16.0.7
 

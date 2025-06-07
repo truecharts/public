@@ -3,56 +3,190 @@ This template serves as a blueprint for horizontal pod autoscaler objects that a
 using the common library.
 */}}
 {{- define "tc.v1.common.class.hpa" -}}
-  {{- $targetName := include "tc.v1.common.lib.chart.names.fullname" . -}}
-  {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
-  {{- $hpaName := $fullName -}}
-  {{- $values := .Values.hpa -}}
-
-  {{- if hasKey . "ObjectValues" -}}
-    {{- with .ObjectValues.hpa -}}
-      {{- $values = . -}}
-    {{- end -}}
-  {{- end -}}
-  {{- $hpaLabels := $values.labels -}}
-  {{- $hpaAnnotations := $values.annotations -}}
-
-  {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
-    {{- $hpaName = printf "%v-%v" $hpaName $values.nameOverride -}}
-  {{- end }}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData }}
 ---
-apiVersion: {{ include "tc.v1.common.capabilities.hpa.apiVersion" $ }}
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ $hpaName }}
-  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
-  {{- $labels := (mustMerge ($hpaLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "VPA") }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($hpaAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) -}}
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{- end -}}
+  {{- end }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: {{ $values.targetKind | default ( include "tc.v1.common.names.controllerType" . ) }}
-    name: {{ $values.target | default $targetName }}
-  minReplicas: {{ $values.minReplicas | default 1 }}
-  maxReplicas: {{ $values.maxReplicas | default 3 }}
+    kind: {{ $objectData.workload.type }}
+    name: {{ $objectData.name }}
+  minReplicas: {{ $objectData.minReplicas }}
+  maxReplicas: {{ $objectData.maxReplicas }}
+  {{- if $objectData.metrics }}
   metrics:
-    {{- if $values.targetCPUUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: {{ $values.targetCPUUtilizationPercentage }}
+    {{- include "tc.v1.common.class.hpa.metrics" (dict "objectData" $objectData "rootCtx" $rootCtx) | nindent 4 }}
+  {{- end -}}
+  {{- if $objectData.behavior }}
+  behavior:
+    {{- if $objectData.behavior.scaleUp }}
+    scaleUp:
+      {{- include "tc.v1.common.class.hpa.behavior" (dict "objectData" $objectData "rootCtx" $rootCtx "mode" "up") | nindent 4 }}
     {{- end -}}
-    {{- if $values.targetMemoryUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: memory
-        targetAverageUtilization: {{ $values.targetMemoryUtilizationPercentage }}
+    {{- if $objectData.behavior.scaleDown }}
+    scaleDown:
+      {{- include "tc.v1.common.class.hpa.behavior" (dict "objectData" $objectData "rootCtx" $rootCtx "mode" "down") | nindent 4 }}
     {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.behavior" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $mode := .mode -}}
+
+  {{- $key := ternary "scaleUp" "scaleDown" (eq $mode "up") -}}
+  {{- $behavior := get $objectData.behavior $key -}}
+
+  {{- $defaultStabilizationWindowSeconds := ternary 0 300 (eq $mode "up") }}
+  selectPolicy: {{ $behavior.selectPolicy | default "Max" }}
+  stabilizationWindowSeconds: {{ $behavior.stabilizationWindowSeconds | default $defaultStabilizationWindowSeconds }}
+  {{- if $behavior.policies }}
+  policies:
+    {{- range $idx, $policy := $behavior.policies }}
+    - type: {{ $policy.type }}
+      value: {{ $policy.value }}
+      periodSeconds: {{ $policy.periodSeconds }}
+    {{- end }}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
+
+  {{- range $idx, $metric := $objectData.metrics }}
+    {{- if eq $metric.type "Resource" }}
+      {{- include "tc.v1.common.class.hpa.metrics.resource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "ContainerResource" }}
+      {{- include "tc.v1.common.class.hpa.metrics.containerResource" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "Pods" }}
+      {{- include "tc.v1.common.class.hpa.metrics.pods" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "Object" }}
+      {{- include "tc.v1.common.class.hpa.metrics.object" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- else if eq $metric.type "External" }}
+      {{- include "tc.v1.common.class.hpa.metrics.external" (dict "objectData" $objectData "rootCtx" $rootCtx "metric" $metric) | nindent 6 }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.resource" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: Resource
+    resource:
+      name: {{ .metric.resource.name }}
+      target:
+        type: {{ .metric.resource.target.type }}
+        {{- if eq .metric.resource.target.type "AverageValue" }}
+        averageValue: {{ .metric.resource.target.averageValue | quote }}
+        {{- else if eq .metric.resource.target.type "Utilization" }}
+        averageUtilization: {{ .metric.resource.target.averageUtilization }}
+        {{- end -}}
+        {{- with .metric.resource.target.value }}
+        value: {{ . | quote }}
+        {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.containerResource" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: ContainerResource
+    containerResource:
+      name: {{ .metric.containerResource.name }}
+      container: {{ .metric.containerResource.container}}
+      target:
+        type: {{ .metric.containerResource.target.type }}
+        {{- if eq .metric.containerResource.target.type "AverageValue" }}
+        averageValue: {{ .metric.containerResource.target.averageValue | quote }}
+        {{- else if eq .metric.containerResource.target.type "Utilization" }}
+        averageUtilization: {{ .metric.containerResource.target.averageUtilization }}
+        {{- end -}}
+        {{- with .metric.containerResource.target.value }}
+        value: {{ . | quote }}
+        {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.pods" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: Pods
+    pods:
+      target:
+        type: AverageValue
+        averageValue: {{ .metric.pods.target.averageValue | quote }}
+      metric:
+        name: {{ .metric.pods.metric.name }}
+        {{- if .metric.pods.metric.selector }}
+        selector:
+          matchLabels:
+            {{- range $key, $value := .metric.pods.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+            {{- end -}}
+        {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.object" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: Object
+    object:
+      target:
+        type: {{ .metric.object.target.type }}
+        {{- if eq .metric.object.target.type "Value" }}
+        value: {{ .metric.object.target.value | quote }}
+        {{- else if eq .metric.object.target.type "AverageValue" }}
+        averageValue: {{ .metric.object.target.averageValue | quote }}
+        {{- end }}
+      describedObject:
+        apiVersion: {{ .metric.object.describedObject.apiVersion }}
+        kind: {{ .metric.object.describedObject.kind }}
+        name: {{ .metric.object.describedObject.name }}
+      metric:
+        name: {{ .metric.object.metric.name }}
+        {{- if .metric.object.metric.selector }}
+        selector:
+          matchLabels:
+          {{- range $key, $value := .metric.object.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+          {{- end -}}
+        {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.class.hpa.metrics.external" -}}
+  {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx }}
+  - type: External
+    external:
+      metric:
+        name: {{ .metric.external.metric.name }}
+        {{- if .metric.external.metric.selector }}
+        selector:
+          matchLabels:
+          {{- range $key, $value := .metric.external.metric.selector.matchLabels }}
+            {{ $key }}: {{ $value | quote }}
+          {{- end -}}
+        {{- end }}
+      target:
+        type: {{ .metric.external.target.type }}
+        {{- if eq .metric.external.target.type "Value" }}
+        value: {{ .metric.external.target.value | quote }}
+        {{- else if eq .metric.external.target.type "AverageValue" }}
+        averageValue: {{ .metric.external.target.averageValue | quote }}
+        {{- end -}}
 {{- end -}}
