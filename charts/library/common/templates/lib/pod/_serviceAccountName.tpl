@@ -8,6 +8,21 @@ objectData: The object data to be used to render the Pod.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
+  {{/* Check if an explicit service account name is specified in podSpec */}}
+  {{- with $objectData.podSpec.serviceAccountName -}}
+    {{- $objectName := tpl . $rootCtx -}}
+    {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+    {{- $objectName -}}
+  {{- else -}}
+    {{/* If not, use the auto-generated service account name */}}
+    {{- include "tc.v1.common.lib.pod.serviceAccountName.auto" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.serviceAccountName.auto" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
   {{- $saName := "default" -}}
   {{- $saNameCount := 0 -}}
 
