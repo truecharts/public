@@ -1,5 +1,8 @@
 {{- define "externaldns.args" -}}
 args:
+  {{- with .Values.externaldns.ingressClassName }}
+  - --ingress-class={{ . }}
+  {{- end -}}
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
   {{- end -}}
