@@ -8,7 +8,7 @@ objectData: The object data to be used to render the Pod.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $affinity := list -}}
+  {{- $affinity := dict -}}
 
   {{/* Initialize from the "global" option */}}
   {{- with $rootCtx.Values.podOptions.affinity -}}
@@ -20,18 +20,121 @@ objectData: The object data to be used to render the Pod.
     {{- $affinity = . -}}
   {{- end -}}
 
+  {{/* If default affinity is enabled and its one of this types, then merge it with user input */}}
   {{- $validTypes := (list "Deployment" "StatefulSet") -}}
-   {{/* TODO: We need to merge default with user input */}}
-  {{- $defaultAffinity := (include "tc.v1.common.lib.pod.defaultAffinity" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromJson) -}}
   {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultAffinity }}
-    {{- $affinity | toYaml -}}
-  {{- else -}}
-    {{- with $affinity -}} {{/* TODO: Template this, so we can add some validation around easy to make mistakes. Low Prio */}}
-      {{- . | toYaml | nindent 0 }}
-    {{- end -}}
+    {{- $defaultAffinity := (include "tc.v1.common.lib.pod.defaultAffinity" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml) -}}
+    {{- $defaultAffinity = $defaultAffinity | default dict -}}
+    {{/* Merge user input overwriting the default */}}
+    {{- $affinity = mustMergeOverwrite $defaultAffinity $affinity -}}
   {{- end -}}
 
+  {{- include "tc.v1.common.lib.pod.affinity.validation" (dict "rootCtx" $rootCtx "objectData" $affinity) -}}
+
+  {{- if $affinity.nodeAffinity }}
+nodeAffinity:
+  {{- fail "TODO: not implemented" -}}
+  {{- end -}}
+
+  {{- if $affinity.podAffinity }}
+podAffinity:
+    {{- include "tc.v1.common.lib.pod.podAffinityOrPodAntiAffinity" (dict "rootCtx" $rootCtx "data" $affinity.podAffinity) | nindent 2 -}}
+  {{- end -}}
+
+  {{- if $affinity.podAntiAffinity }}
+podAntiAffinity:
+    {{- include "tc.v1.common.lib.pod.podAffinityOrPodAntiAffinity" (dict "rootCtx" $rootCtx "data" $affinity.podAntiAffinity) | nindent 2 -}}
+  {{- end -}}
 {{- end -}}
+
+{{- define "tc.v1.common.lib.pod.podAffinityOrPodAntiAffinity" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $data := .data -}}
+
+  {{- if $data -}}
+    {{- if $data.requiredDuringSchedulingIgnoredDuringExecution }}
+  requiredDuringSchedulingIgnoredDuringExecution:
+      {{- range $term := $data.requiredDuringSchedulingIgnoredDuringExecution }}
+    - {{ include "tc.v1.common.lib.pod.podAffinityTerm" (dict "rootCtx" $rootCtx "data" $term) | trim | nindent 6 }}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $data.preferredDuringSchedulingIgnoredDuringExecution }}
+  preferredDuringSchedulingIgnoredDuringExecution:
+      {{- range $term := $data.preferredDuringSchedulingIgnoredDuringExecution }}
+      - weight: {{ $term.weight }}
+        podAffinityTerm:
+          {{- include "tc.v1.common.lib.pod.podAffinityTerm" (dict "rootCtx" $rootCtx "data" $term.podAffinityTerm) | nindent 10 }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.podAffinityTerm" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $data := .data -}}
+
+  {{- if $data }}
+topologyKey: {{ $data.topologyKey }}
+
+    {{- if $data.matchLabelKeys }}
+matchLabelKeys:
+      {{- range $data.matchLabelKeys }}
+        - {{ . }}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $data.mismatchLabelKeys }}
+mismatchLabelKeys:
+      {{- range $data.mismatchLabelKeys }}
+        - {{ . }}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $data.namespaces }}
+namespaces:
+      {{- range $data.namespaces }}
+        - {{ . }}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $data.labelSelector }}
+labelSelector:
+      {{- include "tc.v1.common.lib.pod.labelSelector" (dict "rootCtx" $rootCtx "data" $data.labelSelector) | nindent 2 -}}
+    {{- end -}}
+
+    {{- if $data.namespaceSelector }}
+namespaceSelector:
+      {{- include "tc.v1.common.lib.pod.labelSelector" (dict "rootCtx" $rootCtx "data" $data.namespaceSelector) | nindent 2 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.labelSelector" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $data := .data }}
+
+  {{- if $data.matchExpressions -}}
+matchExpressions:
+    {{- range $expression := $data.matchExpressions }}
+  - key: {{ $expression.key }}
+    operator: {{ $expression.operator }}
+      {{- if mustHas $expression.operator (list "In" "NotIn") }}
+    values:
+        {{- range $expression.values }}
+      - {{ . }}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $data.matchLabels -}}
+matchLabels:
+    {{- range $key, $value := $data.matchLabels }}
+  {{ $key }}: {{ $value }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
 
 {{- define "tc.v1.common.lib.pod.defaultAffinity" -}}
   {{- $rootCtx := .rootCtx -}}
@@ -44,18 +147,15 @@ objectData: The object data to be used to render the Pod.
     {{- $names = mustAppend $names $volume.shortName -}}
   {{- end }}
 
-  {{- $defaultAffinity := dict
-    "podAffinity" dict
-      "requiredDuringSchedulingIgnoredDuringExecution" list
-        dict
-          "topologyKey" "kubernetes.io/hostname"
-          "labelSelector" dict
-            "matchExpressions" list
-              dict
-                "key" "truecharts.org/pvc"
-                "operator" "In"
-                "values" $names
-  -}}
-
-  {{- if $names -}}{{- $defaultAffinity | toJson -}}{{- end -}}
+  {{- if $names }}
+podAffinity:
+  requiredDuringSchedulingIgnoredDuringExecution:
+    - topologyKey: kubernetes.io/hostname
+      labelSelector:
+        matchExpressions:
+          - key: truecharts.org/pvc
+            operator: In
+            values:
+              - {{ $names | join "+" }}
+  {{- end -}}
 {{- end -}}
