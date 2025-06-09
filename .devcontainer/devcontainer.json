@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
     "name": "TrueCharts",
-    "image": "tccr.io/tccr/devcontainer:v2.0.0@sha256:d8a12070a88e36cf1eb5b14fbeb1d5c866a1e5f8b52cc9e5989fb7f53c154b2b",
+    "image": "tccr.io/tccr/devcontainer:v4.0.1@sha256:57842f321e353c30c30dab45403926be65715b524253041f055b0f7008b14a59",
     "initializeCommand": "docker pull tccr.io/tccr/devcontainer:v2.0.0",
     "postCreateCommand": {
       "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh"
