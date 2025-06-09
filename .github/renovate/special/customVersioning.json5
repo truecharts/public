@@ -16,7 +16,7 @@
     {
       "description": ["Custom versioning for minio"],
       "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["docker.io/minio/minio"],
+      "matchPackagePatterns": ["quay.io/minio/minio"],
       "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$"
     },
     {

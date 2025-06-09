@@ -214,6 +214,44 @@ vpa:
           memory: 20Gi
         controlledResources: ["cpu", "memory"]
 
+# -- Horizontal pod autoscaler
+hpa:
+  main:
+    enabled: false
+    targetSelector: []
+    # minReplicas: 1
+    # maxReplicas: 3
+
+    # metrics:                 # Optional, list of metric specs
+    #   - type: Resource       # Can be Resource, Pods, Object, External, or ContainerResource
+    #     resource:
+    #       name: cpu
+    #       target:
+    #         type: Utilization        # Or Value / AverageValue
+    #         averageUtilization: 50
+
+    #   - type: Resource
+    #     resource:
+    #       name: memory
+    #       target:
+    #         type: AverageValue
+    #         averageValue: 500Mi
+
+    # behavior:                # Optional: controls scaling behavior
+    #   scaleUp:
+    #     stabilizationWindowSeconds: 0
+    #     policies:
+    #       - type: Percent
+    #         value: 100
+    #         periodSeconds: 15
+    #   scaleDown:
+    #     stabilizationWindowSeconds: 300
+    #     policies:
+    #       - type: Pods
+    #         value: 4
+    #         periodSeconds: 60
+
+
 # -- (docs/service/README.md)
 service:
   main:
@@ -518,17 +556,17 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.82.0@sha256:d1750edcac72b5854177d1747c257d2b404af67ca8cc4815e01555fc3e7b2385
+  tag: v1.84.0@sha256:cbe64db00bf9d2cc1961ed76e499809ead55fe14bcbab0747a31e35f70d3b7a1
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.99.3@sha256:9f37dfc2c12bf87ae6540e1b2630cb4ea6957d31df23c9d0d546227aa74021a5
+  tag: v4.100.3@sha256:6eb0e4d3d2fbc1ef8f3e0fb15096eb90838efa5bc0f70e30ea685930bc714cbb
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.21.3
+  tag: v3.22.0
   pullPolicy: IfNotPresent
 
 scratchImage:
@@ -549,36 +587,36 @@ wgetImage:
 yqImage:
   pullPolicy: IfNotPresent
   repository: docker.io/mikefarah/yq
-  tag: 4.45.1@sha256:2c100efaca06e95ffe452cfe9bfc0048b493f0f3a072d5fe06f828c638d9462b
+  tag: 4.45.4@sha256:7cf28e5d67782f4b274a93a7bc54a840b553447a0807efd843d069f46bff718c
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: v1.1.0@sha256:c85c459d3ca854d705b4aa8663a77752e62c8d33aa43d6a5e4455523f7eb53bd
+  tag: v1.1.0@sha256:15f27128ba0927c11ebc361d3997c4e48824bfde56cd1deacfc6660b2b234ffe
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: v1.1.0@sha256:513e3d11ea19317f2d6b146329eaa05f76e24322734d81effb98a5fccea6ed0c
+  tag: v1.1.0@sha256:e2f91d35efd33d1fe179f452405bb9e673fb56c00ed08de079ee048120776c30
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: v1.1.0@sha256:910ade9977376cef26e6ee3b03939d74e295bb980e3c62ec8174bdd0b12af9af
+  tag: v1.1.0@sha256:13b78f5b48d130a21ee601549c883064588c6a639d778c7a60a6cb44a03c7e77
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: v1.2.0@sha256:faee7b78290e6cadab8c27b55884a6bf7805fc32e4ae22cf94452cf87949fb2a
+  tag: v1.2.0@sha256:53b6fafbea7e11139116220e8088fdd7f043689a1d31721631f728caf8127071
   pullPolicy: IfNotPresent
 
 postgres15Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "15.12"
+  tag: "15.13"
   pullPolicy: IfNotPresent
 
 postgres16Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "16.8"
+  tag: "16.9"
   pullPolicy: IfNotPresent
 
 postgresPostgis15Image:

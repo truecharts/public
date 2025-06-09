@@ -42,7 +42,6 @@
   - --bootstrap-kind=dns
   - --dns-bootstrap-domain={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-router.{{ include "tc.v1.common.lib.metadata.namespace" (dict "caller" "spegel" "rootCtx" $ "objectData" .Values) }}.svc.cluster.local.
   - --resolve-latest-tag={{ .Values.spegel.resolveLatestTag }}
-  - --local-addr=$(NODE_IP):{{ .Values.service.main.ports.main.hostPort }}
   {{- with .Values.spegel.containerdContentPath }}
   - --containerd-content-path={{ . }}
   {{- end }}

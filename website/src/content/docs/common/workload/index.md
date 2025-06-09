@@ -34,8 +34,8 @@ Define workload objects
 | ---------- | ---------- |
 | Key        | `workload` |
 | Type       | `map`      |
-| Required   | ❌         |
-| Helm `tpl` | ❌         |
+| Required   | ❌          |
+| Helm `tpl` | ❌          |
 | Default    | `{}`       |
 
 Example
@@ -54,8 +54,8 @@ Define workload
 | ---------- | ---------------- |
 | Key        | `workload.$name` |
 | Type       | `map`            |
-| Required   | ✅               |
-| Helm `tpl` | ❌               |
+| Required   | ✅                |
+| Helm `tpl` | ❌                |
 | Default    | `{}`             |
 
 Example
@@ -75,8 +75,8 @@ Enable or disable workload
 | ---------- | ------------------------ |
 | Key        | `workload.$name.enabled` |
 | Type       | `bool`                   |
-| Required   | ✅                       |
-| Helm `tpl` | ✅                       |
+| Required   | ✅                        |
+| Helm `tpl` | ✅                        |
 | Default    | `false`                  |
 
 Example
@@ -97,8 +97,8 @@ Set workload as primary
 | ---------- | ------------------------ |
 | Key        | `workload.$name.primary` |
 | Type       | `bool`                   |
-| Required   | ✅                       |
-| Helm `tpl` | ❌                       |
+| Required   | ✅                        |
+| Helm `tpl` | ❌                        |
 | Default    | `false`                  |
 
 Example
@@ -119,8 +119,8 @@ Define labels for workload
 | ---------- | ----------------------- |
 | Key        | `workload.$name.labels` |
 | Type       | `map`                   |
-| Required   | ❌                      |
-| Helm `tpl` | ✅ (On value only)      |
+| Required   | ❌                       |
+| Helm `tpl` | ✅ (On value only)       |
 | Default    | `{}`                    |
 
 Example
@@ -142,8 +142,8 @@ Define annotations for workload
 | ---------- | ---------------------------- |
 | Key        | `workload.$name.annotations` |
 | Type       | `map`                        |
-| Required   | ❌                           |
-| Helm `tpl` | ✅ (On value only)           |
+| Required   | ❌                            |
+| Helm `tpl` | ✅ (On value only)            |
 | Default    | `{}`                         |
 
 Example
@@ -165,8 +165,8 @@ Define the namespace for this object
 | ---------- | -------------------------- |
 | Key        | `workload.$name.namespace` |
 | Type       | `string`                   |
-| Required   | ❌                         |
-| Helm `tpl` | ✅ (On value only)         |
+| Required   | ❌                          |
+| Helm `tpl` | ✅ (On value only)          |
 | Default    | `""`                       |
 
 Example
@@ -187,8 +187,8 @@ Define the kind of the workload
 | ---------- | --------------------- |
 | Key        | `workload.$name.type` |
 | Type       | `string`              |
-| Required   | ✅                    |
-| Helm `tpl` | ❌                    |
+| Required   | ✅                     |
+| Helm `tpl` | ❌                     |
 | Default    | `""`                  |
 
 Valid values
@@ -217,8 +217,8 @@ Define the podSpec for the workload
 | ---------- | ------------------------ |
 | Key        | `workload.$name.podSpec` |
 | Type       | `map`                    |
-| Required   | ✅                       |
-| Helm `tpl` | ❌                       |
+| Required   | ✅                        |
+| Helm `tpl` | ❌                        |
 | Default    | `{}`                     |
 
 Example
@@ -239,8 +239,8 @@ Define labels for podSpec
 | ---------- | ------------------------------- |
 | Key        | `workload.$name.podSpec.labels` |
 | Type       | `map`                           |
-| Required   | ❌                              |
-| Helm `tpl` | ✅ (On value only)              |
+| Required   | ❌                               |
+| Helm `tpl` | ✅ (On value only)               |
 | Default    | `{}`                            |
 
 Example
@@ -263,8 +263,8 @@ Define annotations for podSpec
 | ---------- | ------------------------------------ |
 | Key        | `workload.$name.podSpec.annotations` |
 | Type       | `map`                                |
-| Required   | ❌                                   |
-| Helm `tpl` | ✅ (On value only)                   |
+| Required   | ❌                                    |
+| Helm `tpl` | ✅ (On value only)                    |
 | Default    | `{}`                                 |
 
 Example
@@ -287,8 +287,8 @@ Pod's automountServiceAccountToken
 | ---------- | ------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.automountServiceAccountToken`               |
 | Type       | `bool`                                                              |
-| Required   | ❌                                                                  |
-| Helm `tpl` | ❌                                                                  |
+| Required   | ❌                                                                   |
+| Helm `tpl` | ❌                                                                   |
 | Default    | See default [here](/common/podoptions#automountserviceaccounttoken) |
 
 Example
@@ -302,6 +302,46 @@ workload:
 
 ---
 
+##### `serviceAccountName`
+
+:::note
+
+Suggested is to use the top-level [serviceAccount](/common/serviceaccount/) key
+to define the service account with `targetSelector`.
+
+Using this key here, is out of our support scope.
+
+:::
+
+Define the service account name for the workload
+
+|            |                                     |
+| ---------- | ----------------------------------- |
+| Key        | `workload.$name.serviceAccountName` |
+| Type       | `string`                            |
+| Required   | ❌                                   |
+| Helm `tpl` | ✅ (On value only)                   |
+| Default    | `""`                                |
+
+Example
+
+```yaml
+workload:
+  workload-name:
+    serviceAccountName: some-service-account
+```
+
+Example
+
+```yaml
+workload:
+  workload-name:
+    podSpec:
+      serviceAccountName: some-service-account
+```
+
+---
+
 ##### `hostNetwork`
 
 Bind pod to host's network
@@ -310,8 +350,8 @@ Bind pod to host's network
 | ---------- | -------------------------------------------------- |
 | Key        | `workload.$name.podSpec.hostNetwork`               |
 | Type       | `bool`                                             |
-| Required   | ❌                                                 |
-| Helm `tpl` | ❌                                                 |
+| Required   | ❌                                                  |
+| Helm `tpl` | ❌                                                  |
 | Default    | See default [here](/common/podoptions#hostnetwork) |
 
 Example
@@ -331,8 +371,8 @@ Allow pod to access host's PID namespace
 | ---------- | ---------------------------------------------- |
 | Key        | `workload.$name.podSpec.hostPID`               |
 | Type       | `bool`                                         |
-| Required   | ❌                                             |
-| Helm `tpl` | ❌                                             |
+| Required   | ❌                                              |
+| Helm `tpl` | ❌                                              |
 | Default    | See default [here](/common/podoptions#hostpid) |
 
 Example
@@ -354,8 +394,8 @@ Allow pod to access host's IPC namespace
 | ---------- | ---------------------------------------------- |
 | Key        | `workload.$name.podSpec.hostIPC`               |
 | Type       | `bool`                                         |
-| Required   | ❌                                             |
-| Helm `tpl` | ❌                                             |
+| Required   | ❌                                              |
+| Helm `tpl` | ❌                                              |
 | Default    | See default [here](/common/podoptions#hostipc) |
 
 Example
@@ -377,8 +417,8 @@ Allow pod to access host's users namespace
 | ---------- | ------------------------------------------------ |
 | Key        | `workload.$name.podSpec.hostUsers`               |
 | Type       | `bool`                                           |
-| Required   | ❌                                               |
-| Helm `tpl` | ❌                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ❌                                                |
 | Default    | See default [here](/common/podoptions#hostusers) |
 
 Example
@@ -400,8 +440,8 @@ Share Process Namespace with other containers in the pod
 | ---------- | ------------------------------------------------------------ |
 | Key        | `workload.$name.podSpec.shareProcessNamespace`               |
 | Type       | `bool`                                                       |
-| Required   | ❌                                                           |
-| Helm `tpl` | ❌                                                           |
+| Required   | ❌                                                            |
+| Helm `tpl` | ❌                                                            |
 | Default    | See default [here](/common/podoptions#shareprocessnamespace) |
 
 Example
@@ -423,8 +463,8 @@ Pod's enableServiceLinks
 | ---------- | --------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.enableServiceLinks`               |
 | Type       | `bool`                                                    |
-| Required   | ❌                                                        |
-| Helm `tpl` | ❌                                                        |
+| Required   | ❌                                                         |
+| Helm `tpl` | ❌                                                         |
 | Default    | See default [here](/common/podoptions#enableservicelinks) |
 
 Example
@@ -446,8 +486,8 @@ Pod's restartPolicy
 | ---------- | ---------------------------------------------------- |
 | Key        | `workload.$name.podSpec.restartPolicy`               |
 | Type       | `string`                                             |
-| Required   | ❌                                                   |
-| Helm `tpl` | ✅                                                   |
+| Required   | ❌                                                    |
+| Helm `tpl` | ✅                                                    |
 | Default    | See default [here](/common/podoptions#restartpolicy) |
 
 Valid values
@@ -475,8 +515,8 @@ Pod's schedulerName
 | ---------- | ---------------------------------------------------- |
 | Key        | `workload.$name.podSpec.schedulerName`               |
 | Type       | `string`                                             |
-| Required   | ❌                                                   |
-| Helm `tpl` | ✅                                                   |
+| Required   | ❌                                                    |
+| Helm `tpl` | ✅                                                    |
 | Default    | See default [here](/common/podoptions#schedulername) |
 
 Example
@@ -498,8 +538,8 @@ Pod's priorityClassName
 | ---------- | -------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.priorityClassName`               |
 | Type       | `string`                                                 |
-| Required   | ❌                                                       |
-| Helm `tpl` | ✅                                                       |
+| Required   | ❌                                                        |
+| Helm `tpl` | ✅                                                        |
 | Default    | See default [here](/common/podoptions#priorityclassname) |
 
 Example
@@ -521,8 +561,8 @@ Pod's hostname
 | ---------- | --------------------------------- |
 | Key        | `workload.$name.podSpec.hostname` |
 | Type       | `string`                          |
-| Required   | ❌                                |
-| Helm `tpl` | ✅                                |
+| Required   | ❌                                 |
+| Helm `tpl` | ✅                                 |
 | Default    | `""`                              |
 
 Example
@@ -544,8 +584,8 @@ Pod's terminationGracePeriodSeconds
 | ---------- | -------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.terminationGracePeriodSeconds`               |
 | Type       | `int`                                                                |
-| Required   | ❌                                                                   |
-| Helm `tpl` | ✅                                                                   |
+| Required   | ❌                                                                    |
+| Helm `tpl` | ✅                                                                    |
 | Default    | See default [here](/common/podoptions#terminationgraceperiodseconds) |
 
 Example
@@ -567,8 +607,8 @@ Pod's nodeSelector
 | ---------- | --------------------------------------------------- |
 | Key        | `workload.$name.podSpec.nodeSelector`               |
 | Type       | `map`                                               |
-| Required   | ❌                                                  |
-| Helm `tpl` | ✅ (On value only)                                  |
+| Required   | ❌                                                   |
+| Helm `tpl` | ✅ (On value only)                                   |
 | Default    | See default [here](/common/podoptions#nodeselector) |
 
 Example
@@ -591,8 +631,8 @@ Pod's topologySpreadConstraints
 | ---------- | ---------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.topologySpreadConstraints`               |
 | Type       | `list` of `map`                                                  |
-| Required   | ❌                                                               |
-| Helm `tpl` | ❌                                                               |
+| Required   | ❌                                                                |
+| Helm `tpl` | ❌                                                                |
 | Default    | See default [here](/common/podoptions#topologyspreadconstraints) |
 
 ---
@@ -605,8 +645,8 @@ Pod's hostAliases
 | ---------- | -------------------------------------------------- |
 | Key        | `workload.$name.podSpec.hostAliases`               |
 | Type       | `list` of `map`                                    |
-| Required   | ❌                                                 |
-| Helm `tpl` | ❌                                                 |
+| Required   | ❌                                                  |
+| Helm `tpl` | ❌                                                  |
 | Default    | See default [here](/common/podoptions#hostaliases) |
 
 Example
@@ -628,8 +668,8 @@ Pod's hostAliases ip
 | ---------- | --------------------------------------- |
 | Key        | `workload.$name.podSpec.hostAliases.ip` |
 | Type       | `string`                                |
-| Required   | ✅                                      |
-| Helm `tpl` | ✅                                      |
+| Required   | ✅                                       |
+| Helm `tpl` | ✅                                       |
 | Default    | `""`                                    |
 
 Example
@@ -652,8 +692,8 @@ Pod's hostAliases hostnames
 | ---------- | ---------------------------------------------- |
 | Key        | `workload.$name.podSpec.hostAliases.hostnames` |
 | Type       | `list` of `string`                             |
-| Required   | ✅                                             |
-| Helm `tpl` | ✅ (On each entry)                             |
+| Required   | ✅                                              |
+| Helm `tpl` | ✅ (On each entry)                              |
 | Default    | `[]`                                           |
 
 Example
@@ -685,8 +725,8 @@ Pod's dnsPolicy
 | ---------- | ------------------------------------------------ |
 | Key        | `workload.$name.podSpec.dnsPolicy`               |
 | Type       | `string`                                         |
-| Required   | ❌                                               |
-| Helm `tpl` | ✅                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ✅                                                |
 | Default    | See default [here](/common/podoptions#dnspolicy) |
 
 Valid values
@@ -715,8 +755,8 @@ Pod's dnsConfig
 | ---------- | ------------------------------------------------ |
 | Key        | `workload.$name.podSpec.dnsConfig`               |
 | Type       | `map`                                            |
-| Required   | ❌                                               |
-| Helm `tpl` | ❌                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ❌                                                |
 | Default    | See default [here](/common/podoptions#dnsconfig) |
 
 Example
@@ -738,8 +778,8 @@ Pod's dnsConfig nameservers
 | ---------- | ---------------------------------------------- |
 | Key        | `workload.$name.podSpec.dnsConfig.nameservers` |
 | Type       | `list` of `string`                             |
-| Required   | ❌                                             |
-| Helm `tpl` | ✅ (On each entry)                             |
+| Required   | ❌                                              |
+| Helm `tpl` | ✅ (On each entry)                              |
 | Default    | `[]`                                           |
 
 Example
@@ -763,8 +803,8 @@ Pod's dnsConfig searches
 | ---------- | ------------------------------------------- |
 | Key        | `workload.$name.podSpec.dnsConfig.searches` |
 | Type       | `list` of `string`                          |
-| Required   | ❌                                          |
-| Helm `tpl` | ✅ (On each entry)                          |
+| Required   | ❌                                           |
+| Helm `tpl` | ✅ (On each entry)                           |
 | Default    | `[]`                                        |
 
 Example
@@ -788,8 +828,8 @@ Pod's dnsConfig options
 | ---------- | ------------------------------------------ |
 | Key        | `workload.$name.podSpec.dnsConfig.options` |
 | Type       | `list` of `map`                            |
-| Required   | ❌                                         |
-| Helm `tpl` | ❌                                         |
+| Required   | ❌                                          |
+| Helm `tpl` | ❌                                          |
 | Default    | `[{"ndots": "1"}]`                         |
 
 Example
@@ -812,8 +852,8 @@ Pod's dnsConfig options name
 | ---------- | ----------------------------------------------- |
 | Key        | `workload.$name.podSpec.dnsConfig.options.name` |
 | Type       | `string`                                        |
-| Required   | ✅                                              |
-| Helm `tpl` | ✅                                              |
+| Required   | ✅                                               |
+| Helm `tpl` | ✅                                               |
 | Default    | `""`                                            |
 
 Example
@@ -838,8 +878,8 @@ Pod's dnsConfig options value
 | ---------- | ------------------------------------------------ |
 | Key        | `workload.$name.podSpec.dnsConfig.options.value` |
 | Type       | `string`                                         |
-| Required   | ❌                                               |
-| Helm `tpl` | ✅                                               |
+| Required   | ❌                                                |
+| Helm `tpl` | ✅                                                |
 | Default    | `""`                                             |
 
 Example
@@ -864,8 +904,8 @@ Pod's tolerations
 | ---------- | -------------------------------------------------- |
 | Key        | `workload.$name.podSpec.tolerations`               |
 | Type       | `list` of `map`                                    |
-| Required   | ❌                                                 |
-| Helm `tpl` | ❌                                                 |
+| Required   | ❌                                                  |
+| Helm `tpl` | ❌                                                  |
 | Default    | See default [here](/common/podoptions#tolerations) |
 
 Example
@@ -887,8 +927,8 @@ Pod's tolerations operator
 | ---------- | --------------------------------------------- |
 | Key        | `workload.$name.podSpec.tolerations.operator` |
 | Type       | `string`                                      |
-| Required   | ✅                                            |
-| Helm `tpl` | ✅                                            |
+| Required   | ✅                                             |
+| Helm `tpl` | ✅                                             |
 | Default    | `""`                                          |
 
 Valid values
@@ -922,8 +962,8 @@ Required only when `operator` = `Equal`
 | ---------- | ---------------------------------------- |
 | Key        | `workload.$name.podSpec.tolerations.key` |
 | Type       | `string`                                 |
-| Required   | ❌/✅                                    |
-| Helm `tpl` | ✅                                       |
+| Required   | ❌/✅                                      |
+| Helm `tpl` | ✅                                        |
 | Default    | `""`                                     |
 
 Example
@@ -953,8 +993,8 @@ Required only when `operator` = `Equal`
 | ---------- | ------------------------------------------ |
 | Key        | `workload.$name.podSpec.tolerations.value` |
 | Type       | `string`                                   |
-| Required   | ❌/✅                                      |
-| Helm `tpl` | ✅                                         |
+| Required   | ❌/✅                                        |
+| Helm `tpl` | ✅                                          |
 | Default    | `""`                                       |
 
 Example
@@ -979,8 +1019,8 @@ Pod's tolerations effect
 | ---------- | ------------------------------------------- |
 | Key        | `workload.$name.podSpec.tolerations.effect` |
 | Type       | `string`                                    |
-| Required   | ❌                                          |
-| Helm `tpl` | ✅                                          |
+| Required   | ❌                                           |
+| Helm `tpl` | ✅                                           |
 | Default    | `""`                                        |
 
 Valid values
@@ -1010,8 +1050,8 @@ Pod's tolerations tolerationSeconds
 | ---------- | ------------------------------------------------------ |
 | Key        | `workload.$name.podSpec.tolerations.tolerationSeconds` |
 | Type       | `int`                                                  |
-| Required   | ❌                                                     |
-| Helm `tpl` | ❌                                                     |
+| Required   | ❌                                                      |
+| Helm `tpl` | ❌                                                      |
 | Default    | unset                                                  |
 
 Example
@@ -1042,8 +1082,8 @@ Pod's runtimeClassName
 | ---------- | ------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.runtimeClassName`               |
 | Type       | `string`                                                |
-| Required   | ❌                                                      |
-| Helm `tpl` | ✅                                                      |
+| Required   | ❌                                                       |
+| Helm `tpl` | ✅                                                       |
 | Default    | See default [here](/common/podoptions#runtimeclassname) |
 
 Example
@@ -1065,8 +1105,8 @@ Pod's securityContext
 | ---------- | -------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext`                       |
 | Type       | `map`                                                          |
-| Required   | ❌                                                             |
-| Helm `tpl` | ❌                                                             |
+| Required   | ❌                                                              |
+| Helm `tpl` | ❌                                                              |
 | Default    | See default [here](/common/securitycontext#securitycontextpod) |
 
 Default
@@ -1099,8 +1139,8 @@ Pod's securityContext fsGroup
 | ---------- | ---------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext.fsGroup`                       |
 | Type       | `int`                                                                  |
-| Required   | ❌                                                                     |
-| Helm `tpl` | ❌                                                                     |
+| Required   | ❌                                                                      |
+| Helm `tpl` | ❌                                                                      |
 | Default    | See default [here](/common/securitycontext/#securitycontextpodfsgroup) |
 
 Example
@@ -1123,8 +1163,8 @@ Pod's securityContext fsGroupChangePolicy
 | ---------- | --------------------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext.fsGroupChangePolicy`                      |
 | Type       | `string`                                                                          |
-| Required   | ❌                                                                                |
-| Helm `tpl` | ❌                                                                                |
+| Required   | ❌                                                                                 |
+| Helm `tpl` | ❌                                                                                 |
 | Default    | See default [here](/common/securitycontext#securitycontextpodfsgroupchangepolicy) |
 
 Valid values
@@ -1152,8 +1192,8 @@ Pod's securityContext supplementalGroups
 | ---------- | -------------------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext.supplementalGroups`                      |
 | Type       | `list` of `int`                                                                  |
-| Required   | ❌                                                                               |
-| Helm `tpl` | ❌                                                                               |
+| Required   | ❌                                                                                |
+| Helm `tpl` | ❌                                                                                |
 | Default    | See default [here](/common/securitycontext#securitycontextpodsupplementalgroups) |
 
 Example
@@ -1183,8 +1223,8 @@ to the pod. When hostNetwork is enabled the above **sysctl** option will not be 
 | ---------- | --------------------------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext.sysctls`                      |
 | Type       | `list` of `map`                                                       |
-| Required   | ❌                                                                    |
-| Helm `tpl` | ❌                                                                    |
+| Required   | ❌                                                                     |
+| Helm `tpl` | ❌                                                                     |
 | Default    | See default [here](/common/securitycontext#securitycontextpodsysctls) |
 
 Example
@@ -1207,8 +1247,8 @@ Pod's securityContext sysctls name
 | ---------- | ----------------------------------------------------- |
 | Key        | `workload.$name.podSpec.securityContext.sysctls.name` |
 | Type       | `string`                                              |
-| Required   | ✅                                                    |
-| Helm `tpl` | ✅                                                    |
+| Required   | ✅                                                     |
+| Helm `tpl` | ✅                                                     |
 | Default    | `""`                                                  |
 
 Example
@@ -1233,8 +1273,8 @@ Pod's securityContext sysctls value
 | ---------- | ------------------------------------------------------ |
 | Key        | `workload.$name.podSpec.securityContext.sysctls.value` |
 | Type       | `string`                                               |
-| Required   | ✅                                                     |
-| Helm `tpl` | ✅                                                     |
+| Required   | ✅                                                      |
+| Helm `tpl` | ✅                                                      |
 | Default    | `""`                                                   |
 
 Example
@@ -1261,8 +1301,8 @@ See [Container](/common/container/) for more information
 | ---------- | --------------------------- |
 | Key        | `workload.$name.containers` |
 | Type       | `map`                       |
-| Required   | ❌                          |
-| Helm `tpl` | ❌                          |
+| Required   | ❌                           |
+| Helm `tpl` | ❌                           |
 | Default    | `{}`                        |
 
 Example
@@ -1285,8 +1325,8 @@ See [Container](/common/container/) for more information
 | ---------- | ------------------------------- |
 | Key        | `workload.$name.initContainers` |
 | Type       | `map`                           |
-| Required   | ❌                              |
-| Helm `tpl` | ❌                              |
+| Required   | ❌                               |
+| Helm `tpl` | ❌                               |
 | Default    | `{}`                            |
 
 Example

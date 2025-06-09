@@ -1,19 +1,69 @@
-{{/*
-Renders the configMap objects required by the chart.
+{{/* horizontal Pod Autoscaler Spawner */}}
+{{/* Call this template:
+{{ include "tc.v1.common.spawner.hpa" $ -}}
 */}}
-{{- define "tc.v1.common.spawner.hpa" -}}
-  {{/* Generate named configMaps as required */}}
-  {{- range $name, $hpa := .Values.horizontalPodAutoscaler -}}
-    {{- if $hpa.enabled -}}
-      {{- $hpaValues := $hpa -}}
 
-      {{/* set the default nameOverride to the hpa name */}}
-      {{- if not $hpaValues.nameOverride -}}
-        {{- $_ := set $hpaValues "nameOverride" $name -}}
+{{- define "tc.v1.common.spawner.hpa" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+  {{- range $name, $hpa := .Values.hpa -}}
+    {{- $enabledHPA := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $hpa
+                    "name" $name "caller" "Horizontal Pod Autoscaler"
+                    "key" "hpa")) -}}
+
+    {{- if ne $enabledHPA "true" -}}{{- continue -}}{{- end -}}
+
+    {{- $objectData := (mustDeepCopy $hpa) -}}
+    {{- $_ := set $objectData "hpaName" $name -}}
+    {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $name) -}}
+
+    {{- range $workloadName, $workload := $.Values.workload -}}
+
+      {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                      "rootCtx" $ "objectData" $workload
+                      "name" $name "caller" "hpa"
+                      "key" "workload")) -}}
+
+      {{- if ne $enabled "true" -}}{{- continue -}}{{- end -}}
+      {{- $containerNames := list -}}
+      {{- range $cName, $c := $workload.podSpec.containers -}}
+        {{- $enabledContainer := (include "tc.v1.common.lib.util.enabled" (dict
+                        "rootCtx" $ "objectData" $c
+                        "name" $cName "caller" "Vertical Pod Autoscaler"
+                        "key" "workload.podSpec.containers")) -}}
+        {{- if ne $enabledContainer "true" -}}{{- continue -}}{{- end -}}
+        {{- $containerNames = mustAppend $containerNames $cName -}}
+      {{- end -}}
+      {{- $_ := set $objectData "containerNames" $containerNames -}}
+      {{- include "tc.v1.common.lib.hpa.validation" (dict "objectData" $objectData "rootCtx" $) -}}
+
+      {{/* Create a copy of the workload */}}
+      {{- $_ := set $objectData "workload" (mustDeepCopy $workload) -}}
+
+      {{/* Generate the name of the hpa */}}
+      {{- $objectName := $fullname -}}
+      {{- if not $objectData.workload.primary -}}
+        {{- $objectName = printf "%s-%s" $fullname $workloadName -}}
       {{- end -}}
 
-      {{- $_ := set $ "ObjectValues" (dict "hpa" $hpaValues) -}}
-      {{- include "tc.v1.common.class.hpa" $ -}}
+      {{/* Perform validations */}}
+      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+      {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Horizontal Pod Autoscaler") -}}
+
+      {{/* Set the name of the workload */}}
+      {{- $_ := set $objectData "name" $objectName -}}
+
+      {{/* Short name is the one that defined on the chart, used on selectors */}}
+      {{- $_ := set $objectData "shortName" $workloadName -}}
+
+      {{- if or (not $objectData.targetSelector) (mustHas $workloadName $objectData.targetSelector) -}}
+        {{/* Call class to create the object */}}
+        {{- $types := (list "Deployment" "StatefulSet" "DaemonSet") -}}
+        {{- if (mustHas $objectData.workload.type $types) -}}
+          {{- include "tc.v1.common.class.hpa" (dict "rootCtx" $ "objectData" $objectData) -}}
+        {{- end -}}
+      {{- end -}}
+
     {{- end -}}
   {{- end -}}
 {{- end -}}
