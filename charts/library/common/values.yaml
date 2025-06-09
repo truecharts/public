@@ -143,6 +143,7 @@ podOptions:
   # If this key exists, takes precedence over the automated calculation
   # hostUsers: false
   shareProcessNamespace: false
+  affinity: {}
   dnsPolicy: ClusterFirst
   dnsConfig:
     options:
@@ -205,14 +206,14 @@ vpa:
     #   updateMode: auto
     resourcePolicy:
       containerPolicies:
-      - containerName: '*'
-        minAllowed:
-          cpu: 50m
-          memory: 50Mi
-        maxAllowed:
-          cpu: 8000m
-          memory: 20Gi
-        controlledResources: ["cpu", "memory"]
+        - containerName: "*"
+          minAllowed:
+            cpu: 50m
+            memory: 50Mi
+          maxAllowed:
+            cpu: 8000m
+            memory: 20Gi
+          controlledResources: ["cpu", "memory"]
 
 # -- Horizontal pod autoscaler
 hpa:
@@ -250,7 +251,6 @@ hpa:
     #       - type: Pods
     #         value: 4
     #         periodSeconds: 60
-
 
 # -- (docs/service/README.md)
 service:
