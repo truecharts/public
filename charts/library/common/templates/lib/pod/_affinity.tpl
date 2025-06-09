@@ -156,6 +156,6 @@ podAffinity:
           - key: truecharts.org/pvc
             operator: In
             values:
-              - {{ $names | join "+" }}
+              - {{ $names | join "_" }}
   {{- end -}}
 {{- end -}}

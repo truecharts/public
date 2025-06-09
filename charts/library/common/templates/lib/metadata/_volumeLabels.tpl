@@ -12,5 +12,5 @@
     {{- $names = mustAppend $names $volume.shortName -}}
   {{- end }}
 
-truecharts.org/pvc: {{ $names | join "+" | quote }}
+truecharts.org/pvc: {{ $names | join "_" | quote }}
 {{- end -}}
