@@ -8,7 +8,7 @@ require (
 	github.com/beevik/ntp v1.4.3
 	github.com/budimanjojo/talhelper/v3 v3.0.28
 	github.com/getsops/sops/v3 v3.10.2
-	github.com/go-git/go-git/v5 v5.16.1
+	github.com/go-git/go-git/v5 v5.16.2
 	github.com/go-logr/zerologr v1.2.3
 	github.com/go-playground/validator/v10 v10.26.0
 	github.com/invopop/jsonschema v0.13.0
