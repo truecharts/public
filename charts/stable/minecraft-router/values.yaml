@@ -27,14 +27,20 @@ workload:
         main:
           probes:
             liveness:
-              enabled: true
-              type: tcp
+              port: "{{ .Values.service.api.ports.api.port }}"
+              path: /routes
+              httpHeaders:
+                Accept: application/json
             readiness:
-              enabled: true
-              type: tcp
+              port: "{{ .Values.service.api.ports.api.port }}"
+              path: /routes
+              httpHeaders:
+                Accept: application/json
             startup:
-              enabled: true
-              type: tcp
+              port: "{{ .Values.service.api.ports.api.port }}"
+              path: /routes
+              httpHeaders:
+                Accept: application/json
           env:
             API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"
