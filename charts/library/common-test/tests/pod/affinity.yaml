@@ -43,7 +43,7 @@ tests:
         isSubset:
           path: spec.template.metadata.labels
           content:
-            truecharts.org/pvc: test-pvc-1+test-pvc-2
+            truecharts.org/pvc: test-pvc-1_test-pvc-2
       - documentIndex: *deploymentDoc
         equal:
           path: spec.template.spec.affinity
@@ -67,7 +67,7 @@ tests:
                       - key: truecharts.org/pvc
                         operator: In
                         values:
-                          - test-pvc-1+test-pvc-2
+                          - test-pvc-1_test-pvc-2
 
   - it: should pass with configured affinity
     set:
