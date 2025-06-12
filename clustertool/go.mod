@@ -6,7 +6,7 @@ require (
 	filippo.io/age v1.2.1
 	github.com/Masterminds/semver/v3 v3.3.1
 	github.com/beevik/ntp v1.4.3
-	github.com/budimanjojo/talhelper/v3 v3.0.28
+	github.com/budimanjojo/talhelper/v3 v3.0.29
 	github.com/getsops/sops/v3 v3.10.2
 	github.com/go-git/go-git/v5 v5.16.2
 	github.com/go-logr/zerologr v1.2.3
@@ -222,7 +222,7 @@ require (
 	github.com/siderolabs/crypto v0.6.0 // indirect
 	github.com/siderolabs/gen v0.8.1 // indirect
 	github.com/siderolabs/go-pointer v1.0.1 // indirect
-	github.com/siderolabs/image-factory v0.7.1 // indirect
+	github.com/siderolabs/image-factory v0.7.3 // indirect
 	github.com/siderolabs/net v0.4.0 // indirect
 	github.com/siderolabs/protoenc v0.2.2 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
