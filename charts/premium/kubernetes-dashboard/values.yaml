@@ -161,7 +161,7 @@ workload:
           args:
             - --namespace={{ .Release.Namespace }}
             - --metrics-scraper-service-name=kubernetes-dashboard-scraper
-            - --sidecar-host={{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.kubernetes-dashboard-api.ports.api.port }}
+            - --sidecar-host={{ printf "http://%v-scraper.%v.svc.cluster.local:8000" (include "tc.v1.common.lib.chart.names.fullname" $) .Release.Namespace }}
           env:
             CSRF_KEY:
               secretKeyRef:
