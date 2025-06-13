@@ -1,7 +1,5 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-// https://starlight.astro.build/guides/css-and-tailwind/#tailwind-css
-import tailwind from "@astrojs/tailwind";
 // https://github.com/HiDeoo/starlight-links-validator
 import starlightLinksValidator from "starlight-links-validator";
 // https://github.com/HiDeoo/starlight-image-zoom
@@ -166,10 +164,6 @@ export default defineConfig({
     }),
     sitemap(),
     robotsTxt(),
-    tailwind({
-      // Disable the default base styles:
-      applyBaseStyles: false,
-    }),
     lottie(),
     betterImageService(),
     playformCompress({
