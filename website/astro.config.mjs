@@ -77,7 +77,7 @@ export default defineConfig({
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/truecharts'},
         { icon: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/truecharts'},
-        { icon: 'x', label: 'X', href: 'https://twitter.com/useTrueCharts'},
+        { icon: 'x.com', label: 'X', href: 'https://twitter.com/useTrueCharts'},
         { icon: 'discord', label: 'Discord', href: 'https://discord.gg/tVsPTHWTtr'},
         { icon: 'telegram', label: 'Telegram', href: 'https://t.me/s/truecharts'},
         { icon: 'openCollective', label: 'OpenCollective', href: 'https://opencollective.com/truecharts'},
