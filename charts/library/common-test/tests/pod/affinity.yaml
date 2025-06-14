@@ -1,0 +1,793 @@
+suite: pod affinity test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with configured affinity and default
+    set:
+      persistence:
+        test-pvc-1:
+          enabled: true
+          type: pvc
+          mountPath: /test1
+        test-pvc-2:
+          enabled: true
+          type: pvc
+          mountPath: /test2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            affinity:
+              podAffinity:
+                preferredDuringSchedulingIgnoredDuringExecution:
+                  - weight: 0
+                    podAffinityTerm:
+                      topologyKey: kubernetes.io/zone
+                      labelSelector:
+                        matchExpressions:
+                          - key: app
+                            operator: In
+                            values:
+                              - my-zone-app
+                              - my-zone-app-2
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.metadata.labels
+          content:
+            truecharts.org/pvc: test-pvc-1_test-pvc-2
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.affinity
+          value:
+            podAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 0
+                  podAffinityTerm:
+                    topologyKey: kubernetes.io/zone
+                    labelSelector:
+                      matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                            - my-zone-app
+                            - my-zone-app-2
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: truecharts.org/pvc
+                        operator: In
+                        values:
+                          - test-pvc-1_test-pvc-2
+
+  - it: should pass with configured affinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - topologyKey: kubernetes.io/hostname
+                matchLabelKeys:
+                  - app
+                  - tier
+                mismatchLabelKeys:
+                  - app
+                  - tier
+                namespaces:
+                  - default
+                  - kube-system
+                namespaceSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - my-app
+                        - my-app-2
+                    - key: tier
+                      operator: In
+                      values:
+                        - frontend
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  matchLabelKeys:
+                    - app
+                    - tier
+                  mismatchLabelKeys:
+                    - app
+                    - tier
+                  namespaces:
+                    - default
+                    - kube-system
+                  namespaceSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - my-app
+                          - my-app-2
+                      - key: tier
+                        operator: In
+                        values:
+                          - frontend
+              - weight: 0
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/zone
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - my-zone-app
+                          - my-zone-app-2
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - my-app
+                        - my-app-2
+                    - key: tier
+                      operator: In
+                      values:
+                        - backend
+              - topologyKey: kubernetes.io/zone
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - my-zone-app
+                        - my-zone-app-2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.affinity
+          value:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - topologyKey: kubernetes.io/hostname
+                  matchLabelKeys:
+                    - app
+                    - tier
+                  mismatchLabelKeys:
+                    - app
+                    - tier
+                  namespaces:
+                    - default
+                    - kube-system
+                  namespaceSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - my-app
+                          - my-app-2
+                      - key: tier
+                        operator: In
+                        values:
+                          - frontend
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 100
+                  podAffinityTerm:
+                    topologyKey: kubernetes.io/hostname
+                    matchLabelKeys:
+                      - app
+                      - tier
+                    mismatchLabelKeys:
+                      - app
+                      - tier
+                    namespaces:
+                      - default
+                      - kube-system
+                    namespaceSelector:
+                      matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                            - my-app
+                            - my-app-2
+                        - key: tier
+                          operator: In
+                          values:
+                            - frontend
+                - weight: 0
+                  podAffinityTerm:
+                    topologyKey: kubernetes.io/zone
+                    labelSelector:
+                      matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                            - my-zone-app
+                            - my-zone-app-2
+
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - my-app
+                          - my-app-2
+                      - key: tier
+                        operator: In
+                        values:
+                          - backend
+
+                - topologyKey: kubernetes.io/zone
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - my-zone-app
+                          - my-zone-app-2
+  # Failures
+  - it: should fail without at least one key under podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            onlyInvalidKey: some-value
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected at least one of requiredDuringSchedulingIgnoredDuringExecution or preferredDuringSchedulingIgnoredDuringExecution in [affinity.podAffinity]
+  - it: should fail without at least one key under podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            onlyInvalidKey: some-value
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected at least one of requiredDuringSchedulingIgnoredDuringExecution or preferredDuringSchedulingIgnoredDuringExecution in [affinity.podAntiAffinity]
+
+  - it: should fail with invalid requiredDuringSchedulingIgnoredDuringExecution key in podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              some-data: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution] to be a slice but got [map]
+
+  - it: should fail with invalid requiredDuringSchedulingIgnoredDuringExecution key in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              some-data: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution] to be a slice but got [map]
+
+  - it: should fail with invalid preferredDuringSchedulingIgnoredDuringExecution key in podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              some-data: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution] to be a slice but got [map]
+
+  - it: should fail with invalid preferredDuringSchedulingIgnoredDuringExecution key in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              some-data: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution] to be a slice but got [map]
+
+  - it: should fail with invalid podAffinityTerm weight in podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: "90"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.weight] to be a number but got [string]
+
+  - it: should fail with invalid podAffinityTerm weight in podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 101
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.weight] to be between 0 and 100 but got [101]
+
+  - it: should fail with invalid podAffinityTerm weight in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: "90"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.weight] to be a number but got [string]
+
+  - it: should fail with invalid podAffinityTerm weight in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 101
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.weight] to be between 0 and 100 but got [101]
+
+  - it: should fail with missing podAffinityTerm in podAffinity
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm] to be defined
+
+  - it: should fail with missing podAffinityTerm in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm] to be defined
+
+  - it: should fail with missing topology key in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  labelSelector:
+                    matchExpressions: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.topologyKey] to be a string but got [invalid]
+
+  - it: should fail with missing podAffinityTerm in podAntiAffinity
+    set:
+      podOptions:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  labelSelector:
+                    matchExpressions: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.topologyKey] to be a string but got [invalid]
+
+  - it: should fail with invalid matchLabelKeys in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  matchLabelKeys: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.matchLabelKeys] to be a slice but got [string]
+
+  - it: should fail with invalid matchLabelKeys value in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  matchLabelKeys:
+                    - 123
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.matchLabelKeys.0] to be a string but got [float64]
+
+  - it: should fail with invalid mismatchLabelKeys in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  mismatchLabelKeys: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.mismatchLabelKeys] to be a slice but got [string]
+
+  - it: should fail with invalid mismatchLabelKeys value in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  mismatchLabelKeys:
+                    - 123
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.mismatchLabelKeys.0] to be a string but got [float64]
+
+  - it: should fail with invalid namespaces in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  namespaces: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.namespaces] to be a slice but got [string]
+
+  - it: should fail with invalid namespaces value in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  namespaces:
+                    - 123
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.namespaces.0] to be a string but got [float64]
+
+  - it: should fail with invalid labelSelector in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector] to be a map but got [string]
+
+  - it: should fail with invalid labelSelector matchExpressions in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions] to be a slice but got [string]
+
+  - it: should fail with invalid labelSelector operator in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: "invalid"
+                        operator: "invalid"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.operator] to be one of [In, NotIn, Exists, DoesNotExist] but got [invalid]
+  - it: should fail with invalid labelSelector key in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - operator: In
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.key] to be a string but got [invalid]
+  - it: should fail with invalid labelSelector values in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: Exists
+                        values: ["not-empty"]
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.values] to be empty when operator is Exists or DoesNotExist but got [[not-empty]]
+
+  - it: should fail with invalid labelSelector values in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.values] to be a slice but got [invalid]
+
+  - it: should fail with invalid labelSelector values in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values: []
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.values] to be defined when operator is In or NotIn but got [slice]
+
+  - it: should fail with invalid labelSelector values in podAffinityTerm
+    set:
+      podOptions:
+        affinity:
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchExpressions:
+                      - key: app
+                        operator: In
+                        values:
+                          - {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Affinity - Expected [affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution.0.podAffinityTerm.labelSelector.matchExpressions.0.values.0] to be a string but got [map]
