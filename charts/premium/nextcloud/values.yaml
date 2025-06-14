@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v31.0.5@sha256:181a0a0ef9a03f3442e9e4ee2419e05c42b80aa4647125ae3d2d13c2986bdfad
+  tag: v31.0.5@sha256:4bd2a2094730f5892eb28b582a55f5d9086524f8564a9ea0b70c85aea4c80f7f
 nginxImage:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.28.0@sha256:fe7beb9c152991f058e9312804d6e13acd7dc29a799632c4dcb868e1253644e5
+  tag: 1.28.0@sha256:11202b98d149b80abecb6091bf961aa0a8b3f087cfc169e8ff477ece4b54d9b4
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -17,7 +17,7 @@ hpbImage:
 clamavImage:
   repository: docker.io/clamav/clamav
   pullPolicy: IfNotPresent
-  tag: 1.4.2@sha256:a3885eee90aa9bf601b1258d2b9ae1d778d8ed4266db3d5195bea34679b69f8c
+  tag: 1.4.2@sha256:0f7f2d47dc25ff908fb4a471175455d7a9cde26c533689f6e182a984d392e50e
 collaboraImage:
   repository: docker.io/collabora/code
   pullPolicy: IfNotPresent
