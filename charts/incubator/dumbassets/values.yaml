@@ -18,16 +18,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-              path: /
-            readiness:
-              type: http
-              path: /
-            startup:
-              type: http
-              path: /
           env: {}
 persistence:
   data:
