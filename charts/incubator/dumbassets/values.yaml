@@ -2,12 +2,6 @@ image:
   repository: dumbwareio/dumbassets
   pullPolicy: IfNotPresent
   tag: 1.0.11@sha256:b12310240508ee26acd4adbbf4b3e42303a4c5918b094daf0d225b3ae00cad93
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
 service:
   main:
     ports:
