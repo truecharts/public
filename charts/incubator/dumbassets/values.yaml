@@ -14,17 +14,16 @@ workload:
       containers:
         main:
           env:
-            NODE_ENV: production
-            DEBUG: false
-            TZ: "{{ .Values.TZ }}"
-            SITE_TITLE: ${DUMBASSETS_SITE_TITLE:-DumbAssets}
-            BASE_URL: ${DUMBASSETS_BASE_URL:-http://localhost:3000}
-            DUMBASSETS_PIN: ${DUMBASSETS_PIN:-1234}
-            ALLOWED_ORIGINS: ${DUMBASSETS_ALLOWED_ORIGINS:-*}
-            APPRISE_URL: ${DUMBASSETS_APPRISE_URL:-}
-            CURRENCY_CODE: ${DUMBASSETS_CURRENCY_CODE:-USD}
-            CURRENCY_LOCALE: ${DUMBASSETS_CURRENCY_LOCALE:-en-US}
-            DEMO_MODE: ${DUMBASSETS_DEMO_MODE:-false}
+            # NODE_ENV: production
+            # DEBUG: false
+            # SITE_TITLE: DumbAssets
+            # BASE_URL: http://localhost:3000
+            # DUMBASSETS_PIN: 1234
+            # ALLOWED_ORIGINS: *
+            # APPRISE_URL: -
+            # CURRENCY_CODE: USD
+            # CURRENCY_LOCALE: en-US
+            # DEMO_MODE: false
 persistence:
   data:
     enabled: true
