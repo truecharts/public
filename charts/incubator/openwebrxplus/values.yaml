@@ -36,3 +36,14 @@ service:
         protocol: http
         port: 8073
         targetPort: 8073
+
+persistence:
+  var:
+    enabled: true
+    mountPath: /var/lib/openwebrx
+  config:
+    enabled: true
+    mountPath: /etc/openwebrx
+  plugins:
+    enabled: true
+    mountPath: /usr/lib/python3/dist-packages/htdocs/plugins
