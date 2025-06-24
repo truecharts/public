@@ -15,3 +15,11 @@ workload:
               type: tcp
             startup:
               type: tcp
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8073
+        targetPort: 8073
