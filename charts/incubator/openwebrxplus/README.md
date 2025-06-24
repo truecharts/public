@@ -45,7 +45,6 @@ For information about the common chart and all defaults included with it, please
 This section is for dev purposes only and should be removed upon opening the chart submission PR.
 
   - [ ] [Expose API](https://github.com/jketterl/openwebrx/wiki/API)
-  - [ ] ![Add favicon, pull and convert SVG from here](https://github.com/jketterl/openwebrx/blob/develop/inkscape%20files/favicon.svg)
 
 ---
 
