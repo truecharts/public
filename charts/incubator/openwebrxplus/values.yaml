@@ -15,6 +15,10 @@ workload:
               type: tcp
             startup:
               type: tcp
+        env:
+          OPENWEBRX_ADMIN_USER: "admin"
+          OPENWEBRX_ADMIN_PASSWORD: "changeme"
+
 
 service:
   main:
