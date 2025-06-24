@@ -22,6 +22,12 @@ workload:
           OPENWEBRX_ADMIN_USER: "admin"
           OPENWEBRX_ADMIN_PASSWORD: "changeme"
 
+          # XXXX, YYYY are respectively VID, PID of the USB device
+          # Z is how many devices (int) should be present for that identifer.
+          # HEALTHCHECK_USB_XXXX_YYYY: Z
+
+          # Satdump is not recommended, but configurable
+          # OPENWEBRX_ENABLE_SATDUMP: 1
 
 service:
   main:
