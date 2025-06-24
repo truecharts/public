@@ -47,3 +47,10 @@ persistence:
   plugins:
     enabled: true
     mountPath: /usr/lib/python3/dist-packages/htdocs/plugins
+  usb:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/bus/usb
+    mountPath: /dev/bus/usb
+    hostPathType: Directory
+    readOnly: false
