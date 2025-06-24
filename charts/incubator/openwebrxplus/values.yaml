@@ -10,11 +10,14 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
+              path: /status.json
+              type: http
             readiness:
-              type: tcp
+              path: /status.json
+              type: http
             startup:
-              type: tcp
+              path: /status.json
+              type: http
         env:
           OPENWEBRX_ADMIN_USER: "admin"
           OPENWEBRX_ADMIN_PASSWORD: "changeme"
