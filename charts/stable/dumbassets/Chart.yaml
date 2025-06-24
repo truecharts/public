@@ -7,7 +7,7 @@ annotations:
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.0.11
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A stupid simple asset tracker for keeping track of your physical assets, their components, and applicable warranties and routine maintenance.
-home: https://truecharts.org/charts/incubator/dumbassets
+home: https://truecharts.org/charts/stable/dumbassets
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dumbassets.webp
 keywords:
   - dumbassets
@@ -34,8 +34,8 @@ maintainers:
 name: dumbassets
 sources:
   - https://github.com/DumbWareio/dumbassets
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dumbassets
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dumbassets
   - https://hub.docker.com/r/dumbwareio/dumbassets
 type: application
-version: 0.0.2
+version: 1.0.0
 
