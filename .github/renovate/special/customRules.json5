@@ -22,6 +22,11 @@
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["quay.io/minio/minio"],
       "dependencyDashboardApproval": true
+    },
+    {
+    "matchDatasources": ["docker"],
+    "matchDepNames": ["ghcr.io/immich-app/immich-machine-learning"],
+    "matchFilePatterns": [".*\\.ya?ml$"]
     }
   ]
 }
