@@ -1,7 +1,7 @@
 # hadolint ignore=DL3007
 FROM mcr.microsoft.com/devcontainers/base:alpine
 
-ARG VERSION=2.0.0
+ARG VERSION
 ARG CONTAINER_NAME
 ARG CONTAINER_VER
 
