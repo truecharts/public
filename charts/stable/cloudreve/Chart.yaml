@@ -18,6 +18,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: redis
+    version: 16.0.5
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Self-hosted file management and sharing system, supports multiple storage providers
 home: https://truecharts.org/charts/stable/cloudreve
