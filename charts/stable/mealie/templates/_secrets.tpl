@@ -109,6 +109,9 @@ api:
     {{- with $api.oidc.client_id }}
     OIDC_CLIENT_ID: {{ . | quote }}
     {{- end -}}
+    {{- with $api.oidc.client_secret }}
+    OIDC_CLIENT_SECRET: {{ . | quote }}
+    {{- end -}}
     {{- with $api.oidc.user_group }}
     OIDC_USER_GROUP: {{ . | quote }}
     {{- end -}}
