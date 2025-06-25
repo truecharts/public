@@ -3,7 +3,6 @@ FROM mcr.microsoft.com/devcontainers/base:alpine
 
 ARG CLUSTERTOOL_VERSION=2.0.0
 ARG CONTAINER_NAME
-ARG CONTAINER_VER=CLUSTERTOOL_VERSION
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN apk update && \
