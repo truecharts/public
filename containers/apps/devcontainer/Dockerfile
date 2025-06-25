@@ -1,7 +1,7 @@
 # hadolint ignore=DL3007
 FROM mcr.microsoft.com/devcontainers/base:alpine
 
-ARG VERSION
+ARG CLUSTERTOOL_VERSION=2.0.0
 ARG CONTAINER_NAME
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
@@ -72,7 +72,7 @@ RUN chown -R vscode:vscode /home/vscode/
 RUN chmod -R 755 /home/vscode/
 
 # Download and set up the clustertool binary
-RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
+RUN curl -L "https://github.com/truecharts/public/releases/download/v${CLUSTERTOOL_VERSION}/clustertool_${CLUSTERTOOL_VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
     && tar -xzvf /tmp/clustertool.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/clustertool \
     && rm /tmp/clustertool.tar.gz
@@ -83,7 +83,7 @@ LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
 LABEL org.opencontainers.image.licenses="All-Rights-Reserved"
 LABEL org.opencontainers.image.title="${CONTAINER_NAME}"
 LABEL org.opencontainers.image.url="https://truecharts.org/docs/charts/${CONTAINER_NAME}"
-LABEL org.opencontainers.image.version="${VERSION}"
+LABEL org.opencontainers.image.version="${CLUSTERTOOL_VERSION}"
 LABEL org.opencontainers.image.description="Container for ${CONTAINER_NAME} by TrueCharts"
 LABEL org.opencontainers.image.authors="TrueCharts"
 LABEL org.opencontainers.image.documentation="https://truecharts.org/docs/charts/${CONTAINER_NAME}"
