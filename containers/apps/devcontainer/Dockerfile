@@ -27,25 +27,39 @@ RUN for app in \
     curl -fsSL "https://i.jpillora.com/${app}" | bash; \
   done
 
-# Setup fish config and completions
-RUN mkdir -p /home/vscode/.config/fish/{completions,conf.d} && \
-  for tool in cilium flux helm helmfile k9s kubectl kustomize talhelper talosctl; do \
-    if command -v "$tool" >/dev/null 2>&1; then \
-      $tool completion fish > "/home/vscode/.config/fish/completions/${tool}.fish" || true; \
-    fi; \
-  done && \
-  gh completion --shell fish > /home/vscode/.config/fish/completions/gh.fish || true && \
-  stern --completion fish > /home/vscode/.config/fish/completions/stern.fish || true && \
-  yq shell-completion fish > /home/vscode/.config/fish/completions/yq.fish || true
+# Create the completions and conf.d directories explicitly
+RUN mkdir -p /home/vscode/.config/fish/completions && \
+    mkdir -p /home/vscode/.config/fish/conf.d
+
+# Add completions only if the command exists
+RUN for tool in cilium flux helm helmfile k9s kubectl kustomize talhelper talosctl; do \
+      if command -v "$tool" >/dev/null 2>&1; then \
+        mkdir -p /home/vscode/.config/fish/completions && \
+        $tool completion fish > "/home/vscode/.config/fish/completions/${tool}.fish" || true; \
+      fi; \
+    done && \
+    gh completion --shell fish > /home/vscode/.config/fish/completions/gh.fish || true && \
+    stern --completion fish > /home/vscode/.config/fish/completions/stern.fish || true && \
+    yq shell-completion fish > /home/vscode/.config/fish/completions/yq.fish || true
+
+RUN mkdir -p /home/vscode/.config/fish/conf.d && \
+    printf '%s\n' \
+    "if status is-interactive" \
+    "    direnv hook fish | source" \
+    "    starship init fish | source" \
+    "end" \
+    > /home/vscode/.config/fish/conf.d/hooks.fish
 
 # Add aliases to fish config
 RUN mkdir -p /home/vscode/.config/fish/conf.d && \
   printf '%s\n' \
-  "alias ls lsd" \
   "alias kubectl kubecolor" \
   "alias k kubectl" \
-  "alias task go-task" \
   > /home/vscode/.config/fish/conf.d/aliases.fish
+
+# Custom fish prompt
+RUN mkdir -p /home/vscode/.config/fish/conf.d && \
+    echo "set fish_greeting" > /home/vscode/.config/fish/conf.d/fish_greeting.fish
 
 # Setup direnv whitelist
 RUN mkdir -p /home/vscode/.config/direnv && \
@@ -56,20 +70,13 @@ EOF
 
 # Fix permissions for devcontainer user
 RUN chown -R vscode:vscode /home/vscode/
+RUN chmod -R 755 /home/vscode/
 
 # Download and set up the clustertool binary
 RUN curl -L "https://github.com/truecharts/public/releases/download/v${VERSION}/clustertool_${VERSION}_linux_amd64.tar.gz" -o /tmp/clustertool.tar.gz \
     && tar -xzvf /tmp/clustertool.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/clustertool \
     && rm /tmp/clustertool.tar.gz
-
-# Download and set up the krew binary
-RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz" \
-    && tar zxvf "krew-linux_amd64.tar.gz" \
-    && ./"krew-linux_amd64" install krew \
-    && rm ./krew-linux_amd64.tar.gz
-
-ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
