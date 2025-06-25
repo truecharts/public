@@ -13,6 +13,14 @@ RUN apk update && \
     sshfs libc6-compat fuse && \
   rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
+RUN apk add --no-cache \
+    --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
+        go-task sops
+        
+RUN apk add --no-cache \
+    --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing \
+        cilium-cli kubeconform stern
+
 # Install CLI tools via jpillora scripts
 RUN for app in \
     "budimanjojo/talhelper!!?as=talhelper&type=script" \
@@ -54,6 +62,7 @@ RUN mkdir -p /home/vscode/.config/fish/conf.d && \
   printf '%s\n' \
   "alias kubectl kubecolor" \
   "alias k kubectl" \
+  "alias task go-task" \
   > /home/vscode/.config/fish/conf.d/aliases.fish
 
 # Custom fish prompt
