@@ -71,9 +71,6 @@ RUN curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/downloa
 
 ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# add pvmounter to kubectl using crew
-RUN kubectl krew install pv-mounter
-
 # Maintainer and metadata
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
