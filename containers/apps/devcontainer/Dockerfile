@@ -19,7 +19,7 @@ RUN apk add --no-cache \
         
 RUN apk add --no-cache \
     --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing \
-        cilium-cli kubeconform lsd stern
+        cilium-cli kubeconform stern
 
 # Install CLI tools via jpillora scripts
 RUN for app in \
@@ -60,7 +60,6 @@ RUN mkdir -p /home/vscode/.config/fish/conf.d && \
 # Add aliases to fish config
 RUN mkdir -p /home/vscode/.config/fish/conf.d && \
   printf '%s\n' \
-  "alias ls lsd" \
   "alias kubectl kubecolor" \
   "alias k kubectl" \
   "alias task go-task" \
