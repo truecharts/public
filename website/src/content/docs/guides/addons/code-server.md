@@ -12,12 +12,12 @@ addons:
 
         service:
         # -- Enable a service for the code-server add-on.
-            type: "LoadBalancer"
-            loadBalancerIP: "192.168.178.11"
-            # Specify the default port information
-            ports:
-                codeserver:
-                  port: 12321
+          type: "LoadBalancer"
+          loadBalancerIP: "192.168.178.11"
+          # Specify the default port information
+          ports:
+            codeserver:
+              port: 12321
 
         ingress:
           # -- Enable an ingress for the code-server add-on.
