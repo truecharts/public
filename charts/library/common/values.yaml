@@ -928,12 +928,12 @@ addons:
             - NET_ADMIN
             - NET_RAW
             - MKNOD
-        env:
-          DOT: "off"
-          DNS_KEEP_NAMESERVER: "on"
-          FIREWALL: "off"
-          FIREWALL_OUTBOUND_SUBNETS: ""
-          FIREWALL_INPUT_PORTS: ""
+      env:
+        DOT: "off"
+        DNS_KEEP_NAMESERVER: "on"
+        FIREWALL: "off"
+        FIREWALL_OUTBOUND_SUBNETS: ""
+        FIREWALL_INPUT_PORTS: ""
 
   # -- Tailscale specific configuration
   # @default -- See below
