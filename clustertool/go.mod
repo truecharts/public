@@ -4,7 +4,7 @@ go 1.24.3
 
 require (
 	filippo.io/age v1.2.1
-	github.com/Masterminds/semver/v3 v3.3.1
+	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/beevik/ntp v1.4.3
 	github.com/budimanjojo/talhelper/v3 v3.0.29
 	github.com/getsops/sops/v3 v3.10.2
