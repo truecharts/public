@@ -2,7 +2,6 @@ image:
   repository: docker.io/slechev/openwebrxplus-softmbe
   pullPolicy: IfNotPresent
   tag: 1.2.87@sha256:d2464ed8da5f2d41ce7c407f7e748722d912233993c591dea66511043aa8b6c7
-
 workload:
   main:
     podSpec:
@@ -21,14 +20,11 @@ workload:
           env:
             OPENWEBRX_ADMIN_USER: "admin"
             OPENWEBRX_ADMIN_PASSWORD: "changeme"
-
             # XXXX, YYYY are respectively VID, PID of the USB device
             # Z is how many devices (int) should be present for that identifer.
             # HEALTHCHECK_USB_XXXX_YYYY: Z
-
             # Satdump is not recommended, but configurable
             # OPENWEBRX_ENABLE_SATDUMP: 1
-
 service:
   main:
     ports:
@@ -36,14 +32,6 @@ service:
         protocol: http
         port: 8073
         targetPort: 8073
-
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-
 persistence:
   var:
     enabled: true
