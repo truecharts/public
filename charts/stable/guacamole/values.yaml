@@ -1,11 +1,11 @@
 image:
   repository: docker.io/guacamole/guacamole
   pullPolicy: IfNotPresent
-  tag: 1.5.5@sha256:0f62f6d17ab379e46aa66874b2ff564dab856a6ef5e754a69cbb34c32d3e588a
+  tag: 1.6.0@sha256:f344085e618bb05e22b964b0208dbd06d3468275bac70206f93805245e067b40
 guacdImage:
   repository: docker.io/guacamole/guacd
   pullPolicy: IfNotPresent
-  tag: 1.5.5@sha256:38232cae271361ef53db46faf5c49fe64049a1320a05b82c597425b69d6ce77e
+  tag: 1.6.0@sha256:8974eaa9ba32f713daf311e7cc8cd7e4cdfba1edea39eed75524e78ef4b08f4f
 guacamole:
   general:
     EXTENSION_PRIORITY: ""
