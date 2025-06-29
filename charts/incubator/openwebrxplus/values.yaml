@@ -49,7 +49,10 @@ persistence:
     enabled: true
     mountPath: /usr/lib/python3/dist-packages/htdocs/plugins
   usb:
-    enabled: true
+    # Enable for SDR hardware access.
+    # Might require additional tweaks depending on host OS,
+    # both in therm of hostPath and permissions.
+    enabled: false
     type: hostPath
     hostPath: /dev/bus/usb
     mountPath: /dev/bus/usb
