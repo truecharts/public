@@ -37,6 +37,13 @@ service:
         port: 8073
         targetPort: 8073
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 persistence:
   var:
     enabled: true
