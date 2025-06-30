@@ -1,5 +1,5 @@
 ---
-title: General Addon Configuration
+title: Advanced Addon Configuration
 ---
 
 Common offers an addon system to easily integrate some predefined addons into your charts without the need to configure additional workloads etc.
