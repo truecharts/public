@@ -1,11 +1,11 @@
 image:
   repository: docker.io/tombursch/kitchenowl-web
   pullPolicy: IfNotPresent
-  tag: latest@sha256:4122e765a9b5608e17bbbc0eb66b5524965502f4ef78f1900ed834cbaaec3561
+  tag: latest@sha256:97d24a4e771cf87dae50318ee94293305cb2c55ecd37467607abc9556601ba6d
 backendImage:
   repository: docker.io/tombursch/kitchenowl
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f23e27d5235e4cf91d1d89db39719d85aedd51e63b8d0c5b7dd1ec95083ed764
+  tag: latest@sha256:10aad716a5dbf2f4c5f548e5c115ad7768b0cd2c18c045766e1c27cc01c695f1
 
 service:
   main:
