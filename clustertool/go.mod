@@ -18,7 +18,7 @@ require (
 	github.com/knadh/koanf/v2 v2.2.1
 	github.com/leaanthony/debme v1.2.1
 	github.com/rs/zerolog v1.34.0
-	github.com/siderolabs/talos/pkg/machinery v1.11.0-alpha.1
+	github.com/siderolabs/talos/pkg/machinery v1.11.0-alpha.2
 	github.com/spf13/cobra v1.9.1
 	golang.org/x/crypto v0.39.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -173,7 +173,7 @@ require (
 	github.com/jmoiron/sqlx v1.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/josharian/native v1.1.0 // indirect
-	github.com/jsimonetti/rtnetlink/v2 v2.0.3 // indirect
+	github.com/jsimonetti/rtnetlink/v2 v2.0.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
@@ -221,7 +221,7 @@ require (
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
 	github.com/siderolabs/crypto v0.6.0 // indirect
-	github.com/siderolabs/gen v0.8.1 // indirect
+	github.com/siderolabs/gen v0.8.4 // indirect
 	github.com/siderolabs/go-pointer v1.0.1 // indirect
 	github.com/siderolabs/image-factory v0.7.3 // indirect
 	github.com/siderolabs/net v0.4.0 // indirect
@@ -267,7 +267,7 @@ require (
 	google.golang.org/genproto v0.0.0-20250324211829-b45e905df463 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
-	google.golang.org/grpc v1.72.2 // indirect
+	google.golang.org/grpc v1.73.0 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
