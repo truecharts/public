@@ -29,12 +29,6 @@ workload:
             startup:
               type: http
               path: /
-          env:
-            DOKUWIKI_USERNAME: "admin"
-            DOKUWIKI_PASSWORD: "supersecret"
-            DOKUWIKI_FULL_NAME: "Super Admin"
-            DOKUWIKI_EMAIL: "admin@example.com"
-            DOKUWIKI_WIKI_NAME: "DokuWiki"
 persistence:
   config:
     enabled: true
