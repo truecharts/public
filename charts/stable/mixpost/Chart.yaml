@@ -17,14 +17,14 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 15.10.0
+    version: 16.0.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
