@@ -34,7 +34,6 @@ service:
         targetPort: 5212
 redis:
   enabled: true
-  includeCommon: true
   redisUsername: default
 cnpg:
   main:

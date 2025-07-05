@@ -10,7 +10,6 @@ service:
         targetPort: 8080
 mongodb:
   enabled: true
-  includeCommon: true
   mongodbUsername: wekan
   mongodbDatabase: wekan
 persistence:
