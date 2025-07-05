@@ -8,8 +8,6 @@ persistence:
     mountPath: /var/www/html/data
   varrun:
     enabled: false
-
-
 securityContext:
   container:
     readOnlyRootFilesystem: false

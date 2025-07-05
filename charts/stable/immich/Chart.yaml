@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: 1.135.3
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -43,4 +43,5 @@ sources:
   - https://github.com/immich-app/immich
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
 type: application
-version: 18.3.3
+version: 19.0.0
+

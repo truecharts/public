@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: 4.39.4
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -53,5 +53,5 @@ sources:
   - https://github.com/authelia/chartrepo
   - https://github.com/truecharts/charts/tree/master/charts/stable/authelia
 type: application
-version: 28.0.6
+version: 29.0.0
 

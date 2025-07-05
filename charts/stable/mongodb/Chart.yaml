@@ -14,7 +14,7 @@ dependencies:
   - name: common
     version: 28.12.1
     repository: oci://tccr.io/truecharts
-    condition: includeCommon
+    condition: ""
     alias: ""
     tags: []
     import-values: []
@@ -38,5 +38,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongodb
   - https://www.mongodb.com
 type: application
-version: 16.0.0
+version: 16.0.1
 

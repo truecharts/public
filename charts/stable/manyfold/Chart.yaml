@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: 0.116.2
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -42,5 +42,5 @@ sources:
   - https://ghcr.io/manyfold3d/manyfold
   - https://github.com/truecharts/charts/tree/master/charts/stable/manyfold
 type: application
-version: 3.7.1
+version: 4.0.0
 

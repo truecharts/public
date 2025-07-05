@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: 2.17.1
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 16.0.5
+    version: 17.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -46,5 +46,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://paperless-ngx.readthedocs.io/en/latest/
 type: application
-version: 10.2.1
+version: 11.0.0
 
