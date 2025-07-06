@@ -33,6 +33,14 @@
   {{- $podCIDR := "172.16.0.0/16" -}}
   {{- $svcCIDR := "172.17.0.0/16" -}}
 
+  {{- if $rootCtx.Values.global.podCIDR -}}
+    {{- $podCIDR = $rootCtx.Values.global.podCIDR -}}
+  {{- end -}}
+
+  {{- if $rootCtx.Values.global.svcCIDR -}}
+    {{- $svcCIDR = $rootCtx.Values.global.svcCIDR -}}
+  {{- end -}}
+
   {{/* TODO: Find ways to implement CIDR detection */}}
 
   {{/* If there is ingress, get data from the primary */}}
