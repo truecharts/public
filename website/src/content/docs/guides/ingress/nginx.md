@@ -146,8 +146,8 @@ nginx:
   enabled: true
   auth:
     type: "authelia"
-    internalHost: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
-    externalHost: "https://auth.${DOMAIN_1}?rm=$request_method"
+    internalHost: "authelia.authelia.svc.cluster.local:9091"
+    externalHost: "auth.${DOMAIN_1}"
     # Can be left default in most cases
     responseHeaders: []
 ```
@@ -174,8 +174,8 @@ nginx:
   enabled: true
   auth:
     type: "authentik"
-    internalHost: "http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/nginx"
-    externalHost: "https://auth.${DOMAIN_1}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri"
+    internalHost: "authentik-http.authentik.svc.cluster.local:10230"
+    externalHost: "auth.${DOMAIN_1}"
     # Can be left default in most cases
     responseHeaders: []
 ```
@@ -185,7 +185,7 @@ nginx:
 ```yaml
 nginx:
   enabled: true
-  ipWhitelist: 49.36.X.X/32
+  ipWhitelist: [49.36.X.X/32]
 ```
 
 ### Themepark
