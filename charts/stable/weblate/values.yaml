@@ -193,7 +193,13 @@ cnpg:
     enabled: true
     user: weblate
     database: weblate
-
+resources:
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+  requests:
+    cpu: 200m
+    memory: 500Mi
 securityContext:
   container:
     readOnlyRootFilesystem: false

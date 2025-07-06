@@ -6,7 +6,13 @@ persistence:
   data:
     enabled: true
     mountPath: /app/AppData
-
+resources:
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+  requests:
+    cpu: 200m
+    memory: 500Mi
 securityContext:
   container:
     readOnlyRootFilesystem: false
