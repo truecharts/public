@@ -15,13 +15,6 @@ service:
         port: 16081
         protocol: http
         targetPort: 8080
-resources:
-  limits:
-    cpu: 2000m
-    memory: 3000Mi
-  requests:
-    cpu: 200m
-    memory: 500Mi
 workload:
   main:
     podSpec:
@@ -29,14 +22,11 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: /
+              type: tcp
             readiness:
               type: http
-              path: /
             startup:
               type: http
-              path: /
           env: {}
 persistence:
   homefolder:

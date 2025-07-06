@@ -6,13 +6,6 @@ persistence:
   data:
     enabled: true
     mountPath: /app/AppData
-resources:
-  limits:
-    cpu: 2000m
-    memory: 3000Mi
-  requests:
-    cpu: 200m
-    memory: 500Mi
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -23,5 +16,5 @@ service:
     ports:
       main:
         port: 9280
-        protocol: tcp
-        targetPort: 5000
+        protocol: http
+        targetPort: 8080
