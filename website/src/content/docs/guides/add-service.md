@@ -46,25 +46,38 @@ It's also important to note that all services added by the end user should set `
 
 ### Service intergrations
 
-For each service you can add a specific integration. Metallb, Cilium or Traefik can be choosen. In above example metallb integration is used.
+For each service you can add a specific integration. Metallb, Cilium or Traefik can be choosen. 
+In above example metallb integration is used, to get the correct metallb annotation for the ip assignment.
 
-```
+Integrations can be enabled as follow:
+
+**Metallb**
+```yaml
 service:
   myservice:
-    ##  Integration stuff
-    # integration:
-    #   metallb:
-    #     enabled: false
-    ## Optional to set shared key manually, otherwise set to namespace
-    #     sharedKey: ""
-    #
-    #   cilium:
-    #     enabled: false
-    ## Optional to set shared key manually, otherwise ignored (namespace sharing)
-    #     sharedKey: ""
-    #
-    #   traefik:
-    #     enabled: false
+    integration:
+      metallb:
+        enabled: true
+          sharedKey: ""  ## Optional to set shared key manually, otherwise it is set to $namespace as standard
+```    
+
+**Cilium**
+```yaml
+service:
+  myservice:
+    integration:
+      cilium:
+        enabled: true  
+          sharedKey: ""  ## Optional to set shared key manually, otherwise ignored (namespace sharing)
+```
+
+**Treafik**
+```yaml
+service:
+  myservice:
+    integration:
+     traefik:
+      enabled: true
 ```
 
 ## More info
