@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 28.12.1
+    version: 28.12.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 17.0.0
+    version: 17.0.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -45,5 +45,5 @@ sources:
   - https://hub.docker.com/r/browserless/chrome
   - https://hub.docker.com/r/diygod/rsshub
 type: application
-version: 16.0.0
+version: 16.0.1
 

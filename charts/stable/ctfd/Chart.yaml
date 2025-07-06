@@ -12,7 +12,7 @@ apiVersion: v2
 appVersion: 3.7.7
 dependencies:
   - name: common
-    version: 28.12.1
+    version: 28.12.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.0.0
+    version: 17.0.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,5 +50,5 @@ sources:
   - https://github.com/CTFd/CTFd
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
 type: application
-version: 8.0.1
+version: 8.0.2
 
