@@ -50,5 +50,6 @@
 
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-method" "GET" -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-url" (printf "http://%s/api/verify" $auth.internalHost) -}}
+  {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-response-headers" (join "," $respHeaders) -}}
   {{- $_ := set $objectData.annotations "nginx.ingress.kubernetes.io/auth-signin" (printf "https://%s?rm=$request_method" $auth.externalHost) -}}
 {{- end -}}
