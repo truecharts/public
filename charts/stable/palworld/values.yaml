@@ -10,12 +10,12 @@ securityContext:
     runAsGroup: 0
 
 resources:
-      limits:
-        cpu: 4000m
-        memory: 6000Mi
-      requests:
-        cpu: 400m
-        memory: 1000Mi
+  limits:
+    cpu: 4000m
+    memory: 6000Mi
+  requests:
+    cpu: 400m
+    memory: 1000Mi
 
 service:
   main:

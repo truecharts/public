@@ -5,7 +5,7 @@ image:
 persistence:
   data:
     enabled: true
-    mountPath: /var/www/remotely
+    mountPath: /app/AppData
 
 securityContext:
   container:
