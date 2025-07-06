@@ -11,18 +11,27 @@ It will include / inject the required templates based on the given values.
 
     {{- $fw := $glue.container.env.FIREWALL -}}
     {{- if (eq $fw "on") -}}
-      {{- $nets := $glue.container.env.FIREWALL_OUTBOUT_SUBNETS | splitList "," -}}
-      {{- $nets = mustAppend ($nets $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR) | mustUniq -}}
+      {{- $nets := $glue.container.env.FIREWALL_OUTBOUND_SUBNETS | default list -}}
+      {{- if $nets -}}{{- $nets = $nets | splitList "," -}}{{- end -}}
+      {{- $nets = mustAppend $nets $.Values.chartContext.podCIDR -}}
+      {{- $nets = mustAppend $nets $.Values.chartContext.svcCIDR -}}
+
+      {{- $cleanNets := list -}}
+      {{- range $nets -}}{{- $cleanNets = mustAppend $cleanNets (. | nospace) -}}{{- end -}}
+      {{- $nets = $cleanNets | mustUniq -}}
       {{- $_ := set $glue.container.env "FIREWALL_OUTBOUND_SUBNETS" (join "," $nets) -}}
 
-      {{- $inputPorts := $glue.container.env.FIREWALL_INPUT_PORTS | splitList "," -}}
+      {{- $inputPorts := $glue.container.env.FIREWALL_INPUT_PORTS | default list -}}
+      {{- if $inputPorts -}}{{- $inputPorts = $inputPorts | splitList "," -}}{{- end -}}
       {{- if and
         $.Values.service $.Values.service.main $.Values.service.main.ports
         $.Values.service.main.ports.main $.Values.service.main.ports.main.port
       -}}
-        {{- $inputPorts = mustAppend $inputPorts $.Values.service.main.ports.main.port -}}
+        {{- $inputPorts = mustAppend $inputPorts ($.Values.service.main.ports.main.port | toString) -}}
       {{- end -}}
-      {{- $inputPorts = $inputPorts | mustUniq -}}
+      {{- $cleanInputPorts := list -}}
+      {{- range $inputPorts -}}{{- $cleanInputPorts = mustAppend $cleanInputPorts (. | nospace) -}}{{- end -}}
+      {{- $inputPorts = $cleanInputPorts | mustUniq -}}
       {{- $_ := set $glue.container.env "FIREWALL_INPUT_PORTS" (join "," $inputPorts) -}}
     {{- end -}}
 
