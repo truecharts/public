@@ -21,11 +21,11 @@ It will include / inject the required templates based on the given values.
       {{- $nets = mustUniq $nets -}}
       {{- $_ := set $glue.container.env "FIREWALL_OUTBOUND_SUBNETS" (join "," $nets) -}}
 
-      {{- $inputPorts := $glue.container.env.FIREWALL_INPUT_PORTS | splitList "," -}}
-      {{- if and
-        $.Values.service $.Values.service.main $.Values.service.main.ports
-        $.Values.service.main.ports.main $.Values.service.main.ports.main.port
-      -}}
+      {{- $inputPorts := list -}}
+      {{- if hasKey $glue.container.env "FIREWALL_INPUT_PORTS" -}}
+        {{- $inputPorts = splitList "," $glue.container.env.FIREWALL_INPUT_PORTS -}}
+      {{- end -}}
+      {{- if and $.Values.service $.Values.service.main $.Values.service.main.ports $.Values.service.main.ports.main $.Values.service.main.ports.main.port -}}
         {{- $inputPorts = mustAppend $inputPorts $.Values.service.main.ports.main.port -}}
       {{- end -}}
       {{- $inputPorts = $inputPorts | mustUniq -}}
@@ -52,9 +52,7 @@ It will include / inject the required templates based on the given values.
       {{- $_ := set $secValues "enabled" true -}}
       {{- $_ := set $.Values.secret $secretName $secValues -}}
 
-      {{- $persistence := (dict
-        "enabled" true "type" "secret" "objectName" $secretName "targetSelector" dict "items" list
-      ) -}}
+      {{- $persistence := (dict "enabled" true "type" "secret" "objectName" $secretName "targetSelector" dict "items" list ) -}}
       {{- if $secValues.defaultMode -}}
         {{- $_ := set $persistence "defaultMode" $secValues.defaultMode -}}
       {{- end -}}
