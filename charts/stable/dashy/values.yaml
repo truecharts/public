@@ -1,6 +1,6 @@
 image:
-  repository: docker.io/lissy93/dashy
-  tag: 3.1.0@sha256:e0e4d344f9be6d6f0061bb4f5368efd5034e8f2cec886d8afefc89a76be830d4
+  repository: ghcr.io/lissy93/dashy
+  tag: latest@sha256:ce2ed87edc1f87a4885cb8e4d76b3d6cf1faf61af29291cdd006f372e4a994ae
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -15,6 +15,13 @@ service:
         port: 10310
         protocol: http
         targetPort: 8080
+resources:
+  limits:
+    cpu: 2000m
+    memory: 3000Mi
+  requests:
+    cpu: 200m
+    memory: 500Mi
 dashy:
   # Enable config directory mount from host path
   enabled: false

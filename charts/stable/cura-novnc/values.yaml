@@ -15,6 +15,13 @@ service:
         port: 16081
         protocol: http
         targetPort: 8080
+resources:
+  limits:
+    cpu: 4000m
+    memory: 6000Mi
+  requests:
+    cpu: 400m
+    memory: 1000Mi
 workload:
   main:
     podSpec:
