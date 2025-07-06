@@ -16,7 +16,9 @@ It will include / inject the required templates based on the given values.
       {{- else -}}
         {{- $nets := list -}}
       {{- end -}}
-      {{- $nets = mustAppend ($nets $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR) | mustUniq -}}
+      {{- $nets = mustAppend $nets $.Values.chartContext.podCIDR -}}
+      {{- $nets = mustAppend $nets $.Values.chartContext.svcCIDR -}}
+      {{- $nets = mustUniq $nets -}}
       {{- $_ := set $glue.container.env "FIREWALL_OUTBOUND_SUBNETS" (join "," $nets) -}}
 
       {{- $inputPorts := $glue.container.env.FIREWALL_INPUT_PORTS | splitList "," -}}
