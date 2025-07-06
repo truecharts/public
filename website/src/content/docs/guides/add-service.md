@@ -19,6 +19,10 @@ service:
     # only needed for loadBalancer
     loadBalancerIP: "192.168.178.11"
     type: "LoadBalancer"
+    # integration needed to assign the specific loadBalancerIP via metallb
+    integrations:
+      metallb:
+        enabled: true
     ports:
       web:
         enabled: true
@@ -39,6 +43,42 @@ In most charts there are already predefined services. You can change them to you
 
 Please be aware that most apps already have a primary service named `main` and at least 1 primary is required.
 It's also important to note that all services added by the end user should set `enabled` on all ports and services to `true`.
+
+### Service intergrations
+
+For each service you can add a specific integration. Metallb, Cilium or Traefik can be choosen. 
+In above example metallb integration is used, to get the correct metallb annotation for the ip assignment.
+
+Integrations can be enabled as follow:
+
+**Metallb**
+```yaml
+service:
+  myservice:
+    integration:
+      metallb:
+        enabled: true
+          sharedKey: ""  ## Optional to set shared key manually, otherwise it is set to $namespace as standard
+```    
+
+**Cilium**
+```yaml
+service:
+  myservice:
+    integration:
+      cilium:
+        enabled: true  
+          sharedKey: ""  ## Optional to set shared key manually, otherwise ignored (namespace sharing)
+```
+
+**Treafik**
+```yaml
+service:
+  myservice:
+    integration:
+     traefik:
+      enabled: true
+```
 
 ## More info
 
