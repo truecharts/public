@@ -24,9 +24,9 @@ workload:
             liveness:
               type: tcp
             readiness:
-              type: http
+              type: tcp
             startup:
-              type: http
+              type: tcp
           env: {}
 persistence:
   homefolder:
