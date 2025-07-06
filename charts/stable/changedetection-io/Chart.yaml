@@ -9,10 +9,10 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.50.2
+appVersion: 0.50.5
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,5 +38,5 @@ sources:
   - https://github.com/dgtlmoon/changedetection.io/tree/master
   - https://github.com/truecharts/charts/tree/master/charts/stable/changedetection-io
 type: application
-version: 4.10.0
+version: 5.0.4
 

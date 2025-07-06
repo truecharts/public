@@ -122,30 +122,37 @@ You can set charts to use either of them by specifying either:
 or
 `ingressClassName: external`
 
-## Annotations Examples
+## Nginx Integration examples
 
-Here we will showcase some annotations you can use to customize your NGINX ingress behavior
-
-### Redirect to Https
-
-```yaml
-annotations:
-  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-```
-
-### Auth
-
-#### Authelia
+Our Common-Chart offers some Nginx Integrations which save some time compared to manually setting the annotations.
+These can be configured in the following section of the ingress which is `disabled` by default:
 
 ```yaml
-annotations:
-  nginx.ingress.kubernetes.io/auth-method: 'GET'
-  nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
-  nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_1}?rm=$request_method'
-  nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
+
+ingress:
+    main:
+      integrations:
+        nginx:
+          #disabled by default
+          enabled: true
 ```
 
-#### Authentik
+In the following sections only the nginx part is shown for simplicity.
+
+### Authelia
+
+```yaml
+nginx:
+  enabled: true
+  auth:
+    type: "authelia"
+    internalHost: "authelia.authelia.svc.cluster.local:9091"
+    externalHost: "auth.${DOMAIN_1}"
+    # Can be left default in most cases
+    responseHeaders: []
+```
+
+### Authentik
 
 When using Authentik, take care to configure the service as follows.
 
@@ -163,31 +170,43 @@ to create a provider and application, then enable the embedded outpost for your 
 Once that has been done, configure each service you wish to place behind Authentik as follows:
 
 ```yaml
-annotations:
-  nginx.ingress.kubernetes.io/auth-url: http://authentik-http.authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/nginx
-  nginx.ingress.kubernetes.io/auth-signin: https://auth.${DOMAIN_1}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
-  nginx.ingress.kubernetes.io/auth-response-headers: Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
-  nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
+nginx:
+  enabled: true
+  auth:
+    type: "authentik"
+    internalHost: "authentik-http.authentik.svc.cluster.local:10230"
+    externalHost: "auth.${DOMAIN_1}"
+    # Can be left default in most cases
+    responseHeaders: []
 ```
 
 ### IP Whitelist
 
 ```yaml
-annotations:
-  nginx.ingress.kubernetes.io/whitelist-source-range: 49.36.X.X/32
+nginx:
+  enabled: true
+  ipWhitelist: [49.36.X.X/32]
 ```
 
 ### Themepark
 
 ```yaml
+nginx:
+  enabled: true
+  themepark:
+    enabled: true
+    css: "https://gilbn.github.io/theme.park/CSS/themes/APP_NAME/THEME.css"
+```
+
+## Annotations Examples
+
+Here we will showcase some annotations you can use to customize your NGINX ingress behavior
+
+### Redirect to Https
+
+```yaml
 annotations:
-  nginx.ingress.kubernetes.io/configuration-snippet: |
-      proxy_set_header Accept-Encoding "";
-      sub_filter
-      '</head>'
-      '<link rel="stylesheet" type="text/css" href="https://gilbn.github.io/theme.park/CSS/themes/APP_NAME/THEME.css">
-      </head>';
-      sub_filter_once on;
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 ```
 
 ### Redirect-Regex

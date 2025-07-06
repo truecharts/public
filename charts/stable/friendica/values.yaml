@@ -1,7 +1,7 @@
 image:
   repository: friendica
   pullPolicy: IfNotPresent
-  tag: 2024.12@sha256:53a0fcde22edfb2ebef42ea985ee2bfc1a38fa196ba437053b8661ffebd6a334
+  tag: 2024.12@sha256:05adb2debec830369b7b9a3a2296f0244884e4cb5628fd188ce1984b2f8255d7
 securityContext:
   container:
     runAsNonRoot: false
@@ -65,9 +65,7 @@ persistence:
     mountPath: /data
 redis:
   enabled: true
-  includeCommon: true
 mariadb:
   enabled: true
-  includeCommon: true
   mariadbUsername: friendica
   mariadbDatabase: friendica

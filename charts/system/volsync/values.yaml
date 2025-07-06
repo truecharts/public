@@ -42,7 +42,7 @@ workload:
           args:
             - --secure-listen-address=0.0.0.0:8443
             - --upstream=http://127.0.0.1:8080/
-            - --logtostderr=true
+            - --proxy-endpoints-port=8888
             - "--tls-min-version=VersionTLS12"
             - --v=0
             - --ignore-paths=/metrics
@@ -55,14 +55,17 @@ workload:
               memory: 64Mi
           probes:
             liveness:
-              type: tcp
-              port: 8443
+              type: https
+              port: 8888
+              path: /healthz
             readiness:
-              type: tcp
-              port: 8443
+              type: https
+              port: 8888
+              path: /healthz
             startup:
-              type: tcp
-              port: 8443
+              type: https
+              port: 8888
+              path: /healthz
 
 # -- Options for all pods
 # Can be overruled per pod

@@ -1,7 +1,7 @@
 image:
-  repository: docker.io/bitnami/dokuwiki
+  repository: ghcr.io/dokuwiki/dokuwiki
   pullPolicy: IfNotPresent
-  tag: 20240206.1.0@sha256:07c6e4629c248d8383938ee42a6cdfc2f39aef41f75fea19889f3bd853eb3caf
+  tag: 2025-05-14a@sha256:91ef258eea66b513103f5ea893c3a49a7baae163ea4d0fd9948531b0cbe0dbf6
 securityContext:
   container:
     runAsNonRoot: false
@@ -29,13 +29,7 @@ workload:
             startup:
               type: http
               path: /
-          env:
-            DOKUWIKI_USERNAME: "admin"
-            DOKUWIKI_PASSWORD: "supersecret"
-            DOKUWIKI_FULL_NAME: "Super Admin"
-            DOKUWIKI_EMAIL: "admin@example.com"
-            DOKUWIKI_WIKI_NAME: "DokuWiki"
 persistence:
   config:
     enabled: true
-    mountPath: /bitnami/dokuwiki
+    mountPath: /storage

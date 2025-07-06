@@ -1,0 +1,34 @@
+image:
+  repository: dumbwareio/dumbassets
+  pullPolicy: IfNotPresent
+  tag: 1.0.11@sha256:286af5b8586e437549336ee6647eb02af445d52df4b51960ed11ca2c1491fb52
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # NODE_ENV: production
+            # DEBUG: false
+            # SITE_TITLE: DumbAssets
+            # BASE_URL: http://localhost:3000
+            # DUMBASSETS_PIN: 1234
+            # ALLOWED_ORIGINS: *
+            # APPRISE_URL: -
+            # CURRENCY_CODE: USD
+            # CURRENCY_LOCALE: en-US
+            # DEMO_MODE: false
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+  assets:
+    enabled: true
+    mountPath: /app/public/assets
+    type: emptyDir

@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: blocky
-      version: 17.1.1
+      version: 18.0.3
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -38,6 +38,9 @@ spec:
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
     k8sgateway:
       # -- list of processed domains
       domains:

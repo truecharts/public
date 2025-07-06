@@ -12,13 +12,13 @@ apiVersion: v2
 appVersion: 9.0.0
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-deprecated: false
+deprecated: true
 description: Logitech Media Server is a platform for home/office audio streaming.
 home: https://truecharts.org/charts/stable/logitech-media-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/logitech-media-server.webp
@@ -38,5 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/logitech-media-server
   - https://hub.docker.com/r/lmscommunity/logitechmediaserver
 type: application
-version: 13.5.1
-
+version: 14.0.4

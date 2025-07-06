@@ -57,6 +57,7 @@ authelia:
         minimum_version: TLS1.2
         skip_verify: false
   access_control:
+    default_policy: 'deny'
     rules:
       # basic rule for one factor (username/password) login for users in the admin group
       - domain:

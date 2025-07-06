@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: openebs
-      version: 4.2.0
+      version: 4.3.2
       sourceRef:
         kind: HelmRepository
         name: home-ops-mirror
@@ -42,3 +42,8 @@ spec:
         # The Mayastor backend contains a duplicate of snapshot controller which will cause conflicts
         mayastor:
           enabled: false
+    
+    loki:
+      enabled: false
+    alloy:
+      enabled: false

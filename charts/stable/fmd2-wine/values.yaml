@@ -3,19 +3,19 @@ image:
   repository: docker.io/banhcanh/docker-fmd2
   tag: latest@sha256:153ccc161e7ed9f2b44f6ec7176ed4e5e53fc0962465d3556176b6489eae20eb
 persistence:
-  appluamodulespath:
+  lua:
     enabled: true
     mountPath: /app/FMD2/lua
-  appuserdata:
+  user:
     enabled: true
     mountPath: /app/FMD2/userdata
-  appwineconfig:
+  config:
     enabled: true
     mountPath: /config/.wine
   data:
     enabled: true
     mountPath: /app/FMD2/data
-  downloaddirectory:
+  downloads:
     enabled: true
     mountPath: /downloads
 

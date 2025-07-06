@@ -30,6 +30,10 @@ priorityClassName: {{ . }}
 nodeSelector:
     {{- . | nindent 2 }}
   {{- end -}}
+  {{- with (include "tc.v1.common.lib.pod.affinity" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
+affinity:
+    {{- . | nindent 2 }}
+  {{- end -}}
   {{- with (include "tc.v1.common.lib.pod.topologySpreadConstraints" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
 topologySpreadConstraints:
     {{- . | nindent 2 }}

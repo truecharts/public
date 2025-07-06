@@ -1,0 +1,60 @@
+image:
+  repository: docker.io/slechev/openwebrxplus-softmbe
+  pullPolicy: IfNotPresent
+  tag: 1.2.87@sha256:aa599b5a7c26591a5273a7402dd6076dc4503ab91b26f31892ee2b67e26c0d3a
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /status.json
+              type: http
+            readiness:
+              path: /status.json
+              type: http
+            startup:
+              path: /status.json
+              type: http
+          env:
+            OPENWEBRX_ADMIN_USER: "admin"
+            OPENWEBRX_ADMIN_PASSWORD: "changeme"
+            # XXXX, YYYY are respectively VID, PID of the USB device
+            # Z is how many devices (int) should be present for that identifer.
+            # HEALTHCHECK_USB_XXXX_YYYY: Z
+            # Satdump is not recommended, but configurable
+            # OPENWEBRX_ENABLE_SATDUMP: 1
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8073
+        targetPort: 8073
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+persistence:
+  var:
+    enabled: true
+    mountPath: /var/lib/openwebrx
+  config:
+    enabled: true
+    mountPath: /etc/openwebrx
+  plugins:
+    enabled: true
+    mountPath: /usr/lib/python3/dist-packages/htdocs/plugins
+  usb:
+    # Enable for SDR hardware access.
+    # Might require additional tweaks depending on host OS,
+    # both in therm of hostPath and permissions.
+    enabled: false
+    type: hostPath
+    hostPath: /dev/bus/usb
+    mountPath: /dev/bus/usb
+    hostPathType: Directory
+    readOnly: false

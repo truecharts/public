@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: kubernetes-dashboard
-      version: 1.16.1
+      version: 2.0.3
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -34,6 +34,9 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${DASHBOARD_IP}
+        integrations:
+          metallb:
+            enabled: true
         ports:
           main:
             port: 80

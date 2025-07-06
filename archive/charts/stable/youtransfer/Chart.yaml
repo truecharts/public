@@ -12,31 +12,29 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 25.4.10
+    version: 28.12.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-deprecated: false
-description: EtherCalc is a web spreadsheet.
-home: https://truecharts.org/charts/stable/ethercalc
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/ethercalc.webp
+deprecated: true
+description: YouTransfer is a simple but elegant self-hosted file transfer sharing solution.
+home: https://truecharts.org/charts/stable/youtransfer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtransfer.webp
 keywords:
-  - ethercalc
+  - youtransfer
   - Cloud
-  - Productivity
   - Tools-Utilities
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: ethercalc
+name: youtransfer
 sources:
-  - https://github.com/audreyt/ethercalc
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ethercalc
-  - https://hub.docker.com/r/audreyt/ethercalc
+  - https://github.com/YouTransfer/YouTransfer
+  - https://github.com/truecharts/charts/tree/master/charts/stable/youtransfer
+  - https://hub.docker.com/r/remie/youtransfer
 type: application
-version: 7.5.1
-
+version: 10.0.4

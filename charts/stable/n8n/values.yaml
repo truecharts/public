@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/n8n-io/n8n
-  tag: 1.97.1@sha256:1f42981993b424a9b9bebd620ab220b531612b319b6f7a75a76929e61ab456b1
+  tag: 1.101.1@sha256:20f9a5424b44fe24ce86258c70ce1fb3fe8412b01f95314da9733aba9545fd46
   pullPolicy: IfNotPresent
 timezoneandlocale: {}
 # N8N_DEFAULT_LOCALE: "en"
@@ -96,7 +96,6 @@ persistence:
 # Enabled redis
 redis:
   enabled: true
-  includeCommon: true
 # Enabled postgres
 cnpg:
   main:

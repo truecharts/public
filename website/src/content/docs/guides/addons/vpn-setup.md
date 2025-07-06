@@ -36,12 +36,12 @@ Install the chart as per usual and add the the section for Gluetun like shown be
 
 ```yaml
 addons:
-  vpn:
-    type: gluetun
-    killSwitch: true
-    excludedNetworks_IPv4:
-      - "192.168.178.0/24"
-    excludedNetworks_IPv6: []
+  gluetun:
+    enabled: true
+    container:
+      env:
+        FIREWALL: "on"
+        FIREWALL_OUTBOUND_SUBNETS: "192.168.178.0/24"
 ```
 
 `Gluetun` works with Environment Variables so we need to configure them below. Enter your `VPN Provider` specific ones as below.
@@ -50,19 +50,18 @@ addons:
 
 ```yaml
 addons:
-  vpn:
-    type: gluetun
-    killSwitch: true
-    excludedNetworks_IPv4:
-      - "192.168.178.0/24"
-    excludedNetworks_IPv6: []
-    env:
-      VPN_SERVICE_PROVIDER: "windscribe"
-      VPN_TYPE: "openvpn"
-      OPENVPN_USER: "username"
-      OPENVPN_PASSWORD: "password"
-      SERVER_REGIONS: "Canada East"
-      SERVER_CITIES: "Montreal"
+  gluetun:
+    enabled: true
+    container:
+      env:
+        FIREWALL: "on"
+        FIREWALL_OUTBOUND_SUBNETS: "192.168.178.0/24"
+        VPN_SERVICE_PROVIDER: "windscribe"
+        VPN_TYPE: "openvpn"
+        OPENVPN_USER: "username"
+        OPENVPN_PASSWORD: "password"
+        SERVER_REGIONS: "Canada East"
+        SERVER_CITIES: "Montreal"
 ```
 
 All providers will generally need `VPN_SERVICE_PROVIDER` and `VPN_TYPE`. For me, it's `Windscribe` and `openvpn` but I could easily choose `Wireguard`.
@@ -81,22 +80,21 @@ Now we can enter the Env Vars. Install the chart as per usual and add the specif
 
 ```yaml
 addons:
-  vpn:
-    type: gluetun
-    killSwitch: true
-    excludedNetworks_IPv4:
-      - "192.168.178.0/24"
-    excludedNetworks_IPv6: []
-    env:
-      VPN_TYPE: "wireguard"
-      VPN_SERVICE_PROVIDER: "mullvad"
-      WIREGUARD_PRIVATE_KEY: "xxxxxxx"
-      FIREWALL_VPN_INPUT_PORTS: "59241"
-      WIREGUARD_ADDRESSES: "xxx.xxx.xxx.xxx/32"
-      SERVER_CITIES: "Torronto"
-      VPN_ENDPOINT_PORT: "51820"
-      WIREGUARD_PUBLIC_KEY: "xxxxxxxx"
-      VPN_ENDPOINT_IP: "xx.xx.xxx.xxx"
+  gluetun:
+    enabled: true
+    container:
+      env:
+        FIREWALL: "on"
+        FIREWALL_OUTBOUND_SUBNETS: "192.168.178.0/24"
+        VPN_TYPE: "wireguard"
+        VPN_SERVICE_PROVIDER: "mullvad"
+        WIREGUARD_PRIVATE_KEY: "xxxxxxx"
+        FIREWALL_VPN_INPUT_PORTS: "59241"
+        WIREGUARD_ADDRESSES: "xxx.xxx.xxx.xxx/32"
+        SERVER_CITIES: "Torronto"
+        VPN_ENDPOINT_PORT: "51820"
+        WIREGUARD_PUBLIC_KEY: "xxxxxxxx"
+        VPN_ENDPOINT_IP: "xx.xx.xxx.xxx"
 ```
 
 :::caution[Killswitch Entry]
@@ -142,18 +140,17 @@ Those env have to be set additionally to your VPN setup from above.
 
 ```yaml
 addons:
-  vpn:
-    type: gluetun
-    killSwitch: true
-    excludedNetworks_IPv4:
-      - "192.168.178.0/24"
-    excludedNetworks_IPv6: []
-    env:
-      HTTPPROXY: "on"
-      FIREWALL_INPUT_PORTS: 10095,8888
-      #optional
-      HTTPPROXY_LOG: "on"
-      HTTPPROXY_LISTENING_ADDRESS: :8888
+  gluetun:
+    enabled: true
+    container:
+      env:
+        FIREWALL: "on"
+        FIREWALL_OUTBOUND_SUBNETS: "192.168.178.0/24"
+        HTTPPROXY: "on"
+        FIREWALL_INPUT_PORTS: 10095,8888
+        #optional
+        HTTPPROXY_LOG: "on"
+        HTTPPROXY_LISTENING_ADDRESS: :8888
 ```
 
 Only the additional ENV needed for the Proxy are shown here to keep it shorter. You still need your VPN setup from above.
@@ -215,28 +212,16 @@ In talos in order to use the tun interface for Gluetun a workaround is needed ot
 
 Install the generic-device-plugin from our helm chart repository. Make sure to make the namespace privileged.
 
-### Step 2: Add this into your helm-release.yaml for your app
+### Step 2: Add this into your hvalues for your app
 
 Here is an example snippet on how to add it:
 
 ```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-    name: chart
-    namespace: namespace
-spec:
-    postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              version: v1
-              kind: Deployment
-              name: qbittorrent
-            patch: |
-              - op: add
-                path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
-                value: 1
-    interval: 5m
-    chart:
+addons:
+  gluetun:
+    enabled: true
+    container:
+      resources:
+        limits:
+          truecharts.org/tun: 1
 ```
