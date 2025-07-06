@@ -18,4 +18,6 @@ objectData: The object data of the service
   {{- end }}
 - addresses:
   - {{ tpl $objectData.externalIP $rootCtx }}
+    conditions:
+      ready: true
 {{- end -}}

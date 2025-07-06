@@ -28,6 +28,7 @@ metadata:
   namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Endpoint Slice") }}
   {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
   {{- $_ := set $labels "kubernetes.io/service-name" $objectData.name -}}
+  {{- $_ := set $labels "endpointslice.kubernetes.io/managed-by" "Helm" -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
