@@ -38,6 +38,9 @@ spec:
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
     k8sgateway:
       # -- list of processed domains
       domains:
