@@ -12,14 +12,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 28.12.6
+    version: 28.12.7
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: kong
-    version: 2.50.0
+    version: 2.51.0
     repository: https://charts.konghq.com
     condition: kong.enabled
     alias: ""
@@ -48,5 +48,4 @@ sources:
   - https://hub.docker.com/r/kubernetesui/dashboard-web
   - https://kubernetes-dashboard.universe.tf
 type: application
-version: 2.0.5
-
+version: 2.0.7
