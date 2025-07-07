@@ -27,6 +27,9 @@ persistence:
   images:
     enabled: true
     mountPath: "/app/slink/images"
+  services:
+    enabled: true
+    mountPath: "/services
 
 ingress:
   main:
