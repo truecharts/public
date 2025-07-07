@@ -10,6 +10,7 @@ tests:
       resources:
         limits:
           nvidia.com/gpu: 1
+
       addons:
         gluetun:
           enabled: true
@@ -26,6 +27,9 @@ tests:
               key1: value1
               key2: value2
               key3: value3
+              FIREWALL: "on"
+              FIREWALL_OUTBOUND_SUBNETS: "10.0.0/8, 192.168.0/16"
+              FIREWALL_INPUT_PORTS: "8080 , 8443"
       workload: &workload
         main:
           enabled: true
@@ -44,6 +48,15 @@ tests:
                   startup:
                     enabled: false
       service:
+        main:
+          enabled: true
+          primary: false
+          ports:
+            main:
+              enabled: true
+              primary: true
+              protocol: http
+              port: 8089
         service-name1:
           enabled: true
           primary: true
@@ -54,14 +67,14 @@ tests:
               port: 8080
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - documentIndex: &SecretDocument 0
         isKind:
           of: Secret
       - documentIndex: &DeploymentDocument 1
         isKind:
           of: Deployment
-      - documentIndex: &ServiceDocument 2
+      - documentIndex: &ServiceDocument 3
         isKind:
           of: Service
       - documentIndex: *SecretDocument
@@ -157,6 +170,18 @@ tests:
           content:
             name: key3
             value: value3
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: FIREWALL_OUTBOUND_SUBNETS
+            value: 10.0.0/8,192.168.0/16,172.16.0.0/16,172.17.0.0/16
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: FIREWALL_INPUT_PORTS
+            value: 8080,8443,8089
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
