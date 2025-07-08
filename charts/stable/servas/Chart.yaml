@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 16.0.7
+    version: 16.0.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -43,5 +43,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://hub.docker.com/r/beromir/servas
 type: application
-version: 7.0.10
+version: 7.0.11
 
