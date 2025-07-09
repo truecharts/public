@@ -16,7 +16,7 @@ RUN apk update && \
 RUN apk add --no-cache \
     --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
         go-task sops
-        
+
 RUN apk add --no-cache \
     --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing \
         cilium-cli kubeconform stern
