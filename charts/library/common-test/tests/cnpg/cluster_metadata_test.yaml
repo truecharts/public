@@ -153,3 +153,17 @@ tests:
         equal:
           path: metadata.namespace
           value: local-namespace
+
+  - it: should pass with cnpg with skipEmptyWalArchiveCheck annotation
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          password: test-password
+    asserts:
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.annotations["cnpg.io/skipEmptyWalArchiveCheck"]
+          value: "enabled"
