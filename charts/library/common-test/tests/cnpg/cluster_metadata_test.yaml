@@ -166,4 +166,4 @@ tests:
       - documentIndex: *clusterDoc
         equal:
           path: metadata.annotations["cnpg.io/skipEmptyWalArchiveCheck"]
-          value: true
+          value: "enabled"
