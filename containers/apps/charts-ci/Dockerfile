@@ -43,7 +43,7 @@ RUN \
         curl \
         gcc \
         git \
-    gnupg \
+        gnupg \
         gzip \
         jo \
         jq \
@@ -53,6 +53,7 @@ RUN \
         unzip \
         wget \
         zip \
+        webp \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a directory for the tools
