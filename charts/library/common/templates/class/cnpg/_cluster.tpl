@@ -176,7 +176,7 @@ metadata:
   annotations:
     cnpg.io/hibernation: {{ $hibernation | quote }}
     checksum/secrets: {{ toJson $rootCtx.Values.secret | sha256sum }}
-    cnpg.io/skipEmptyWalArchiveCheck: $skipEmptyWalArchiveCheck
+    cnpg.io/skipEmptyWalArchiveCheck: {{ $skipEmptyWalArchiveCheck }}
   {{- $annotations := (mustMerge $clusterAnnotations (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
