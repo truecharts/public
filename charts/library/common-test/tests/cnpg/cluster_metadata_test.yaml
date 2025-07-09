@@ -165,5 +165,5 @@ tests:
     asserts:
       - documentIndex: *clusterDoc
         equal:
-          path: metadata.annotations."cnpg.io/skipEmptyWalArchiveCheck"
+          path: metadata.annotations["cnpg.io/skipEmptyWalArchiveCheck"]
           value: true
