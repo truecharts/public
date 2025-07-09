@@ -28,12 +28,6 @@ jobs:
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Install cwebp
-        shell: bash
-        run: |
-          sudo apt-get -y update
-          sudo apt-get -y install webp
-
       - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
         with:
           go-version: stable
