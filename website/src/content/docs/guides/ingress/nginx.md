@@ -45,6 +45,7 @@ controller:
     keep-alive: 120
     proxy-body-size: 0
     proxy-buffer-size: 16k
+    proxy-busy-buffers-size: 32k
     ssl-protocols: TLSv1.3 TLSv1.2
     use-forwarded-headers: "true"
   metrics:
@@ -96,6 +97,7 @@ controller:
     keep-alive: 120
     proxy-body-size: 0
     proxy-buffer-size: 16k
+    proxy-busy-buffers-size: 32k
     ssl-protocols: TLSv1.3 TLSv1.2
     use-forwarded-headers: "true"
   metrics:
