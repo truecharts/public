@@ -1,0 +1,130 @@
+image:
+  repository: ghcr.io/jordanlambrecht/calendarr
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:2f84db911f98cfeb4d4ba2abab172a1a3ad5230dc3e9408117c18f34892e96e5
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+calendarr:
+  events:
+    # Remove duplicate events from multiple sources
+    deduplicate: true
+    # DISPLAY, HIDE, or STRIKE
+    passedHandling: STRIKE
+  logs:
+    name: "calendarr.log"
+    backupCount: 15
+    # maxSize in MB
+    maxSize: 1
+  discord:
+    enabled: false
+    webhookUrl: ""
+    hideMentionInstructions: false
+    # Discord only Role ID to mention
+    discordMentionRoleId: ""
+  slack:
+    enabled: false
+    webhookUrl: ""
+  custom:
+    header: "TV Guide - Shows and Movies airing this week"
+    discord:
+      footer: false
+    slack:
+      footer: false
+  schedule:
+    # Run every Monday at 9 AM
+    # Custom CRON expression (Overrides SCHEDULE_TYPE, SCHEDULE_DAY, RUN_TIME) (Optional)
+    cron: 0 9 * * 1
+    # WEEKLY or DAILY
+    type: WEEKLY
+    # 0=Sun, 1=Mon, ..., 6=Sat (Only used if SCHEDULE_TYPE is WEEKLY and CRON_SCHEDULE is not set)
+    day: 1
+    showDateRange: true
+    startWeekOnMonday: true
+    runOnStartup: true
+    # AUTO, DAY, or WEEK
+    calendarRange: AUTO
+    addLeadingZero: true
+    # Time in HH:MM format (24-hour)
+    runTime: "09:30"
+    displayTime: true
+    militaryTime: true
+    showTimeZone: true
+  http:
+    timeout: 30
+  # List of calendar URLs to fetch events from
+  urls:
+    # type must be "tv" or "movie"
+    - url: ""
+      type: tv
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            DEBUG: false
+            LOG_DIR: "{{ .Values.persistence.logs.mountPath }}"
+            LOG_FILE: "{{ .Values.calendarr.logs.name }}"
+            LOG_BACKUP_COUNT: "{{ .Values.calendarr.logs.backupCount }}"
+            LOG_MAX_SIZE_MB: "{{ .Values.calendarr.logs.maxSize }}"
+            CALENDAR_URLS: "{{- $.Values.calendarr.urls | toJson | nindent 2 }}"
+            # discord
+            USE_DISCORD: "{{ .Values.calendarr.discord.enabled }}"
+            DISCORD_WEBHOOK_URL: "{{ .Values.calendarr.discord.webhookUrl }}"
+            DISCORD_HIDE_MENTION_INSTRUCTIONS: "{{ .Values.calendarr.discord.hideMentionInstructions }}"
+            # Discord only Hide the instruction text below the role mention
+            DISCORD_MENTION_ROLE_ID: "{{ .Values.calendarr.discord.discordMentionRoleId }}"
+            # slack
+            USE_SLACK: "{{ .Values.calendarr.slack.enabled }}"
+            SLACK_WEBHOOK_URL: "{{ .Values.calendarr.slack.webhookUrl }}"
+            CUSTOM_HEADER: "{{ .Values.calendarr.custom.header }}"
+            ENABLE_CUSTOM_DISCORD_FOOTER: "{{ .Values.calendarr.custom.discord.footer }}"
+            ENABLE_CUSTOM_SLACK_FOOTER: "{{ .Values.calendarr.custom.slack.footer }}"
+            SHOW_DATE_RANGE: "{{ .Values.calendarr.schedule.showDateRange }}"
+            START_WEEK_ON_MONDAY: "{{ .Values.calendarr.schedule.startWeekOnMonday }}"
+            RUN_ON_STARTUP: "{{ .Values.calendarr.schedule.runOnStartup }}"
+            CRON_SCHEDULE: "{{ .Values.calendarr.schedule.cron }}"
+
+            ADD_LEADING_ZERO: "{{ .Values.calendarr.schedule.addLeadingZero }}"
+            CALENDAR_RANGE: "{{ .Values.calendarr.schedule.calendarRange }}"
+            DEDUPLICATE_EVENTS: "{{ .Values.calendarr.events.deduplicate }}"
+            DISPLAY_TIME: "{{ .Values.calendarr.schedule.displayTime }}"
+            HTTP_TIMEOUT: "{{ .Values.calendarr.http.timeout }}"
+            PASSED_EVENT_HANDLING: "{{ .Values.calendarr.events.passedHandling }}"
+            RUN_TIME: "{{ .Values.calendarr.schedule.runTime }}"
+            SCHEDULE_DAY: "{{ .Values.calendarr.schedule.day }}"
+            SCHEDULE_TYPE: "{{ .Values.calendarr.schedule.type }}"
+            SHOW_TIMEZONE_IN_SUBHEADER: "{{ .Values.calendarr.schedule.showTimeZone }}"
+            USE_24_HOUR: "{{ .Values.calendarr.schedule.militaryTime }}"
+
+persistence:
+  logs:
+    enabled: true
+    type: emptyDir
+    mountPath: /app/logs
+    medium: ""
+  # Mount custom footers directory (required if ENABLE_CUSTOM_*_FOOTER is true)
+  footers:
+    enabled: false
+    mountPath: /app/custom_footers
