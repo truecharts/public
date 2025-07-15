@@ -1,0 +1,57 @@
+image:
+  repository: qolors/feedcord
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:909b3b25943add888fb46d958484fe0126846ca4ec6163fa81632dfcaf87e67d
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+feedcord:
+  Instances:
+    # separate instances can be defined here
+    - Id: Awesome SelfHosted News Feed
+      YoutubeUrls:
+        - ""
+      RssUrls:
+        - ""
+      Forum: false
+      DiscordWebhookUrl: ""
+      RssCheckIntervalMinutes: 10
+      EnableAutoRemove: false
+      Color: 8411391
+      DescriptionLimit: 250
+      MarkdownFormat: true
+      PersistenceOnShutdown: true
+  ConcurrentRequests: 40
+
+configmap:
+  feedcord-config:
+    enabled: true
+    data:
+      appsettings.json: |
+        {{- $.Values.feedcord | toJson | nindent 2 }}
+persistence:
+  feedcord-config:
+    enabled: true
+    type: configmap
+    mountPath: /app/config/appsettings.json
+    objectName: feedcord-config
+    readOnly: true
+    subPath: appsettings.json
