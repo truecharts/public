@@ -27,13 +27,10 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
           probes:
             liveness:
-              port: "{{ .Values.service.main.ports.main.port }}"
               path: /v1/health
             readiness:
-              port: "{{ .Values.service.main.ports.main.port }}"
               path: /v1/health
             startup:
-              port: "{{ .Values.service.main.ports.main.port }}"
               path: /v1/health
 
 persistence:
