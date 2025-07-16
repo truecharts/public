@@ -17,7 +17,7 @@ jobs:
     runs-on: actions-runners
     name: "Generate readme files"
     container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
+      image: ghcr.io/trueforge-org/devcontainer:3.1.10@sha256:a75db738d0e5b812cc3acc676333070f8cae44a968b073002ecd201ae5177e47
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -41,7 +41,7 @@ jobs:
         run: |
           VERSION="2.0.0-BETA-17"
           FILENAME="clustertool_${VERSION}_linux_amd64.tar.gz"
-          URL="https://github.com/truecharts/public/releases/download/v${VERSION}/${FILENAME}"
+          URL="https://github.com/trueforge-org/truecharts/releases/download/v${VERSION}/${FILENAME}"
 
           mkdir -p temp
           cd temp
