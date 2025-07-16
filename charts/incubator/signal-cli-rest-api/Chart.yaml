@@ -4,12 +4,12 @@ annotations:
     url: https://discord.com/invite/tVsPTHWTtr
   max_scale_version: 24.04.1
   min_scale_version: 24.04.0
-  truecharts.org/category: media     ## NEEDS TO BE DEFINED
+  truecharts.org/category: media
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: "0.93"
+appVersion: 0.93.0
 dependencies:
   - name: common
     version: 28.13.0
@@ -36,7 +36,7 @@ name: signal-cli-rest-api
 sources:
   - https://github.com/bbernhard/signal-cli-rest-api
   - https://github.com/truecharts/charts/tree/master/charts/incubator/signal-cli-rest-api
-  - https://hub.docker.com/r/bbernhard/signal-cli-rest-api/
+  - https://hub.docker.com/r/bbernhard/signal-cli-rest-api
 type: application
 version: 0.0.1
 

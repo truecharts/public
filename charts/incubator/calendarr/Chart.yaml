@@ -9,7 +9,7 @@ annotations:
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: lastest
+appVersion: latest
 dependencies:
   - name: common
     version: 28.13.0
@@ -33,9 +33,9 @@ maintainers:
     url: https://truecharts.org
 name: calendarr
 sources:
+  - https://ghcr.io/jordanlambrecht/calendarr
   - https://github.com/jordanlambrecht/calendarr
   - https://github.com/truecharts/charts/tree/master/charts/incubator/calendarr
-  - https://ghcr.io/jordanlambrecht/calendarr
 type: application
 version: 0.0.1
 
