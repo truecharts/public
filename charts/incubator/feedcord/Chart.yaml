@@ -7,7 +7,7 @@ annotations:
   truecharts.org/category: tools
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A dead simple RSS Feed with Discord Webhooks
-home: https://truecharts.org/charts/incubator/feedcord
+home: https://truecharts.org/charts/stable/feedcord
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/feedcord.webp
 keywords:
   - feedcord
@@ -34,8 +34,8 @@ maintainers:
 name: feedcord
 sources:
   - https://github.com/Qolors/FeedCord
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/feedcord
+  - https://github.com/truecharts/charts/tree/master/charts/stable/feedcord
   - https://hub.docker.com/r/qolors/feedcord
 type: application
-version: 0.0.1
+version: 1.0.0
 
