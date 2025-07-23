@@ -535,7 +535,7 @@ ingressMiddlewares:
   traefik:
     nextcloud-redirect:
       enabled: false
-      type: redirectRegex
+      type: redirect-regex
       data:
         regex: "https://(.*)/.well-known/(card|cal)dav"
         replacement: "https://${1}/remote.php/dav/"
