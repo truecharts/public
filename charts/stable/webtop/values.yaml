@@ -1,18 +1,18 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/webtop
-  tag: latest@sha256:476d97d3093d9f949fbe59e9ba3430602a3cd835a04dca34d866ac59a1694485
+  tag: latest@sha256:0d7d39b5a9a307d5fa32da1fde4e213cfaba7e41dc0aad47845231692be7ab68
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-xfce@sha256:6a33f68db8123e72654935f14e6e4ad85624738e70f7c0c5267a7cdc794b9667
+  tag: ubuntu-xfce@sha256:d3c8f640dad0ba5c8547d7e26de933258d300db4650855ccaa25fdeec0078ba5
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-xfce@sha256:b4e53704af92e9fdced6cdc56891aa46f7c84d36f5c74bef0d60cc23b8e1a307
+  tag: fedora-xfce@sha256:07efbcda064f8bfae2196b22ef3e47e8a95a6cc02237c8fcb0965aee19b717be
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-xfce@sha256:ad582b5caa414ad39de883ca4a17867b30d299a7cca1cc88d69a86e2589a0072
+  tag: arch-xfce@sha256:0cce2a9987de6c79ced884fcabc3f77d1a418c8e70c16ac6a61ade2559450f4a
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/webtop
@@ -20,47 +20,47 @@ alpineKDEImage:
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-kde@sha256:66ab1d1ec517a093b174ee5592961d867bd7271c446846da4967cbd69fd43007
+  tag: ubuntu-kde@sha256:2186b3a9e2cbf838b5d8cd1b6d1d3d85aaf3af3cdbf90818a7c68d62f1aaae4d
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-kde@sha256:57b8dfc8d4054b5ff25245e751022de41cceea75202611a259a10516d5780071
+  tag: fedora-kde@sha256:0b0f4e26c0c6cbe06f9cc4ae011a375f38990af8ed0dc4da1fc2b967e7507840
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-kde@sha256:fe178f8bbbff02e96509f9d8df3ddf7bb68310e8efac6401f40645f35c31912b
+  tag: arch-kde@sha256:85ab4408a73636a6864c1216e291184d5cc7b07fe962259e24334ee68c9d7550
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-mate@sha256:405907f79a50f1532a593d7c2c2b92ee0effaccb0d13e5445e7ab9ac6a92e1e2
+  tag: alpine-mate@sha256:96f25f286aa2cd38b6d46019fa070e2b59f0bc5fa988351f37bb731ce517a6fc
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-mate@sha256:19e20db963552f944f3423c733b02b0bb587d7c8ac92afb325a160df76135739
+  tag: ubuntu-mate@sha256:f11d869b7c5989f5ebd3b437a3c524ee2ca770620cd5ad1e75e843b626046b06
   pullPolicy: Always
 fedoraMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-mate@sha256:f44637565e0ce3ae99d077a3ae19bd2ab41c9a7f04f62d751ed917006478a1e7
+  tag: fedora-mate@sha256:78f9c6583f7bc7a6b55f78cb7e72b596e8d3f6007e9799708a4b3c91e38e7e53
   pullPolicy: Always
 archMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-mate@sha256:78425d8dffabc7be20609c892fae485831ce680d8d73b744a4888137221c7d91
+  tag: arch-mate@sha256:b12603e40e2a0def694fa5be0954f009c59acb9a751fee333148fba2a0f8c651
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-i3@sha256:26f697d2ea42331fb0e59f6e1e20ea8278b17d1f5905bf9baf3a4925c0e6a3c0
+  tag: alpine-i3@sha256:c4c82c4a66994c316fdc58abdfcc02722e2f48be6b0725471be459dc92296692
   pullPolicy: Always
 ubuntuI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-i3@sha256:9fab2d8809c3a31aa5f561ea5d8f5b6e33397593f12bbbead991ac44e439f9fe
+  tag: ubuntu-i3@sha256:1e8814a7d554e3138d635f52a5d3f98297739b5d2f0bb16a3855544f889f4f64
   pullPolicy: Always
 fedoraI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-i3@sha256:4473ab580ec4e3b83440b0c215dec4e8eb83385bfa3ef7c0b3916b52cebbf1c5
+  tag: fedora-i3@sha256:948eaadd31f5d278dd9bc41c21d2be1cf35a3446068b164c0a00e9c97445bb19
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: arch-i3@sha256:9b9658848949d1b9705d6bba4d66d2f945199b8aa059cf3f6e9f1605c8b01bbd
+  tag: arch-i3@sha256:cb99a34c09a4c8e824c4feb760a09c082b643c79a56e2f23c955830e766bb87f
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
