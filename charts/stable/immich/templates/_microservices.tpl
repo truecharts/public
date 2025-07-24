@@ -27,13 +27,13 @@ podSpec:
         readiness:
           enabled: true
           type: exec
-          command: /usr/src/app/server/bin/immich-healthchec
+          command: /usr/src/app/server/bin/immich-healthcheck
         liveness:
           enabled: true
           type: exec
-          command: /usr/src/app/server/bin/immich-healthchec
+          command: /usr/src/app/server/bin/immich-healthcheck
         startup:
           enabled: true
           type: exec
-          command: /usr/src/app/server/bin/immich-healthchec
+          command: /usr/src/app/server/bin/immich-healthcheck
 {{- end -}}
