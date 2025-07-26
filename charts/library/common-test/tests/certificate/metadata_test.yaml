@@ -78,10 +78,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.1
+            app: common-test-1.0.0
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.1
+            helm.sh/chart: common-test-1.0.0
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             app.kubernetes.io/instance: test-release-name
@@ -118,10 +118,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.1
+            app: common-test-1.0.0
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.1
+            helm.sh/chart: common-test-1.0.0
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             app.kubernetes.io/instance: test-release-name
@@ -150,10 +150,10 @@ tests:
         equal:
           path: spec.secretTemplate.labels
           value:
-            app: common-test-1.0.1
+            app: common-test-1.0.0
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.1
+            helm.sh/chart: common-test-1.0.0
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             app.kubernetes.io/instance: test-release-name
