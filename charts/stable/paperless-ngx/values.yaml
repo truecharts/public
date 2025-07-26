@@ -2,12 +2,34 @@ image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
   pullPolicy: IfNotPresent
   tag: 2.17.1@sha256:ab72a0ab42a792228cdbe83342b99a48acd49f7890ae54b1ae8e04401fba24ee
+gotenbergImage:
+  repository: docker.io/gotenberg/gotenberg
+  pullPolicy: IfNotPresent
+  tag: 8.21@sha256:91486863744f7420ca985ee6cef7c216910e40faffd378f3da7c0fad724d01ba
+tikaImage:
+  repository: docker.io/apache/tika
+  pullPolicy: IfNotPresent
+  tag: 3.2.1.0@sha256:df12b41af58c9833e60bdc231ffc4b59f5b7a83bfe2d63e3dc7aab7da923abba
 service:
   main:
     ports:
       main:
         targetPort: 8000
         port: 10140
+  gotenberg:
+    enabled: "{{ .Values.tika.enabled }}"
+    ports:
+      gotenberg:
+        enabled: true
+        targetPort: 3000
+        port: 3000
+  tika:
+    enabled: "{{ .Values.tika.enabled }}"
+    ports:
+      tika:
+        enabled: true
+        targetPort: 9998
+        port: 9998
 persistence:
   data:
     enabled: true
@@ -22,12 +44,14 @@ persistence:
     enabled: false
 redis:
   enabled: true
-  redisUsername: default
+  redisUsername: "default"
 cnpg:
   main:
     enabled: true
-    user: paperless-ng
-    database: paperless-ng
+    user: "paperless-ng"
+    database: "paperless-ng"
+tika:
+  enabled: false
 
 securityContext:
   container:
@@ -65,6 +89,9 @@ workload:
             PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
             PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
             PAPERLESS_DBPORT: "5432"
+            PAPERLESS_TIKA_ENABLED: '{{ ternary 1 0 .Values.tika.enabled }}'
+            PAPERLESS_TIKA_GOTENBERG_ENDPOINT: '{{ printf "http://%v-gotenberg:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.gotenberg.ports.gotenberg.targetPort }}'
+            PAPERLESS_TIKA_ENDPOINT: '{{ printf "http://%v-tika:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.tika.ports.tika.targetPort }}'
             PAPERLESS_WEBSERVER_WORKERS: 2
             PAPERLESS_DBPASS:
               secretKeyRef:
@@ -88,3 +115,48 @@ workload:
             PAPERLESS_ADMIN_MAIL: "admin@admin.com"
             PAPERLESS_OCR_LANGUAGE: "eng"
             PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"
+  gotenberg:
+    enabled: "{{ .Values.tika.enabled }}"
+    podSpec:
+      containers:
+        gotenberg:
+          enabled: true
+          imageSelector: gotenbergImage
+          command:
+            - "gotenberg"
+            - "--chromium-disable-javascript=true"
+            - "--chromium-allow-list=file:///tmp/.*"
+          probes:
+            liveness:
+              type: http
+              path: /health
+              port: "{{ .Values.service.gotenberg.ports.gotenberg.port }}"
+            startup:
+              type: http
+              path: /health
+              port: "{{ .Values.service.gotenberg.ports.gotenberg.port }}"
+            readiness:
+              type: http
+              path: /health
+              port: "{{ .Values.service.gotenberg.ports.gotenberg.port }}"
+  tika:
+    enabled: "{{ .Values.tika.enabled }}"
+    podSpec:
+      containers:
+        tika:
+          enabled: true
+          imageSelector: tikaImage
+          probes:
+            liveness:
+              type: http
+              path: /
+              port: "{{ .Values.service.tika.ports.tika.port }}"
+            startup:
+              type: http
+              path: /
+              port: "{{ .Values.service.tika.ports.tika.port }}"
+            readiness:
+              type: http
+              path: /
+              port: "{{ .Values.service.tika.ports.tika.port }}"
+
