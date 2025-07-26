@@ -34,7 +34,7 @@ that's perfectly fine, however some steps need to be skipped.
 
 ## 2. Downloading ClusterTool
 
-ClusterTool is available on [GitHub](https://github.com/truecharts/public/releases).
+ClusterTool is available on [GitHub](https://github.com/trueforge-org/truecharts/releases).
 Please extract the archive and copy the executable into your `configuration folder`.
 
 ## 3. Initialisation

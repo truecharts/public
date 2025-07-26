@@ -75,7 +75,7 @@ export default defineConfig({
         maxHeadingLevel: 6,
       },
       social: {
-        github: "https://github.com/truecharts",
+        github: "https://github.com/trueforge-org",
         facebook: "https://www.facebook.com/truecharts",
         "x.com": "https://twitter.com/useTrueCharts",
         discord: "https://discord.gg/tVsPTHWTtr",
@@ -84,7 +84,7 @@ export default defineConfig({
         patreon: "https://patreon.com/truecharts",
       },
       editLink: {
-        baseUrl: "https://github.com/truecharts/public/tree/master/website/",
+        baseUrl: "https://github.com/trueforge-org/truecharts/tree/master/website",
       },
       components: {
         Header: "./src/components/CustomHeader.astro",
