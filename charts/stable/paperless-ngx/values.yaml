@@ -117,6 +117,7 @@ workload:
             PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"
   gotenberg:
     enabled: "{{ .Values.tika.enabled }}"
+    type: Deployment
     podSpec:
       containers:
         gotenberg:
@@ -141,6 +142,7 @@ workload:
               port: "{{ .Values.service.gotenberg.ports.gotenberg.port }}"
   tika:
     enabled: "{{ .Values.tika.enabled }}"
+    type: Deployment
     podSpec:
       containers:
         tika:
