@@ -22,7 +22,7 @@ We are a dedicated bunch of people, working on Helm Charts and Apps for multiple
 5. No spamming - No link, text, or ASCII spam; no giant walls of text/links; and no all CAPS posts.
 6. No NSFW/NSFL content outside of designated channels- This includes your avatar.
 7. No begging or advertising - This includes soft begging. No referral links. No buying/selling/trading
-8. Security policy: Discussing security issues or vulnerabilities that haven’t been updated is prohibited in public channels. Please report any CVE or security vulnerabilities in our charts or container mirrors using GitHub -> https://github.com/truecharts/charts/security/advisories/new
+8. Security policy: Discussing security issues or vulnerabilities that haven’t been updated is prohibited in public channels. Please report any CVE or security vulnerabilities in our charts or container mirrors using GitHub -> https://github.com/trueforge-org/truecharts/security/advisories/new
 9. Comply to the platform ToS and Community Guidelines
 
 If you see something against the rules or something that makes you feel unsafe, let the Moderators know or us the contact information under `Enforcement`.

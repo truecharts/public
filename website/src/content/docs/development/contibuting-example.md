@@ -33,7 +33,7 @@ The first step to contributing is to [fork](https://docs.github.com/en/pull-requ
 the TrueCharts repository. A fork is like your own copy of the repository that can be modified without affecting the original.
 You only need to do this once, as the fork can be re-used for all changes you wish to make.
 
-To create a fork, navigate to the [truecharts/charts repository](https://github.com/truecharts/charts/fork) and press the
+To create a fork, navigate to the [truecharts/charts repository](https://github.com/trueforge-org/truecharts/fork) and press the
 Fork button in the upper-right corner.
 
 On the following page, leave all of the default settings and click **Create Fork**. After a moment, you will presented with the main page of your fork,
@@ -197,7 +197,7 @@ You will now notice that your fork on GitHub also has the new branch, along with
 The final step to integrating your changes is to submit a PR (pull request) to the upstream repository. This is a formal request for the upstream
 (e.g. TrueCharts) to review your changes and "pull" them into their repository should they be accepted.
 
-To do so, navigate to the main page of the upstream repository on [GitHub](https://github.com/truecharts/charts). Here, if it hasn't been too long
+To do so, navigate to the main page of the upstream repository on [GitHub](https://github.com/trueforge-org/truecharts). Here, if it hasn't been too long
 since you pushed to your remote, you will notice a convenient button for creating a PR based on your topic branch presented to you by GitHub.
 But just in-case it's not there, this guide will ignore it and demonstrate the slightly longer way.
 
