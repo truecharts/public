@@ -37,6 +37,7 @@ workload:
             SYNC_CONFIG_DATABASE: "false"
             SYNC_CONFIG_MISC: "false"
             SYNC_CONFIG_DEBUG: "false"
+            # TrueCharts Pi-hole chart defines upstream dns servers in "env" which can't be overwritten at runtime
             SYNC_CONFIG_DNS_EXCLUDE: "upstreams"
 
             # Sync gravity options
