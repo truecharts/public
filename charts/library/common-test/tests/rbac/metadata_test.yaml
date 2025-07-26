@@ -86,10 +86,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
@@ -123,10 +123,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
@@ -159,10 +159,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
@@ -186,10 +186,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm

@@ -62,10 +62,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
@@ -81,14 +81,14 @@ tests:
           value:
             pod.name: workload-name
             pod.lifecycle: fleeting
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
             app.kubernetes.io/version: v9.9.9
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             g_label1: global_label1
             g_label2: global_label2
             pod-label1: pod-label1

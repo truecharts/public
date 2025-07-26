@@ -72,10 +72,10 @@ tests:
         equal:
           path: metadata.labels
           value:
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             release: test-release-name
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             app.kubernetes.io/instance: test-release-name
@@ -102,7 +102,7 @@ tests:
           path: metadata.labels
           value:
             service.name: my-service2
-            app: common-test-1.0.0
+            app: common-test-1.0.1
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
@@ -110,7 +110,7 @@ tests:
             g_label1: global_label1
             g_label2: global_label2
             helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
+            helm.sh/chart: common-test-1.0.1
             release: test-release-name
       - documentIndex: *otherServiceDoc
         equal:
