@@ -13,6 +13,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: /health
+            startup:
+              path: /health
+            readiness:
+              path: /health
           env:
             # Basic configuration
             PRIMARY: "pi.hole|password"
