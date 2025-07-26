@@ -1,0 +1,51 @@
+image:
+  repository: ghcr.io/lovelaze/nebula-sync
+  pullPolicy: IfNotPresent
+  tag: v0.11.0@sha256:17177eb65637d73eee7169a789e69eda8395d4d4398cc0cd08e2cbeb7c2910f1
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /health
+            startup:
+              path: /health
+            readiness:
+              path: /health
+          env:
+            # Basic configuration
+            PRIMARY: "pi.hole|password"
+            REPLICAS: "pi2.hole|password"
+            FULL_SYNC: "false"
+            RUN_GRAVITY: "false"
+            CLIENT_SKIP_TLS_VERIFICATION: "true"
+            CRON: "*/15 * * * *"
+
+            # Sync configuration options
+            SYNC_CONFIG_DNS: "true"
+            SYNC_CONFIG_DHCP: "false"
+            SYNC_CONFIG_NTP: "false"
+            SYNC_CONFIG_RESOLVER: "false"
+            SYNC_CONFIG_DATABASE: "false"
+            SYNC_CONFIG_MISC: "false"
+            SYNC_CONFIG_DEBUG: "false"
+            # TrueCharts Pi-hole chart defines upstream dns servers in "env" which can't be overwritten at runtime
+            SYNC_CONFIG_DNS_EXCLUDE: "upstreams"
+
+            # Sync gravity options
+            SYNC_GRAVITY_DHCP_LEASES: "false"
+            SYNC_GRAVITY_GROUP: "false"
+            SYNC_GRAVITY_AD_LIST: "true"
+            SYNC_GRAVITY_AD_LIST_BY_GROUP: "true"
+            SYNC_GRAVITY_DOMAIN_LIST: "true"
+            SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP: "true"
+            SYNC_GRAVITY_CLIENT: "false"
+            SYNC_GRAVITY_CLIENT_BY_GROUP: "false"
