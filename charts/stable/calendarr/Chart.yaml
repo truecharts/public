@@ -7,7 +7,7 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Fetches upcoming airings/releases for TV shows and movies from Sonarr and Radarr calendars and posts them to Discord on a schedule.
-home: https://truecharts.org/charts/incubator/calendarr
+home: https://truecharts.org/charts/stable/calendarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calendarr.webp
 keywords:
   - calendarr
@@ -35,7 +35,6 @@ name: calendarr
 sources:
   - https://ghcr.io/jordanlambrecht/calendarr
   - https://github.com/jordanlambrecht/calendarr
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/calendarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/calendarr
 type: application
-version: 0.0.1
-
+version: 1.0.0
