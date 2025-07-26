@@ -112,8 +112,6 @@ tests:
             nginx.ingress.kubernetes.io/auth-signin: https://external.host/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
             nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Host $http_host;
             nginx.ingress.kubernetes.io/auth-url: http://internal.host/outpost.goauthentik.io/auth/nginx
-            nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 
   - it: should pass with ingress created with authelia annotations from nginx
     set:
