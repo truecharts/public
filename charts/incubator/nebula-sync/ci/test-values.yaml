@@ -1,0 +1,43 @@
+image:
+  repository: ghcr.io/traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: v1.11.0@sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --port
+            - "8080"
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+    portsList:
+      - name: "extraport"
+        enabled: true
+        port: 9118
+        targetPort: 9118
+
+serviceList:
+  - name: extraservice
+    enabled: true
+    portsList:
+      - name: "extrasvcport"
+        enabled: true
+        port: 9119
+        targetPort: 9119
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

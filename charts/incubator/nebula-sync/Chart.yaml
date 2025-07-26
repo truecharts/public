@@ -1,0 +1,38 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: incubator
+apiVersion: v2
+appVersion: v0.11.0
+dependencies:
+  - name: common
+    version: 28.13.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Synchronize Pi-hole v6.x configuration to replicas.
+home: https://truecharts.org/charts/incubator/nebula-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nebula-sync.webp
+keywords:
+  - pihole
+  - sync
+  - adblocking
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nebula-sync
+sources:
+  - https://ghcr.io/lovelaze/nebula-sync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/nebula-sync
+type: application
+version: 0.1.0
+
