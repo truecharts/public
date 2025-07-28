@@ -122,6 +122,7 @@ workload:
       containers:
         gotenberg:
           enabled: true
+          primary: true
           imageSelector: gotenbergImage
           command:
             - "gotenberg"
@@ -147,6 +148,7 @@ workload:
       containers:
         tika:
           enabled: true
+          primary: true
           imageSelector: tikaImage
           probes:
             liveness:
