@@ -1,0 +1,89 @@
+image:
+  repository: ghcr.io/donkie/spoolman
+  pullPolicy: IfNotPresent
+  tag: 0.22.1@sha256:238ea5bfb2eeda4436c39f54e73df5fef4ee904fb7c291617588b856786fe0ef
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # Host and port to listen on
+            SPOOLMAN_HOST: 0.0.0.0
+            SPOOLMAN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SPOOLMAN_DIR_DATA: "{{ .Values.persistence.data.mountPath }}"
+            SPOOLMAN_DIR_LOGS: "{{ .Values.persistence.logs.mountPath }}"
+            # DB Type: sqlite, mysql, postgres, cockroachdb
+            SPOOLMAN_DB_TYPE: postgres
+            SPOOLMAN_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SPOOLMAN_DB_PORT: 5432
+            SPOOLMAN_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            SPOOLMAN_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            SPOOLMAN_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+
+            # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+            # Logs will only be reported if the level is higher than the level set here
+            # Default if not set: INFO
+            # SPOOLMAN_LOGGING_LEVEL=INFO
+
+            # Change base path
+            # Set this if you want to host Spoolman at a sub-path
+            # If you want the root to be e.g. myhost.com/spoolman
+            # Then set this to /spoolman
+            # SPOOLMAN_BASE_PATH=
+
+            # Enable Collect Prometheus metrics at database
+            # Default: FALSE
+            # SPOOLMAN_METRICS_ENABLED=TRUE
+
+            # Collect items (filaments, materials, etc.) from an external database
+            # Set this to a URL of an external database. Set to an empty string to disable
+            # Default: https://donkie.github.io/SpoolmanDB/
+            # EXTERNAL_DB_URL=https://myhost.com/spoolmandb/
+            # Sync interval in seconds, set to 0 to disable automatic sync. It will only sync on start-up then.
+            # Default: 3600
+            # EXTERNAL_DB_SYNC_INTERVAL=3600
+
+            # Enable debug mode
+            # If enabled, the client will accept requests from any host
+            # This can be useful when developing, but is also a security risk
+            # Default: FALSE
+            SPOOLMAN_DEBUG_MODE: true
+
+            # Allows CORS ORIGIN.
+            # Use the https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin semantics
+            # separated by commas
+            # for example to allow request from source1.domain.com on port p1 and source2.domain.com on port p2
+            # SPOOLMAN_CORS_ORIGIN=source1.domain.com:p1, source2.domain.com:p2
+            # to allow from any
+            # SPOOLMAN_CORS_ORIGIN=*
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+
+cnpg:
+  main:
+    enabled: true
+    user: spoolman
+    database: spoolman
