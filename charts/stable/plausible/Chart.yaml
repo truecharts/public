@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: clickhouse
-    version: 16.1.0
+    version: 16.1.1
     repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
@@ -47,4 +47,3 @@ sources:
   - https://plausible.io/docs/self-hosting
 type: application
 version: 14.3.0
-
