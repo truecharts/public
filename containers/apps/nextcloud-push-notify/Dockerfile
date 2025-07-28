@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/alpine:3.22.0@sha256:8a1f59ffb675680d47db6337b49d22281a139e9d709335b492be023728e11715
+FROM public.ecr.aws/docker/library/alpine:3.22.1@sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 # hadolint ignore=DL3018
