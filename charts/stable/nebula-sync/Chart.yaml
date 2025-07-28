@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: v0.11.0
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Synchronize Pi-hole v6.x configuration to replicas.
-home: https://truecharts.org/charts/incubator/nebula-sync
+home: https://truecharts.org/charts/stable/nebula-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nebula-sync.webp
 keywords:
   - pihole
@@ -32,7 +32,7 @@ maintainers:
 name: nebula-sync
 sources:
   - https://ghcr.io/lovelaze/nebula-sync
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nebula-sync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nebula-sync
 type: application
 version: 0.1.0
 
