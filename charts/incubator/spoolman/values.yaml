@@ -4,9 +4,9 @@ image:
   tag: 0.22.1@sha256:238ea5bfb2eeda4436c39f54e73df5fef4ee904fb7c291617588b856786fe0ef
 securityContext:
   container:
-      readOnlyRootFilesystem: false
-      runAsGroup: 0
-      runAsUser: 0
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
