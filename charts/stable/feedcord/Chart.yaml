@@ -1,0 +1,41 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/category: tools
+  truecharts.org/max_helm_version: "3.17"
+  truecharts.org/min_helm_version: "3.14"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 28.13.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A dead simple RSS Feed with Discord Webhooks
+home: https://truecharts.org/charts/stable/feedcord
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/feedcord.webp
+keywords:
+  - feedcord
+  - discord
+  - rss
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: feedcord
+sources:
+  - https://github.com/Qolors/FeedCord
+  - https://github.com/truecharts/charts/tree/master/charts/stable/feedcord
+  - https://hub.docker.com/r/qolors/feedcord
+type: application
+version: 1.0.0
+

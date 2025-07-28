@@ -46,3 +46,9 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     readOnlyRootFilesystem: false
+
+resources:
+  requests:
+    cpu: 25m
+  limits:
+    cpu: 250m

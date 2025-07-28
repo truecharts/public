@@ -60,7 +60,7 @@ spec:
     chart:
         spec:
             chart: lvm-disk-watcher
-            version: 1.1.0                  # Update this with the latest version mentioned in https://github.com/truecharts/charts/blob/master/charts/system/lvm-disk-watcher/Chart.yaml
+            version: 1.1.0                 
             sourceRef:
                 kind: HelmRepository
                 name: truecharts

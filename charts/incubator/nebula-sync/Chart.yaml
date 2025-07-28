@@ -2,14 +2,12 @@ annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
-  max_scale_version: 24.04.1
-  min_scale_version: 24.04.0
-  truecharts.org/category: tools
+  truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.17"
   truecharts.org/min_helm_version: "3.14"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: latest
+appVersion: v0.11.0
 dependencies:
   - name: common
     version: 28.13.0
@@ -19,23 +17,22 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: A dead simple RSS Feed with Discord Webhooks
-home: https://truecharts.org/charts/incubator/feedcord
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/feedcord.webp
+description: Synchronize Pi-hole v6.x configuration to replicas.
+home: https://truecharts.org/charts/incubator/nebula-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nebula-sync.webp
 keywords:
-  - feedcord
-  - discord
-  - rss
+  - pihole
+  - sync
+  - adblocking
 kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: feedcord
+name: nebula-sync
 sources:
-  - https://github.com/Qolors/FeedCord
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/feedcord
-  - https://hub.docker.com/r/qolors/feedcord
+  - https://ghcr.io/lovelaze/nebula-sync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/nebula-sync
 type: application
-version: 0.0.1
+version: 0.1.0
 
