@@ -18,13 +18,13 @@ probes:
   liveness:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command: /usr/src/app/server/bin/immich-healthcheck
   readiness:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command: /usr/src/app/server/bin/immich-healthcheck
   startup:
     enabled: true
     type: exec
-    command: /usr/src/app/bin/immich-healthcheck
+    command: /usr/src/app/server/bin/immich-healthcheck
 {{- end -}}
