@@ -1,4 +1,4 @@
-FROM tccr.io/tccr/alpine:v3.22.0@sha256:ffd0ba19473dfdeccd1d92dfed5b91662ed5e127ef139cad919d1aca4f9f9b3a
+FROM tccr.io/tccr/alpine:v3.22.1@sha256:6dc807ae4f2867cb2d00d061f8f579f1966420ad792c179ac68072ab235109f8
 
 ARG TARGETPLATFORM
 ARG VERSION
