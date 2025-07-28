@@ -87,6 +87,11 @@ workload:
                 - cat
                 - /tmp/healthy
 # -- enable Emby autodiscovery on LAN
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 autodiscovery:
   enabled: false
 persistence:
