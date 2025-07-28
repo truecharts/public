@@ -21,11 +21,17 @@ workload:
             SPOOLMAN_DIR_LOGS: "{{ .Values.persistence.logs.mountPath }}"
             # DB Type: sqlite, mysql, postgres, cockroachdb
             SPOOLMAN_DB_TYPE: postgres
-            SPOOLMAN_DB_HOST: '{{ .Values.cnpg.main.creds.host | trimAll "\"" }}'
+            SPOOLMAN_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
             SPOOLMAN_DB_PORT: 5432
             SPOOLMAN_DB_NAME: "{{ .Values.cnpg.main.database }}"
             SPOOLMAN_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            SPOOLMAN_DB_PASSWORD: '{{ .Values.cnpg.main.creds.password | trimAll "\"" }}'
+            SPOOLMAN_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
 
             # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
             # Logs will only be reported if the level is higher than the level set here
@@ -54,7 +60,7 @@ workload:
             # If enabled, the client will accept requests from any host
             # This can be useful when developing, but is also a security risk
             # Default: FALSE
-            # SPOOLMAN_DEBUG_MODE=TRUE
+            SPOOLMAN_DEBUG_MODE: true
 
             # Allows CORS ORIGIN.
             # Use the https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin semantics
