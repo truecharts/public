@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.1.0
+    version: 17.1.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,5 +50,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mixpost
   - https://hub.docker.com/r/inovector/mixpost
 type: application
-version: 5.3.0
+version: 5.3.1
 
