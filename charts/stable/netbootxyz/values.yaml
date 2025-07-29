@@ -20,6 +20,7 @@ workload:
         main:
           env:
             MENU_VERSION: ""
+            TFTPD_OPTS: "--tftp-single-port"
 
 service:
   main:
