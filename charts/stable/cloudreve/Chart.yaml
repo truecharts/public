@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.1.1
+    version: 17.2.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -44,5 +44,5 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloudreve
   - https://hub.docker.com/r/cloudreve/cloudreve
 type: application
-version: 10.5.1
+version: 10.6.0
 
