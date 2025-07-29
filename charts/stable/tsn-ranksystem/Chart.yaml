@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 16.1.0
+    version: 16.1.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -46,5 +46,5 @@ sources:
   - https://hub.docker.com/r/serverlein/tsn-ranksystem-webserver
   - https://ts-ranksystem.com/
 type: application
-version: 4.3.0
+version: 4.3.1
 
