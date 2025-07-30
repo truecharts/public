@@ -28,10 +28,19 @@ persistence:
 signing:
   enabled: true
   gpgHome: /data/git/.gnupg
+  
+## @param gitea.admin.username Username for the Gitea admin user
+## @param gitea.admin.existingSecret Use an existing secret to store admin user credentials
+## @param gitea.admin.password Password for the Gitea admin user
+## @param gitea.admin.email Email for the Gitea admin user
+## @param gitea.admin.passwordMode Mode for how to set/update the admin user password. Options are: initialOnlyNoReset, initialOnlyRequireReset, and keepUpdated
 admin:
+  # existingSecret: gitea-admin-secret
+  existingSecret:
   username: giteaadmin
   password: r8sA8CPHD9!bt6d
   email: "gitea@local.domain"
+  passwordMode: keepUpdated
 metrics:
   main:
     enabled: true
