@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM docker.io/renovate/renovate:41.46.3-full@sha256:56a9fa8768d58fdaaa9b2664f1725f7f4364904a6d1c1291218cc37de8570b72
+FROM docker.io/renovate/renovate:41.46.4-full@sha256:39846969666603bcbc0ad653f4d341f291abf523fb3a00d1c8a5ad35dcfd8b28
 
 ARG VERSION
 ARG CONTAINER_NAME
