@@ -8,6 +8,7 @@ data:
   GITEA_TEMP: "/tmp/gitea"
   GITEA_ADMIN_USERNAME: {{ .Values.admin.username | quote }}
   GITEA_ADMIN_PASSWORD: {{ .Values.admin.password | quote }}
+  GITEA_ADMIN_PASSWORD_MODE: {{ .Values.admin.passwordMode | quote }}
   SSH_PORT: {{ .Values.service.ssh.ports.ssh.port | quote }}
   SSH_LISTEN_PORT: {{ .Values.service.ssh.ports.ssh.targetPort | quote }}
   TMPDIR: "/tmp/gitea"
