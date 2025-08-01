@@ -28,10 +28,13 @@ persistence:
 signing:
   enabled: true
   gpgHome: /data/git/.gnupg
+  
 admin:
+  # existingSecret: gitea-admin-secret
   username: giteaadmin
   password: r8sA8CPHD9!bt6d
   email: "gitea@local.domain"
+  passwordMode: keepUpdated  # Options: initialOnlyNoReset, initialOnlyRequireReset, or keepUpdated
 metrics:
   main:
     enabled: true
