@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 18.9.0
+    version: 18.9.1
     repository: oci://oci.trueforge.org/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -45,5 +45,5 @@ sources:
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
   - https://nginxproxymanager.com/
 type: application
-version: 15.19.0
+version: 15.19.1
 
