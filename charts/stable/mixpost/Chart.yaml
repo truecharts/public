@@ -26,7 +26,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 18.9.0
+    version: 18.9.1
     repository: oci://oci.trueforge.org/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -52,5 +52,5 @@ sources:
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/mixpost
   - https://hub.docker.com/r/inovector/mixpost
 type: application
-version: 9.19.2
+version: 9.19.3
 
