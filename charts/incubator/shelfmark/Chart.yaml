@@ -1,0 +1,42 @@
+annotations:
+  artifacthub.io/links: |-
+    - name: support
+    url: https://discord.com/invite/tVsPTHWTtr
+  truecharts.org/train: incubator
+  trueforge.org/category: media
+  trueforge.org/max_helm_version: "4.1"
+  trueforge.org/max_kubernetes_version: 1.35.0
+  trueforge.org/min_helm_version: "3.14"
+  trueforge.org/train: incubator
+apiVersion: v2
+appVersion: 1.3.15
+dependencies:
+  - name: common
+    version: 29.18.1
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Shelfmark is a self-hosted Calibre companion for searching, organizing and downloading ebooks from multiple sources.
+home: https://truecharts.org/charts/incubator/shelfmark
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shelfmark.webp
+keywords:
+  - shelfmark
+  - calibre
+  - books
+  - ebooks
+  - library
+kubeVersion: '>=1.33.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: shelfmark
+sources:
+  - https://github.com/calibrain/shelfmark
+  - https://ghcr.io/calibrain/shelfmark
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/incubator/shelfmark
+type: application
+version: 0.1.0

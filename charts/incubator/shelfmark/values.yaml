@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/calibrain/shelfmark
+  pullPolicy: IfNotPresent
+  tag: v1.3.15@sha256:9602290324993c801b319d3166b202b96bd9039af2416f0916dae03a5bdca815
+
+service:
+  main:
+    ports:
+      main:
+        port: 8084
+        protocol: http
+        targetPort: 8084
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LOG_ROOT: /var/logs
+          probes:
+            liveness:
+              type: http
+              path: /api/health
+            readiness:
+              type: http
+              path: /api/health
+            startup:
+              type: http
+              path: /api/health
