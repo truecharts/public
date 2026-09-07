@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/alam00000/bentopdf-simple
+  pullPolicy: IfNotPresent
+  tag: 2.8.8@sha256:3d62b8f8eece5fe947026ac3925ff08fda245b3d6ba2c3916b94da91e0010c74
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: http
+        targetPort: 8080
+
+persistence:
+  # nginx needs writable pid + temp dirs at runtime (root FS is read-only by default)
+  nginx-cache:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/cache/nginx
+  nginx-tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /etc/nginx/tmp
