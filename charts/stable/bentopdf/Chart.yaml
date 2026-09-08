@@ -2,12 +2,12 @@ annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
   trueforge.org/category: productivity
   trueforge.org/max_helm_version: "4.1"
   trueforge.org/max_kubernetes_version: 1.35.0
   trueforge.org/min_helm_version: "3.14"
-  trueforge.org/train: incubator
+  trueforge.org/train: stable
 apiVersion: v2
 appVersion: 2.8.8
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: BentoPDF is a lightweight, browser-based PDF toolkit for editing, converting and signing PDFs, with all processing done locally in the browser.
-home: https://truecharts.org/charts/incubator/bentopdf
+home: https://truecharts.org/charts/stable/bentopdf
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bentopdf.webp
 keywords:
   - bentopdf
@@ -37,7 +37,6 @@ name: bentopdf
 sources:
   - https://ghcr.io/alam00000/bentopdf-simple
   - https://github.com/alam00000/bentopdf
-  - https://github.com/trueforge-org/truecharts/tree/master/charts/incubator/bentopdf
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/bentopdf
 type: application
-version: 0.1.0
-
+version: 1.0.0
