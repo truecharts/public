@@ -189,6 +189,7 @@ workload:
           probes:
             liveness:
               enabled: true
+              type: exec
               command:
                 - /authentik
                 - healthcheck
