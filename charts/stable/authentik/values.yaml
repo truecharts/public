@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./values.schema.json
 image:
   repository: ghcr.io/goauthentik/server
-  tag: 2026.5.6@sha256:ed120caf710ccf82ef0026f0bc74e51615bc95ebff228a7a2d6fc60c441c3868
+  tag: 2026.8.1@sha256:9d605ed569ff9f39146be39da93714b2acf19072acc4ab0f0e2f2d81be88cdce
   pullPolicy: IfNotPresent
 geoipImage:
   repository: ghcr.io/maxmind/geoipupdate
@@ -9,15 +9,15 @@ geoipImage:
   pullPolicy: IfNotPresent
 ldapImage:
   repository: ghcr.io/goauthentik/ldap
-  tag: 2026.5.6@sha256:68a595f5a7b75fb3615f1609725adaf1d45f743aafece715d943b9706074c307
+  tag: 2026.8.1@sha256:d2709f70a5c9e925c20adb1d3a01c92e3f626980aa1548f475a851d259e603f2
   pullPolicy: IfNotPresent
 radiusImage:
   repository: ghcr.io/goauthentik/radius
-  tag: 2026.5.6@sha256:078e04a4a4ca1fa7fc71550bdd5be3044cceab6ba8e11ae851612d8211e7c25a
+  tag: 2026.8.1@sha256:0f8be7c35f4da8ba2157638a61541ab230e05cd7d2f25c136ac22cf5d5747187
   pullPolicy: IfNotPresent
 proxyImage:
   repository: ghcr.io/goauthentik/proxy
-  tag: 2026.5.6@sha256:05aa14db088b254c1ff89debe8dd5deb5d31aa342b67e70cd454f0870c944d55
+  tag: 2026.8.1@sha256:a4491a98d09666cd4a6a36581fd905762af1de938c40f17635238f1164d2a9f4
   pullPolicy: IfNotPresent
 authentik:
   credentials:
@@ -191,20 +191,23 @@ workload:
               enabled: true
               type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
             readiness:
               enabled: true
               type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
             startup:
               enabled: true
               type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
   # ===== RADIUS =====
   radius:
     enabled: true
