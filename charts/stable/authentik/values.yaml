@@ -189,22 +189,24 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
             readiness:
               enabled: true
               type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
             startup:
               enabled: true
               type: exec
               command:
-                - /proxy
+                - /authentik
                 - healthcheck
+                - proxy
   # ===== RADIUS =====
   radius:
     enabled: true
