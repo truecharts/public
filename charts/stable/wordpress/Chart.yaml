@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 18.9.1
+    version: 18.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -43,5 +43,5 @@ sources:
   - https://hub.docker.com/r/bitnamisecure/wordpress
   - https://www.wordpress.org
 type: application
-version: 13.19.0
+version: 13.20.0
 

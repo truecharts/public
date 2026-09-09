@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 18.9.1
+    version: 18.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -55,5 +55,5 @@ sources:
   - https://ghcr.io/miguelndecarvalho/speedtest-exporter
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/app-template
 type: application
-version: 18.21.0
+version: 18.22.0
 

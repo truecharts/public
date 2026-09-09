@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 18.9.1
+    version: 18.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -45,5 +45,5 @@ sources:
   - https://github.com/linuxserver/docker-piwigo
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/piwigo
 type: application
-version: 20.20.0
+version: 20.21.0
 
