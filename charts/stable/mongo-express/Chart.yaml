@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mongodb
-    version: 17.9.2
+    version: 17.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: mongodb.enabled
     alias: ""
@@ -44,5 +44,5 @@ sources:
   - https://github.com/mongo-express/mongo-express
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/mongo-express
 type: application
-version: 11.19.0
+version: 11.20.0
 
