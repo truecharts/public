@@ -2,12 +2,12 @@ annotations:
   artifacthub.io/links: |-
     - name: support
     url: https://discord.com/invite/tVsPTHWTtr
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
   trueforge.org/category: utilities
   trueforge.org/max_helm_version: "4.1"
   trueforge.org/max_kubernetes_version: 1.35.0
   trueforge.org/min_helm_version: "3.14"
-  trueforge.org/train: incubator
+  trueforge.org/train: stable
 apiVersion: v2
 appVersion: 5.6.0
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: TileServer GL is a server for raster and vector map tiles, supporting MBTiles, PBF vector tiles and GL styles.
-home: https://truecharts.org/charts/incubator/tileserver-gl
+home: https://truecharts.org/charts/stable/tileserver-gl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tileserver-gl.webp
 keywords:
   - tileserver-gl
@@ -36,8 +36,7 @@ maintainers:
 name: tileserver-gl
 sources:
   - https://github.com/maptiler/tileserver-gl
-  - https://github.com/trueforge-org/truecharts/tree/master/charts/incubator/tileserver-gl
+  - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/tileserver-gl
   - https://hub.docker.com/r/maptiler/tileserver-gl
 type: application
-version: 0.2.0
-
+version: 1.0.0
