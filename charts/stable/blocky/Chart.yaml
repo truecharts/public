@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: valkey
-    version: 2.9.2
+    version: 2.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: redis.enabled
     alias: redis
@@ -46,5 +46,5 @@ sources:
   - https://github.com/Mozart409/blocky-frontend
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/blocky
 type: application
-version: 22.24.0
+version: 22.25.0
 
