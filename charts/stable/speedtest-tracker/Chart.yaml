@@ -19,7 +19,7 @@ dependencies:
     tags: []
     import-values: []
   - name: valkey
-    version: 2.9.2
+    version: 2.10.0
     repository: oci://oci.trueforge.org/truecharts
     condition: redis.enabled
     alias: redis
@@ -44,5 +44,5 @@ sources:
   - https://github.com/linuxserver/docker-speedtest-tracker
   - https://github.com/trueforge-org/truecharts/tree/master/charts/stable/speedtest-tracker
 type: application
-version: 11.19.0
+version: 11.20.0
 
