@@ -1,0 +1,12 @@
+{{- include "tc.v1.common.lib.chart.notes" $ -}}
+
+On first start the application writes an administrator account and prints the password
+once. Read it back with:
+
+  kubectl logs -n {{ .Release.Namespace }} deploy/{{ .Release.Name }} | grep -i "admin"
+
+The same credentials are stored at /app/data/auth-bootstrap.json inside the persistent
+volume. Set ADMIN_PASSWORD yourself to choose the password instead.
+
+Storage runs on SQLite, which takes a single writer, so this chart is meant for one
+replica. Raising the replica count corrupts sessions and saved connections.
