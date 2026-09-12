@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/timothepoznanski/poznote
+  pullPolicy: IfNotPresent
+  tag: 6.84.3-rootless@sha256:c44a50871ac6d807b721c44ec7b3e9bab8a4c470e3733d5278314109e0657cbd
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+    targetSelector:
+      main:
+        main: {}
+        prepare-runtime: {}
+  # The image ships its runtime directories owned by the upstream uid/gid 1000 and symlinks
+  # /var/run -> /run. These emptyDirs give uid/gid 568 writable runtime paths, while the
+  # common chart's /var/run emptyDir is disabled because it masks /run through that symlink.
+  varrun:
+    enabled: false
+  run:
+    enabled: true
+    type: emptyDir
+    mountPath: /run
+    targetSelector:
+      main:
+        main: {}
+        prepare-runtime: {}
+  nginx:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/lib/nginx
+    targetSelector:
+      main:
+        main: {}
+        prepare-runtime: {}
+  varlog:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/log
+    targetSelector:
+      main:
+        main: {}
+        prepare-runtime: {}
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        prepare-runtime:
+          enabled: true
+          type: init
+          imageSelector: alpineImage
+          command:
+            - /bin/sh
+            - -ec
+            - |
+              mkdir -p /run/nginx \
+                /var/lib/nginx/logs \
+                /var/lib/nginx/tmp/client_body \
+                /var/lib/nginx/tmp/fastcgi \
+                /var/lib/nginx/tmp/proxy \
+                /var/lib/nginx/tmp/uwsgi \
+                /var/lib/nginx/tmp/scgi \
+                /var/log/nginx \
+                /var/log/supervisor
+              chown -R 568:568 /run/nginx /var/lib/nginx /var/log /var/www/html/data
+          securityContext:
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          resources:
+            excludeExtra: true
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /api/health
+            readiness:
+              type: http
+              path: /api/health
+            startup:
+              type: http
+              path: /api/health
